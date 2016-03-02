@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>chen&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="-------------------
+[TOC]
+
+#常见问题
+
+html中ID属性值同一页面中不能重复，最好同一系统中也不要存在相同ID，否则JS通过ID属性获取对象的时候会出错，列入遇到的bootstrap dataTimePicker插件中点击日历不显示、bootstrapValidator中重置表单没有反应
+静态数据或者静态表在数据库表设计是可以不用建立数据库表，而是用JSON文件来存储">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chen's blog">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/常见问题/index.html">
+<meta property="og:site_name" content="chen's blog">
+<meta property="og:description" content="-------------------
+[TOC]
+
+#常见问题
+
+html中ID属性值同一页面中不能重复，最好同一系统中也不要存在相同ID，否则JS通过ID属性获取对象的时候会出错，列入遇到的bootstrap dataTimePicker插件中点击日历不显示、bootstrapValidator中重置表单没有反应
+静态数据或者静态表在数据库表设计是可以不用建立数据库表，而是用JSON文件来存储">
+<meta property="og:updated_time" content="2015-10-22T08:49:31.318Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chen's blog">
+<meta name="twitter:description" content="-------------------
+[TOC]
+
+#常见问题
+
+html中ID属性值同一页面中不能重复，最好同一系统中也不要存在相同ID，否则JS通过ID属性获取对象的时候会出错，列入遇到的bootstrap dataTimePicker插件中点击日历不显示、bootstrapValidator中重置表单没有反应
+静态数据或者静态表在数据库表设计是可以不用建立数据库表，而是用JSON文件来存储">
+  
+    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chen&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/常见问题/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.894Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>-------------------
+</code></pre><p>[TOC]</p>
+<hr>
+<p>#常见问题</p>
+<ol>
+<li>html中ID属性值同一页面中不能重复，最好同一系统中也不要存在相同ID，否则JS通过ID属性获取对象的时候会出错，列入遇到的bootstrap dataTimePicker插件中点击日历不显示、bootstrapValidator中重置表单没有反应</li>
+<li>静态数据或者静态表在数据库表设计是可以不用建立数据库表，而是用JSON文件来存储。有时也可选用视图的形式<br>#Tomcat</li>
+<li>启动报错<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: Web app root system property already set to different value: &apos;webapp.root&apos; = [D:\apache-tomcat-7.0.63\webapps\JDJ\] instead of [D:\apache-tomcat-7.0.63\webapps\LBSHMonitor\] - Choose unique values for the &apos;webAppRootKey&apos; context-param in your web.xml files!</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>错误原因是因为tomcat启动了两个想似的项目，解决方法一是删除一个项目，而是在web.xml里面加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;webAppRootKey&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;JDJ&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>1.mysql查看编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &apos;CHARACTER%&apos; ;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>mysql默认情况下是否区分大小写，使用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show Variables like &apos;%table_names&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>查看lower_case_table_names的值，0代表区分，1代表不区分。</p>
+</blockquote>
+<ol>
+<li>设置远程登录<blockquote>
+<p>1、修改数据表</p>
+</blockquote>
+</li>
+</ol>
+<p>可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在 localhost 的那台电脑，登入MySQL后，更改 “MySQL” 数据库里的 “user” 表里的 “Host” 项，从“localhost”改称“%”，%表示所有机器都允许。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql </span><br><span class="line"></span><br><span class="line">mysql&gt; update user set Host=&apos;%&apos; where User=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>2、授权权限</p>
+<p>允许任何主机使用“myuser”账号和“mypwd”密码连接到 MySQL 服务器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;myuser&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypwd&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>即可生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>通过以上两步走就可以了。</p>
+<p>#hibernate</p>
+<h2 id="1-字段大小写问题"><a href="#1-字段大小写问题" class="headerlink" title="1.字段大小写问题"></a>1.字段大小写问题</h2><blockquote>
+<p>由于column中name若有大写(如goodNum),到数据库中都会被译成&gt;<br>good_num,而相对数据库中来说字段不分大小写的，所以若数据库创建表<br>时,若字段名中有大写,些时在column的name属性中应全部改为小写.</p>
+</blockquote>
+<h2 id="2-反向工程创建问题"><a href="#2-反向工程创建问题" class="headerlink" title="2.反向工程创建问题"></a>2.反向工程创建问题</h2><blockquote>
+<p>参考<a href="http://blog.knowsky.com/250382.htm" target="_blank" rel="external">http://blog.knowsky.com/250382.htm</a></p>
+</blockquote>
+<p>   在使用myeclipse的hibernate的反向工程创建时出现点击没有反应的情况，解决方法是是找到工程目录下的.myhibernatedata文件，然后找到reSettingsFile=…那行，删除这一行即可，或者换一个工作空间建立web工程，加入hibernate，即可。</p>
+<h2 id="3-hibernate-update"><a href="#3-hibernate-update" class="headerlink" title="3.hibernate update"></a>3.hibernate update</h2><blockquote>
+<p>hibernate的主键也需要自己管理。特别是当用update的时候，主键为自增，若不进行管理，不对其赋所修改的值时会报如下错误。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.TransientObjectException: The given object has a null identifier:</span><br></pre></td></tr></table></figure>
+<h2 id="4-出现如下错误，设置主键自动生成"><a href="#4-出现如下错误，设置主键自动生成" class="headerlink" title="4.出现如下错误，设置主键自动生成"></a>4.出现如下错误，设置主键自动生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.id.IdentifierGenerationException:ids for this class must be manually assigned before calling save():</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Id</span><br><span class="line">@Column(name = &quot;Id&quot;, unique = true, nullable = false)</span><br><span class="line">@GeneratedValue(strategy = GenerationType.AUTO)</span><br><span class="line">public Integer getId() &#123;</span><br><span class="line">	return this.id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-配置文件"><a href="#5-配置文件" class="headerlink" title="5.配置文件"></a>5.配置文件</h2><blockquote>
+<p>注解方式（ hibernate.cfg.xml文件中）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">          &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</span><br><span class="line">          &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- Generated by MyEclipse Hibernate Tools.                   --&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line"></span><br><span class="line">&lt;session-factory&gt;</span><br><span class="line">	&lt;property name=&quot;dialect&quot;&gt;</span><br><span class="line">		org.hibernate.dialect.MySQLDialect</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.url&quot;&gt;</span><br><span class="line">		jdbc:mysql://localhost:3306/lbsimage</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.password&quot;&gt;123456&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.driver_class&quot;&gt;</span><br><span class="line">		com.mysql.jdbc.Driver</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;myeclipse.connection.profile&quot;&gt;cc&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hbm2ddl.auto&quot;&gt;update&lt;/property&gt;</span><br><span class="line">	 &lt;!--如果使用JUnit进行测试：就要加上下面这句话--&gt;  </span><br><span class="line">    &lt;property name=&quot;javax.persistence.validation.mode&quot;&gt;none&lt;/property&gt;</span><br><span class="line">	&lt;!--   实体配置类 注解方式--&gt;</span><br><span class="line">	&lt;mapping class=&quot;com.ssh.model.Student&quot; /&gt;</span><br><span class="line">	&lt;!--或者配置文件方式 如下 --&gt;</span><br><span class="line">	&lt;mapping resource=&quot;Teacher.hbm.xml&quot; /&gt;</span><br><span class="line">&lt;/session-factory&gt;</span><br><span class="line"></span><br><span class="line">&lt;/hibernate-configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 或者使用配置文件方式(Teacher.hbm.xml)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;</span><br><span class="line">&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- </span><br><span class="line">    Mapping file autogenerated by MyEclipse Persistence Tools</span><br><span class="line">--&gt;</span><br><span class="line">&lt;hibernate-mapping&gt;</span><br><span class="line">    &lt;class name=&quot;Teacher&quot; table=&quot;teacher&quot; catalog=&quot;learnssh&quot;&gt;</span><br><span class="line">        &lt;id name=&quot;tid&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tid&quot; /&gt;</span><br><span class="line">            &lt;generator class=&quot;native&quot; /&gt;</span><br><span class="line">        &lt;/id&gt;</span><br><span class="line">        &lt;property name=&quot;tname&quot; type=&quot;java.lang.String&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tname&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;tage&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tage&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure></p>
+<p>与Spring结合时，这两种方法的applicationContext.xml文件的为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;&gt;</span><br><span class="line"></span><br><span class="line">	&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">		class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;configLocation&quot;</span><br><span class="line">			value=&quot;classpath:hibernate.cfg.xml&quot;&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Spring+hibernate结合方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 用注解进行依赖注入 --&gt;</span><br><span class="line">&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;</span><br><span class="line">&lt;!-- 用注解让spring管理bean --&gt;</span><br><span class="line">&lt;context:component-scan base-package=&quot;com.lbs&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</span><br><span class="line">	destroy-method=&quot;close&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://192.168.1.106:3306/lbsimage&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;user&quot; value=&quot;root&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;</span><br><span class="line">	&lt;!--连接池中保留的最小连接数。 --&gt;</span><br><span class="line">	&lt;property name=&quot;minPoolSize&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--连接池中保留的最大连接数。Default: 15 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxPoolSize&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;initialPoolSize&quot; value=&quot;10&quot; /&gt;</span><br><span class="line">	&lt;!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxIdleTime&quot; value=&quot;60&quot; /&gt;</span><br><span class="line">	&lt;!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireIncrement&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。 但由于预缓存的statements 属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 </span><br><span class="line">		如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxStatements&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--每60秒检查所有连接池中的空闲连接。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;30&quot; /&gt;</span><br><span class="line">	&lt;!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;10&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。 但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 </span><br><span class="line">		获取连接失败后该数据源将申明已断开并永久关闭。Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;breakAfterAcquireFailure&quot; value=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的时候都将校验其有效性。 建议使用idleConnectionTestPeriod或automaticTestTable </span><br><span class="line">		等方法来提升连接测试的性能。Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;testConnectionOnCheckout&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot;&gt;</span><br><span class="line">		&lt;ref bean=&quot;dataSource&quot; /&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">		&lt;list&gt;</span><br><span class="line">			&lt;value&gt;com.lbs.model&lt;/value&gt;</span><br><span class="line">		&lt;/list&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hibernateProperties&quot;&gt;</span><br><span class="line">		&lt;props&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/prop&gt;</span><br><span class="line">			&lt;!-- &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.Oracle10gDialect&lt;/prop&gt; --&gt;</span><br><span class="line">			&lt;!-- create： 每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表，哪怕两次没有任何改变也要这样执行，这就是导致数据库表数据丢失的一个重要原因。 </span><br><span class="line">				create-drop ： 每次加载hibernate时根据model类生成表，但是sessionFactory一关闭,表就自动删除。 update： </span><br><span class="line">				最常用的属性，第一次加载hibernate时根据model类会自动建立起表的结构（前提是先建立好数据库），以后加载hibernate时根据 model类自动更新表结构，即使表结构改变了但表中的行仍然存在不会删除以前的行。要注意的是当部署到服务器后，表结构是不会被马上建立起来的，是要等 </span><br><span class="line">				应用第一次运行起来后才会。 validate ： 每次加载hibernate时，验证创建数据库表结构，只会和数据库中的表进行比较，不会创建新表，但是会插入新值。 --&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;validate&lt;/prop&gt;</span><br><span class="line">		&lt;/props&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/常见问题/" data-id="cila785d50009u87cc32u04xf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/02/常用软件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/02/JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/02/node.js/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/mongodb/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常用软件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常见问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

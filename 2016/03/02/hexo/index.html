@@ -3,21 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | chen&#39;s blog</title>
+  <title>hexo的使用 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="[TOC]
+1. 利用npm安装npm install -g hexo;
+hexo init &amp;lt;folder&amp;gt;;
+npm stall;//安装依赖包
+hexo generate;
+hexo server;
+   至此本地hexo博客已经搭建起来了，Http://localhost:4000查看
+2. github编辑_config.yml
+deploy:
+ type: github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/03/01/hello-world/index.html">
+<meta property="og:title" content="hexo的使用">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/hexo/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-01T02:42:12.941Z">
+<meta property="og:description" content="[TOC]
+1. 利用npm安装npm install -g hexo;
+hexo init &amp;lt;folder&amp;gt;;
+npm stall;//安装依赖包
+hexo generate;
+hexo server;
+   至此本地hexo博客已经搭建起来了，Http://localhost:4000查看
+2. github编辑_config.yml
+deploy:
+ type: github">
+<meta property="og:updated_time" content="2016-03-01T06:32:50.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="hexo的使用">
+<meta name="twitter:description" content="[TOC]
+1. 利用npm安装npm install -g hexo;
+hexo init &amp;lt;folder&amp;gt;;
+npm stall;//安装依赖包
+hexo generate;
+hexo server;
+   至此本地hexo博客已经搭建起来了，Http://localhost:4000查看
+2. github编辑_config.yml
+deploy:
+ type: github">
   
     <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -66,10 +90,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/03/01/hello-world/" class="article-date">
-  <time datetime="2016-03-01T02:42:12.941Z" itemprop="datePublished">2016-03-01</time>
+    <a href="/2016/03/02/hexo/" class="article-date">
+  <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
 </a>
     
   </div>
@@ -80,7 +104,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      hexo的使用
     </h1>
   
 
@@ -88,37 +112,69 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <p>[TOC]</p>
+<h2 id="1-利用npm安装"><a href="#1-利用npm安装" class="headerlink" title="1. 利用npm安装"></a>1. 利用npm安装</h2><pre><code>npm install -g hexo;
+hexo init &lt;folder&gt;;
+npm stall;//安装依赖包
+hexo generate;
+hexo server;
+</code></pre><p>   至此本地hexo博客已经搭建起来了，Http://localhost:4000查看</p>
+<h2 id="2-github"><a href="#2-github" class="headerlink" title="2. github"></a>2. github</h2><p>编辑_config.yml</p>
+<pre><code>deploy:
+ type: github
+ repository: https://github.com/zippera/zippera.github.io.git
+ branch: master
+</code></pre><p>据说最新版本的hexo 中，这里的 type 要写成 git，而不是 github。<br>执行下列指令即可完成部署。</p>
+<pre><code>hexo generate
+hexo deploy
+</code></pre><p>hexo deploy命令显示ERROR Deployer not found : github<br>deploy的type改成git，然后运行下：</p>
+<pre><code>npm install hexo-deployer-git --save
+hexo g
+hexo d
+</code></pre><p>ERROR：failed to execute prompt script (exit code 1)<br>解决方法如下：</p>
+<pre><code>deploy:
+  type: git
+  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
+  branch: master
+</code></pre><p>git连接测试</p>
+<pre><code>ssh -T git@github.com
+</code></pre><h2 id="3-命令简化"><a href="#3-命令简化" class="headerlink" title="3. 命令简化"></a>3. 命令简化</h2><p>hexo现在支持更加简单的命令格式了，比如：</p>
+<pre><code>hexo g == hexo generate
+hexo d == hexo deploy
+hexo s == hexo server
+hexo n == hexo new
+</code></pre><h2 id="4-简单"><a href="#4-简单" class="headerlink" title="4. 简单"></a>4. 简单</h2><pre><code>hexo n #写文章
+hexo g #生成
+hexo d #部署 # 可与hexo g合并为 hexo d -g
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/hello-world/" data-id="cila70l4t0001s87c5t2srzoc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/02/hexo/" data-id="cila70l4o0000s87c4yrdwwvv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/03/02/hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/02/ARCGIS/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          hexo的使用
+          (no title)
         
       </div>
     </a>
   
+  
+    <a href="/2016/03/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
 </nav>
 

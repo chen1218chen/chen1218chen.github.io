@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>chen&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#mongodb
+
+[TOC]
+
+
+mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
+
+
+之后就可以在log.txt中看到12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chen's blog">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/mongodb/index.html">
+<meta property="og:site_name" content="chen's blog">
+<meta property="og:description" content="#mongodb
+
+[TOC]
+
+
+mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
+
+
+之后就可以在log.txt中看到12">
+<meta property="og:image" content="http://yoursite.com/./1445583474158.png">
+<meta property="og:updated_time" content="2015-10-26T03:19:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chen's blog">
+<meta name="twitter:description" content="#mongodb
+
+[TOC]
+
+
+mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
+
+
+之后就可以在log.txt中看到12">
+<meta name="twitter:image" content="http://yoursite.com/./1445583474158.png">
+  
+    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chen&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/mongodb/" class="article-date">
+  <time datetime="2016-03-02T02:01:55.151Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#mongodb</p>
+<hr>
+<p>[TOC]</p>
+<hr>
+<ol>
+<li>mongodb创建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=&quot;mongodb安装目录\data&quot; --logpath=&quot;mongodb安装目录\log\log.txt&quot; --install --serviceName MongoDB --serviceDisplayName MongoDB</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>之后就可以在log.txt中看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files</span><br><span class="line">2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &apos;MongoDB&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &apos;MongoDB&apos; (MongoDB) installed with command line &apos;&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &apos;net start MongoDB&apos;</span><br></pre></td></tr></table></figure></p>
+<p>之后就可以在服务管理里面看到<br><img src="./1445583474158.png" alt="Alt text"><br>可以在此手动启动，也可以在命令行窗口<figure class="highlight plain"><figcaption><span>start MongoDB```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](./1445583584543.png)</span><br><span class="line">这样服务就启动了</span><br><span class="line">2. 使用</span><br></pre></td></tr></table></figure></p>
+<p>cmd命令行里：<br>mongo //进入数据库<br>use hello-world //创建项目数据库<br>db.addUser(“shuaige”, “123456”) //给这个数据库创建了一个叫帅哥的账号，密码123456 （但是我觉得可能我理解的不到位，你也可以不做这个操作）<br>然后，我们就为这个hello-world数据库创建collection（collection就相当于oracle和mysql里的table）<br>db.createCollection(“users”) //创建一个集合，也就是表<br>db.users.insert({userid: “admin”, password: “123456”}) //给users里添加一个文档，也就是一条记录账号admin，密码123456<br>ok，现在检查一下：<br>db.users.find() //如果看到你刚刚添加的文档记录，就ok咯<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在models目录下创建一个user.js,作为实体类映射数据库的users集合</span><br></pre></td></tr></table></figure></p>
+<p>var mongoose = require(“mongoose”);  //  顶会议用户组件<br>var Schema = mongoose.Schema;    //  创建模型<br>var userScheMa = new Schema({<br>    userid: String,<br>    password: String<br>}); //  定义了一个新的模型，但是此模式还未和users集合有关联<br>exports.user = mongoose.model(‘users’, userScheMa); //  与users集合关联<br>```</p>
+<ul>
+<li>注意：还要使用npm下载 mongoose模块</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/mongodb/" data-id="cila785d00008u87cecdfn7ru" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/02/node.js/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/02/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/02/node.js/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/mongodb/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常用软件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常见问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

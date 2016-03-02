@@ -64,6 +64,599 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-node.js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/node.js/" class="article-date">
+  <time datetime="2016-03-02T02:02:01.424Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h1><hr>
+<p>[TOC]</p>
+<hr>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p><strong> Angularjs + Express3 + Bootstrap3</strong><br>angularjs是由Google团队开发的一款非常优秀web前端框架。Bootstrap让界面美观大方，对于不懂UE的人，也能做出专业级的水准。再结合Nodejs的Express做后端，三剑合并，太无敌了，大有统一前端开发的趋势，前途不可估量！</p>
+<h3 id="1-首先安装node-js"><a href="#1-首先安装node-js" class="headerlink" title="1. 首先安装node.js"></a>1. 首先安装node.js</h3><h3 id="2-webStorm-node-js最好的IDE开发工具"><a href="#2-webStorm-node-js最好的IDE开发工具" class="headerlink" title="2.  webStorm(node.js最好的IDE开发工具)"></a>2.  webStorm(node.js最好的IDE开发工具)</h3><h3 id="3-express-安装"><a href="#3-express-安装" class="headerlink" title="3.  express 安装"></a>3.  express 安装</h3><p>express 是轻量灵活的Nodejs Web应用框架<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express</span><br></pre></td></tr></table></figure></p>
+<p>安装成功后在node_modules下会找到express目录，同时也会找到.bin目录，它里面有express命令脚本，在终端下执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express project_name</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-Bower安装"><a href="#4-Bower安装" class="headerlink" title="4. Bower安装"></a>4. Bower安装</h3><p>bower是一个客户端技术的软件包管理器，它可用于搜索、安装和卸载如JavaScript、HTML、CSS之类的网络资源。<strong>安装依赖：NodeJS、NPM、Git</strong><br><img src="./1444459191394.png" alt="Alt text"><br>安装包是可使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bower install &lt;package&gt;</span><br><span class="line">bower install jquery</span><br></pre></td></tr></table></figure></p>
+<p>其中包的形式的可以是GitHub简写、一个git地址、一个url或者其他。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># registered package</span><br><span class="line">$ bower install jquery</span><br><span class="line"># GitHub shorthand</span><br><span class="line">$ bower install desandro/masonry</span><br><span class="line"># Git endpoint</span><br><span class="line">$ bower install git://github.com/user/package.git</span><br><span class="line"># URL</span><br><span class="line">$ bower install http://example.com/script.js</span><br></pre></td></tr></table></figure></p>
+<p>如果安装成功，则目录中会出现bower_components子目录，其中包括了下载的jQuery源文件。</p>
+<p><img src="./1444461188031.png" alt="Alt text"></p>
+<p>卸载包可以使用uninstall 命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower uninstall jquery</span><br></pre></td></tr></table></figure></p>
+<p> Q：安装bower时，报Bower : ENOGIT git is not installed or not in the PATH错误？</p>
+<ol>
+<li>windows中<br>需要配置你的Git到path，假如你的git安装目录是”C:\Program Files (x86)\Git”，在path中加入git的bin和cmd目录，如C:\Program Files (x86)\Git\bin;C:\Program Files (x86)\Git\cmd</li>
+<li>Ubuntu 中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install git</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="5-angular、bootstrap安装"><a href="#5-angular、bootstrap安装" class="headerlink" title="5. angular、bootstrap安装"></a>5. angular、bootstrap安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bower install angular</span><br><span class="line">bower install angular-route</span><br><span class="line">bower install bootstrap</span><br></pre></td></tr></table></figure>
+<h2 id="web开发"><a href="#web开发" class="headerlink" title="web开发"></a>web开发</h2><p>Express + EJS + Mongoose/MySQL，通常用Nodejs做Web开发，需要这3个框架配合使用，就像Java中的SSH。</p>
+<ul>
+<li>express 是轻量灵活的Nodejs Web应用框架</li>
+<li>ejs是一个嵌入的Javascript模板引擎，通过编译生成HTML的代码。</li>
+<li>mongoose 是MongoDB的对象模型工具，通过Mongoose框架，可以进行访问MongoDB的操作。</li>
+</ul>
+<hr>
+<p><strong>应用实例：</strong></p>
+<p> Web聊天室(IM)：Express + Socket.io<br>　　socket.io一个是基于Nodejs架构体系的，支持websocket的协议用于时时通信的一个软件包。socket.io 给跨浏览器构建实时应用提供了完整的封装，socket.io完全由javascript实现。</p>
+<hr>
+<p>　</p>
+<h2 id="第一个web工程"><a href="#第一个web工程" class="headerlink" title="第一个web工程"></a>第一个web工程</h2><ol>
+<li>新建工程</li>
+</ol>
+<p><img src="./1444454468507.png" alt="Alt text"></p>
+<p>创建成功后入下图所示：<br><img src="./1444454617120.png" alt="Alt text"><br><strong>app.js：</strong>是项目的入口文件<br><strong>node_modules/：</strong> 项目的依赖库。存放npm安装到本地依赖包，依赖包在package.json文件中声明，使用npm install指令安装。<br><strong>package.json：</strong>  npm依赖配置文件， 类似ruby中的Gemfile, java Maven中的pom.xml文件. 一会需要在这里添加 markdown-js 项目依赖。<br><strong>public/：</strong> 存放静态资源文件, jquery/prettify.js等静态库会方这里，当然自己编写的前端代码也可以放这里<br><strong>view/：</strong> 模板文件, express默认采用jade, 当然，你也可以使用自己喜欢的haml,JES, coffeeKup, jQueryTemplate等模板引擎<br><strong>routes：</strong> 路由文件(学习的重要攻克对象。业务好不好，路由是关键)</p>
+<ol>
+<li>目录结构</li>
+</ol>
+<ul>
+<li>public 公共插件</li>
+<li>routers 业务逻辑</li>
+<li>views 页面展示</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/node.js/" data-id="cila785ci0006u87c3jewmk5r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/mongodb/" class="article-date">
+  <time datetime="2016-03-02T02:01:55.151Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#mongodb</p>
+<hr>
+<p>[TOC]</p>
+<hr>
+<ol>
+<li>mongodb创建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=&quot;mongodb安装目录\data&quot; --logpath=&quot;mongodb安装目录\log\log.txt&quot; --install --serviceName MongoDB --serviceDisplayName MongoDB</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>之后就可以在log.txt中看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files</span><br><span class="line">2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &apos;MongoDB&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &apos;MongoDB&apos; (MongoDB) installed with command line &apos;&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &apos;net start MongoDB&apos;</span><br></pre></td></tr></table></figure></p>
+<p>之后就可以在服务管理里面看到<br><img src="./1445583474158.png" alt="Alt text"><br>可以在此手动启动，也可以在命令行窗口<figure class="highlight plain"><figcaption><span>start MongoDB```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](./1445583584543.png)</span><br><span class="line">这样服务就启动了</span><br><span class="line">2. 使用</span><br></pre></td></tr></table></figure></p>
+<p>cmd命令行里：<br>mongo //进入数据库<br>use hello-world //创建项目数据库<br>db.addUser(“shuaige”, “123456”) //给这个数据库创建了一个叫帅哥的账号，密码123456 （但是我觉得可能我理解的不到位，你也可以不做这个操作）<br>然后，我们就为这个hello-world数据库创建collection（collection就相当于oracle和mysql里的table）<br>db.createCollection(“users”) //创建一个集合，也就是表<br>db.users.insert({userid: “admin”, password: “123456”}) //给users里添加一个文档，也就是一条记录账号admin，密码123456<br>ok，现在检查一下：<br>db.users.find() //如果看到你刚刚添加的文档记录，就ok咯<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在models目录下创建一个user.js,作为实体类映射数据库的users集合</span><br></pre></td></tr></table></figure></p>
+<p>var mongoose = require(“mongoose”);  //  顶会议用户组件<br>var Schema = mongoose.Schema;    //  创建模型<br>var userScheMa = new Schema({<br>    userid: String,<br>    password: String<br>}); //  定义了一个新的模型，但是此模式还未和users集合有关联<br>exports.user = mongoose.model(‘users’, userScheMa); //  与users集合关联<br>```</p>
+<ul>
+<li>注意：还要使用npm下载 mongoose模块</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/mongodb/" data-id="cila785d00008u87cecdfn7ru" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/git/" class="article-date">
+  <time datetime="2016-03-02T02:01:47.684Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/git/">git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h2 id="专有名词"><a href="#专有名词" class="headerlink" title="专有名词"></a>专有名词</h2><ul>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库  </li>
+</ul>
+<p><img src="./images/1450160316466.png" alt="enter description here" title="1450160316466.png"></p>
+<h2 id="本地项目上传github"><a href="#本地项目上传github" class="headerlink" title="本地项目上传github"></a>本地项目上传github</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> git config --global user.name</span><br><span class="line"> git config --global user.email</span><br><span class="line"> cd d:</span><br><span class="line"> mkdir bootstrap</span><br><span class="line"> cd bootstrap </span><br><span class="line"> //初始化版本仓库</span><br><span class="line"> git init</span><br><span class="line"> //新建readme文件</span><br><span class="line"> touch README</span><br><span class="line"> //将所有文件添加到上传队列</span><br><span class="line"> git add .</span><br><span class="line"> //提交缓存，并添加描述‘first commit’</span><br><span class="line"> git commit - m &apos;first commit&apos;</span><br><span class="line"> //注意需提前建立好版本仓库</span><br><span class="line"> git remote add origin https://github.com/chen1218chen/bootstrap.git</span><br><span class="line"> //提交到github仓库</span><br><span class="line"> git push origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //查看提交状态</span><br><span class="line"> git status</span><br><span class="line"> git log</span><br><span class="line"></span><br><span class="line"> //列出所有tag</span><br><span class="line"> git tag</span><br><span class="line"> //新建一个tag在当前commit</span><br><span class="line"> git tag [tag]</span><br><span class="line"> //新建一个tag在指定commit</span><br><span class="line"> git tag [tag] [commit]</span><br><span class="line"> //查看tag信息</span><br><span class="line"> git show [tag]</span><br><span class="line"> //提交所有tag</span><br><span class="line">$ git push [remote] --tags</span><br><span class="line"></span><br><span class="line"> // 新建一个分支，指向某个tag</span><br><span class="line">$ git checkout -b [branch] [tag]</span><br></pre></td></tr></table></figure>
+<h2 id="分支命令"><a href="#分支命令" class="headerlink" title="分支命令"></a>分支命令</h2><p><img src="./images/1450160447699.png" alt="enter description here" title="1450160447699.png"></p>
+<h2 id="远程同步"><a href="#远程同步" class="headerlink" title="远程同步"></a>远程同步</h2><p><img src="./images/1450160519441.png" alt="enter description here" title="1450160519441.png"></p>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p><img src="./images/1450160697037.png" alt="enter description here" title="1450160697037.png"></p>
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ul>
+<li>Q1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:failed to push som refs to ......</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决方法：<br> 1、先输入 git pull origin master ，先把远程服务器github上面的文件拉下来<br> 2、再输入git push origin master</p>
+<ul>
+<li>Q2<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决方法：<br>   1、先输入 git remote rm origin<br>    2、再输入git remote add origin <a href="https://github.com/chen1218chen/bootstrap.git" target="_blank" rel="external">https://github.com/chen1218chen/bootstrap.git</a> 就不会报错了！</p>
+<p>获取项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/chne1218chen/bootstrap.git</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/git/" data-id="cila785cb0004u87c15ynjwyo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-常用软件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/常用软件/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.964Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##常用软件</p>
+<ol>
+<li>IDE开发工具<br>MyEclipse10、WebStorm10.0.3</li>
+<li>服务器<br>Tomcat7.0.63</li>
+<li>版本控制<br>github客户端<br>cc.2008.com@163.com<br>cc.2008.com</li>
+<li>编辑器<br>NotePad++、马克飞象、markdownPad、印象笔记</li>
+<li>浏览器<br>chrome、火狐+firbug</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/常用软件/" data-id="cila785cf0005u87cc6ek74p0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/常见问题/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.894Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>-------------------
+</code></pre><p>[TOC]</p>
+<hr>
+<p>#常见问题</p>
+<ol>
+<li>html中ID属性值同一页面中不能重复，最好同一系统中也不要存在相同ID，否则JS通过ID属性获取对象的时候会出错，列入遇到的bootstrap dataTimePicker插件中点击日历不显示、bootstrapValidator中重置表单没有反应</li>
+<li>静态数据或者静态表在数据库表设计是可以不用建立数据库表，而是用JSON文件来存储。有时也可选用视图的形式<br>#Tomcat</li>
+<li>启动报错<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: Web app root system property already set to different value: &apos;webapp.root&apos; = [D:\apache-tomcat-7.0.63\webapps\JDJ\] instead of [D:\apache-tomcat-7.0.63\webapps\LBSHMonitor\] - Choose unique values for the &apos;webAppRootKey&apos; context-param in your web.xml files!</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>错误原因是因为tomcat启动了两个想似的项目，解决方法一是删除一个项目，而是在web.xml里面加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;webAppRootKey&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;JDJ&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>1.mysql查看编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &apos;CHARACTER%&apos; ;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>mysql默认情况下是否区分大小写，使用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show Variables like &apos;%table_names&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>查看lower_case_table_names的值，0代表区分，1代表不区分。</p>
+</blockquote>
+<ol>
+<li>设置远程登录<blockquote>
+<p>1、修改数据表</p>
+</blockquote>
+</li>
+</ol>
+<p>可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在 localhost 的那台电脑，登入MySQL后，更改 “MySQL” 数据库里的 “user” 表里的 “Host” 项，从“localhost”改称“%”，%表示所有机器都允许。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql </span><br><span class="line"></span><br><span class="line">mysql&gt; update user set Host=&apos;%&apos; where User=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>2、授权权限</p>
+<p>允许任何主机使用“myuser”账号和“mypwd”密码连接到 MySQL 服务器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;myuser&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypwd&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>即可生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<p>通过以上两步走就可以了。</p>
+<p>#hibernate</p>
+<h2 id="1-字段大小写问题"><a href="#1-字段大小写问题" class="headerlink" title="1.字段大小写问题"></a>1.字段大小写问题</h2><blockquote>
+<p>由于column中name若有大写(如goodNum),到数据库中都会被译成&gt;<br>good_num,而相对数据库中来说字段不分大小写的，所以若数据库创建表<br>时,若字段名中有大写,些时在column的name属性中应全部改为小写.</p>
+</blockquote>
+<h2 id="2-反向工程创建问题"><a href="#2-反向工程创建问题" class="headerlink" title="2.反向工程创建问题"></a>2.反向工程创建问题</h2><blockquote>
+<p>参考<a href="http://blog.knowsky.com/250382.htm" target="_blank" rel="external">http://blog.knowsky.com/250382.htm</a></p>
+</blockquote>
+<p>   在使用myeclipse的hibernate的反向工程创建时出现点击没有反应的情况，解决方法是是找到工程目录下的.myhibernatedata文件，然后找到reSettingsFile=…那行，删除这一行即可，或者换一个工作空间建立web工程，加入hibernate，即可。</p>
+<h2 id="3-hibernate-update"><a href="#3-hibernate-update" class="headerlink" title="3.hibernate update"></a>3.hibernate update</h2><blockquote>
+<p>hibernate的主键也需要自己管理。特别是当用update的时候，主键为自增，若不进行管理，不对其赋所修改的值时会报如下错误。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.TransientObjectException: The given object has a null identifier:</span><br></pre></td></tr></table></figure>
+<h2 id="4-出现如下错误，设置主键自动生成"><a href="#4-出现如下错误，设置主键自动生成" class="headerlink" title="4.出现如下错误，设置主键自动生成"></a>4.出现如下错误，设置主键自动生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.id.IdentifierGenerationException:ids for this class must be manually assigned before calling save():</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Id</span><br><span class="line">@Column(name = &quot;Id&quot;, unique = true, nullable = false)</span><br><span class="line">@GeneratedValue(strategy = GenerationType.AUTO)</span><br><span class="line">public Integer getId() &#123;</span><br><span class="line">	return this.id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-配置文件"><a href="#5-配置文件" class="headerlink" title="5.配置文件"></a>5.配置文件</h2><blockquote>
+<p>注解方式（ hibernate.cfg.xml文件中）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">          &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</span><br><span class="line">          &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- Generated by MyEclipse Hibernate Tools.                   --&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line"></span><br><span class="line">&lt;session-factory&gt;</span><br><span class="line">	&lt;property name=&quot;dialect&quot;&gt;</span><br><span class="line">		org.hibernate.dialect.MySQLDialect</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.url&quot;&gt;</span><br><span class="line">		jdbc:mysql://localhost:3306/lbsimage</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.password&quot;&gt;123456&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.driver_class&quot;&gt;</span><br><span class="line">		com.mysql.jdbc.Driver</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;myeclipse.connection.profile&quot;&gt;cc&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hbm2ddl.auto&quot;&gt;update&lt;/property&gt;</span><br><span class="line">	 &lt;!--如果使用JUnit进行测试：就要加上下面这句话--&gt;  </span><br><span class="line">    &lt;property name=&quot;javax.persistence.validation.mode&quot;&gt;none&lt;/property&gt;</span><br><span class="line">	&lt;!--   实体配置类 注解方式--&gt;</span><br><span class="line">	&lt;mapping class=&quot;com.ssh.model.Student&quot; /&gt;</span><br><span class="line">	&lt;!--或者配置文件方式 如下 --&gt;</span><br><span class="line">	&lt;mapping resource=&quot;Teacher.hbm.xml&quot; /&gt;</span><br><span class="line">&lt;/session-factory&gt;</span><br><span class="line"></span><br><span class="line">&lt;/hibernate-configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 或者使用配置文件方式(Teacher.hbm.xml)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;</span><br><span class="line">&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- </span><br><span class="line">    Mapping file autogenerated by MyEclipse Persistence Tools</span><br><span class="line">--&gt;</span><br><span class="line">&lt;hibernate-mapping&gt;</span><br><span class="line">    &lt;class name=&quot;Teacher&quot; table=&quot;teacher&quot; catalog=&quot;learnssh&quot;&gt;</span><br><span class="line">        &lt;id name=&quot;tid&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tid&quot; /&gt;</span><br><span class="line">            &lt;generator class=&quot;native&quot; /&gt;</span><br><span class="line">        &lt;/id&gt;</span><br><span class="line">        &lt;property name=&quot;tname&quot; type=&quot;java.lang.String&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tname&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;tage&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tage&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure></p>
+<p>与Spring结合时，这两种方法的applicationContext.xml文件的为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;&gt;</span><br><span class="line"></span><br><span class="line">	&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">		class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;configLocation&quot;</span><br><span class="line">			value=&quot;classpath:hibernate.cfg.xml&quot;&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Spring+hibernate结合方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 用注解进行依赖注入 --&gt;</span><br><span class="line">&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;</span><br><span class="line">&lt;!-- 用注解让spring管理bean --&gt;</span><br><span class="line">&lt;context:component-scan base-package=&quot;com.lbs&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</span><br><span class="line">	destroy-method=&quot;close&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://192.168.1.106:3306/lbsimage&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;user&quot; value=&quot;root&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;</span><br><span class="line">	&lt;!--连接池中保留的最小连接数。 --&gt;</span><br><span class="line">	&lt;property name=&quot;minPoolSize&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--连接池中保留的最大连接数。Default: 15 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxPoolSize&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;initialPoolSize&quot; value=&quot;10&quot; /&gt;</span><br><span class="line">	&lt;!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxIdleTime&quot; value=&quot;60&quot; /&gt;</span><br><span class="line">	&lt;!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireIncrement&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。 但由于预缓存的statements 属于单个connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。 </span><br><span class="line">		如果maxStatements与maxStatementsPerConnection均为0，则缓存被关闭。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxStatements&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--每60秒检查所有连接池中的空闲连接。Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;30&quot; /&gt;</span><br><span class="line">	&lt;!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;10&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常。 但是数据源仍有效 保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试 </span><br><span class="line">		获取连接失败后该数据源将申明已断开并永久关闭。Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;breakAfterAcquireFailure&quot; value=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--因性能消耗大请只在需要的时候使用它。如果设为true那么在每个connection提交的时候都将校验其有效性。 建议使用idleConnectionTestPeriod或automaticTestTable </span><br><span class="line">		等方法来提升连接测试的性能。Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;testConnectionOnCheckout&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot;&gt;</span><br><span class="line">		&lt;ref bean=&quot;dataSource&quot; /&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">		&lt;list&gt;</span><br><span class="line">			&lt;value&gt;com.lbs.model&lt;/value&gt;</span><br><span class="line">		&lt;/list&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hibernateProperties&quot;&gt;</span><br><span class="line">		&lt;props&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/prop&gt;</span><br><span class="line">			&lt;!-- &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.Oracle10gDialect&lt;/prop&gt; --&gt;</span><br><span class="line">			&lt;!-- create： 每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表，哪怕两次没有任何改变也要这样执行，这就是导致数据库表数据丢失的一个重要原因。 </span><br><span class="line">				create-drop ： 每次加载hibernate时根据model类生成表，但是sessionFactory一关闭,表就自动删除。 update： </span><br><span class="line">				最常用的属性，第一次加载hibernate时根据model类会自动建立起表的结构（前提是先建立好数据库），以后加载hibernate时根据 model类自动更新表结构，即使表结构改变了但表中的行仍然存在不会删除以前的行。要注意的是当部署到服务器后，表结构是不会被马上建立起来的，是要等 </span><br><span class="line">				应用第一次运行起来后才会。 validate ： 每次加载hibernate时，验证创建数据库表结构，只会和数据库中的表进行比较，不会创建新表，但是会插入新值。 --&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;validate&lt;/prop&gt;</span><br><span class="line">		&lt;/props&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/常见问题/" data-id="cila785d50009u87cc32u04xf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/JS/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.806Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h1><hr>
+<p>[TOC]</p>
+<hr>
+<h2 id="1-函数定义"><a href="#1-函数定义" class="headerlink" title="1. 函数定义"></a>1. 函数定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name)&#123;</span><br><span class="line">	console.log(&quot;终端输出&quot;+name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>console.log();</strong>终端打印输出，最早是火狐在fiebug中用来调试</p>
+<h2 id="2-prompt"><a href="#2-prompt" class="headerlink" title="2. prompt"></a>2. prompt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  username = prompt(&quot;what is your name?&quot;);</span><br><span class="line">//username则可以获取到输入的参数</span><br></pre></td></tr></table></figure>
+<h2 id="3-js中引用jsp代码"><a href="#3-js中引用jsp代码" class="headerlink" title="3.  js中引用jsp代码"></a>3.  js中引用jsp代码</h2><p>在<strong>‘ ‘</strong>中直接写JSP代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function getCId()&#123;</span><br><span class="line">	return &apos;&lt;%=session.getAttribute(&quot;cId&quot;)%&gt;&apos;;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">## 4.  ajax总结</span><br></pre></td></tr></table></figure></p>
+<p>$.ajax({<br>    url : “delTerminalAction.action/config.json”,<br>    type : “post”,<br>    async : false,<br>    traditional : true,// 这样就能正常发送数组参数了<br>    dataType : “json/xml/text/html”,<br>    data : {<br>        “ids” : ids,<br>    },<br>    success : function(data) {<br>        $.each(data , funtion(i, item){<br>            alert(item[i]);<br>            //或者是<br>            alert(item.tagName);<br>        });<br>    },<br>    error : function() {<br>        alert(“删除失败！！”);<br>    }<br>});</p>
+<p>// $.getJSON相当于$.ajax方法中dataType值为json时的简化<br>$.getJSON(url, function(data){</p>
+<p>})<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 5. JSON总结</span><br></pre></td></tr></table></figure></p>
+<p>//str-&gt;obj<br>JSON.parse();<br>//obj-&gt;str<br>JSON.stringify();<br>```</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/JS/" data-id="cila7854j0000u87cm1xwbud5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/Express.js/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.600Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Express-js"><a href="#Express-js" class="headerlink" title="Express.js"></a>Express.js</h1><hr>
+<p>[TOC]</p>
+<hr>
+<h2 id="Express安装"><a href="#Express安装" class="headerlink" title="Express安装"></a>Express安装</h2><ol>
+<li><p>全局安装express，express作为命令被安装到了系统中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看express版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用express命令创建工程，并支持ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//安装依赖</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板项目建立成功，启动模板项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过node启动程序，每次代码修改都需要重新启动。 有一个工具supervisor，每次修改代码后会自动重启，会我们开发省很多的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="设置静态文件目录"><a href="#设置静态文件目录" class="headerlink" title="设置静态文件目录"></a>设置静态文件目录</h2><p>项目使用bower来管理各个插件包，所以在项目中需要将<strong>bower_components</strong>设置为静态资源的根目录。express默认的静态文件目录为public下，也可以设置多个静态文件目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//设定静态文件路径</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>如果不使用<strong>path.join()</strong>方法则可以直接使用字符串相加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件访问"><a href="#文件访问" class="headerlink" title="文件访问"></a>文件访问</h2><ol>
+<li><p>首先，require加载路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置访问URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes路由文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;index&apos;, &#123; title: &apos;aa&apos; &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;users&apos;, &#123; title: &apos;users&apos; &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line"> res.render(&apos;table&apos;, &#123; title: &apos;部门111&apos; &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面第一块代码意思是，get请求根目录则调用views文件夹中的index模板，并且传入参数title为“aa”，这个title就可以在模板文件中直接使用。</p>
+<h2 id="设置html引擎"><a href="#设置html引擎" class="headerlink" title="设置html引擎"></a>设置html引擎</h2><ol>
+<li>先对app.js做如下修改，再将view中页面改为.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">再将app.set(&apos;view engine&apos;, &apos;ejs&apos;); 变成 </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>若不修改view中页面，当引擎改为<strong>html</strong>引擎时，则将routes路由中的.ejs渲染写全文件名，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;users.ejs&apos;, &#123; title: &apos;users&apos; &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>若渲染文件原本就是.html文件则可以不用写后缀名。并且.html文件中依然可以写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2. 静态路由</span><br><span class="line">添加主页路由</span><br></pre></td></tr></table></figure></p>
+<p>app.get(‘/‘, function(req, res) {<br>   res.sendfile(‘./views/index.html’);<br>});</p>
+<p>//路径参数获取<br>app.get(‘/:name’, function(req, res) {<br>    var fileName = req.params.name;<br>    //console.log(‘./views/‘+fileName);<br>    res.sendFile(fileName);<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 配置supervisor热部署NodeJS</span><br></pre></td></tr></table></figure></p>
+<p>//安装<br>npm install -g supervisor<br>```<br>配置，在WebStorm中选择要Run–Edit Configurations </p>
+<p><img src="./images/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+<p>Working directory选择项目目录（supervisor会监控此目录内所有文件的改变自动重启）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/Express.js/" data-id="cila785c90003u87cijpf47vy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/ARCGIS/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="ArcGIS"><a href="#ArcGIS" class="headerlink" title="ArcGIS"></a>ArcGIS</h1><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><pre><code>function initMap(){
+    //地图初始化参数
+    map = new esri.Map(&quot;map&quot;, {
+        logo : false,//禁用logo
+        center: [107.55, 24.22],//地图中心点坐标
+        slider:false,
+        nav:false,
+        isZoomSlider:true,
+        autoResize : true,
+        smartNavigation : false,
+        force3DTransforms : true,
+        isKeyboardNavigation : false,
+        sliderStyle : &quot;large&quot;,
+        showInfoWindowOnClick : true,
+        isDoubleClickZoom : false,
+    });
+    //比例尺
+    var scalebar = new esri.dijit.Scalebar({
+        map : map,
+        scalebarStyle : &quot;ruler&quot;,
+        scalebarUnit : &quot;metric&quot;,
+        attachTo : &quot;top-left&quot;,
+    });
+    //缩略图
+    var overViewMap = new esri.dijit.OverviewMap({
+        map:map,
+        attachTo: &quot;bottom-left&quot;,
+        visible:true,
+        opacity: .40,
+        width : 300,
+        height : 150,
+    });
+    overViewMap.startup();
+}
+</code></pre><h2 id="2-指定地图中心点"><a href="#2-指定地图中心点" class="headerlink" title="2. 指定地图中心点"></a>2. 指定地图中心点</h2><pre><code>//初始化点    
+    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
+    //var point =  new Point(lon, lat, map.spatialReference);
+    map.centerAndZoom(point,2);
+    map.centerAt(point);
+</code></pre><h2 id="3-infoWindow"><a href="#3-infoWindow" class="headerlink" title="3. infoWindow"></a>3. infoWindow</h2><pre><code>&lt;script&gt;
+require([
+  &quot;dojo/dom&quot;,
+  &quot;dojo/dom-construct&quot;,
+  &quot;esri/map&quot;, 
+  &quot;myModules/InfoWindow&quot;,
+  &quot;esri/layers/FeatureLayer&quot;,
+  &quot;esri/InfoTemplate&quot;,
+  &quot;dojo/string&quot;,
+  &quot;dojo/domReady!&quot;
+], function(
+   dom,
+   domConstruct,
+   Map,
+   InfoWindow,
+   FeatureLayer,
+   InfoTemplate,
+   string
+) {
+  //create the custom info window specifying any input options
+   var infoWindow = new  InfoWindow({
+      domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
+   });
+
+  var map = new Map(&quot;map&quot;, {
+      basemap: &quot;gray&quot;,
+      center: [-98.57, 39.82],
+      zoom: 4,
+      infoWindow: infoWindow
+    });
+
+  var template = new PopupTemplate({
+      title: &quot;Boston Marathon 2013&quot;,
+      description: &quot;{Percent_Fi} of starters from {STATE_NAME} finished&quot;,
+      fieldInfos: [{ //define field infos so we can specify an alias
+        fieldName: &quot;Number_Ent&quot;,
+        label: &quot;Entrants&quot;
+      },{
+        fieldName: &quot;Number_Sta&quot;,
+        label: &quot;Starters&quot;
+      },{
+        fieldName: &quot;Number_Fin&quot;,
+        label: &quot;Finishers&quot;
+      }]
+    });
+
+   var featureLayer = new FeatureLayer(&quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&quot;,{
+      mode: FeatureLayer.MODE_ONDEMAND,
+      outFields: [&quot;*&quot;],
+      infoTemplate:template
+    });
+
+    map.addLayer(featureLayer);  
+
+  //resize the info window 
+  map.infoWindow.resize(400, 200);
+
+});
+&lt;/script&gt;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/ARCGIS/" data-id="cila785b50001u87co2r45c3i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/hexo/" class="article-date">
+  <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/hexo/">hexo的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h2 id="1-利用npm安装"><a href="#1-利用npm安装" class="headerlink" title="1. 利用npm安装"></a>1. 利用npm安装</h2><pre><code>npm install -g hexo;
+hexo init &lt;folder&gt;;
+npm stall;//安装依赖包
+hexo generate;
+hexo server;
+</code></pre><p>   至此本地hexo博客已经搭建起来了，Http://localhost:4000查看</p>
+<h2 id="2-github"><a href="#2-github" class="headerlink" title="2. github"></a>2. github</h2><p>编辑_config.yml</p>
+<pre><code>deploy:
+ type: github
+ repository: https://github.com/zippera/zippera.github.io.git
+ branch: master
+</code></pre><p>据说最新版本的hexo 中，这里的 type 要写成 git，而不是 github。<br>执行下列指令即可完成部署。</p>
+<pre><code>hexo generate
+hexo deploy
+</code></pre><p>hexo deploy命令显示ERROR Deployer not found : github<br>deploy的type改成git，然后运行下：</p>
+<pre><code>npm install hexo-deployer-git --save
+hexo g
+hexo d
+</code></pre><p>ERROR：failed to execute prompt script (exit code 1)<br>解决方法如下：</p>
+<pre><code>deploy:
+  type: git
+  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
+  branch: master
+</code></pre><p>git连接测试</p>
+<pre><code>ssh -T git@github.com
+</code></pre><h2 id="3-命令简化"><a href="#3-命令简化" class="headerlink" title="3. 命令简化"></a>3. 命令简化</h2><p>hexo现在支持更加简单的命令格式了，比如：</p>
+<pre><code>hexo g == hexo generate
+hexo d == hexo deploy
+hexo s == hexo server
+hexo n == hexo new
+</code></pre><h2 id="4-简单"><a href="#4-简单" class="headerlink" title="4. 简单"></a>4. 简单</h2><pre><code>hexo n #写文章
+hexo g #生成
+hexo d #部署 # 可与hexo g合并为 hexo d -g
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/hexo/" data-id="cila70l4o0000s87c4yrdwwvv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/01/hello-world/" class="article-date">
@@ -99,7 +692,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/hello-world/" data-id="cil90z8t20000lw7c5uqftabv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/01/hello-world/" data-id="cila70l4t0001s87c5t2srzoc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -118,9 +711,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -139,7 +746,23 @@
       <ul>
         
           <li>
-            <a href="/2016/03/01/hello-world/">Hello World</a>
+            <a href="/2016/03/02/node.js/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/mongodb/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常用软件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常见问题/">(no title)</a>
           </li>
         
       </ul>

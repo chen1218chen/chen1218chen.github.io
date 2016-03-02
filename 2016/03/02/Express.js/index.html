@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>chen&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Express.js
+[TOC]
+
+Express安装
+全局安装express，express作为命令被安装到了系统中
+1npm install -g express
+
+查看express版本
+1express -V
+
+使用express命令创建工程，并支持ejs
+12&amp;gt; express -e nodejsDemo&amp;gt;  cd nodejs-demo &amp;amp;&amp;amp; npm ins">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chen's blog">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/Express.js/index.html">
+<meta property="og:site_name" content="chen's blog">
+<meta property="og:description" content="Express.js
+[TOC]
+
+Express安装
+全局安装express，express作为命令被安装到了系统中
+1npm install -g express
+
+查看express版本
+1express -V
+
+使用express命令创建工程，并支持ejs
+12&amp;gt; express -e nodejsDemo&amp;gt;  cd nodejs-demo &amp;amp;&amp;amp; npm ins">
+<meta property="og:image" content="http://yoursite.com/./images/1445320217363.png">
+<meta property="og:updated_time" content="2016-01-15T08:05:09.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chen's blog">
+<meta name="twitter:description" content="Express.js
+[TOC]
+
+Express安装
+全局安装express，express作为命令被安装到了系统中
+1npm install -g express
+
+查看express版本
+1express -V
+
+使用express命令创建工程，并支持ejs
+12&amp;gt; express -e nodejsDemo&amp;gt;  cd nodejs-demo &amp;amp;&amp;amp; npm ins">
+<meta name="twitter:image" content="http://yoursite.com/./images/1445320217363.png">
+  
+    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chen&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/02/Express.js/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.600Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Express-js"><a href="#Express-js" class="headerlink" title="Express.js"></a>Express.js</h1><hr>
+<p>[TOC]</p>
+<hr>
+<h2 id="Express安装"><a href="#Express安装" class="headerlink" title="Express安装"></a>Express安装</h2><ol>
+<li><p>全局安装express，express作为命令被安装到了系统中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看express版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用express命令创建工程，并支持ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//安装依赖</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板项目建立成功，启动模板项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过node启动程序，每次代码修改都需要重新启动。 有一个工具supervisor，每次修改代码后会自动重启，会我们开发省很多的时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再次启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="设置静态文件目录"><a href="#设置静态文件目录" class="headerlink" title="设置静态文件目录"></a>设置静态文件目录</h2><p>项目使用bower来管理各个插件包，所以在项目中需要将<strong>bower_components</strong>设置为静态资源的根目录。express默认的静态文件目录为public下，也可以设置多个静态文件目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//设定静态文件路径</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>如果不使用<strong>path.join()</strong>方法则可以直接使用字符串相加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件访问"><a href="#文件访问" class="headerlink" title="文件访问"></a>文件访问</h2><ol>
+<li><p>首先，require加载路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置访问URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes路由文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;index&apos;, &#123; title: &apos;aa&apos; &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;users&apos;, &#123; title: &apos;users&apos; &#125;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line"> res.render(&apos;table&apos;, &#123; title: &apos;部门111&apos; &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>上面第一块代码意思是，get请求根目录则调用views文件夹中的index模板，并且传入参数title为“aa”，这个title就可以在模板文件中直接使用。</p>
+<h2 id="设置html引擎"><a href="#设置html引擎" class="headerlink" title="设置html引擎"></a>设置html引擎</h2><ol>
+<li>先对app.js做如下修改，再将view中页面改为.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">再将app.set(&apos;view engine&apos;, &apos;ejs&apos;); 变成 </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>若不修改view中页面，当引擎改为<strong>html</strong>引擎时，则将routes路由中的.ejs渲染写全文件名，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</span><br><span class="line">  res.render(&apos;users.ejs&apos;, &#123; title: &apos;users&apos; &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>若渲染文件原本就是.html文件则可以不用写后缀名。并且.html文件中依然可以写<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2. 静态路由</span><br><span class="line">添加主页路由</span><br></pre></td></tr></table></figure></p>
+<p>app.get(‘/‘, function(req, res) {<br>   res.sendfile(‘./views/index.html’);<br>});</p>
+<p>//路径参数获取<br>app.get(‘/:name’, function(req, res) {<br>    var fileName = req.params.name;<br>    //console.log(‘./views/‘+fileName);<br>    res.sendFile(fileName);<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 配置supervisor热部署NodeJS</span><br></pre></td></tr></table></figure></p>
+<p>//安装<br>npm install -g supervisor<br>```<br>配置，在WebStorm中选择要Run–Edit Configurations </p>
+<p><img src="./images/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+<p>Working directory选择项目目录（supervisor会监控此目录内所有文件的改变自动重启）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/Express.js/" data-id="cila785c90003u87cijpf47vy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/02/JS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/02/ARCGIS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/02/node.js/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/mongodb/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常用软件/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/常见问题/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
