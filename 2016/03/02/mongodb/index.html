@@ -3,44 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>chen&#39;s blog</title>
+  <title>mongodb | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#mongodb
-
-[TOC]
-
-
-mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
-
-
-之后就可以在log.txt中看到12">
+  <meta name="description" content="[TOC]
+1. mongodb&amp;#x521B;&amp;#x5EFA;1mongod --dbpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\data&amp;quot; --logpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\log\log.txt&amp;quot; --install --serviceN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chen's blog">
+<meta property="og:title" content="mongodb">
 <meta property="og:url" content="http://yoursite.com/2016/03/02/mongodb/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="#mongodb
-
-[TOC]
-
-
-mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
-
-
-之后就可以在log.txt中看到12">
-<meta property="og:image" content="http://yoursite.com/./1445583474158.png">
-<meta property="og:updated_time" content="2015-10-26T03:19:28.000Z">
+<meta property="og:description" content="[TOC]
+1. mongodb&amp;#x521B;&amp;#x5EFA;1mongod --dbpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\data&amp;quot; --logpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\log\log.txt&amp;quot; --install --serviceN">
+<meta property="og:image" content="http://yoursite.com/2016/03/02/mongodb/1445583474158.png">
+<meta property="og:updated_time" content="2016-03-02T06:26:51.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chen's blog">
-<meta name="twitter:description" content="#mongodb
-
-[TOC]
-
-
-mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --logpath=&amp;quot;mongodb安装目录\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB
-
-
-之后就可以在log.txt中看到12">
-<meta name="twitter:image" content="http://yoursite.com/./1445583474158.png">
+<meta name="twitter:title" content="mongodb">
+<meta name="twitter:description" content="[TOC]
+1. mongodb&amp;#x521B;&amp;#x5EFA;1mongod --dbpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\data&amp;quot; --logpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\log\log.txt&amp;quot; --install --serviceN">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/02/mongodb/1445583474158.png">
   
     <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -99,30 +78,36 @@ mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --log
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongodb
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#mongodb</p>
-<hr>
-<p>[TOC]</p>
-<hr>
-<ol>
-<li>mongodb创建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=&quot;mongodb安装目录\data&quot; --logpath=&quot;mongodb安装目录\log\log.txt&quot; --install --serviceName MongoDB --serviceDisplayName MongoDB</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>之后就可以在log.txt中看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files</span><br><span class="line">2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &apos;MongoDB&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &apos;MongoDB&apos; (MongoDB) installed with command line &apos;&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &apos;net start MongoDB&apos;</span><br></pre></td></tr></table></figure></p>
-<p>之后就可以在服务管理里面看到<br><img src="./1445583474158.png" alt="Alt text"><br>可以在此手动启动，也可以在命令行窗口<figure class="highlight plain"><figcaption><span>start MongoDB```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](./1445583584543.png)</span><br><span class="line">这样服务就启动了</span><br><span class="line">2. 使用</span><br></pre></td></tr></table></figure></p>
-<p>cmd命令行里：<br>mongo //进入数据库<br>use hello-world //创建项目数据库<br>db.addUser(“shuaige”, “123456”) //给这个数据库创建了一个叫帅哥的账号，密码123456 （但是我觉得可能我理解的不到位，你也可以不做这个操作）<br>然后，我们就为这个hello-world数据库创建collection（collection就相当于oracle和mysql里的table）<br>db.createCollection(“users”) //创建一个集合，也就是表<br>db.users.insert({userid: “admin”, password: “123456”}) //给users里添加一个文档，也就是一条记录账号admin，密码123456<br>ok，现在检查一下：<br>db.users.find() //如果看到你刚刚添加的文档记录，就ok咯<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在models目录下创建一个user.js,作为实体类映射数据库的users集合</span><br></pre></td></tr></table></figure></p>
-<p>var mongoose = require(“mongoose”);  //  顶会议用户组件<br>var Schema = mongoose.Schema;    //  创建模型<br>var userScheMa = new Schema({<br>    userid: String,<br>    password: String<br>}); //  定义了一个新的模型，但是此模式还未和users集合有关联<br>exports.user = mongoose.model(‘users’, userScheMa); //  与users集合关联<br>```</p>
+        <p>[TOC]</p>
+<h2 id="1-mongodb&#x521B;&#x5EFA;"><a href="#1-mongodb&#x521B;&#x5EFA;" class="headerlink" title="1. mongodb&#x521B;&#x5EFA;"></a>1. mongodb&#x521B;&#x5EFA;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=&quot;mongodb&#x5B89;&#x88C5;&#x76EE;&#x5F55;\data&quot; --logpath=&quot;mongodb&#x5B89;&#x88C5;&#x76EE;&#x5F55;\log\log.txt&quot; --install --serviceName MongoDB --serviceDisplayName MongoDB</span><br></pre></td></tr></table></figure>
+<p>&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5728;log.txt&#x4E2D;&#x770B;&#x5230;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files</span><br><span class="line">2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &apos;MongoDB&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &apos;MongoDB&apos; (MongoDB) installed with command line &apos;&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &apos;net start MongoDB&apos;</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x670D;&#x52A1;&#x7BA1;&#x7406;&#x91CC;&#x9762;&#x770B;&#x5230;<br><img src="/2016/03/02/mongodb/1445583474158.png" alt="Alt text"><br>&#x53EF;&#x4EE5;&#x5728;&#x6B64;&#x624B;&#x52A8;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x7A97;&#x53E3;<figure class="highlight plain"><figcaption><span>start MongoDB```&#x542F;&#x52A8;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](./1445583584543.png)</span><br><span class="line">&#x8FD9;&#x6837;&#x670D;&#x52A1;&#x5C31;&#x542F;&#x52A8;&#x4E86;</span><br><span class="line">## 2. &#x4F7F;&#x7528;</span><br></pre></td></tr></table></figure></p>
+<p>cmd&#x547D;&#x4EE4;&#x884C;&#x91CC;&#xFF1A;<br>mongo //&#x8FDB;&#x5165;&#x6570;&#x636E;&#x5E93;<br>use hello-world //&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x6570;&#x636E;&#x5E93;<br>db.addUser(&#x201C;shuaige&#x201D;, &#x201C;123456&#x201D;) //&#x7ED9;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x53EB;&#x5E05;&#x54E5;&#x7684;&#x8D26;&#x53F7;&#xFF0C;&#x5BC6;&#x7801;123456 &#xFF08;&#x4F46;&#x662F;&#x6211;&#x89C9;&#x5F97;&#x53EF;&#x80FD;&#x6211;&#x7406;&#x89E3;&#x7684;&#x4E0D;&#x5230;&#x4F4D;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x505A;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#xFF09;<br>&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4E3A;&#x8FD9;&#x4E2A;hello-world&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;collection&#xFF08;collection&#x5C31;&#x76F8;&#x5F53;&#x4E8E;oracle&#x548C;mysql&#x91CC;&#x7684;table&#xFF09;<br>db.createCollection(&#x201C;users&#x201D;) //&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8868;<br>db.users.insert({userid: &#x201C;admin&#x201D;, password: &#x201C;123456&#x201D;}) //&#x7ED9;users&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x8D26;&#x53F7;admin&#xFF0C;&#x5BC6;&#x7801;123456<br>ok&#xFF0C;&#x73B0;&#x5728;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#xFF1A;<br>db.users.find() //&#x5982;&#x679C;&#x770B;&#x5230;&#x4F60;&#x521A;&#x521A;&#x6DFB;&#x52A0;&#x7684;&#x6587;&#x6863;&#x8BB0;&#x5F55;&#xFF0C;&#x5C31;ok&#x54AF;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5728;models&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;user.js,&#x4F5C;&#x4E3A;&#x5B9E;&#x4F53;&#x7C7B;&#x6620;&#x5C04;&#x6570;&#x636E;&#x5E93;&#x7684;users&#x96C6;&#x5408;</span><br></pre></td></tr></table></figure></p>
+<p>var mongoose = require(&#x201C;mongoose&#x201D;);  //  &#x9876;&#x4F1A;&#x8BAE;&#x7528;&#x6237;&#x7EC4;&#x4EF6;<br>var Schema = mongoose.Schema;    //  &#x521B;&#x5EFA;&#x6A21;&#x578B;<br>var userScheMa = new Schema({<br>    userid: String,<br>    password: String<br>}); //  &#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x6B64;&#x6A21;&#x5F0F;&#x8FD8;&#x672A;&#x548C;users&#x96C6;&#x5408;&#x6709;&#x5173;&#x8054;<br>exports.user = mongoose.model(&#x2018;users&#x2019;, userScheMa); //  &#x4E0E;users&#x96C6;&#x5408;&#x5173;&#x8054;<br>```</p>
 <ul>
-<li>注意：还要使用npm下载 mongoose模块</li>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x8FD8;&#x8981;&#x4F7F;&#x7528;npm&#x4E0B;&#x8F7D; mongoose&#x6A21;&#x5757;</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/mongodb/" data-id="cila7jl7a0008747caer4mcfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/02/mongodb/" data-id="cilai8npk000aug7cza2zi3vm" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
+
     </footer>
   </div>
   
@@ -160,7 +145,7 @@ mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --log
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
     </div>
   </div>
 
@@ -170,7 +155,7 @@ mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --log
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a>
+      <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
     </div>
   </div>
 
@@ -192,11 +177,15 @@ mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --log
       <ul>
         
           <li>
+            <a href="/2016/03/02/cc/">cc</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/02/node.js/">node.js</a>
           </li>
         
           <li>
-            <a href="/2016/03/02/mongodb/">(no title)</a>
+            <a href="/2016/03/02/mongodb/">mongodb</a>
           </li>
         
           <li>
@@ -204,11 +193,7 @@ mongodb创建1mongod --dbpath=&amp;quot;mongodb安装目录\data&amp;quot; --log
           </li>
         
           <li>
-            <a href="/2016/03/02/常用软件/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/02/常见问题/">(no title)</a>
+            <a href="/2016/03/02/常用软件/">常用软件</a>
           </li>
         
       </ul>

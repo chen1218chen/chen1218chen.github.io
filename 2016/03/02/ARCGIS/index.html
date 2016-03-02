@@ -6,36 +6,27 @@
   <title>chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="[TOC]
-ArcGIS1. 初始化function initMap(){
-    //地图初始化参数
+ArcGIS1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
+    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
     map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//禁用logo
-        center: [107.55, 24.22],//地图中心点坐标
-        slider:false,
-        nav:">
+        logo : false,//&amp;#x7981;&amp;#x75">
 <meta property="og:type" content="article">
 <meta property="og:title" content="chen's blog">
 <meta property="og:url" content="http://yoursite.com/2016/03/02/ARCGIS/index.html">
 <meta property="og:site_name" content="chen's blog">
 <meta property="og:description" content="[TOC]
-ArcGIS1. 初始化function initMap(){
-    //地图初始化参数
+ArcGIS1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
+    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
     map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//禁用logo
-        center: [107.55, 24.22],//地图中心点坐标
-        slider:false,
-        nav:">
+        logo : false,//&amp;#x7981;&amp;#x75">
 <meta property="og:updated_time" content="2016-01-15T07:53:35.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chen's blog">
 <meta name="twitter:description" content="[TOC]
-ArcGIS1. 初始化function initMap(){
-    //地图初始化参数
+ArcGIS1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
+    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
     map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//禁用logo
-        center: [107.55, 24.22],//地图中心点坐标
-        slider:false,
-        nav:">
+        logo : false,//&amp;#x7981;&amp;#x75">
   
     <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -97,11 +88,11 @@ ArcGIS1. 初始化function initMap(){
     <div class="article-entry" itemprop="articleBody">
       
         <p>[TOC]</p>
-<h1 id="ArcGIS"><a href="#ArcGIS" class="headerlink" title="ArcGIS"></a>ArcGIS</h1><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><pre><code>function initMap(){
-    //地图初始化参数
+<h1 id="ArcGIS"><a href="#ArcGIS" class="headerlink" title="ArcGIS"></a>ArcGIS</h1><h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
+    //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
     map = new esri.Map(&quot;map&quot;, {
-        logo : false,//禁用logo
-        center: [107.55, 24.22],//地图中心点坐标
+        logo : false,//&#x7981;&#x7528;logo
+        center: [107.55, 24.22],//&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;&#x5750;&#x6807;
         slider:false,
         nav:false,
         isZoomSlider:true,
@@ -113,14 +104,14 @@ ArcGIS1. 初始化function initMap(){
         showInfoWindowOnClick : true,
         isDoubleClickZoom : false,
     });
-    //比例尺
+    //&#x6BD4;&#x4F8B;&#x5C3A;
     var scalebar = new esri.dijit.Scalebar({
         map : map,
         scalebarStyle : &quot;ruler&quot;,
         scalebarUnit : &quot;metric&quot;,
         attachTo : &quot;top-left&quot;,
     });
-    //缩略图
+    //&#x7F29;&#x7565;&#x56FE;
     var overViewMap = new esri.dijit.OverviewMap({
         map:map,
         attachTo: &quot;bottom-left&quot;,
@@ -131,7 +122,7 @@ ArcGIS1. 初始化function initMap(){
     });
     overViewMap.startup();
 }
-</code></pre><h2 id="2-指定地图中心点"><a href="#2-指定地图中心点" class="headerlink" title="2. 指定地图中心点"></a>2. 指定地图中心点</h2><pre><code>//初始化点    
+</code></pre><h2 id="2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"><a href="#2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;" class="headerlink" title="2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"></a>2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;</h2><pre><code>//&#x521D;&#x59CB;&#x5316;&#x70B9;    
     var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
     //var point =  new Point(lon, lat, map.spatialReference);
     map.centerAndZoom(point,2);
@@ -199,7 +190,7 @@ require([
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/ARCGIS/" data-id="cila7jl690000747cgu3u25v4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/02/ARCGIS/" data-id="cilai8not0000ug7cssk2oblb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,7 +230,7 @@ require([
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
     </div>
   </div>
 
@@ -249,7 +240,7 @@ require([
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a>
+      <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
     </div>
   </div>
 
@@ -271,11 +262,15 @@ require([
       <ul>
         
           <li>
+            <a href="/2016/03/02/cc/">cc</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/02/node.js/">node.js</a>
           </li>
         
           <li>
-            <a href="/2016/03/02/mongodb/">(no title)</a>
+            <a href="/2016/03/02/mongodb/">mongodb</a>
           </li>
         
           <li>
@@ -283,11 +278,7 @@ require([
           </li>
         
           <li>
-            <a href="/2016/03/02/常用软件/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/02/常见问题/">(no title)</a>
+            <a href="/2016/03/02/常用软件/">常用软件</a>
           </li>
         
       </ul>
