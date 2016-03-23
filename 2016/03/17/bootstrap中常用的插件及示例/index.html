@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>bootstrap 常用插件使用 | chen&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC]
+select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+&amp;#x9009;&amp;#x62E9;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+
+$(id).select2({
+                data : data,
+                minimumResultsForSea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bootstrap 常用插件使用">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/bootstrap中常用的插件及示例/index.html">
+<meta property="og:site_name" content="chen's blog">
+<meta property="og:description" content="[TOC]
+select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+&amp;#x9009;&amp;#x62E9;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+
+$(id).select2({
+                data : data,
+                minimumResultsForSea">
+<meta property="og:updated_time" content="2016-03-17T02:46:25.662Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bootstrap 常用插件使用">
+<meta name="twitter:description" content="[TOC]
+select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+&amp;#x9009;&amp;#x62E9;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;
+
+$(id).select2({
+                data : data,
+                minimumResultsForSea">
+  
+    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chen&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bootstrap中常用的插件及示例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/17/bootstrap中常用的插件及示例/" class="article-date">
+  <time datetime="2016-03-17T02:33:04.019Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      bootstrap 常用插件使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"><a href="#select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"></a>select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</h1><blockquote>
+<p>&#x9009;&#x62E9;select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</p>
+</blockquote>
+<pre><code>$(id).select2({
+                data : data,
+                minimumResultsForSearch : Infinity,// &#x7981;&#x7528;&#x641C;&#x7D22;
+                allowClear : true
+            });
+</code></pre><h1 id="bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;"><a href="#bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;" class="headerlink" title="bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;"></a>bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;</h1><blockquote>
+<p>&#x4F7F;&#x7528;bootstrap-validator&#x63D2;&#x4EF6;</p>
+<p>reset&#x91CD;&#x7F6E;&#x8868;&#x5355;</p>
+</blockquote>
+<pre><code>$(&apos;#btn-reset&apos;).click(function() {
+    $(&apos;#changeForm&apos;).data(&apos;bootstrapValidator&apos;).resetForm(true);
+});
+</code></pre><h1 id="bootstrap-dialog"><a href="#bootstrap-dialog" class="headerlink" title="bootstrap-dialog"></a>bootstrap-dialog</h1><h2 id="1-&#x9875;&#x9762;&#x52A0;&#x8F7D;"><a href="#1-&#x9875;&#x9762;&#x52A0;&#x8F7D;" class="headerlink" title="1. &#x9875;&#x9762;&#x52A0;&#x8F7D;"></a>1. &#x9875;&#x9762;&#x52A0;&#x8F7D;</h2><pre><code>function changePasswd(){
+ BootstrapDialog.show({
+     title : &quot;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&quot;,
+     message: function(dialog) {
+         var $message = $(&apos;&lt;div&gt;&lt;/div&gt;&apos;);
+         var pageToLoad = dialog.getData(&apos;pageToLoad&apos;);
+         $message.load(pageToLoad);
+         return $message;
+     },
+     data: {
+         &apos;pageToLoad&apos;: &apos;changePasswd.html&apos;
+     },
+        buttons: [{
+         id: &apos;btn-ok&apos;,   
+         icon: &apos;glyphicon glyphicon-check&apos;,       
+         label: &apos;OK&apos;,
+         cssClass: &apos;btn-success&apos;, 
+         autospin: false,
+         action: function(dialogItself){    
+             change();
+               dialogItself.close();
+         }
+     }, {
+         id:&apos;btn-reset&apos;,
+         cssClass: &apos;btn-warning&apos;,
+         label: &apos;&#x91CD;&#x7F6E;&apos;,
+         icon: &apos;glyphicon glyphicon-repeat&apos;,
+         action : function(){
+             document.getElementById(&quot;changeForm&quot;).reset();
+            $(&apos;#btn-reset&apos;).click(function() {
+            });
+         }
+     }, {
+         id:&apos;btn-close&apos;,
+         icon:&apos;glyphicon glyphicon-remove&apos;,
+         label: &apos;Close&apos;,
+         cssClass: &apos;btn-danger&apos;,
+         action: function(dialogItself){
+             dialogItself.close();
+         }
+     }]
+ });
+}
+</code></pre><h1 id="Jquery-confirm"><a href="#Jquery-confirm" class="headerlink" title="Jquery-confirm"></a>Jquery-confirm</h1><h2 id="1-alert&#x4F7F;&#x7528;"><a href="#1-alert&#x4F7F;&#x7528;" class="headerlink" title="1. alert&#x4F7F;&#x7528;"></a>1. alert&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>function alertView(str){
+    $.alert({
+        animation : &apos;zoom&apos;,
+        animationBounce : 2,
+        keyboardEnabled : true,
+        title : false,
+        content : str,
+        theme : &apos;white&apos;,
+    });
+}
+</code></pre><h2 id="2-confirm&#x4F7F;&#x7528;"><a href="#2-confirm&#x4F7F;&#x7528;" class="headerlink" title="2. confirm&#x4F7F;&#x7528;"></a>2. confirm&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>$.confirm({
+    title: &apos;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#x767B;&#x9646;&#x5417;&#xFF1F;&apos;, 
+    content : false,
+    // autoClose: &apos;confirm|10000&apos;,
+    confirmButtonClass : &apos;btn-info&apos;,
+    cancelButtonClass : &apos;btn-danger&apos;,
+    confirm : function() {
+        $.ajax({
+            type : &quot;post&quot;,
+            url : &quot;logoutAction.action&quot;,
+            async: false,
+            success :function(){
+                location.href = &quot;../login.jsp&quot;;
+            }
+        });
+    },
+    cancel : function() {
+        alert(&apos;canceled&apos;);
+    }
+});
+</code></pre><h1 id="bootstrap-Table"><a href="#bootstrap-Table" class="headerlink" title="bootstrap Table"></a>bootstrap Table</h1><h2 id="1-&#x66F4;&#x65B0;&#x64CD;&#x4F5C;"><a href="#1-&#x66F4;&#x65B0;&#x64CD;&#x4F5C;" class="headerlink" title="1. &#x66F4;&#x65B0;&#x64CD;&#x4F5C;"></a>1. &#x66F4;&#x65B0;&#x64CD;&#x4F5C;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$table.bootstrapTable(&apos;updateRow&apos;, {</span><br><span class="line">	index : index1,</span><br><span class="line">	row : {</span><br><span class="line">		tid : tid,</span><br><span class="line">		cid : cid,</span><br><span class="line">		uid : uid,</span><br><span class="line">		date : date,</span><br><span class="line">		type : type,</span><br><span class="line">	}</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<h2 id="2-&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;"><a href="#2-&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;" class="headerlink" title="2. &#x6DFB;&#x52A0;&#x64CD;&#x4F5C;"></a>2. &#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</h2><blockquote>
+<p>&#x4F7F;&#x7528;bootstrap table&#x63D2;&#x4EF6;<br>table rowStyle&#x548C;runningFormatter</p>
+</blockquote>
+<pre><code>&lt;table data-row-style=&quot;rowStyle&quot;&gt; &lt;thead&gt; &lt;tr&gt;&lt;th data-align=&quot;center&quot; data-formatter=&quot;runningFormatter&quot;&gt;ID&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+
+function rowStyle(row, index) {
+    var classes = [&apos;success&apos;, &apos;info&apos;, &apos;warning&apos;, &apos;danger&apos;];
+ /*if (index % 2 === 0 &amp;&amp; index / 2 &lt; classes.length) {
+    return {
+        classes: classes[index / 2]
+    };
+}*/
+if(index % 2 ===0){
+    return {
+        classes:classes[index%3]
+    }
+}
+return {};
+}
+function runningFormatter(value, row, index) {
+return index+1;
+}
+</code></pre><blockquote>
+<p>tablet&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</p>
+</blockquote>
+<pre><code>&lt;th data-field=&quot;operate&quot; data-formatter=&quot;operateFormatter&quot;
+data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&#x4F5C;&lt;/th&gt;
+</code></pre><h2 id="3-editable"><a href="#3-editable" class="headerlink" title="3. editable"></a>3. editable</h2><p>bootstrap table&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5F15;&#x5165;bootstrap-table-editable.js&#x3001;bootstrap-editable.js&#x3001;bootstrap-editable.css&#x5373;&#x53EF;&#x3002;bootstrap table &#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x4E86;X-editable&#x529F;&#x80FD;&#x3002;<br>&#x4FEE;&#x6539;table&#x5C5E;&#x6027;&#x89E6;&#x53D1;<strong>editable-save.bs.table</strong>&#x4E8B;&#x4EF6;&#x3002;</p>
+<pre><code>$(&apos;#table&apos;).on(&apos;editable-save.bs.table&apos;, function (field, row, oldValue, $el) {
+    data.changeField(row,oldValue,name);
+});
+</code></pre><h1 id="bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"><a href="#bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;" class="headerlink" title="bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"></a>bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;</h1><pre><code>&lt;a id=&quot;adduser&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;    href=&quot;addUser.html&quot; data-target=&quot;#adduserModal&quot;&gt;&#x6DFB;&#x52A0;&lt;/a&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;adduserModal&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; data-keyboard=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><blockquote>
+<p>table&#x8868;&#x4E2D;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;model&#x5F39;&#x51FA;&#x6846;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x503C;</p>
+</blockquote>
+<pre><code>function editTerminal(row,index) {
+    index1=index;
+    $(&apos;#editTerminalModal&apos;).on(&apos;show.bs.modal&apos;,function(event) {
+        var button = $(event.relatedTarget);
+        var recipient = button.data(&apos;whatever&apos;);
+        var modal = $(this);
+        modal.find(&apos;.modal-title&apos;).text(recipient);
+        modal.find(&apos;#tid&apos;).val(row.tid);
+        modal.find(&apos;#type&apos;).val(row.type);
+        modal.find(&apos;#cid&apos;).val(row.cid);
+        modal.find(&apos;#uid&apos;).val(row.uid);
+        modal.find(&apos;#date&apos;).val(row.date);
+    })
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/17/bootstrap中常用的插件及示例/" data-id="cim371bbb000aac7cwxscp7cr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/15/postgis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">postgis;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hibernate-spring/">hibernate, spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-aop-hibernate/">ssh, aop,hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/17/bootstrap中常用的插件及示例/">bootstrap 常用插件使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/15/postgis/">postgis;</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/05/DynamicDataSource/">DynamicDataSource</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/03/hibernate/">hibernate</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/cc/">cc</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
