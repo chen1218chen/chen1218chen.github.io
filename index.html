@@ -109,13 +109,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -488,10 +488,10 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
 
 
   
-    <article id="post-DynamicDataSource" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SSH多个数据源动态数据切换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/05/DynamicDataSource/" class="article-date">
+      <a href="/2016/03/05/SSH多个数据源动态数据切换/" class="article-date">
       <time datetime="2016-03-04T16:16:29.000Z" itemprop="datePublished">2016-03-04</time>
 </a>
     </div>
@@ -505,7 +505,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/05/DynamicDataSource/">SSH多个数据源动态数据切换</a>
+      <a class="article-title" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a>
     </h1>
   
 
@@ -516,7 +516,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
       
           
         <p>[TOC]</p>
-<h2 id="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"><a href="#SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;" class="headerlink" title="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"></a>SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x5728;spring&#x914D;&#x7F6E;&#x4E2D;&#x53EA;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;dataSource&#x6765;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5728;SessionFactory&#x4E2D;&#x7ED1;&#x5B9A;dataSource&#x3002;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x7684;&#x6B63;&#x786E;&#x505A;&#x6CD5;&#x662F;&#xFF1A;<br><img src="/2016/03/05/DynamicDataSource/1457079770686.jpg" alt="enter description here" title="1457079770686.jpg"></p>
+<h2 id="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"><a href="#SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;" class="headerlink" title="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"></a>SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x5728;spring&#x914D;&#x7F6E;&#x4E2D;&#x53EA;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;dataSource&#x6765;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5728;SessionFactory&#x4E2D;&#x7ED1;&#x5B9A;dataSource&#x3002;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x7684;&#x6B63;&#x786E;&#x505A;&#x6CD5;&#x662F;&#xFF1A;<br><img src="/2016/03/05/SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;/image1.jpg" alt="enter description here" title="image1.jpg"></p>
 <p>SSH&#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x6211;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;PostgreSQL&#x6570;&#x636E;&#x5E93;&#x65E2;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x5207;&#x6362;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;aop&#x6765;&#x52A8;&#x6001;&#x5207;&#x6362;&#x3002;</p>
 <h3 id="1-&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#1-&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="1. &#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>1. &#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><pre><code>&lt;!-- &#x81EA;&#x52A8;&#x4E3A;spring&#x5BB9;&#x5668;&#x4E2D;&#x90A3;&#x4E9B;&#x914D;&#x7F6E;@aspectJ&#x5207;&#x9762;&#x7684;bean&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#xFF0C;&#x7EC7;&#x5165;&#x5207;&#x9762; --&gt;
 &lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot; /&gt;
@@ -625,7 +625,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
 <li>&#x6CE8;&#x610F;&#x6570;&#x636E;&#x5E93;&#x8868;&#x7684;&#x521B;&#x5EFA;<br>&#x4E00;&#x4E9B;&#x4EBA;&#x559C;&#x6B22;&#x7528;Hibernate&#x7684;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x8868;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x591A;&#x6570;&#x636E;&#x6E90;&#x4E2D;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x591A;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x60F3;&#x90FD;&#x81EA;&#x52A8;&#x5EFA;&#x8868;&#x662F;&#x4E0D;&#x884C;&#x7684;&#x3002;&#x56E0;&#x4E3A;Hibernate&#x81EA;&#x52A8;&#x5EFA;&#x8868;&#x662F;&#x5728;&#x9879;&#x76EE;&#x542F;&#x52A8;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x4F1A;&#x5EFA;&#x7ACB;&#x9879;&#x76EE;&#x914D;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x6570;&#x636E;&#x6E90;&#x7684;&#x8868;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x6E90;&#x7684;&#x8868;&#x5219;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x3002;&#x5927;&#x5BB6;&#x8981;&#x6CE8;&#x610F;&#x7740;&#x70B9;&#x3002;</li>
 <li>Hibernate&#x7684;&#x6570;&#x636E;&#x5E93;&#x65B9;&#x8A00;&#xFF08;dialect&#xFF09;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;<br>&#x5728;&#x591A;&#x6570;&#x636E;&#x6E90;&#x65F6;&#xFF0C;&#x65B9;&#x8A00;&#x7684;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#xFF0C;Hibernate&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x5FC5;&#x7EA0;&#x7ED3;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#xFF0C;&#x751A;&#x81F3;&#x4E0D;&#x914D;&#x7F6E;&#x4E5F;&#x53EF;&#x4EE5;&#x3002;</li>
 </ol>
-<h3 id="2-java&#x6587;&#x4EF6;"><a href="#2-java&#x6587;&#x4EF6;" class="headerlink" title="2. java&#x6587;&#x4EF6;"></a>2. java&#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x5199;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;.java&#x6587;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5207;&#x6362;<br><img src="/2016/03/05/DynamicDataSource/image2.jpg" alt="enter description here" title="image2.jpg"></p>
+<h3 id="2-java&#x6587;&#x4EF6;"><a href="#2-java&#x6587;&#x4EF6;" class="headerlink" title="2. java&#x6587;&#x4EF6;"></a>2. java&#x6587;&#x4EF6;</h3><p>&#x9700;&#x8981;&#x5199;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;.java&#x6587;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5207;&#x6362;<br><img src="/2016/03/05/SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;/image2.jpg" alt="enter description here" title="image2.jpg"></p>
 <blockquote>
 <p>DatabaseContextHolder&#xFF0C; &#x7528;&#x6765;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x6E90;&#x540D;&#x79F0;</p>
 </blockquote>
@@ -1141,15 +1141,15 @@ public class DataSourceInterceptor {
 </blockquote>
 <ol>
 <li>&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;&#x767B;&#x5F55;<blockquote>
-<p>1&#x3001;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x8868;</p>
+<p>&#x4FEE;&#x6539;&#x6570;&#x636E;&#x8868;</p>
 </blockquote>
 </li>
 </ol>
 <p>&#x53EF;&#x80FD;&#x662F;&#x4F60;&#x7684;&#x5E10;&#x53F7;&#x4E0D;&#x5141;&#x8BB8;&#x4ECE;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#xFF0C;&#x53EA;&#x80FD;&#x5728;localhost&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EA;&#x8981;&#x5728; localhost &#x7684;&#x90A3;&#x53F0;&#x7535;&#x8111;&#xFF0C;&#x767B;&#x5165;MySQL&#x540E;&#xFF0C;&#x66F4;&#x6539; &#x201C;MySQL&#x201D; &#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684; &#x201C;user&#x201D; &#x8868;&#x91CC;&#x7684; &#x201C;Host&#x201D; &#x9879;&#xFF0C;&#x4ECE;&#x201C;localhost&#x201D;&#x6539;&#x79F0;&#x201C;%&#x201D;&#xFF0C;%&#x8868;&#x793A;&#x6240;&#x6709;&#x673A;&#x5668;&#x90FD;&#x5141;&#x8BB8;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql </span><br><span class="line"></span><br><span class="line">mysql&gt; update user set Host=&apos;%&apos; where User=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>2&#x3001;&#x6388;&#x6743;&#x6743;&#x9650;</p>
-<p>&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x201C;myuser&#x201D;&#x8D26;&#x53F7;&#x548C;&#x201C;mypwd&#x201D;&#x5BC6;&#x7801;&#x8FDE;&#x63A5;&#x5230; MySQL &#x670D;&#x52A1;&#x5668;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;myuser&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypwd&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
+<p>&#x6388;&#x6743;&#x6743;&#x9650;</p>
 </blockquote>
+<p>&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x201C;myuser&#x201D;&#x8D26;&#x53F7;&#x548C;&#x201C;mypwd&#x201D;&#x5BC6;&#x7801;&#x8FDE;&#x63A5;&#x5230; MySQL &#x670D;&#x52A1;&#x5668;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;myuser&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypwd&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
 <p>&#x5373;&#x53EF;&#x751F;&#x6548;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
 <p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4E24;&#x6B65;&#x8D70;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
 
@@ -1406,14 +1406,14 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
                 &copy; 2016 chen
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >Site Visitors: 
+                        <span id="site-visit" >本站到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -1423,7 +1423,7 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">Page Hits: 
+                        <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -1456,9 +1456,9 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
