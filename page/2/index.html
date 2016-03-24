@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
@@ -15,257 +15,232 @@
 <meta name="twitter:title" content="chen's blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/style.css">
   
+      <style> .article { opacity: 0;} </style>
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
 
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
 </head>
-
 <body>
   <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">chen&#39;s blog</a>
-      </h1>
-      
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">chen</a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:123@123.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chen</a></h1>
       </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">chen</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:123@123.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-SSH" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/SSH/" class="article-date">
-  <time datetime="2016-03-02T02:00:26.831Z" itemprop="datePublished">2016-03-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/02/SSH/">SSH</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><h2 id="&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;"><a href="#&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;"></a>&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</h2><ul>
-<li>web&#x5BB9;&#x5668;&#x542F;&#x52A8;</li>
-<li>&#x52A0;&#x8F7D;spring&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x914D;&#x7F6E;&#x4E2D;&#x5305;&#x542B;hibernate&#x914D;&#x7F6E;&#x4FE1;&#x606F;</li>
-</ul>
-<h2 id="1-web-xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#1-web-xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="1. web.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>1. web.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><ul>
-<li>web.xml&#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x662F;web&#x5DE5;&#x7A0B;&#x5FC5;&#x987B;&#x7684;&#x3002;</li>
-<li>web.xml&#x6587;&#x4EF6;&#x662F;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF1A;&#x6BD4;&#x5982;Welcome&#x9875;&#x9762;&#x3001;servlet&#x3001;servlet-mapping&#x3001;filter&#x3001;listener&#x3001;&#x542F;&#x52A8;&#x52A0;&#x8F7D;&#x7EA7;&#x522B;&#x7B49;&#x3002;</li>
-<li>&#x6BCF;&#x4E2A;xml&#x6587;&#x4EF6;&#x90FD;&#x6709;&#x5B9A;&#x4E49;&#x5B83;&#x4E66;&#x5199;&#x89C4;&#x5219;&#x7684;Schema&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;javaEE&#x7684;&#x5B9A;&#x4E49;web.xml&#x6240;&#x5BF9;&#x5E94;&#x7684;xml Schema&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x591A;&#x5C11;&#x79CD;&#x6807;&#x7B7E;&#x5143;&#x7D20;&#xFF0C;web.xml&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#x5B83;&#x6240;&#x5B9A;&#x4E49;&#x7684;&#x6807;&#x7B7E;&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x5C31;&#x5177;&#x5907;&#x54EA;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x529F;&#x80FD;&#x3002;web.xml&#x7684;&#x6A21;&#x5F0F;&#x6587;&#x4EF6;&#x662F;&#x7531;Sun &#x516C;&#x53F8;&#x5B9A;&#x4E49;&#x7684;&#xFF0C;&#x6BCF;&#x4E2A;web.xml&#x6587;&#x4EF6;&#x7684;&#x6839;&#x5143;&#x7D20;&#x4E3A;<web-app>&#x4E2D;&#xFF0C;&#x5FC5;&#x987B;&#x6807;&#x660E;&#x8FD9;&#x4E2A;web.xml&#x4F7F;&#x7528;&#x7684;&#x662F;&#x54EA;&#x4E2A;&#x6A21;&#x5F0F;&#x6587;&#x4EF6;&#x3002;</web-app></li>
-<li>ContextLoaderListener&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x542F;&#x52A8;Web&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x88C5;&#x914D;ApplicationContext&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;&#x5728;web.xml&#x914D;&#x7F6E;&#x8FD9;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x542F;&#x52A8;&#x5BB9;&#x5668;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x6267;&#x884C;&#x5B83;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x3002;<h3 id="1-1-&#x57FA;&#x672C;&#x914D;&#x7F6E;"><a href="#1-1-&#x57FA;&#x672C;&#x914D;&#x7F6E;" class="headerlink" title="1.1 &#x57FA;&#x672C;&#x914D;&#x7F6E;"></a>1.1 &#x57FA;&#x672C;&#x914D;&#x7F6E;</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&#x589E;&#x52A0;struts2&#x7684;&#x914D;&#x7F6E;--&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">	&lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">	&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">	&lt;filter-name&gt;struts2&lt;/filter-name&gt;</span><br><span class="line">	&lt;url-pattern&gt;*.action&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--&#x81EA;&#x52A8;&#x88C5;&#x914D;ApplicationContext&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;, Spring&#x4E0E;Struts&#x7684;&#x6574;&#x5408; --&gt;</span><br><span class="line">&lt;listener&gt;</span><br><span class="line">	&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">&lt;/listener&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-</ul>
-<h3 id="1-2-ssh&#x4E2D;&#x6587;&#x8FC7;&#x6EE4;&#x914D;&#x7F6E;"><a href="#1-2-ssh&#x4E2D;&#x6587;&#x8FC7;&#x6EE4;&#x914D;&#x7F6E;" class="headerlink" title="1.2 ssh&#x4E2D;&#x6587;&#x8FC7;&#x6EE4;&#x914D;&#x7F6E;"></a>1.2 ssh&#x4E2D;&#x6587;&#x8FC7;&#x6EE4;&#x914D;&#x7F6E;</h3><pre><code>&lt;!-- ssh &#x4E2D;&#x6587;&#x8FC7;&#x6EE4; --&gt;
-&lt;filter&gt;
-    &lt;filter-name&gt;Set Character Encoding&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;encoding&lt;/param-name&gt;
-        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
-    &lt;/init-param&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
-        &lt;param-value&gt;true&lt;/param-value&gt;
-    &lt;/init-param&gt;
-&lt;/filter&gt;
-&lt;filter-mapping&gt;
-    &lt;filter-name&gt;Set Character Encoding&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-&lt;/filter-mapping&gt;
-&lt;filter&gt;
-    &lt;filter-name&gt;struts-cleanup&lt;/filter-name&gt;
-    &lt;filter-class&gt;org.apache.struts2.dispatcher.ActionContextCleanUp&lt;/filter-class&gt;
-&lt;/filter&gt;
-&lt;filter-mapping&gt;
-    &lt;filter-name&gt;struts-cleanup&lt;/filter-name&gt;
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-&lt;/filter-mapping&gt;
-</code></pre><h2 id="2-struts-xml"><a href="#2-struts-xml" class="headerlink" title="2. struts.xml"></a>2. struts.xml</h2><p>  Struts2&#x539F;&#x7406;&#x5C31;&#x662F;&#x7528;&#x62E6;&#x622A;&#x5668;&#xFF0C;&#x4F7F;&#x5F97;&#x4F60;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x88AB;&#x62E6;&#x622A;&#x4E0B;&#x6765;&#x540E;&#x5904;&#x7406;&#x3002;&#x62E6;&#x622A;&#x5668;&#x7528;&#x5230;&#x4E86;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x3002;Struts2&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;&#x662F;&#x63A7;&#x5236;&#x8F6C;&#x53D1;&#xFF0C;&#x5728;&#x4E8E;Action&#x7684;&#x5904;&#x7406;&#xFF0C;&#x548C;struts.xml&#x914D;&#x7F6E;&#x3002; </p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE struts PUBLIC</span><br><span class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</span><br><span class="line">    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;struts&gt;</span><br><span class="line">&lt;!-- &#x5F00;&#x542F;&#x4F7F;&#x7528;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x8BE6;&#x7EC6;&#x9519;&#x8BEF;&#x63D0;&#x793A; --&gt;</span><br><span class="line">	&lt;constant name=&quot;struts.devMode&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">	&lt;constant name=&quot;struts.i18n.encoding&quot; value=&quot;utf-8&quot;&gt;&lt;/constant&gt;</span><br><span class="line">	&lt;constant name=&quot;struts.enable.DynamicMethodInvocation&quot; value=&quot;true&quot;&gt;&lt;/constant&gt;</span><br><span class="line"></span><br><span class="line">	&lt;package name=&quot;default&quot; extends=&quot;struts-default,json-default&quot;&gt;</span><br><span class="line">		&lt;action name=&quot;getUnreadMessage&quot; class=&quot;com.lbs.action.MessageAction&quot;</span><br><span class="line">			method=&quot;queryUnreadMessage&quot;&gt;</span><br><span class="line">			&lt;result name=&quot;success&quot; type=&quot;json&quot;&gt;/success.jsp&lt;/result&gt;</span><br><span class="line">			&lt;result name=&quot;error&quot;&gt;/error.jsp&lt;/result&gt;</span><br><span class="line">		&lt;/action&gt;</span><br><span class="line">	&lt;/package&gt;</span><br><span class="line">&lt;/struts&gt;</span><br></pre></td></tr></table></figure>
-</code></pre><p>&#x5982;&#x679C;&#x4E0D;&#x914D;&#x7F6E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F4D;&#x7F6E;&#x5728;WEB-INF&#x6587;&#x4EF6;&#x5939;&#x5E95;&#x4E0B;&#x3002;</p>
-<h2 id="3-Spring&#x6574;&#x5408;hibernate"><a href="#3-Spring&#x6574;&#x5408;hibernate" class="headerlink" title="3. Spring&#x6574;&#x5408;hibernate"></a>3. Spring&#x6574;&#x5408;hibernate</h2><ul>
-<li>&#x914D;&#x7F6E;sessionFactory&#xFF0C;&#x8BA9;spring&#x6765;&#x521B;&#x5EFA;Session</li>
-<li>&#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668; transactionManager</li>
-<li>&#x5BF9;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#x8FDB;&#x884C;&#x4E8B;&#x52A1;&#x8BBE;&#x7F6E;&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;<br>&#x8BE6;&#x89C1;6</li>
-</ul>
-<h2 id="4-&#x4E8B;&#x52A1;"><a href="#4-&#x4E8B;&#x52A1;" class="headerlink" title="4. &#x4E8B;&#x52A1;"></a>4. &#x4E8B;&#x52A1;</h2><p>&#x4E8B;&#x52A1;&#x662F;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x548C;&#x5B8C;&#x6574;&#x3002;&#x662F;&#x6307;&#x5355;&#x4E2A;&#x903B;&#x8F91;&#x529F;&#x80FD;&#x5355;&#x5143;&#x6267;&#x884C;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF0C;&#x8981;&#x4E48;&#x5B8C;&#x6574;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#x3002;</p>
-<p> <strong>&#x56DB;&#x5927;&#x7279;&#x6027;</strong>&#xFF1A;  </p>
-<ul>
-<li>&#x539F;&#x5B50;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5FC5;&#x987B;&#x662F;&#x539F;&#x5B50;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF1B;&#x5BF9;&#x4E8E;&#x5176;&#x6570;&#x636E;&#x4FEE;&#x6539;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#xFF1B;  </li>
-<li>&#x4E00;&#x81F4;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x72B6;&#x6001;&#xFF1B;  </li>
-<li>&#x9694;&#x79BB;&#x6027;&#xFF1A;&#x7531;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x5FC5;&#x987B;&#x4E0E;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x9694;&#x79BB;&#xFF1B;  </li>
-<li>&#x6301;&#x4E45;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5B83;&#x5BF9;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#x662F;&#x6C38;&#x4E45;&#x6027;&#x7684;&#x3002;</li>
-</ul>
-<h2 id="5-Spring"><a href="#5-Spring" class="headerlink" title="5. Spring"></a>5. Spring</h2><ol>
-<li><p>&#x7B80;&#x5355;&#x7406;&#x89E3;<br>Spring&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x6846;&#x67B6;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x4F60;&#x4E0D;&#x7528;&#x518D;&#x8003;&#x8651;&#x4F60;new&#x5BF9;&#x8C61;&#x4E86;&#xFF0C;&#x5B83;&#x4F1A;&#x5E2E;&#x4F60;&#x505A;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x5C42;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;Spring&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x7684;&#x601D;&#x60F3;&#xFF0C;IOC&#x5C31;&#x662F;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#xFF0C;&#x6CE8;&#x5165;&#x3002;AOP&#x662F;&#x9762;&#x5411;&#x5207;&#x9762;&#x7684;&#xFF0C;&#x6709;&#x70B9;&#x50CF;&#x62E6;&#x622A;&#x5668;&#x3002;</p>
-</li>
-<li><p>Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;<br>Spring&#x7684;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5206;&#x4E3A;&#x58F0;&#x660E;&#x5F0F;&#x8DDF;&#x7F16;&#x7A0B;&#x5F0F;&#x3002;&#x58F0;&#x660E;&#x5F0F;&#x5C31;&#x662F;&#x5728;Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#xFF1B;&#x7F16;&#x7A0B;&#x5F0F;&#x5C31;&#x662F;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x5199;&#x5230;&#x4EE3;&#x7801;&#x91CC;&#x3002;</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&#x5F00;&#x542F;&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;--&gt;</span><br><span class="line">&lt;context:annotation-config /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;sessionFactory --&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;configLocation&quot;&gt;</span><br><span class="line">        &lt;value&gt;classpath:config/hibernate.cfg.xml&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;value&gt;com.entity&lt;/value&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668; --&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x7B2C;&#x56DB;&#x79CD;&#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x89E3; --&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;</span><br></pre></td></tr></table></figure>
-</code></pre></li>
-<li><p>&#x6CE8;&#x89E3;&#x914D;&#x7F6E;  </p>
-<ul>
-<li><strong><context:annotation-config></context:annotation-config></strong> &#x662F;spring&#x63D0;&#x4F9B;&#x7684;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x5165;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x5BFC;&#x5165;spring&#x76EE;&#x5F55;common-annotations.jar&#x8FD9;&#x4E2A;&#x5305;&#x3002;   </li>
-<li><strong><mvc:annotation-driven></mvc:annotation-driven></strong> 3.1&#x7248;&#x672C;&#x5F00;&#x59CB;&#x6709;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E; ,&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;DefaultAnnotationHandlerMapping&#x4E0E;AnnotationMethodHandlerAdapter &#x4E24;&#x4E2A;bean,&#x662F;spring MVC&#x4E3A;@Controllers&#x5206;&#x53D1;&#x8BF7;&#x6C42;&#x6240;&#x5FC5;&#x987B;&#x7684;&#x3002;  </li>
-</ul>
-</li>
-</ol>
-<p><context:annotation-config> declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.  </context:annotation-config></p>
-<p><mvc:annotation-driven> is actually rather pointless. It declares explicit support for annotation-driven MVC controllers (i.e.@RequestMapping, @Controller, etc), even though support for those is the default behaviour.</mvc:annotation-driven></p>
-<p>My advice is to always declare <context:annotation-config>, but don&#x2019;t bother with &lt;mvc:annotation-driven /unless you want JSON support via Jackson.  </context:annotation-config></p>
-<p>4 . &#x4E8B;&#x52A1;&#x914D;&#x7F6E;<br>&#x5728;dao&#x5C42;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;@Transactional&#x6CE8;&#x89E3;&#xFF0C;&#x4E3A;&#x9ED8;&#x8BA4;&#x4E8B;&#x52A1;&#x914D;&#x7F6E;</p>
-<pre><code>package com.dao;
-
-@Transactional
-public class UserDaoImpl_BAK extends HibernateTemplate {
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
-    public void addUser(User user) throws Exception {
-        this.save(user);
-    }
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
-    public void modifyUser(User user) {
-        this.update(user);
-    }
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
-    public void delUser(String username) {
-        this.delete(this.load(User.class, username));
-    }
-
-    @Transactional(readOnly=true)
-    public void selectUser() {
-    }
-}    
-</code></pre><p>a  </p>
-<ol>
-<li><p><strong>applicationContext.xml</strong> &#x516C;&#x5171;&#x914D;&#x7F6E;</p>
- <!-- 配置sessionFactory -->
- <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"><br>     <property name="configLocation"><br>         <value>classpath:hibernate.cfg.xml</value><br>     </property><br>     <property name="packagesToScan"><br>         <list><br>             <value>com.entity</value><br>         </list><br>     </property><br> </bean>
-
- <!-- 配置事务管理器（声明式的事务） -->
- <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"><br>     <property name="sessionFactory" ref="sessionFactory"></property><br> </bean>
-
- <!-- 配置DAO --> 
- <bean id="userDao" class="com.dao.UserDaoImpl"><br>     <property name="sessionFactory" ref="sessionFactory"></property><br> </bean>
-
-
-</li>
-</ol>
-<h2 id="7-Repository&#x3001;-Service-&#x548C;-Controller-&#x6CE8;&#x89E3;"><a href="#7-Repository&#x3001;-Service-&#x548C;-Controller-&#x6CE8;&#x89E3;" class="headerlink" title="7.  @Repository&#x3001;@Service &#x548C; @Controller &#x6CE8;&#x89E3;"></a>7.  @Repository&#x3001;@Service &#x548C; @Controller &#x6CE8;&#x89E3;</h2><p>&#x6700;&#x597D;&#x5728;&#x6301;&#x4E45;&#x5C42;&#x3001;&#x4E1A;&#x52A1;&#x5C42;&#x548C;&#x63A7;&#x5236;&#x5C42;&#x5206;&#x522B;&#x91C7;&#x7528; @Repository&#x3001;@Service &#x548C; @Controller &#x5BF9;&#x5206;&#x5C42;&#x4E2D;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x6CE8;&#x91CA;  </p>
-<h2 id="8-Spring&#x4E2D;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;-Resource&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;-service"><a href="#8-Spring&#x4E2D;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;-Resource&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;-service" class="headerlink" title="8. Spring&#x4E2D;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;@Resource&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;@service"></a>8. Spring&#x4E2D;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;@Resource&#xFF0C;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x7528;@service</h2><p>&#x5F53;&#x4F60;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x67D0;&#x4E2A;&#x7C7B;&#x4E3A;&#x4E00;&#x4E2A;bean&#xFF0C;&#x5219;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x7C7B;&#x540D;&#x524D;&#x4E00;&#x884C;&#x4F7F;&#x7528;@Service(&#x201C;XXX&#x201D;),&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x8BB2;&#x8FD9;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4E3A;&#x4E00;&#x4E2A;bean&#xFF0C;bean&#x540D;&#x79F0;&#x4E3A;XXX;<br>&#x5F53;&#x9700;&#x8981;&#x5728;&#x67D0;&#x4E2A;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684;bean&#xFF0C;&#x8981;&#x4E3A;&#x8BE5;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x6216;&#x6CE8;&#x5165;&#x65F6;&#x5728;&#x8BE5;&#x5C5E;&#x6027;&#x4E0A;&#x4E00;&#x884C;&#x4F7F;&#x7528;@Resource(name=&#x201D;xxx&#x201D;)&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4E3A;&#x8BE5;&#x5C5E;&#x6027;&#x6CE8;&#x5165;&#x4E00;&#x4E2A;&#x540D;&#x79F0;&#x4E3A;xxx&#x7684;bean&#x3002;<br>&#x3000;&#x3000;@Resource&#x7684;&#x4F5C;&#x7528;&#x76F8;&#x5F53;&#x4E8E;@Autowired&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;@Autowired&#x6309;byType&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#xFF0C;&#x800C;@Resource&#x9ED8;&#x8BA4;&#x6309; byName&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7F62;&#x4E86;&#x3002;@Resource&#x6709;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5206;&#x662F;name&#x548C;type&#xFF0C;Spring&#x5C06;@Resource&#x6CE8;&#x89E3;&#x7684;name&#x5C5E;&#x6027;&#x89E3;&#x6790;&#x4E3A;bean&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x800C;type&#x5C5E;&#x6027;&#x5219;&#x89E3;&#x6790;&#x4E3A;bean&#x7684;&#x7C7B;&#x578B;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F7F;&#x7528;name&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F7F;&#x7528;byName&#x7684;&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#xFF0C;&#x800C;&#x4F7F;&#x7528;type&#x5C5E;&#x6027;&#x65F6;&#x5219;&#x4F7F;&#x7528;byType&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#x3002;&#x5982;&#x679C;&#x65E2;&#x4E0D;&#x6307;&#x5B9A;name&#x4E5F;&#x4E0D;&#x6307;&#x5B9A;type&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x65F6;&#x5C06;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x4F7F;&#x7528;byName&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#x3002;<br>&#x3000;&#x3000;@Resource&#x88C5;&#x914D;&#x987A;&#x5E8F;<br>&#x3000;&#x3000;1. &#x5982;&#x679C;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x4E86;name&#x548C;type&#xFF0C;&#x5219;&#x4ECE;Spring&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x627E;&#x5230;&#x552F;&#x4E00;&#x5339;&#x914D;&#x7684;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;2. &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;name&#xFF0C;&#x5219;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x67E5;&#x627E;&#x540D;&#x79F0;&#xFF08;id&#xFF09;&#x5339;&#x914D;&#x7684;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;3. &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;type&#xFF0C;&#x5219;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x627E;&#x5230;&#x7C7B;&#x578B;&#x5339;&#x914D;&#x7684;&#x552F;&#x4E00;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x6216;&#x8005;&#x627E;&#x5230;&#x591A;&#x4E2A;&#xFF0C;&#x90FD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;4. &#x5982;&#x679C;&#x65E2;&#x6CA1;&#x6709;&#x6307;&#x5B9A;name&#xFF0C;&#x53C8;&#x6CA1;&#x6709;&#x6307;&#x5B9A;type&#xFF0C;&#x5219;&#x81EA;&#x52A8;&#x6309;&#x7167;byName&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x4E3A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;&#x5339;&#x914D;&#x5219;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;
-&#x3000;</p>
-<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p>1.Spring&#x63A7;&#x5236;&#x5668;<strong>DispatcherServlet</strong><br>SpringMVC&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;DispatcherServlet&#x7684;MVC&#x6846;&#x67B6;,&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x9996;&#x5148;&#x63D0;&#x4EA4;&#x7ED9;DispatcherServlet,DispatcherServlet&#x8D1F;&#x8D23;&#x8F6C;&#x53D1;&#x6BCF;&#x4E00;&#x4E2A;Request&#x8BF7;&#x6C42;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Handler&#x3002;DispatcherServlet&#x662F;&#x7EE7;&#x627F;&#x81EA;HttpServlet&#x7684;&#x3002;<br><strong>web.xml</strong>&#x4E2D;&#x914D;&#x7F6E;</p>
-<pre><code>&lt;!-- 1.Spring&#x914D;&#x7F6E; --&gt;
-&lt;listener&gt;
-   &lt;listenerclass&gt;
-     org.springframework.web.context.ContextLoaderListener
-   &lt;/listener-class&gt;
-&lt;/listener&gt;
-
-&lt;!-- 2.springMVC&#x5F0F;rest --&gt;
-&lt;servlet&gt;
-    &lt;servlet-name&gt;rest&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-
-    &lt;!--&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;servlet.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x540D;&#x79F0;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;WEB-INF&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x540D;&#x79F0;&#x4E3A;[&lt;servlet-name&gt;]-servlet.xml&#xFF0C;&#x5982;rest-servlet.xml--&gt;
-
-    &lt;init-param&gt;
-        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-        &lt;param-value&gt;classpath:rest-servlet.xml&lt;/param-value&gt;
-    &lt;/init-param&gt;
-    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
-&lt;/servlet&gt;
-&lt;servlet-mapping&gt;
-    &lt;servlet-name&gt;rest&lt;/servlet-name&gt;
-    &lt;url-pattern&gt;/rest/*&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;
-
-&lt;!-- 3.&#x6307;&#x5B9A;Spring Bean&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x3002;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5728;WEB-INF&#x76EE;&#x5F55;&#x4E0B; --&gt;
-&lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-&lt;/context-param&gt;
-</code></pre><p> &#x4EE5;&#x4E0A;&#x662F;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x3002;    </p>
-<ol>
-<li><p>rest-servlet.xml&#x7684;&#x914D;&#x7F6E;  </p>
-<p> &lt;?xml version=&#x201D;1.0&#x201D; encoding=&#x201D;UTF-8&#x201D;?&gt;</p>
- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xsi:schemalocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   
-        http://www.springframework.org/schema/context &lt;a href=" http:="" www.springframework.org="" schema="" context="" spring-context-3.0.xsd"="">http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;<br><br>     <!-- 启用spring mvc 注解 --><br>     <context:annotation-config><br><br>     <!-- 设置使用注解的类所在的jar包 --><br>     <context:component-scan base-package="com.cc"></context:component-scan><br><br>     <!-- 完成请求和注解POJO的映射 --><br>     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"><br> &#x3000;&#x3000;<br>     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 --><br>     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/jsp/" p:suffix=".jsp"><br> </bean></bean></context:annotation-config></beans>
-
-
-
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/SSH/" data-id="cim371bb60006ac7c2s8vo4dl" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
+</nav>
+      <div class="body-wrap">
   
     <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/JS/" class="article-date">
-  <time datetime="2016-03-02T02:00:26.806Z" itemprop="datePublished">2016-03-02</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/JS/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.806Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -277,9 +252,11 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>[TOC]</p>
 <h2 id="1-&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#1-&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="1. &#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>1. &#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p><strong>console.log();</strong>&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x65E9;&#x662F;&#x706B;&#x72D0;&#x5728;fiebug&#x4E2D;&#x7528;&#x6765;&#x8C03;&#x8BD5;</p>
@@ -292,27 +269,43 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/JS/" data-id="cim371baw0001ac7cytdv8rbf" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
 
-    </footer>
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
+
+
+
+
+
+
   
     <article id="post-java" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/java/" class="article-date">
-  <time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">2016-03-02</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/java/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -324,9 +317,11 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>[TOC]</p>
 <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;</h2><ol>
 <li>&#x5FC5;&#x987B;&#x4E0E;&#x7C7B;&#x540D;&#x540C;&#x540D;</li>
@@ -337,31 +332,48 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/java/" data-id="cim371bbe000eac7cp0wziauz" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 
-    </footer>
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
+
+
+
+
+
+
   
     <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/Express.js/" class="article-date">
-  <time datetime="2016-03-02T02:00:26.600Z" itemprop="datePublished">2016-03-02</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/Express.js/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.600Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <h1 id="Express-js"><a href="#Express-js" class="headerlink" title="Express.js"></a>Express.js</h1><hr>
 <p>[TOC]</p>
 <hr>
@@ -416,31 +428,57 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/Express.js/" data-id="cim371bay0002ac7cpqpa9y0u" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
+
+
+
+
+
+
   
     <article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/ARCGIS/" class="article-date">
-  <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/ARCGIS/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
     
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/ARCGIS/">ArcGIS入门</a>
+    </h1>
+  
+
+      </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>[TOC]</p>
-<h1 id="ArcGIS"><a href="#ArcGIS" class="headerlink" title="ArcGIS"></a>ArcGIS</h1><h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
+<h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
     //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
     map = new esri.Map(&quot;map&quot;, {
         logo : false,//&#x7981;&#x7528;logo
@@ -479,7 +517,46 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
     //var point =  new Point(lon, lat, map.spatialReference);
     map.centerAndZoom(point,2);
     map.centerAt(point);
-</code></pre><h2 id="3-infoWindow"><a href="#3-infoWindow" class="headerlink" title="3. infoWindow"></a>3. infoWindow</h2><pre><code>&lt;script&gt;
+</code></pre><h2 id="3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;"><a href="#3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;" class="headerlink" title="3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;"></a>3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;</h2><p>index.jsp&#x9875;&#x9762;&#x4E0A;&#x9700;&#x8981;&#x6DFB;&#x52A0;</p>
+<pre><code>String esriPath = request.getServerName() + &quot;:&quot; +
+request.getServerPort() + path + &quot;/&quot;;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var arcgis_js_api_home = &quot;&lt;%=esriPath%&gt;&quot;;
+    var dojoConfig = {
+        has : {
+            &quot;dojo-firebug&quot; : true
+        },
+        async : true,
+        paths : {
+            &quot;js&quot; : &quot;/../js&quot;
+        },
+    };
+&lt;/script&gt;
+</code></pre><p>&#x518D;&#x5F15;&#x5165;claro.css&#xFF0C;esri.css&#xFF0C;init.js&#xFF0C;index.js&#x3002;</p>
+<p>index.js&#x4E2D;&#x6DFB;&#x52A0;</p>
+<pre><code>require([&quot;esri/map&quot;
+     ,&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;
+     ,&quot;esri/SpatialReference&quot;
+     ],function(){
+var map = new esri.Map(&quot;arcgisDiv&quot;,{
+    logo : false,
+    center: [107.55, 24.22],
+    slider:true,
+});
+var baseUrl = &quot;http://192.168.1.139:6080/arcgis/rest/services/&quot;;
+var mapNames ={
+        &quot;dt&quot;:&quot;dt&quot; //&#x5E95;&#x56FE;
+        ,&quot;dw&quot;:&quot;dw&quot;//&#x7535;&#x7F51;
+    };
+var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&quot;/MapServer&quot;,{id:&quot;dt&quot;});
+//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&quot;);
+var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&quot;/MapServer&quot;,{id:&quot;dw&quot;});
+map.addLayers([dtLayer,dwLayer]);
+//    map.addLayer(layer);
+map.setZoom(8);
+});
+</code></pre><h2 id="4-infoWindow"><a href="#4-infoWindow" class="headerlink" title="4. infoWindow"></a>4. infoWindow</h2><pre><code>&lt;script&gt;
 require([
   &quot;dojo/dom&quot;,
   &quot;dojo/dom-construct&quot;,
@@ -502,7 +579,6 @@ require([
    var infoWindow = new  InfoWindow({
       domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
    });
-
   var map = new Map(&quot;map&quot;, {
       basemap: &quot;gray&quot;,
       center: [-98.57, 39.82],
@@ -532,34 +608,50 @@ require([
     });
 
     map.addLayer(featureLayer);  
-
   //resize the info window 
   map.infoWindow.resize(400, 200);
-
 });
 &lt;/script&gt;
 </code></pre>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/ARCGIS/" data-id="cim371bar0000ac7cwxu8fgue" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
+
+
+
+
+
+
   
     <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/02/hexo/" class="article-date">
-  <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/hexo/" class="article-date">
+      <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -571,9 +663,11 @@ require([
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>[TOC]</p>
 <h2 id="1-&#x5229;&#x7528;npm&#x5B89;&#x88C5;"><a href="#1-&#x5229;&#x7528;npm&#x5B89;&#x88C5;" class="headerlink" title="1. &#x5229;&#x7528;npm&#x5B89;&#x88C5;"></a>1. &#x5229;&#x7528;npm&#x5B89;&#x88C5;</h2><pre><code>npm install -g hexo;
 hexo init &lt;folder&gt;;
@@ -615,27 +709,43 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
 </code></pre>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/02/hexo/" data-id="cim371bb90009ac7cb8ggppt6" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
 
-    </footer>
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/01/hello-world/" class="article-date">
-  <time datetime="2016-03-01T02:42:12.941Z" itemprop="datePublished">2016-03-01</time>
+  
+    <div class="article-meta">
+      <a href="/2016/03/01/hello-world/" class="article-date">
+      <time datetime="2016-03-01T02:42:12.941Z" itemprop="datePublished">2016-03-01</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -647,9 +757,11 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
   
 
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
@@ -662,120 +774,98 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/01/hello-world/" data-id="cim371bbd000cac7cl1e4pmb5" class="article-share-link">Share</a>
+    
+    <div class="article-info article-info-index">
       
       
-    </footer>
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
   
 </article>
 
 
-  
 
 
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-</section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hibernate-spring/">hibernate, spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-aop-hibernate/">ssh, aop,hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
-    </div>
-  </div>
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
-    </div>
-  </div>
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
-    </div>
-  </div>
-
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/03/17/bootstrap中常用的插件及示例/">bootstrap 常用插件使用</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/15/postgis/">postgis;</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/05/DynamicDataSource/">DynamicDataSource</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/03/hibernate/">hibernate</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/02/cc/">cc</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
+</div>
       <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 chen<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 chen
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visitors: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Hits: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
-  </div>
 </footer>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
   </div>
 </body>
 </html>
