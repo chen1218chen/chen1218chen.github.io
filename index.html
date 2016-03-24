@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="utf-8">
   
@@ -15,232 +15,67 @@
 <meta name="twitter:title" content="chen's blog">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
   
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
   
-      <style> .article { opacity: 0;} </style>
-  
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-      }
-  </script>
 
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
-
-  
 </head>
+
 <body>
   <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">chen</a></h1>
-        </hgroup>
-
-        
-                
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:123@123.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
-</div>
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">chen&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">生命不息，折腾不止</a>
+        </h2>
+      
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chen</a></h1>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">chen</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:123@123.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="#" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
     </div>
-</nav>
-      <div class="body-wrap">
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
   
     <article id="post-bootstrap插件的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/17/bootstrap插件的使用/" class="article-date">
-      <time datetime="2016-03-17T02:33:04.019Z" itemprop="datePublished">2016-03-17</time>
+  <div class="article-meta">
+    <a href="/2016/03/17/bootstrap插件的使用/" class="article-date">
+  <time datetime="2016-03-17T02:33:04.019Z" itemprop="datePublished">2016-03-17</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -252,11 +87,9 @@
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h1 id="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"><a href="#select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"></a>select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</h1><blockquote>
 <p>&#x9009;&#x62E9;select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</p>
@@ -410,43 +243,27 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
 </code></pre>
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/17/bootstrap插件的使用/" data-id="cim5yxl6q000fjg7cv36hyihf" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-postgis" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/postgis/" class="article-date">
-      <time datetime="2016-03-14T17:15:29.000Z" itemprop="datePublished">2016-03-14</time>
+  <div class="article-meta">
+    <a href="/2016/03/15/postgis/" class="article-date">
+  <time datetime="2016-03-14T17:15:29.000Z" itemprop="datePublished">2016-03-14</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -458,47 +275,31 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/15/postgis/" data-id="cim5yxl7g000kjg7cbklilfoh" class="article-share-link">Share</a>
       
       
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-SSH多个数据源动态数据切换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/05/SSH多个数据源动态数据切换/" class="article-date">
-      <time datetime="2016-03-04T16:16:29.000Z" itemprop="datePublished">2016-03-04</time>
+  <div class="article-meta">
+    <a href="/2016/03/05/SSH多个数据源动态数据切换/" class="article-date">
+  <time datetime="2016-03-04T16:16:29.000Z" itemprop="datePublished">2016-03-04</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -510,11 +311,9 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"><a href="#SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;" class="headerlink" title="SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;"></a>SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x5728;spring&#x914D;&#x7F6E;&#x4E2D;&#x53EA;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;dataSource&#x6765;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5728;SessionFactory&#x4E2D;&#x7ED1;&#x5B9A;dataSource&#x3002;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x7684;&#x6B63;&#x786E;&#x505A;&#x6CD5;&#x662F;&#xFF1A;<br><img src="/2016/03/05/SSH&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x52A8;&#x6001;&#x6570;&#x636E;&#x5207;&#x6362;/image1.jpg" alt="enter description here" title="image1.jpg"></p>
 <p>SSH&#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x6211;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x4E24;&#x4E2A;PostgreSQL&#x6570;&#x636E;&#x5E93;&#x65E2;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x5207;&#x6362;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;aop&#x6765;&#x52A8;&#x6001;&#x5207;&#x6362;&#x3002;</p>
@@ -687,43 +486,27 @@ public class DataSourceInterceptor {
 </code></pre>
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/05/SSH多个数据源动态数据切换/" data-id="cim610xu80000sc7cu4iitgnj" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-aop-hibernate/">ssh, aop,hibernate</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-aop-hibernate/">ssh, aop,hibernate</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-hibernate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/hibernate/" class="article-date">
-      <time datetime="2016-03-02T17:17:05.000Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/03/hibernate/" class="article-date">
+  <time datetime="2016-03-02T17:17:05.000Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -735,11 +518,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="1-&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;"><a href="#1-&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;" class="headerlink" title="1. &#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;"></a>1. &#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;</h2><blockquote>
 <p>&#x7531;&#x4E8E;column&#x4E2D;name&#x82E5;&#x6709;&#x5927;&#x5199;(&#x5982;goodNum),&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x90FD;&#x4F1A;&#x88AB;&#x8BD1;&#x6210;&gt;<br>good_num,&#x800C;&#x76F8;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6765;&#x8BF4;&#x5B57;&#x6BB5;&#x4E0D;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x82E5;&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x8868;<br>&#x65F6;,&#x82E5;&#x5B57;&#x6BB5;&#x540D;&#x4E2D;&#x6709;&#x5927;&#x5199;,&#x4E9B;&#x65F6;&#x5728;column&#x7684;name&#x5C5E;&#x6027;&#x4E2D;&#x5E94;&#x5168;&#x90E8;&#x6539;&#x4E3A;&#x5C0F;&#x5199;.</p>
@@ -763,43 +544,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/03/hibernate/" data-id="cim5yxl7j000mjg7c6pzjes1r" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate-spring/">hibernate, spring</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate-spring/">hibernate, spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-node.js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/node.js/" class="article-date">
-      <time datetime="2016-03-02T02:02:01.424Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/node.js/" class="article-date">
+  <time datetime="2016-03-02T02:02:01.424Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -811,11 +576,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="&#x73AF;&#x5883;&#x642D;&#x5EFA;"><a href="#&#x73AF;&#x5883;&#x642D;&#x5EFA;" class="headerlink" title="&#x73AF;&#x5883;&#x642D;&#x5EFA;"></a>&#x73AF;&#x5883;&#x642D;&#x5EFA;</h2><p><strong> Angularjs + Express3 + Bootstrap3</strong><br>angularjs&#x662F;&#x7531;Google&#x56E2;&#x961F;&#x5F00;&#x53D1;&#x7684;&#x4E00;&#x6B3E;&#x975E;&#x5E38;&#x4F18;&#x79C0;web&#x524D;&#x7AEF;&#x6846;&#x67B6;&#x3002;Bootstrap&#x8BA9;&#x754C;&#x9762;&#x7F8E;&#x89C2;&#x5927;&#x65B9;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x61C2;UE&#x7684;&#x4EBA;&#xFF0C;&#x4E5F;&#x80FD;&#x505A;&#x51FA;&#x4E13;&#x4E1A;&#x7EA7;&#x7684;&#x6C34;&#x51C6;&#x3002;&#x518D;&#x7ED3;&#x5408;Nodejs&#x7684;Express&#x505A;&#x540E;&#x7AEF;&#xFF0C;&#x4E09;&#x5251;&#x5408;&#x5E76;&#xFF0C;&#x592A;&#x65E0;&#x654C;&#x4E86;&#xFF0C;&#x5927;&#x6709;&#x7EDF;&#x4E00;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x7684;&#x8D8B;&#x52BF;&#xFF0C;&#x524D;&#x9014;&#x4E0D;&#x53EF;&#x4F30;&#x91CF;&#xFF01;</p>
 <h3 id="1-&#x9996;&#x5148;&#x5B89;&#x88C5;node-js"><a href="#1-&#x9996;&#x5148;&#x5B89;&#x88C5;node-js" class="headerlink" title="1. &#x9996;&#x5148;&#x5B89;&#x88C5;node.js"></a>1. &#x9996;&#x5148;&#x5B89;&#x88C5;node.js</h3><h3 id="2-webStorm-node-js&#x6700;&#x597D;&#x7684;IDE&#x5F00;&#x53D1;&#x5DE5;&#x5177;"><a href="#2-webStorm-node-js&#x6700;&#x597D;&#x7684;IDE&#x5F00;&#x53D1;&#x5DE5;&#x5177;" class="headerlink" title="2.  webStorm(node.js&#x6700;&#x597D;&#x7684;IDE&#x5F00;&#x53D1;&#x5DE5;&#x5177;)"></a>2.  webStorm(node.js&#x6700;&#x597D;&#x7684;IDE&#x5F00;&#x53D1;&#x5DE5;&#x5177;)</h3><h3 id="3-express-&#x5B89;&#x88C5;"><a href="#3-express-&#x5B89;&#x88C5;" class="headerlink" title="3.  express &#x5B89;&#x88C5;"></a>3.  express &#x5B89;&#x88C5;</h3><p>express &#x662F;&#x8F7B;&#x91CF;&#x7075;&#x6D3B;&#x7684;Nodejs Web&#x5E94;&#x7528;&#x6846;&#x67B6;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express</span><br></pre></td></tr></table></figure></p>
@@ -859,43 +622,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/node.js/" data-id="cim5yxl7n000rjg7c4pcw9fkg" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/mongodb/" class="article-date">
-      <time datetime="2016-03-02T02:01:55.151Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/mongodb/" class="article-date">
+  <time datetime="2016-03-02T02:01:55.151Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -907,11 +654,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="1-mongodb&#x521B;&#x5EFA;"><a href="#1-mongodb&#x521B;&#x5EFA;" class="headerlink" title="1. mongodb&#x521B;&#x5EFA;"></a>1. mongodb&#x521B;&#x5EFA;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=&quot;mongodb&#x5B89;&#x88C5;&#x76EE;&#x5F55;\data&quot; --logpath=&quot;mongodb&#x5B89;&#x88C5;&#x76EE;&#x5F55;\log\log.txt&quot; --install --serviceName MongoDB --serviceDisplayName MongoDB</span><br></pre></td></tr></table></figure>
 <p>&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5728;log.txt&#x4E2D;&#x770B;&#x5230;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files</span><br><span class="line">2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &apos;MongoDB&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &apos;MongoDB&apos; (MongoDB) installed with command line &apos;&quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&apos;</span><br><span class="line">2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &apos;net start MongoDB&apos;</span><br></pre></td></tr></table></figure></p>
@@ -924,43 +669,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/mongodb/" data-id="cim5yxl7o000tjg7c5ozgpwt5" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/git/" class="article-date">
-      <time datetime="2016-03-02T02:01:47.684Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/git/" class="article-date">
+  <time datetime="2016-03-02T02:01:47.684Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -972,11 +701,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="&#x4E13;&#x6709;&#x540D;&#x8BCD;"><a href="#&#x4E13;&#x6709;&#x540D;&#x8BCD;" class="headerlink" title="&#x4E13;&#x6709;&#x540D;&#x8BCD;"></a>&#x4E13;&#x6709;&#x540D;&#x8BCD;</h2><ul>
 <li>Workspace&#xFF1A;&#x5DE5;&#x4F5C;&#x533A;</li>
@@ -1008,43 +735,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/git/" data-id="cim5yxl5n0004jg7cl4fa57fl" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-常用软件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/常用软件/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.964Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/常用软件/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.964Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -1056,11 +767,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <ol>
 <li>IDE&#x5F00;&#x53D1;&#x5DE5;&#x5177;<br>MyEclipse10&#x3001;WebStorm10.0.3</li>
 <li>&#x670D;&#x52A1;&#x5668;<br>Tomcat7.0.63</li>
@@ -1071,43 +780,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/常用软件/" data-id="cim5yxl7k000njg7crrns83oa" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/常见问题/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.894Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/常见问题/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.894Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -1119,11 +812,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <ol>
 <li>html&#x4E2D;ID&#x5C5E;&#x6027;&#x503C;&#x540C;&#x4E00;&#x9875;&#x9762;&#x4E2D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x6700;&#x597D;&#x540C;&#x4E00;&#x7CFB;&#x7EDF;&#x4E2D;&#x4E5F;&#x4E0D;&#x8981;&#x5B58;&#x5728;&#x76F8;&#x540C;ID&#xFF0C;&#x5426;&#x5219;JS&#x901A;&#x8FC7;ID&#x5C5E;&#x6027;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x9519;&#xFF0C;&#x5217;&#x5165;&#x9047;&#x5230;&#x7684;bootstrap dataTimePicker&#x63D2;&#x4EF6;&#x4E2D;&#x70B9;&#x51FB;&#x65E5;&#x5386;&#x4E0D;&#x663E;&#x793A;&#x3001;bootstrapValidator&#x4E2D;&#x91CD;&#x7F6E;&#x8868;&#x5355;&#x6CA1;&#x6709;&#x53CD;&#x5E94;</li>
 <li>&#x9759;&#x6001;&#x6570;&#x636E;&#x6216;&#x8005;&#x9759;&#x6001;&#x8868;&#x5728;&#x6570;&#x636E;&#x5E93;&#x8868;&#x8BBE;&#x8BA1;&#x662F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5EFA;&#x7ACB;&#x6570;&#x636E;&#x5E93;&#x8868;&#xFF0C;&#x800C;&#x662F;&#x7528;JSON&#x6587;&#x4EF6;&#x6765;&#x5B58;&#x50A8;&#x3002;&#x6709;&#x65F6;&#x4E5F;&#x53EF;&#x9009;&#x7528;&#x89C6;&#x56FE;&#x7684;&#x5F62;&#x5F0F;<br>#Tomcat</li>
@@ -1155,43 +846,27 @@ public class DataSourceInterceptor {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/常见问题/" data-id="cim5yxl7s000vjg7cca8to8nu" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/question/">question</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/question/">question</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
     <article id="post-SSH" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/SSH/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.831Z" itemprop="datePublished">2016-03-02</time>
+  <div class="article-meta">
+    <a href="/2016/03/02/SSH/" class="article-date">
+  <time datetime="2016-03-02T02:00:26.831Z" itemprop="datePublished">2016-03-02</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+  </div>
+  <div class="article-inner">
     
     
       <header class="article-header">
@@ -1203,11 +878,9 @@ public class DataSourceInterceptor {
   
 
       </header>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h1 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h1><h2 id="&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;"><a href="#&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;"></a>&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</h2><ul>
 <li>web&#x5BB9;&#x5668;&#x542F;&#x52A8;</li>
@@ -1367,102 +1040,122 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
 
       
     </div>
-    
-    <div class="article-info article-info-index">
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/02/SSH/" data-id="cim5yxl71000ijg7csnblq92d" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
+    </footer>
   </div>
   
 </article>
 
 
-
-
-
-
-
-
   
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2016 chen
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
-            </div>
-        </div>
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
+</section>
         
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arcgis/">arcgis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-table/">bootstrap table,</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hibernate-spring/">hibernate, spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-aop-hibernate/">ssh, aop,hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
     </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/15/postgis/">postgis;</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/03/hibernate/">hibernate</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/02/node.js/">node.js</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 chenchen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>
     </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
+<script src="/js/script.js"></script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
   </div>
 </body>
 </html>
