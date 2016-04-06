@@ -3,30 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ArcGIS入门 | chen&#39;s blog</title>
+  <title>shiro入门配置 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
+  <meta name="description" content="&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&amp;#x4F7F;&amp;#x7528;shiro&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;
+
+&amp;#x5BFC;&amp;#x5165;JAR&amp;#x5305;
+web.xml&amp;#x914D;&amp;#x7F6E;
+&amp;lt;!-- Shiro&amp;#x914D;&amp;#x7F6E; --&amp;gt;    
+&amp;lt;filter&amp;gt;    
+    &amp;lt;f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArcGIS入门">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/03/02/ARCGIS/index.html">
+<meta property="og:title" content="shiro入门配置">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/03/30/shiro入门/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
-<meta property="og:updated_time" content="2016-03-23T06:23:15.684Z">
+<meta property="og:description" content="&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&amp;#x4F7F;&amp;#x7528;shiro&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;
+
+&amp;#x5BFC;&amp;#x5165;JAR&amp;#x5305;
+web.xml&amp;#x914D;&amp;#x7F6E;
+&amp;lt;!-- Shiro&amp;#x914D;&amp;#x7F6E; --&amp;gt;    
+&amp;lt;filter&amp;gt;    
+    &amp;lt;f">
+<meta property="og:updated_time" content="2016-04-06T07:23:14.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArcGIS入门">
-<meta name="twitter:description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
+<meta name="twitter:title" content="shiro入门配置">
+<meta name="twitter:description" content="&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&amp;#x4F7F;&amp;#x7528;shiro&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;
+
+&amp;#x5BFC;&amp;#x5165;JAR&amp;#x5305;
+web.xml&amp;#x914D;&amp;#x7F6E;
+&amp;lt;!-- Shiro&amp;#x914D;&amp;#x7F6E; --&amp;gt;    
+&amp;lt;filter&amp;gt;    
+    &amp;lt;f">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -236,11 +242,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-shiro入门" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/ARCGIS/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2016/03/30/shiro入门/" class="article-date">
+      <time datetime="2016-03-30T15:43:06.000Z" itemprop="datePublished">2016-03-30</time>
 </a>
     </div>
   
@@ -253,7 +259,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ArcGIS入门
+      shiro入门配置
     </h1>
   
 
@@ -264,7 +270,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -274,141 +280,42 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
-    //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
-    map = new esri.Map(&quot;map&quot;, {
-        logo : false,//&#x7981;&#x7528;logo
-        center: [107.55, 24.22],//&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;&#x5750;&#x6807;
-        slider:false,
-        nav:false,
-        isZoomSlider:true,
-        autoResize : true,
-        smartNavigation : false,
-        force3DTransforms : true,
-        isKeyboardNavigation : false,
-        sliderStyle : &quot;large&quot;,
-        showInfoWindowOnClick : true,
-        isDoubleClickZoom : false,
-    });
-    //&#x6BD4;&#x4F8B;&#x5C3A;
-    var scalebar = new esri.dijit.Scalebar({
-        map : map,
-        scalebarStyle : &quot;ruler&quot;,
-        scalebarUnit : &quot;metric&quot;,
-        attachTo : &quot;top-left&quot;,
-    });
-    //&#x7F29;&#x7565;&#x56FE;
-    var overViewMap = new esri.dijit.OverviewMap({
-        map:map,
-        attachTo: &quot;bottom-left&quot;,
-        visible:true,
-        opacity: .40,
-        width : 300,
-        height : 150,
-    });
-    overViewMap.startup();
+        <h1 id="&#x57FA;&#x7840;&#x914D;&#x7F6E;"><a href="#&#x57FA;&#x7840;&#x914D;&#x7F6E;" class="headerlink" title="&#x57FA;&#x7840;&#x914D;&#x7F6E;"></a>&#x57FA;&#x7840;&#x914D;&#x7F6E;</h1><p>&#x4F7F;&#x7528;shiro&#x7684;&#x6B65;&#x9AA4;</p>
+<ol>
+<li>&#x5BFC;&#x5165;JAR&#x5305;</li>
+<li><p>web.xml&#x914D;&#x7F6E;</p>
+<pre><code>&lt;!-- Shiro&#x914D;&#x7F6E; --&gt;    
+&lt;filter&gt;    
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;    
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;    
+&lt;/filter&gt;    
+&lt;filter-mapping&gt;    
+    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;    
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;    
+&lt;/filter-mapping&gt;
+</code></pre></li>
+<li><p>applicationContext.xml&#x914D;&#x7F6E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- ehcache &#x7684;&#x914D;&#x7F6E; --&gt;</span><br><span class="line">&lt;cache:annotation-driven cache-manager=&quot;cacheManager&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;cacheManagerFactory&quot;</span><br><span class="line">	class=&quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;configLocation&quot;&gt;</span><br><span class="line">		&lt;value&gt;classpath:ehcache.xml&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;cacheManager&quot; class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManagerFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x81EA;&#x5B9A;&#x4E49;Realm&#x5B9E;&#x73B0; --&gt;</span><br><span class="line">&lt;bean id=&quot;myRealm&quot; class=&quot;com.lbs.login.myRealm&quot;&gt;</span><br><span class="line">	&lt;!-- &lt;property name=&quot;cacheManager&quot; ref=&quot;shiroEhcacheManager&quot; /&gt; --&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- &#x7528;&#x6237;&#x6388;&#x6743;/&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;Cache, &#x91C7;&#x7528;EhCache &#x7F13;&#x5B58; --&gt;</span><br><span class="line">&lt;bean id=&quot;shiroEhcacheManager&quot; class=&quot;org.apache.shiro.cache.ehcache.EhCacheManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManagerConfigFile&quot; value=&quot;classpath:ehcache.xml&quot; /&gt;</span><br><span class="line">	&lt;!-- &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot; /&gt; --&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- securityManager --&gt;</span><br><span class="line">&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManager&quot; ref=&quot;shiroEhcacheManager&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Shiro&#x751F;&#x547D;&#x5468;&#x671F;&#x5904;&#x7406;&#x5668;,&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x4E86;Shiro&#x5185;&#x90E8;lifecycle&#x51FD;&#x6570;&#x7684;bean&#x6267;&#x884C; --&gt;    </span><br><span class="line">   &lt;bean id=&quot;lifecycleBeanPostProcessor&quot; class=&quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&quot;/&gt;</span><br><span class="line">   </span><br><span class="line">&lt;!-- Shiro Filter &#x62E6;&#x622A;&#x5668;&#x76F8;&#x5173;&#x914D;&#x7F6E; --&gt;</span><br><span class="line">&lt;!--shiro&#x8FC7;&#x6EE4;&#x5668;&#x914D;&#x7F6E;&#xFF0C;bean&#x7684;id&#x503C;&#x987B;&#x4E0E;web&#x4E2D;&#x7684;filter-name&#x7684;&#x503C;&#x76F8;&#x540C; --&gt;</span><br><span class="line">&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;</span><br><span class="line">	&lt;!-- securityManager --&gt;</span><br><span class="line">	&lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x767B;&#x5F55;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;successUrl&quot; value=&quot;/manager/index.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x6388;&#x6743;&#x5931;&#x8D25;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/login.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x8FC7;&#x6EE4;&#x94FE;&#x5B9A;&#x4E49; --&gt;</span><br><span class="line">	&lt;property name=&quot;filterChainDefinitions&quot;&gt;</span><br><span class="line">		&lt;value&gt;</span><br><span class="line">			/login.jsp* = anon</span><br><span class="line">			/logout* = anon</span><br><span class="line">			/*.js = anon</span><br><span class="line">			/*.css = anon</span><br><span class="line">			/manager/** = authc,roles[&quot;&#x7BA1;&#x7406;&#x5458;&quot;]&lt;!-- &#x8868;&#x793A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x94FE;&#x63A5; --&gt;</span><br><span class="line">			/index.jsp = authc</span><br><span class="line">		&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5EFA;&#x7ACB;myRealm.java&#xFF0C;&#x91CD;&#x5199;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;</p>
+<blockquote>
+<p>doGetAuthorizationInfo()&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x662F;&#x6743;&#x9650;&#x9A8C;&#x8BC1;<br>doGetAuthenticationInfo(AuthenticationToken token)&#x7406;&#x89E3;&#x4E3A;&#x767B;&#x9646;&#x9A8C;&#x8BC1;&#x3002;</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="shiro-&#x6388;&#x6743;"><a href="#shiro-&#x6388;&#x6743;" class="headerlink" title="shiro &#x6388;&#x6743;"></a>shiro &#x6388;&#x6743;</h1><p>Shiro&#x652F;&#x6301;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6388;&#x6743;&#x8FC7;&#x7A0B;&#xFF1A; </p>
+<ul>
+<li>&#x7F16;&#x7801;&#x5B9E;&#x73B0;</li>
+<li>&#x6CE8;&#x89E3;&#x5B9E;&#x73B0;</li>
+<li>JSP Taglig&#x5B9E;&#x73B0;</li>
+</ul>
+<h2 id="&#x89D2;&#x8272;&#x6388;&#x6743;"><a href="#&#x89D2;&#x8272;&#x6388;&#x6743;" class="headerlink" title="&#x89D2;&#x8272;&#x6388;&#x6743;"></a>&#x89D2;&#x8272;&#x6388;&#x6743;</h2><p>&#x5F53;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x662F;&#x5426;&#x62E5;&#x6709;&#x67D0;&#x4E2A;&#x89D2;&#x8272;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;Subject&#x5B9E;&#x4F8B;&#x7684;hasRole*&#x65B9;&#x6CD5;&#x9A8C;&#x8BC1;&#x3002;</p>
+<pre><code>Subject currentUser = SecurityUtils.getSubject();
+if (currentUser.hasRole(&quot;administrator&quot;)) {
+    //show the admin button
+} else {
+    //don&apos;t show the button?  Grey it out?
 }
-</code></pre><h2 id="2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"><a href="#2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;" class="headerlink" title="2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"></a>2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;</h2><pre><code>//&#x521D;&#x59CB;&#x5316;&#x70B9;    
-    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
-    //var point =  new Point(lon, lat, map.spatialReference);
-    map.centerAndZoom(point,2);
-    map.centerAt(point);
-</code></pre><h2 id="3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;"><a href="#3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;" class="headerlink" title="3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;"></a>3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;</h2><p>index.jsp&#x9875;&#x9762;&#x4E0A;&#x9700;&#x8981;&#x6DFB;&#x52A0;</p>
-<pre><code>String esriPath = request.getServerName() + &quot;:&quot; +
-request.getServerPort() + path + &quot;/&quot;;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var arcgis_js_api_home = &quot;&lt;%=esriPath%&gt;&quot;;
-    var dojoConfig = {
-        has : {
-            &quot;dojo-firebug&quot; : true
-        },
-        async : true,
-        paths : {
-            &quot;js&quot; : &quot;/../js&quot;
-        },
-    };
-&lt;/script&gt;
-</code></pre><p>&#x518D;&#x5F15;&#x5165;claro.css&#xFF0C;esri.css&#xFF0C;init.js&#xFF0C;index.js&#x3002;</p>
-<p>index.js&#x4E2D;&#x6DFB;&#x52A0;</p>
-<pre><code>require([&quot;esri/map&quot;
-     ,&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;
-     ,&quot;esri/SpatialReference&quot;
-     ],function(){
-var map = new esri.Map(&quot;arcgisDiv&quot;,{
-    logo : false,
-    center: [107.55, 24.22],
-    slider:true,
-});
-var baseUrl = &quot;http://192.168.1.139:6080/arcgis/rest/services/&quot;;
-var mapNames ={
-        &quot;dt&quot;:&quot;dt&quot; //&#x5E95;&#x56FE;
-        ,&quot;dw&quot;:&quot;dw&quot;//&#x7535;&#x7F51;
-    };
-var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&quot;/MapServer&quot;,{id:&quot;dt&quot;});
-//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&quot;);
-var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&quot;/MapServer&quot;,{id:&quot;dw&quot;});
-map.addLayers([dtLayer,dwLayer]);
-//    map.addLayer(layer);
-map.setZoom(8);
-});
-</code></pre><h2 id="4-infoWindow"><a href="#4-infoWindow" class="headerlink" title="4. infoWindow"></a>4. infoWindow</h2><pre><code>&lt;script&gt;
-require([
-  &quot;dojo/dom&quot;,
-  &quot;dojo/dom-construct&quot;,
-  &quot;esri/map&quot;, 
-  &quot;myModules/InfoWindow&quot;,
-  &quot;esri/layers/FeatureLayer&quot;,
-  &quot;esri/InfoTemplate&quot;,
-  &quot;dojo/string&quot;,
-  &quot;dojo/domReady!&quot;
-], function(
-   dom,
-   domConstruct,
-   Map,
-   InfoWindow,
-   FeatureLayer,
-   InfoTemplate,
-   string
-) {
-  //create the custom info window specifying any input options
-   var infoWindow = new  InfoWindow({
-      domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
-   });
-  var map = new Map(&quot;map&quot;, {
-      basemap: &quot;gray&quot;,
-      center: [-98.57, 39.82],
-      zoom: 4,
-      infoWindow: infoWindow
-    });
-
-  var template = new PopupTemplate({
-      title: &quot;Boston Marathon 2013&quot;,
-      description: &quot;{Percent_Fi} of starters from {STATE_NAME} finished&quot;,
-      fieldInfos: [{ //define field infos so we can specify an alias
-        fieldName: &quot;Number_Ent&quot;,
-        label: &quot;Entrants&quot;
-      },{
-        fieldName: &quot;Number_Sta&quot;,
-        label: &quot;Starters&quot;
-      },{
-        fieldName: &quot;Number_Fin&quot;,
-        label: &quot;Finishers&quot;
-      }]
-    });
-
-   var featureLayer = new FeatureLayer(&quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&quot;,{
-      mode: FeatureLayer.MODE_ONDEMAND,
-      outFields: [&quot;*&quot;],
-      infoTemplate:template
-    });
-
-    map.addLayer(featureLayer);  
-  //resize the info window 
-  map.infoWindow.resize(400, 200);
-});
-&lt;/script&gt;
 </code></pre>
       
     </div>
@@ -417,13 +324,13 @@ require([
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/ARCGIS/">ArcGIS入门</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/30/shiro入门/">shiro入门配置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-02, 02:00:26</p>
-        <p><span>最后更新:</span>2016-03-23, 14:23:15</p>
+        <p><span>发布时间:</span>2016-03-30, 15:43:06</p>
+        <p><span>最后更新:</span>2016-04-06, 15:23:14</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/ARCGIS/" title="ArcGIS入门">http://chen1218chen.github.io/2016/03/02/ARCGIS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/02/ARCGIS/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/30/shiro入门/" title="shiro入门配置">http://chen1218chen.github.io/2016/03/30/shiro入门/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/30/shiro入门/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -437,15 +344,15 @@ require([
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/02/Express.js/">
-                    
+                <a href="/2016/03/31/ManyToOne/">
+                    Hibernate ManyToOne,ManyToMany注解
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/02/hexo/">
-                    hexo的使用
+                <a href="/2016/03/17/bootstrap插件的使用/">
+                    bootstrap 常用插件使用
                 </a>
             </div>
         
@@ -456,7 +363,7 @@ require([
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初始化"><span class="toc-number">1.</span> <span class="toc-text">1. 初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-指定地图中心点"><span class="toc-number">2.</span> <span class="toc-text">2. 指定地图中心点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-加载地图"><span class="toc-number">3.</span> <span class="toc-text">3. 加载地图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-infoWindow"><span class="toc-number">4.</span> <span class="toc-text">4. infoWindow</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础配置"><span class="toc-number">1.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shiro-授权"><span class="toc-number">2.</span> <span class="toc-text">shiro 授权</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#角色授权"><span class="toc-number">2.1.</span> <span class="toc-text">角色授权</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -522,7 +429,7 @@ require([
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/Express.js/" title="上一篇: ">
+            <a href="/2016/03/31/ManyToOne/" title="上一篇: Hibernate ManyToOne,ManyToMany注解">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -530,7 +437,7 @@ require([
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/02/hexo/" title="下一篇: hexo的使用">
+            <a href="/2016/03/17/bootstrap插件的使用/" title="下一篇: bootstrap 常用插件使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         

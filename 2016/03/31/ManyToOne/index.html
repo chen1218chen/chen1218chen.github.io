@@ -3,30 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ArcGIS入门 | chen&#39;s blog</title>
+  <title>Hibernate ManyToOne,ManyToMany注解 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
+  <meta name="description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArcGIS入门">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/03/02/ARCGIS/index.html">
+<meta property="og:title" content="Hibernate ManyToOne,ManyToMany注解">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/03/31/ManyToOne/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
-<meta property="og:updated_time" content="2016-03-23T06:23:15.684Z">
+<meta property="og:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
+<meta property="og:updated_time" content="2016-04-06T02:07:47.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArcGIS入门">
-<meta name="twitter:description" content="[TOC]
-1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;log">
+<meta name="twitter:title" content="Hibernate ManyToOne,ManyToMany注解">
+<meta name="twitter:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -236,11 +224,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/ARCGIS/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2016/03/31/ManyToOne/" class="article-date">
+      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
 </a>
     </div>
   
@@ -253,7 +241,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ArcGIS入门
+      Hibernate ManyToOne,ManyToMany注解
     </h1>
   
 
@@ -264,7 +252,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate-ManyToOne-ManyToMany/">Hibernate,ManyToOne,ManyToMany</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -274,141 +262,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
-    //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
-    map = new esri.Map(&quot;map&quot;, {
-        logo : false,//&#x7981;&#x7528;logo
-        center: [107.55, 24.22],//&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;&#x5750;&#x6807;
-        slider:false,
-        nav:false,
-        isZoomSlider:true,
-        autoResize : true,
-        smartNavigation : false,
-        force3DTransforms : true,
-        isKeyboardNavigation : false,
-        sliderStyle : &quot;large&quot;,
-        showInfoWindowOnClick : true,
-        isDoubleClickZoom : false,
+        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</strong></p>
+<h1 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h1><blockquote>
+<p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
+</blockquote>
+<pre><code>JsonConfig config = new JsonConfig();
+config.setExcludes(new String[]{&quot;roles&quot;});//&#x9664;&#x53BB;roles&#x5C5E;&#x6027;
+JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
+</code></pre><p>&#x6216;&#x8005;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x89E3;&#x9664;&#x5FAA;&#x73AF;</p>
+<pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
+@ResponseBody
+public JSONArray queryAllOrgan() {
+
+    JSONArray userJSONList;
+    JsonConfig jsonConfig = new JsonConfig();
+    jsonConfig.setIgnoreDefaultExcludes(false);
+    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
+    jsonConfig.setExcludes(new String[] { &quot;handler&quot;,&quot;hibernateLazyInitializer&quot; });
+    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
+        public boolean apply(Object obj, String name, Object value) {
+        //if(value instanceof Organization &amp;&amp; name.equals(&quot;organ&quot;)){
+        if(name.equals(&quot;user&quot;)){
+                return true;
+            } else {
+                return false;
+            }
+        }
     });
-    //&#x6BD4;&#x4F8B;&#x5C3A;
-    var scalebar = new esri.dijit.Scalebar({
-        map : map,
-        scalebarStyle : &quot;ruler&quot;,
-        scalebarUnit : &quot;metric&quot;,
-        attachTo : &quot;top-left&quot;,
-    });
-    //&#x7F29;&#x7565;&#x56FE;
-    var overViewMap = new esri.dijit.OverviewMap({
-        map:map,
-        attachTo: &quot;bottom-left&quot;,
-        visible:true,
-        opacity: .40,
-        width : 300,
-        height : 150,
-    });
-    overViewMap.startup();
+    List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
+    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
+    return userJSONList;
 }
-</code></pre><h2 id="2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"><a href="#2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;" class="headerlink" title="2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"></a>2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;</h2><pre><code>//&#x521D;&#x59CB;&#x5316;&#x70B9;    
-    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
-    //var point =  new Point(lon, lat, map.spatialReference);
-    map.centerAndZoom(point,2);
-    map.centerAt(point);
-</code></pre><h2 id="3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;"><a href="#3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;" class="headerlink" title="3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;"></a>3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;</h2><p>index.jsp&#x9875;&#x9762;&#x4E0A;&#x9700;&#x8981;&#x6DFB;&#x52A0;</p>
-<pre><code>String esriPath = request.getServerName() + &quot;:&quot; +
-request.getServerPort() + path + &quot;/&quot;;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var arcgis_js_api_home = &quot;&lt;%=esriPath%&gt;&quot;;
-    var dojoConfig = {
-        has : {
-            &quot;dojo-firebug&quot; : true
-        },
-        async : true,
-        paths : {
-            &quot;js&quot; : &quot;/../js&quot;
-        },
-    };
-&lt;/script&gt;
-</code></pre><p>&#x518D;&#x5F15;&#x5165;claro.css&#xFF0C;esri.css&#xFF0C;init.js&#xFF0C;index.js&#x3002;</p>
-<p>index.js&#x4E2D;&#x6DFB;&#x52A0;</p>
-<pre><code>require([&quot;esri/map&quot;
-     ,&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;
-     ,&quot;esri/SpatialReference&quot;
-     ],function(){
-var map = new esri.Map(&quot;arcgisDiv&quot;,{
-    logo : false,
-    center: [107.55, 24.22],
-    slider:true,
-});
-var baseUrl = &quot;http://192.168.1.139:6080/arcgis/rest/services/&quot;;
-var mapNames ={
-        &quot;dt&quot;:&quot;dt&quot; //&#x5E95;&#x56FE;
-        ,&quot;dw&quot;:&quot;dw&quot;//&#x7535;&#x7F51;
-    };
-var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&quot;/MapServer&quot;,{id:&quot;dt&quot;});
-//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&quot;);
-var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&quot;/MapServer&quot;,{id:&quot;dw&quot;});
-map.addLayers([dtLayer,dwLayer]);
-//    map.addLayer(layer);
-map.setZoom(8);
-});
-</code></pre><h2 id="4-infoWindow"><a href="#4-infoWindow" class="headerlink" title="4. infoWindow"></a>4. infoWindow</h2><pre><code>&lt;script&gt;
-require([
-  &quot;dojo/dom&quot;,
-  &quot;dojo/dom-construct&quot;,
-  &quot;esri/map&quot;, 
-  &quot;myModules/InfoWindow&quot;,
-  &quot;esri/layers/FeatureLayer&quot;,
-  &quot;esri/InfoTemplate&quot;,
-  &quot;dojo/string&quot;,
-  &quot;dojo/domReady!&quot;
-], function(
-   dom,
-   domConstruct,
-   Map,
-   InfoWindow,
-   FeatureLayer,
-   InfoTemplate,
-   string
-) {
-  //create the custom info window specifying any input options
-   var infoWindow = new  InfoWindow({
-      domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
-   });
-  var map = new Map(&quot;map&quot;, {
-      basemap: &quot;gray&quot;,
-      center: [-98.57, 39.82],
-      zoom: 4,
-      infoWindow: infoWindow
-    });
-
-  var template = new PopupTemplate({
-      title: &quot;Boston Marathon 2013&quot;,
-      description: &quot;{Percent_Fi} of starters from {STATE_NAME} finished&quot;,
-      fieldInfos: [{ //define field infos so we can specify an alias
-        fieldName: &quot;Number_Ent&quot;,
-        label: &quot;Entrants&quot;
-      },{
-        fieldName: &quot;Number_Sta&quot;,
-        label: &quot;Starters&quot;
-      },{
-        fieldName: &quot;Number_Fin&quot;,
-        label: &quot;Finishers&quot;
-      }]
-    });
-
-   var featureLayer = new FeatureLayer(&quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&quot;,{
-      mode: FeatureLayer.MODE_ONDEMAND,
-      outFields: [&quot;*&quot;],
-      infoTemplate:template
-    });
-
-    map.addLayer(featureLayer);  
-  //resize the info window 
-  map.infoWindow.resize(400, 200);
-});
-&lt;/script&gt;
+</code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
+<pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
+//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
+//    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
+</code></pre><p>&#x5728;&#x5355;&#x5411;&#x5173;&#x7CFB;&#x4E2D;&#x6CA1;&#x6709;mappedBy,&#x4E3B;&#x63A7;&#x65B9;&#x76F8;&#x5F53;&#x4E8E;&#x62E5;&#x6709;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x65B9;&#x7684;&#x5916;&#x952E;&#x7684;&#x4E00;&#x65B9;&#x3002;</p>
+<ol>
+<li>@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+</ol>
+<pre><code>@JoinColumn(name = &quot;rid&quot;)  
+@PrimaryKeyJoinColumn
 </code></pre>
       
     </div>
@@ -417,13 +313,13 @@ require([
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/ARCGIS/">ArcGIS入门</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/31/ManyToOne/">Hibernate ManyToOne,ManyToMany注解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-02, 02:00:26</p>
-        <p><span>最后更新:</span>2016-03-23, 14:23:15</p>
+        <p><span>发布时间:</span>2016-03-31, 15:02:55</p>
+        <p><span>最后更新:</span>2016-04-06, 10:07:47</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/ARCGIS/" title="ArcGIS入门">http://chen1218chen.github.io/2016/03/02/ARCGIS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/02/ARCGIS/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/31/ManyToOne/" title="Hibernate ManyToOne,ManyToMany注解">http://chen1218chen.github.io/2016/03/31/ManyToOne/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/31/ManyToOne/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -437,15 +333,15 @@ require([
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/02/Express.js/">
-                    
+                <a href="/2016/04/06/shiro角色配置/">
+                    shiro角色配置
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/02/hexo/">
-                    hexo的使用
+                <a href="/2016/03/30/shiro入门/">
+                    shiro入门配置
                 </a>
             </div>
         
@@ -456,7 +352,7 @@ require([
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-初始化"><span class="toc-number">1.</span> <span class="toc-text">1. 初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-指定地图中心点"><span class="toc-number">2.</span> <span class="toc-text">2. 指定地图中心点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-加载地图"><span class="toc-number">3.</span> <span class="toc-text">3. 加载地图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-infoWindow"><span class="toc-number">4.</span> <span class="toc-text">4. infoWindow</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#json死循环"><span class="toc-number">1.</span> <span class="toc-text">json死循环</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -522,7 +418,7 @@ require([
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/Express.js/" title="上一篇: ">
+            <a href="/2016/04/06/shiro角色配置/" title="上一篇: shiro角色配置">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -530,7 +426,7 @@ require([
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/02/hexo/" title="下一篇: hexo的使用">
+            <a href="/2016/03/30/shiro入门/" title="下一篇: shiro入门配置">
                 <i class="fa fa-angle-right"></i>
             </a>
         
