@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: java | chen&#39;s blog</title>
+  <title>chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="chen's blog">
-<meta property="og:url" content="http://chen1218chen.github.io/tags/java/index.html">
+<meta property="og:url" content="http://chen1218chen.github.io/page/3/index.html">
 <meta property="og:site_name" content="chen's blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -30,8 +30,13 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+      <style> .article { opacity: 0;} </style>
+  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -41,10 +46,10 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
+          isHome: true,
           isPost: false,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false,
       }
@@ -225,52 +230,112 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/03/02/java学习/" class="archive-article-date">
-      <time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">03-02</time>
+    <div class="article-meta">
+      <a href="/2016/03/02/hexo/" class="article-date">
+      <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/02/java学习/">java</a>
+      <a class="article-title" href="/2016/03/02/hexo/">hexo的使用</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>[TOC]</p>
+<h2 id="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"><a href="#&#x5229;&#x7528;npm&#x5B89;&#x88C5;" class="headerlink" title="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"></a>&#x5229;&#x7528;npm&#x5B89;&#x88C5;</h2><pre><code>npm install -g hexo;
+hexo init &lt;folder&gt;;
+npm stall;//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;
+hexo new &quot;postName&quot; #&#x65B0;&#x5EFA;&#x6587;&#x7AE0;
+hexo new page &quot;pageName&quot; #&#x65B0;&#x5EFA;&#x9875;&#x9762;
+hexo generate;
+hexo server;
+</code></pre><p>   &#x81F3;&#x6B64;&#x672C;&#x5730;hexo&#x535A;&#x5BA2;&#x5DF2;&#x7ECF;&#x642D;&#x5EFA;&#x8D77;&#x6765;&#x4E86;&#xFF0C;Http://localhost:4000&#x67E5;&#x770B;</p>
+<pre><code>#&#x6E05;&#x9664;&#x7F13;&#x5B58;
+hexo clean
+</code></pre><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p>&#x7F16;&#x8F91;_config.yml</p>
+<pre><code>deploy:
+ type: github
+ repository: https://github.com/zippera/zippera.github.io.git
+ branch: master
+</code></pre><p>&#x636E;&#x8BF4;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;hexo &#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; type &#x8981;&#x5199;&#x6210; git&#xFF0C;&#x800C;&#x4E0D;&#x662F; github&#x3002;<br>&#x6267;&#x884C;&#x4E0B;&#x5217;&#x6307;&#x4EE4;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x3002;</p>
+<pre><code>hexo generate
+hexo deploy //&#x540C;&#x6B65;&#x5230;github
 
-          
+//&#x6307;&#x7684;&#x662F;&#x751F;&#x6210;&#x540E;&#x9A6C;&#x4E0A;&#x90E8;&#x7F72;&#x7AD9;&#x70B9;
+hexo g -d or 
+hexo d -g 
+</code></pre><p><strong>ERROR Deployer not found : github</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br>deploy&#x7684;type&#x6539;&#x6210;git&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x4E0B;</p>
+<pre><code>npm install hexo-deployer-git --save
+hexo g
+hexo d
+</code></pre><p><strong>ERROR&#xFF1A;failed to execute prompt script (exit code 1)</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>deploy:
+  type: git
+  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
+  branch: master
+</code></pre><p>git&#x8FDE;&#x63A5;&#x6D4B;&#x8BD5;</p>
+<pre><code>ssh -T git@github.com
+</code></pre><h2 id="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"><a href="#&#x5F00;&#x542F;RSS&#x529F;&#x80FD;" class="headerlink" title="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"></a>&#x5F00;&#x542F;RSS&#x529F;&#x80FD;</h2><p>&#x5B89;&#x88C5;RSS,&#xFF0C;&#x5E76;&#x4E14;&#x7F16;&#x8F91;hexo/_config.yml&#xFF0C;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>npm install hexo-generator-feed --save
+rss: /atom.xml #rss&#x5730;&#x5740;  &#x9ED8;&#x8BA4;&#x5373;&#x53EF;
+</code></pre><h2 id="&#x547D;&#x4EE4;&#x7B80;&#x5316;"><a href="#&#x547D;&#x4EE4;&#x7B80;&#x5316;" class="headerlink" title="&#x547D;&#x4EE4;&#x7B80;&#x5316;"></a>&#x547D;&#x4EE4;&#x7B80;&#x5316;</h2><p>hexo&#x73B0;&#x5728;&#x652F;&#x6301;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x683C;&#x5F0F;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>hexo g == hexo generate
+hexo d == hexo deploy
+hexo s == hexo server
+hexo n == hexo new
+</code></pre><h2 id="&#x7B80;&#x5355;"><a href="#&#x7B80;&#x5355;" class="headerlink" title="&#x7B80;&#x5355;"></a>&#x7B80;&#x5355;</h2><pre><code>hexo n #&#x5199;&#x6587;&#x7AE0;
+hexo g #&#x751F;&#x6210;
+hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d -g
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      
+      <div class="clearfix"></div>
+    </div>
     
+  </div>
+  
+</article>
 
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">

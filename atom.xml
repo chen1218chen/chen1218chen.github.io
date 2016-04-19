@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-04-06T07:16:00.620Z</updated>
+  <updated>2016-04-18T02:45:46.316Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,106 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring</title>
+    <link href="http://chen1218chen.github.io/2016/04/18/spring/"/>
+    <id>http://chen1218chen.github.io/2016/04/18/spring/</id>
+    <published>2016-04-18T10:13:55.000Z</published>
+    <updated>2016-04-18T02:45:46.316Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&lt;/a&gt; framework,&amp;#x8FDB;&amp;#x5165;&amp;#x7684;spring framework&amp;#x9875;&amp;#xFF0C;&amp;#x5373;&amp;#x53EF;&amp;#x627E;&amp;#x5230;spring&amp;#x5305;&amp;#x53CA;&amp;#x4E0B;&amp;#x8F7D;spring&amp;#x6846;&amp;#x67B6;&amp;#x7248;&amp;#x672C;&amp;#x5BF9;jdk&amp;#x7684;&amp;#x8981;&amp;#x6C42;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&quot; target=&quot;_blank&quot; rel=&quot;ex
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>BootstrapPaginator</title>
+    <link href="http://chen1218chen.github.io/2016/04/14/BootstrapPaginator/"/>
+    <id>http://chen1218chen.github.io/2016/04/14/BootstrapPaginator/</id>
+    <published>2016-04-14T14:38:49.000Z</published>
+    <updated>2016-04-14T07:36:44.691Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;a href=&quot;#&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;/a&gt;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;nav style=&amp;quot;text-align: center&amp;quot;&amp;gt;
+    &amp;lt;ul class=&amp;quot;pagination&amp;quot; id=&amp;quot;pageUl&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
+&amp;lt;/nav&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x542F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x542F;&amp;#x7528;&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;var element = $(&amp;apos;#pageUl&amp;apos;);//&amp;#x5BF9;&amp;#x5E94;&amp;#x4E0B;&amp;#x9762;ul&amp;#x7684;ID  
+var options = { 
+    size:&amp;quot;normal&amp;quot;,
+    alignment:&amp;quot;center&amp;quot;,
+    bootstrapMajorVersion:3,  
+    currentPage: 1,//&amp;#x5F53;&amp;#x524D;&amp;#x9875;&amp;#x9762;  
+    numberOfPages: 5,//&amp;#x4E00;&amp;#x9875;&amp;#x663E;&amp;#x793A;&amp;#x51E0;&amp;#x4E2A;&amp;#x6309;&amp;#x94AE;&amp;#xFF08;&amp;#x5728;ul&amp;#x91CC;&amp;#x9762;&amp;#x751F;&amp;#x6210;5&amp;#x4E2A;li&amp;#xFF09;  
+    totalPages:22, //&amp;#x603B;&amp;#x9875;&amp;#x6570;  
+    itemTexts: function(type, page, current) { //&amp;#x4FEE;&amp;#x6539;&amp;#x663E;&amp;#x793A;&amp;#x6587;&amp;#x5B57;
+        switch (type) {
+        case &amp;quot;first&amp;quot;:
+            return &amp;quot;&amp;#x7B2C;&amp;#x4E00;&amp;#x9875;&amp;quot;;
+        case &amp;quot;prev&amp;quot;:
+            return &amp;quot;&amp;#x4E0A;&amp;#x4E00;&amp;#x9875;&amp;quot;;
+        case &amp;quot;next&amp;quot;:
+            return &amp;quot;&amp;#x4E0B;&amp;#x4E00;&amp;#x9875;&amp;quot;;
+        case &amp;quot;last&amp;quot;:
+            return &amp;quot;&amp;#x6700;&amp;#x540E;&amp;#x4E00;&amp;#x9875;&amp;quot;;
+        case &amp;quot;page&amp;quot;:
+            return page;
+        }
+    }, 
+    onPageClicked: function (event, originalEvent, type, page) { //&amp;#x6362;&amp;#x9875;
+       /* $.post(&amp;quot;/Exam/GetExamLogs&amp;quot;,{page:page,take:2},function(data) {
+            $(&amp;quot;#logtable&amp;quot;).html(data);
+        });*/
+        $(&amp;apos;#infolist&amp;apos;).html(&amp;apos;&amp;apos;);
+        $(&amp;apos;#infolist&amp;apos;).append(str);
+    },
+}  
+//&amp;#x5206;&amp;#x9875;&amp;#x542F;&amp;#x52A8;
+element.bootstrapPaginator(options);  
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;a href=&quot;#&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x7
+    
+    </summary>
+    
+    
+      <category term="Bootstrap Paginator, Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap-Paginator-Bootstrap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>annotation</title>
+    <link href="http://chen1218chen.github.io/2016/04/07/annotation/"/>
+    <id>http://chen1218chen.github.io/2016/04/07/annotation/</id>
+    <published>2016-04-06T16:05:54.000Z</published>
+    <updated>2016-04-06T08:12:41.147Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;catalog: &amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x540D;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;schema: postgreSQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&lt;/p&gt;
+&lt;p&gt;  @Table(name = &amp;#x201C;category&amp;#x201D;, catalog = &amp;#x201C;users&amp;#x201D;)&lt;br&gt;  @Table(name = &amp;#x201C;roles&amp;#x201D;, schema = &amp;#x201C;public&amp;#x201D;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;catalog: &amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x540D;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;schema: postgreSQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&lt;/p
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>shiro角色配置</title>
@@ -293,11 +393,11 @@ public class Permission {
   </entry>
   
   <entry>
-    <title>Hibernate ManyToOne,ManyToMany注解</title>
+    <title>Hibernate ManyToOne, ManyToMany注解</title>
     <link href="http://chen1218chen.github.io/2016/03/31/ManyToOne/"/>
     <id>http://chen1218chen.github.io/2016/03/31/ManyToOne/</id>
     <published>2016-03-31T15:02:55.000Z</published>
-    <updated>2016-04-06T02:07:47.159Z</updated>
+    <updated>2016-04-06T07:32:51.269Z</updated>
     
     <content type="html">&lt;p&gt;&lt;strong&gt;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;&amp;#x53EF;&amp;#x4EE5;&amp;#x907F;&amp;#x514D;&amp;#x51FA;&amp;#x73B0;&amp;#x5FAA;&amp;#x73AF;&amp;#x3002;&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&quot;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot;&gt;&lt;a href=&quot;#json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot; class=&quot;headerlink&quot; title=&quot;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot;&gt;&lt;/a&gt;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&lt;/h1&gt;&lt;blockquote&gt;
@@ -351,7 +451,7 @@ public JSONArray queryAllOrgan() {
     </summary>
     
     
-      <category term="Hibernate,ManyToOne,ManyToMany" scheme="http://chen1218chen.github.io/tags/Hibernate-ManyToOne-ManyToMany/"/>
+      <category term="Hibernate, ManyToOne, ManyToMany" scheme="http://chen1218chen.github.io/tags/Hibernate-ManyToOne-ManyToMany/"/>
     
   </entry>
   
@@ -1536,72 +1636,6 @@ require([
     
     
       <category term="arcgis" scheme="http://chen1218chen.github.io/tags/arcgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo的使用</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/hexo/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/hexo/</id>
-    <published>2016-03-02T01:56:55.193Z</published>
-    <updated>2016-03-30T02:34:50.350Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;a href=&quot;#&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;/a&gt;&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;npm install -g hexo;
-hexo init &amp;lt;folder&amp;gt;;
-npm stall;//&amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#x5305;
-hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;#x7AE0;
-hexo new page &amp;quot;pageName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x9875;&amp;#x9762;
-hexo generate;
-hexo server;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   &amp;#x81F3;&amp;#x6B64;&amp;#x672C;&amp;#x5730;hexo&amp;#x535A;&amp;#x5BA2;&amp;#x5DF2;&amp;#x7ECF;&amp;#x642D;&amp;#x5EFA;&amp;#x8D77;&amp;#x6765;&amp;#x4E86;&amp;#xFF0C;Http://localhost:4000&amp;#x67E5;&amp;#x770B;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#&amp;#x6E05;&amp;#x9664;&amp;#x7F13;&amp;#x5B58;
-hexo clean
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;github&quot;&gt;&lt;a href=&quot;#github&quot; class=&quot;headerlink&quot; title=&quot;github&quot;&gt;&lt;/a&gt;github&lt;/h2&gt;&lt;p&gt;&amp;#x7F16;&amp;#x8F91;_config.yml&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;deploy:
- type: github
- repository: https://github.com/zippera/zippera.github.io.git
- branch: master
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x636E;&amp;#x8BF4;&amp;#x6700;&amp;#x65B0;&amp;#x7248;&amp;#x672C;&amp;#x7684;hexo &amp;#x4E2D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x7684; type &amp;#x8981;&amp;#x5199;&amp;#x6210; git&amp;#xFF0C;&amp;#x800C;&amp;#x4E0D;&amp;#x662F; github&amp;#x3002;&lt;br&gt;&amp;#x6267;&amp;#x884C;&amp;#x4E0B;&amp;#x5217;&amp;#x6307;&amp;#x4EE4;&amp;#x5373;&amp;#x53EF;&amp;#x5B8C;&amp;#x6210;&amp;#x90E8;&amp;#x7F72;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo generate
-hexo deploy //&amp;#x540C;&amp;#x6B65;&amp;#x5230;github
-
-//&amp;#x6307;&amp;#x7684;&amp;#x662F;&amp;#x751F;&amp;#x6210;&amp;#x540E;&amp;#x9A6C;&amp;#x4E0A;&amp;#x90E8;&amp;#x7F72;&amp;#x7AD9;&amp;#x70B9;
-hexo g -d or 
-hexo d -g 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;ERROR Deployer not found : github&lt;/strong&gt;&lt;br&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;br&gt;deploy&amp;#x7684;type&amp;#x6539;&amp;#x6210;git&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x8FD0;&amp;#x884C;&amp;#x4E0B;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install hexo-deployer-git --save
-hexo g
-hexo d
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;ERROR&amp;#xFF1A;failed to execute prompt script (exit code 1)&lt;/strong&gt;&lt;br&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;deploy:
-  type: git
-  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
-  branch: master
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;git&amp;#x8FDE;&amp;#x63A5;&amp;#x6D4B;&amp;#x8BD5;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh -T git@github.com
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x5F00;&amp;#x542F;RSS&amp;#x529F;&amp;#x80FD;&quot;&gt;&lt;a href=&quot;#&amp;#x5F00;&amp;#x542F;RSS&amp;#x529F;&amp;#x80FD;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5F00;&amp;#x542F;RSS&amp;#x529F;&amp;#x80FD;&quot;&gt;&lt;/a&gt;&amp;#x5F00;&amp;#x542F;RSS&amp;#x529F;&amp;#x80FD;&lt;/h2&gt;&lt;p&gt;&amp;#x5B89;&amp;#x88C5;RSS,&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x7F16;&amp;#x8F91;hexo/_config.yml&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0;&amp;#x5982;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install hexo-generator-feed --save
-rss: /atom.xml #rss&amp;#x5730;&amp;#x5740;  &amp;#x9ED8;&amp;#x8BA4;&amp;#x5373;&amp;#x53EF;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x547D;&amp;#x4EE4;&amp;#x7B80;&amp;#x5316;&quot;&gt;&lt;a href=&quot;#&amp;#x547D;&amp;#x4EE4;&amp;#x7B80;&amp;#x5316;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x547D;&amp;#x4EE4;&amp;#x7B80;&amp;#x5316;&quot;&gt;&lt;/a&gt;&amp;#x547D;&amp;#x4EE4;&amp;#x7B80;&amp;#x5316;&lt;/h2&gt;&lt;p&gt;hexo&amp;#x73B0;&amp;#x5728;&amp;#x652F;&amp;#x6301;&amp;#x66F4;&amp;#x52A0;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x547D;&amp;#x4EE4;&amp;#x683C;&amp;#x5F0F;&amp;#x4E86;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo g == hexo generate
-hexo d == hexo deploy
-hexo s == hexo server
-hexo n == hexo new
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x7B80;&amp;#x5355;&quot;&gt;&lt;a href=&quot;#&amp;#x7B80;&amp;#x5355;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7B80;&amp;#x5355;&quot;&gt;&lt;/a&gt;&amp;#x7B80;&amp;#x5355;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;hexo n #&amp;#x5199;&amp;#x6587;&amp;#x7AE0;
-hexo g #&amp;#x751F;&amp;#x6210;
-hexo d #&amp;#x90E8;&amp;#x7F72; # &amp;#x53EF;&amp;#x4E0E;hexo g&amp;#x5408;&amp;#x5E76;&amp;#x4E3A; hexo d -g
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;a href=&quot;#&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5229;&amp;
-    
-    </summary>
-    
-    
-      <category term="hexo,blog" scheme="http://chen1218chen.github.io/tags/hexo-blog/"/>
     
   </entry>
   
