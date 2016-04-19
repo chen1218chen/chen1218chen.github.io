@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-04-18T02:45:46.316Z</updated>
+  <updated>2016-04-19T08:36:29.763Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -16,18 +16,147 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SpringMVC</title>
+    <link href="http://chen1218chen.github.io/2016/04/20/SpringMVC/"/>
+    <id>http://chen1218chen.github.io/2016/04/20/SpringMVC/</id>
+    <published>2016-04-19T16:35:41.000Z</published>
+    <updated>2016-04-19T08:36:29.763Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;SpringMVC&quot;&gt;&lt;a href=&quot;#SpringMVC&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC&quot;&gt;&lt;/a&gt;SpringMVC&lt;/h1&gt;&lt;h2 id=&quot;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot;&gt;&lt;a href=&quot;#Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot;&gt;&lt;/a&gt;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;&lt;strong&gt;DispatcherServlet&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;SpringMVC&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;DispatcherServlet&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;,&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x662F;&amp;#x9996;&amp;#x5148;&amp;#x63D0;&amp;#x4EA4;&amp;#x7ED9;DispatcherServlet,DispatcherServlet&amp;#x8D1F;&amp;#x8D23;&amp;#x8F6C;&amp;#x53D1;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;Request&amp;#x8BF7;&amp;#x6C42;&amp;#x7ED9;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;Handler&amp;#x3002;DispatcherServlet&amp;#x662F;&amp;#x7EE7;&amp;#x627F;&amp;#x81EA;HttpServlet&amp;#x7684;&amp;#x3002;&lt;br&gt;&lt;strong&gt;web.xml&lt;/strong&gt;&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 1.Spring&amp;#x914D;&amp;#x7F6E; --&amp;gt;
+&amp;lt;listener&amp;gt;
+   &amp;lt;listenerclass&amp;gt;
+     org.springframework.web.context.ContextLoaderListener
+   &amp;lt;/listener-class&amp;gt;
+&amp;lt;/listener&amp;gt;
+
+&amp;lt;!-- 2.springMVC&amp;#x5F0F;rest --&amp;gt;
+&amp;lt;servlet&amp;gt;
+    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
+    &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt;
+
+    &amp;lt;!--&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;servlet.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x548C;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;WEB-INF&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;[&amp;lt;servlet-name&amp;gt;]-servlet.xml&amp;#xFF0C;&amp;#x5982;rest-servlet.xml--&amp;gt;
+
+    &amp;lt;init-param&amp;gt;
+        &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
+        &amp;lt;param-value&amp;gt;classpath:rest-servlet.xml&amp;lt;/param-value&amp;gt;
+    &amp;lt;/init-param&amp;gt;
+    &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt;
+&amp;lt;/servlet&amp;gt;
+&amp;lt;servlet-mapping&amp;gt;
+    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
+    &amp;lt;url-pattern&amp;gt;/rest/*&amp;lt;/url-pattern&amp;gt;
+&amp;lt;/servlet-mapping&amp;gt;
+
+&amp;lt;!-- 3.&amp;#x6307;&amp;#x5B9A;Spring Bean&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x6240;&amp;#x5728;&amp;#x76EE;&amp;#x5F55;&amp;#x3002;&amp;#x9ED8;&amp;#x8BA4;&amp;#x914D;&amp;#x7F6E;&amp;#x5728;WEB-INF&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B; --&amp;gt;
+&amp;lt;context-param&amp;gt;
+    &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
+    &amp;lt;param-value&amp;gt;classpath:applicationContext.xml&amp;lt;/param-value&amp;gt;
+&amp;lt;/context-param&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; &amp;#x4EE5;&amp;#x4E0A;&amp;#x662F;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;    &lt;/p&gt;
+&lt;h2 id=&quot;rest-servlet-xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#rest-servlet-xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;rest-servlet.xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;rest-servlet.xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;     
+       xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns:p=&amp;quot;http://www.springframework.org/schema/p&amp;quot;     
+        xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot;     
+   xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   
+       http://www.springframework.org/schema/context &amp;lt;a href=&amp;quot;http://www.springframework.org/schema/context/spring-context-3.0.xsd&amp;quot;&amp;gt;http://www.springframework.org/schema/context/spring-context-3.0.xsd&amp;lt;/a&amp;gt;&amp;quot;&amp;gt;
+
+    &amp;lt;!-- &amp;#x542F;&amp;#x7528;spring mvc &amp;#x6CE8;&amp;#x89E3; --&amp;gt;
+    &amp;lt;context:annotation-config /&amp;gt;
+
+    &amp;lt;!-- &amp;#x8BBE;&amp;#x7F6E;&amp;#x4F7F;&amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x7C7B;&amp;#x6240;&amp;#x5728;&amp;#x7684;jar&amp;#x5305; --&amp;gt;
+    &amp;lt;context:component-scan base-package=&amp;quot;com.cc&amp;quot;&amp;gt;&amp;lt;/context:component-scan&amp;gt;
+
+    &amp;lt;!-- &amp;#x5B8C;&amp;#x6210;&amp;#x8BF7;&amp;#x6C42;&amp;#x548C;&amp;#x6CE8;&amp;#x89E3;POJO&amp;#x7684;&amp;#x6620;&amp;#x5C04; --&amp;gt;
+    &amp;lt;bean class=&amp;quot;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&amp;quot; /&amp;gt;
+&amp;#x3000;&amp;#x3000;
+    &amp;lt;!-- &amp;#x5BF9;&amp;#x8F6C;&amp;#x5411;&amp;#x9875;&amp;#x9762;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&amp;#x89E3;&amp;#x6790;&amp;#x3002;prefix&amp;#xFF1A;&amp;#x524D;&amp;#x7F00;&amp;#xFF0C; suffix&amp;#xFF1A;&amp;#x540E;&amp;#x7F00; --&amp;gt;
+    &amp;lt;bean class=&amp;quot;org.springframework.web.servlet.view.InternalResourceViewResolver&amp;quot; p:prefix=&amp;quot;/jsp/&amp;quot; p:suffix=&amp;quot;.jsp&amp;quot; /&amp;gt;
+&amp;lt;/beans&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;SpringMVC&quot;&gt;&lt;a href=&quot;#SpringMVC&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC&quot;&gt;&lt;/a&gt;SpringMVC&lt;/h1&gt;&lt;h2 id=&quot;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;Dispatc
+    
+    </summary>
+    
+    
+      <category term="spring, springMVC" scheme="http://chen1218chen.github.io/tags/spring-springMVC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>spring</title>
     <link href="http://chen1218chen.github.io/2016/04/18/spring/"/>
     <id>http://chen1218chen.github.io/2016/04/18/spring/</id>
     <published>2016-04-18T10:13:55.000Z</published>
-    <updated>2016-04-18T02:45:46.316Z</updated>
+    <updated>2016-04-19T08:34:24.480Z</updated>
     
-    <content type="html">&lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&lt;/a&gt; framework,&amp;#x8FDB;&amp;#x5165;&amp;#x7684;spring framework&amp;#x9875;&amp;#xFF0C;&amp;#x5373;&amp;#x53EF;&amp;#x627E;&amp;#x5230;spring&amp;#x5305;&amp;#x53CA;&amp;#x4E0B;&amp;#x8F7D;spring&amp;#x6846;&amp;#x67B6;&amp;#x7248;&amp;#x672C;&amp;#x5BF9;jdk&amp;#x7684;&amp;#x8981;&amp;#x6C42;&lt;/p&gt;
-</content>
+    <content type="html">&lt;h2 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h2&gt;&lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&lt;/a&gt; framework,&amp;#x8FDB;&amp;#x5165;&amp;#x7684;spring framework&amp;#x9875;&amp;#xFF0C;&amp;#x5373;&amp;#x53EF;&amp;#x627E;&amp;#x5230;spring&amp;#x5305;&amp;#x53CA;&amp;#x4E0B;&amp;#x8F7D;spring&amp;#x6846;&amp;#x67B6;&amp;#x7248;&amp;#x672C;&amp;#x5BF9;jdk&amp;#x7684;&amp;#x8981;&amp;#x6C42;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x7B80;&amp;#x5355;&amp;#x7406;&amp;#x89E3;&quot;&gt;&lt;a href=&quot;#&amp;#x7B80;&amp;#x5355;&amp;#x7406;&amp;#x89E3;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7B80;&amp;#x5355;&amp;#x7406;&amp;#x89E3;&quot;&gt;&lt;/a&gt;&amp;#x7B80;&amp;#x5355;&amp;#x7406;&amp;#x89E3;&lt;/h3&gt;&lt;p&gt;Spring&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7BA1;&amp;#x7406;&amp;#x6846;&amp;#x67B6;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#xFF0C;&amp;#x4F60;&amp;#x4E0D;&amp;#x7528;&amp;#x518D;&amp;#x8003;&amp;#x8651;&amp;#x4F60;new&amp;#x5BF9;&amp;#x8C61;&amp;#x4E86;&amp;#xFF0C;&amp;#x5B83;&amp;#x4F1A;&amp;#x5E2E;&amp;#x4F60;&amp;#x505A;&amp;#xFF0C;&amp;#x964D;&amp;#x4F4E;&amp;#x4E86;&amp;#x5C42;&amp;#x4E0E;&amp;#x5C42;&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x8026;&amp;#x5408;&amp;#x5EA6;&amp;#x3002;Spring&amp;#x91CC;&amp;#x9762;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x7684;&amp;#x601D;&amp;#x60F3;&amp;#xFF0C;IOC&amp;#x5C31;&amp;#x662F;&amp;#x63A7;&amp;#x5236;&amp;#x53CD;&amp;#x8F6C;&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;&amp;#x3002;AOP&amp;#x662F;&amp;#x9762;&amp;#x5411;&amp;#x5207;&amp;#x9762;&amp;#x7684;&amp;#xFF0C;&amp;#x6709;&amp;#x70B9;&amp;#x50CF;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&quot;Spring&amp;#x652F;&amp;#x6301;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&quot;&gt;&lt;a href=&quot;#Spring&amp;#x652F;&amp;#x6301;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x652F;&amp;#x6301;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&quot;&gt;&lt;/a&gt;Spring&amp;#x652F;&amp;#x6301;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&lt;/h3&gt;&lt;p&gt;Spring&amp;#x7684;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5206;&amp;#x4E3A;&amp;#x58F0;&amp;#x660E;&amp;#x5F0F;&amp;#x8DDF;&amp;#x7F16;&amp;#x7A0B;&amp;#x5F0F;&amp;#x3002;&amp;#x58F0;&amp;#x660E;&amp;#x5F0F;&amp;#x5C31;&amp;#x662F;&amp;#x5728;Spring&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x8FDB;&amp;#x884C;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&amp;#xFF1B;&amp;#x7F16;&amp;#x7A0B;&amp;#x5F0F;&amp;#x5C31;&amp;#x662F;&amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x5199;&amp;#x5230;&amp;#x4EE3;&amp;#x7801;&amp;#x91CC;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x5F00;&amp;#x542F;&amp;#x6CE8;&amp;#x89E3;&amp;#x65B9;&amp;#x5F0F;--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;context:annotation-config /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;sessionFactory --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;sessionFactory&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;configLocation&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;value&amp;gt;classpath:config/hibernate.cfg.xml&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;packagesToScan&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;list&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;value&amp;gt;com.entity&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/list&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;transactionManager&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.HibernateTransactionManager&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;sessionFactory&amp;quot; ref=&amp;quot;sessionFactory&amp;quot;&amp;gt;&amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x7B2C;&amp;#x56DB;&amp;#x79CD;&amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6CE8;&amp;#x89E3; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;transactionManager&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;&amp;#x6CE8;&amp;#x89E3;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x6CE8;&amp;#x89E3;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6CE8;&amp;#x89E3;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;&lt;/strong&gt; &amp;#x662F;spring&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;&amp;#x4F7F;&amp;#x7528;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x5BFC;&amp;#x5165;spring&amp;#x76EE;&amp;#x5F55;common-annotations.jar&amp;#x8FD9;&amp;#x4E2A;&amp;#x5305;&amp;#x3002;   &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;&lt;/strong&gt; 3.1&amp;#x7248;&amp;#x672C;&amp;#x5F00;&amp;#x59CB;&amp;#x6709;&amp;#x8FD9;&amp;#x4E2A;&amp;#x914D;&amp;#x7F6E; ,&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x518C;DefaultAnnotationHandlerMapping&amp;#x4E0E;AnnotationMethodHandlerAdapter &amp;#x4E24;&amp;#x4E2A;bean,&amp;#x662F;spring MVC&amp;#x4E3A;@Controllers&amp;#x5206;&amp;#x53D1;&amp;#x8BF7;&amp;#x6C42;&amp;#x6240;&amp;#x5FC5;&amp;#x987B;&amp;#x7684;&amp;#x3002;  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;context:annotation-config&gt; declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.  &lt;/context:annotation-config&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mvc:annotation-driven&gt; is actually rather pointless. It declares explicit support for annotation-driven MVC controllers (i.e.@RequestMapping, @Controller, etc), even though support for those is the default behaviour.&lt;/mvc:annotation-driven&gt;&lt;/p&gt;
+&lt;p&gt;My advice is to always declare &lt;context:annotation-config&gt;, but don&amp;#x2019;t bother with &amp;lt;mvc:annotation-driven /unless you want JSON support via Jackson.  &lt;/context:annotation-config&gt;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;p&gt;&amp;#x5728;dao&amp;#x5C42;&amp;#x7C7B;&amp;#x3001;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E0A;&amp;#x9762;&amp;#x6DFB;&amp;#x52A0;@Transactional&amp;#x6CE8;&amp;#x89E3;&amp;#xFF0C;&amp;#x4E3A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;package com.dao;
+
+@Transactional
+public class UserDaoImpl_BAK extends HibernateTemplate {
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
+    public void addUser(User user) throws Exception {
+        this.save(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
+    public void modifyUser(User user) {
+        this.update(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
+    public void delUser(String username) {
+        this.delete(this.load(User.class, username));
+    }
+
+    @Transactional(readOnly=true)
+    public void selectUser() {
+    }
+}    
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;applicationContext-xml-&amp;#x516C;&amp;#x5171;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#applicationContext-xml-&amp;#x516C;&amp;#x5171;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;applicationContext.xml &amp;#x516C;&amp;#x5171;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&lt;strong&gt;applicationContext.xml&lt;/strong&gt; &amp;#x516C;&amp;#x5171;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;sessionFactory --&amp;gt;
+&amp;lt;bean id=&amp;quot;sessionFactory&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&amp;quot;&amp;gt;
+    &amp;lt;property name=&amp;quot;configLocation&amp;quot;&amp;gt;
+        &amp;lt;value&amp;gt;classpath:hibernate.cfg.xml&amp;lt;/value&amp;gt;
+    &amp;lt;/property&amp;gt;
+    &amp;lt;property name=&amp;quot;packagesToScan&amp;quot;&amp;gt;
+        &amp;lt;list&amp;gt;
+            &amp;lt;value&amp;gt;com.entity&amp;lt;/value&amp;gt;
+        &amp;lt;/list&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#xFF08;&amp;#x58F0;&amp;#x660E;&amp;#x5F0F;&amp;#x7684;&amp;#x4E8B;&amp;#x52A1;&amp;#xFF09; --&amp;gt;
+&amp;lt;bean id=&amp;quot;transactionManager&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.HibernateTransactionManager&amp;quot;&amp;gt;
+    &amp;lt;property name=&amp;quot;sessionFactory&amp;quot; ref=&amp;quot;sessionFactory&amp;quot;&amp;gt;&amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+
+&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;DAO --&amp;gt; 
+&amp;lt;bean id=&amp;quot;userDao&amp;quot; class=&amp;quot;com.dao.UserDaoImpl&amp;quot;&amp;gt;
+    &amp;lt;property name=&amp;quot;sessionFactory&amp;quot; ref=&amp;quot;sessionFactory&amp;quot;&amp;gt;&amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xFF0C;&amp;#x8FDB;&amp;#x5165;projects&amp;#xFF0C;&amp;#x627E;&amp;#x5230;spring&quot; target=&quot;_blank&quot; rel=&quot;ex
+      &lt;h2 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h2&gt;&lt;p&gt;&amp;#x4E3B;&amp;#x9875;&amp;#xFF1A;&lt;a href=&quot;http://spring.io/&amp;#xF
     
     </summary>
     
@@ -35,16 +164,19 @@
   </entry>
   
   <entry>
-    <title>BootstrapPaginator</title>
+    <title>BootstrapPaginator插件的使用</title>
     <link href="http://chen1218chen.github.io/2016/04/14/BootstrapPaginator/"/>
     <id>http://chen1218chen.github.io/2016/04/14/BootstrapPaginator/</id>
     <published>2016-04-14T14:38:49.000Z</published>
-    <updated>2016-04-14T07:36:44.691Z</updated>
+    <updated>2016-04-19T08:13:33.320Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;a href=&quot;#&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;/a&gt;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;nav style=&amp;quot;text-align: center&amp;quot;&amp;gt;
+    <content type="html">&lt;p&gt;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x4FE1;&amp;#x606F;&amp;#x5C55;&amp;#x793A;&amp;#x5217;&amp;#x8868;&amp;#x9875;&amp;#x9762;&amp;#x8FDB;&amp;#x884C;&amp;#x5206;&amp;#x9875;&amp;#x663E;&amp;#x793A;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x65F6;&amp;#x4E00;&amp;#x6B21;&amp;#x6027;&amp;#x53D6;&amp;#x51FA;&amp;#x5206;&amp;#x9875;&amp;#x5C55;&amp;#x793A;&amp;#xFF0C;&amp;#x5728;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6570;&amp;#x636E;&amp;#x83B7;&amp;#x53D6;&amp;#x65F6;&amp;#x901F;&amp;#x5EA6;&amp;#x6162;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x540E;&amp;#x7EED;&amp;#x6539;&amp;#x8FDB;&amp;#x53D6;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x6BCF;&amp;#x6B21;&amp;#x53EA;&amp;#x53D6;&amp;#x4E00;&amp;#x9875;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;a href=&quot;#&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;/a&gt;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&lt;/h1&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#xFF0C;&amp;#x5728;&amp;#x4FE1;&amp;#x606F;&amp;#x5C55;&amp;#x793A;&amp;#x7684;&amp;#x5217;&amp;#x8868;&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x6DFB;&amp;#x52A0;&amp;#x5206;&amp;#x9875;&amp;#x6309;&amp;#x94AE;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;nav style=&amp;quot;text-align: center&amp;quot;&amp;gt;
     &amp;lt;ul class=&amp;quot;pagination&amp;quot; id=&amp;quot;pageUl&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
 &amp;lt;/nav&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x542F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x542F;&amp;#x7528;&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;var element = $(&amp;apos;#pageUl&amp;apos;);//&amp;#x5BF9;&amp;#x5E94;&amp;#x4E0B;&amp;#x9762;ul&amp;#x7684;ID  
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x542F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x542F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x542F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;js&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;&amp;#x5206;&amp;#x9875;&amp;#x6309;&amp;#x94AE;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x5E76;&amp;#x8FDB;&amp;#x884C;&amp;#x542F;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var element = $(&amp;apos;#pageUl&amp;apos;);//&amp;#x5BF9;&amp;#x5E94;&amp;#x4E0B;&amp;#x9762;ul&amp;#x7684;ID  
 var options = { 
     size:&amp;quot;normal&amp;quot;,
     alignment:&amp;quot;center&amp;quot;,
@@ -67,20 +199,69 @@ var options = {
         }
     }, 
     onPageClicked: function (event, originalEvent, type, page) { //&amp;#x6362;&amp;#x9875;
-       /* $.post(&amp;quot;/Exam/GetExamLogs&amp;quot;,{page:page,take:2},function(data) {
-            $(&amp;quot;#logtable&amp;quot;).html(data);
-        });*/
+        paginator(msg,page);
         $(&amp;apos;#infolist&amp;apos;).html(&amp;apos;&amp;apos;);
         $(&amp;apos;#infolist&amp;apos;).append(str);
     },
 }  
 //&amp;#x5206;&amp;#x9875;&amp;#x542F;&amp;#x52A8;
-element.bootstrapPaginator(options);  
+element.bootstrapPaginator(options); 
+paginator(msg,1);
+//&amp;#x5206;&amp;#x9875;
+function paginator(arrData, page) {
+    var str=&amp;quot;&amp;quot;;
+    var name;
+    for (i = (page - 1) * 5; i &amp;lt; page * 5; i++) {
+        if(i&amp;lt;arrData.length){
+            var param = &amp;quot;content.jsp?id=&amp;quot;+ arrData[i].id;
+            var content = arrData[i].content;
+            var s = content.substr(0, 7);
+            if(arrData[i].telephone==&amp;quot;&amp;quot;){
+                name=&amp;quot;&amp;#x533F;&amp;#x540D;&amp;#x7528;&amp;#x6237;&amp;quot;
+            }
+            else{
+                name=arrData[i].telephone;
+            }
+         str += &amp;apos;&amp;lt;div class=&amp;quot;wz&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;&amp;lt;a href=&amp;quot;&amp;apos;
+                + param
+                + &amp;apos;&amp;quot; title=&amp;quot;&amp;apos;
+                + arrData[i].title
+                + &amp;quot;&amp;quot;
+                + &amp;apos;&amp;quot;&amp;gt;&amp;apos;
+                + s
+                + &amp;quot;...&amp;quot;
+                + &amp;apos;&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;&amp;lt;dl&amp;gt;&amp;lt;dt&amp;gt;&amp;apos;
+                + &amp;apos;&amp;lt;a href=&amp;quot;&amp;apos;
+                + param
+                + &amp;apos;&amp;quot;  style=&amp;quot;margin-top: 0px;&amp;quot; title=&amp;quot;&amp;#x9605;&amp;#x8BFB;&amp;#x5168;&amp;#x6587;&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;&amp;apos;
+                + &amp;apos;picture/&amp;apos;+arrData[i].picturepath1
+                + &amp;apos;&amp;quot; width=&amp;quot;200&amp;quot; height=&amp;quot;123&amp;quot; alt=&amp;quot;&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/dt&amp;gt;&amp;lt;dd&amp;gt;&amp;apos;
+                + &amp;apos;&amp;lt;p class=&amp;quot;dd_text_1&amp;quot;&amp;gt;&amp;apos;
+                + arrData[i].content
+                + &amp;apos;&amp;lt;/p&amp;gt;&amp;lt;p class=&amp;quot;dd_text_2&amp;quot;&amp;gt;&amp;apos;
+                + &amp;apos;    &amp;lt;span class=&amp;quot;left author&amp;quot; &amp;gt;&amp;apos;
+                + name
+                + &amp;apos;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;left sj&amp;quot; style=&amp;quot;padding-left:80px;&amp;quot;&amp;gt;&amp;apos;
+                + arrData[i].dataTime
+                + &amp;apos;&amp;lt;/span&amp;gt;&amp;apos;
+                + &amp;apos;&amp;lt;span class=&amp;quot;left yd&amp;quot;&amp;gt;&amp;lt;a href=&amp;quot;&amp;apos;
+                + param
+                + &amp;apos;&amp;quot;  title=&amp;quot;&amp;#x9605;&amp;#x8BFB;&amp;#x5168;&amp;#x6587;&amp;quot; style=&amp;quot;margin-left: auto&amp;quot;;&amp;gt;&amp;#x9605;&amp;#x8BFB;&amp;#x5168;&amp;#x6587;&amp;lt;/a&amp;gt;&amp;lt;/span&amp;gt;&amp;apos;
+                + &amp;apos;&amp;lt;div class=&amp;quot;clear&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/dd&amp;gt;&amp;lt;div class=&amp;quot;clear&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/dl&amp;gt;&amp;lt;/div&amp;gt;&amp;apos;;
+
+            $(&amp;apos;#infolist&amp;apos;).html(&amp;apos;&amp;apos;); 
+            $(&amp;apos;#infolist&amp;apos;).append(str);
+        }
+        else {
+            break;
+        }
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot;&gt;&lt;a href=&quot;#&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x793A;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5C45;&amp;#x4E2D;&amp;#x663E;&amp;#x7
+      &lt;p&gt;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x4FE1;&amp;#x606F;&amp;#x5C55;&amp;#x793A;&amp;#x5217;&amp;#x8868;&amp;#x9875;&amp;#x9762;&amp;#x8FDB;&amp;#x884C;&amp;
     
     </summary>
     
@@ -94,24 +275,29 @@ element.bootstrapPaginator(options);
     <link href="http://chen1218chen.github.io/2016/04/07/annotation/"/>
     <id>http://chen1218chen.github.io/2016/04/07/annotation/</id>
     <published>2016-04-06T16:05:54.000Z</published>
-    <updated>2016-04-06T08:12:41.147Z</updated>
+    <updated>2016-04-19T08:30:21.583Z</updated>
     
-    <content type="html">&lt;ul&gt;
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;model&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#model&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;model&amp;#x5C42;&quot;&gt;&lt;/a&gt;model&amp;#x5C42;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;catalog: &amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x540D;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;schema: postgreSQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&lt;/p&gt;
 &lt;p&gt;  @Table(name = &amp;#x201C;category&amp;#x201D;, catalog = &amp;#x201C;users&amp;#x201D;)&lt;br&gt;  @Table(name = &amp;#x201C;roles&amp;#x201D;, schema = &amp;#x201C;public&amp;#x201D;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&quot;service&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#service&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;service&amp;#x5C42;&quot;&gt;&lt;/a&gt;service&amp;#x5C42;&lt;/h2&gt;&lt;h3 id=&quot;Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;a href=&quot;#Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot; class=&quot;headerlink&quot; title=&quot;@Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;/a&gt;@Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&lt;/h3&gt;&lt;p&gt;&amp;#x6700;&amp;#x597D;&amp;#x5728;&amp;#x6301;&amp;#x4E45;&amp;#x5C42;&amp;#x3001;&amp;#x4E1A;&amp;#x52A1;&amp;#x5C42;&amp;#x548C;&amp;#x63A7;&amp;#x5236;&amp;#x5C42;&amp;#x5206;&amp;#x522B;&amp;#x91C7;&amp;#x7528; @Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x5BF9;&amp;#x5206;&amp;#x5C42;&amp;#x4E2D;&amp;#x7684;&amp;#x7C7B;&amp;#x8FDB;&amp;#x884C;&amp;#x6CE8;&amp;#x91CA; &lt;/p&gt;
+&lt;h3 id=&quot;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot;&gt;&lt;a href=&quot;#Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&quot;&gt;&lt;/a&gt;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&lt;/h3&gt;&lt;p&gt;&amp;#x5F53;&amp;#x4F60;&amp;#x9700;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;&amp;#x5219;&amp;#x5728;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x7684;&amp;#x7C7B;&amp;#x540D;&amp;#x524D;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Service(&amp;#x201C;XXX&amp;#x201D;),&amp;#x5C31;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x8BB2;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;bean&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;XXX;&lt;br&gt;&amp;#x5F53;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5DF2;&amp;#x5B58;&amp;#x5728;&amp;#x7684;bean&amp;#xFF0C;&amp;#x8981;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x8D4B;&amp;#x503C;&amp;#x6216;&amp;#x6CE8;&amp;#x5165;&amp;#x65F6;&amp;#x5728;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x4E0A;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Resource(name=&amp;#x201D;xxx&amp;#x201D;)&amp;#xFF0C;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x6CE8;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;xxx&amp;#x7684;bean&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@Autowired&amp;#xFF0C;&amp;#x53EA;&amp;#x4E0D;&amp;#x8FC7;@Autowired&amp;#x6309;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x800C;@Resource&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309; byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7F62;&amp;#x4E86;&amp;#x3002;@Resource&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#xFF0C;&amp;#x5206;&amp;#x662F;name&amp;#x548C;type&amp;#xFF0C;Spring&amp;#x5C06;@Resource&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;name&amp;#x5C5E;&amp;#x6027;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x540D;&amp;#x5B57;&amp;#xFF0C;&amp;#x800C;type&amp;#x5C5E;&amp;#x6027;&amp;#x5219;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x7C7B;&amp;#x578B;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x4F7F;&amp;#x7528;name&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byName&amp;#x7684;&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#xFF0C;&amp;#x800C;&amp;#x4F7F;&amp;#x7528;type&amp;#x5C5E;&amp;#x6027;&amp;#x65F6;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;name&amp;#x4E5F;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;type&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5C06;&amp;#x901A;&amp;#x8FC7;&amp;#x53CD;&amp;#x5C04;&amp;#x673A;&amp;#x5236;&amp;#x4F7F;&amp;#x7528;byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x88C5;&amp;#x914D;&amp;#x987A;&amp;#x5E8F;&lt;br&gt;&amp;#x3000;&amp;#x3000;1. &amp;#x5982;&amp;#x679C;&amp;#x540C;&amp;#x65F6;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#x548C;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;Spring&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x552F;&amp;#x4E00;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;2. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x67E5;&amp;#x627E;&amp;#x540D;&amp;#x79F0;&amp;#xFF08;id&amp;#xFF09;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;3. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x7C7B;&amp;#x578B;&amp;#x5339;&amp;#x914D;&amp;#x7684;&amp;#x552F;&amp;#x4E00;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x6216;&amp;#x8005;&amp;#x627E;&amp;#x5230;&amp;#x591A;&amp;#x4E2A;&amp;#xFF0C;&amp;#x90FD;&amp;#x4F1A;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;4. &amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;name&amp;#xFF0C;&amp;#x53C8;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;type&amp;#xFF0C;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x6309;&amp;#x7167;byName&amp;#x65B9;&amp;#x5F0F;&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF1B;&amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x6709;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5219;&amp;#x56DE;&amp;#x9000;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#x8FDB;&amp;#x884C;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5339;&amp;#x914D;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;&amp;#x3002;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;ul&gt;
-&lt;li&gt;catalog: &amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x540D;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;schema: postgreSQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&lt;/p
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;model&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#model&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;model&amp;#x5C42;&quot;&gt;&lt;/a&gt;model&amp;#x5C42;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;catalog
     
     </summary>
     
+    
+      <category term="annotation" scheme="http://chen1218chen.github.io/tags/annotation/"/>
     
   </entry>
   
@@ -1177,25 +1363,34 @@ git reset HEAD~n
   </entry>
   
   <entry>
-    <title>SSH</title>
+    <title>SSH集成配置</title>
     <link href="http://chen1218chen.github.io/2016/03/02/SSH/"/>
     <id>http://chen1218chen.github.io/2016/03/02/SSH/</id>
     <published>2016-03-02T02:00:26.831Z</published>
-    <updated>2016-03-02T09:25:14.115Z</updated>
+    <updated>2016-04-19T08:35:43.006Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;SSH&quot;&gt;&lt;a href=&quot;#SSH&quot; class=&quot;headerlink&quot; title=&quot;SSH&quot;&gt;&lt;/a&gt;SSH&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&lt;/h2&gt;&lt;ul&gt;
+&lt;h1 id=&quot;SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;/a&gt;SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;web&amp;#x5BB9;&amp;#x5668;&amp;#x542F;&amp;#x52A8;&lt;/li&gt;
 &lt;li&gt;&amp;#x52A0;&amp;#x8F7D;spring&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x8FDB;&amp;#x884C;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#xFF0C;&amp;#x914D;&amp;#x7F6E;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;1-web-xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#1-web-xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;1. web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;1. web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;Spring&amp;#x6574;&amp;#x5408;hibernate&quot;&gt;&lt;a href=&quot;#Spring&amp;#x6574;&amp;#x5408;hibernate&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x6574;&amp;#x5408;hibernate&quot;&gt;&lt;/a&gt;Spring&amp;#x6574;&amp;#x5408;hibernate&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;dataSource&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;sessionFactory&amp;#xFF0C;&amp;#x8BA9;spring&amp;#x6765;&amp;#x521B;&amp;#x5EFA;Session&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;dataSource&amp;#x3002;&amp;#x4E00;&amp;#x822C;&amp;#x4E09;&amp;#x4E2A;property&amp;#xFF1A;dataSource&amp;#x3001;packagesToScan&amp;#x548C;hibernateProperties&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668; transactionManager&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;sessionFactory&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#x5BF9;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x7BA1;&amp;#x7406;&amp;#x4E8B;&amp;#x52A1;&amp;#x8BBE;&amp;#x7F6E;&amp;#x6CE8;&amp;#x89E3;&amp;#x65B9;&amp;#x5F0F;  &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;&gt;&lt;br&gt;&amp;#x8BE6;&amp;#x89C1;6&lt;br&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x5F15;&amp;#x5165;&lt;/tx:annotation-driven&gt;&lt;/p&gt;
+  &lt;context:property-placeholder location=&quot;classpath:jdc.properties&quot;&gt;
+
+&lt;/context:property-placeholder&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;web-xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#web-xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x5E76;&amp;#x4E0D;&amp;#x662F;web&amp;#x5DE5;&amp;#x7A0B;&amp;#x5FC5;&amp;#x987B;&amp;#x7684;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&amp;#xFF1A;&amp;#x6BD4;&amp;#x5982;Welcome&amp;#x9875;&amp;#x9762;&amp;#x3001;servlet&amp;#x3001;servlet-mapping&amp;#x3001;filter&amp;#x3001;listener&amp;#x3001;&amp;#x542F;&amp;#x52A8;&amp;#x52A0;&amp;#x8F7D;&amp;#x7EA7;&amp;#x522B;&amp;#x7B49;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&amp;#xFF1A;&amp;#x6BD4;&amp;#x5982;Welcome&amp;#x9875;&amp;#x9762;&amp;#x3001;servlet&amp;#x3001;servlet-mapping&amp;#x3001;filter&amp;#x3001;listener&amp;#x3001;&amp;#x542F;&amp;#x52A8;&amp;#x52A0;&amp;#x8F7D;&amp;#x7EA7;&amp;#x522B;&amp;#x7B49;&amp;#x3002;&lt;strong&gt;&amp;#x5728;tomcat&amp;#x4E2D;&amp;#x7684;&amp;#x52A0;&amp;#x8F7D;&amp;#x987A;&amp;#x5E8F;&amp;#x662F;Context-Param&amp;#xFF0C;listener&amp;#xFF0C;filter&amp;#xFF0C;servlet&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&amp;#x6BCF;&amp;#x4E2A;xml&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x5B83;&amp;#x4E66;&amp;#x5199;&amp;#x89C4;&amp;#x5219;&amp;#x7684;Schema&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;javaEE&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;web.xml&amp;#x6240;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;xml Schema&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;&amp;#x591A;&amp;#x5C11;&amp;#x79CD;&amp;#x6807;&amp;#x7B7E;&amp;#x5143;&amp;#x7D20;&amp;#xFF0C;web.xml&amp;#x4E2D;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x51FA;&amp;#x73B0;&amp;#x5B83;&amp;#x6240;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x6807;&amp;#x7B7E;&amp;#x5143;&amp;#x7D20;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x5177;&amp;#x5907;&amp;#x54EA;&amp;#x4E9B;&amp;#x7279;&amp;#x5B9A;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x3002;web.xml&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x7531;Sun &amp;#x516C;&amp;#x53F8;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x6839;&amp;#x5143;&amp;#x7D20;&amp;#x4E3A;&lt;web-app&gt;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x6807;&amp;#x660E;&amp;#x8FD9;&amp;#x4E2A;web.xml&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;&amp;#x54EA;&amp;#x4E2A;&amp;#x6A21;&amp;#x5F0F;&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;/web-app&gt;&lt;/li&gt;
-&lt;li&gt;ContextLoaderListener&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x5C31;&amp;#x662F;&amp;#x542F;&amp;#x52A8;Web&amp;#x5BB9;&amp;#x5668;&amp;#x65F6;&amp;#xFF0C;&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;ApplicationContext&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;&amp;#x5728;web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x8FD9;&amp;#x4E2A;&amp;#x76D1;&amp;#x542C;&amp;#x5668;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;&amp;#x5BB9;&amp;#x5668;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x6267;&amp;#x884C;&amp;#x5B83;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;h3 id=&quot;1-1-&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#1-1-&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;1.1 &amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;1.1 &amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x589E;&amp;#x52A0;struts2&amp;#x7684;&amp;#x914D;&amp;#x7F6E;--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-class&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;url-pattern&amp;gt;*.action&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;ApplicationContext&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;, Spring&amp;#x4E0E;Struts&amp;#x7684;&amp;#x6574;&amp;#x5408; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;listener-class&amp;gt;org.springframework.web.context.ContextLoaderListener&amp;lt;/listener-class&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;param-value&amp;gt;classpath:applicationContext.xml&amp;lt;/param-value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;li&gt;ContextLoaderListener&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x5C31;&amp;#x662F;&amp;#x542F;&amp;#x52A8;Web&amp;#x5BB9;&amp;#x5668;&amp;#x65F6;&amp;#xFF0C;&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;ApplicationContext&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;&amp;#x5728;web.xml&amp;#x914D;&amp;#x7F6E;&amp;#x8FD9;&amp;#x4E2A;&amp;#x76D1;&amp;#x542C;&amp;#x5668;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;&amp;#x5BB9;&amp;#x5668;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x6267;&amp;#x884C;&amp;#x5B83;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;h3 id=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x589E;&amp;#x52A0;struts2&amp;#x7684;&amp;#x914D;&amp;#x7F6E;--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-class&amp;gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&amp;lt;/filter-class&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;filter-name&amp;gt;struts2&amp;lt;/filter-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;url-pattern&amp;gt;*.action&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;ApplicationContext&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;, Spring&amp;#x4E0E;Struts&amp;#x7684;&amp;#x6574;&amp;#x5408; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;listener-class&amp;gt;org.springframework.web.context.ContextLoaderListener&amp;lt;/listener-class&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;param-value&amp;gt;classpath:applicationContext.xml&amp;lt;/param-value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;1-2-ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#1-2-ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;1.2 ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;1.2 ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!-- ssh &amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4; --&amp;gt;
+&lt;h3 id=&quot;ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;ssh&amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4;&amp;#x914D;&amp;#x7F6E;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!-- ssh &amp;#x4E2D;&amp;#x6587;&amp;#x8FC7;&amp;#x6EE4; --&amp;gt;
 &amp;lt;filter&amp;gt;
     &amp;lt;filter-name&amp;gt;Set Character Encoding&amp;lt;/filter-name&amp;gt;
     &amp;lt;filter-class&amp;gt;org.springframework.web.filter.CharacterEncodingFilter&amp;lt;/filter-class&amp;gt;
@@ -1220,15 +1415,10 @@ git reset HEAD~n
     &amp;lt;filter-name&amp;gt;struts-cleanup&amp;lt;/filter-name&amp;gt;
     &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;
 &amp;lt;/filter-mapping&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-struts-xml&quot;&gt;&lt;a href=&quot;#2-struts-xml&quot; class=&quot;headerlink&quot; title=&quot;2. struts.xml&quot;&gt;&lt;/a&gt;2. struts.xml&lt;/h2&gt;&lt;p&gt;  Struts2&amp;#x539F;&amp;#x7406;&amp;#x5C31;&amp;#x662F;&amp;#x7528;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#xFF0C;&amp;#x4F7F;&amp;#x5F97;&amp;#x4F60;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x53D1;&amp;#x9001;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x88AB;&amp;#x62E6;&amp;#x622A;&amp;#x4E0B;&amp;#x6765;&amp;#x540E;&amp;#x5904;&amp;#x7406;&amp;#x3002;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x7528;&amp;#x5230;&amp;#x4E86;&amp;#x53CD;&amp;#x5C04;&amp;#x673A;&amp;#x5236;&amp;#x3002;Struts2&amp;#x4E3B;&amp;#x8981;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x662F;&amp;#x63A7;&amp;#x5236;&amp;#x8F6C;&amp;#x53D1;&amp;#xFF0C;&amp;#x5728;&amp;#x4E8E;Action&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#xFF0C;&amp;#x548C;struts.xml&amp;#x914D;&amp;#x7F6E;&amp;#x3002; &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;struts-xml&quot;&gt;&lt;a href=&quot;#struts-xml&quot; class=&quot;headerlink&quot; title=&quot;struts.xml&quot;&gt;&lt;/a&gt;struts.xml&lt;/h2&gt;&lt;p&gt;  Struts2&amp;#x539F;&amp;#x7406;&amp;#x5C31;&amp;#x662F;&amp;#x7528;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#xFF0C;&amp;#x4F7F;&amp;#x5F97;&amp;#x4F60;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x53D1;&amp;#x9001;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x88AB;&amp;#x62E6;&amp;#x622A;&amp;#x4E0B;&amp;#x6765;&amp;#x540E;&amp;#x5904;&amp;#x7406;&amp;#x3002;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x7528;&amp;#x5230;&amp;#x4E86;&amp;#x53CD;&amp;#x5C04;&amp;#x673A;&amp;#x5236;&amp;#x3002;Struts2&amp;#x4E3B;&amp;#x8981;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x662F;&amp;#x63A7;&amp;#x5236;&amp;#x8F6C;&amp;#x53D1;&amp;#xFF0C;&amp;#x5728;&amp;#x4E8E;Action&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#xFF0C;&amp;#x548C;struts.xml&amp;#x914D;&amp;#x7F6E;&amp;#x3002; &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; ?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE struts PUBLIC&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;http://struts.apache.org/dtds/struts-2.0.dtd&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;struts&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x5F00;&amp;#x542F;&amp;#x4F7F;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x8BE6;&amp;#x7EC6;&amp;#x9519;&amp;#x8BEF;&amp;#x63D0;&amp;#x793A; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;constant name=&amp;quot;struts.devMode&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;constant name=&amp;quot;struts.i18n.encoding&amp;quot; value=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;/constant&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;constant name=&amp;quot;struts.enable.DynamicMethodInvocation&amp;quot; value=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/constant&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;package name=&amp;quot;default&amp;quot; extends=&amp;quot;struts-default,json-default&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;lt;action name=&amp;quot;getUnreadMessage&amp;quot; class=&amp;quot;com.lbs.action.MessageAction&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			method=&amp;quot;queryUnreadMessage&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;lt;result name=&amp;quot;success&amp;quot; type=&amp;quot;json&amp;quot;&amp;gt;/success.jsp&amp;lt;/result&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&amp;lt;result name=&amp;quot;error&amp;quot;&amp;gt;/error.jsp&amp;lt;/result&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;lt;/action&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;/package&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/struts&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x4E0D;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4F4D;&amp;#x7F6E;&amp;#x5728;WEB-INF&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x5E95;&amp;#x4E0B;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;3-Spring&amp;#x6574;&amp;#x5408;hibernate&quot;&gt;&lt;a href=&quot;#3-Spring&amp;#x6574;&amp;#x5408;hibernate&quot; class=&quot;headerlink&quot; title=&quot;3. Spring&amp;#x6574;&amp;#x5408;hibernate&quot;&gt;&lt;/a&gt;3. Spring&amp;#x6574;&amp;#x5408;hibernate&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&amp;#x914D;&amp;#x7F6E;sessionFactory&amp;#xFF0C;&amp;#x8BA9;spring&amp;#x6765;&amp;#x521B;&amp;#x5EFA;Session&lt;/li&gt;
-&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668; transactionManager&lt;/li&gt;
-&lt;li&gt;&amp;#x5BF9;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x8FDB;&amp;#x884C;&amp;#x4E8B;&amp;#x52A1;&amp;#x8BBE;&amp;#x7F6E;&amp;#x6CE8;&amp;#x89E3;&amp;#x65B9;&amp;#x5F0F;&lt;br&gt;&amp;#x8BE6;&amp;#x89C1;6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;4-&amp;#x4E8B;&amp;#x52A1;&quot;&gt;&lt;a href=&quot;#4-&amp;#x4E8B;&amp;#x52A1;&quot; class=&quot;headerlink&quot; title=&quot;4. &amp;#x4E8B;&amp;#x52A1;&quot;&gt;&lt;/a&gt;4. &amp;#x4E8B;&amp;#x52A1;&lt;/h2&gt;&lt;p&gt;&amp;#x4E8B;&amp;#x52A1;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x4FDD;&amp;#x8BC1;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x4E00;&amp;#x81F4;&amp;#x548C;&amp;#x5B8C;&amp;#x6574;&amp;#x3002;&amp;#x662F;&amp;#x6307;&amp;#x5355;&amp;#x4E2A;&amp;#x903B;&amp;#x8F91;&amp;#x529F;&amp;#x80FD;&amp;#x5355;&amp;#x5143;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x4E00;&amp;#x7CFB;&amp;#x5217;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x5B8C;&amp;#x6574;&amp;#x6267;&amp;#x884C;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x90FD;&amp;#x4E0D;&amp;#x6267;&amp;#x884C;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x4E8B;&amp;#x52A1;&quot;&gt;&lt;a href=&quot;#&amp;#x4E8B;&amp;#x52A1;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E8B;&amp;#x52A1;&quot;&gt;&lt;/a&gt;&amp;#x4E8B;&amp;#x52A1;&lt;/h2&gt;&lt;p&gt;&amp;#x4E8B;&amp;#x52A1;&amp;#x662F;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x4FDD;&amp;#x8BC1;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x4E00;&amp;#x81F4;&amp;#x548C;&amp;#x5B8C;&amp;#x6574;&amp;#x3002;&amp;#x662F;&amp;#x6307;&amp;#x5355;&amp;#x4E2A;&amp;#x903B;&amp;#x8F91;&amp;#x529F;&amp;#x80FD;&amp;#x5355;&amp;#x5143;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x4E00;&amp;#x7CFB;&amp;#x5217;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x5B8C;&amp;#x6574;&amp;#x6267;&amp;#x884C;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x90FD;&amp;#x4E0D;&amp;#x6267;&amp;#x884C;&amp;#x3002;&lt;/p&gt;
 &lt;p&gt; &lt;strong&gt;&amp;#x56DB;&amp;#x5927;&amp;#x7279;&amp;#x6027;&lt;/strong&gt;&amp;#xFF1A;  &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;#x539F;&amp;#x5B50;&amp;#x6027;&amp;#xFF1A;&amp;#x4E8B;&amp;#x52A1;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x539F;&amp;#x5B50;&amp;#x5DE5;&amp;#x4F5C;&amp;#x5355;&amp;#x5143;&amp;#xFF1B;&amp;#x5BF9;&amp;#x4E8E;&amp;#x5176;&amp;#x6570;&amp;#x636E;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x5168;&amp;#x90FD;&amp;#x6267;&amp;#x884C;&amp;#xFF0C;&amp;#x8981;&amp;#x4E48;&amp;#x5168;&amp;#x90FD;&amp;#x4E0D;&amp;#x6267;&amp;#x884C;&amp;#xFF1B;  &lt;/li&gt;
@@ -1236,115 +1426,12 @@ git reset HEAD~n
 &lt;li&gt;&amp;#x9694;&amp;#x79BB;&amp;#x6027;&amp;#xFF1A;&amp;#x7531;&amp;#x5E76;&amp;#x53D1;&amp;#x4E8B;&amp;#x52A1;&amp;#x6240;&amp;#x4F5C;&amp;#x7684;&amp;#x4FEE;&amp;#x6539;&amp;#x5FC5;&amp;#x987B;&amp;#x4E0E;&amp;#x4EFB;&amp;#x4F55;&amp;#x5176;&amp;#x5B83;&amp;#x5E76;&amp;#x53D1;&amp;#x4E8B;&amp;#x52A1;&amp;#x6240;&amp;#x4F5C;&amp;#x7684;&amp;#x4FEE;&amp;#x6539;&amp;#x9694;&amp;#x79BB;&amp;#xFF1B;  &lt;/li&gt;
 &lt;li&gt;&amp;#x6301;&amp;#x4E45;&amp;#x6027;&amp;#xFF1A;&amp;#x4E8B;&amp;#x52A1;&amp;#x5B8C;&amp;#x6210;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5B83;&amp;#x5BF9;&amp;#x4E8E;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7684;&amp;#x5F71;&amp;#x54CD;&amp;#x662F;&amp;#x6C38;&amp;#x4E45;&amp;#x6027;&amp;#x7684;&amp;#x3002;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;5-Spring&quot;&gt;&lt;a href=&quot;#5-Spring&quot; class=&quot;headerlink&quot; title=&quot;5. Spring&quot;&gt;&lt;/a&gt;5. Spring&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&amp;#x7B80;&amp;#x5355;&amp;#x7406;&amp;#x89E3;&lt;br&gt;Spring&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7BA1;&amp;#x7406;&amp;#x6846;&amp;#x67B6;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#xFF0C;&amp;#x4F60;&amp;#x4E0D;&amp;#x7528;&amp;#x518D;&amp;#x8003;&amp;#x8651;&amp;#x4F60;new&amp;#x5BF9;&amp;#x8C61;&amp;#x4E86;&amp;#xFF0C;&amp;#x5B83;&amp;#x4F1A;&amp;#x5E2E;&amp;#x4F60;&amp;#x505A;&amp;#xFF0C;&amp;#x964D;&amp;#x4F4E;&amp;#x4E86;&amp;#x5C42;&amp;#x4E0E;&amp;#x5C42;&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x8026;&amp;#x5408;&amp;#x5EA6;&amp;#x3002;Spring&amp;#x91CC;&amp;#x9762;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x7684;&amp;#x601D;&amp;#x60F3;&amp;#xFF0C;IOC&amp;#x5C31;&amp;#x662F;&amp;#x63A7;&amp;#x5236;&amp;#x53CD;&amp;#x8F6C;&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;&amp;#x3002;AOP&amp;#x662F;&amp;#x9762;&amp;#x5411;&amp;#x5207;&amp;#x9762;&amp;#x7684;&amp;#xFF0C;&amp;#x6709;&amp;#x70B9;&amp;#x50CF;&amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x3002;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Spring&amp;#x652F;&amp;#x6301;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&lt;br&gt;Spring&amp;#x7684;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5206;&amp;#x4E3A;&amp;#x58F0;&amp;#x660E;&amp;#x5F0F;&amp;#x8DDF;&amp;#x7F16;&amp;#x7A0B;&amp;#x5F0F;&amp;#x3002;&amp;#x58F0;&amp;#x660E;&amp;#x5F0F;&amp;#x5C31;&amp;#x662F;&amp;#x5728;Spring&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x8FDB;&amp;#x884C;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&amp;#xFF1B;&amp;#x7F16;&amp;#x7A0B;&amp;#x5F0F;&amp;#x5C31;&amp;#x662F;&amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x5199;&amp;#x5230;&amp;#x4EE3;&amp;#x7801;&amp;#x91CC;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--&amp;#x5F00;&amp;#x542F;&amp;#x6CE8;&amp;#x89E3;&amp;#x65B9;&amp;#x5F0F;--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;context:annotation-config /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;sessionFactory --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;sessionFactory&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;configLocation&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;value&amp;gt;classpath:config/hibernate.cfg.xml&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;packagesToScan&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;list&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;lt;value&amp;gt;com.entity&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;/list&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x5668; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;transactionManager&amp;quot; class=&amp;quot;org.springframework.orm.hibernate3.HibernateTransactionManager&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;property name=&amp;quot;sessionFactory&amp;quot; ref=&amp;quot;sessionFactory&amp;quot;&amp;gt;&amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x7B2C;&amp;#x56DB;&amp;#x79CD;&amp;#x914D;&amp;#x7F6E;&amp;#x4E8B;&amp;#x52A1;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6CE8;&amp;#x89E3; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;transactionManager&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x914D;&amp;#x7F6E;  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;&lt;/strong&gt; &amp;#x662F;spring&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x6CE8;&amp;#x5165;&amp;#x4F7F;&amp;#x7528;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x5BFC;&amp;#x5165;spring&amp;#x76EE;&amp;#x5F55;common-annotations.jar&amp;#x8FD9;&amp;#x4E2A;&amp;#x5305;&amp;#x3002;   &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;&lt;/strong&gt; 3.1&amp;#x7248;&amp;#x672C;&amp;#x5F00;&amp;#x59CB;&amp;#x6709;&amp;#x8FD9;&amp;#x4E2A;&amp;#x914D;&amp;#x7F6E; ,&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x518C;DefaultAnnotationHandlerMapping&amp;#x4E0E;AnnotationMethodHandlerAdapter &amp;#x4E24;&amp;#x4E2A;bean,&amp;#x662F;spring MVC&amp;#x4E3A;@Controllers&amp;#x5206;&amp;#x53D1;&amp;#x8BF7;&amp;#x6C42;&amp;#x6240;&amp;#x5FC5;&amp;#x987B;&amp;#x7684;&amp;#x3002;  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;context:annotation-config&gt; declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.  &lt;/context:annotation-config&gt;&lt;/p&gt;
-&lt;p&gt;&lt;mvc:annotation-driven&gt; is actually rather pointless. It declares explicit support for annotation-driven MVC controllers (i.e.@RequestMapping, @Controller, etc), even though support for those is the default behaviour.&lt;/mvc:annotation-driven&gt;&lt;/p&gt;
-&lt;p&gt;My advice is to always declare &lt;context:annotation-config&gt;, but don&amp;#x2019;t bother with &amp;lt;mvc:annotation-driven /unless you want JSON support via Jackson.  &lt;/context:annotation-config&gt;&lt;/p&gt;
-&lt;p&gt;4 . &amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&lt;br&gt;&amp;#x5728;dao&amp;#x5C42;&amp;#x7C7B;&amp;#x3001;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E0A;&amp;#x9762;&amp;#x6DFB;&amp;#x52A0;@Transactional&amp;#x6CE8;&amp;#x89E3;&amp;#xFF0C;&amp;#x4E3A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E8B;&amp;#x52A1;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;package com.dao;
-
-@Transactional
-public class UserDaoImpl_BAK extends HibernateTemplate {
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
-    public void addUser(User user) throws Exception {
-        this.save(user);
-    }
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
-    public void modifyUser(User user) {
-        this.update(user);
-    }
-
-    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&amp;quot;Exception&amp;quot;)
-    public void delUser(String username) {
-        this.delete(this.load(User.class, username));
-    }
-
-    @Transactional(readOnly=true)
-    public void selectUser() {
-    }
-}    
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;a  &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;applicationContext.xml&lt;/strong&gt; &amp;#x516C;&amp;#x5171;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
- &lt;!-- 配置sessionFactory --&gt;
- &lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;&lt;br&gt;     &lt;property name=&quot;configLocation&quot;&gt;&lt;br&gt;         &lt;value&gt;classpath:hibernate.cfg.xml&lt;/value&gt;&lt;br&gt;     &lt;/property&gt;&lt;br&gt;     &lt;property name=&quot;packagesToScan&quot;&gt;&lt;br&gt;         &lt;list&gt;&lt;br&gt;             &lt;value&gt;com.entity&lt;/value&gt;&lt;br&gt;         &lt;/list&gt;&lt;br&gt;     &lt;/property&gt;&lt;br&gt; &lt;/bean&gt;
-
- &lt;!-- 配置事务管理器（声明式的事务） --&gt;
- &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;&lt;br&gt;     &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;&lt;br&gt; &lt;/bean&gt;
-
- &lt;!-- 配置DAO --&gt; 
- &lt;bean id=&quot;userDao&quot; class=&quot;com.dao.UserDaoImpl&quot;&gt;&lt;br&gt;     &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;&lt;br&gt; &lt;/bean&gt;
-
-
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;7-Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;a href=&quot;#7-Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot; class=&quot;headerlink&quot; title=&quot;7.  @Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;/a&gt;7.  @Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&lt;/h2&gt;&lt;p&gt;&amp;#x6700;&amp;#x597D;&amp;#x5728;&amp;#x6301;&amp;#x4E45;&amp;#x5C42;&amp;#x3001;&amp;#x4E1A;&amp;#x52A1;&amp;#x5C42;&amp;#x548C;&amp;#x63A7;&amp;#x5236;&amp;#x5C42;&amp;#x5206;&amp;#x522B;&amp;#x91C7;&amp;#x7528; @Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x5BF9;&amp;#x5206;&amp;#x5C42;&amp;#x4E2D;&amp;#x7684;&amp;#x7C7B;&amp;#x8FDB;&amp;#x884C;&amp;#x6CE8;&amp;#x91CA;  &lt;/p&gt;
-&lt;h2 id=&quot;8-Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot;&gt;&lt;a href=&quot;#8-Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot; class=&quot;headerlink&quot; title=&quot;8. Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&quot;&gt;&lt;/a&gt;8. Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&lt;/h2&gt;&lt;p&gt;&amp;#x5F53;&amp;#x4F60;&amp;#x9700;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;&amp;#x5219;&amp;#x5728;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x7684;&amp;#x7C7B;&amp;#x540D;&amp;#x524D;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Service(&amp;#x201C;XXX&amp;#x201D;),&amp;#x5C31;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x8BB2;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;bean&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;XXX;&lt;br&gt;&amp;#x5F53;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5DF2;&amp;#x5B58;&amp;#x5728;&amp;#x7684;bean&amp;#xFF0C;&amp;#x8981;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x8D4B;&amp;#x503C;&amp;#x6216;&amp;#x6CE8;&amp;#x5165;&amp;#x65F6;&amp;#x5728;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x4E0A;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Resource(name=&amp;#x201D;xxx&amp;#x201D;)&amp;#xFF0C;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x6CE8;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;xxx&amp;#x7684;bean&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@Autowired&amp;#xFF0C;&amp;#x53EA;&amp;#x4E0D;&amp;#x8FC7;@Autowired&amp;#x6309;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x800C;@Resource&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309; byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7F62;&amp;#x4E86;&amp;#x3002;@Resource&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#xFF0C;&amp;#x5206;&amp;#x662F;name&amp;#x548C;type&amp;#xFF0C;Spring&amp;#x5C06;@Resource&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;name&amp;#x5C5E;&amp;#x6027;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x540D;&amp;#x5B57;&amp;#xFF0C;&amp;#x800C;type&amp;#x5C5E;&amp;#x6027;&amp;#x5219;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x7C7B;&amp;#x578B;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x4F7F;&amp;#x7528;name&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byName&amp;#x7684;&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#xFF0C;&amp;#x800C;&amp;#x4F7F;&amp;#x7528;type&amp;#x5C5E;&amp;#x6027;&amp;#x65F6;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;name&amp;#x4E5F;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;type&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5C06;&amp;#x901A;&amp;#x8FC7;&amp;#x53CD;&amp;#x5C04;&amp;#x673A;&amp;#x5236;&amp;#x4F7F;&amp;#x7528;byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x88C5;&amp;#x914D;&amp;#x987A;&amp;#x5E8F;&lt;br&gt;&amp;#x3000;&amp;#x3000;1. &amp;#x5982;&amp;#x679C;&amp;#x540C;&amp;#x65F6;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#x548C;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;Spring&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x552F;&amp;#x4E00;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;2. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x67E5;&amp;#x627E;&amp;#x540D;&amp;#x79F0;&amp;#xFF08;id&amp;#xFF09;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;3. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x7C7B;&amp;#x578B;&amp;#x5339;&amp;#x914D;&amp;#x7684;&amp;#x552F;&amp;#x4E00;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x6216;&amp;#x8005;&amp;#x627E;&amp;#x5230;&amp;#x591A;&amp;#x4E2A;&amp;#xFF0C;&amp;#x90FD;&amp;#x4F1A;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;4. &amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;name&amp;#xFF0C;&amp;#x53C8;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;type&amp;#xFF0C;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x6309;&amp;#x7167;byName&amp;#x65B9;&amp;#x5F0F;&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF1B;&amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x6709;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5219;&amp;#x56DE;&amp;#x9000;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#x8FDB;&amp;#x884C;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5339;&amp;#x914D;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;&amp;#x3002;
-&amp;#x3000;&lt;/p&gt;
-&lt;h1 id=&quot;SpringMVC&quot;&gt;&lt;a href=&quot;#SpringMVC&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC&quot;&gt;&lt;/a&gt;SpringMVC&lt;/h1&gt;&lt;p&gt;1.Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;&lt;strong&gt;DispatcherServlet&lt;/strong&gt;&lt;br&gt;SpringMVC&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;DispatcherServlet&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;,&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x662F;&amp;#x9996;&amp;#x5148;&amp;#x63D0;&amp;#x4EA4;&amp;#x7ED9;DispatcherServlet,DispatcherServlet&amp;#x8D1F;&amp;#x8D23;&amp;#x8F6C;&amp;#x53D1;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;Request&amp;#x8BF7;&amp;#x6C42;&amp;#x7ED9;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;Handler&amp;#x3002;DispatcherServlet&amp;#x662F;&amp;#x7EE7;&amp;#x627F;&amp;#x81EA;HttpServlet&amp;#x7684;&amp;#x3002;&lt;br&gt;&lt;strong&gt;web.xml&lt;/strong&gt;&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 1.Spring&amp;#x914D;&amp;#x7F6E; --&amp;gt;
-&amp;lt;listener&amp;gt;
-   &amp;lt;listenerclass&amp;gt;
-     org.springframework.web.context.ContextLoaderListener
-   &amp;lt;/listener-class&amp;gt;
-&amp;lt;/listener&amp;gt;
-
-&amp;lt;!-- 2.springMVC&amp;#x5F0F;rest --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt;
-
-    &amp;lt;!--&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;servlet.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x548C;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;WEB-INF&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;[&amp;lt;servlet-name&amp;gt;]-servlet.xml&amp;#xFF0C;&amp;#x5982;rest-servlet.xml--&amp;gt;
-
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;classpath:rest-servlet.xml&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-    &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt;
-&amp;lt;/servlet&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/rest/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
-
-&amp;lt;!-- 3.&amp;#x6307;&amp;#x5B9A;Spring Bean&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x6240;&amp;#x5728;&amp;#x76EE;&amp;#x5F55;&amp;#x3002;&amp;#x9ED8;&amp;#x8BA4;&amp;#x914D;&amp;#x7F6E;&amp;#x5728;WEB-INF&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B; --&amp;gt;
-&amp;lt;context-param&amp;gt;
-    &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
-    &amp;lt;param-value&amp;gt;classpath:applicationContext.xml&amp;lt;/param-value&amp;gt;
-&amp;lt;/context-param&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; &amp;#x4EE5;&amp;#x4E0A;&amp;#x662F;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;    &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;rest-servlet.xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;  &lt;/p&gt;
-&lt;p&gt; &amp;lt;?xml version=&amp;#x201D;1.0&amp;#x201D; encoding=&amp;#x201D;UTF-8&amp;#x201D;?&amp;gt;&lt;/p&gt;
- &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot; xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemalocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   
-        http://www.springframework.org/schema/context &amp;lt;a href=&quot; http:=&quot;&quot; www.springframework.org=&quot;&quot; schema=&quot;&quot; context=&quot;&quot; spring-context-3.0.xsd&quot;=&quot;&quot;&gt;http://www.springframework.org/schema/context/spring-context-3.0.xsd&amp;quot;&amp;gt;&lt;br&gt;&lt;br&gt;     &lt;!-- 启用spring mvc 注解 --&gt;&lt;br&gt;     &lt;context:annotation-config&gt;&lt;br&gt;&lt;br&gt;     &lt;!-- 设置使用注解的类所在的jar包 --&gt;&lt;br&gt;     &lt;context:component-scan base-package=&quot;com.cc&quot;&gt;&lt;/context:component-scan&gt;&lt;br&gt;&lt;br&gt;     &lt;!-- 完成请求和注解POJO的映射 --&gt;&lt;br&gt;     &lt;bean class=&quot;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&quot;&gt;&lt;br&gt; &amp;#x3000;&amp;#x3000;&lt;br&gt;     &lt;!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 --&gt;&lt;br&gt;     &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot; p:prefix=&quot;/jsp/&quot; p:suffix=&quot;.jsp&quot;&gt;&lt;br&gt; &lt;/bean&gt;&lt;/bean&gt;&lt;/context:annotation-config&gt;&lt;/beans&gt;
-
-
-
-&lt;/li&gt;
-&lt;/ol&gt;
 </content>
     
     <summary type="html">
     
       &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;SSH&quot;&gt;&lt;a href=&quot;#SSH&quot; class=&quot;headerlink&quot; title=&quot;SSH&quot;&gt;&lt;/a&gt;SSH&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6D41;&amp;#x7A0B;&quot;&gt;&lt;a href=&quot;#&amp;#x5
+&lt;h1 id=&quot;SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#SSH&amp;#x914D;&amp;#x7F6E;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;SSH&amp;#x914
     
     </summary>
     
@@ -1480,162 +1567,6 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>ArcGIS入门</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/ARCGIS/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/ARCGIS/</id>
-    <published>2016-03-02T02:00:26.570Z</published>
-    <updated>2016-03-23T06:23:15.684Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;1-&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot;&gt;&lt;a href=&quot;#1-&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot; class=&quot;headerlink&quot; title=&quot;1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot;&gt;&lt;/a&gt;1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;function initMap(){
-    //&amp;#x5730;&amp;#x56FE;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x53C2;&amp;#x6570;
-    map = new esri.Map(&amp;quot;map&amp;quot;, {
-        logo : false,//&amp;#x7981;&amp;#x7528;logo
-        center: [107.55, 24.22],//&amp;#x5730;&amp;#x56FE;&amp;#x4E2D;&amp;#x5FC3;&amp;#x70B9;&amp;#x5750;&amp;#x6807;
-        slider:false,
-        nav:false,
-        isZoomSlider:true,
-        autoResize : true,
-        smartNavigation : false,
-        force3DTransforms : true,
-        isKeyboardNavigation : false,
-        sliderStyle : &amp;quot;large&amp;quot;,
-        showInfoWindowOnClick : true,
-        isDoubleClickZoom : false,
-    });
-    //&amp;#x6BD4;&amp;#x4F8B;&amp;#x5C3A;
-    var scalebar = new esri.dijit.Scalebar({
-        map : map,
-        scalebarStyle : &amp;quot;ruler&amp;quot;,
-        scalebarUnit : &amp;quot;metric&amp;quot;,
-        attachTo : &amp;quot;top-left&amp;quot;,
-    });
-    //&amp;#x7F29;&amp;#x7565;&amp;#x56FE;
-    var overViewMap = new esri.dijit.OverviewMap({
-        map:map,
-        attachTo: &amp;quot;bottom-left&amp;quot;,
-        visible:true,
-        opacity: .40,
-        width : 300,
-        height : 150,
-    });
-    overViewMap.startup();
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-&amp;#x6307;&amp;#x5B9A;&amp;#x5730;&amp;#x56FE;&amp;#x4E2D;&amp;#x5FC3;&amp;#x70B9;&quot;&gt;&lt;a href=&quot;#2-&amp;#x6307;&amp;#x5B9A;&amp;#x5730;&amp;#x56FE;&amp;#x4E2D;&amp;#x5FC3;&amp;#x70B9;&quot; class=&quot;headerlink&quot; title=&quot;2. &amp;#x6307;&amp;#x5B9A;&amp;#x5730;&amp;#x56FE;&amp;#x4E2D;&amp;#x5FC3;&amp;#x70B9;&quot;&gt;&lt;/a&gt;2. &amp;#x6307;&amp;#x5B9A;&amp;#x5730;&amp;#x56FE;&amp;#x4E2D;&amp;#x5FC3;&amp;#x70B9;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;//&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x70B9;    
-    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
-    //var point =  new Point(lon, lat, map.spatialReference);
-    map.centerAndZoom(point,2);
-    map.centerAt(point);
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;3-&amp;#x52A0;&amp;#x8F7D;&amp;#x5730;&amp;#x56FE;&quot;&gt;&lt;a href=&quot;#3-&amp;#x52A0;&amp;#x8F7D;&amp;#x5730;&amp;#x56FE;&quot; class=&quot;headerlink&quot; title=&quot;3. &amp;#x52A0;&amp;#x8F7D;&amp;#x5730;&amp;#x56FE;&quot;&gt;&lt;/a&gt;3. &amp;#x52A0;&amp;#x8F7D;&amp;#x5730;&amp;#x56FE;&lt;/h2&gt;&lt;p&gt;index.jsp&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x9700;&amp;#x8981;&amp;#x6DFB;&amp;#x52A0;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;String esriPath = request.getServerName() + &amp;quot;:&amp;quot; +
-request.getServerPort() + path + &amp;quot;/&amp;quot;;
-
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-    var arcgis_js_api_home = &amp;quot;&amp;lt;%=esriPath%&amp;gt;&amp;quot;;
-    var dojoConfig = {
-        has : {
-            &amp;quot;dojo-firebug&amp;quot; : true
-        },
-        async : true,
-        paths : {
-            &amp;quot;js&amp;quot; : &amp;quot;/../js&amp;quot;
-        },
-    };
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x518D;&amp;#x5F15;&amp;#x5165;claro.css&amp;#xFF0C;esri.css&amp;#xFF0C;init.js&amp;#xFF0C;index.js&amp;#x3002;&lt;/p&gt;
-&lt;p&gt;index.js&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;require([&amp;quot;esri/map&amp;quot;
-     ,&amp;quot;esri/layers/ArcGISDynamicMapServiceLayer&amp;quot;
-     ,&amp;quot;esri/SpatialReference&amp;quot;
-     ],function(){
-var map = new esri.Map(&amp;quot;arcgisDiv&amp;quot;,{
-    logo : false,
-    center: [107.55, 24.22],
-    slider:true,
-});
-var baseUrl = &amp;quot;http://192.168.1.139:6080/arcgis/rest/services/&amp;quot;;
-var mapNames ={
-        &amp;quot;dt&amp;quot;:&amp;quot;dt&amp;quot; //&amp;#x5E95;&amp;#x56FE;
-        ,&amp;quot;dw&amp;quot;:&amp;quot;dw&amp;quot;//&amp;#x7535;&amp;#x7F51;
-    };
-var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&amp;quot;/MapServer&amp;quot;,{id:&amp;quot;dt&amp;quot;});
-//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&amp;quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&amp;quot;);
-var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&amp;quot;/MapServer&amp;quot;,{id:&amp;quot;dw&amp;quot;});
-map.addLayers([dtLayer,dwLayer]);
-//    map.addLayer(layer);
-map.setZoom(8);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;4-infoWindow&quot;&gt;&lt;a href=&quot;#4-infoWindow&quot; class=&quot;headerlink&quot; title=&quot;4. infoWindow&quot;&gt;&lt;/a&gt;4. infoWindow&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
-require([
-  &amp;quot;dojo/dom&amp;quot;,
-  &amp;quot;dojo/dom-construct&amp;quot;,
-  &amp;quot;esri/map&amp;quot;, 
-  &amp;quot;myModules/InfoWindow&amp;quot;,
-  &amp;quot;esri/layers/FeatureLayer&amp;quot;,
-  &amp;quot;esri/InfoTemplate&amp;quot;,
-  &amp;quot;dojo/string&amp;quot;,
-  &amp;quot;dojo/domReady!&amp;quot;
-], function(
-   dom,
-   domConstruct,
-   Map,
-   InfoWindow,
-   FeatureLayer,
-   InfoTemplate,
-   string
-) {
-  //create the custom info window specifying any input options
-   var infoWindow = new  InfoWindow({
-      domNode: domConstruct.create(&amp;quot;div&amp;quot;, null, dom.byId(&amp;quot;mapDiv&amp;quot;))
-   });
-  var map = new Map(&amp;quot;map&amp;quot;, {
-      basemap: &amp;quot;gray&amp;quot;,
-      center: [-98.57, 39.82],
-      zoom: 4,
-      infoWindow: infoWindow
-    });
-
-  var template = new PopupTemplate({
-      title: &amp;quot;Boston Marathon 2013&amp;quot;,
-      description: &amp;quot;{Percent_Fi} of starters from {STATE_NAME} finished&amp;quot;,
-      fieldInfos: [{ //define field infos so we can specify an alias
-        fieldName: &amp;quot;Number_Ent&amp;quot;,
-        label: &amp;quot;Entrants&amp;quot;
-      },{
-        fieldName: &amp;quot;Number_Sta&amp;quot;,
-        label: &amp;quot;Starters&amp;quot;
-      },{
-        fieldName: &amp;quot;Number_Fin&amp;quot;,
-        label: &amp;quot;Finishers&amp;quot;
-      }]
-    });
-
-   var featureLayer = new FeatureLayer(&amp;quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&amp;quot;,{
-      mode: FeatureLayer.MODE_ONDEMAND,
-      outFields: [&amp;quot;*&amp;quot;],
-      infoTemplate:template
-    });
-
-    map.addLayer(featureLayer);  
-  //resize the info window 
-  map.infoWindow.resize(400, 200);
-});
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;1-&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot;&gt;&lt;a href=&quot;#1-&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot; class=&quot;headerlink&quot; title=&quot;1. &amp;#x521D;&amp;#x59CB;&amp;#x5316;
-    
-    </summary>
-    
-    
-      <category term="arcgis" scheme="http://chen1218chen.github.io/tags/arcgis/"/>
     
   </entry>
   
