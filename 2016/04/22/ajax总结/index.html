@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Bootstrap Paginator, Bootstrap | chen&#39;s blog</title>
+  <title>ajax总结 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chen's blog">
-<meta property="og:url" content="http://chen1218chen.github.io/tags/Bootstrap-Paginator-Bootstrap/index.html">
+  <meta name="description" content="ajax&amp;#x603B;&amp;#x7ED3;$.ajax({
+    url : &amp;quot;delTerminalAction.action/config.json&amp;quot;,
+    type : &amp;quot;post/get&amp;quot;,
+    async : false,
+    traditional : true,// &amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x80FD;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax总结">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/04/22/ajax总结/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description">
+<meta property="og:description" content="ajax&amp;#x603B;&amp;#x7ED3;$.ajax({
+    url : &amp;quot;delTerminalAction.action/config.json&amp;quot;,
+    type : &amp;quot;post/get&amp;quot;,
+    async : false,
+    traditional : true,// &amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x80FD;&amp;">
+<meta property="og:updated_time" content="2016-04-22T03:25:47.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chen's blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="ajax总结">
+<meta name="twitter:description" content="ajax&amp;#x603B;&amp;#x7ED3;$.ajax({
+    url : &amp;quot;delTerminalAction.action/config.json&amp;quot;,
+    type : &amp;quot;post/get&amp;quot;,
+    async : false,
+    traditional : true,// &amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x80FD;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -42,9 +55,9 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false,
       }
@@ -223,54 +236,200 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-ajax总结" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/04/14/BootstrapPaginator/" class="archive-article-date">
-      <time datetime="2016-04-14T14:38:49.000Z" itemprop="datePublished">04-14</time>
+    <div class="article-meta">
+      <a href="/2016/04/22/ajax总结/" class="article-date">
+      <time datetime="2016-04-22T09:27:06.000Z" itemprop="datePublished">2016-04-22</time>
 </a>
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ajax总结
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap-Paginator-Bootstrap/">Bootstrap Paginator, Bootstrap</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax，js/">ajax，js</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="ajax&#x603B;&#x7ED3;"><a href="#ajax&#x603B;&#x7ED3;" class="headerlink" title="ajax&#x603B;&#x7ED3;"></a>ajax&#x603B;&#x7ED3;</h2><pre><code>$.ajax({
+    url : &quot;delTerminalAction.action/config.json&quot;,
+    type : &quot;post/get&quot;,
+    async : false,
+    traditional : true,// &#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x6B63;&#x5E38;&#x53D1;&#x9001;&#x6570;&#x7EC4;&#x53C2;&#x6570;&#x4E86;
+    dataType : &quot;json/xml/text/html&quot;,
+    contentType: &quot;application/x-www-form-urlencoded; charset=utf-8&quot;,//&#x8BBE;&#x7F6E;&#x7F16;&#x7801;
+    data : {
+        &quot;ids&quot; : ids,
+    },    
+    success : function(data) {
+        $.each(data , funtion(i, item){
+            alert(item[i]);
+            //&#x6216;&#x8005;&#x662F;
+            alert(item.tagName);
+        });
+    },
+    error : function() {
+        alert(&quot;&#x5220;&#x9664;&#x5931;&#x8D25;&#xFF01;&#xFF01;&quot;);
+    }
+});
+// $.getJSON&#x76F8;&#x5F53;&#x4E8E;$.ajax&#x65B9;&#x6CD5;&#x4E2D;dataType&#x503C;&#x4E3A;json&#x65F6;&#x7684;&#x7B80;&#x5316;
+$.getJSON(url, function(data){
+
+})
+//&#x53EF;&#x83B7;&#x53D6;int&#x578B;&#x975E;json&#x6570;&#x636E;
+$.get(url,function(){
+
+})
+</code></pre>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/22/ajax总结/">ajax总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
+        <p><span>发布时间:</span>2016-04-22, 09:27:06</p>
+        <p><span>最后更新:</span>2016-04-22, 11:25:47</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/22/ajax总结/" title="ajax总结">http://chen1218chen.github.io/2016/04/22/ajax总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/04/22/ajax总结/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/20/SpringMVC/">
+                    SpringMVC
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax总结"><span class="toc-number">1.</span> <span class="toc-text">ajax总结</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/20/SpringMVC/" title="下一篇: SpringMVC">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
