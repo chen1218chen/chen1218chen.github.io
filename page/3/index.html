@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/shiro/" style="font-size: 20px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2 bootstrap</a> <a href="/tags/shiro/" style="font-size: 20px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -229,6 +229,132 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/JS/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.806Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/JS/">JS使用技巧</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>console.log();</strong>&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x65E9;&#x662F;&#x706B;&#x72D0;&#x5728;fiebug&#x4E2D;&#x7528;&#x6765;&#x8C03;&#x8BD5;</p>
+<h2 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a>prompt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  username = prompt(&quot;what is your name?&quot;);</span><br><span class="line">//username&#x5219;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;</span><br></pre></td></tr></table></figure>
+<h2 id="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"><a href="#js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;" class="headerlink" title="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"></a>js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;</h2><p>&#x5728;<strong>&#x2018; &#x2018;</strong>&#x4E2D;&#x76F4;&#x63A5;&#x5199;JSP&#x4EE3;&#x7801;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getCId(){</span><br><span class="line">	return &apos;&lt;%=session.getAttribute(&quot;cId&quot;)%&gt;&apos;;</span><br><span class="line">}</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## JSON&#x603B;&#x7ED3;</span><br></pre></td></tr></table></figure></p>
+<p>//str-&gt;obj<br>JSON.parse();<br>//obj-&gt;str<br>JSON.stringify();<br>```</p>
+<h2 id="js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;"><a href="#js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;" class="headerlink" title="js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;"></a>js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;</h2><p><a href="">&#x662F;&#x4F7F;&#x7528;get&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;url&#x65E0;&#x8BBA;&#x5982;&#x4F55;&#x90FD;&#x6709;2k&#x7684;&#x957F;&#x5EA6;&#x9650;&#x5236;</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-java学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/java学习/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/java学习/">java</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;</h2><ol>
+<li>&#x5FC5;&#x987B;&#x4E0E;&#x7C7B;&#x540D;&#x540C;&#x540D;</li>
+<li>&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x6216;&#x8005;0&#x4E2A;</li>
+<li>&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;</li>
+<li>&#x4F34;&#x968F;&#x7740;new&#x64CD;&#x4F5C;&#x4E00;&#x8D77;&#x88AB;&#x8C03;&#x7528;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class A{</span><br><span class="line">   public A(){</span><br><span class="line">      System.out.println(&quot;&#x8C03;&#x7528;&#x4E86;&#x65E0;&#x53C2;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&quot;);</span><br><span class="line">   }</span><br><span class="line">   public A(String mess){</span><br><span class="line">      System.out.println(&quot;&#x8C03;&#x7528;&#x4E86;&#x6709;&#x53C2;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;\n&quot;+</span><br><span class="line">         &quot;&#x53C2;&#x6570;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;&quot;+mess);</span><br><span class="line">   }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">public class Test{  </span><br><span class="line">   public static void main(String [] args){  </span><br><span class="line">       A a_1=new A();//&#x8C03;&#x7528;&#x65E0;&#x53C2;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;  </span><br><span class="line">       A a_2=new A(&quot;Hello&quot;);//&#x8C03;&#x7528;&#x6709;&#x53C2;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;  </span><br><span class="line">   }  </span><br><span class="line">}</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-04-22T03:25:47.742Z</updated>
+  <updated>2016-04-28T09:02:31.171Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,654 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bootstrap框架中对于用户表操作的js代码</title>
+    <link href="http://chen1218chen.github.io/2016/04/29/bootstrap%E6%A1%86%E6%9E%B6%E4%B8%AD%E5%AF%B9%E4%BA%8E%E7%94%A8%E6%88%B7%E8%A1%A8%E6%93%8D%E4%BD%9C%E7%9A%84js%E4%BB%A3%E7%A0%81/"/>
+    <id>http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/</id>
+    <published>2016-04-28T16:45:41.000Z</published>
+    <updated>2016-04-28T09:02:31.171Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x91C7;&amp;#x7528;requireJS&amp;#x5B9E;&amp;#x73B0;js&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;&amp;#x5404;&amp;#x79CD;bootstrap&amp;#x63D2;&amp;#x4EF6;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x5BF9;&amp;#x7528;&amp;#x6237;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x7BA1;&amp;#x7406;&lt;br&gt;&lt;img src=&quot;/2016/04/29/bootstrap&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x5BF9;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x8868;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;js&amp;#x4EE3;&amp;#x7801;/%E5%9B%BE%E7%89%871.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x56FE;&amp;#x7247;1.png&quot;&gt;&lt;br&gt;&amp;#x6DFB;&amp;#x52A0;&amp;#x529F;&amp;#x80FD;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/bootstrap&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x5BF9;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x8868;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;js&amp;#x4EE3;&amp;#x7801;/%E5%9B%BE%E7%89%872.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x56FE;&amp;#x7247;2.png&quot;&gt;&lt;br&gt;&amp;#x4FEE;&amp;#x6539;&amp;#x529F;&amp;#x80FD;&amp;#xFF08;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E0B;&amp;#x56FE;&amp;#xFF09;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/bootstrap&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x5BF9;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x8868;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;js&amp;#x4EE3;&amp;#x7801;/%E5%9B%BE%E7%89%873.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x56FE;&amp;#x7247;3.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;main.js&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;require.config({
+//    baseUrl : &amp;apos;js&amp;apos;,
+    paths : {
+        jquery : &amp;apos;lib/jquery.min&amp;apos;,
+        &amp;apos;css&amp;apos; : &amp;apos;lib/css.min&amp;apos;,
+        &amp;apos;common&amp;apos; : &amp;apos;app/common&amp;apos;,
+        &amp;apos;table&amp;apos; : &amp;apos;app/table&amp;apos;,
+        &amp;apos;role&amp;apos; : &amp;apos;app/role&amp;apos;,
+        &amp;apos;bootstrap&amp;apos; : &amp;apos;lib/bootstrap.min&amp;apos;,
+        &amp;apos;bootstrapTable&amp;apos; : &amp;apos;lib/bootstrap-table&amp;apos;,
+        &amp;apos;tableExport&amp;apos; : &amp;apos;lib/tableExport&amp;apos;,
+        &amp;apos;tableLanguage&amp;apos; : &amp;apos;lib/bootstrap-table-zh-CN&amp;apos;,
+        &amp;apos;bootstrapTableExport&amp;apos; : &amp;apos;lib/bootstrap-table-export&amp;apos;,
+        &amp;apos;bootstrap-dialog&amp;apos; : &amp;apos;lib/bootstrap-dialog.min&amp;apos;,
+        &amp;apos;jquery.base64&amp;apos; : &amp;apos;lib/jquery.base64&amp;apos;,
+        &amp;apos;confirm&amp;apos; : &amp;apos;lib/jquery-confirm.min&amp;apos;,
+        &amp;apos;bootstrapValidator&amp;apos; : &amp;apos;lib/bootstrapValidator.min&amp;apos;,
+        &amp;apos;select2&amp;apos; : &amp;apos;lib/select2.full.min&amp;apos;
+    },
+    shim : {
+        &amp;apos;jquery&amp;apos; : {
+            init : function() {
+                return jquery.noConflict(true);
+            },
+            exports : &amp;apos;jquery&amp;apos;
+        },
+        &amp;apos;common&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrap&amp;apos;,
+                    &amp;apos;bootstrapValidator&amp;apos;, &amp;apos;select2&amp;apos;, &amp;apos;confirm&amp;apos; ,&amp;apos;bootstrap-dialog&amp;apos;],
+            exports : &amp;apos;common&amp;apos;
+        },
+        &amp;apos;table&amp;apos; : {
+            exports : &amp;apos;table&amp;apos;
+        },
+        &amp;apos;bootstrap&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;,&amp;apos;css!../css/bootstrap.min.css&amp;apos; ],
+            exports : &amp;quot;$.fn.popover&amp;quot;
+        },
+        &amp;apos;bootstrapTable&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrap&amp;apos;, &amp;apos;css!../css/bootstrap-table.css&amp;apos;],
+            exports : &amp;apos;$.fn.bootstrapTable&amp;apos;
+        },
+        &amp;apos;tableExport&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos; ],
+            exports : &amp;apos;$.fn.extend&amp;apos;
+        },
+        &amp;apos;tableLanguage&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrapTable&amp;apos; ],
+            exports : &amp;apos;$.fn.bootstrapTable.defaults&amp;apos;
+        },
+        &amp;apos;bootstrapTableExport&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrapTable&amp;apos; ],
+            exports : &amp;apos;$.fn.bootstrapTable.defaults&amp;apos;
+        },
+        &amp;apos;bootstrap-dialog&amp;apos; : {
+            deps:[&amp;apos;css!../css/bootstrap-dialog.min.css&amp;apos;],
+        },
+        &amp;apos;confirm&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos; ,&amp;apos;css!../css/jquery-confirm.min.css&amp;apos;],
+            exports : &amp;apos;confirm&amp;apos;
+        },
+        &amp;apos;select2&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;,&amp;apos;css!../css/select2.min.css&amp;apos; ],
+            exports : &amp;apos;select2&amp;apos;
+        },
+        &amp;apos;bootstrapValidator&amp;apos; : {
+            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;css!../css/bootstrapValidator.min.css&amp;apos;],
+            exports : &amp;apos;$.fn.bootstrapValidator&amp;apos;
+        }
+    },
+    waitSeconds : 0,
+//    enforceDefine : true,
+// skipDataMain:true
+});
+function operateFormatter(value, row, index) {
+    return [
+            &amp;apos;&amp;lt;a class=&amp;quot;edit ml10&amp;quot; id=&amp;quot;edit&amp;quot; href=&amp;quot;#&amp;quot; data-toggle=&amp;quot;modal&amp;quot; data-target=&amp;quot;#editUserModal&amp;quot; title=&amp;quot;Edit&amp;quot; data-whatever=&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x7EC8;&amp;#x7AEF;&amp;quot;&amp;gt;&amp;apos;,
+            &amp;apos;&amp;lt;i class=&amp;quot;glyphicon glyphicon-edit&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;, &amp;apos;&amp;lt;/a&amp;gt;&amp;amp;nbsp;&amp;apos; ].join(&amp;apos;&amp;apos;);
+}
+require([ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrap-dialog&amp;apos;, &amp;apos;common&amp;apos;, &amp;apos;table&amp;apos;, &amp;apos;lib/domReady!&amp;apos;],
+        function(jquery, BootstrapDialog, common, userTable, domReady) {
+            userTable.init();
+        /*    if ($(&amp;apos;.glyphicon-user&amp;apos;).text() != &amp;quot;admin&amp;quot;) {
+                $(&amp;apos;#custom-toolbar&amp;apos;).children().attr(&amp;quot;disabled&amp;quot;, &amp;quot;true&amp;quot;).css({
+                    &amp;quot;background-color&amp;quot; : &amp;quot;#DEDEDE&amp;quot;,
+                    &amp;quot;border-color&amp;quot; : &amp;quot;#DCDCDC&amp;quot;
+                });
+                $(&amp;quot;#edit&amp;quot;).attr(&amp;quot;disabled&amp;quot;,&amp;quot;true&amp;quot;).css({
+                    &amp;quot;background-color&amp;quot; : &amp;quot;#DEDEDE&amp;quot;,
+                    &amp;quot;border-color&amp;quot; : &amp;quot;#DCDCDC&amp;quot;
+                });
+            }*/
+
+            window.operateEvents = {
+                &amp;apos;click .edit&amp;apos; : function(e, value, row, index) {
+                    userTable.editGroup(row, index);
+                },
+                &amp;apos;click .remove&amp;apos; : function(e, value, row, index) {
+                    userTable.deleteOneGroup(row.uid);
+                }
+            };
+            $(&amp;apos;#adduser&amp;apos;).click(function() {
+                common.openDialog(&amp;apos;&amp;#x6DFB;&amp;#x52A0;&amp;#x7528;&amp;#x6237;&amp;apos;, &amp;apos;addUser.html&amp;apos;, false);
+            });
+            $(&amp;apos;#deluser&amp;apos;).click(function() {
+                userTable.deleteUser();
+            });
+            $(&amp;quot;#logout&amp;quot;).click(function() {
+                common.logout();
+            });
+            $(&amp;apos;#changePasswd&amp;apos;).click(function() {
+                common.changePasswd();
+            });
+        });
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;table.js &amp;#x4E3B;&amp;#x8981;&amp;#x529F;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;define([ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrap&amp;apos;,&amp;apos;tableExport&amp;apos;, &amp;apos;bootstrapTable&amp;apos;, &amp;apos;bootstrapValidator&amp;apos;,
+        &amp;apos;select2&amp;apos;, &amp;apos;bootstrap-dialog&amp;apos;, &amp;apos;confirm&amp;apos;, &amp;apos;common&amp;apos;, &amp;apos;tableLanguage&amp;apos;
+        , &amp;apos;bootstrapTableExport&amp;apos;,&amp;apos;role&amp;apos; ], function(jquery, bootstrap,tableExport,
+        bootstrapTable, bootstrapValidator, select2, BootstrapDialog, confirm,
+        common,tableLanguage,bootstrapTableExport,role) {
+    var userTable = {};
+    common.initPage();
+    userTable.init = function() {
+        userTable.queryAll();
+        $table = $(&amp;apos;#table&amp;apos;);
+        common.organList(&amp;quot;#oid-change&amp;quot;);
+        userTable.selectUser();
+        common.role(&amp;quot;#uduty&amp;quot;);
+    };
+
+    userTable.selectUser = function(){
+        $.getJSON(&amp;quot;js/config.json&amp;quot;, function(result) {
+            var approval = result.approval;
+            $(&amp;quot;#isapproval&amp;quot;).select2({
+                data : approval,
+                minimumResultsForSearch : -1,// &amp;#x7981;&amp;#x7528;&amp;#x641C;&amp;#x7D22;
+                placeholder : &amp;quot;&amp;#x5BA1;&amp;#x6279;&amp;quot;,
+                allowClear : true
+            });
+        });
+    };
+
+    userTable.addUser = function(form) {
+        $.ajax({
+            url : &amp;quot;/JDJ/rest/user/saveUser&amp;quot;,
+            type : &amp;quot;post&amp;quot;,
+            dataType : &amp;apos;json&amp;apos;,
+            data : $(form).serializeArray(),
+            success : function(result) {
+                $(&amp;apos;#adduserModal&amp;apos;).modal(&amp;apos;hide&amp;apos;);
+                if (result) {
+                    common.alertConfirm(&amp;quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x6210;&amp;#x529F;!&amp;quot;);
+                } else {
+                    common.alertView(&amp;quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x5931;&amp;#x8D25;&amp;#xFF01;&amp;quot;);
+                }
+            },
+        });
+    };
+    userTable.deleteUser = function() {
+        var ids = $.map($table.bootstrapTable(&amp;apos;getSelections&amp;apos;), function(row) {
+            return row.uid;
+        });
+
+        if (ids == &amp;quot;&amp;quot;) {
+            common.alertView(&amp;quot;&amp;#x8BF7;&amp;#x9009;&amp;#x62E9;&amp;#x5220;&amp;#x9664;&amp;#x9879;&amp;quot;);
+            return;
+        }
+        userTable.delUser(ids);
+    };
+    userTable.deleteOneUser = function(ids) {
+        $table.bootstrapTable(&amp;apos;remove&amp;apos;, {
+            field : &amp;quot;id&amp;quot;,
+            values : ids
+        });
+        userTable.delUser(ids);
+    };
+    userTable.delUser = function(ids) {
+        $.ajax({
+            url : &amp;quot;../rest/user/delUser&amp;quot;,
+            type : &amp;quot;post&amp;quot;,
+            traditional : true,// &amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x80FD;&amp;#x6B63;&amp;#x5E38;&amp;#x53D1;&amp;#x9001;&amp;#x6570;&amp;#x7EC4;&amp;#x53C2;&amp;#x6570;&amp;#x4E86;
+            data : {
+                &amp;quot;ids&amp;quot; : ids,
+            },
+            success : function(result) {
+                if (result) {
+                    common.alertView(&amp;quot;&amp;#x5220;&amp;#x9664;&amp;#x6210;&amp;#x529F;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
+                    $table.bootstrapTable(&amp;apos;remove&amp;apos;, {
+                        field : &amp;quot;uid&amp;quot;,
+                        values : ids
+                    });
+                } else
+                    common.alertView(&amp;quot;&amp;#x5220;&amp;#x9664;&amp;#x5931;&amp;#x8D25;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
+            },
+            error : function() {
+                common.alertView(&amp;quot;&amp;#x5220;&amp;#x9664;&amp;#x5931;&amp;#x8D25;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
+            }
+        });
+    };
+    userTable.queryAll = function() {
+        $.ajax({
+            url : &amp;quot;../rest/user/queryAllUser&amp;quot;,
+            type : &amp;quot;get&amp;quot;,
+            dataType : &amp;apos;json&amp;apos;,
+            success : function(data) {
+                if (data != null) {
+                    userTable.OwnerName(data);
+                }
+            },
+            error:function(){
+                common.alertView(&amp;quot;&amp;#x6570;&amp;#x636E;&amp;#x8FD4;&amp;#x56DE;&amp;#x51FA;&amp;#x9519;&amp;quot;);
+            }
+        });
+    };
+    userTable.OwnerName = function(list) {
+        var arraylist = [];
+        for ( var i = 0; i &amp;lt; list.length; i++) {
+            var obj = {};
+            obj[&amp;quot;uid&amp;quot;] = list[i].uid;
+            obj[&amp;quot;uname&amp;quot;] = list[i].uname;
+            obj[&amp;quot;uphone&amp;quot;] = list[i].uphone;
+            obj[&amp;quot;upassword&amp;quot;] = list[i].upassword;
+            obj[&amp;quot;oid&amp;quot;] = list[i].organ.oid;
+            obj[&amp;quot;oname&amp;quot;] = list[i].organ.oname;
+            obj[&amp;quot;rid&amp;quot;] = list[i].roles[0].rid;
+            obj[&amp;quot;rname&amp;quot;] = list[i].roles[0].rname;
+            if(list[i].isapproval==&amp;quot;1&amp;quot;){
+                obj[&amp;quot;isapproval&amp;quot;] = &amp;quot;&amp;#x901A;&amp;#x8FC7;&amp;quot;;
+            }
+            else{
+                obj[&amp;quot;isapproval&amp;quot;] = &amp;quot;&amp;#x672A;&amp;#x901A;&amp;#x8FC7;&amp;quot;;
+            }
+            arraylist.push(obj);
+        }
+        $(&amp;apos;#table&amp;apos;).bootstrapTable({
+            data : arraylist
+        });
+    };
+
+    //open edit modal
+    userTable.editGroup = function(row, index) {
+        index1 = index;
+        $(&amp;apos;#editUserModal&amp;apos;).on(&amp;apos;show.bs.modal&amp;apos;, function() {
+            console.dir(row);
+            var modal = $(this);
+            modal.find(&amp;apos;#uid&amp;apos;).val(row.uid);
+            modal.find(&amp;apos;#uname&amp;apos;).val(row.uname);
+            modal.find(&amp;apos;#uname&amp;apos;).val(row.uname);
+            modal.find(&amp;apos;#uduty&amp;apos;).val(row.rid);
+            $(&amp;quot;#uduty&amp;quot;).val(row.rid).trigger(&amp;quot;change&amp;quot;);
+            modal.find(&amp;apos;#oid-change&amp;apos;).val(row.oid);
+            $(&amp;quot;#oid-change&amp;quot;).val(row.oid).trigger(&amp;quot;change&amp;quot;);
+            modal.find(&amp;apos;#upassword&amp;apos;).val(row.upassword);
+            modal.find(&amp;apos;#uphone&amp;apos;).val(row.uphone);
+            if((row.isapproval)==&amp;quot;&amp;#x901A;&amp;#x8FC7;&amp;quot;){
+                modal.find(&amp;apos;#isapproval&amp;apos;).val(&amp;quot;1&amp;quot;);
+                $(&amp;quot;#isapproval&amp;quot;).val(&amp;quot;1&amp;quot;).trigger(&amp;quot;change&amp;quot;);
+            }else{
+                modal.find(&amp;apos;#isapproval&amp;apos;).val(&amp;quot;0&amp;quot;);
+                $(&amp;quot;#isapproval&amp;quot;).val(&amp;quot;0&amp;quot;).trigger(&amp;quot;change&amp;quot;);
+
+            }
+
+            $(&amp;quot;#editUserSubmit&amp;quot;).click(function(){
+                userTable.edit();
+            });
+        });
+    };
+
+    //edit submit
+    userTable.edit = function() {
+//        var uid = $(&amp;apos;#uid&amp;apos;).val();
+        var uname = $(&amp;apos;#uname&amp;apos;).val();
+        if(uname==&amp;quot;&amp;quot;){
+            common.alertView(&amp;quot;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;quot;);
+            return;
+        }
+//        var upassword = $(&amp;apos;#upassword&amp;apos;).val();
+        var oid = $(&amp;apos;#oid-change&amp;apos;).val();
+        var uphone = $(&amp;apos;#uphone&amp;apos;).val();
+        var uduty = $(&amp;apos;#uduty&amp;apos;).val();
+        var isapproval = $(&amp;apos;#isapproval&amp;apos;).val();
+        $table.bootstrapTable(&amp;apos;updateRow&amp;apos;, {
+            index : index1,
+            row : {
+                uname : uname,
+//                upassword : upassword,
+                oid : oid,
+                uphone : uphone,
+                uduty : uduty,
+                isapproval: isapproval
+            }
+        });
+
+        $.ajax({
+            type : &amp;quot;post&amp;quot;,
+            url : &amp;quot;../rest/user/updateUser&amp;quot;,
+            cache : false,
+            dataType : &amp;apos;json&amp;apos;,
+            data : $(&amp;quot;#editUserForm&amp;quot;).serializeArray(),
+            success : function(result) {
+                $(&amp;apos;#editUserModal&amp;apos;).modal(&amp;apos;hide&amp;apos;);
+                if (result) {
+                    common.alertConfirm(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x6210;&amp;#x529F;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
+                } else {
+                    common.alertView(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x5931;&amp;#x8D25;&amp;#xFF01;&amp;quot;);
+                }
+            },
+            error : function() {
+                $(&amp;apos;#editUserModal&amp;apos;).modal(&amp;apos;hide&amp;apos;);
+                common.alertView(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x5931;&amp;#x8D25;&amp;#xFF01;&amp;quot;);
+            }
+        });
+    };
+
+    //edit valiator
+    userTable.valiatorEditUser = function() {
+        $(&amp;apos;#editUserForm&amp;apos;).bootstrapValidator({
+            message : &amp;apos;&amp;#x65E0;&amp;#x6548;&amp;#x503C;&amp;apos;,
+            feedbackIcons : {
+                valid : &amp;apos;glyphicon glyphicon-ok&amp;apos;,
+                invalid : &amp;apos;glyphicon glyphicon-remove&amp;apos;,
+                validating : &amp;apos;glyphicon glyphicon-refresh&amp;apos;
+            },
+            submitHandler : function(validator, form, submitButton) {
+                userTable.edit(form);
+            },
+            fields : {
+                uname : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        }
+                    }
+                },
+                upassword : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        },
+                        stringLength : {
+                            min : 1,
+                            max : 30,
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x957F;&amp;#x5EA6;&amp;#x4E3A;1&amp;#x5230;30&amp;#x4F4D;&amp;apos;
+                        }
+                    }
+                },
+                uphone : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x7535;&amp;#x8BDD;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        },
+                        regexp : {
+                            regexp : /^[0-9]+$/,
+                            message : &amp;apos;&amp;#x683C;&amp;#x5F0F;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;&amp;apos;
+                        }
+                    }
+                },
+            }
+        });
+    };
+
+    //add user valiator
+    userTable.valiatorAddUser = function() {
+        $(&amp;apos;#addForm&amp;apos;).bootstrapValidator({
+            message : &amp;apos;&amp;#x65E0;&amp;#x6548;&amp;#x503C;&amp;apos;,
+            feedbackIcons : {
+                valid : &amp;apos;glyphicon glyphicon-ok&amp;apos;,
+                invalid : &amp;apos;glyphicon glyphicon-remove&amp;apos;,
+                validating : &amp;apos;glyphicon glyphicon-refresh&amp;apos;
+            },
+            submitHandler : function(validator, form, submitButton) {
+                userTable.addUser(form);
+            },
+            fields : {
+                uname : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        }
+                    /*
+                     * , regexp : { regexp : /^[a-zA-Z0-9_\.]+$/, message :
+                     * &amp;apos;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x53EA;&amp;#x80FD;&amp;#x7531;&amp;#x5B57;&amp;#x6BCD;&amp;#xFF0C;&amp;#x6570;&amp;#x5B57;&amp;#xFF0C;&amp;#x5706;&amp;#x70B9;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x7EC4;&amp;#x6210;&amp;apos; }
+                     */
+                    }
+                },
+                upassword : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        },
+                        stringLength : {
+                            min : 1,
+                            max : 30,
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x957F;&amp;#x5EA6;&amp;#x4E3A;1&amp;#x5230;30&amp;#x4F4D;&amp;apos;
+                        },
+                        identical : {
+                            field : &amp;apos;password2&amp;apos;,
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0E;&amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;apos;
+                        },
+                    }
+                },
+                password2 : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        },
+                        stringLength : {
+                            min : 1,
+                            max : 30,
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x957F;&amp;#x5EA6;&amp;#x4E3A;1&amp;#x5230;30&amp;#x4F4D;&amp;apos;
+                        },
+                        identical : {
+                            field : &amp;apos;upassword&amp;apos;,
+                            message : &amp;apos;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0E;&amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;apos;
+                        }
+                    }
+                },
+                uphone : {
+                    validators : {
+                        notEmpty : {
+                            message : &amp;apos;&amp;#x7535;&amp;#x8BDD;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;apos;
+                        },
+                        regexp : {
+                            regexp : /^[0-9]+$/,
+                            message : &amp;apos;&amp;#x683C;&amp;#x5F0F;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;&amp;apos;
+                        }
+                    }
+                },
+            }
+        });
+    };
+    return userTable;
+});
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x91C7;&amp;#x7528;requireJS&amp;#x5B9E;&amp;#x73B0;js&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;&amp;#x5404;&amp;#x79CD;bootst
+    
+    </summary>
+    
+    
+      <category term="bootstrap" scheme="http://chen1218chen.github.io/tags/bootstrap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>select2实现三级联动</title>
+    <link href="http://chen1218chen.github.io/2016/04/29/select2%E5%AE%9E%E7%8E%B0%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
+    <id>http://chen1218chen.github.io/2016/04/29/select2实现三级联动/</id>
+    <published>2016-04-28T16:07:49.000Z</published>
+    <updated>2016-04-28T08:53:06.848Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x6700;&amp;#x8FD1;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x8981;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5206;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x4E3A;&amp;#x4E09;&amp;#x7EA7;&amp;#xFF0C;&amp;#x8003;&amp;#x8651;&amp;#x4F7F;&amp;#x7528;select2&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;&amp;#x6548;&amp;#x679C;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/1.png&quot; alt=&quot;enter description here&quot; title=&quot;1.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Model&quot;&gt;&lt;a href=&quot;#Model&quot; class=&quot;headerlink&quot; title=&quot;Model&quot;&gt;&lt;/a&gt;Model&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;private Integer cid;
+private String cname;
+private String level;//&amp;#x6240;&amp;#x5728;&amp;#x5C42;&amp;#x7EA7;
+private String parent;//&amp;#x592B;&amp;#x7C7B;ID
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;html&quot;&gt;&lt;a href=&quot;#html&quot; class=&quot;headerlink&quot; title=&quot;html&quot;&gt;&lt;/a&gt;html&lt;/h2&gt;&lt;p&gt;&amp;#x4E09;&amp;#x4E2A;select&amp;#x6807;&amp;#x7B7E;&amp;#xFF0C;&amp;#x521D;&amp;#x59CB;&amp;#x5C06;&amp;#x540E;&amp;#x4E24;&amp;#x4E2A;select&amp;#x9690;&amp;#x85CF;&lt;br&gt;&lt;strong&gt;Tips&amp;#x5C0F;&amp;#x6280;&amp;#x5DE7;:&lt;/strong&gt; &amp;#x82E5;&amp;#x4F7F;&amp;#x7528;$.show()&amp;#xFF0C;$.hide()&amp;#x65B9;&amp;#x6CD5;&amp;#x65E0;&amp;#x6CD5;&amp;#x76F4;&amp;#x63A5;&amp;#x5C06;select&amp;#x9690;&amp;#x85CF;&amp;#xFF0C;&amp;#x5219;&amp;#x5C06;&amp;#x5B83;&amp;#x7684;&amp;#x4E0A;&amp;#x5C42;&amp;#x6807;&amp;#x7B7E;&amp;#x9690;&amp;#x85CF;&amp;#xFF0C;&amp;#x6216;&amp;#x8005;&amp;#x5305;&amp;#x88F9;&amp;#x5728;span&amp;#x4E2D;&amp;#xFF0C;&amp;#x5C06;span&amp;#x9690;&amp;#x85CF;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;span id=&amp;quot;one&amp;quot;&amp;gt; &amp;lt;select id=&amp;quot;levelOne&amp;quot; name=&amp;quot;levelOne&amp;quot; placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 100px&amp;quot;&amp;gt;
+&amp;lt;/select&amp;gt;&amp;lt;/span&amp;gt; 
+&amp;lt;span id=&amp;quot;two&amp;quot; &amp;gt; &amp;lt;select id=&amp;quot;levelTwo&amp;quot; name=&amp;quot;levelTwo&amp;quot;
+    placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 100px; display: none;&amp;quot;&amp;gt;
+&amp;lt;/select&amp;gt;
+&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;quot;three&amp;quot;&amp;gt; &amp;lt;select id=&amp;quot;levelThree&amp;quot; name=&amp;quot;levelThree&amp;quot;
+    placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 160px;  display: none;&amp;quot;&amp;gt;
+&amp;lt;/select&amp;gt;
+&amp;lt;/span&amp;gt;
+
+&amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-info&amp;quot; id=&amp;quot;save&amp;quot;
+    style=&amp;quot;margin-top: 5px; padding: 3px 12px&amp;quot;&amp;gt;
+    &amp;lt;i class=&amp;quot;&amp;quot;&amp;gt;&amp;#x4FDD;&amp;#x5B58;&amp;lt;/i&amp;gt;
+&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x5206;&amp;#x89E3;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x9996;&amp;#x6B21;&amp;#x52A0;&amp;#x8F7D;&amp;#x6709;&amp;#x51E0;&amp;#x7EA7;&amp;#x6570;&amp;#x636E;&amp;#x663E;&amp;#x793A;&amp;#x51E0;&amp;#x7EA7;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x70B9;&amp;#x51FB;&amp;#x4E00;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x5C55;&amp;#x793A;&amp;#x4E8C;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x53CA;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x4E09;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x7684;&amp;#x8BA9;&amp;#x5176;&amp;#x9690;&amp;#x85CF;  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(function() {
+    var oneselect,twoselect,threeselect;
+    selectAll();
+    selectInit();
+})
+//&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x52A0;&amp;#x8F7D;
+function selectInit(){
+    selectOne();
+
+    $(&amp;quot;#levelOne&amp;quot;).on(&amp;quot;select2:select&amp;quot;, function (e) {
+        var levelOne = $(&amp;quot;#levelOne&amp;quot;).val();
+        selectTwo(levelOne);
+    });
+
+    $(&amp;apos;#levelTwo&amp;apos;).on(&amp;quot;select2:select&amp;quot;,function(){
+        var levelTwo = $(&amp;quot;#levelTwo&amp;quot;).val();
+        selectThree(levelTwo);
+    });
+}
+//&amp;#x83B7;&amp;#x53D6;&amp;#x6240;&amp;#x6709;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5206;&amp;#x7C7B;&amp;#x4FDD;&amp;#x5B58;&amp;#x5230;&amp;#x5168;&amp;#x5C40;&amp;#x6570;&amp;#x7EC4;&amp;#x4E2D;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x540E;&amp;#x9762;&amp;#x4F7F;&amp;#x7528;
+function selectAll(){
+    $.ajax({
+        url : &amp;quot;rest/category/queryAll&amp;quot;,
+        type : &amp;quot;get&amp;quot;,
+        async: false,//&amp;#x6CE8;&amp;#x610F;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7136;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#x53D6;&amp;#x4E0D;&amp;#x5230;&amp;#x503C;
+        dataType : &amp;apos;json&amp;apos;,
+        success : function(result) {
+            var oneLevel = [];
+            var twoLevel = [];
+            var threeLevel = [];
+            for (var i = 0; i &amp;lt; result.length; i++) {
+                if (result[i].level == &amp;quot;1&amp;quot;) {
+                    oneLevel.push(result[i]);
+                } else if (result[i].level == &amp;quot;2&amp;quot;) {
+                    twoLevel.push(result[i]);
+                } else if (result[i].level == &amp;quot;3&amp;quot;) {
+                    threeLevel.push(result[i]);
+                }
+            }
+            oneselect = oneLevel;
+            twoselect = twoLevel;
+            threeselect = threeLevel;
+        }
+    });
+}
+
+//&amp;#x53D6;&amp;#x7B2C;&amp;#x4E00;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;
+function selectOne(){
+
+    select2Show(&amp;quot;#levelOne&amp;quot;, oneselect);
+
+    selectTwo(oneselect[0].cid);
+}
+//&amp;#x53D6;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x5C42;&amp;#x6570;&amp;#x636E;
+function selectTwo(parent){
+    var twoTmp = [];
+    for (var j = 0; j &amp;lt; twoselect.length; j++) {
+        if (twoselect[j].parent == parent) {
+            twoTmp.push(twoselect[j])
+        }
+    };
+    if (twoTmp.length != 0) {
+        $(&amp;quot;#two&amp;quot;).show();
+        select2Show(&amp;quot;#levelTwo&amp;quot;, twoTmp);
+
+        selectThree(twoTmp[0].cid);
+
+    } else {
+        twoHide();
+        threeHide();
+    }
+}
+//&amp;#x53D6;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x7B2C;&amp;#x4E09;&amp;#x5C42;&amp;#x6570;&amp;#x636E;
+function selectThree(parent){
+    var threeTmp = [];
+    for (var m = 0; m &amp;lt; threeselect.length; m++) {
+        if (parent == threeselect[m].parent) {
+            threeTmp.push(threeselect[m]);
+        }
+    };
+    if (threeTmp.length != 0) {
+        $(&amp;quot;#three&amp;quot;).show();
+        select2Show(&amp;quot;#levelThree&amp;quot;, threeTmp);
+    } else {
+        threeHide();
+    }
+}
+
+function twoHide(){
+    $(&amp;quot;#levelTwo&amp;quot;).empty();
+    $(&amp;quot;#two&amp;quot;).hide();
+}
+function threeHide(){
+    $(&amp;quot;#levelThree&amp;quot;).empty();
+    $(&amp;quot;#three&amp;quot;).hide();
+}
+function select2Show(id,result){
+    if(result.length!=0){
+        var data=[];
+
+        for ( var i = 0; i &amp;lt; result.length; i++) {
+            var tmp = {};
+            tmp[&amp;quot;id&amp;quot;] = result[i].cid;
+            tmp[&amp;quot;text&amp;quot;] = result[i].cname;
+            data.push(tmp);
+        }
+
+        $(id).empty();
+        $(id).select2({
+            data : data,
+        });
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x67D0;&amp;#x5C42;&amp;#x7C7B;&amp;#x522B;&amp;#x9700;&amp;#x8981;&amp;#x9690;&amp;#x85CF;&amp;#x65F6;&amp;#x6E05;&amp;#x7A7A;select2&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5728;&amp;#x4FDD;&amp;#x5B58;&amp;#x5206;&amp;#x7C7B;&amp;#x65F6;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x7C7B;&amp;#x522B;id&amp;#xFF0C;&amp;#x5982;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#x6240;&amp;#x793A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%202.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 2.png&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function save(){
+    var ids = $.map($table.bootstrapTable(&amp;apos;getSelections&amp;apos;), function(row) {
+        return row.id;
+    });
+
+    if (ids == &amp;quot;&amp;quot;) {
+        alertView(&amp;quot;&amp;#x8BF7;&amp;#x9009;&amp;#x62E9;&amp;#x5F85;&amp;#x5F52;&amp;#x7C7B;&amp;#x4FE1;&amp;#x606F;&amp;quot;);
+        return;
+    }
+    alert(ids);
+    if($(&amp;quot;#levelThree&amp;quot;).val()!=null){
+        saveData($(&amp;quot;#levelThree&amp;quot;).val(),ids);
+    }else {
+        if($(&amp;quot;#levelTwo&amp;quot;).val()!=null){
+            saveData($(&amp;quot;#levelTwo&amp;quot;).val(),ids);
+        }else {
+            saveData($(&amp;quot;#levelOne&amp;quot;).val(),ids);
+        }
+    }
+}
+
+function saveData(id,ids){
+    //&amp;#x6570;&amp;#x636E;&amp;#x4FDD;&amp;#x5B58;&amp;#xFF0C;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x503C;&amp;#x7528;ajax&amp;#x4F20;&amp;#x5230;&amp;#x540E;&amp;#x53F0;&amp;#xFF0C;&amp;#x8FDB;&amp;#x884C;&amp;#x4FDD;&amp;#x5B58;
+    $.ajax({
+        url:&amp;quot;rest/category/saveClassfi&amp;quot;,
+        type:&amp;quot;post&amp;quot;,
+        data:{
+            &amp;quot;id&amp;quot;:id,
+            &amp;quot;ids&amp;quot;:ids
+        },
+        dataType:&amp;quot;json&amp;quot;,
+        success:function(result){
+
+        }
+    })
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0B;&amp;#x56FE;&amp;#x662F;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;&amp;#x7684;&amp;#x5F85;&amp;#x5F52;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;ID&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;br&gt;&amp;#x82E5;&amp;#x672A;&amp;#x9009;&amp;#x62E9;&amp;#x5219;&amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%203.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 3.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6700;&amp;#x8FD1;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x8981;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x7C7B;&amp;#xFF0C;&amp;
+    
+    </summary>
+    
+    
+      <category term="select2 bootstrap" scheme="http://chen1218chen.github.io/tags/select2-bootstrap/"/>
+    
+  </entry>
   
   <entry>
     <title>ajax总结</title>
@@ -1485,11 +2133,11 @@ git reset HEAD~n
     <link href="http://chen1218chen.github.io/2016/03/02/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"/>
     <id>http://chen1218chen.github.io/2016/03/02/常用软件/</id>
     <published>2016-03-02T02:00:26.964Z</published>
-    <updated>2016-03-02T06:27:26.503Z</updated>
+    <updated>2016-04-25T06:45:57.979Z</updated>
     
     <content type="html">&lt;ol&gt;
-&lt;li&gt;IDE&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x5177;&lt;br&gt;MyEclipse10&amp;#x3001;WebStorm10.0.3&lt;/li&gt;
-&lt;li&gt;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&lt;br&gt;Tomcat7.0.63&lt;/li&gt;
+&lt;li&gt;IDE&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x5177;&lt;br&gt;MyEclipse10&amp;#x3001;WebStorm10.0.3&amp;#x3001;eclipse+JRbel&lt;/li&gt;
+&lt;li&gt;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&lt;br&gt;Tomcat7.0.63,jdk1.7&lt;/li&gt;
 &lt;li&gt;&amp;#x7248;&amp;#x672C;&amp;#x63A7;&amp;#x5236;&lt;br&gt;github&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&lt;br&gt;cc.2008.com@163.com&lt;br&gt;cc.2008.com&lt;/li&gt;
 &lt;li&gt;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&lt;br&gt;NotePad++&amp;#x3001;&amp;#x9A6C;&amp;#x514B;&amp;#x98DE;&amp;#x8C61;&amp;#x3001;markdownPad&amp;#x3001;&amp;#x5370;&amp;#x8C61;&amp;#x7B14;&amp;#x8BB0;&lt;/li&gt;
 &lt;li&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&lt;br&gt;chrome&amp;#x3001;&amp;#x706B;&amp;#x72D0;+firbug&lt;/li&gt;
@@ -1499,9 +2147,8 @@ git reset HEAD~n
     <summary type="html">
     
       &lt;ol&gt;
-&lt;li&gt;IDE&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x5177;&lt;br&gt;MyEclipse10&amp;#x3001;WebStorm10.0.3&lt;/li&gt;
-&lt;li&gt;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&lt;br&gt;Tomcat7.0.63&lt;/li&gt;
-&lt;li
+&lt;li&gt;IDE&amp;#x5F00;&amp;#x53D1;&amp;#x5DE5;&amp;#x5177;&lt;br&gt;MyEclipse10&amp;#x3001;WebStorm10.0.3&amp;#x3001;eclipse+JRbel&lt;/li&gt;
+&lt;li&gt;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&lt;br&gt;
     
     </summary>
     
@@ -1628,62 +2275,6 @@ git reset HEAD~n
     
     
       <category term="SSH" scheme="http://chen1218chen.github.io/tags/SSH/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS使用技巧</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/JS/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/JS/</id>
-    <published>2016-03-02T02:00:26.806Z</published>
-    <updated>2016-04-22T03:26:05.514Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&quot;&gt;&lt;a href=&quot;#&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&quot;&gt;&lt;/a&gt;&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var func = function(name){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	console.log(&amp;quot;&amp;#x7EC8;&amp;#x7AEF;&amp;#x8F93;&amp;#x51FA;&amp;quot;+name);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;console.log();&lt;/strong&gt;&amp;#x7EC8;&amp;#x7AEF;&amp;#x6253;&amp;#x5370;&amp;#x8F93;&amp;#x51FA;&amp;#xFF0C;&amp;#x6700;&amp;#x65E9;&amp;#x662F;&amp;#x706B;&amp;#x72D0;&amp;#x5728;fiebug&amp;#x4E2D;&amp;#x7528;&amp;#x6765;&amp;#x8C03;&amp;#x8BD5;&lt;/p&gt;
-&lt;h2 id=&quot;prompt&quot;&gt;&lt;a href=&quot;#prompt&quot; class=&quot;headerlink&quot; title=&quot;prompt&quot;&gt;&lt;/a&gt;prompt&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var  username = prompt(&amp;quot;what is your name?&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//username&amp;#x5219;&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;&amp;#x8F93;&amp;#x5165;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;js&amp;#x4E2D;&amp;#x5F15;&amp;#x7528;jsp&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;a href=&quot;#js&amp;#x4E2D;&amp;#x5F15;&amp;#x7528;jsp&amp;#x4EE3;&amp;#x7801;&quot; class=&quot;headerlink&quot; title=&quot;js&amp;#x4E2D;&amp;#x5F15;&amp;#x7528;jsp&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;/a&gt;js&amp;#x4E2D;&amp;#x5F15;&amp;#x7528;jsp&amp;#x4EE3;&amp;#x7801;&lt;/h2&gt;&lt;p&gt;&amp;#x5728;&lt;strong&gt;&amp;#x2018; &amp;#x2018;&lt;/strong&gt;&amp;#x4E2D;&amp;#x76F4;&amp;#x63A5;&amp;#x5199;JSP&amp;#x4EE3;&amp;#x7801;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function getCId(){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return &amp;apos;&amp;lt;%=session.getAttribute(&amp;quot;cId&amp;quot;)%&amp;gt;&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## JSON&amp;#x603B;&amp;#x7ED3;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;//str-&amp;gt;obj&lt;br&gt;JSON.parse();&lt;br&gt;//obj-&amp;gt;str&lt;br&gt;JSON.stringify();&lt;br&gt;```&lt;/p&gt;
-&lt;h2 id=&quot;js&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;&amp;#x9650;&amp;#x5236;&quot;&gt;&lt;a href=&quot;#js&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;&amp;#x9650;&amp;#x5236;&quot; class=&quot;headerlink&quot; title=&quot;js&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;&amp;#x9650;&amp;#x5236;&quot;&gt;&lt;/a&gt;js&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x957F;&amp;#x5EA6;&amp;#x9650;&amp;#x5236;&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;&quot;&gt;&amp;#x662F;&amp;#x4F7F;&amp;#x7528;get&amp;#x4F20;&amp;#x9012;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;url&amp;#x65E0;&amp;#x8BBA;&amp;#x5982;&amp;#x4F55;&amp;#x90FD;&amp;#x6709;2k&amp;#x7684;&amp;#x957F;&amp;#x5EA6;&amp;#x9650;&amp;#x5236;&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&quot;&gt;&lt;a href=&quot;#&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x51FD;&amp;#x6570
-    
-    </summary>
-    
-    
-      <category term="JS" scheme="http://chen1218chen.github.io/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/java%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/java学习/</id>
-    <published>2016-03-02T02:00:26.797Z</published>
-    <updated>2016-03-02T09:25:29.575Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&amp;#x5FC5;&amp;#x987B;&amp;#x4E0E;&amp;#x7C7B;&amp;#x540D;&amp;#x540C;&amp;#x540D;&lt;/li&gt;
-&lt;li&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x6709;&amp;#x591A;&amp;#x4E2A;&amp;#x6216;&amp;#x8005;0&amp;#x4E2A;&lt;/li&gt;
-&lt;li&gt;&amp;#x6CA1;&amp;#x6709;&amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&lt;/li&gt;
-&lt;li&gt;&amp;#x4F34;&amp;#x968F;&amp;#x7740;new&amp;#x64CD;&amp;#x4F5C;&amp;#x4E00;&amp;#x8D77;&amp;#x88AB;&amp;#x8C03;&amp;#x7528;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class A{&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public A(){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      System.out.println(&amp;quot;&amp;#x8C03;&amp;#x7528;&amp;#x4E86;&amp;#x65E0;&amp;#x53C2;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public A(String mess){&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      System.out.println(&amp;quot;&amp;#x8C03;&amp;#x7528;&amp;#x4E86;&amp;#x6709;&amp;#x53C2;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;\n&amp;quot;+&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         &amp;quot;&amp;#x53C2;&amp;#x6570;&amp;#x5185;&amp;#x5BB9;&amp;#x4E3A;&amp;#xFF1A;&amp;quot;+mess);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public class Test{  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   public static void main(String [] args){  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       A a_1=new A();//&amp;#x8C03;&amp;#x7528;&amp;#x65E0;&amp;#x53C2;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       A a_2=new A(&amp;quot;Hello&amp;quot;);//&amp;#x8C03;&amp;#x7528;&amp;#x6709;&amp;#x53C2;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   }  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#
-    
-    </summary>
-    
-    
-      <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
     
   </entry>
   
