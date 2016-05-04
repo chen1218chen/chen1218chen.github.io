@@ -5,16 +5,22 @@
   
   <title>Hibernate ManyToOne, ManyToMany注解 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
+  <meta name="description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hibernate ManyToOne, ManyToMany注解">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/03/31/ManyToOne/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
-<meta property="og:updated_time" content="2016-04-06T07:32:51.269Z">
+<meta property="og:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
+<meta property="og:updated_time" content="2016-04-29T02:34:52.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hibernate ManyToOne, ManyToMany注解">
-<meta name="twitter:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837">
+<meta name="twitter:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -150,7 +156,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2 bootstrap</a> <a href="/tags/shiro/" style="font-size: 20px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2 bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -262,8 +268,39 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</strong></p>
-<h1 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h1><blockquote>
+        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#xFF08;many&#x65B9;&#xFF09;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</li>
+<li><p>one&#x662F;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x65B9;&#xFF0C;many&#x662F;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x3002;&#x5728;&#x5173;&#x7CFB;&#x88AB;&#x7EF4;&#x62A4;&#x7AEF;&#xFF0C;&#x5373;many&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;@JoinColumn&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#x5217;&#x6307;&#x5411;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x7AEF;&#x7684;&#x4E3B;&#x952E;&#x5217;&#x3002;</p>
+<ul>
+<li>manyTomany&#x4E2D;@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+</ul>
+</li>
+<li><p>mappedBy</p>
+<ul>
+<li>&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x53CC;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5355;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5219;&#x4E0D;&#x7528;&#x5B9A;&#x4E49;&#x3002;</li>
+</ul>
+</li>
+<li>optional<ul>
+<li>&#x5C5E;&#x6027;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5173;&#x8054;&#x7C7B;&#x662F;&#x5426;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;&#x9ED8;&#x8BA4;true&#xFF0C;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x53EF;&#x4EE5;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x82E5;&#x4E3A;false&#x5219;&#x53CC;&#x65B9;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;null&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="manyToMany"><a href="#manyToMany" class="headerlink" title="manyToMany"></a>manyToMany</h2><p>user-role&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
+<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+@JoinTable(name = &quot;user_to_role&quot;,   
+    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
+    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
+})
+</code></pre><h2 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="ManyToOne"></a>ManyToOne</h2><p>user-onganization&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
+<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+@JoinTable(name = &quot;user_to_role&quot;,   
+    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
+    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
+})
+</code></pre><h2 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h2><blockquote>
 <p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
 </blockquote>
 <pre><code>JsonConfig config = new JsonConfig();
@@ -297,14 +334,6 @@ public JSONArray queryAllOrgan() {
 <pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
 //    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
 //    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
-</code></pre><p>&#x5728;&#x5355;&#x5411;&#x5173;&#x7CFB;&#x4E2D;&#x6CA1;&#x6709;mappedBy,&#x4E3B;&#x63A7;&#x65B9;&#x76F8;&#x5F53;&#x4E8E;&#x62E5;&#x6709;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x65B9;&#x7684;&#x5916;&#x952E;&#x7684;&#x4E00;&#x65B9;&#x3002;</p>
-<ol>
-<li>@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-</ol>
-<pre><code>@JoinColumn(name = &quot;rid&quot;)  
-@PrimaryKeyJoinColumn
 </code></pre>
       
     </div>
@@ -316,7 +345,7 @@ public JSONArray queryAllOrgan() {
         <p><span>本文标题:</span><a href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
         <p><span>发布时间:</span>2016-03-31, 15:02:55</p>
-        <p><span>最后更新:</span>2016-04-06, 15:32:51</p>
+        <p><span>最后更新:</span>2016-04-29, 10:34:52</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/31/ManyToOne/" title="Hibernate ManyToOne, ManyToMany注解">http://chen1218chen.github.io/2016/03/31/ManyToOne/</a>
             <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/31/ManyToOne/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -352,7 +381,7 @@ public JSONArray queryAllOrgan() {
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#json死循环"><span class="toc-number">1.</span> <span class="toc-text">json死循环</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#manyToMany"><span class="toc-number">1.</span> <span class="toc-text">manyToMany</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ManyToOne"><span class="toc-number">2.</span> <span class="toc-text">ManyToOne</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json死循环"><span class="toc-number">3.</span> <span class="toc-text">json死循环</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -432,7 +461,7 @@ public JSONArray queryAllOrgan() {
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
 
 
 

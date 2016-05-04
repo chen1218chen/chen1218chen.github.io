@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/bootstrap-table/" style="font-size: 10px;">bootstrap table,</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2 bootstrap</a> <a href="/tags/shiro/" style="font-size: 20px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate-ManyToOne-ManyToMany/" style="font-size: 10px;">Hibernate, ManyToOne, ManyToMany</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2 bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -229,6 +229,289 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-hibernate时间段查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/hibernate时间段查询/" class="article-date">
+      <time datetime="2016-05-04T15:55:02.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><pre><code>@RequestMapping(value = &quot;/searchDate&quot;, method = RequestMethod.POST)
+@ResponseBody
+public List&lt;Uploadinfo&gt; searchDate(@RequestParam(&quot;start&quot;) String start,@RequestParam(&quot;end&quot;) String end) {
+
+    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.dateRange(start,end);
+    return itemList;
+}
+//&#x4F7F;&#x7528;HQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#xFF0C;&#x9884;&#x8BBE;&#x5B57;&#x6BB5;
+public List&lt;Uploadinfo&gt; dateRange(String start, String end) {
+    // TODO Auto-generated method stub
+
+    Date beginDate = java.sql.Date.valueOf(start);
+    Date endDate = java.sql.Date.valueOf(end);
+    String hql = &quot;from Uploadinfo info where info.dataTime &lt;:endDate and info.dataTime &gt;=:beginDate&quot;;  
+    Query query = itemDaoImpl.getQuery(hql);
+    query.setDate(&quot;beginDate&quot;,beginDate);   
+    query.setDate(&quot;endDate&quot;,endDate);
+    List&lt;Uploadinfo&gt; infolist = query.list();
+    return infolist;
+}
+</code></pre><p>&#x91CD;&#x70B9;&#x5728;hql&#x8BED;&#x53E5;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x5B9A;&#x4E49;&#x7684;&#x662F;date&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E3A;date&#x7C7B;&#x578B;</p>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>&#x524D;&#x53F0;&#x4F7F;&#x7528;<a href="http://www.daterangepicker.com/#examples" target="_blank" rel="external">datarangepicker&#x63D2;&#x4EF6;</a></p>
+<pre><code>function dateInit(){
+    $(&apos;#dateRange&apos;).daterangepicker({
+        &quot;ranges&quot;: {
+            &quot;Today&quot;: [
+                &quot;2016-05-04T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;Yesterday&quot;: [
+                &quot;2016-05-03T05:40:05.879Z&quot;,
+                &quot;2016-05-03T05:40:05.879Z&quot;
+            ],
+            &quot;Last 7 Days&quot;: [
+                &quot;2016-04-28T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;Last 30 Days&quot;: [
+                &quot;2016-04-05T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;This Month&quot;: [
+                &quot;2016-04-30T16:00:00.000Z&quot;,
+                &quot;2016-05-31T15:59:59.999Z&quot;
+            ],
+            &quot;Last Month&quot;: [
+                &quot;2016-03-31T16:00:00.000Z&quot;,
+                &quot;2016-04-30T15:59:59.999Z&quot;
+            ]
+        },
+        &quot;locale&quot;: {
+            &quot;format&quot;: &quot;YYYY-MM-DD&quot;,
+            &quot;separator&quot;: &quot;   &quot;,
+            &quot;applyLabel&quot;: &quot;&#x786E;&#x5B9A;&quot;,
+            &quot;cancelLabel&quot;: &quot;&#x53D6;&#x6D88;&quot;,
+            &quot;fromLabel&quot;: &quot;From&quot;,
+            &quot;toLabel&quot;: &quot;To&quot;,
+            &quot;customRangeLabel&quot;: &quot;Custom&quot;,
+            &quot;daysOfWeek&quot;: [
+                &quot;&#x65E5;&quot;,
+                &quot;&#x4E00;&quot;,
+                &quot;&#x4E8C;&quot;,
+                &quot;&#x4E09;&quot;,
+                &quot;&#x56DB;&quot;,
+                &quot;&#x4E94;&quot;,
+                &quot;&#x516D;&quot;
+            ],
+            &quot;monthNames&quot;: [
+                &quot;&#x4E00;&#x6708;&quot;,
+                &quot;&#x4E8C;&#x6708;&quot;,
+                &quot;&#x4E09;&#x6708;&quot;,
+                &quot;&#x56DB;&#x6708;&quot;,
+                &quot;&#x4E94;&#x6708;&quot;,
+                &quot;&#x516D;&#x6708;&quot;,
+                &quot;&#x4E03;&#x6708;&quot;,
+                &quot;&#x516B;&#x6708;&quot;,
+                &quot;&#x4E5D;&#x6708;&quot;,
+                &quot;&#x5341;&#x6708;&quot;,
+                &quot;&#x5341;&#x4E00;&#x6708;&quot;,
+                &quot;&#x5341;&#x4E8C;&#x6708;&quot;
+            ],
+            &quot;firstDay&quot;: 1
+        },
+        &quot;alwaysShowCalendars&quot;: true,
+        &quot;startDate&quot;: &quot;2016-05-04&quot;,
+        &quot;endDate&quot;: &quot;2016-06-03&quot;
+    }, function(start, end, label) {
+        searchDate(start.format(&apos;YYYY-MM-DD&apos;),end.format(&apos;YYYY-MM-DD&apos;));
+    });
+}
+
+function searchDate(start,end){
+    $.ajax({
+        url : &quot;rest/Uploadinfo/searchDate&quot;,
+        type : &quot;post&quot;,
+        dataType : &apos;json&apos;,
+        data:{
+            &quot;start&quot;:start,
+            &quot;end&quot;:end
+        },
+        success : function(data) {
+            tableShow(data);
+        }
+    });
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-bootstrapTable总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/bootstrapTable总结/" class="article-date">
+      <time datetime="2016-05-04T15:54:29.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;"><a href="#table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;" class="headerlink" title="table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;"></a>table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;</h2><p>The table options are defined in <strong>jQuery.fn.bootstrapTable.defaults</strong>.</p>
+<p>&#x6309;&#x7167;&#x67D0;&#x5217;&#x6392;&#x5E8F;:</p>
+<pre><code>data-sort-name=&quot;dataTime&quot; data-sort-order=&quot;desc&quot;
+</code></pre><p>&#x67E5;&#x770B;&#x7EC6;&#x8282;,&#x6548;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;</p>
+<pre><code>data-detail-view=&quot;true&quot; data-detail-formatter=&quot;detailFommater&quot;
+
+function detailFommater(index, row, element) {
+    return &apos;ccc&apos;+row;
+}
+</code></pre><p><img src="/2016/05/04/bootstrapTable&#x603B;&#x7ED3;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<h2 id="&#x6570;&#x636E;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;"><a href="#&#x6570;&#x636E;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;" class="headerlink" title="&#x6570;&#x636E;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;"></a>&#x6570;&#x636E;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;</h2><pre><code>$(&apos;#table&apos;).bootstrapTable(&apos;load&apos;, data);
+</code></pre><h2 id="&#x66F4;&#x65B0;&#x64CD;&#x4F5C;"><a href="#&#x66F4;&#x65B0;&#x64CD;&#x4F5C;" class="headerlink" title="&#x66F4;&#x65B0;&#x64CD;&#x4F5C;"></a>&#x66F4;&#x65B0;&#x64CD;&#x4F5C;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$table.bootstrapTable(&apos;updateRow&apos;, {</span><br><span class="line">	index : index1,</span><br><span class="line">	row : {</span><br><span class="line">		tid : tid,</span><br><span class="line">		cid : cid,</span><br><span class="line">		uid : uid,</span><br><span class="line">		date : date,</span><br><span class="line">		type : type,</span><br><span class="line">	}</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<h2 id="&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;"><a href="#&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;" class="headerlink" title="&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;"></a>&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</h2><blockquote>
+<p>&#x4F7F;&#x7528;bootstrap table&#x63D2;&#x4EF6;<br>table rowStyle&#x548C;runningFormatter</p>
+</blockquote>
+<pre><code>&lt;table data-row-style=&quot;rowStyle&quot;&gt; &lt;thead&gt; &lt;tr&gt;&lt;th data-align=&quot;center&quot; data-formatter=&quot;runningFormatter&quot;&gt;ID&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+
+function rowStyle(row, index) {
+    var classes = [&apos;success&apos;, &apos;info&apos;, &apos;warning&apos;, &apos;danger&apos;];
+ /*if (index % 2 === 0 &amp;&amp; index / 2 &lt; classes.length) {
+    return {
+        classes: classes[index / 2]
+    };
+}*/
+if(index % 2 ===0){
+    return {
+        classes:classes[index%3]
+    }
+}
+return {};
+}
+function runningFormatter(value, row, index) {
+return index+1;
+}
+</code></pre><blockquote>
+<p>tablet&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</p>
+</blockquote>
+<pre><code>&lt;th data-field=&quot;operate&quot; data-formatter=&quot;operateFormatter&quot;
+data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&#x4F5C;&lt;/th&gt;
+</code></pre><h2 id="editable"><a href="#editable" class="headerlink" title="editable"></a>editable</h2><p>bootstrap table&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5F15;&#x5165;bootstrap-table-editable.js&#x3001;bootstrap-editable.js&#x3001;bootstrap-editable.css&#x5373;&#x53EF;&#x3002;bootstrap table &#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x4E86;X-editable&#x529F;&#x80FD;&#x3002;<br>&#x4FEE;&#x6539;table&#x5C5E;&#x6027;&#x89E6;&#x53D1;<strong>editable-save.bs.table</strong>&#x4E8B;&#x4EF6;&#x3002;</p>
+<pre><code>$(&apos;#table&apos;).on(&apos;editable-save.bs.table&apos;, function (field, row, oldValue, $el) {
+    data.changeField(row,oldValue,name);
+});
+</code></pre><h1 id="bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"><a href="#bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;" class="headerlink" title="bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"></a>bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;</h1><pre><code>&lt;a id=&quot;adduser&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;    href=&quot;addUser.html&quot; data-target=&quot;#adduserModal&quot;&gt;&#x6DFB;&#x52A0;&lt;/a&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;adduserModal&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; data-keyboard=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><blockquote>
+<p>table&#x8868;&#x4E2D;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;model&#x5F39;&#x51FA;&#x6846;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x503C;</p>
+</blockquote>
+<pre><code>function editTerminal(row,index) {
+    index1=index;
+    $(&apos;#editTerminalModal&apos;).on(&apos;show.bs.modal&apos;,function(event) {
+        var button = $(event.relatedTarget);
+        var recipient = button.data(&apos;whatever&apos;);
+        var modal = $(this);
+        modal.find(&apos;.modal-title&apos;).text(recipient);
+        modal.find(&apos;#tid&apos;).val(row.tid);
+        modal.find(&apos;#type&apos;).val(row.type);
+        modal.find(&apos;#cid&apos;).val(row.cid);
+        modal.find(&apos;#uid&apos;).val(row.uid);
+        modal.find(&apos;#date&apos;).val(row.date);
+    })
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-bootstrap框架中对于用户表操作的js代码" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1895,197 +2178,6 @@ public class Permission {
                 passWord, getName());
         return authinfo;
     }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/31/ManyToOne/" class="article-date">
-      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</strong></p>
-<h1 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h1><blockquote>
-<p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
-</blockquote>
-<pre><code>JsonConfig config = new JsonConfig();
-config.setExcludes(new String[]{&quot;roles&quot;});//&#x9664;&#x53BB;roles&#x5C5E;&#x6027;
-JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
-</code></pre><p>&#x6216;&#x8005;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x89E3;&#x9664;&#x5FAA;&#x73AF;</p>
-<pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
-@ResponseBody
-public JSONArray queryAllOrgan() {
-
-    JSONArray userJSONList;
-    JsonConfig jsonConfig = new JsonConfig();
-    jsonConfig.setIgnoreDefaultExcludes(false);
-    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
-    jsonConfig.setExcludes(new String[] { &quot;handler&quot;,&quot;hibernateLazyInitializer&quot; });
-    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
-        public boolean apply(Object obj, String name, Object value) {
-        //if(value instanceof Organization &amp;&amp; name.equals(&quot;organ&quot;)){
-        if(name.equals(&quot;user&quot;)){
-                return true;
-            } else {
-                return false;
-            }
-        }
-    });
-    List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
-    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
-    return userJSONList;
-}
-</code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
-<pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
-//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
-//    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
-</code></pre><p>&#x5728;&#x5355;&#x5411;&#x5173;&#x7CFB;&#x4E2D;&#x6CA1;&#x6709;mappedBy,&#x4E3B;&#x63A7;&#x65B9;&#x76F8;&#x5F53;&#x4E8E;&#x62E5;&#x6709;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x65B9;&#x7684;&#x5916;&#x952E;&#x7684;&#x4E00;&#x65B9;&#x3002;</p>
-<ol>
-<li>@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-</ol>
-<pre><code>@JoinColumn(name = &quot;rid&quot;)  
-@PrimaryKeyJoinColumn
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate-ManyToOne-ManyToMany/">Hibernate, ManyToOne, ManyToMany</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-shiro入门" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/30/shiro入门/" class="article-date">
-      <time datetime="2016-03-30T15:43:06.000Z" itemprop="datePublished">2016-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/shiro入门/">shiro入门配置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="&#x57FA;&#x7840;&#x914D;&#x7F6E;"><a href="#&#x57FA;&#x7840;&#x914D;&#x7F6E;" class="headerlink" title="&#x57FA;&#x7840;&#x914D;&#x7F6E;"></a>&#x57FA;&#x7840;&#x914D;&#x7F6E;</h1><p>&#x4F7F;&#x7528;shiro&#x7684;&#x6B65;&#x9AA4;</p>
-<ol>
-<li>&#x5BFC;&#x5165;JAR&#x5305;</li>
-<li><p>web.xml&#x914D;&#x7F6E;</p>
-<pre><code>&lt;!-- Shiro&#x914D;&#x7F6E; --&gt;    
-&lt;filter&gt;    
-    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;    
-    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;    
-&lt;/filter&gt;    
-&lt;filter-mapping&gt;    
-    &lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;    
-    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;    
-&lt;/filter-mapping&gt;
-</code></pre></li>
-<li><p>applicationContext.xml&#x914D;&#x7F6E;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- ehcache &#x7684;&#x914D;&#x7F6E; --&gt;</span><br><span class="line">&lt;cache:annotation-driven cache-manager=&quot;cacheManager&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;cacheManagerFactory&quot;</span><br><span class="line">	class=&quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;configLocation&quot;&gt;</span><br><span class="line">		&lt;value&gt;classpath:ehcache.xml&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;cacheManager&quot; class=&quot;org.springframework.cache.ehcache.EhCacheCacheManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManagerFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x81EA;&#x5B9A;&#x4E49;Realm&#x5B9E;&#x73B0; --&gt;</span><br><span class="line">&lt;bean id=&quot;myRealm&quot; class=&quot;com.lbs.login.myRealm&quot;&gt;</span><br><span class="line">	&lt;!-- &lt;property name=&quot;cacheManager&quot; ref=&quot;shiroEhcacheManager&quot; /&gt; --&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- &#x7528;&#x6237;&#x6388;&#x6743;/&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;Cache, &#x91C7;&#x7528;EhCache &#x7F13;&#x5B58; --&gt;</span><br><span class="line">&lt;bean id=&quot;shiroEhcacheManager&quot; class=&quot;org.apache.shiro.cache.ehcache.EhCacheManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManagerConfigFile&quot; value=&quot;classpath:ehcache.xml&quot; /&gt;</span><br><span class="line">	&lt;!-- &lt;property name=&quot;cacheManager&quot; ref=&quot;cacheManager&quot; /&gt; --&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- securityManager --&gt;</span><br><span class="line">&lt;bean id=&quot;securityManager&quot; class=&quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;realm&quot; ref=&quot;myRealm&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;cacheManager&quot; ref=&quot;shiroEhcacheManager&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Shiro&#x751F;&#x547D;&#x5468;&#x671F;&#x5904;&#x7406;&#x5668;,&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x4E86;Shiro&#x5185;&#x90E8;lifecycle&#x51FD;&#x6570;&#x7684;bean&#x6267;&#x884C; --&gt;    </span><br><span class="line">   &lt;bean id=&quot;lifecycleBeanPostProcessor&quot; class=&quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&quot;/&gt;</span><br><span class="line">   </span><br><span class="line">&lt;!-- Shiro Filter &#x62E6;&#x622A;&#x5668;&#x76F8;&#x5173;&#x914D;&#x7F6E; --&gt;</span><br><span class="line">&lt;!--shiro&#x8FC7;&#x6EE4;&#x5668;&#x914D;&#x7F6E;&#xFF0C;bean&#x7684;id&#x503C;&#x987B;&#x4E0E;web&#x4E2D;&#x7684;filter-name&#x7684;&#x503C;&#x76F8;&#x540C; --&gt;</span><br><span class="line">&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;</span><br><span class="line">	&lt;!-- securityManager --&gt;</span><br><span class="line">	&lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x767B;&#x5F55;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;successUrl&quot; value=&quot;/manager/index.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x6388;&#x6743;&#x5931;&#x8D25;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;</span><br><span class="line">	&lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/login.jsp&quot; /&gt;</span><br><span class="line">	&lt;!-- &#x8FC7;&#x6EE4;&#x94FE;&#x5B9A;&#x4E49; --&gt;</span><br><span class="line">	&lt;property name=&quot;filterChainDefinitions&quot;&gt;</span><br><span class="line">		&lt;value&gt;</span><br><span class="line">			/login.jsp* = anon</span><br><span class="line">			/logout* = anon</span><br><span class="line">			/*.js = anon</span><br><span class="line">			/*.css = anon</span><br><span class="line">			/manager/** = authc,roles[&quot;&#x7BA1;&#x7406;&#x5458;&quot;]&lt;!-- &#x8868;&#x793A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x94FE;&#x63A5; --&gt;</span><br><span class="line">			/index.jsp = authc</span><br><span class="line">		&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x5EFA;&#x7ACB;myRealm.java&#xFF0C;&#x91CD;&#x5199;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;</p>
-<blockquote>
-<p>doGetAuthorizationInfo()&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x662F;&#x6743;&#x9650;&#x9A8C;&#x8BC1;<br>doGetAuthenticationInfo(AuthenticationToken token)&#x7406;&#x89E3;&#x4E3A;&#x767B;&#x9646;&#x9A8C;&#x8BC1;&#x3002;</p>
-</blockquote>
-</li>
-</ol>
-<h1 id="shiro-&#x6388;&#x6743;"><a href="#shiro-&#x6388;&#x6743;" class="headerlink" title="shiro &#x6388;&#x6743;"></a>shiro &#x6388;&#x6743;</h1><p>Shiro&#x652F;&#x6301;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x6388;&#x6743;&#x8FC7;&#x7A0B;&#xFF1A; </p>
-<ul>
-<li>&#x7F16;&#x7801;&#x5B9E;&#x73B0;</li>
-<li>&#x6CE8;&#x89E3;&#x5B9E;&#x73B0;</li>
-<li>JSP Taglig&#x5B9E;&#x73B0;</li>
-</ul>
-<h2 id="&#x89D2;&#x8272;&#x6388;&#x6743;"><a href="#&#x89D2;&#x8272;&#x6388;&#x6743;" class="headerlink" title="&#x89D2;&#x8272;&#x6388;&#x6743;"></a>&#x89D2;&#x8272;&#x6388;&#x6743;</h2><p>&#x5F53;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7528;&#x6237;&#x662F;&#x5426;&#x62E5;&#x6709;&#x67D0;&#x4E2A;&#x89D2;&#x8272;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;Subject&#x5B9E;&#x4F8B;&#x7684;hasRole*&#x65B9;&#x6CD5;&#x9A8C;&#x8BC1;&#x3002;</p>
-<pre><code>Subject currentUser = SecurityUtils.getSubject();
-if (currentUser.hasRole(&quot;administrator&quot;)) {
-    //show the admin button
-} else {
-    //don&apos;t show the button?  Grey it out?
 }
 </code></pre>
       
