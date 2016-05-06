@@ -511,8 +511,119 @@
       
           
         <p>[TOC]</p>
-<h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><strong>console.log();</strong>&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x65E9;&#x662F;&#x706B;&#x72D0;&#x5728;fiebug&#x4E2D;&#x7528;&#x6765;&#x8C03;&#x8BD5;</p>
+<h2 id="&#x95ED;&#x5305;"><a href="#&#x95ED;&#x5305;" class="headerlink" title="&#x95ED;&#x5305;"></a>&#x95ED;&#x5305;</h2><p>js&#x91C7;&#x7528;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x4F9D;&#x8D56;&#x4E8E;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x5728;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x662F;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3002;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x76F8;&#x4E92;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x4FDD;&#x5B58;&#x5728;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#xFF0C;&#x8FD9;&#x79CD;&#x7279;&#x6027;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x6210;&#x4E3A;&#x95ED;&#x5305;&#x3002;&#x4ECE;&#x6280;&#x672F;&#x7684;&#x89D2;&#x5EA6;&#x4E0A;&#x8BB2;&#xFF0C;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x3002;</p>
+<pre><code>function test() {
+    var a = 4;
+    return {
+        add : function() {
+            a++;
+            console.log(a);
+        },
+        plus : function() {
+            a--;
+            console.log(a);
+        }
+    };
+}
+var c1 = new test();
+var c2 = new test();
+c1.add();//5
+c2.plus();//
+</code></pre><p>&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#x3002;<br>&#x521D;&#x59CB;&#x5316;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x503C;</p>
+<pre><code>function test(n){
+    return{
+        get count(){
+            return n++;
+        },
+        set count(m){
+            if(n&gt;m)
+                n=m;
+            else throw Error(&quot;ddd&quot;);
+        }
+    };
+}
+var t = test(100);
+t.count;
+console.log(t.count);//100
+t.count=99;
+console.log(t.count);//99
+</code></pre><h2 id="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"><a href="#JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;" class="headerlink" title="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"></a>JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;</h2><ol>
+<li>this&#x6307;&#x5411;&#x5168;&#x5C40;&#x53D8;&#x91CF;</li>
+</ol>
+<pre><code>var a=1;
+console.log(this);// Window&#x5168;&#x5C40;&#x5BF9;&#x8C61;
+console.log(this.a);//1
+</code></pre><ol>
+<li>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;this</li>
+</ol>
+<pre><code>var a=1;
+function test(){
+    var a=3;
+    console.log(this.a);
+}
+test.a=5;
+test();//1
+</code></pre><p>&#x53EF;&#x770B;&#x51FA;this&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5411;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E5F;&#x5E76;&#x672A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;this&#x6700;&#x7EC8;&#x6307;&#x5411;&#x7684;&#x90FD;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<ol>
+<li>&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</li>
+</ol>
+<pre><code>var a=1;
+function test(){
+    var a=3;
+    console.log(this.a);
+}
+var obj={
+        a:6,
+        fn:test
+};
+obj.fn();//6
+obj.fn.call();//1
+</code></pre><p>this&#x6307;&#x5411;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;call&#xFF0C;this&#x9ED8;&#x8BA4;&#x6307;&#x5411;&#x7684;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x82E5;&#x60F3;&#x6539;&#x53D8;this&#x6307;&#x5411;</p>
+<pre><code>var a=1;
+function test3(){
+    console.log(this.a);
+}
+test3.call();//1
+var obj={
+    a:8,
+    fn:test3
+}
+var para={a:9};
+obj.fn.call(para);//9
+</code></pre><p>call&#x548C;apply&#x90FD;&#x662F;Function&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;</p>
+<ol>
+<li>&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+</ol>
+<pre><code>function test2(){
+    this.a=7;
+}
+var o = new test2();
+console.log(o); //7
+</code></pre><ol>
+<li>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;</li>
+</ol>
+<pre><code>var a=1;
+function test4(){
+    console.log(this.a);//2
+    function test5(){
+        console.dir(this.a);//1
+    }
+    test5();
+}
+var obj = {a:2,fn:test4};
+obj.fn();
+</code></pre><h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5D4C;&#x5957;&#x51FD;&#x6570;"><a href="#&#x5D4C;&#x5957;&#x51FD;&#x6570;" class="headerlink" title="&#x5D4C;&#x5957;&#x51FD;&#x6570;"></a>&#x5D4C;&#x5957;&#x51FD;&#x6570;</h3><p>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;test2&#x53EA;&#x80FD;&#x5728;test&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x4E0D;&#x80FD;&#x518D;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</p>
+<pre><code>function test(){
+    var a=1;
+    function test2(){
+        a++;
+        console.log(a);
+    }
+    test2();
+}
+test();//2
+</code></pre><p><strong>console.log();</strong>&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x65E9;&#x662F;&#x706B;&#x72D0;&#x5728;fiebug&#x4E2D;&#x7528;&#x6765;&#x8C03;&#x8BD5;</p>
 <h2 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a>prompt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  username = prompt(&quot;what is your name?&quot;);</span><br><span class="line">//username&#x5219;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;</span><br></pre></td></tr></table></figure>
 <h2 id="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"><a href="#js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;" class="headerlink" title="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"></a>js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;</h2><p>&#x5728;<strong>&#x2018; &#x2018;</strong>&#x4E2D;&#x76F4;&#x63A5;&#x5199;JSP&#x4EE3;&#x7801;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getCId(){</span><br><span class="line">	return &apos;&lt;%=session.getAttribute(&quot;cId&quot;)%&gt;&apos;;</span><br><span class="line">}</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## JSON&#x603B;&#x7ED3;</span><br></pre></td></tr></table></figure></p>
 <p>//str-&gt;obj<br>JSON.parse();<br>//obj-&gt;str<br>JSON.stringify();<br>```</p>
