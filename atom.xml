@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-05-05T03:23:01.942Z</updated>
+  <updated>2016-05-09T09:30:53.076Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js Date格式化</title>
+    <link href="http://chen1218chen.github.io/2016/05/10/Date%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
+    <id>http://chen1218chen.github.io/2016/05/10/Date格式化/</id>
+    <published>2016-05-09T17:02:52.000Z</published>
+    <updated>2016-05-09T09:30:53.076Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;Date.prototype.Format = function(fmt) { // author: meizz
+var o = {
+    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
+    &amp;quot;d+&amp;quot; : this.getDate(), // &amp;#x65E5;
+    &amp;quot;h+&amp;quot; : this.getHours(), // &amp;#x5C0F;&amp;#x65F6;
+    &amp;quot;m+&amp;quot; : this.getMinutes(), // &amp;#x5206;
+    &amp;quot;s+&amp;quot; : this.getSeconds(), // &amp;#x79D2;
+    &amp;quot;q+&amp;quot; : Math.floor((this.getMonth() + 3) / 3), // &amp;#x5B63;&amp;#x5EA6;
+    &amp;quot;S&amp;quot; : this.getMilliseconds()
+// &amp;#x6BEB;&amp;#x79D2;
+};
+if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + &amp;quot;&amp;quot;)
+            .substr(4 - RegExp.$1.length));
+for ( var k in o)
+    if (new RegExp(&amp;quot;(&amp;quot; + k + &amp;quot;)&amp;quot;).test(fmt))
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k])
+                : ((&amp;quot;00&amp;quot; + o[k]).substr((&amp;quot;&amp;quot; + o[k]).length)));
+return fmt;
+}
+var time1 = new Date().format(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;);   
+
+var time2 = new Date().format(&amp;quot;yyyy-MM-dd&amp;quot;);  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;js&amp;#x65F6;&amp;#x95F4;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x6BD4;&amp;#x8F83;&amp;#x5927;&amp;#x5C0F;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Date.prototype.Format = function(fmt) { // author: meizz
+var o = {
+    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
+
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://chen1218chen.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深入了解HTML之meta</title>
+    <link href="http://chen1218chen.github.io/2016/05/09/%E6%B7%B1%E5%85%A5%E4%BA%86%E8%A7%A3HTML/"/>
+    <id>http://chen1218chen.github.io/2016/05/09/深入了解HTML/</id>
+    <published>2016-05-09T10:17:46.000Z</published>
+    <updated>2016-05-09T05:55:44.332Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;lt-DOCTYPE-gt-&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x660E;&quot;&gt;&lt;a href=&quot;#lt-DOCTYPE-gt-&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x660E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;!DOCTYPE&amp;gt;&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x660E;&quot;&gt;&lt;/a&gt;&amp;lt;!DOCTYPE&amp;gt;&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x660E;&lt;/h2&gt;&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&amp;#x6307;&amp;#x793A;&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x4E3A;html5&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5C5E;&amp;#x4E8E;html&amp;#x6807;&amp;#x7B7E;&amp;#x3002;&amp;#x5B83;&amp;#x662F;&amp;#x6307;&amp;#x793A; web &amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5173;&amp;#x4E8E;&amp;#x9875;&amp;#x9762;&amp;#x4F7F;&amp;#x7528;&amp;#x54EA;&amp;#x4E2A; HTML &amp;#x7248;&amp;#x672C;&amp;#x8FDB;&amp;#x884C;&amp;#x7F16;&amp;#x5199;&amp;#x7684;&amp;#x6307;&amp;#x4EE4;&amp;#x3002;&amp;#x5BF9;&amp;#x5927;&amp;#x5C0F;&amp;#x5199;&amp;#x4E0D;&amp;#x654F;&amp;#x611F;&amp;#x3002;&lt;br&gt;&lt;a href=&quot;http://www.w3school.com.cn/tags/html_ref_dtd.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML &amp;#x5143;&amp;#x7D20;&amp;#x548C;&amp;#x6709;&amp;#x6548;&amp;#x7684; DTD&lt;/a&gt;&amp;#x67E5;&amp;#x770B;&amp;#x6807;&amp;#x7B7E;&amp;#x7684;&amp;#x9002;&amp;#x7528;&amp;#x7C7B;&amp;#x578B;&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;meta&gt;&lt;/h2&gt;&lt;p&gt;&amp;#x5B9A;&amp;#x4E49;&amp;#x5173;&amp;#x4E8E; HTML &amp;#x6587;&amp;#x6863;&amp;#x7684;&amp;#x5143;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;&amp;#x6807;&amp;#x7B7E;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;key-value&amp;#x5BF9;,key&amp;#x6307;http-equiv/name&amp;#x5C5E;&amp;#x6027;,value&amp;#x6307;content&amp;#x5C5E;&amp;#x6027;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//&amp;#x9875;&amp;#x9762;&amp;#x91CD;&amp;#x5B9A;&amp;#x5411;
+&amp;lt;meta http-equiv=&amp;quot;Refresh&amp;quot; content=&amp;quot;5;url=XX&amp;quot; /&amp;gt;
+&amp;lt;meta name=&amp;quot;referrer&amp;quot; content=&amp;quot;origin&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;referer&amp;#x662F;&amp;#x7531;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x7684;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x53D1;&amp;#x9001;&amp;#x5230;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x4E0A;&amp;#xFF0C;&amp;#x4E14;&amp;#x5728;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;document.referrer&amp;#x6765;&amp;#x83B7;&amp;#x53D6;&amp;#x4E0A;&amp;#x5C42;&amp;#x9875;&amp;#x9762;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;referer&amp;#x7684;&amp;#x53D1;&amp;#x9001;&amp;#x5B9E;&amp;#x9645;&amp;#x4E0A;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x884C;&amp;#x4E3A;&amp;#xFF0C;&amp;#x53D1;&amp;#x9001;&amp;#x4E0E;&amp;#x5426;&amp;#x7684;&amp;#x51B3;&amp;#x5B9A;&amp;#x6743;&amp;#x662F;&amp;#x5728;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x624B;&amp;#x91CC;&amp;#x3002;&lt;br&gt;origin &amp;#x662F;&amp;#x5305;&amp;#x542B;&amp;#x4E86;schema&amp;#x548C;hostname&amp;#x7684;&amp;#x90E8;&amp;#x5206;url&amp;#x4E0D;&amp;#x5305;&amp;#x542B;path&amp;#x7B49;&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x5176;&amp;#x4ED6;url&amp;#x90E8;&amp;#x5206;&lt;br&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5728;login.html&amp;#x9875;&amp;#x9762;&amp;#x91CC;&amp;#x8BBE;&amp;#x7F6E;&amp;#x8FD9;&amp;#x4E2A;&amp;#xFF0C;&amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;&amp;#x540E;&amp;#x7684;index.jsp&amp;#x9875;&amp;#x9762;&amp;#x4E2D;&amp;#x901A;&amp;#x8FC7;document.referrer&amp;#x65E0;&amp;#x6CD5;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;&amp;#x4E0A;&amp;#x5C42;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;br&gt;&lt;img src=&quot;/2016/05/09/&amp;#x6DF1;&amp;#x5165;&amp;#x4E86;&amp;#x89E3;HTML/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x79FB;&amp;#x52A8;&amp;#x7F51;&amp;#x7AD9;&quot;&gt;&lt;a href=&quot;#&amp;#x79FB;&amp;#x52A8;&amp;#x7F51;&amp;#x7AD9;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x79FB;&amp;#x52A8;&amp;#x7F51;&amp;#x7AD9;&quot;&gt;&lt;/a&gt;&amp;#x79FB;&amp;#x52A8;&amp;#x7F51;&amp;#x7AD9;&lt;/h2&gt;&lt;p&gt;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x79FB;&amp;#x52A8;&amp;#x7F51;&amp;#x7AD9;meta&amp;#x6807;&amp;#x7B7E;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&amp;#x8868;&amp;#x793A;&amp;#x5F3A;&amp;#x5236;&amp;#x8BA9;&amp;#x6587;&amp;#x6863;&amp;#x7684;&amp;#x5BBD;&amp;#x5EA6;&amp;#x4E0E;&amp;#x8BBE;&amp;#x5907;&amp;#x7684;&amp;#x5BBD;&amp;#x5EA6;&amp;#x4FDD;&amp;#x6301;1:1&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x6587;&amp;#x6863;&amp;#x6700;&amp;#x5927;&amp;#x7684;&amp;#x5BBD;&amp;#x5EA6;&amp;#x6BD4;&amp;#x4F8B;&amp;#x662F;1.0&amp;#xFF0C;&amp;#x4E14;&amp;#x4E0D;&amp;#x5141;&amp;#x8BB8;&amp;#x7528;&amp;#x6237;&amp;#x70B9;&amp;#x51FB;&amp;#x5C4F;&amp;#x5E55;&amp;#x653E;&amp;#x5927;&amp;#x6D4F;&amp;#x89C8;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;meta content=&amp;quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;&amp;quot;name=&amp;quot;viewport&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;IE-&amp;#x517C;&amp;#x5BB9;&amp;#x6027;&quot;&gt;&lt;a href=&quot;#IE-&amp;#x517C;&amp;#x5BB9;&amp;#x6027;&quot; class=&quot;headerlink&quot; title=&quot;IE &amp;#x517C;&amp;#x5BB9;&amp;#x6027;&quot;&gt;&lt;/a&gt;IE &amp;#x517C;&amp;#x5BB9;&amp;#x6027;&lt;/h2&gt;&lt;p&gt;X-UA-Compatible&amp;#x662F;IE8&amp;#x7279;&amp;#x6709;&amp;#x7684;&amp;#xFF0C;&amp;#x5B83;&amp;#x544A;&amp;#x8BC9;IE8&amp;#x91C7;&amp;#x7528;&amp;#x4F55;&amp;#x79CD;IE&amp;#x7248;&amp;#x672C;&amp;#x53BB;&amp;#x6E32;&amp;#x67D3;&amp;#x9875;&amp;#x9762;&amp;#xFF0C;&amp;#x5BF9;&amp;#x4E8E;ie8&amp;#x4E4B;&amp;#x5916;&amp;#x7684;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x662F;&amp;#x4E0D;&amp;#x8BC6;&amp;#x522B;&amp;#x7684;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//&amp;#x91C7;&amp;#x7528;IE5
+&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=5&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E3A;&amp;#x4E86;&amp;#x907F;&amp;#x514D;&amp;#x5236;&amp;#x4F5C;&amp;#x51FA;&amp;#x7684;&amp;#x9875;&amp;#x9762;&amp;#x5728;IE8&amp;#x4E0B;&amp;#x9762;&amp;#x51FA;&amp;#x73B0;&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x5EFA;&amp;#x8BAE;&amp;#x76F4;&amp;#x63A5;&amp;#x5C06;IE8&amp;#x4F7F;&amp;#x7528;IE7&amp;#x8FDB;&amp;#x884C;&amp;#x6E32;&amp;#x67D3;&amp;#x3002;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x76F4;&amp;#x63A5;&amp;#x5728;&amp;#x9875;&amp;#x9762;&amp;#x7684;header&amp;#x7684;meta&amp;#x6807;&amp;#x7B7E;&amp;#x4E2D;&amp;#x52A0;&amp;#x5165;&amp;#x5982;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//&amp;#x91C7;&amp;#x7528;IE7
+&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=7&amp;quot; /&amp;gt;
+//&amp;#x4EFF;&amp;#x771F;IE7
+&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=EmulateIE7&amp;quot; /&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;IE=edge&amp;#x544A;&amp;#x8BC9;IE&amp;#x4F7F;&amp;#x7528;&amp;#x6700;&amp;#x65B0;&amp;#x7684;&amp;#x5F15;&amp;#x64CE;&amp;#x6E32;&amp;#x67D3;&amp;#x7F51;&amp;#x9875;&amp;#xFF0C;chrome=1&amp;#x5219;&amp;#x53EF;&amp;#x4EE5;&amp;#x6FC0;&amp;#x6D3B;Chrome Frame&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=edge,chrome=1&amp;quot; /&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5728;https&amp;#x9875;&amp;#x9762;&amp;#x70B9;&amp;#x51FB;http&amp;#x8FDE;&amp;#x63A5;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x4E0D;&amp;#x4F1A;&amp;#x5728;header&amp;#x52A0;&amp;#x4E0A;referer&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;lt-DOCTYPE-gt-&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x660E;&quot;&gt;&lt;a href=&quot;#lt-DOCTYPE-gt-&amp;#x6587;&amp;#x6863;&amp;#x7C7B;&amp;#x578B;&amp;#x58F0;&amp;#x6
+    
+    </summary>
+    
+    
+      <category term="html" scheme="http://chen1218chen.github.io/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>org.springframework.beans.factory.BeanDefinitionStoreException</title>
@@ -201,7 +288,7 @@ function searchDate(start,end){
     <link href="http://chen1218chen.github.io/2016/05/04/bootstrapTable%E6%80%BB%E7%BB%93/"/>
     <id>http://chen1218chen.github.io/2016/05/04/bootstrapTable总结/</id>
     <published>2016-05-04T15:54:29.000Z</published>
-    <updated>2016-05-04T07:58:50.608Z</updated>
+    <updated>2016-05-09T08:40:43.605Z</updated>
     
     <content type="html">&lt;h2 id=&quot;table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table-options&amp;#xFF09;&quot;&gt;&lt;a href=&quot;#table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table-options&amp;#xFF09;&quot; class=&quot;headerlink&quot; title=&quot;table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table options&amp;#xFF09;&quot;&gt;&lt;/a&gt;table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table options&amp;#xFF09;&lt;/h2&gt;&lt;p&gt;The table options are defined in &lt;strong&gt;jQuery.fn.bootstrapTable.defaults&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&amp;#x6309;&amp;#x7167;&amp;#x67D0;&amp;#x5217;&amp;#x6392;&amp;#x5E8F;:&lt;/p&gt;
@@ -213,6 +300,39 @@ function detailFommater(index, row, element) {
     return &amp;apos;ccc&amp;apos;+row;
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/2016/05/04/bootstrapTable&amp;#x603B;&amp;#x7ED3;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;pageNum&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot;&gt;&lt;a href=&quot;#pageNum&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot; class=&quot;headerlink&quot; title=&quot;pageNum&amp;#x521D;&amp;#x59CB;&amp;#x5316;&quot;&gt;&lt;/a&gt;pageNum&amp;#x521D;&amp;#x59CB;&amp;#x5316;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;data-page-list=&amp;quot;[10, 25, 50, 100, ALL]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x9AD8;&amp;#x5EA6;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&quot;&gt;&lt;a href=&quot;#&amp;#x9AD8;&amp;#x5EA6;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9AD8;&amp;#x5EA6;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&quot;&gt;&lt;/a&gt;&amp;#x9AD8;&amp;#x5EA6;&amp;#x81EA;&amp;#x9002;&amp;#x5E94;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(function(){
+    $table = $(&amp;apos;#table&amp;apos;);
+    $table.bootstrapTable(&amp;apos;resetView&amp;apos;, {
+        height: getHeight()
+    });
+})
+function getHeight() {
+return $(window).height() - $(&amp;apos;h1&amp;apos;).outerHeight(true);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;br&gt;table&amp;#x7684;&amp;#x9AD8;&amp;#x5EA6;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5DF1;&amp;#x8BBE;&amp;#x5B9A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;data-height=&amp;quot;300px&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;table-data-from-url&quot;&gt;&lt;a href=&quot;#table-data-from-url&quot; class=&quot;headerlink&quot; title=&quot;table data from url&quot;&gt;&lt;/a&gt;table data from url&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;table data-toggle=&amp;quot;table&amp;quot; data-url=&amp;quot;rest/Uploadinfo/queryAll&amp;quot; data-show-refresh=&amp;quot;true&amp;quot;&amp;gt;
+
+@RequestMapping(value = &amp;quot;/queryAll&amp;quot;, method = RequestMethod.GET)
+@ResponseBody
+    public JSONArray queryAll() {
+        List&amp;lt;Uploadinfo&amp;gt; itemList = itemServiceImpl.queryAll();
+        JSONArray jsonArr = new JSONArray();
+        for(int i=0;i&amp;lt;itemList.size();i++){
+        JSONObject obj  = new JSONObject();
+        obj.put(&amp;quot;id&amp;quot;, itemList.get(i).getId());
+        obj.put(&amp;quot;content&amp;quot;, itemList.get(i).getContent());
+        obj.put(&amp;quot;telephone&amp;quot;, itemList.get(i).getTelephone());
+        obj.put(&amp;quot;picturepath1&amp;quot;, itemList.get(i).getPicturepath1());
+        String date = Common.dateFormatStr(itemList.get(i).getDataTime()); 
+
+        obj.put(&amp;quot;dataTime&amp;quot;, date);
+        obj.put(&amp;quot;cname&amp;quot;, itemList.get(i).getClassfic().getCname());
+        jsonArr.add(obj);
+    }
+    return jsonArr;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x9875;&amp;#x9762;&amp;#x4E00;&amp;#x6253;&amp;#x5F00;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x52A0;&amp;#x8F7D;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x4E14;reload&amp;#x6309;&amp;#x94AE;&amp;#x53EF;&amp;#x4EE5;&amp;#x53D1;&amp;#x6325;&amp;#x4F5C;&amp;#x7528;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7528;&amp;#x5728;js&amp;#x9875;&amp;#x9762;&amp;#x4E2D;&amp;#x5199;queryAll()&amp;#xFF0C;&amp;#x8BD5;&amp;#x7528;ajax&amp;#x6765;&amp;#x5F02;&amp;#x6B65;&amp;#x83B7;&amp;#x53D6;&amp;#x6570;&amp;#x636E;&amp;#x3002;&amp;#x76F4;&amp;#x63A5;&amp;#x5728;&amp;#x540E;&amp;#x53F0;&amp;#x201D;rest/Uploadinfo/queryAll&amp;#x201D;&amp;#x670D;&amp;#x52A1;&amp;#x4E2D;&amp;#x5C01;&amp;#x88C5;&amp;#x597D;&amp;#x8981;&amp;#x7528;&amp;#x7684;&amp;#x6570;&amp;#x636E;&lt;br&gt;&lt;img src=&quot;/2016/05/04/bootstrapTable&amp;#x603B;&amp;#x7ED3;/2.png&quot; alt=&quot;&amp;#x6570;&amp;#x636E;&amp;#x52A0;&amp;#x8F7D;&quot; title=&quot;2.png&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x6570;&amp;#x636E;&amp;#x91CD;&amp;#x65B0;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#&amp;#x6570;&amp;#x636E;&amp;#x91CD;&amp;#x65B0;&amp;#x52A0;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6570;&amp;#x636E;&amp;#x91CD;&amp;#x65B0;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;&amp;#x6570;&amp;#x636E;&amp;#x91CD;&amp;#x65B0;&amp;#x52A0;&amp;#x8F7D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(&amp;apos;#table&amp;apos;).bootstrapTable(&amp;apos;load&amp;apos;, data);
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x66F4;&amp;#x65B0;&amp;#x64CD;&amp;#x4F5C;&quot;&gt;&lt;a href=&quot;#&amp;#x66F4;&amp;#x65B0;&amp;#x64CD;&amp;#x4F5C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x66F4;&amp;#x65B0;&amp;#x64CD;&amp;#x4F5C;&quot;&gt;&lt;/a&gt;&amp;#x66F4;&amp;#x65B0;&amp;#x64CD;&amp;#x4F5C;&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$table.bootstrapTable(&amp;apos;updateRow&amp;apos;, {&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	index : index1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	row : {&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		tid : tid,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		cid : cid,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		uid : uid,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		date : date,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		type : type,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	}&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;});&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x64CD;&amp;#x4F5C;&quot;&gt;&lt;a href=&quot;#&amp;#x6DFB;&amp;#x52A0;&amp;#x64CD;&amp;#x4F5C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x64CD;&amp;#x4F5C;&quot;&gt;&lt;/a&gt;&amp;#x6DFB;&amp;#x52A0;&amp;#x64CD;&amp;#x4F5C;&lt;/h2&gt;&lt;blockquote&gt;
@@ -2261,111 +2381,6 @@ public class DataSourceInterceptor {
     
     
       <category term="node.js" scheme="http://chen1218chen.github.io/tags/node-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mongodb</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/mongodb/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/mongodb/</id>
-    <published>2016-03-02T02:01:55.151Z</published>
-    <updated>2016-03-02T06:26:51.793Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;1-mongodb&amp;#x521B;&amp;#x5EFA;&quot;&gt;&lt;a href=&quot;#1-mongodb&amp;#x521B;&amp;#x5EFA;&quot; class=&quot;headerlink&quot; title=&quot;1. mongodb&amp;#x521B;&amp;#x5EFA;&quot;&gt;&lt;/a&gt;1. mongodb&amp;#x521B;&amp;#x5EFA;&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mongod --dbpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\data&amp;quot; --logpath=&amp;quot;mongodb&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;\log\log.txt&amp;quot; --install --serviceName MongoDB --serviceDisplayName MongoDB&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;log.txt&amp;#x4E2D;&amp;#x770B;&amp;#x5230;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2015-10-23T14:51:17.374+0800 I CONTROL  [main] Hotfix KB2731284 or later update is not installed, will zero-out data files&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2015-10-23T14:51:17.375+0800 I CONTROL  [main] Trying to install Windows service &amp;apos;MongoDB&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service &amp;apos;MongoDB&amp;apos; (MongoDB) installed with command line &amp;apos;&amp;quot;C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe&amp;quot; --dbpath=D:\mongodb\data\db --logpath=D:\mongodb\data\log\log.txt --service&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2015-10-23T14:51:17.641+0800 I CONTROL  [main] Service can be started from the command line with &amp;apos;net start MongoDB&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;&amp;#x670D;&amp;#x52A1;&amp;#x7BA1;&amp;#x7406;&amp;#x91CC;&amp;#x9762;&amp;#x770B;&amp;#x5230;&lt;br&gt;&lt;img src=&quot;/2016/03/02/mongodb/1445583474158.png&quot; alt=&quot;Alt text&quot;&gt;&lt;br&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;&amp;#x6B64;&amp;#x624B;&amp;#x52A8;&amp;#x542F;&amp;#x52A8;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;&amp;#x547D;&amp;#x4EE4;&amp;#x884C;&amp;#x7A97;&amp;#x53E3;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;start MongoDB```&amp;#x542F;&amp;#x52A8;&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;![Alt text](./1445583584543.png)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x670D;&amp;#x52A1;&amp;#x5C31;&amp;#x542F;&amp;#x52A8;&amp;#x4E86;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## 2. &amp;#x4F7F;&amp;#x7528;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;cmd&amp;#x547D;&amp;#x4EE4;&amp;#x884C;&amp;#x91CC;&amp;#xFF1A;&lt;br&gt;mongo //&amp;#x8FDB;&amp;#x5165;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&lt;br&gt;use hello-world //&amp;#x521B;&amp;#x5EFA;&amp;#x9879;&amp;#x76EE;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&lt;br&gt;db.addUser(&amp;#x201C;shuaige&amp;#x201D;, &amp;#x201C;123456&amp;#x201D;) //&amp;#x7ED9;&amp;#x8FD9;&amp;#x4E2A;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x521B;&amp;#x5EFA;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EB;&amp;#x5E05;&amp;#x54E5;&amp;#x7684;&amp;#x8D26;&amp;#x53F7;&amp;#xFF0C;&amp;#x5BC6;&amp;#x7801;123456 &amp;#xFF08;&amp;#x4F46;&amp;#x662F;&amp;#x6211;&amp;#x89C9;&amp;#x5F97;&amp;#x53EF;&amp;#x80FD;&amp;#x6211;&amp;#x7406;&amp;#x89E3;&amp;#x7684;&amp;#x4E0D;&amp;#x5230;&amp;#x4F4D;&amp;#xFF0C;&amp;#x4F60;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x505A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF09;&lt;br&gt;&amp;#x7136;&amp;#x540E;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5C31;&amp;#x4E3A;&amp;#x8FD9;&amp;#x4E2A;hello-world&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x521B;&amp;#x5EFA;collection&amp;#xFF08;collection&amp;#x5C31;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;oracle&amp;#x548C;mysql&amp;#x91CC;&amp;#x7684;table&amp;#xFF09;&lt;br&gt;db.createCollection(&amp;#x201C;users&amp;#x201D;) //&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x96C6;&amp;#x5408;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8868;&lt;br&gt;db.users.insert({userid: &amp;#x201C;admin&amp;#x201D;, password: &amp;#x201C;123456&amp;#x201D;}) //&amp;#x7ED9;users&amp;#x91CC;&amp;#x6DFB;&amp;#x52A0;&amp;#x4E00;&amp;#x4E2A;&amp;#x6587;&amp;#x6863;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x6761;&amp;#x8BB0;&amp;#x5F55;&amp;#x8D26;&amp;#x53F7;admin&amp;#xFF0C;&amp;#x5BC6;&amp;#x7801;123456&lt;br&gt;ok&amp;#xFF0C;&amp;#x73B0;&amp;#x5728;&amp;#x68C0;&amp;#x67E5;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF1A;&lt;br&gt;db.users.find() //&amp;#x5982;&amp;#x679C;&amp;#x770B;&amp;#x5230;&amp;#x4F60;&amp;#x521A;&amp;#x521A;&amp;#x6DFB;&amp;#x52A0;&amp;#x7684;&amp;#x6587;&amp;#x6863;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF0C;&amp;#x5C31;ok&amp;#x54AF;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x5728;models&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;user.js,&amp;#x4F5C;&amp;#x4E3A;&amp;#x5B9E;&amp;#x4F53;&amp;#x7C7B;&amp;#x6620;&amp;#x5C04;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;users&amp;#x96C6;&amp;#x5408;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;var mongoose = require(&amp;#x201C;mongoose&amp;#x201D;);  //  &amp;#x9876;&amp;#x4F1A;&amp;#x8BAE;&amp;#x7528;&amp;#x6237;&amp;#x7EC4;&amp;#x4EF6;&lt;br&gt;var Schema = mongoose.Schema;    //  &amp;#x521B;&amp;#x5EFA;&amp;#x6A21;&amp;#x578B;&lt;br&gt;var userScheMa = new Schema({&lt;br&gt;    userid: String,&lt;br&gt;    password: String&lt;br&gt;}); //  &amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x6A21;&amp;#x578B;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x6B64;&amp;#x6A21;&amp;#x5F0F;&amp;#x8FD8;&amp;#x672A;&amp;#x548C;users&amp;#x96C6;&amp;#x5408;&amp;#x6709;&amp;#x5173;&amp;#x8054;&lt;br&gt;exports.user = mongoose.model(&amp;#x2018;users&amp;#x2019;, userScheMa); //  &amp;#x4E0E;users&amp;#x96C6;&amp;#x5408;&amp;#x5173;&amp;#x8054;&lt;br&gt;```&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x6CE8;&amp;#x610F;&amp;#xFF1A;&amp;#x8FD8;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;npm&amp;#x4E0B;&amp;#x8F7D; mongoose&amp;#x6A21;&amp;#x5757;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;1-mongodb&amp;#x521B;&amp;#x5EFA;&quot;&gt;&lt;a href=&quot;#1-mongodb&amp;#x521B;&amp;#x5EFA;&quot; class=&quot;headerlink&quot; title=&quot;1. mongodb&amp;#x521B;&amp;#x5EFA;&quot;&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="mongodb" scheme="http://chen1218chen.github.io/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git</title>
-    <link href="http://chen1218chen.github.io/2016/03/02/git/"/>
-    <id>http://chen1218chen.github.io/2016/03/02/git/</id>
-    <published>2016-03-02T02:01:47.684Z</published>
-    <updated>2016-03-29T08:31:37.514Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&quot;&gt;&lt;a href=&quot;#&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&quot;&gt;&lt;/a&gt;&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Workspace&amp;#xFF1A;&amp;#x5DE5;&amp;#x4F5C;&amp;#x533A;&lt;/li&gt;
-&lt;li&gt;Index / Stage&amp;#xFF1A;&amp;#x6682;&amp;#x5B58;&amp;#x533A;&lt;/li&gt;
-&lt;li&gt;Repository&amp;#xFF1A;&amp;#x4ED3;&amp;#x5E93;&amp;#x533A;&amp;#xFF08;&amp;#x6216;&amp;#x672C;&amp;#x5730;&amp;#x4ED3;&amp;#x5E93;&amp;#xFF09;&lt;/li&gt;
-&lt;li&gt;Remote&amp;#xFF1A;&amp;#x8FDC;&amp;#x7A0B;&amp;#x4ED3;&amp;#x5E93;&amp;#xFF0C;&amp;#x6307;&amp;#x6258;&amp;#x7BA1;&amp;#x5728;&amp;#x7F51;&amp;#x7EDC;&amp;#x4E0A;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4ED3;&amp;#x5E93;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;.gitignore&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x5217;&amp;#x51FA;&amp;#x8981;&amp;#x5FFD;&amp;#x7565;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;.class&amp;#xFF0C;&amp;#x5FFD;&amp;#x7565;.class&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/03/02/git/1450160316466.png&quot; alt=&quot;image1&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x4F20;github&quot;&gt;&lt;a href=&quot;#&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x4F20;github&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x4F20;github&quot;&gt;&lt;/a&gt;&amp;#x672C;&amp;#x5730;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x4F20;github&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; //&amp;#x8BBE;&amp;#x7F6E;&amp;#x7528;&amp;#x6237;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git config --global user.name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git config --global user.email&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; cd d:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; mkdir bootstrap&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; cd bootstrap &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git init   //&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x7248;&amp;#x672C;&amp;#x4ED3;&amp;#x5E93;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; touch READM   //&amp;#x65B0;&amp;#x5EFA;readme&amp;#x6587;&amp;#x4EF6;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; echo &amp;quot;hello world!&amp;quot; &amp;gt;&amp;gt;README&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git add . //&amp;#x5C06;&amp;#x6240;&amp;#x6709;&amp;#x6587;&amp;#x4EF6;&amp;#x6DFB;&amp;#x52A0;&amp;#x6682;&amp;#x5B58;&amp;#x533A;&amp;#x57DF;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git reset file //&amp;#x53D6;&amp;#x6D88;&amp;#x5DF2;&amp;#x6682;&amp;#x5B58;&amp;#x6587;&amp;#x4EF6;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git commit -m &amp;apos;first commit&amp;apos;  //&amp;#x63D0;&amp;#x4EA4;&amp;#x7F13;&amp;#x5B58;&amp;#xFF0C;&amp;#x5E76;&amp;#x6DFB;&amp;#x52A0;&amp;#x63CF;&amp;#x8FF0;&amp;#x2018;first commit&amp;#x2019;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; // &amp;#x6DFB;&amp;#x52A0;&amp;#x540D;&amp;#x5B57;&amp;#x4E3A;origin&amp;#x7684;&amp;#x8FDC;&amp;#x7A0B;&amp;#x5E93;&amp;#xFF0C;&amp;#x6CE8;&amp;#x610F;&amp;#x9700;&amp;#x63D0;&amp;#x524D;&amp;#x5EFA;&amp;#x7ACB;&amp;#x597D;&amp;#x7248;&amp;#x672C;&amp;#x4ED3;&amp;#x5E93;,&amp;#x518D;&amp;#x6B21;&amp;#x4FEE;&amp;#x6539;&amp;#x540E;&amp;#x63D0;&amp;#x4EA4;&amp;#x8DF3;&amp;#x8FC7;&amp;#x6B64;&amp;#x547D;&amp;#x4EE4;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git remote add origin https://github.com/chen1218chen/bootstrap.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git push origin master   //&amp;#x63D0;&amp;#x4EA4;&amp;#x5230;github&amp;#x4ED3;&amp;#x5E93;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git push //&amp;#x63D0;&amp;#x4EA4;&amp;#x5230;local&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git pull //&amp;#x6293;&amp;#x53D6;&amp;#x8FDC;&amp;#x7A0B;&amp;#x6570;&amp;#x636E;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x5408;&amp;#x5E76;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git fetch //&amp;#x6293;&amp;#x53D6;&amp;#x8FDC;&amp;#x7A0B;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x624B;&amp;#x52A8;&amp;#x5408;&amp;#x5E76;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git clone &amp;lt;url&amp;gt; //&amp;#x81EA;&amp;#x52A8;&amp;#x5C06;&amp;#x8FDC;&amp;#x7A0B;&amp;#x5E93;&amp;#x5F52;&amp;#x4E8E;origin&amp;#x4E0B;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git status  //&amp;#x67E5;&amp;#x770B;&amp;#x63D0;&amp;#x4EA4;&amp;#x72B6;&amp;#x6001;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git status -s   //&amp;#x66F4;&amp;#x4E3A;&amp;#x7D27;&amp;#x51D1;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#x8F93;&amp;#x51FA;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git status --short&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git log -p -2//-p&amp;#x663E;&amp;#x793A;&amp;#x6BCF;&amp;#x6B21;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5DEE;&amp;#x5F02;,-2&amp;#x6700;&amp;#x8FD1;&amp;#x4E24;&amp;#x6B21;&amp;#x66F4;&amp;#x65B0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git tag  //&amp;#x5217;&amp;#x51FA;&amp;#x6240;&amp;#x6709;tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; //&amp;#x65B0;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;tag&amp;#x5728;&amp;#x5F53;&amp;#x524D;commit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git tag [tag]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; //&amp;#x65B0;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;tag&amp;#x5728;&amp;#x6307;&amp;#x5B9A;commit&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git tag [tag] [commit]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; //&amp;#x67E5;&amp;#x770B;tag&amp;#x4FE1;&amp;#x606F;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; git show [tag]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; //&amp;#x63D0;&amp;#x4EA4;&amp;#x6240;&amp;#x6709;tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git push [remote] --tags&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; // &amp;#x65B0;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x5206;&amp;#x652F;&amp;#xFF0C;&amp;#x6307;&amp;#x5411;&amp;#x67D0;&amp;#x4E2A;tag&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git checkout -b [branch] [tag]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;&amp;#x547D;&amp;#x4EE4;&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#&amp;#x547D;&amp;#x4EE4;&amp;#x5206;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x547D;&amp;#x4EE4;&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;/a&gt;&amp;#x547D;&amp;#x4EE4;&amp;#x5206;&amp;#x6790;&lt;/h2&gt;&lt;h3 id=&quot;git-help&quot;&gt;&lt;a href=&quot;#git-help&quot; class=&quot;headerlink&quot; title=&quot;git help &quot;&gt;&lt;/a&gt;git help &lt;verb&gt;&lt;/verb&gt;&lt;/h3&gt;&lt;h3 id=&quot;git-mv&quot;&gt;&lt;a href=&quot;#git-mv&quot; class=&quot;headerlink&quot; title=&quot;git mv&quot;&gt;&lt;/a&gt;git mv&lt;/h3&gt;&lt;p&gt;&amp;#x4FEE;&amp;#x6539;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git mv file_from file_to
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;git-rm&quot;&gt;&lt;a href=&quot;#git-rm&quot; class=&quot;headerlink&quot; title=&quot;git rm&quot;&gt;&lt;/a&gt;git rm&lt;/h3&gt;&lt;p&gt;&amp;#x5220;&amp;#x9664;&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rm &amp;lt;file&amp;gt;
-git rm &amp;lt;file&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;git-commit&quot;&gt;&lt;a href=&quot;#git-commit&quot; class=&quot;headerlink&quot; title=&quot;git commit&quot;&gt;&lt;/a&gt;git commit&lt;/h3&gt;&lt;p&gt; git commit &amp;#x63D0;&amp;#x4EA4;&amp;#x65F6;&amp;#x5F3A;&amp;#x5236;&amp;#x8981;&amp;#x6C42;&amp;#x8F93;&amp;#x5165;&amp;#x63D0;&amp;#x4EA4;&amp;#x8BF4;&amp;#x660E;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x7701;&amp;#x7565;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;-m&amp;#x53C2;&amp;#x6570;&amp;#x8F93;&amp;#x5165;&amp;#x63D0;&amp;#x4EA4;&amp;#x8BF4;&amp;#x660E;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x6709;&amp;#xFF0C;git&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x6253;&amp;#x5F00;&amp;#x4E00;&amp;#x4E2A;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#xFF0C;&amp;#x8981;&amp;#x6C42;&amp;#x5728;&amp;#x5176;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x63D0;&amp;#x4EA4;&amp;#x8BF4;&amp;#x660E;&amp;#x3002;&lt;br&gt;&lt;strong&gt;&amp;#x53C2;&amp;#x6570;&amp;#x8BF4;&amp;#x660E;&amp;#xFF1A;&lt;/strong&gt;&lt;br&gt;    -m &amp;#x8F93;&amp;#x5165;&amp;#x63D0;&amp;#x4EA4;&amp;#x8BF4;&amp;#x660E;&lt;br&gt;    &lt;strong&gt;&amp;#x2013;amend&lt;/strong&gt; &amp;#x5BF9;&amp;#x521A;&amp;#x521A;&amp;#x7684;&amp;#x63D0;&amp;#x4EA4;&amp;#x8FDB;&amp;#x884C;&amp;#x4FEE;&amp;#x8865;&lt;br&gt;    &amp;#x2013;allow-empty &amp;#x7A7A;&amp;#x767D;&amp;#x88AB;&amp;#x5141;&amp;#x8BB8;&amp;#x63D0;&amp;#x4EA4;&lt;br&gt;    &amp;#x2013;reset-author &amp;#x5C06;author&amp;#x7684;ID&amp;#x540C;&amp;#x6B65;&amp;#x4FEE;&amp;#x6539;&lt;/p&gt;
-&lt;h3 id=&quot;git-push&quot;&gt;&lt;a href=&quot;#git-push&quot; class=&quot;headerlink&quot; title=&quot;git push&quot;&gt;&lt;/a&gt;git push&lt;/h3&gt;&lt;p&gt;&amp;#x63A8;&amp;#x9001;&amp;#x6570;&amp;#x636E;&amp;#x5230;&amp;#x8FDC;&amp;#x7A0B;&amp;#x4ED3;&amp;#x5E93;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git push [remote-name] [branch-name]
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;git-remote&quot;&gt;&lt;a href=&quot;#git-remote&quot; class=&quot;headerlink&quot; title=&quot;git remote&quot;&gt;&lt;/a&gt;git remote&lt;/h3&gt;&lt;p&gt;git&amp;#x9ED8;&amp;#x8BA4;&amp;#x4F7F;&amp;#x7528;origin&amp;#x4F5C;&amp;#x4E3A;&amp;#x8FDC;&amp;#x7A0B;&amp;#x5E93;&amp;#x540D;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git remote //&amp;#x67E5;&amp;#x770B;&amp;#x8FDC;&amp;#x7A0B;&amp;#x5E93;&amp;#x540D;
-git remote -v //&amp;#x67E5;&amp;#x770B;&amp;#x8FDC;&amp;#x7A0B;&amp;#x5E93;&amp;#x5730;&amp;#x5740;
-git remte show [remote-name] //&amp;#x67E5;&amp;#x770B;&amp;#x8FDC;&amp;#x7A0B;&amp;#x4ED3;&amp;#x5E93;&amp;#x7684;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4FE1;&amp;#x606F;
-git remote rename aa cc //&amp;#x4FEE;&amp;#x6539;&amp;#x8FDC;&amp;#x7A0B;&amp;#x4ED3;&amp;#x5E93;aa&amp;#x7684;&amp;#x540D;&amp;#x79F0;
-git remote rm cc  //&amp;#x5220;&amp;#x9664;&amp;#x8FDC;&amp;#x7A0B;&amp;#x4ED3;&amp;#x5E93;cc
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/2016/03/02/git/1450160519441.png&quot; alt=&quot;enter description here&quot; title=&quot;1450160519441.png&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;git-config&quot;&gt;&lt;a href=&quot;#git-config&quot; class=&quot;headerlink&quot; title=&quot;git config&quot;&gt;&lt;/a&gt;git config&lt;/h3&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config --list //&amp;#x67E5;&amp;#x770B;&amp;#x914D;&amp;#x7F6E;&amp;#x4FE1;&amp;#x606F;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config -e  //&amp;#x7248;&amp;#x672C;&amp;#x5E93;&amp;#x7EA7;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config -e --global   //&amp;#x5168;&amp;#x5C40;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config -e --system  //&amp;#x7CFB;&amp;#x7EDF;&amp;#x7EA7;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global core.editor&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global core.ui true //&amp;#x4E3A;&amp;#x7EC8;&amp;#x7AEF;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x7740;&amp;#x8272;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;user-name&amp;#x548C;user-email&quot;&gt;&lt;a href=&quot;#user-name&amp;#x548C;user-email&quot; class=&quot;headerlink&quot; title=&quot;user.name&amp;#x548C;user.email&quot;&gt;&lt;/a&gt;user.name&amp;#x548C;user.email&lt;/h3&gt;&lt;p&gt;&amp;#x5220;&amp;#x9664;&amp;#x5168;&amp;#x5C40;&amp;#x914D;&amp;#x7F6E;&amp;#x4E2D;&amp;#x7684;user.name&amp;#x548C;user.email&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config --unset --global user.name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --unset --global user.email&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x4E00;&amp;#x6765;&amp;#xFF0C;&amp;#x67E5;&amp;#x770B;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config user.name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config user.email&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x5C06;&amp;#x770B;&amp;#x4E0D;&amp;#x5230;&amp;#x8F93;&amp;#x51FA;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5206;&amp;#x652F;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;a href=&quot;#&amp;#x5206;&amp;#x652F;&amp;#x547D;&amp;#x4EE4;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5206;&amp;#x652F;&amp;#x547D;&amp;#x4EE4;&quot;&gt;&lt;/a&gt;&amp;#x5206;&amp;#x652F;&amp;#x547D;&amp;#x4EE4;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2016/03/02/git/1450160447699.png&quot; alt=&quot;enter description here&quot; title=&quot;1450160447699.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x64A4;&amp;#x9500;&quot;&gt;&lt;a href=&quot;#&amp;#x64A4;&amp;#x9500;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x64A4;&amp;#x9500;&quot;&gt;&lt;/a&gt;&amp;#x64A4;&amp;#x9500;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2016/03/02/git/1450160697037.png&quot; alt=&quot;enter description here&quot; title=&quot;1450160697037.png&quot;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git reset HEAD &amp;lt;file&amp;gt; //HEAD&amp;#x6307;&amp;#x9488;&amp;#x6307;&amp;#x5411;&amp;#x5F53;&amp;#x524D;&amp;#x5206;&amp;#x652F;&amp;#x7684;&amp;#x6700;&amp;#x65B0;&amp;#x7684;&amp;#x63D0;&amp;#x4EA4;
-git reflog  //&amp;#x67E5;&amp;#x770B;&amp;#x6240;&amp;#x6709;&amp;#x65E5;&amp;#x5FD7;&amp;#x5305;&amp;#x62EC;&amp;#x64A4;&amp;#x9500;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;
-git reset --hard 2d87c9b  //&amp;#x56DE;&amp;#x590D;&amp;#x5230;2d87c9b&amp;#x8FD9;&amp;#x4E2A;&amp;#x7248;&amp;#x672C;
-git reset HEAD^ 
-git reset HEAD^^
-git reset HEAD~1
-git reset HEAD~n
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x9047;&amp;#x5230;&amp;#x95EE;&amp;#x9898;&quot;&gt;&lt;a href=&quot;#&amp;#x9047;&amp;#x5230;&amp;#x95EE;&amp;#x9898;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9047;&amp;#x5230;&amp;#x95EE;&amp;#x9898;&quot;&gt;&lt;/a&gt;&amp;#x9047;&amp;#x5230;&amp;#x95EE;&amp;#x9898;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;Q1&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;error:failed to push som refs to ......&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;br&gt; 1&amp;#x3001;&amp;#x5148;&amp;#x8F93;&amp;#x5165; git pull origin master &amp;#xFF0C;&amp;#x5148;&amp;#x628A;&amp;#x8FDC;&amp;#x7A0B;&amp;#x670D;&amp;#x52A1;&amp;#x5668;github&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x62C9;&amp;#x4E0B;&amp;#x6765;&lt;br&gt; 2&amp;#x3001;&amp;#x518D;&amp;#x8F93;&amp;#x5165;git push origin master&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Q2&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fatal: remote origin already exists.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;br&gt;   1&amp;#x3001;&amp;#x5148;&amp;#x8F93;&amp;#x5165; git remote rm origin&lt;br&gt;    2&amp;#x3001;&amp;#x518D;&amp;#x8F93;&amp;#x5165;git remote add origin &lt;a href=&quot;https://github.com/chen1218chen/bootstrap.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/chen1218chen/bootstrap.git&lt;/a&gt; &amp;#x5C31;&amp;#x4E0D;&amp;#x4F1A;&amp;#x62A5;&amp;#x9519;&amp;#x4E86;&amp;#xFF01;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Q3&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fatal: The remote end hung up unexpectedly&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The problem is due to git/https buffer settings.&lt;br&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config http.postBuffer 524288000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x83B7;&amp;#x53D6;&amp;#x9879;&amp;#x76EE;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone https://github.com/chne1218chen/bootstrap.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&quot;&gt;&lt;a href=&quot;#&amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E13;&amp;#x6709
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://chen1218chen.github.io/tags/git/"/>
     
   </entry>
   
