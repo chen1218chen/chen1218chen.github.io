@@ -20,6 +20,51 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
     }
 
 ![enter description here][1]
+## pageNum初始化
+
+    data-page-list="[10, 25, 50, 100, ALL]"
+
+## 高度自适应
+
+    $(function(){
+    	$table = $('#table');
+    	$table.bootstrapTable('resetView', {
+    	    height: getHeight()
+        });
+    })
+    function getHeight() {
+    return $(window).height() - $('h1').outerHeight(true);
+}
+table的高度可以自己设定
+    
+    data-height="300px"
+    
+## table data from url
+	
+	<table data-toggle="table" data-url="rest/Uploadinfo/queryAll" data-show-refresh="true">
+	
+	@RequestMapping(value = "/queryAll", method = RequestMethod.GET)
+    @ResponseBody
+        public JSONArray queryAll() {
+        	List<Uploadinfo> itemList = itemServiceImpl.queryAll();
+        	JSONArray jsonArr = new JSONArray();
+        	for(int i=0;i<itemList.size();i++){
+			JSONObject obj  = new JSONObject();
+			obj.put("id", itemList.get(i).getId());
+			obj.put("content", itemList.get(i).getContent());
+			obj.put("telephone", itemList.get(i).getTelephone());
+			obj.put("picturepath1", itemList.get(i).getPicturepath1());
+			String date = Common.dateFormatStr(itemList.get(i).getDataTime()); 
+			
+			obj.put("dataTime", date);
+			obj.put("cname", itemList.get(i).getClassfic().getCname());
+			jsonArr.add(obj);
+		}
+		return jsonArr;
+	}
+这样页面一打开就可以加载数据，且reload按钮可以发挥作用，不用在js页面中写queryAll()，试用ajax来异步获取数据。直接在后台"rest/Uploadinfo/queryAll"服务中封装好要用的数据
+![数据加载][2]
+
 ## 数据重新加载
     
     $('#table').bootstrapTable('load', data);
@@ -105,3 +150,4 @@ bootstrap table的修改，只需要引入bootstrap-table-editable.js、bootstra
 
 
   [1]: ./images/Image%201.png "Image 1.png"
+  [2]: ./images/2.png "2.png"
