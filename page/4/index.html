@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: js | chen&#39;s blog</title>
+  <title>chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="chen's blog">
-<meta property="og:url" content="http://chen1218chen.github.io/tags/js/index.html">
+<meta property="og:url" content="http://chen1218chen.github.io/page/4/index.html">
 <meta property="og:site_name" content="chen's blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -30,8 +30,13 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+      <style> .article { opacity: 0;} </style>
+  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -41,10 +46,10 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: false,
+          isHome: true,
           isPost: false,
           isArchive: false,
-          isTag: true,
+          isTag: false,
           isCategory: false,
           open_in_new: false,
       }
@@ -225,52 +230,303 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-js">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/05/10/Date格式化/" class="archive-article-date">
-      <time datetime="2016-05-09T17:02:52.000Z" itemprop="datePublished">05-09</time>
+    <div class="article-meta">
+      <a href="/2016/03/02/ARCGIS/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
 </a>
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/10/Date格式化/">js Date格式化</a>
+      <a class="article-title" href="/2016/03/02/ARCGIS/">ArcGIS入门</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>[TOC]</p>
+<h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
+    //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
+    map = new esri.Map(&quot;map&quot;, {
+        logo : false,//&#x7981;&#x7528;logo
+        center: [107.55, 24.22],//&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;&#x5750;&#x6807;
+        slider:false,
+        nav:false,
+        isZoomSlider:true,
+        autoResize : true,
+        smartNavigation : false,
+        force3DTransforms : true,
+        isKeyboardNavigation : false,
+        sliderStyle : &quot;large&quot;,
+        showInfoWindowOnClick : true,
+        isDoubleClickZoom : false,
+    });
+    //&#x6BD4;&#x4F8B;&#x5C3A;
+    var scalebar = new esri.dijit.Scalebar({
+        map : map,
+        scalebarStyle : &quot;ruler&quot;,
+        scalebarUnit : &quot;metric&quot;,
+        attachTo : &quot;top-left&quot;,
+    });
+    //&#x7F29;&#x7565;&#x56FE;
+    var overViewMap = new esri.dijit.OverviewMap({
+        map:map,
+        attachTo: &quot;bottom-left&quot;,
+        visible:true,
+        opacity: .40,
+        width : 300,
+        height : 150,
+    });
+    overViewMap.startup();
+}
+</code></pre><h2 id="2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"><a href="#2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;" class="headerlink" title="2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"></a>2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;</h2><pre><code>//&#x521D;&#x59CB;&#x5316;&#x70B9;    
+    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
+    //var point =  new Point(lon, lat, map.spatialReference);
+    map.centerAndZoom(point,2);
+    map.centerAt(point);
+</code></pre><h2 id="3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;"><a href="#3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;" class="headerlink" title="3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;"></a>3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;</h2><p>index.jsp&#x9875;&#x9762;&#x4E0A;&#x9700;&#x8981;&#x6DFB;&#x52A0;</p>
+<pre><code>String esriPath = request.getServerName() + &quot;:&quot; +
+request.getServerPort() + path + &quot;/&quot;;
 
-          
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var arcgis_js_api_home = &quot;&lt;%=esriPath%&gt;&quot;;
+    var dojoConfig = {
+        has : {
+            &quot;dojo-firebug&quot; : true
+        },
+        async : true,
+        paths : {
+            &quot;js&quot; : &quot;/../js&quot;
+        },
+    };
+&lt;/script&gt;
+</code></pre><p>&#x518D;&#x5F15;&#x5165;claro.css&#xFF0C;esri.css&#xFF0C;init.js&#xFF0C;index.js&#x3002;</p>
+<p>index.js&#x4E2D;&#x6DFB;&#x52A0;</p>
+<pre><code>require([&quot;esri/map&quot;
+     ,&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;
+     ,&quot;esri/SpatialReference&quot;
+     ],function(){
+var map = new esri.Map(&quot;arcgisDiv&quot;,{
+    logo : false,
+    center: [107.55, 24.22],
+    slider:true,
+});
+var baseUrl = &quot;http://192.168.1.139:6080/arcgis/rest/services/&quot;;
+var mapNames ={
+        &quot;dt&quot;:&quot;dt&quot; //&#x5E95;&#x56FE;
+        ,&quot;dw&quot;:&quot;dw&quot;//&#x7535;&#x7F51;
+    };
+var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&quot;/MapServer&quot;,{id:&quot;dt&quot;});
+//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&quot;);
+var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&quot;/MapServer&quot;,{id:&quot;dw&quot;});
+map.addLayers([dtLayer,dwLayer]);
+//    map.addLayer(layer);
+map.setZoom(8);
+});
+</code></pre><h2 id="4-infoWindow"><a href="#4-infoWindow" class="headerlink" title="4. infoWindow"></a>4. infoWindow</h2><pre><code>&lt;script&gt;
+require([
+  &quot;dojo/dom&quot;,
+  &quot;dojo/dom-construct&quot;,
+  &quot;esri/map&quot;, 
+  &quot;myModules/InfoWindow&quot;,
+  &quot;esri/layers/FeatureLayer&quot;,
+  &quot;esri/InfoTemplate&quot;,
+  &quot;dojo/string&quot;,
+  &quot;dojo/domReady!&quot;
+], function(
+   dom,
+   domConstruct,
+   Map,
+   InfoWindow,
+   FeatureLayer,
+   InfoTemplate,
+   string
+) {
+  //create the custom info window specifying any input options
+   var infoWindow = new  InfoWindow({
+      domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
+   });
+  var map = new Map(&quot;map&quot;, {
+      basemap: &quot;gray&quot;,
+      center: [-98.57, 39.82],
+      zoom: 4,
+      infoWindow: infoWindow
+    });
+
+  var template = new PopupTemplate({
+      title: &quot;Boston Marathon 2013&quot;,
+      description: &quot;{Percent_Fi} of starters from {STATE_NAME} finished&quot;,
+      fieldInfos: [{ //define field infos so we can specify an alias
+        fieldName: &quot;Number_Ent&quot;,
+        label: &quot;Entrants&quot;
+      },{
+        fieldName: &quot;Number_Sta&quot;,
+        label: &quot;Starters&quot;
+      },{
+        fieldName: &quot;Number_Fin&quot;,
+        label: &quot;Finishers&quot;
+      }]
+    });
+
+   var featureLayer = new FeatureLayer(&quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&quot;,{
+      mode: FeatureLayer.MODE_ONDEMAND,
+      outFields: [&quot;*&quot;],
+      infoTemplate:template
+    });
+
+    map.addLayer(featureLayer);  
+  //resize the info window 
+  map.infoWindow.resize(400, 200);
+});
+&lt;/script&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      
+      <div class="clearfix"></div>
+    </div>
     
+  </div>
+  
+</article>
 
+
+
+
+
+
+
+
+  
+    <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/hexo/" class="article-date">
+      <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/hexo/">hexo的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"><a href="#&#x5229;&#x7528;npm&#x5B89;&#x88C5;" class="headerlink" title="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"></a>&#x5229;&#x7528;npm&#x5B89;&#x88C5;</h2><pre><code>npm install -g hexo;
+hexo init &lt;folder&gt;;
+npm stall;//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;
+hexo new &quot;postName&quot; #&#x65B0;&#x5EFA;&#x6587;&#x7AE0;
+hexo new page &quot;pageName&quot; #&#x65B0;&#x5EFA;&#x9875;&#x9762;
+hexo generate;
+hexo server;
+</code></pre><p>   &#x81F3;&#x6B64;&#x672C;&#x5730;hexo&#x535A;&#x5BA2;&#x5DF2;&#x7ECF;&#x642D;&#x5EFA;&#x8D77;&#x6765;&#x4E86;&#xFF0C;Http://localhost:4000&#x67E5;&#x770B;</p>
+<pre><code>#&#x6E05;&#x9664;&#x7F13;&#x5B58;
+hexo clean
+</code></pre><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p>&#x7F16;&#x8F91;_config.yml</p>
+<pre><code>deploy:
+ type: github
+ repository: https://github.com/zippera/zippera.github.io.git
+ branch: master
+</code></pre><p>&#x636E;&#x8BF4;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;hexo &#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; type &#x8981;&#x5199;&#x6210; git&#xFF0C;&#x800C;&#x4E0D;&#x662F; github&#x3002;<br>&#x6267;&#x884C;&#x4E0B;&#x5217;&#x6307;&#x4EE4;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x3002;</p>
+<pre><code>hexo generate
+hexo deploy //&#x540C;&#x6B65;&#x5230;github
+
+//&#x6307;&#x7684;&#x662F;&#x751F;&#x6210;&#x540E;&#x9A6C;&#x4E0A;&#x90E8;&#x7F72;&#x7AD9;&#x70B9;
+hexo g -d or 
+hexo d -g 
+</code></pre><p><strong>ERROR Deployer not found : github</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br>deploy&#x7684;type&#x6539;&#x6210;git&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x4E0B;</p>
+<pre><code>npm install hexo-deployer-git --save
+hexo g
+hexo d
+</code></pre><p><strong>ERROR&#xFF1A;failed to execute prompt script (exit code 1)</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>deploy:
+  type: git
+  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
+  branch: master
+</code></pre><p>git&#x8FDE;&#x63A5;&#x6D4B;&#x8BD5;</p>
+<pre><code>ssh -T git@github.com
+</code></pre><h2 id="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"><a href="#&#x5F00;&#x542F;RSS&#x529F;&#x80FD;" class="headerlink" title="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"></a>&#x5F00;&#x542F;RSS&#x529F;&#x80FD;</h2><p>&#x5B89;&#x88C5;RSS,&#xFF0C;&#x5E76;&#x4E14;&#x7F16;&#x8F91;hexo/_config.yml&#xFF0C;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>npm install hexo-generator-feed --save
+rss: /atom.xml #rss&#x5730;&#x5740;  &#x9ED8;&#x8BA4;&#x5373;&#x53EF;
+</code></pre><h2 id="&#x547D;&#x4EE4;&#x7B80;&#x5316;"><a href="#&#x547D;&#x4EE4;&#x7B80;&#x5316;" class="headerlink" title="&#x547D;&#x4EE4;&#x7B80;&#x5316;"></a>&#x547D;&#x4EE4;&#x7B80;&#x5316;</h2><p>hexo&#x73B0;&#x5728;&#x652F;&#x6301;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x683C;&#x5F0F;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<pre><code>hexo g == hexo generate
+hexo d == hexo deploy
+hexo s == hexo server
+hexo n == hexo new
+</code></pre><h2 id="&#x7B80;&#x5355;"><a href="#&#x7B80;&#x5355;" class="headerlink" title="&#x7B80;&#x5355;"></a>&#x7B80;&#x5355;</h2><pre><code>hexo n #&#x5199;&#x6587;&#x7AE0;
+hexo g #&#x751F;&#x6210;
+hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d -g
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
 </div>
       <footer id="footer">
     <div class="outer">
@@ -315,30 +571,6 @@
             if (iPad > -1 || $(".left-col").css("display") === "none") {
                 var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
                 var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
-</body>
-</html>il(Math.random() * (bgColorList.length - 1));
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
