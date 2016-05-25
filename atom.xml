@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-05-13T08:56:34.126Z</updated>
+  <updated>2016-05-25T02:14:38.250Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://chen1218chen.github.io/2016/05/25/README/"/>
+    <id>http://chen1218chen.github.io/2016/05/25/README/</id>
+    <published>2016-05-25T02:14:38.250Z</published>
+    <updated>2016-05-25T02:14:38.250Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;ccblog&quot;&gt;&lt;a href=&quot;#ccblog&quot; class=&quot;headerlink&quot; title=&quot;ccblog&quot;&gt;&lt;/a&gt;ccblog&lt;/h1&gt;&lt;p&gt;.md&amp;#x683C;&amp;#x5F0F;&amp;#x7684;&amp;#x65E5;&amp;#x5FD7;&amp;#xFF0C;&amp;#x8BB0;&amp;#x5F55;&amp;#x65E5;&amp;#x5E38;&amp;#x5DE5;&amp;#x4F5C;&amp;#x4E2D;&amp;#x7684;&amp;#x70B9;&amp;#x6EF4;&amp;#x6280;&amp;#x672F;&amp;#xFF0C;&amp;#x5145;&amp;#x5B9E;&amp;#x81EA;&amp;#x5DF1;&amp;#xFF0C;&amp;#x535A;&amp;#x5BA2;&amp;#x4E3B;&amp;#x9875;&amp;#x5730;&amp;#x5740; &lt;a href=&quot;http://chen1218chen.github.io/&quot;&gt;http://chen1218chen.github.io/&lt;/a&gt;&lt;br&gt;&amp;#x6B22;&amp;#x8FCE;&amp;#x6307;&amp;#x70B9;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ccblog&quot;&gt;&lt;a href=&quot;#ccblog&quot; class=&quot;headerlink&quot; title=&quot;ccblog&quot;&gt;&lt;/a&gt;ccblog&lt;/h1&gt;&lt;p&gt;.md&amp;#x683C;&amp;#x5F0F;&amp;#x7684;&amp;#x65E5;&amp;#x5FD7;&amp;#xFF0C;&amp;#x
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>jquery源码解析</title>
+    <link href="http://chen1218chen.github.io/2016/05/19/jquery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    <id>http://chen1218chen.github.io/2016/05/19/jquery源码解析/</id>
+    <published>2016-05-19T10:55:30.000Z</published>
+    <updated>2016-05-23T05:59:29.638Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;function-a-b&quot;&gt;&lt;a href=&quot;#function-a-b&quot; class=&quot;headerlink&quot; title=&quot;(function(a,b){})()&quot;&gt;&lt;/a&gt;(function(a,b){})()&lt;/h2&gt;&lt;p&gt;JQuery&amp;#x6E90;&amp;#x7801;&amp;#x7684;&amp;#x5F00;&amp;#x5934;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(function(a,b){
+
+})()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x901A;&amp;#x5E38;(function(){})()&amp;#x7528;&amp;#x6765;&amp;#x5C01;&amp;#x88C5;&amp;#x4E00;&amp;#x4E9B;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;&amp;#x6216;&amp;#x8005;&amp;#x516C;&amp;#x5171;&amp;#x6210;&amp;#x5458;&amp;#x7684;&amp;#x5BFC;&amp;#x51FA;&amp;#x3002;&lt;br&gt;js&amp;#x4E2D;&amp;#x51FD;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Function&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;&amp;#x6307;&amp;#x6CA1;&amp;#x6709;&amp;#x51FD;&amp;#x6570;&amp;#x540D;&amp;#x7684;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5373;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function(x,y){
+    return x+y;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x5B58;&amp;#x5728;&amp;#x4E00;&amp;#x4E2A;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5F15;&amp;#x7528;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E00;&amp;#x4E0B;&amp;#x65B9;&amp;#x6CD5;&amp;#x5F15;&amp;#x7528;&amp;#xFF1A;&lt;br&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var abc = function(x,y){return x+y};
+abc(1,2); //3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(function(x,y){
+    return x+y;
+})(1,2); //3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5C0F;&amp;#x62EC;&amp;#x53F7;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x628A;&amp;#x4EE3;&amp;#x7801;&amp;#x5206;&amp;#x5757;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x6BCF;&amp;#x4E00;&amp;#x5757;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#xFF0C;&amp;#x503C;&amp;#x65E2;&amp;#x662F;&amp;#x5C0F;&amp;#x62EC;&amp;#x53F7;&amp;#x4E2D;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x8FD4;&amp;#x56DE;&amp;#x503C;&amp;#xFF0C;&amp;#x5373;&amp;#x5982;&amp;#x540C;&amp;#x51FD;&amp;#x6570;&amp;#x540D;&amp;#x4F5C;&amp;#x7528;&amp;#x4E00;&amp;#x822C;&amp;#x53D6;&amp;#x5F97;&amp;#x5F15;&amp;#x7528;&amp;#x4F4D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x518D;&amp;#x540E;&amp;#x9762;&amp;#x52A0;&amp;#x4E0A;()&amp;#x53C2;&amp;#x6570;&amp;#x5217;&amp;#x8868;&amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;&amp;#x666E;&amp;#x901A;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x3002;&lt;br&gt;()&amp;#x8FD0;&amp;#x7B97;&amp;#x7B26;&amp;#x5C06;&amp;#x4E00;&amp;#x4E2A;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x5305;&amp;#x88F9;&amp;#x8D77;&amp;#x6765;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x6574;&amp;#x4F53;&amp;#x8FDB;&amp;#x884C;&amp;#x8FD0;&amp;#x7B97;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x8FD4;&amp;#x56DE;&amp;#x8FD9;&amp;#x4E2A;&amp;#x6574;&amp;#x4F53;&amp;#x7684;&amp;#x503C;&amp;#x3002;&lt;br&gt;&amp;#x90A3;&amp;#x4E48;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;(function(){})()&amp;#x4E2D;&amp;#x5DE6;&amp;#x4FA7;&amp;#x5B9A;&amp;#x4E49;function&amp;#x7684;()&amp;#x4E5F;&amp;#x662F;&amp;#x8FD9;&amp;#x4E2A;&amp;#x4F5C;&amp;#x7528;&amp;#xFF0C;&amp;#x5C06;&amp;#x8FD9;&amp;#x4E2A;function&amp;#x7ED9;&amp;#x5305;&amp;#x88F9;&amp;#x8D77;&amp;#x6765;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x8FD4;&amp;#x56DE;&amp;#x8FD9;&amp;#x4E2A;function&amp;#x3002;&amp;#x6211;&amp;#x4EEC;&amp;#x8C03;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x822C;&amp;#x662F;a();&amp;#x90A3;&amp;#x4E48;(function(){})&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x5C31;&amp;#x662F;&amp;#x8FD4;&amp;#x56DE;&amp;#x8FD9;&amp;#x4E2A;function&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;(function(){})()&amp;#x53F3;&amp;#x4FA7;&amp;#x7684;()&amp;#x8868;&amp;#x793A;&amp;#x8C03;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;function&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var abc = function(x,y){return x+y};
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E2D;abc&amp;#x7684;constructor&amp;#x4E0E;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;&amp;#x7684;constructor&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x5373;&amp;#xFF0C;&amp;#x4E24;&amp;#x8005;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x6837;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;jQuery&amp;#x4E2D;&amp;#x5982;&amp;#x4F55;&amp;#x5B9E;&amp;#x73B0;-&amp;#x5F15;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#jQuery&amp;#x4E2D;&amp;#x5982;&amp;#x4F55;&amp;#x5B9E;&amp;#x73B0;-&amp;#x5F15;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;jQuery&amp;#x4E2D;&amp;#x5982;&amp;#x4F55;&amp;#x5B9E;&amp;#x73B0;$&amp;#x5F15;&amp;#x7528;&quot;&gt;&lt;/a&gt;jQuery&amp;#x4E2D;&amp;#x5982;&amp;#x4F55;&amp;#x5B9E;&amp;#x73B0;$&amp;#x5F15;&amp;#x7528;&lt;/h2&gt;&lt;p&gt;JS&amp;#x4E2D;window&amp;#x5BF9;&amp;#x8C61;&amp;#x662F;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x6240;&amp;#x6709;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x90FD;&amp;#x652F;&amp;#x6301;window&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x5B83;&amp;#x8868;&amp;#x793A;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7A97;&amp;#x53E3;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;window.jQuery = window.$ = jQuery;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6240;&amp;#x6709; JavaScript &amp;#x5168;&amp;#x5C40;&amp;#x5BF9;&amp;#x8C61;&amp;#x3001;&amp;#x51FD;&amp;#x6570;&amp;#x4EE5;&amp;#x53CA;&amp;#x53D8;&amp;#x91CF;&amp;#x5747;&amp;#x81EA;&amp;#x52A8;&amp;#x6210;&amp;#x4E3A; window &amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x6210;&amp;#x5458;&amp;#x3002;&lt;br&gt;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#x662F; window &amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&lt;br&gt;&amp;#x5168;&amp;#x5C40;&amp;#x51FD;&amp;#x6570;&amp;#x662F; window &amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;Sizzle&amp;#x5F15;&amp;#x64CE;&quot;&gt;&lt;a href=&quot;#Sizzle&amp;#x5F15;&amp;#x64CE;&quot; class=&quot;headerlink&quot; title=&quot;Sizzle&amp;#x5F15;&amp;#x64CE;&quot;&gt;&lt;/a&gt;Sizzle&amp;#x5F15;&amp;#x64CE;&lt;/h2&gt;&lt;p&gt;jQuery&amp;#x5185;&amp;#x90E8;&amp;#x4F7F;&amp;#x7528;Sizzle&amp;#x5F15;&amp;#x64CE;&amp;#xFF0C;&amp;#x5904;&amp;#x7406;&amp;#x5404;&amp;#x79CD;&amp;#x9009;&amp;#x62E9;&amp;#x5668;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x95ED;&amp;#x5305;&quot;&gt;&lt;a href=&quot;#&amp;#x95ED;&amp;#x5305;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x95ED;&amp;#x5305;&quot;&gt;&lt;/a&gt;&amp;#x95ED;&amp;#x5305;&lt;/h2&gt;&lt;p&gt;&amp;#x7B80;&amp;#x5355;&amp;#x6765;&amp;#x8BF4;&amp;#x662F;&amp;#x6307;&amp;#x5141;&amp;#x8BB8;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E2D;&amp;#x8C03;&amp;#x7528;&amp;#x51FD;&amp;#x6570;&amp;#x4E2D;&amp;#x7684;&amp;#x5C40;&amp;#x90E8;&amp;#x53D8;&amp;#x91CF;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;class&quot;&gt;&lt;a href=&quot;#class&quot; class=&quot;headerlink&quot; title=&quot;class&quot;&gt;&lt;/a&gt;class&lt;/h2&gt;&lt;p&gt;&amp;#x7B80;&amp;#x5355;&amp;#x6765;&amp;#x8BF4;&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;jQuery&amp;#x770B;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5728;&amp;#x539F;&amp;#x578B;&amp;#x4E0A;&amp;#x7ED1;&amp;#x5B9A;&amp;#x65B9;&amp;#x6CD5;&amp;#x5C31;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x6210;&amp;#x5458;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5728;jQuery&amp;#x4E0A;&amp;#x7ED1;&amp;#x5B9A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x7C7B;&amp;#x7684;&amp;#x9759;&amp;#x6001;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jQuery.A = function (){}
+jQuery.prototype.B = function(){}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class jQuery(){
+    public static A(){};
+    public B(){};
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;extend&amp;#x3001;-fn-extend&quot;&gt;&lt;a href=&quot;#extend&amp;#x3001;-fn-extend&quot; class=&quot;headerlink&quot; title=&quot;$.extend&amp;#x3001;$.fn.extend&quot;&gt;&lt;/a&gt;$.extend&amp;#x3001;$.fn.extend&lt;/h2&gt;&lt;p&gt;jQuery&amp;#x4E3A;&amp;#x5F00;&amp;#x53D1;&amp;#x63D2;&amp;#x4EF6;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E24;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//&amp;#x6DFB;&amp;#x52A0;&amp;#x7C7B;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x4E3A;&amp;#x6269;&amp;#x5C55;jQuery&amp;#x7C7B;&amp;#x672C;&amp;#x8EAB;&amp;#xFF0C;&amp;#x4E3A;&amp;#x81EA;&amp;#x8EAB;&amp;#x6DFB;&amp;#x52A0;&amp;#x65B0;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;
+jQuery.extend();
+jQuery.fn.extend();//&amp;#x6DFB;&amp;#x52A0;&amp;#x6210;&amp;#x5458;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x7ED9;jQuery&amp;#x5BF9;&amp;#x8C61;&amp;#x6DFB;&amp;#x52A0;&amp;#x65B9;&amp;#x6CD5;
+
+//&amp;#x5373;&amp;#x6307;&amp;#x5411;jQuery&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#xFF0C;&amp;#x5BF9;&amp;#x5176;&amp;#x5B83;&amp;#x8FDB;&amp;#x884C;&amp;#x7684;&amp;#x6269;&amp;#x5C55;&amp;#xFF0C;&amp;#x4F5C;&amp;#x7528;&amp;#x5728;jQuery&amp;#x5BF9;&amp;#x8C61;&amp;#x4E0A;&amp;#x9762;
+jQuery.fn=jQuery.prototype={
+    //...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; &lt;img src=&quot;/2016/05/19/jquery&amp;#x6E90;&amp;#x7801;&amp;#x89E3;&amp;#x6790;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x522B;&amp;#x540D;&quot;&gt;&lt;a href=&quot;#&amp;#x522B;&amp;#x540D;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x522B;&amp;#x540D;&quot;&gt;&lt;/a&gt;&amp;#x522B;&amp;#x540D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;var $j=JQuery.noConflict(); 
+$j(&amp;apos;#msg&amp;apos;).hide();//&amp;#x6B64;&amp;#x5904;$j&amp;#x5C31;&amp;#x4EE3;&amp;#x8868;JQuery 
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;jQuery&amp;#x6548;&amp;#x7387;&quot;&gt;&lt;a href=&quot;#jQuery&amp;#x6548;&amp;#x7387;&quot; class=&quot;headerlink&quot; title=&quot;jQuery&amp;#x6548;&amp;#x7387;&quot;&gt;&lt;/a&gt;jQuery&amp;#x6548;&amp;#x7387;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;ID&amp;#x9009;&amp;#x62E9;&amp;#x5668;&amp;#x7684;&amp;#x6548;&amp;#x7387;&amp;#x6700;&amp;#x9AD8;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7684;&amp;#x5185;&amp;#x7F6E;&amp;#x51FD;&amp;#x6570;document.getElementById(),&amp;#x6548;&amp;#x7387;&amp;#x5F88;&amp;#x9AD8;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x5C11;&amp;#x76F4;&amp;#x63A5;&amp;#x7528;class&amp;#x9009;&amp;#x62E9;&amp;#x5668;&lt;br&gt;class&amp;#x9009;&amp;#x62E9;&amp;#x5668;&amp;#x662F;&amp;#x6548;&amp;#x7387;&amp;#x6700;&amp;#x6162;&amp;#x7684;&lt;/li&gt;
+&lt;li&gt;&amp;#x591A;&amp;#x7528;&amp;#x7236;&amp;#x5B50;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5C11;&amp;#x7528;&amp;#x5D4C;&amp;#x5957;&amp;#x5173;&amp;#x7CFB;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x7F13;&amp;#x5B58;jQuery&amp;#x5BF9;&amp;#x8C61;&lt;/li&gt;
+&lt;li&gt;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;$()&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x90FD;&amp;#x4F1A;&amp;#x5BFC;&amp;#x81F4;&amp;#x4E00;&amp;#x6B21;&amp;#x65B0;&amp;#x7684;&amp;#x67E5;&amp;#x627E;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#xFF0C;&amp;#x91C7;&amp;#x7528;&amp;#x94FE;&amp;#x5F0F;&amp;#x8C03;&amp;#x7528;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53D8;&amp;#x91CF;&amp;#x7F13;&amp;#x5B58;&amp;#x7ED3;&amp;#x679C;&amp;#x96C6;&amp;#xFF0C;&amp;#x51CF;&amp;#x5C11;&amp;#x67E5;&amp;#x627E;&amp;#xFF0C;&amp;#x63D0;&amp;#x5347;&amp;#x6027;&amp;#x80FD;&amp;#x3002;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;function-a-b&quot;&gt;&lt;a href=&quot;#function-a-b&quot; class=&quot;headerlink&quot; title=&quot;(function(a,b){})()&quot;&gt;&lt;/a&gt;(function(a,b){})()&lt;/h2&gt;&lt;p&gt;JQuery&amp;#x6E90;&amp;#
+    
+    </summary>
+    
+    
+      <category term="jQuery" scheme="http://chen1218chen.github.io/tags/jQuery/"/>
+    
+  </entry>
   
   <entry>
     <title>tomcat关于跨域问题</title>
@@ -2132,178 +2221,6 @@ public JSONArray queryAllOrgan() {
     
     
       <category term="Hibernate" scheme="http://chen1218chen.github.io/tags/Hibernate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shiro入门配置</title>
-    <link href="http://chen1218chen.github.io/2016/03/30/shiro%E5%85%A5%E9%97%A8/"/>
-    <id>http://chen1218chen.github.io/2016/03/30/shiro入门/</id>
-    <published>2016-03-30T15:43:06.000Z</published>
-    <updated>2016-04-06T07:23:14.304Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&lt;/h1&gt;&lt;p&gt;&amp;#x4F7F;&amp;#x7528;shiro&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&amp;#x5BFC;&amp;#x5165;JAR&amp;#x5305;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;web.xml&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Shiro&amp;#x914D;&amp;#x7F6E; --&amp;gt;    
-&amp;lt;filter&amp;gt;    
-    &amp;lt;filter-name&amp;gt;shiroFilter&amp;lt;/filter-name&amp;gt;    
-    &amp;lt;filter-class&amp;gt;org.springframework.web.filter.DelegatingFilterProxy&amp;lt;/filter-class&amp;gt;    
-&amp;lt;/filter&amp;gt;    
-&amp;lt;filter-mapping&amp;gt;    
-    &amp;lt;filter-name&amp;gt;shiroFilter&amp;lt;/filter-name&amp;gt;    
-    &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;    
-&amp;lt;/filter-mapping&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;applicationContext.xml&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;!-- ehcache &amp;#x7684;&amp;#x914D;&amp;#x7F6E; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;cache:annotation-driven cache-manager=&amp;quot;cacheManager&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;cacheManagerFactory&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	class=&amp;quot;org.springframework.cache.ehcache.EhCacheManagerFactoryBean&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;configLocation&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;lt;value&amp;gt;classpath:ehcache.xml&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;cacheManager&amp;quot; class=&amp;quot;org.springframework.cache.ehcache.EhCacheCacheManager&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;cacheManager&amp;quot; ref=&amp;quot;cacheManagerFactory&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;Realm&amp;#x5B9E;&amp;#x73B0; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;myRealm&amp;quot; class=&amp;quot;com.lbs.login.myRealm&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;lt;property name=&amp;quot;cacheManager&amp;quot; ref=&amp;quot;shiroEhcacheManager&amp;quot; /&amp;gt; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- &amp;#x7528;&amp;#x6237;&amp;#x6388;&amp;#x6743;/&amp;#x8BA4;&amp;#x8BC1;&amp;#x4FE1;&amp;#x606F;Cache, &amp;#x91C7;&amp;#x7528;EhCache &amp;#x7F13;&amp;#x5B58; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;shiroEhcacheManager&amp;quot; class=&amp;quot;org.apache.shiro.cache.ehcache.EhCacheManager&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;cacheManagerConfigFile&amp;quot; value=&amp;quot;classpath:ehcache.xml&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;lt;property name=&amp;quot;cacheManager&amp;quot; ref=&amp;quot;cacheManager&amp;quot; /&amp;gt; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- securityManager --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;securityManager&amp;quot; class=&amp;quot;org.apache.shiro.web.mgt.DefaultWebSecurityManager&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;realm&amp;quot; ref=&amp;quot;myRealm&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;cacheManager&amp;quot; ref=&amp;quot;shiroEhcacheManager&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- Shiro&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x5904;&amp;#x7406;&amp;#x5668;,&amp;#x4FDD;&amp;#x8BC1;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;Shiro&amp;#x5185;&amp;#x90E8;lifecycle&amp;#x51FD;&amp;#x6570;&amp;#x7684;bean&amp;#x6267;&amp;#x884C; --&amp;gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;lt;bean id=&amp;quot;lifecycleBeanPostProcessor&amp;quot; class=&amp;quot;org.apache.shiro.spring.LifecycleBeanPostProcessor&amp;quot;/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- Shiro Filter &amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--shiro&amp;#x8FC7;&amp;#x6EE4;&amp;#x5668;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;bean&amp;#x7684;id&amp;#x503C;&amp;#x987B;&amp;#x4E0E;web&amp;#x4E2D;&amp;#x7684;filter-name&amp;#x7684;&amp;#x503C;&amp;#x76F8;&amp;#x540C; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;bean id=&amp;quot;shiroFilter&amp;quot; class=&amp;quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- securityManager --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;securityManager&amp;quot; ref=&amp;quot;securityManager&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;loginUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;&amp;#x540E;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;successUrl&amp;quot; value=&amp;quot;/manager/index.jsp&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;#x6388;&amp;#x6743;&amp;#x5931;&amp;#x8D25;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;unauthorizedUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;!-- &amp;#x8FC7;&amp;#x6EE4;&amp;#x94FE;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;property name=&amp;quot;filterChainDefinitions&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;lt;value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/login.jsp* = anon&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/logout* = anon&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/*.js = anon&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/*.css = anon&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/manager/** = authc,roles[&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;quot;]&amp;lt;!-- &amp;#x8868;&amp;#x793A;&amp;#x9700;&amp;#x8981;&amp;#x8BA4;&amp;#x8BC1;&amp;#x7684;&amp;#x94FE;&amp;#x63A5; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			/index.jsp = authc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;lt;/value&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;lt;/property&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;#x5EFA;&amp;#x7ACB;myRealm.java&amp;#xFF0C;&amp;#x91CD;&amp;#x5199;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;doGetAuthorizationInfo()&amp;#x65B9;&amp;#x6CD5;&amp;#x53EF;&amp;#x4EE5;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x662F;&amp;#x6743;&amp;#x9650;&amp;#x9A8C;&amp;#x8BC1;&lt;br&gt;doGetAuthenticationInfo(AuthenticationToken token)&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x767B;&amp;#x9646;&amp;#x9A8C;&amp;#x8BC1;&amp;#x3002;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&quot;shiro-&amp;#x6388;&amp;#x6743;&quot;&gt;&lt;a href=&quot;#shiro-&amp;#x6388;&amp;#x6743;&quot; class=&quot;headerlink&quot; title=&quot;shiro &amp;#x6388;&amp;#x6743;&quot;&gt;&lt;/a&gt;shiro &amp;#x6388;&amp;#x6743;&lt;/h1&gt;&lt;p&gt;Shiro&amp;#x652F;&amp;#x6301;&amp;#x4E09;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;&amp;#x6388;&amp;#x6743;&amp;#x8FC7;&amp;#x7A0B;&amp;#xFF1A; &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x7F16;&amp;#x7801;&amp;#x5B9E;&amp;#x73B0;&lt;/li&gt;
-&lt;li&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x5B9E;&amp;#x73B0;&lt;/li&gt;
-&lt;li&gt;JSP Taglig&amp;#x5B9E;&amp;#x73B0;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;&amp;#x89D2;&amp;#x8272;&amp;#x6388;&amp;#x6743;&quot;&gt;&lt;a href=&quot;#&amp;#x89D2;&amp;#x8272;&amp;#x6388;&amp;#x6743;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x89D2;&amp;#x8272;&amp;#x6388;&amp;#x6743;&quot;&gt;&lt;/a&gt;&amp;#x89D2;&amp;#x8272;&amp;#x6388;&amp;#x6743;&lt;/h2&gt;&lt;p&gt;&amp;#x5F53;&amp;#x9700;&amp;#x8981;&amp;#x9A8C;&amp;#x8BC1;&amp;#x7528;&amp;#x6237;&amp;#x662F;&amp;#x5426;&amp;#x62E5;&amp;#x6709;&amp;#x67D0;&amp;#x4E2A;&amp;#x89D2;&amp;#x8272;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8C03;&amp;#x7528;Subject&amp;#x5B9E;&amp;#x4F8B;&amp;#x7684;hasRole*&amp;#x65B9;&amp;#x6CD5;&amp;#x9A8C;&amp;#x8BC1;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Subject currentUser = SecurityUtils.getSubject();
-if (currentUser.hasRole(&amp;quot;administrator&amp;quot;)) {
-    //show the admin button
-} else {
-    //don&amp;apos;t show the button?  Grey it out?
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x7840;&amp;#x914D;&amp;#x7
-    
-    </summary>
-    
-    
-      <category term="shiro" scheme="http://chen1218chen.github.io/tags/shiro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap 常用插件使用</title>
-    <link href="http://chen1218chen.github.io/2016/03/17/bootstrap%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://chen1218chen.github.io/2016/03/17/bootstrap插件的使用/</id>
-    <published>2016-03-17T02:33:04.019Z</published>
-    <updated>2016-05-04T07:58:42.682Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x9009;&amp;#x62E9;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$(id).select2({
-                data : data,
-                minimumResultsForSearch : Infinity,// &amp;#x7981;&amp;#x7528;&amp;#x641C;&amp;#x7D22;
-                allowClear : true
-            });
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;bootstrap-validator&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&quot;&gt;&lt;a href=&quot;#bootstrap-validator&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&quot; class=&quot;headerlink&quot; title=&quot;bootstrap-validator&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&quot;&gt;&lt;/a&gt;bootstrap-validator&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4F7F;&amp;#x7528;bootstrap-validator&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
-&lt;p&gt;reset&amp;#x91CD;&amp;#x7F6E;&amp;#x8868;&amp;#x5355;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$(&amp;apos;#btn-reset&amp;apos;).click(function() {
-    $(&amp;apos;#changeForm&amp;apos;).data(&amp;apos;bootstrapValidator&amp;apos;).resetForm(true);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;bootstrap-dialog&quot;&gt;&lt;a href=&quot;#bootstrap-dialog&quot; class=&quot;headerlink&quot; title=&quot;bootstrap-dialog&quot;&gt;&lt;/a&gt;bootstrap-dialog&lt;/h1&gt;&lt;h2 id=&quot;1-&amp;#x9875;&amp;#x9762;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#1-&amp;#x9875;&amp;#x9762;&amp;#x52A0;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;1. &amp;#x9875;&amp;#x9762;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;1. &amp;#x9875;&amp;#x9762;&amp;#x52A0;&amp;#x8F7D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;function changePasswd(){
- BootstrapDialog.show({
-     title : &amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x5BC6;&amp;#x7801;&amp;quot;,
-     message: function(dialog) {
-         var $message = $(&amp;apos;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&amp;apos;);
-         var pageToLoad = dialog.getData(&amp;apos;pageToLoad&amp;apos;);
-         $message.load(pageToLoad);
-         return $message;
-     },
-     data: {
-         &amp;apos;pageToLoad&amp;apos;: &amp;apos;changePasswd.html&amp;apos;
-     },
-        buttons: [{
-         id: &amp;apos;btn-ok&amp;apos;,   
-         icon: &amp;apos;glyphicon glyphicon-check&amp;apos;,       
-         label: &amp;apos;OK&amp;apos;,
-         cssClass: &amp;apos;btn-success&amp;apos;, 
-         autospin: false,
-         action: function(dialogItself){    
-             change();
-               dialogItself.close();
-         }
-     }, {
-         id:&amp;apos;btn-reset&amp;apos;,
-         cssClass: &amp;apos;btn-warning&amp;apos;,
-         label: &amp;apos;&amp;#x91CD;&amp;#x7F6E;&amp;apos;,
-         icon: &amp;apos;glyphicon glyphicon-repeat&amp;apos;,
-         action : function(){
-             document.getElementById(&amp;quot;changeForm&amp;quot;).reset();
-            $(&amp;apos;#btn-reset&amp;apos;).click(function() {
-            });
-         }
-     }, {
-         id:&amp;apos;btn-close&amp;apos;,
-         icon:&amp;apos;glyphicon glyphicon-remove&amp;apos;,
-         label: &amp;apos;Close&amp;apos;,
-         cssClass: &amp;apos;btn-danger&amp;apos;,
-         action: function(dialogItself){
-             dialogItself.close();
-         }
-     }]
- });
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;Jquery-confirm&quot;&gt;&lt;a href=&quot;#Jquery-confirm&quot; class=&quot;headerlink&quot; title=&quot;Jquery-confirm&quot;&gt;&lt;/a&gt;Jquery-confirm&lt;/h1&gt;&lt;h2 id=&quot;1-alert&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#1-alert&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;1. alert&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;1. alert&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4F7F;&amp;#x7528; Jquery-confirm.js&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;function alertView(str){
-    $.alert({
-        animation : &amp;apos;zoom&amp;apos;,
-        animationBounce : 2,
-        keyboardEnabled : true,
-        title : false,
-        content : str,
-        theme : &amp;apos;white&amp;apos;,
-    });
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-confirm&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#2-confirm&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;2. confirm&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;2. confirm&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4F7F;&amp;#x7528; Jquery-confirm.js&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$.confirm({
-    title: &amp;apos;&amp;#x9000;&amp;#x51FA;&amp;#x7CFB;&amp;#x7EDF;&amp;#x767B;&amp;#x9646;&amp;#x5417;&amp;#xFF1F;&amp;apos;, 
-    content : false,
-    // autoClose: &amp;apos;confirm|10000&amp;apos;,
-    confirmButtonClass : &amp;apos;btn-info&amp;apos;,
-    cancelButtonClass : &amp;apos;btn-danger&amp;apos;,
-    confirm : function() {
-        $.ajax({
-            type : &amp;quot;post&amp;quot;,
-            url : &amp;quot;logoutAction.action&amp;quot;,
-            async: false,
-            success :function(){
-                location.href = &amp;quot;../login.jsp&amp;quot;;
-            }
-        });
-    },
-    cancel : function() {
-        alert(&amp;apos;canceled&amp;apos;);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;bootstrap-Table&quot;&gt;&lt;a href=&quot;#bootstrap-Table&quot; class=&quot;headerlink&quot; title=&quot;bootstrap Table&quot;&gt;&lt;/a&gt;bootstrap Table&lt;/h1&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#select2&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;head
-    
-    </summary>
-    
-    
-      <category term="bootstrap" scheme="http://chen1218chen.github.io/tags/bootstrap/"/>
     
   </entry>
   

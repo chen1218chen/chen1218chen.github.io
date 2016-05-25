@@ -3,30 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js Date格式化 | chen&#39;s blog</title>
+  <title>jquery源码解析 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
-    &amp;quot;d+&amp;quot; : this.getDate(), // &amp;#x65E5;
-    &amp;quot;h+&amp;quot; : t">
+  <meta name="description" content="(function(a,b){})()JQuery&amp;#x6E90;&amp;#x7801;&amp;#x7684;&amp;#x5F00;&amp;#x5934;
+(function(a,b){
+
+})()
+&amp;#x901A;&amp;#x5E38;(function(){})()&amp;#x7528;&amp;#x6765;&amp;#x5C01;&amp;#x88C5;&amp;#x4E00;&amp;#x4E9B;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js Date格式化">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/05/10/Date格式化/index.html">
+<meta property="og:title" content="jquery源码解析">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/05/19/jquery源码解析/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
-    &amp;quot;d+&amp;quot; : this.getDate(), // &amp;#x65E5;
-    &amp;quot;h+&amp;quot; : t">
-<meta property="og:updated_time" content="2016-05-09T09:30:53.076Z">
+<meta property="og:description" content="(function(a,b){})()JQuery&amp;#x6E90;&amp;#x7801;&amp;#x7684;&amp;#x5F00;&amp;#x5934;
+(function(a,b){
+
+})()
+&amp;#x901A;&amp;#x5E38;(function(){})()&amp;#x7528;&amp;#x6765;&amp;#x5C01;&amp;#x88C5;&amp;#x4E00;&amp;#x4E9B;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;">
+<meta property="og:image" content="http://chen1218chen.github.io/2016/05/19/jquery源码解析/Image%201.png">
+<meta property="og:updated_time" content="2016-05-23T05:59:29.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js Date格式化">
-<meta name="twitter:description" content="Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
-    &amp;quot;d+&amp;quot; : this.getDate(), // &amp;#x65E5;
-    &amp;quot;h+&amp;quot; : t">
+<meta name="twitter:title" content="jquery源码解析">
+<meta name="twitter:description" content="(function(a,b){})()JQuery&amp;#x6E90;&amp;#x7801;&amp;#x7684;&amp;#x5F00;&amp;#x5934;
+(function(a,b){
+
+})()
+&amp;#x901A;&amp;#x5E38;(function(){})()&amp;#x7528;&amp;#x6765;&amp;#x5C01;&amp;#x88C5;&amp;#x4E00;&amp;#x4E9B;&amp;#x79C1;&amp;#x6709;&amp;#x6210;&amp;#x5458;">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2016/05/19/jquery源码解析/Image%201.png">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -236,11 +238,11 @@ var o = {
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="js-Date格式化" class="article article-type-js" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-jquery源码解析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/10/Date格式化/" class="article-date">
-      <time datetime="2016-05-09T17:02:52.000Z" itemprop="datePublished">2016-05-09</time>
+      <a href="/2016/05/19/jquery源码解析/" class="article-date">
+      <time datetime="2016-05-19T10:55:30.000Z" itemprop="datePublished">2016-05-19</time>
 </a>
     </div>
   
@@ -253,7 +255,7 @@ var o = {
         
   
     <h1 class="article-title" itemprop="name">
-      js Date格式化
+      jquery源码解析
     </h1>
   
 
@@ -264,7 +266,7 @@ var o = {
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -274,30 +276,56 @@ var o = {
     <div class="article-entry" itemprop="articleBody">
       
           
-        <pre><code>Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &quot;M+&quot; : this.getMonth() + 1, // &#x6708;&#x4EFD;
-    &quot;d+&quot; : this.getDate(), // &#x65E5;
-    &quot;h+&quot; : this.getHours(), // &#x5C0F;&#x65F6;
-    &quot;m+&quot; : this.getMinutes(), // &#x5206;
-    &quot;s+&quot; : this.getSeconds(), // &#x79D2;
-    &quot;q+&quot; : Math.floor((this.getMonth() + 3) / 3), // &#x5B63;&#x5EA6;
-    &quot;S&quot; : this.getMilliseconds()
-// &#x6BEB;&#x79D2;
-};
-if (/(y+)/.test(fmt))
-    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + &quot;&quot;)
-            .substr(4 - RegExp.$1.length));
-for ( var k in o)
-    if (new RegExp(&quot;(&quot; + k + &quot;)&quot;).test(fmt))
-        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k])
-                : ((&quot;00&quot; + o[k]).substr((&quot;&quot; + o[k]).length)));
-return fmt;
-}
-var time1 = new Date().format(&quot;yyyy-MM-dd HH:mm:ss&quot;);   
+        <h2 id="function-a-b"><a href="#function-a-b" class="headerlink" title="(function(a,b){})()"></a>(function(a,b){})()</h2><p>JQuery&#x6E90;&#x7801;&#x7684;&#x5F00;&#x5934;</p>
+<pre><code>(function(a,b){
 
-var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);  
-</code></pre><p>js&#x65F6;&#x95F4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#x5927;&#x5C0F;</p>
+})()
+</code></pre><p>&#x901A;&#x5E38;(function(){})()&#x7528;&#x6765;&#x5C01;&#x88C5;&#x4E00;&#x4E9B;&#x79C1;&#x6709;&#x6210;&#x5458;&#x6216;&#x8005;&#x516C;&#x5171;&#x6210;&#x5458;&#x7684;&#x5BFC;&#x51FA;&#x3002;<br>js&#x4E2D;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;Function&#x5BF9;&#x8C61;&#xFF0C;&#x533F;&#x540D;&#x51FD;&#x6570;&#x6307;&#x6CA1;&#x6709;&#x51FD;&#x6570;&#x540D;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#xFF1A;</p>
+<pre><code>function(x,y){
+    return x+y;
+}
+</code></pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;&#x5F15;&#x7528;&#x95EE;&#x9898;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E0B;&#x65B9;&#x6CD5;&#x5F15;&#x7528;&#xFF1A;<br>&#x65B9;&#x6CD5;&#x4E00;&#xFF1A;</p>
+<pre><code>var abc = function(x,y){return x+y};
+abc(1,2); //3
+</code></pre><p>&#x65B9;&#x6CD5;&#x4E8C;&#xFF1A;</p>
+<pre><code>(function(x,y){
+    return x+y;
+})(1,2); //3
+</code></pre><p>&#x65B9;&#x6CD5;&#x4E00;&#x662F;&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x6CD5;&#x4E8C;&#x4E2D;&#xFF0C;&#x5C0F;&#x62EC;&#x53F7;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x628A;&#x4EE3;&#x7801;&#x5206;&#x5757;&#xFF0C;&#x800C;&#x4E14;&#x6BCF;&#x4E00;&#x5757;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x503C;&#x65E2;&#x662F;&#x5C0F;&#x62EC;&#x53F7;&#x4E2D;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5373;&#x5982;&#x540C;&#x51FD;&#x6570;&#x540D;&#x4F5C;&#x7528;&#x4E00;&#x822C;&#x53D6;&#x5F97;&#x5F15;&#x7528;&#x4F4D;&#x7F6E;&#xFF0C;&#x518D;&#x540E;&#x9762;&#x52A0;&#x4E0A;()&#x53C2;&#x6570;&#x5217;&#x8868;&#xFF0C;&#x5B9E;&#x73B0;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x3002;<br>()&#x8FD0;&#x7B97;&#x7B26;&#x5C06;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x5305;&#x88F9;&#x8D77;&#x6765;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6574;&#x4F53;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;&#x6574;&#x4F53;&#x7684;&#x503C;&#x3002;<br>&#x90A3;&#x4E48;&#x4E0A;&#x9762;&#x7684;(function(){})()&#x4E2D;&#x5DE6;&#x4FA7;&#x5B9A;&#x4E49;function&#x7684;()&#x4E5F;&#x662F;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;function&#x7ED9;&#x5305;&#x88F9;&#x8D77;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;function&#x3002;&#x6211;&#x4EEC;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x662F;a();&#x90A3;&#x4E48;(function(){})&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x8FD9;&#x4E2A;function&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;(function(){})()&#x53F3;&#x4FA7;&#x7684;()&#x8868;&#x793A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;function</p>
+<pre><code>var abc = function(x,y){return x+y};
+</code></pre><p>&#x4E2D;abc&#x7684;constructor&#x4E0E;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7684;constructor&#x4E00;&#x6837;&#xFF0C;&#x5373;&#xFF0C;&#x4E24;&#x8005;&#x7684;&#x5B9E;&#x73B0;&#x4E00;&#x6837;&#x3002;</p>
+<h2 id="jQuery&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;-&#x5F15;&#x7528;"><a href="#jQuery&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;-&#x5F15;&#x7528;" class="headerlink" title="jQuery&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;$&#x5F15;&#x7528;"></a>jQuery&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;$&#x5F15;&#x7528;</h2><p>JS&#x4E2D;window&#x5BF9;&#x8C61;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x6709;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x652F;&#x6301;window&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x8868;&#x793A;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;</p>
+<pre><code>window.jQuery = window.$ = jQuery;
+</code></pre><p>&#x6240;&#x6709; JavaScript &#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3001;&#x51FD;&#x6570;&#x4EE5;&#x53CA;&#x53D8;&#x91CF;&#x5747;&#x81EA;&#x52A8;&#x6210;&#x4E3A; window &#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x3002;<br>&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F; window &#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;<br>&#x5168;&#x5C40;&#x51FD;&#x6570;&#x662F; window &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="Sizzle&#x5F15;&#x64CE;"><a href="#Sizzle&#x5F15;&#x64CE;" class="headerlink" title="Sizzle&#x5F15;&#x64CE;"></a>Sizzle&#x5F15;&#x64CE;</h2><p>jQuery&#x5185;&#x90E8;&#x4F7F;&#x7528;Sizzle&#x5F15;&#x64CE;&#xFF0C;&#x5904;&#x7406;&#x5404;&#x79CD;&#x9009;&#x62E9;&#x5668;</p>
+<h2 id="&#x95ED;&#x5305;"><a href="#&#x95ED;&#x5305;" class="headerlink" title="&#x95ED;&#x5305;"></a>&#x95ED;&#x5305;</h2><p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x662F;&#x6307;&#x5141;&#x8BB8;&#x7A0B;&#x5E8F;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x53EF;&#x4EE5;&#x628A;jQuery&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5728;&#x539F;&#x578B;&#x4E0A;&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x6210;&#x5458;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;jQuery&#x4E0A;&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>jQuery.A = function (){}
+jQuery.prototype.B = function(){}
+</code></pre><p>&#x76F8;&#x5F53;&#x4E8E;&#xFF1A;</p>
+<pre><code>class jQuery(){
+    public static A(){};
+    public B(){};
+}
+</code></pre><h2 id="extend&#x3001;-fn-extend"><a href="#extend&#x3001;-fn-extend" class="headerlink" title="$.extend&#x3001;$.fn.extend"></a>$.extend&#x3001;$.fn.extend</h2><p>jQuery&#x4E3A;&#x5F00;&#x53D1;&#x63D2;&#x4EF6;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<pre><code>//&#x6DFB;&#x52A0;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x4E3A;&#x6269;&#x5C55;jQuery&#x7C7B;&#x672C;&#x8EAB;&#xFF0C;&#x4E3A;&#x81EA;&#x8EAB;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+jQuery.extend();
+jQuery.fn.extend();//&#x6DFB;&#x52A0;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x7ED9;jQuery&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;
+
+//&#x5373;&#x6307;&#x5411;jQuery&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x94FE;&#xFF0C;&#x5BF9;&#x5176;&#x5B83;&#x8FDB;&#x884C;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x4F5C;&#x7528;&#x5728;jQuery&#x5BF9;&#x8C61;&#x4E0A;&#x9762;
+jQuery.fn=jQuery.prototype={
+    //...
+}
+</code></pre><p> <img src="/2016/05/19/jquery&#x6E90;&#x7801;&#x89E3;&#x6790;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<h2 id="&#x522B;&#x540D;"><a href="#&#x522B;&#x540D;" class="headerlink" title="&#x522B;&#x540D;"></a>&#x522B;&#x540D;</h2><pre><code>var $j=JQuery.noConflict(); 
+$j(&apos;#msg&apos;).hide();//&#x6B64;&#x5904;$j&#x5C31;&#x4EE3;&#x8868;JQuery 
+</code></pre><h2 id="jQuery&#x6548;&#x7387;"><a href="#jQuery&#x6548;&#x7387;" class="headerlink" title="jQuery&#x6548;&#x7387;"></a>jQuery&#x6548;&#x7387;</h2><ol>
+<li>ID&#x9009;&#x62E9;&#x5668;&#x7684;&#x6548;&#x7387;&#x6700;&#x9AD8;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E86;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;document.getElementById(),&#x6548;&#x7387;&#x5F88;&#x9AD8;&#x3002;</li>
+<li>&#x5C11;&#x76F4;&#x63A5;&#x7528;class&#x9009;&#x62E9;&#x5668;<br>class&#x9009;&#x62E9;&#x5668;&#x662F;&#x6548;&#x7387;&#x6700;&#x6162;&#x7684;</li>
+<li>&#x591A;&#x7528;&#x7236;&#x5B50;&#x5173;&#x7CFB;&#xFF0C;&#x5C11;&#x7528;&#x5D4C;&#x5957;&#x5173;&#x7CFB;&#x3002;</li>
+<li>&#x7F13;&#x5B58;jQuery&#x5BF9;&#x8C61;</li>
+<li>&#x6BCF;&#x4E00;&#x4E2A;$()&#x7684;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x6B21;&#x65B0;&#x7684;&#x67E5;&#x627E;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x91C7;&#x7528;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x548C;&#x8BBE;&#x7F6E;&#x53D8;&#x91CF;&#x7F13;&#x5B58;&#x7ED3;&#x679C;&#x96C6;&#xFF0C;&#x51CF;&#x5C11;&#x67E5;&#x627E;&#xFF0C;&#x63D0;&#x5347;&#x6027;&#x80FD;&#x3002;</li>
+</ol>
 
       
     </div>
@@ -306,13 +334,13 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/05/10/Date格式化/">js Date格式化</a></p>
+        <p><span>Title:</span><a href="/2016/05/19/jquery源码解析/">jquery源码解析</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">chen</a></p>
-        <p><span>Created:</span>2016-05-09, 17:02:52</p>
-        <p><span>Updated:</span>2016-05-09, 17:30:53</p>
+        <p><span>Created:</span>2016-05-19, 10:55:30</p>
+        <p><span>Updated:</span>2016-05-23, 13:59:29</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/05/10/Date格式化/" title="js Date格式化">http://chen1218chen.github.io/2016/05/10/Date格式化/</a>
-            <span class="copy-path" data-clipboard-text="From http://chen1218chen.github.io/2016/05/10/Date格式化/　　By chen" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/05/19/jquery源码解析/" title="jquery源码解析">http://chen1218chen.github.io/2016/05/19/jquery源码解析/</a>
+            <span class="copy-path" data-clipboard-text="From http://chen1218chen.github.io/2016/05/19/jquery源码解析/　　By chen" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -326,15 +354,15 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/10/js的继承实现/">
-                    js的继承实现
+                <a href="/2016/05/25/README/">
+                    
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/09/深入了解HTML/">
-                    深入了解HTML之meta
+                <a href="/2016/05/14/tomcat关于跨域问题/">
+                    tomcat关于跨域问题
                 </a>
             </div>
         
@@ -345,7 +373,7 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#function-a-b"><span class="toc-number">1.</span> <span class="toc-text">(function(a,b){})()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery中如何实现-引用"><span class="toc-number">2.</span> <span class="toc-text">jQuery中如何实现$引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sizzle引擎"><span class="toc-number">3.</span> <span class="toc-text">Sizzle引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">4.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class"><span class="toc-number">5.</span> <span class="toc-text">class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#extend、-fn-extend"><span class="toc-number">6.</span> <span class="toc-text">$.extend、$.fn.extend</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#别名"><span class="toc-number">7.</span> <span class="toc-text">别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery效率"><span class="toc-number">8.</span> <span class="toc-text">jQuery效率</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -411,7 +439,7 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/10/js的继承实现/" title="Pre: js的继承实现">
+            <a href="/2016/05/25/README/" title="Pre: ">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -419,7 +447,7 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/09/深入了解HTML/" title="Next: 深入了解HTML之meta">
+            <a href="/2016/05/14/tomcat关于跨域问题/" title="Next: tomcat关于跨域问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
