@@ -90,7 +90,7 @@ $ git checkout -b [branch] [tag]
     git push [remote-name] [branch-name]
 ### git remote 
 
-git默认使用origin作为远程库名
+git默认使用origin作为远程库名。master为默认主分支名，自动建立的，版本库初始化以后，默认在master主分支进行保存。
 
     git remote //查看远程库名
     git remote -v //查看远程库地址
