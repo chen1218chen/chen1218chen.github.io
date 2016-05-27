@@ -1,5 +1,5 @@
 ---
-title: git
+title: git入门及常用命令
 tags: git
 grammar_cjkRuby: true
 ---
@@ -42,7 +42,7 @@ grammar_cjkRuby: true
  
  git clone <url> //自动将远程库归于origin下
 
-
+    
  git status  //查看提交状态
  git status -s   //更为紧凑的格式输出
  git status --short
@@ -83,11 +83,23 @@ $ git checkout -b [branch] [tag]
     **--amend** 对刚刚的提交进行修补
     --allow-empty 空白被允许提交
     --reset-author 将author的ID同步修改
+### git clone
 
+
+    # 最简单的命令
+    git clone xxx.git
+
+    # clone到指定目录
+    git clone xxx.git "指定目录"
+
+    # clone时创建新的分支替代默认Origin HEAD（master）
+    git clone -b [new_branch_name]  xxx.git
+   
 ### git push
 推送数据到远程仓库
 
     git push [remote-name] [branch-name]
+
 ### git remote 
 
 git默认使用origin作为远程库名。master为默认主分支名，自动建立的，版本库初始化以后，默认在master主分支进行保存。
@@ -97,35 +109,46 @@ git默认使用origin作为远程库名。master为默认主分支名，自动�
     git remte show [remote-name] //查看远程仓库的详细信息
     git remote rename aa cc //修改远程仓库aa的名称
     git remote rm cc  //删除远程仓库cc
+
+
+删除远程仓库报错，如下图所示：
+
+ ![enter description here][1] 
+
+原因是用法错误，`git remote rm <主机名>`用来删除添加的remote路径，正确用法如下图所示：
+
+![enter description here][2]
+
+常用命令：
 ![enter description here][3]
 ### git config
-  ```  
+
     git config --list //查看配置信息
     git config -e  //版本库级配置文件
     git config -e --global   //全局配置文件
     git config -e --system  //系统级配置文件
     git config --global core.editor
     git config --global core.ui true //为终端的内容着色
-    
- ```
-### user.name和user.email
+
+
+#### user.name、user.email
 删除全局配置中的user.name和user.email
 ```
-    git config --unset --global user.name
-    git config --unset --global user.email
+git config --unset --global user.name
+git config --unset --global user.email
 ```
 这样一来，查看
 ```
-    git config user.name
-    git config user.email
+git config user.name
+git config user.email
 ```
 将看不到输出。
 
-## 分支命令
-![enter description here][2]
-    
-## 撤销
+### git branch
 ![enter description here][4]
+    
+### git reset
+![enter description here][5]
 
     git reset HEAD <file> //HEAD指针指向当前分支的最新的提交
     git reflog  //查看所有日志包括撤销的操作
@@ -134,6 +157,7 @@ git默认使用origin作为远程库名。master为默认主分支名，自动�
     git reset HEAD^^
     git reset HEAD~1
     git reset HEAD~n
+   
 ## 遇到问题
 - Q1
 ```
@@ -166,7 +190,8 @@ git clone https://github.com/chne1218chen/bootstrap.git
 ```
 
 
-  [1]: ./images/1450160316466.png "1450160316466.png"
-  [2]: ./images/1450160447699.png "1450160447699.png"
+  [1]: ./images/Image%201.png "Image 1.png"
+  [2]: ./images/Image%202.png "Image 2.png"
   [3]: ./images/1450160519441.png "1450160519441.png"
-  [4]: ./images/1450160697037.png "1450160697037.png"
+  [4]: ./images/1450160447699.png "1450160447699.png"
+  [5]: ./images/1450160697037.png "1450160697037.png"
