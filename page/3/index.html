@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation-hibernate/" style="font-size: 10px;">annotation, hibernate</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation-hibernate/" style="font-size: 10px;">annotation, hibernate</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/前端，模块化/" style="font-size: 10px;">前端，模块化</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -229,6 +229,128 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/31/ManyToOne/" class="article-date">
+      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#xFF08;many&#x65B9;&#xFF09;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</li>
+<li><p>one&#x662F;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x65B9;&#xFF0C;many&#x662F;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x3002;&#x5728;&#x5173;&#x7CFB;&#x88AB;&#x7EF4;&#x62A4;&#x7AEF;&#xFF0C;&#x5373;many&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;@JoinColumn&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#x5217;&#x6307;&#x5411;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x7AEF;&#x7684;&#x4E3B;&#x952E;&#x5217;&#x3002;</p>
+<ul>
+<li>manyTomany&#x4E2D;@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
+</ul>
+</li>
+<li><p>mappedBy</p>
+<ul>
+<li>&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x53CC;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5355;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5219;&#x4E0D;&#x7528;&#x5B9A;&#x4E49;&#x3002;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x4E3B;&#x63A7;&#x65B9;&#x3002;</li>
+</ul>
+</li>
+<li>optional<ul>
+<li>&#x5C5E;&#x6027;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5173;&#x8054;&#x7C7B;&#x662F;&#x5426;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;&#x9ED8;&#x8BA4;true&#xFF0C;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x53EF;&#x4EE5;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x82E5;&#x4E3A;false&#x5219;&#x53CC;&#x65B9;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;null&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="manyToMany"><a href="#manyToMany" class="headerlink" title="manyToMany"></a>manyToMany</h2><p>user-role&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
+<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+@JoinTable(name = &quot;user_to_role&quot;,   
+    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
+    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
+})
+</code></pre><h2 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="ManyToOne"></a>ManyToOne</h2><p>user-onganization&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
+<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
+@JoinTable(name = &quot;user_to_role&quot;,   
+    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
+    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
+})
+</code></pre><h2 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h2><blockquote>
+<p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
+</blockquote>
+<pre><code>JsonConfig config = new JsonConfig();
+config.setExcludes(new String[]{&quot;roles&quot;});//&#x9664;&#x53BB;roles&#x5C5E;&#x6027;
+JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
+</code></pre><p>&#x6216;&#x8005;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x89E3;&#x9664;&#x5FAA;&#x73AF;</p>
+<pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
+@ResponseBody
+public JSONArray queryAllOrgan() {
+
+    JSONArray userJSONList;
+    JsonConfig jsonConfig = new JsonConfig();
+    jsonConfig.setIgnoreDefaultExcludes(false);
+    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
+    jsonConfig.setExcludes(new String[] { &quot;handler&quot;,&quot;hibernateLazyInitializer&quot; });
+    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
+        public boolean apply(Object obj, String name, Object value) {
+        //if(value instanceof Organization &amp;&amp; name.equals(&quot;organ&quot;)){
+        if(name.equals(&quot;user&quot;)){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    });
+    List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
+    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
+    return userJSONList;
+}
+</code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
+<pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
+//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
+//    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-shiro入门" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1163,91 +1285,6 @@ git reset HEAD~n
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用软件/">常用软件</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/常见问题/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.894Z" itemprop="datePublished">2016-03-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/02/常见问题/">常见问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<ol>
-<li>html&#x4E2D;ID&#x5C5E;&#x6027;&#x503C;&#x540C;&#x4E00;&#x9875;&#x9762;&#x4E2D;&#x4E0D;&#x80FD;&#x91CD;&#x590D;&#xFF0C;&#x6700;&#x597D;&#x540C;&#x4E00;&#x7CFB;&#x7EDF;&#x4E2D;&#x4E5F;&#x4E0D;&#x8981;&#x5B58;&#x5728;&#x76F8;&#x540C;ID&#xFF0C;&#x5426;&#x5219;JS&#x901A;&#x8FC7;ID&#x5C5E;&#x6027;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x51FA;&#x9519;&#xFF0C;&#x5217;&#x5165;&#x9047;&#x5230;&#x7684;bootstrap dataTimePicker&#x63D2;&#x4EF6;&#x4E2D;&#x70B9;&#x51FB;&#x65E5;&#x5386;&#x4E0D;&#x663E;&#x793A;&#x3001;bootstrapValidator&#x4E2D;&#x91CD;&#x7F6E;&#x8868;&#x5355;&#x6CA1;&#x6709;&#x53CD;&#x5E94;</li>
-<li>&#x9759;&#x6001;&#x6570;&#x636E;&#x6216;&#x8005;&#x9759;&#x6001;&#x8868;&#x5728;&#x6570;&#x636E;&#x5E93;&#x8868;&#x8BBE;&#x8BA1;&#x662F;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5EFA;&#x7ACB;&#x6570;&#x636E;&#x5E93;&#x8868;&#xFF0C;&#x800C;&#x662F;&#x7528;JSON&#x6587;&#x4EF6;&#x6765;&#x5B58;&#x50A8;&#x3002;&#x6709;&#x65F6;&#x4E5F;&#x53EF;&#x9009;&#x7528;&#x89C6;&#x56FE;&#x7684;&#x5F62;&#x5F0F;<br>#Tomcat</li>
-<li>&#x542F;&#x52A8;&#x62A5;&#x9519;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: Web app root system property already set to different value: &apos;webapp.root&apos; = [D:\apache-tomcat-7.0.63\webapps\JDJ\] instead of [D:\apache-tomcat-7.0.63\webapps\LBSHMonitor\] - Choose unique values for the &apos;webAppRootKey&apos; context-param in your web.xml files!</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x9519;&#x8BEF;&#x539F;&#x56E0;&#x662F;&#x56E0;&#x4E3A;tomcat&#x542F;&#x52A8;&#x4E86;&#x4E24;&#x4E2A;&#x60F3;&#x4F3C;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x4E00;&#x662F;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x800C;&#x662F;&#x5728;web.xml&#x91CC;&#x9762;&#x52A0;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;webAppRootKey&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;JDJ&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>1.mysql&#x67E5;&#x770B;&#x7F16;&#x7801;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW VARIABLES LIKE &apos;CHARACTER%&apos; ;</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>mysql&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x5426;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF0C;&#x4F7F;&#x7528;:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show Variables like &apos;%table_names&apos;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<blockquote>
-<p>&#x67E5;&#x770B;lower_case_table_names&#x7684;&#x503C;&#xFF0C;0&#x4EE3;&#x8868;&#x533A;&#x5206;&#xFF0C;1&#x4EE3;&#x8868;&#x4E0D;&#x533A;&#x5206;&#x3002;</p>
-</blockquote>
-<ol>
-<li>&#x8BBE;&#x7F6E;&#x8FDC;&#x7A0B;&#x767B;&#x5F55;<blockquote>
-<p>&#x4FEE;&#x6539;&#x6570;&#x636E;&#x8868;</p>
-</blockquote>
-</li>
-</ol>
-<p>&#x53EF;&#x80FD;&#x662F;&#x4F60;&#x7684;&#x5E10;&#x53F7;&#x4E0D;&#x5141;&#x8BB8;&#x4ECE;&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#xFF0C;&#x53EA;&#x80FD;&#x5728;localhost&#x3002;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EA;&#x8981;&#x5728; localhost &#x7684;&#x90A3;&#x53F0;&#x7535;&#x8111;&#xFF0C;&#x767B;&#x5165;MySQL&#x540E;&#xFF0C;&#x66F4;&#x6539; &#x201C;MySQL&#x201D; &#x6570;&#x636E;&#x5E93;&#x91CC;&#x7684; &#x201C;user&#x201D; &#x8868;&#x91CC;&#x7684; &#x201C;Host&#x201D; &#x9879;&#xFF0C;&#x4ECE;&#x201C;localhost&#x201D;&#x6539;&#x79F0;&#x201C;%&#x201D;&#xFF0C;%&#x8868;&#x793A;&#x6240;&#x6709;&#x673A;&#x5668;&#x90FD;&#x5141;&#x8BB8;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql </span><br><span class="line"></span><br><span class="line">mysql&gt; update user set Host=&apos;%&apos; where User=&apos;root&apos;;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>&#x6388;&#x6743;&#x6743;&#x9650;</p>
-</blockquote>
-<p>&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x201C;myuser&#x201D;&#x8D26;&#x53F7;&#x548C;&#x201C;mypwd&#x201D;&#x5BC6;&#x7801;&#x8FDE;&#x63A5;&#x5230; MySQL &#x670D;&#x52A1;&#x5668;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;myuser&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypwd&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure></p>
-<p>&#x5373;&#x53EF;&#x751F;&#x6548;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
-<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4E24;&#x6B65;&#x8D70;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/question/">question</a></li></ul>
     </div>
 
       

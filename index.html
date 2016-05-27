@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation-hibernate/" style="font-size: 10px;">annotation, hibernate</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/annotation-hibernate/" style="font-size: 10px;">annotation, hibernate</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/前端，模块化/" style="font-size: 10px;">前端，模块化</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -229,6 +229,109 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-前端模块化管理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/26/前端模块化管理/" class="article-date">
+      <time datetime="2016-05-26T09:58:04.000Z" itemprop="datePublished">2016-05-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/26/前端模块化管理/">前端模块化规范及管理器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x4F9D;&#x7136;&#x6210;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x7684;&#x4E3B;&#x6D41;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x3002;&#x6700;&#x6709;&#x540D;&#x7684;&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5373;requireJS&#xFF0C;&#x91C7;&#x7528;AMD&#x6807;&#x51C6;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5404;&#x6709;&#x7279;&#x8272;&#x3002;</p>
+<h1 id="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"><a href="#&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"></a>&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>CommonJS&#x662F;&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;&#x5316;&#x7684;&#x4E00;&#x79CD;&#x89C4;&#x8303;&#xFF0C;NodeJS&#x662F;&#x5176;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;&#x7531;&#x4E8E;NodeJS&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F16;&#x7A0B;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x8D77;&#x6765;&#x5F88;&#x5FEB;&#xFF0C;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x524D;&#x7AEF;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x5C31;&#x9700;&#x8981;AMD&#xFF0C;CDM&#x3002;<br>CommonJS&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#x5206;&#x4E3A;:{&#x6A21;&#x5757;&#x5F15;&#x7528;(require)} {&#x6A21;&#x5757;&#x5B9A;&#x4E49;(exports)} {&#x6A21;&#x5757;&#x6807;&#x8BC6;(module)}</p>
+<ul>
+<li>require()&#x7528;&#x6765;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x6A21;&#x5757;&#xFF1B;</li>
+<li>exports&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x5BFC;&#x51FA;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x53D8;&#x91CF;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x5BFC;&#x51FA;&#x53E3;&#xFF1B;</li>
+<li>module&#x5BF9;&#x8C61;&#x5C31;&#x4EE3;&#x8868;&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x3002;</li>
+</ul>
+<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p><strong>AMD</strong>&#xFF1A;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;RequireJS&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br><strong>CMD</strong>&#xFF1A;&#x901A;&#x7528;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;SeaJS (&#x7531;&#x7389;&#x4F2F;&#x63D0;&#x51FA;)&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br>&#x533A;&#x522B;&#xFF1A;</p>
+<ol>
+<li>&#x5BF9;&#x4E8E;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;AMD&#x662F;&#x63D0;&#x524D;&#x6267;&#x884C;&#xFF0C;CMD&#x662F;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#x3002;&#x4E0D;&#x8FC7;RequireJS&#x4ECE;2.0&#x5F00;&#x59CB;&#xFF0C;&#x4E5F;&#x6539;&#x6210;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF08;&#x6839;&#x636E;&#x5199;&#x6CD5;&#x4E0D;&#x540C;&#xFF0C;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x4E0D;&#x901A;&#x8FC7;&#xFF09;&#x3002;</li>
+<li>CMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x5C31;&#x8FD1;&#xFF0C;AMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x524D;&#x7F6E;&#x3002;<strong>&#x5373;SeaJS&#x662F;&#x61D2;&#x6267;&#x884C;&#xFF0C;requireJS&#x662F;&#x9884;&#x6267;&#x884C;&#x3002;</strong></li>
+</ol>
+<ul>
+<li>SeaJS&#x53EA;&#x4F1A;&#x5728;&#x771F;&#x6B63;&#x9700;&#x8981;&#x65F6;&#x624D;&#x6267;&#x884C;&#x8BE5;&#x6A21;&#x5757;&#xFF0C;&#x4E25;&#x683C;&#x6309;&#x7167;&#x4EE3;&#x7801;&#x4E2D;require&#x6A21;&#x5757;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3002;</li>
+<li>RequireJS&#x4E2D;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x88AB;&#x63D0;&#x524D;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4F7F;&#x7528;shim&#x53C2;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;shim&#x91CC;&#x9762;&#x914D;&#x7F6E;&#x597D;&#x4F9D;&#x8D56;&#x3002;</li>
+</ul>
+<p><strong>&#x5B98;&#x65B9;&#x7684;&#x89E3;&#x91CA;&#xFF1A;</strong><a href="https://github.com/seajs/seajs/issues/277" target="_blank" rel="external">SeaJS&#x4E0E;RequireJS &#x7684;&#x5F02;&#x540C;</a></p>
+<pre><code>//AMD 
+define([&apos;./a&apos;,&apos;./b&apos;], function (a, b) { 
+
+    //&#x4F9D;&#x8D56;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x5199;&#x597D; 
+    a.test(); 
+    b.test(); 
+}); 
+
+//CMD 
+define(function (requie, exports, module) { 
+
+    //&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x5C31;&#x8FD1;&#x4E66;&#x5199; 
+    var a = require(&apos;./a&apos;); 
+    a.test(); 
+
+    ... 
+    //&#x8F6F;&#x4F9D;&#x8D56; 
+    if (status) { 
+
+        var b = requie(&apos;./b&apos;); 
+        b.test(); 
+    } 
+}); 
+</code></pre><h1 id="&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;"><a href="#&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;"></a>&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;</h1><h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><p>&#x4E3B;&#x8981;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x7684;&#x5B89;&#x88C5;&#xFF0C;&#x5347;&#x7EA7;&#x548C;&#x5220;&#x9664;</p>
+<pre><code>npm install -g bower
+bower install jquery
+bower update jquery
+bower uninstall jquery
+</code></pre><h2 id="browserify"><a href="#browserify" class="headerlink" title="browserify"></a>browserify</h2><p>Browserify &#x662F;&#x76EE;&#x524D;&#x6700;&#x5E38;&#x7528;&#x7684; CommonJS &#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;NodeJS&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;npm&#x6765;&#x5B89;&#x88C5;&#x3002;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;NodeJS&#x7684;require&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x7EC4;&#x7EC7;&#x6D4F;&#x89C8;&#x5668;&#x7684;javascript&#x7AEF;&#x4EE3;&#x7801;&#x3002;    </p>
+<pre><code>npm install -g browserify
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端，模块化/">前端，模块化</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-README" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -736,7 +839,33 @@ if (document.documentElement &amp;&amp; document.documentElement.scrollTop &amp;
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>JS&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x51FD;&#x6570;F()</p>
+<pre><code>function inherits(child,parent){
+    var F = function(){};
+    F.prototype = parent.prototype;
+    child.prototype = F;
+    //&#x4FEE;&#x590D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8C03;&#x7528;F&#x7684;constructor
+    child.prototype.constructor = child;
+}
+
+function People(props){
+    this.name = props.name || &apos;unnamed&apos;;
+}
+
+People.prototype.hello = function(){
+    alert(&apos;hello,&apos;+this.name);
+}
+
+function Student(props){
+    People.call(this,props);
+    this.age = props.age||1;
+}
+inherits(Student,People);
+var cc = new Student();
+</code></pre><p>&#x539F;&#x578B;&#x94FE;&#x7684;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x662F;&#xFF1A;</p>
+<pre><code>cc---&gt;Student.prototype---&gt;People.prototype---&gt;Object.prototype
+</code></pre><p>&#x539F;&#x578B;&#x94FE;&#x5BF9;&#x4E86;&#xFF0C;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
+
       
     </div>
     
@@ -745,6 +874,10 @@ if (document.documentElement &amp;&amp; document.documentElement.scrollTop &amp;
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -991,167 +1124,6 @@ at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinit
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hibernate时间段查询" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/04/hibernate时间段查询/" class="article-date">
-      <time datetime="2016-05-04T15:55:02.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><pre><code>@RequestMapping(value = &quot;/searchDate&quot;, method = RequestMethod.POST)
-@ResponseBody
-public List&lt;Uploadinfo&gt; searchDate(@RequestParam(&quot;start&quot;) String start,@RequestParam(&quot;end&quot;) String end) {
-
-    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.dateRange(start,end);
-    return itemList;
-}
-//&#x4F7F;&#x7528;HQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#xFF0C;&#x9884;&#x8BBE;&#x5B57;&#x6BB5;
-public List&lt;Uploadinfo&gt; dateRange(String start, String end) {
-    // TODO Auto-generated method stub
-
-    Date beginDate = java.sql.Date.valueOf(start);
-    Date endDate = java.sql.Date.valueOf(end);
-    String hql = &quot;from Uploadinfo info where info.dataTime &lt;:endDate and info.dataTime &gt;=:beginDate&quot;;  
-    Query query = itemDaoImpl.getQuery(hql);
-    query.setDate(&quot;beginDate&quot;,beginDate);   
-    query.setDate(&quot;endDate&quot;,endDate);
-    List&lt;Uploadinfo&gt; infolist = query.list();
-    return infolist;
-}
-</code></pre><p>&#x91CD;&#x70B9;&#x5728;hql&#x8BED;&#x53E5;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x5B9A;&#x4E49;&#x7684;&#x662F;date&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E3A;date&#x7C7B;&#x578B;</p>
-<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>&#x524D;&#x53F0;&#x4F7F;&#x7528;<a href="http://www.daterangepicker.com/#examples" target="_blank" rel="external">datarangepicker&#x63D2;&#x4EF6;</a></p>
-<pre><code>function dateInit(){
-    $(&apos;#dateRange&apos;).daterangepicker({
-        &quot;ranges&quot;: {
-            &quot;Today&quot;: [
-                &quot;2016-05-04T05:40:05.879Z&quot;,
-                &quot;2016-05-04T05:40:05.879Z&quot;
-            ],
-            &quot;Yesterday&quot;: [
-                &quot;2016-05-03T05:40:05.879Z&quot;,
-                &quot;2016-05-03T05:40:05.879Z&quot;
-            ],
-            &quot;Last 7 Days&quot;: [
-                &quot;2016-04-28T05:40:05.879Z&quot;,
-                &quot;2016-05-04T05:40:05.879Z&quot;
-            ],
-            &quot;Last 30 Days&quot;: [
-                &quot;2016-04-05T05:40:05.879Z&quot;,
-                &quot;2016-05-04T05:40:05.879Z&quot;
-            ],
-            &quot;This Month&quot;: [
-                &quot;2016-04-30T16:00:00.000Z&quot;,
-                &quot;2016-05-31T15:59:59.999Z&quot;
-            ],
-            &quot;Last Month&quot;: [
-                &quot;2016-03-31T16:00:00.000Z&quot;,
-                &quot;2016-04-30T15:59:59.999Z&quot;
-            ]
-        },
-        &quot;locale&quot;: {
-            &quot;format&quot;: &quot;YYYY-MM-DD&quot;,
-            &quot;separator&quot;: &quot;   &quot;,
-            &quot;applyLabel&quot;: &quot;&#x786E;&#x5B9A;&quot;,
-            &quot;cancelLabel&quot;: &quot;&#x53D6;&#x6D88;&quot;,
-            &quot;fromLabel&quot;: &quot;From&quot;,
-            &quot;toLabel&quot;: &quot;To&quot;,
-            &quot;customRangeLabel&quot;: &quot;Custom&quot;,
-            &quot;daysOfWeek&quot;: [
-                &quot;&#x65E5;&quot;,
-                &quot;&#x4E00;&quot;,
-                &quot;&#x4E8C;&quot;,
-                &quot;&#x4E09;&quot;,
-                &quot;&#x56DB;&quot;,
-                &quot;&#x4E94;&quot;,
-                &quot;&#x516D;&quot;
-            ],
-            &quot;monthNames&quot;: [
-                &quot;&#x4E00;&#x6708;&quot;,
-                &quot;&#x4E8C;&#x6708;&quot;,
-                &quot;&#x4E09;&#x6708;&quot;,
-                &quot;&#x56DB;&#x6708;&quot;,
-                &quot;&#x4E94;&#x6708;&quot;,
-                &quot;&#x516D;&#x6708;&quot;,
-                &quot;&#x4E03;&#x6708;&quot;,
-                &quot;&#x516B;&#x6708;&quot;,
-                &quot;&#x4E5D;&#x6708;&quot;,
-                &quot;&#x5341;&#x6708;&quot;,
-                &quot;&#x5341;&#x4E00;&#x6708;&quot;,
-                &quot;&#x5341;&#x4E8C;&#x6708;&quot;
-            ],
-            &quot;firstDay&quot;: 1
-        },
-        &quot;alwaysShowCalendars&quot;: true,
-        &quot;startDate&quot;: &quot;2016-05-04&quot;,
-        &quot;endDate&quot;: &quot;2016-06-03&quot;
-    }, function(start, end, label) {
-        searchDate(start.format(&apos;YYYY-MM-DD&apos;),end.format(&apos;YYYY-MM-DD&apos;));
-    });
-}
-
-function searchDate(start,end){
-    $.ajax({
-        url : &quot;rest/Uploadinfo/searchDate&quot;,
-        type : &quot;post&quot;,
-        dataType : &apos;json&apos;,
-        data:{
-            &quot;start&quot;:start,
-            &quot;end&quot;:end
-        },
-        success : function(data) {
-            tableShow(data);
-        }
-    });
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
     </div>
 
       

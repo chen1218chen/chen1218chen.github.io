@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-05-25T02:14:38.250Z</updated>
+  <updated>2016-05-26T03:26:02.758Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端模块化规范及管理器</title>
+    <link href="http://chen1218chen.github.io/2016/05/26/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%AE%A1%E7%90%86/"/>
+    <id>http://chen1218chen.github.io/2016/05/26/前端模块化管理/</id>
+    <published>2016-05-26T09:58:04.000Z</published>
+    <updated>2016-05-26T03:26:02.758Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x4F9D;&amp;#x7136;&amp;#x6210;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x4E3B;&amp;#x6D41;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x505A;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x5C06;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x7EC4;&amp;#x7EC7;&amp;#x8D77;&amp;#x6765;&amp;#x3002;&amp;#x6700;&amp;#x6709;&amp;#x540D;&amp;#x7684;&amp;#x524D;&amp;#x7AEF;&amp;#x6A21;&amp;#x5757;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x5373;requireJS&amp;#xFF0C;&amp;#x91C7;&amp;#x7528;AMD&amp;#x6807;&amp;#x51C6;&amp;#x3002;&amp;#x9664;&amp;#x6B64;&amp;#x4E4B;&amp;#x5916;&amp;#x7684;&amp;#x5176;&amp;#x4ED6;&amp;#x6A21;&amp;#x5757;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x5404;&amp;#x6709;&amp;#x7279;&amp;#x8272;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x89C4;&amp;#x8303;&quot;&gt;&lt;a href=&quot;#&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x89C4;&amp;#x8303;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x89C4;&amp;#x8303;&quot;&gt;&lt;/a&gt;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x89C4;&amp;#x8303;&lt;/h1&gt;&lt;h2 id=&quot;CommonJS&quot;&gt;&lt;a href=&quot;#CommonJS&quot; class=&quot;headerlink&quot; title=&quot;CommonJS&quot;&gt;&lt;/a&gt;CommonJS&lt;/h2&gt;&lt;p&gt;CommonJS&amp;#x662F;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7684;&amp;#x4E00;&amp;#x79CD;&amp;#x89C4;&amp;#x8303;&amp;#xFF0C;NodeJS&amp;#x662F;&amp;#x5176;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&amp;#x52A0;&amp;#x8F7D;&amp;#x6A21;&amp;#x5757;&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#x7684;&amp;#x3002;&amp;#x7531;&amp;#x4E8E;NodeJS&amp;#x4E3B;&amp;#x8981;&amp;#x7528;&amp;#x4E8E;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7684;&amp;#x7F16;&amp;#x7A0B;&amp;#xFF0C;&amp;#x52A0;&amp;#x8F7D;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x6587;&amp;#x4EF6;&amp;#x4E00;&amp;#x822C;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5B58;&amp;#x5728;&amp;#x672C;&amp;#x5730;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x52A0;&amp;#x8F7D;&amp;#x8D77;&amp;#x6765;&amp;#x5F88;&amp;#x5FEB;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7528;&amp;#x8003;&amp;#x8651;&amp;#x5F02;&amp;#x6B65;&amp;#x52A0;&amp;#x8F7D;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x800C;&amp;#x524D;&amp;#x7AEF;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x9700;&amp;#x8981;&amp;#x4ECE;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x52A0;&amp;#x8F7D;&amp;#x6A21;&amp;#x5757;&amp;#xFF0C;&amp;#x5219;&amp;#x5FC5;&amp;#x987B;&amp;#x5F02;&amp;#x6B65;&amp;#x52A0;&amp;#x8F7D;&amp;#xFF0C;&amp;#x5C31;&amp;#x9700;&amp;#x8981;AMD&amp;#xFF0C;CDM&amp;#x3002;&lt;br&gt;CommonJS&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5206;&amp;#x4E3A;:{&amp;#x6A21;&amp;#x5757;&amp;#x5F15;&amp;#x7528;(require)} {&amp;#x6A21;&amp;#x5757;&amp;#x5B9A;&amp;#x4E49;(exports)} {&amp;#x6A21;&amp;#x5757;&amp;#x6807;&amp;#x8BC6;(module)}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;require()&amp;#x7528;&amp;#x6765;&amp;#x5F15;&amp;#x5165;&amp;#x5916;&amp;#x90E8;&amp;#x6A21;&amp;#x5757;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;exports&amp;#x5BF9;&amp;#x8C61;&amp;#x7528;&amp;#x4E8E;&amp;#x5BFC;&amp;#x51FA;&amp;#x5F53;&amp;#x524D;&amp;#x6A21;&amp;#x5757;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x6216;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x552F;&amp;#x4E00;&amp;#x7684;&amp;#x5BFC;&amp;#x51FA;&amp;#x53E3;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;module&amp;#x5BF9;&amp;#x8C61;&amp;#x5C31;&amp;#x4EE3;&amp;#x8868;&amp;#x6A21;&amp;#x5757;&amp;#x672C;&amp;#x8EAB;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;AMD-CMD&quot;&gt;&lt;a href=&quot;#AMD-CMD&quot; class=&quot;headerlink&quot; title=&quot;AMD/CMD&quot;&gt;&lt;/a&gt;AMD/CMD&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;AMD&lt;/strong&gt;&amp;#xFF1A;&amp;#x5F02;&amp;#x6B65;&amp;#x6A21;&amp;#x5757;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF0C;&amp;#x662F;RequireJS&amp;#x5728;&amp;#x63A8;&amp;#x5E7F;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x5BF9;&amp;#x6A21;&amp;#x5757;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x89C4;&amp;#x8303;&amp;#x5316;&amp;#x4EA7;&amp;#x51FA;&lt;br&gt;&lt;strong&gt;CMD&lt;/strong&gt;&amp;#xFF1A;&amp;#x901A;&amp;#x7528;&amp;#x6A21;&amp;#x5757;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF0C;&amp;#x662F;SeaJS (&amp;#x7531;&amp;#x7389;&amp;#x4F2F;&amp;#x63D0;&amp;#x51FA;)&amp;#x5728;&amp;#x63A8;&amp;#x5E7F;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x5BF9;&amp;#x6A21;&amp;#x5757;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x89C4;&amp;#x8303;&amp;#x5316;&amp;#x4EA7;&amp;#x51FA;&lt;br&gt;&amp;#x533A;&amp;#x522B;&amp;#xFF1A;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#x5BF9;&amp;#x4E8E;&amp;#x4F9D;&amp;#x8D56;&amp;#x7684;&amp;#x6A21;&amp;#x5757;AMD&amp;#x662F;&amp;#x63D0;&amp;#x524D;&amp;#x6267;&amp;#x884C;&amp;#xFF0C;CMD&amp;#x662F;&amp;#x5EF6;&amp;#x8FDF;&amp;#x6267;&amp;#x884C;&amp;#x3002;&amp;#x4E0D;&amp;#x8FC7;RequireJS&amp;#x4ECE;2.0&amp;#x5F00;&amp;#x59CB;&amp;#xFF0C;&amp;#x4E5F;&amp;#x6539;&amp;#x6210;&amp;#x53EF;&amp;#x4EE5;&amp;#x5EF6;&amp;#x8FDF;&amp;#x6267;&amp;#x884C;&amp;#xFF08;&amp;#x6839;&amp;#x636E;&amp;#x5199;&amp;#x6CD5;&amp;#x4E0D;&amp;#x540C;&amp;#xFF0C;&amp;#x5904;&amp;#x7406;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E0D;&amp;#x901A;&amp;#x8FC7;&amp;#xFF09;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;CMD&amp;#x63A8;&amp;#x5D07;&amp;#x4F9D;&amp;#x8D56;&amp;#x5C31;&amp;#x8FD1;&amp;#xFF0C;AMD&amp;#x63A8;&amp;#x5D07;&amp;#x4F9D;&amp;#x8D56;&amp;#x524D;&amp;#x7F6E;&amp;#x3002;&lt;strong&gt;&amp;#x5373;SeaJS&amp;#x662F;&amp;#x61D2;&amp;#x6267;&amp;#x884C;&amp;#xFF0C;requireJS&amp;#x662F;&amp;#x9884;&amp;#x6267;&amp;#x884C;&amp;#x3002;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;SeaJS&amp;#x53EA;&amp;#x4F1A;&amp;#x5728;&amp;#x771F;&amp;#x6B63;&amp;#x9700;&amp;#x8981;&amp;#x65F6;&amp;#x624D;&amp;#x6267;&amp;#x884C;&amp;#x8BE5;&amp;#x6A21;&amp;#x5757;&amp;#xFF0C;&amp;#x4E25;&amp;#x683C;&amp;#x6309;&amp;#x7167;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;require&amp;#x6A21;&amp;#x5757;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x6267;&amp;#x884C;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;RequireJS&amp;#x4E2D;&amp;#x6240;&amp;#x6709;&amp;#x4F9D;&amp;#x8D56;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x52A0;&amp;#x8F7D;&amp;#x88AB;&amp;#x63D0;&amp;#x524D;&amp;#x5E76;&amp;#x884C;&amp;#x6267;&amp;#x884C;&amp;#x4E86;&amp;#xFF0C;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x3002;&amp;#x8FD9;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#x4F7F;&amp;#x7528;shim&amp;#x53C2;&amp;#x6570;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x89E3;&amp;#x51B3;&amp;#x4E86;&amp;#xFF0C;shim&amp;#x91CC;&amp;#x9762;&amp;#x914D;&amp;#x7F6E;&amp;#x597D;&amp;#x4F9D;&amp;#x8D56;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x5B98;&amp;#x65B9;&amp;#x7684;&amp;#x89E3;&amp;#x91CA;&amp;#xFF1A;&lt;/strong&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SeaJS&amp;#x4E0E;RequireJS &amp;#x7684;&amp;#x5F02;&amp;#x540C;&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//AMD 
+define([&amp;apos;./a&amp;apos;,&amp;apos;./b&amp;apos;], function (a, b) { 
+
+    //&amp;#x4F9D;&amp;#x8D56;&amp;#x4E00;&amp;#x5F00;&amp;#x59CB;&amp;#x5C31;&amp;#x5199;&amp;#x597D; 
+    a.test(); 
+    b.test(); 
+}); 
+
+//CMD 
+define(function (requie, exports, module) { 
+
+    //&amp;#x4F9D;&amp;#x8D56;&amp;#x53EF;&amp;#x4EE5;&amp;#x5C31;&amp;#x8FD1;&amp;#x4E66;&amp;#x5199; 
+    var a = require(&amp;apos;./a&amp;apos;); 
+    a.test(); 
+
+    ... 
+    //&amp;#x8F6F;&amp;#x4F9D;&amp;#x8D56; 
+    if (status) { 
+
+        var b = requie(&amp;apos;./b&amp;apos;); 
+        b.test(); 
+    } 
+}); 
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&quot;&gt;&lt;a href=&quot;#&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&quot;&gt;&lt;/a&gt;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&lt;/h1&gt;&lt;h2 id=&quot;bower&quot;&gt;&lt;a href=&quot;#bower&quot; class=&quot;headerlink&quot; title=&quot;bower&quot;&gt;&lt;/a&gt;bower&lt;/h2&gt;&lt;p&gt;&amp;#x4E3B;&amp;#x8981;&amp;#x7528;&amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x6A21;&amp;#x5757;&amp;#x7684;&amp;#x5B89;&amp;#x88C5;&amp;#xFF0C;&amp;#x5347;&amp;#x7EA7;&amp;#x548C;&amp;#x5220;&amp;#x9664;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g bower
+bower install jquery
+bower update jquery
+bower uninstall jquery
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;browserify&quot;&gt;&lt;a href=&quot;#browserify&quot; class=&quot;headerlink&quot; title=&quot;browserify&quot;&gt;&lt;/a&gt;browserify&lt;/h2&gt;&lt;p&gt;Browserify &amp;#x662F;&amp;#x76EE;&amp;#x524D;&amp;#x6700;&amp;#x5E38;&amp;#x7528;&amp;#x7684; CommonJS &amp;#x683C;&amp;#x5F0F;&amp;#x8F6C;&amp;#x6362;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x3002;&amp;#x672C;&amp;#x8EAB;&amp;#x4E5F;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;NodeJS&amp;#x6A21;&amp;#x5757;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;npm&amp;#x6765;&amp;#x5B89;&amp;#x88C5;&amp;#x3002;&amp;#x4F7F;&amp;#x7528;&amp;#x7C7B;&amp;#x4F3C;NodeJS&amp;#x7684;require&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x6765;&amp;#x7EC4;&amp;#x7EC7;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7684;javascript&amp;#x7AEF;&amp;#x4EE3;&amp;#x7801;&amp;#x3002;    &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g browserify
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x4F9D;&amp;#x7136;&amp;#x6210;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x4E3B;&amp;#x6D41;&amp;#xFF0C;&amp;
+    
+    </summary>
+    
+    
+      <category term="前端，模块化" scheme="http://chen1218chen.github.io/tags/%E5%89%8D%E7%AB%AF%EF%BC%8C%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -334,14 +401,45 @@ if (document.documentElement &amp;amp;&amp;amp; document.documentElement.scrollT
     <link href="http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/"/>
     <id>http://chen1218chen.github.io/2016/05/10/js的继承实现/</id>
     <published>2016-05-10T14:31:57.000Z</published>
-    <updated>2016-05-10T06:31:57.371Z</updated>
+    <updated>2016-05-26T09:11:41.689Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;JS&amp;#x7EE7;&amp;#x627F;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E2D;&amp;#x95F4;&amp;#x51FD;&amp;#x6570;F()&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function inherits(child,parent){
+    var F = function(){};
+    F.prototype = parent.prototype;
+    child.prototype = F;
+    //&amp;#x4FEE;&amp;#x590D;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5426;&amp;#x5219;&amp;#x4F1A;&amp;#x8C03;&amp;#x7528;F&amp;#x7684;constructor
+    child.prototype.constructor = child;
+}
+
+function People(props){
+    this.name = props.name || &amp;apos;unnamed&amp;apos;;
+}
+
+People.prototype.hello = function(){
+    alert(&amp;apos;hello,&amp;apos;+this.name);
+}
+
+function Student(props){
+    People.call(this,props);
+    this.age = props.age||1;
+}
+inherits(Student,People);
+var cc = new Student();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#x7684;&amp;#x7EE7;&amp;#x627F;&amp;#x987A;&amp;#x5E8F;&amp;#x662F;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cc---&amp;gt;Student.prototype---&amp;gt;People.prototype---&amp;gt;Object.prototype
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#x5BF9;&amp;#x4E86;&amp;#xFF0C;&amp;#x7EE7;&amp;#x627F;&amp;#x987A;&amp;#x5E8F;&amp;#x5C31;&amp;#x5BF9;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;p&gt;JS&amp;#x7EE7;&amp;#x627F;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E2D;&amp;#x95F4;&amp;#x51FD;&amp;#x6570;F()&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function inherits(ch
+    
     </summary>
     
+    
+      <category term="js" scheme="http://chen1218chen.github.io/tags/js/"/>
     
   </entry>
   
@@ -2139,94 +2237,6 @@ public class Permission {
     
     
       <category term="shiro" scheme="http://chen1218chen.github.io/tags/shiro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hibernate ManyToOne, ManyToMany注解</title>
-    <link href="http://chen1218chen.github.io/2016/03/31/ManyToOne/"/>
-    <id>http://chen1218chen.github.io/2016/03/31/ManyToOne/</id>
-    <published>2016-03-31T15:02:55.000Z</published>
-    <updated>2016-05-04T08:30:30.251Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;strong&gt;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;&amp;#x53EF;&amp;#x4EE5;&amp;#x907F;&amp;#x514D;&amp;#x51FA;&amp;#x73B0;&amp;#x5FAA;&amp;#x73AF;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;one&amp;#x662F;&amp;#x5173;&amp;#x7CFB;&amp;#x7EF4;&amp;#x62A4;&amp;#x65B9;&amp;#xFF0C;many&amp;#x662F;&amp;#x88AB;&amp;#x7EF4;&amp;#x62A4;&amp;#x65B9;&amp;#x3002;&amp;#x5728;&amp;#x5173;&amp;#x7CFB;&amp;#x88AB;&amp;#x7EF4;&amp;#x62A4;&amp;#x7AEF;&amp;#xFF0C;&amp;#x5373;many&amp;#x7AEF;&amp;#x9700;&amp;#x8981;&amp;#x901A;&amp;#x8FC7;@JoinColumn&amp;#x5EFA;&amp;#x7ACB;&amp;#x5916;&amp;#x952E;&amp;#x5217;&amp;#x6307;&amp;#x5411;&amp;#x5173;&amp;#x7CFB;&amp;#x7EF4;&amp;#x62A4;&amp;#x7AEF;&amp;#x7684;&amp;#x4E3B;&amp;#x952E;&amp;#x5217;&amp;#x3002;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;manyTomany&amp;#x4E2D;@JoinColumn&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x90FD;&amp;#x662F;&amp;#x5728;&amp;#x201C;&amp;#x4E3B;&amp;#x63A7;&amp;#x65B9;&amp;#x201D;&amp;#xFF0C;&amp;#x90FD;&amp;#x662F;&amp;#x672C;&amp;#x8868;&amp;#x6307;&amp;#x5411;&amp;#x5916;&amp;#x8868;&amp;#x7684;&amp;#x5916;&amp;#x952E;&amp;#x540D;&amp;#x79F0;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&amp;#x4E00;&amp;#x5BF9;&amp;#x591A;&amp;#x7684;@JoinColumn&amp;#x6CE8;&amp;#x89E3;&amp;#x5728;&amp;#x201C;&amp;#x88AB;&amp;#x63A7;&amp;#x65B9;&amp;#x201D;&amp;#xFF0C;&amp;#x5373;&amp;#x4E00;&amp;#x7684;&amp;#x4E00;&amp;#x65B9;&amp;#xFF0C;&amp;#x6307;&amp;#x7684;&amp;#x662F;&amp;#x5916;&amp;#x8868;&amp;#x4E2D;&amp;#x6307;&amp;#x5411;&amp;#x672C;&amp;#x8868;&amp;#x7684;&amp;#x5916;&amp;#x952E;&amp;#x540D;&amp;#x79F0;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&amp;#x591A;&amp;#x5BF9;&amp;#x591A;&amp;#x4E2D;&amp;#xFF0C;joinColumns&amp;#x5199;&amp;#x7684;&amp;#x90FD;&amp;#x662F;&amp;#x672C;&amp;#x8868;&amp;#x5728;&amp;#x4E2D;&amp;#x95F4;&amp;#x8868;&amp;#x7684;&amp;#x5916;&amp;#x952E;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&lt;br&gt;inverseJoinColumns&amp;#x5199;&amp;#x7684;&amp;#x662F;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x8868;&amp;#x5728;&amp;#x4E2D;&amp;#x95F4;&amp;#x8868;&amp;#x7684;&amp;#x5916;&amp;#x952E;&amp;#x540D;&amp;#x79F0;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;mappedBy&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x7528;&amp;#x6765;&amp;#x5B9A;&amp;#x4E49;&amp;#x53CC;&amp;#x5411;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x662F;&amp;#x5355;&amp;#x5411;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5219;&amp;#x4E0D;&amp;#x7528;&amp;#x5B9A;&amp;#x4E49;&amp;#x3002;&amp;#x7528;&amp;#x6765;&amp;#x6307;&amp;#x5B9A;&amp;#x4E3B;&amp;#x63A7;&amp;#x65B9;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;optional&lt;ul&gt;
-&lt;li&gt;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x5B9A;&amp;#x4E49;&amp;#x8BE5;&amp;#x5173;&amp;#x8054;&amp;#x7C7B;&amp;#x662F;&amp;#x5426;&amp;#x5FC5;&amp;#x987B;&amp;#x5B58;&amp;#x5728;&amp;#x3002;&amp;#x9ED8;&amp;#x8BA4;true&amp;#xFF0C;&amp;#x88AB;&amp;#x7EF4;&amp;#x62A4;&amp;#x65B9;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x3002;&amp;#x82E5;&amp;#x4E3A;false&amp;#x5219;&amp;#x53CC;&amp;#x65B9;&amp;#x90FD;&amp;#x5FC5;&amp;#x987B;&amp;#x5B58;&amp;#x5728;&amp;#xFF0C;&amp;#x5426;&amp;#x5219;&amp;#x67E5;&amp;#x8BE2;&amp;#x7ED3;&amp;#x679C;&amp;#x4E3A;null&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;manyToMany&quot;&gt;&lt;a href=&quot;#manyToMany&quot; class=&quot;headerlink&quot; title=&quot;manyToMany&quot;&gt;&lt;/a&gt;manyToMany&lt;/h2&gt;&lt;p&gt;user-role&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x53EA;&amp;#x5728;user&amp;#xFF08;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF09;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-@JoinTable(name = &amp;quot;user_to_role&amp;quot;,   
-    joinColumns= { @JoinColumn(name = &amp;quot;user_id&amp;quot;)},
-    inverseJoinColumns ={@JoinColumn(name = &amp;quot;role_id&amp;quot;)  
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;ManyToOne&quot;&gt;&lt;a href=&quot;#ManyToOne&quot; class=&quot;headerlink&quot; title=&quot;ManyToOne&quot;&gt;&lt;/a&gt;ManyToOne&lt;/h2&gt;&lt;p&gt;user-onganization&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x53EA;&amp;#x5728;user&amp;#xFF08;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF09;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-@JoinTable(name = &amp;quot;user_to_role&amp;quot;,   
-    joinColumns= { @JoinColumn(name = &amp;quot;user_id&amp;quot;)},
-    inverseJoinColumns ={@JoinColumn(name = &amp;quot;role_id&amp;quot;)  
-})
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot;&gt;&lt;a href=&quot;#json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot; class=&quot;headerlink&quot; title=&quot;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&quot;&gt;&lt;/a&gt;json&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;net.sf.json.JSONException: There is a cycle in the hierarchy!&amp;#x9519;&amp;#x8BEF;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;JsonConfig config = new JsonConfig();
-config.setExcludes(new String[]{&amp;quot;roles&amp;quot;});//&amp;#x9664;&amp;#x53BB;roles&amp;#x5C5E;&amp;#x6027;
-JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6216;&amp;#x8005;&amp;#x7528;&amp;#x4EE5;&amp;#x4E0B;&amp;#x65B9;&amp;#x6CD5;&amp;#x89E3;&amp;#x9664;&amp;#x5FAA;&amp;#x73AF;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/queryAllOrgan&amp;quot;, method = RequestMethod.GET)
-@ResponseBody
-public JSONArray queryAllOrgan() {
-
-    JSONArray userJSONList;
-    JsonConfig jsonConfig = new JsonConfig();
-    jsonConfig.setIgnoreDefaultExcludes(false);
-    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
-    jsonConfig.setExcludes(new String[] { &amp;quot;handler&amp;quot;,&amp;quot;hibernateLazyInitializer&amp;quot; });
-    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
-        public boolean apply(Object obj, String name, Object value) {
-        //if(value instanceof Organization &amp;amp;&amp;amp; name.equals(&amp;quot;organ&amp;quot;)){
-        if(name.equals(&amp;quot;user&amp;quot;)){
-                return true;
-            } else {
-                return false;
-            }
-        }
-    });
-    List&amp;lt;Organization&amp;gt; dataList = organServiceImpl.queryAll();
-    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
-    return userJSONList;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x51FA;&amp;#x73B0;&amp;#x8FD9;&amp;#x79CD;&amp;#x9519;&amp;#x8BEF;@ManyToOne &amp;#x4E0E;@OneToMany&amp;#x662F;&amp;#x5426;&amp;#x914D;&amp;#x7F6E;&amp;#x6B63;&amp;#x786E;&amp;#xFF0C;&amp;#x6709;&amp;#x6CA1;&amp;#x6709;&amp;#x914D;&amp;#x53CD;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//mappedBy&amp;#xFF1A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x4E3A;manytoone&amp;#x4E2D;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x540D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E2A;&amp;#x4E0D;&amp;#x8981;&amp;#x53D8;&amp;#x54E6;
-//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&amp;quot;user&amp;quot;)
-//    @OneToMany(targetEntity = Roles.class, mappedBy = &amp;quot;user&amp;quot;, cascade = { CascadeType.MERGE })
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x5728;&amp;#x4F9D;&amp;
-    
-    </summary>
-    
-    
-      <category term="Hibernate" scheme="http://chen1218chen.github.io/tags/Hibernate/"/>
     
   </entry>
   
