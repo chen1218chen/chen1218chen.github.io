@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS使用技巧 | chen&#39;s blog</title>
+  <title>JS技术整理 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="[TOC]
-&amp;#x95ED;&amp;#x5305;js&amp;#x91C7;&amp;#x7528;&amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF0C;&amp;#x5373;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x4F9D;&amp;#x8D56;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;">
+setTimeOut()&amp;#x53CA;js&amp;#x5F15;&amp;#x64CE;&amp;#x3001;&amp;#x7EBF;&amp;#x7A0B;js&amp;#x5F15;&amp;#x64CE;&amp;#x662F;&amp;#x5355;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7684;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;&amp;#x4E8B;&amp;#x4EF6;&amp;#x9A71;&amp;#x52A8;&amp;#x7684;&amp;#x8BED;&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS使用技巧">
+<meta property="og:title" content="JS技术整理">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/03/02/JS/index.html">
 <meta property="og:site_name" content="chen's blog">
 <meta property="og:description" content="[TOC]
-&amp;#x95ED;&amp;#x5305;js&amp;#x91C7;&amp;#x7528;&amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF0C;&amp;#x5373;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x4F9D;&amp;#x8D56;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;">
-<meta property="og:updated_time" content="2016-05-06T08:33:40.711Z">
+setTimeOut()&amp;#x53CA;js&amp;#x5F15;&amp;#x64CE;&amp;#x3001;&amp;#x7EBF;&amp;#x7A0B;js&amp;#x5F15;&amp;#x64CE;&amp;#x662F;&amp;#x5355;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7684;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;&amp;#x4E8B;&amp;#x4EF6;&amp;#x9A71;&amp;#x52A8;&amp;#x7684;&amp;#x8BED;&amp;#">
+<meta property="og:updated_time" content="2016-05-30T02:09:55.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS使用技巧">
+<meta name="twitter:title" content="JS技术整理">
 <meta name="twitter:description" content="[TOC]
-&amp;#x95ED;&amp;#x5305;js&amp;#x91C7;&amp;#x7528;&amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF0C;&amp;#x5373;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x4F9D;&amp;#x8D56;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;">
+setTimeOut()&amp;#x53CA;js&amp;#x5F15;&amp;#x64CE;&amp;#x3001;&amp;#x7EBF;&amp;#x7A0B;js&amp;#x5F15;&amp;#x64CE;&amp;#x662F;&amp;#x5355;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7684;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;&amp;#x4E8B;&amp;#x4EF6;&amp;#x9A71;&amp;#x52A8;&amp;#x7684;&amp;#x8BED;&amp;#">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -108,13 +108,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -244,7 +244,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS使用技巧
+      JS技术整理
     </h1>
   
 
@@ -266,6 +266,16 @@
       
           
         <p>[TOC]</p>
+<h2 id="setTimeOut-&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;"><a href="#setTimeOut-&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;" class="headerlink" title="setTimeOut()&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;"></a>setTimeOut()&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;</h2><p>js&#x5F15;&#x64CE;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x9075;&#x5FAA;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x7684;&#x673A;&#x5236;&#x3002;js&#x5F15;&#x64CE;&#x5904;&#x7406;&#x5230;&#x4E0E;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x4F1A;&#x5206;&#x53D1;&#x7ED9;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#xFF0C;&#x4ED6;&#x4EEC;&#x5904;&#x7406;&#x5B8C;&#x540E;&#x9700;&#x8981;JS&#x5F15;&#x64CE;&#x5904;&#x7406;&#x662F;&#xFF0C;&#x5728;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x540E;&#x9762;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code>&lt;script&gt;
+    alert(&quot;1&quot;);
+    setTimeOut(&quot;alert(2)&quot;,0);
+    alert(3);
+&lt;/script&gt;
+</code></pre><blockquote>
+<p>&#x6267;&#x884C;&#x987A;&#x5E8F;1,3,2</p>
+</blockquote>
+<p>&#x53EF;&#x770B;&#x51FA;setTimeOut(fn,0);&#x4E0D;&#x662F;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x3002;&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x5F53;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5230;setTimeOut&#x8FD9;&#x91CC;&#xFF0C;&#x4F1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x65B0;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8BE5;&#x7EBF;&#x7A0B;&#x4F1A;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x540E;&#x5728;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x91CC;&#x9762;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x4EFB;&#x52A1;&#xFF0C;&#x6240;&#x4EE5;setTimeOut&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x4E3B;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x5C31;&#x662F;1,3,2&#x4E86;&#x3002;<br><strong>setTimeOut&#x65B0;&#x89E3;&#xFF1A;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x653E;&#x5165;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x7B49;&#x5F85;js&#x5F15;&#x64CE;&#x7A7A;&#x95F2;&#x65F6;&#x88AB;&#x6267;&#x884C;</strong><br>js&#x5F15;&#x64CE;&#x548C;GUI&#x5F15;&#x64CE;&#xFF08;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#xFF09;&#x662F;&#x4E92;&#x65A5;&#x7684;&#x3002;&#x4E00;&#x4E2A;&#x6302;&#x8D77;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x3002;<br>&#x6D4F;&#x89C8;&#x5668;&#x5F15;&#x64CE;&#x662F;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x5185;&#x6838;&#x7684;&#x63A7;&#x5236;&#x4E0B;&#x4FDD;&#x6301;&#x540C;&#x6B65;&#xFF0C;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x81F3;&#x5C11;&#x5B9E;&#x73B0;&#x4E09;&#x4E2A;&#x5E38;&#x9A7B;&#x7EBF;&#x7A0B;&#x3002;&#xFF1A;js&#x5F15;&#x64CE;&#x7EBF;&#x7A0B;&#x3001;GUI&#x5F15;&#x64CE;&#x7EBF;&#x7A0B;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x65F6;&#x95F4;&#x89E6;&#x53D1;&#x7EBF;&#x7A0B;&#x3002;</p>
 <h2 id="&#x95ED;&#x5305;"><a href="#&#x95ED;&#x5305;" class="headerlink" title="&#x95ED;&#x5305;"></a>&#x95ED;&#x5305;</h2><p>js&#x91C7;&#x7528;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x4F9D;&#x8D56;&#x4E8E;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x5728;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x662F;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3002;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x76F8;&#x4E92;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x4FDD;&#x5B58;&#x5728;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#xFF0C;&#x8FD9;&#x79CD;&#x7279;&#x6027;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x6210;&#x4E3A;&#x95ED;&#x5305;&#x3002;&#x4ECE;&#x6280;&#x672F;&#x7684;&#x89D2;&#x5EA6;&#x4E0A;&#x8BB2;&#xFF0C;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x3002;</p>
 <pre><code>function test() {
     var a = 4;
@@ -367,6 +377,9 @@ function test4(){
 }
 var obj = {a:2,fn:test4};
 obj.fn();
+</code></pre><h2 id="apply-call"><a href="#apply-call" class="headerlink" title="apply(),call()"></a>apply(),call()</h2><p>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>f.call(o,1,2);
+f.apply(o,[1,2]);
 </code></pre><h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h3 id="&#x5D4C;&#x5957;&#x51FD;&#x6570;"><a href="#&#x5D4C;&#x5957;&#x51FD;&#x6570;" class="headerlink" title="&#x5D4C;&#x5957;&#x51FD;&#x6570;"></a>&#x5D4C;&#x5957;&#x51FD;&#x6570;</h3><p>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;test2&#x53EA;&#x80FD;&#x5728;test&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x4E0D;&#x80FD;&#x518D;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</p>
 <pre><code>function test(){
@@ -391,18 +404,18 @@ test();//2
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/JS/">JS使用技巧</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-02, 02:00:26</p>
-        <p><span>最后更新:</span>2016-05-06, 16:33:40</p>
+        <p><span>Title:</span><a href="/2016/03/02/JS/">JS技术整理</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">chen</a></p>
+        <p><span>Created:</span>2016-03-02, 02:00:26</p>
+        <p><span>Updated:</span>2016-05-30, 10:09:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/JS/" title="JS使用技巧">http://chen1218chen.github.io/2016/03/02/JS/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/02/JS/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/03/02/JS/" title="JS技术整理">http://chen1218chen.github.io/2016/03/02/JS/</a>
+            <span class="copy-path" data-clipboard-text="From http://chen1218chen.github.io/2016/03/02/JS/　　By chen" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -429,8 +442,8 @@ test();//2
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS中this关键字"><span class="toc-number">2.</span> <span class="toc-text">JS中this关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数定义"><span class="toc-number">3.</span> <span class="toc-text">函数定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套函数"><span class="toc-number">3.1.</span> <span class="toc-text">嵌套函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prompt"><span class="toc-number">4.</span> <span class="toc-text">prompt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中引用jsp代码"><span class="toc-number">5.</span> <span class="toc-text">js中引用jsp代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js字符串长度限制"><span class="toc-number">6.</span> <span class="toc-text">js字符串长度限制</span></a></li></ol>
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#setTimeOut-及js引擎、线程"><span class="toc-number">1.</span> <span class="toc-text">setTimeOut()及js引擎、线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">2.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS中this关键字"><span class="toc-number">3.</span> <span class="toc-text">JS中this关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply-call"><span class="toc-number">4.</span> <span class="toc-text">apply(),call()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数定义"><span class="toc-number">5.</span> <span class="toc-text">函数定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套函数"><span class="toc-number">5.1.</span> <span class="toc-text">嵌套函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prompt"><span class="toc-number">6.</span> <span class="toc-text">prompt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中引用jsp代码"><span class="toc-number">7.</span> <span class="toc-text">js中引用jsp代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js字符串长度限制"><span class="toc-number">8.</span> <span class="toc-text">js字符串长度限制</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -441,10 +454,10 @@ test();//2
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -496,21 +509,21 @@ test();//2
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/SSH/" title="上一篇: SSH配置集成">
+            <a href="/2016/03/02/SSH/" title="Pre: SSH配置集成">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/02/java学习/" title="下一篇: java">
+            <a href="/2016/03/02/java学习/" title="Next: java">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">前端模块化规范及管理器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git入门及常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">前端模块化规范及管理器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的原型及继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git入门及常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS技术整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
 
 
 
@@ -526,14 +539,14 @@ test();//2
                 &copy; 2016 chen
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -543,7 +556,7 @@ test();//2
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -576,9 +589,9 @@ test();//2
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

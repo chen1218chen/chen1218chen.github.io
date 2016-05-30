@@ -3,27 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>js的继承实现 | chen&#39;s blog</title>
+  <title>js的原型及继承实现 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS&amp;#x7EE7;&amp;#x627F;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E2D;&amp;#x95F4;&amp;#x51FD;&amp;#x6570;F()
-function inherits(child,parent){
-    var F = function(){};
-    F.prototype = parent.prototype;">
+  <meta name="description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js的继承实现">
+<meta property="og:title" content="js的原型及继承实现">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="JS&amp;#x7EE7;&amp;#x627F;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E2D;&amp;#x95F4;&amp;#x51FD;&amp;#x6570;F()
-function inherits(child,parent){
-    var F = function(){};
-    F.prototype = parent.prototype;">
-<meta property="og:updated_time" content="2016-05-26T09:11:41.689Z">
+<meta property="og:description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
+<meta property="og:image" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/Image%201.png">
+<meta property="og:updated_time" content="2016-05-27T07:48:36.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js的继承实现">
-<meta name="twitter:description" content="JS&amp;#x7EE7;&amp;#x627F;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x4E2D;&amp;#x95F4;&amp;#x51FD;&amp;#x6570;F()
-function inherits(child,parent){
-    var F = function(){};
-    F.prototype = parent.prototype;">
+<meta name="twitter:title" content="js的原型及继承实现">
+<meta name="twitter:description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/Image%201.png">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
@@ -114,13 +107,13 @@ function inherits(child,parent){
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
-                        <li>友情链接</li>
+                        <li>Friends</li>
                         
                         
-                        <li>关于我</li>
+                        <li>About Me</li>
                         
                     </ul>
                 </div>
@@ -250,7 +243,7 @@ function inherits(child,parent){
         
   
     <h1 class="article-title" itemprop="name">
-      js的继承实现
+      js的原型及继承实现
     </h1>
   
 
@@ -271,7 +264,52 @@ function inherits(child,parent){
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JS&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x51FD;&#x6570;F()</p>
+        <h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
+<ul>
+<li>Object.prototype&#x6CA1;&#x6709;&#x539F;&#x578B;</li>
+<li>&#x6240;&#x6709;&#x7684;&#x5185;&#x7F6E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x81EA;Object.prototype&#x7684;&#x539F;&#x578B;</li>
+<li>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x662F;&#x7C7B;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;</li>
+<li>&#x6BCF;&#x4E2A;JS&#x51FD;&#x6570;&#x90FD;&#x81EA;&#x52A8;&#x62E5;&#x6709;&#x4E00;&#x4E2A;prototype&#x5C5E;&#x6027;&#xFF0C;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A;constructor&#x5C5E;&#x6027;&#xFF0C;&#x6B64;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</li>
+</ul>
+<pre><code>function People(props){
+    this.name = props.name || &apos;unnamed&apos;;
+}
+
+People.prototype.hello = function(){
+    alert(&apos;hello,&apos;+this.name);
+}
+</code></pre><p><img src="/2016/05/10/js&#x7684;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><pre><code>var p = new F();
+p === F.prototype;  //true
+var c = p.constructor;
+c === F;  // true
+</code></pre><p>&#x7531;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;</p>
+<pre><code>var o = new F();
+o.constructor === F; //true,constructor&#x5C5E;&#x6027;&#x6307;&#x4EE3;&#x8FD9;&#x4E2A;&#x7C7B;
+</code></pre><p>A&#x7684;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x81EA;A.prototype&#xFF0C;B&#x7684;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x81EA;B.prototype&#x3002;&#x6240;&#x4EE5;B&#x7EE7;&#x627F;A&#xFF0C;&#x5373;B&#x7EE7;&#x627F;A.prototype&#x3002;</p>
+<pre><code>var object = new Object();
+object == Object.prototype
+</code></pre><p>Object.prototype&#x5373;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;<br><strong>&#xFF08;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;Object&#x6CDB;&#x6307;&#x4E00;&#x4E2A;JS&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x975E;&#x771F;&#x6B63;&#x7684;Object&#x5BF9;&#x8C61;&#xFF09;</strong></p>
+<h2 id="&#x539F;&#x578B;&#x94FE;"><a href="#&#x539F;&#x578B;&#x94FE;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;"></a>&#x539F;&#x578B;&#x94FE;</h2><p><code>var date = new Date();</code> date&#x5BF9;&#x8C61;&#x540C;&#x65F6;&#x7EE7;&#x627F;Date.prototype&#x548C;Object.prototype&#xFF0C;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;&#x94FE;&#x63A5;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
+<h1 id="&#x7EE7;&#x627F;"><a href="#&#x7EE7;&#x627F;" class="headerlink" title="&#x7EE7;&#x627F;"></a>&#x7EE7;&#x627F;</h1><h2 id="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"><a href="#&#x7C7B;&#x578B;&#x68C0;&#x6D4B;" class="headerlink" title="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"></a>&#x7C7B;&#x578B;&#x68C0;&#x6D4B;</h2><ol>
+<li>instanceof<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a instanceof A //&#x5982;&#x679C;a&#x7EE7;&#x627F;&#x81EA;A&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x53EF;&#x4EE5;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x7EE7;&#x627F;</p>
+<ol>
+<li>constructor&#x5C5E;&#x6027;&#x68C0;&#x6D4B;</li>
+</ol>
+<pre><code>function typeValue(x){
+    if(x==null) return ;
+    switch(x.constructor){
+    case Number: return &quot;Number&quot;+x;
+    case String: return &quot;String&quot;+x;
+    case Date: return &quot;Date&quot;+x;
+    ...
+
+    }
+}
+</code></pre><p>JS&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x51FD;&#x6570;F()</p>
 <pre><code>function inherits(child,parent){
     var F = function(){};
     F.prototype = parent.prototype;
@@ -305,18 +343,18 @@ var cc = new Student();
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/10/js的继承实现/">js的继承实现</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-05-10, 14:31:57</p>
-        <p><span>最后更新:</span>2016-05-26, 17:11:41</p>
+        <p><span>Title:</span><a href="/2016/05/10/js的继承实现/">js的原型及继承实现</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">chen</a></p>
+        <p><span>Created:</span>2016-05-10, 14:31:57</p>
+        <p><span>Updated:</span>2016-05-27, 15:48:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/10/js的继承实现/" title="js的继承实现">http://chen1218chen.github.io/2016/05/10/js的继承实现/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/05/10/js的继承实现/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/05/10/js的继承实现/" title="js的原型及继承实现">http://chen1218chen.github.io/2016/05/10/js的继承实现/</a>
+            <span class="copy-path" data-clipboard-text="From http://chen1218chen.github.io/2016/05/10/js的继承实现/　　By chen" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -343,8 +381,8 @@ var cc = new Student();
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
+    <strong class="toc-title">Contents</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#prototype"><span class="toc-number">1.</span> <span class="toc-text">prototype</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">1.1.</span> <span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">1.2.</span> <span class="toc-text">原型链</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#继承"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类型检测"><span class="toc-number">2.1.</span> <span class="toc-text">类型检测</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -355,10 +393,10 @@ var cc = new Student();
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "Hide";
+    var valueShow = "Show";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -410,21 +448,21 @@ var cc = new Student();
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/13/js实现回到顶部功能/" title="上一篇: js实现回到顶部功能及页面定位">
+            <a href="/2016/05/13/js实现回到顶部功能/" title="Pre: js实现回到顶部功能及页面定位">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/10/Date格式化/" title="下一篇: js Date格式化">
+            <a href="/2016/05/10/Date格式化/" title="Next: js Date格式化">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">前端模块化规范及管理器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git入门及常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS使用技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">前端模块化规范及管理器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的原型及继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">annotation</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/postgis/">postgis;</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git入门及常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS技术整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
 
 
 
@@ -440,14 +478,14 @@ var cc = new Student();
                 &copy; 2016 chen
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo">Yelee</a> by MOxFIVE
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >Site Visitors: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -457,7 +495,7 @@ var cc = new Student();
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">Page Hits: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -490,9 +528,9 @@ var cc = new Student();
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
