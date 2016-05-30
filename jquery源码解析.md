@@ -10,8 +10,13 @@ JQuery源码的开头
 
     (function(a,b){
         
-    })()
+    })(window)
 通常(function(){})()用来封装一些私有成员或者公共成员的导出。
+1. 定义一个匿名函数，创建了一个“私有”的命名空间，该命名空间的变量和方法，不会破坏全局的命名空间。确保jQuery创建的变量不会与其他程序的变量发生冲突。
+2. 传入window变量，使得window由全局变量变为局部变量，当在jQuery块中使用window时，能更快的访问到。同时压缩代码，进行优化，window优化成a。由于只传入一个参数，所以b为undefined,也有利于代码压缩优化。
+
+jQuery则以DOM为核心
+## 匿名函数
 js中函数就是一个Function对象，匿名函数指没有函数名的函数，即：
 
     function(x,y){
@@ -42,7 +47,7 @@ JS中window对象是全局变量，所有浏览器都支持window对象。它表
 全局函数是 window 对象的方法。
 
 ## Sizzle引擎
-jQuery内部使用Sizzle引擎，处理各种选择器
+jQuery以DOM为核心，jQuery内部使用Sizzle引擎，处理各种选择器，对DOM进行操作。
 ## 闭包
 简单来说是指允许程序中调用函数中的局部变量。
 ## class
