@@ -1195,6 +1195,12 @@ git reset HEAD^
 git reset HEAD^^
 git reset HEAD~1
 git reset HEAD~n
+</code></pre><h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>&#x67E5;&#x770B;&#x652F;&#x6301;&#x7684;&#x5DE5;&#x5177;</p>
+<pre><code>git mergetool --tool-help
+</code></pre><p><img src="/2016/03/02/git/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20160530161258.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20160530161258.png"><br>&#x5982;&#x679C;&#x5DE5;&#x5177;&#x6709;&#x6548;&#xFF0C;&#x8BBE;&#x7F6E;merge.tool</p>
+<pre><code>git config --global merge.tool p4merge
+</code></pre><p>&#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;</p>
+<pre><code>git config --global mergetool.p4merge.path c:/Users/my-login/AppData/Local/Perforce/p4merge.exe
 </code></pre><h2 id="&#x9047;&#x5230;&#x95EE;&#x9898;"><a href="#&#x9047;&#x5230;&#x95EE;&#x9898;" class="headerlink" title="&#x9047;&#x5230;&#x95EE;&#x9898;"></a>&#x9047;&#x5230;&#x95EE;&#x9898;</h2><ul>
 <li>Q1<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:failed to push som refs to ......</span><br></pre></td></tr></table></figure>
 </li>

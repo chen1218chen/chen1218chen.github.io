@@ -1378,20 +1378,40 @@ $.get(url,function(){
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><h2 id="Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet"><a href="#Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet" class="headerlink" title="Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet"></a>Spring&#x63A7;&#x5236;&#x5668;<strong>DispatcherServlet</strong></h2><p>SpringMVC&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;DispatcherServlet&#x7684;MVC&#x6846;&#x67B6;,&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x9996;&#x5148;&#x63D0;&#x4EA4;&#x7ED9;DispatcherServlet,DispatcherServlet&#x8D1F;&#x8D23;&#x8F6C;&#x53D1;&#x6BCF;&#x4E00;&#x4E2A;Request&#x8BF7;&#x6C42;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Handler&#x3002;DispatcherServlet&#x662F;&#x7EE7;&#x627F;&#x81EA;HttpServlet&#x7684;&#x3002;<br><strong>web.xml</strong>&#x4E2D;&#x914D;&#x7F6E;</p>
+        <h2 id="&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;"><a href="#&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;" class="headerlink" title="&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;"></a>&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;</h2><p>&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;&#x4E2D;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4E3B;&#x52A8;&#x63A8;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x89C6;&#x56FE;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x7531;&#x63A7;&#x5236;&#x5668;&#x6839;&#x636E;&#x6A21;&#x578B;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x89C6;&#x56FE;&#x6765;&#x5C55;&#x793A;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2016/04/20/SpringMVC/2.png" alt="enter description here" title="2.png"></p>
+<h2 id="WEB-MVC&#x6846;&#x67B6;"><a href="#WEB-MVC&#x6846;&#x67B6;" class="headerlink" title="WEB MVC&#x6846;&#x67B6;"></a>WEB MVC&#x6846;&#x67B6;</h2><p>&#x5728;WEB MVC&#x6846;&#x67B6;&#x4E2D;&#x6A21;&#x578B;&#x4E0D;&#x80FD;&#x4E3B;&#x52A8;&#x8DDF;&#x65B0;&#x7528;&#x6237;&#x754C;&#x9762;&#x3002;&#x4E00;&#x822C;&#x7684;web&#x5F00;&#x53D1;&#x662F;&#x8BF7;&#x6C42;-&#x54CD;&#x5E94;&#x6A21;&#x5F0F;&#x3002;</p>
+<p><img src="/2016/04/20/SpringMVC/3.png" alt="enter description here" title="3.png"></p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p>SpringMVC&#x6846;&#x67B6;&#x57FA;&#x4E8E;WEB MVC&#x7684;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x6846;&#x67B6;&#xFF0C;&#x8F6C;&#x53D1;&#x8FC7;&#x7A0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/04/20/SpringMVC/4.png" alt="enter description here" title="4.png"><br><img src="/2016/04/20/SpringMVC/1.png" alt="enter description here" title="1.png"><br>&#x6D89;&#x53CA;&#x5230;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>DispatcherServlet</li>
+<li>HandlerMapping</li>
+<li>HandleAdapter</li>
+<li>ViewResolver</li>
+</ul>
+<blockquote>
+<p>Question&#xFF1A;</p>
+<ol>
+<li>&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x53D1;&#x5230;DispatcherServlet(&#x524D;&#x7AEF;&#x63A7;&#x5236;&#x5668;)&#xFF1F;<br>web.xml&#x4E2D;&#x914D;&#x7F6E;DispatcherServlet&#xFF08;&#x5982;&#x4E0B;&#x7684;&#x6B65;&#x9AA4;2&#xFF09;&#xFF0C;&#x5373;&#x53EF;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>DispatcherServlet&#x5982;&#x4F55;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x5668;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1F; HandlerMapping</li>
+<li>&#x5982;&#x4F55;&#x652F;&#x6301;&#x591A;&#x79CD;&#x9875;&#x9762;&#x5904;&#x7406;&#x5668;&#xFF1F;<br>HandleAdapter&#xFF08;&#x9002;&#x914D;&#x5668;&#x6A21;&#x5F0F;&#xFF09;</li>
+</ol>
+</blockquote>
+<h2 id="Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet"><a href="#Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet" class="headerlink" title="Spring&#x63A7;&#x5236;&#x5668;DispatcherServlet"></a>Spring&#x63A7;&#x5236;&#x5668;<strong>DispatcherServlet</strong></h2><p>SpringMVC&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;DispatcherServlet&#x7684;MVC&#x6846;&#x67B6;,&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x9996;&#x5148;&#x63D0;&#x4EA4;&#x7ED9;DispatcherServlet,DispatcherServlet&#x8D1F;&#x8D23;&#x8F6C;&#x53D1;&#x6BCF;&#x4E00;&#x4E2A;Request&#x8BF7;&#x6C42;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Handler&#x3002;DispatcherServlet&#x662F;&#x7EE7;&#x627F;&#x81EA;HttpServlet&#x7684;&#x3002;<br><strong>web.xml</strong>&#x4E2D;&#x914D;&#x7F6E;</p>
 <pre><code>&lt;!-- 1.Spring&#x914D;&#x7F6E; --&gt;
 &lt;listener&gt;
-   &lt;listenerclass&gt;
-     org.springframework.web.context.ContextLoaderListener
-   &lt;/listener-class&gt;
+    &lt;listenerclass&gt;
+        org.springframework.web.context.ContextLoaderListener
+    &lt;/listener-class&gt;
 &lt;/listener&gt;
-
-&lt;!-- 2.springMVC&#x5F0F;rest --&gt;
+</code></pre><p>ContextLoaderListener&#x521D;&#x59CB;&#x5316;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x52A0;&#x8F7D;&#x7684;Bean&#x662F;&#x5BF9;&#x4E8E;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5171;&#x4EAB;&#x7684;<br>&#xFF0C;Spring&#x76D1;&#x542C;&#x5668;&#x3002;&#x4F1A;&#x81EA;&#x52A8;&#x627E;&#x5230;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x5728;applicationContext.xml&#x4E2D;&#x7684;Spring Beans</p>
+<pre><code>&lt;!-- 2.springMVC&#x5F0F;rest --&gt;
 &lt;servlet&gt;
     &lt;servlet-name&gt;rest&lt;/servlet-name&gt;
     &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
 
-    &lt;!--&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;servlet.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x540D;&#x79F0;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;WEB-INF&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x540D;&#x79F0;&#x4E3A;[&lt;servlet-name&gt;]-servlet.xml&#xFF0C;&#x5982;rest-servlet.xml--&gt;
+&lt;!--&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;servlet.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x540D;&#x79F0;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;WEB-INF&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x540D;&#x79F0;&#x4E3A;[&lt;servlet-name&gt;]-servlet.xml&#xFF0C;&#x5982;rest-servlet.xml--&gt;
 
     &lt;init-param&gt;
         &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
@@ -1403,35 +1423,11 @@ $.get(url,function(){
     &lt;servlet-name&gt;rest&lt;/servlet-name&gt;
     &lt;url-pattern&gt;/rest/*&lt;/url-pattern&gt;
 &lt;/servlet-mapping&gt;
+</code></pre><!-- 3.指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 -->
+<p><context-param><br>    <param-name>contextConfigLocation</param-name><br>    <param-value>classpath:applicationContext.xml</param-value><br></context-param></p>
+<p> &#x4EE5;&#x4E0A;&#x662F;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x3002;<br> <code>&lt;url-pattern&gt;</code>&#x8868;&#x793A;&#x54EA;&#x4E9B;&#x8BF7;&#x6C42;&#x4EA4;&#x7ED9;Spring Web MVC&#x5904;&#x7406;&#xFF0C; &#x201C;/&#x201D; &#x662F;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x9ED8;&#x8BA4;servlet&#x6620;&#x5C04;&#x7684;</p>
+<h2 id="rest-servlet-xml&#x7684;&#x914D;&#x7F6E;"><a href="#rest-servlet-xml&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="rest-servlet.xml&#x7684;&#x914D;&#x7F6E;"></a>rest-servlet.xml&#x7684;&#x914D;&#x7F6E;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;     </span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;     </span><br><span class="line">        xmlns:context=&quot;http://www.springframework.org/schema/context&quot;     </span><br><span class="line">   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   </span><br><span class="line">       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   </span><br><span class="line">       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   </span><br><span class="line">       http://www.springframework.org/schema/context &lt;a href=&quot;http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;http://www.springframework.org/schema/context/spring-context-3.0.xsd&lt;/a&gt;&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- &#x542F;&#x7528;spring mvc &#x6CE8;&#x89E3; --&gt;</span><br><span class="line">    &lt;context:annotation-config /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- &#x8BBE;&#x7F6E;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#x6240;&#x5728;&#x7684;jar&#x5305; --&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.cc&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- &#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#x548C;&#x6CE8;&#x89E3;POJO&#x7684;&#x6620;&#x5C04; --&gt;</span><br><span class="line">    &lt;bean class=&quot;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&quot; /&gt;</span><br><span class="line">&#x3000;&#x3000;</span><br><span class="line">    &lt;!-- &#x5BF9;ModelAndView&#x4E2D;&#x7684;&#x8F6C;&#x5411;&#x9875;&#x9762;&#x7684;&#x8DEF;&#x5F84;&#x89E3;&#x6790;&#xFF0C;&#x81EA;&#x52A8;&#x8DEF;&#x5F84;&#x6DFB;&#x52A0;prefix&#xFF1A;&#x524D;&#x7F00;&#xFF0C; suffix&#xFF1A;&#x540E;&#x7F00; --&gt;</span><br><span class="line">    &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot; p:prefix=&quot;/jsp/&quot; p:suffix=&quot;.jsp&quot; /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
 
-&lt;!-- 3.&#x6307;&#x5B9A;Spring Bean&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x3002;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5728;WEB-INF&#x76EE;&#x5F55;&#x4E0B; --&gt;
-&lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-&lt;/context-param&gt;
-</code></pre><p> &#x4EE5;&#x4E0A;&#x662F;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x3002;    </p>
-<h2 id="rest-servlet-xml&#x7684;&#x914D;&#x7F6E;"><a href="#rest-servlet-xml&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="rest-servlet.xml&#x7684;&#x914D;&#x7F6E;"></a>rest-servlet.xml&#x7684;&#x914D;&#x7F6E;</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;     
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:p=&quot;http://www.springframework.org/schema/p&quot;     
-        xmlns:context=&quot;http://www.springframework.org/schema/context&quot;     
-   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   
-       http://www.springframework.org/schema/context &lt;a href=&quot;http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;http://www.springframework.org/schema/context/spring-context-3.0.xsd&lt;/a&gt;&quot;&gt;
-
-    &lt;!-- &#x542F;&#x7528;spring mvc &#x6CE8;&#x89E3; --&gt;
-    &lt;context:annotation-config /&gt;
-
-    &lt;!-- &#x8BBE;&#x7F6E;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#x6240;&#x5728;&#x7684;jar&#x5305; --&gt;
-    &lt;context:component-scan base-package=&quot;com.cc&quot;&gt;&lt;/context:component-scan&gt;
-
-    &lt;!-- &#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#x548C;&#x6CE8;&#x89E3;POJO&#x7684;&#x6620;&#x5C04; --&gt;
-    &lt;bean class=&quot;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&quot; /&gt;
-&#x3000;&#x3000;
-    &lt;!-- &#x5BF9;&#x8F6C;&#x5411;&#x9875;&#x9762;&#x7684;&#x8DEF;&#x5F84;&#x89E3;&#x6790;&#x3002;prefix&#xFF1A;&#x524D;&#x7F00;&#xFF0C; suffix&#xFF1A;&#x540E;&#x7F00; --&gt;
-    &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot; p:prefix=&quot;/jsp/&quot; p:suffix=&quot;.jsp&quot; /&gt;
-&lt;/beans&gt;
-</code></pre>
       
     </div>
     
