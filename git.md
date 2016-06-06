@@ -157,7 +157,17 @@ git config user.email
     git reset HEAD^^
     git reset HEAD~1
     git reset HEAD~n
-   
+### git merge
+查看支持的工具
+
+    git mergetool --tool-help
+![enter description here][6]
+如果工具有效，设置merge.tool
+
+    git config --global merge.tool p4merge
+设置路径
+
+    git config --global mergetool.p4merge.path c:/Users/my-login/AppData/Local/Perforce/p4merge.exe
 ## 遇到问题
 - Q1
 ```
@@ -195,3 +205,4 @@ git clone https://github.com/chne1218chen/bootstrap.git
   [3]: ./images/1450160519441.png "1450160519441.png"
   [4]: ./images/1450160447699.png "1450160447699.png"
   [5]: ./images/1450160697037.png "1450160697037.png"
+  [6]: ./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20160530161258.png "微信截图_20160530161258.png"
