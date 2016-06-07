@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-05-26T03:26:02.758Z</updated>
+  <updated>2016-06-07T08:43:48.777Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bower</title>
+    <link href="http://chen1218chen.github.io/2016/06/08/bower/"/>
+    <id>http://chen1218chen.github.io/2016/06/08/bower/</id>
+    <published>2016-06-07T16:11:25.000Z</published>
+    <updated>2016-06-07T08:43:48.777Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;&amp;#x524D;&amp;#x7AEF;&amp;#x7684;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;npm install -g bower
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;-g&amp;#x8868;&amp;#x793A;&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;&lt;br&gt;npm&amp;#x662F;nodejs&amp;#x7684;&amp;#x9ED8;&amp;#x8BA4;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&lt;/p&gt;
+&lt;h3 id=&quot;bower-init&quot;&gt;&lt;a href=&quot;#bower-init&quot; class=&quot;headerlink&quot; title=&quot;bower init&quot;&gt;&lt;/a&gt;bower init&lt;/h3&gt;&lt;p&gt;&amp;#x5728;&amp;#x547D;&amp;#x4EE4;&amp;#x884C;&amp;#x4E2D;&amp;#x8FDB;&amp;#x5165;&amp;#x9879;&amp;#x76EE;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#xFF0C;&amp;#x8F93;&amp;#x5165;&lt;code&gt;bower init&lt;/code&gt;,&amp;#x6839;&amp;#x636E;&amp;#x63D0;&amp;#x793A;&amp;#x8F93;&amp;#x5165;&amp;#x4E00;&amp;#x4E9B;&amp;#x9879;&amp;#x76EE;&amp;#x57FA;&amp;#x672C;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x6216;&amp;#x8005;&amp;#x76F4;&amp;#x63A5;&amp;#x56DE;&amp;#x8F66;&amp;#x6216;&amp;#x7A7A;&amp;#x683C;&amp;#xFF0C;&amp;#x4F1A;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;bower.json&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7528;&amp;#x6765;&amp;#x4FDD;&amp;#x5B58;&amp;#x8BE5;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/3.png&quot; alt=&quot;enter description here&quot; title=&quot;3.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;bower-help&quot;&gt;&lt;a href=&quot;#bower-help&quot; class=&quot;headerlink&quot; title=&quot;bower help&quot;&gt;&lt;/a&gt;bower help&lt;/h3&gt;&lt;p&gt;&amp;#x5E2E;&amp;#x52A9;&amp;#x547D;&amp;#x4EE4;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/7.png&quot; alt=&quot;enter description here&quot; title=&quot;7.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x5305;&amp;#x7684;&amp;#x7BA1;&amp;#x7406;&quot;&gt;&lt;a href=&quot;#&amp;#x5305;&amp;#x7684;&amp;#x7BA1;&amp;#x7406;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5305;&amp;#x7684;&amp;#x7BA1;&amp;#x7406;&quot;&gt;&lt;/a&gt;&amp;#x5305;&amp;#x7684;&amp;#x7BA1;&amp;#x7406;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;bower install jquery
+bower uninstall jquery
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5305;&amp;#x7684;&amp;#x66F4;&amp;#x65B0;&amp;#xFF0C;&amp;#x4FEE;&amp;#x6539;bower.json&amp;#x4E2D;&amp;#x7684;dependencies&amp;#x53C2;&amp;#x6570;&amp;#x540E;&amp;#x6267;&amp;#x884C;&amp;#x5982;&amp;#x4E0B;&amp;#x547D;&amp;#x4EE4;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bower update 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bower&amp;#x4F1A;&amp;#x52A8;&amp;#x66F4;&amp;#x65B0;&amp;#x5305;&amp;#x7684;&amp;#x7248;&amp;#x672C;&lt;br&gt;&amp;#x4E0A;&amp;#x8FF0;&amp;#x547D;&amp;#x4EE4;&amp;#x5B8C;&amp;#x6210;&amp;#x4EE5;&amp;#x540E;&amp;#xFF0C;&amp;#x4F60;&amp;#x4F1A;&amp;#x5728;&amp;#x4F60;&amp;#x521A;&amp;#x624D;&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x770B;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;bower_components&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x76EE;&amp;#x5F55;&amp;#x5305;&amp;#x542B;&amp;#x6240;&amp;#x6709;&amp;#x5B89;&amp;#x88C5;&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/2.png&quot; alt=&quot;enter description here&quot; title=&quot;2.png&quot;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bower install jquery --save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&amp;#x2013;save&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x4FDD;&amp;#x5B58;&amp;#x914D;&amp;#x7F6E;&amp;#x5230;&amp;#x4F60;&amp;#x7684;bower.json&amp;#xFF0C;&amp;#x4F60;&amp;#x4F1A;&amp;#x53D1;&amp;#x73B0;bower.json&amp;#x6587;&amp;#x4EF6;&amp;#x5DF2;&amp;#x7ECF;&amp;#x591A;&amp;#x4E86;&amp;#x4E00;&amp;#x884C;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;dependencies&amp;quot;: {
+   &amp;quot;jquery&amp;quot;: &amp;quot;~2.1.4&amp;quot;
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;bower-list&quot;&gt;&lt;a href=&quot;#bower-list&quot; class=&quot;headerlink&quot; title=&quot;bower list&quot;&gt;&lt;/a&gt;bower list&lt;/h3&gt;&lt;p&gt;&amp;#x67E5;&amp;#x770B;&amp;#x9879;&amp;#x76EE;&amp;#x6240;&amp;#x5B89;&amp;#x88C5;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x5305;&amp;#x3002;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/1.png&quot; alt=&quot;enter description here&quot; title=&quot;1.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x67E5;&amp;#x627E;&amp;#x76F8;&amp;#x5173;&amp;#x5305;&quot;&gt;&lt;a href=&quot;#&amp;#x67E5;&amp;#x627E;&amp;#x76F8;&amp;#x5173;&amp;#x5305;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x67E5;&amp;#x627E;&amp;#x76F8;&amp;#x5173;&amp;#x5305;&quot;&gt;&lt;/a&gt;&amp;#x67E5;&amp;#x627E;&amp;#x76F8;&amp;#x5173;&amp;#x5305;&lt;/h3&gt;&lt;p&gt;&amp;#x6BD4;&amp;#x5982;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x641C;&amp;#x7D22;bootstrap&amp;#x76F8;&amp;#x5173;&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bower search bootstrap
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/2016/06/08/bower/6.png&quot; alt=&quot;enter description here&quot; title=&quot;6.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x5305;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;&quot;&gt;&lt;a href=&quot;#&amp;#x5305;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5305;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;&quot;&gt;&lt;/a&gt;&amp;#x5305;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;&lt;/h3&gt;&lt;p&gt;&amp;#x6BD4;&amp;#x5982;&amp;#x6211;&amp;#x4EEC;&amp;#x60F3;&amp;#x8981;&amp;#x67E5;&amp;#x627E;jquery&amp;#x90FD;&amp;#x6709;&amp;#x54EA;&amp;#x4E9B;&amp;#x4E2A;&amp;#x7248;&amp;#x672C;&amp;#xFF0C;&amp;#x8F93;&amp;#x5165;&amp;#x5982;&amp;#x4E0B;&amp;#x547D;&amp;#x4EE4;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bower info jquery
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x8BF4;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/4.png&quot; alt=&quot;enter description here&quot; title=&quot;4.png&quot;&gt;&lt;br&gt;&amp;#x2026;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/5.png&quot; alt=&quot;enter description here&quot; title=&quot;5.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F7F;&amp;#x7528;&lt;/
+    
+    </summary>
+    
+    
+      <category term="bower" scheme="http://chen1218chen.github.io/tags/bower/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular</title>
+    <link href="http://chen1218chen.github.io/2016/06/08/Angular/"/>
+    <id>http://chen1218chen.github.io/2016/06/08/Angular/</id>
+    <published>2016-06-07T16:07:01.000Z</published>
+    <updated>2016-06-07T08:09:01.646Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
+    
+  </entry>
   
   <entry>
     <title>前端模块化规范及管理器</title>
@@ -1967,316 +2027,6 @@ $.ajax({
     
     
       <category term="Bootstrap Paginator, Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap-Paginator-Bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>annotation</title>
-    <link href="http://chen1218chen.github.io/2016/04/07/annotation/"/>
-    <id>http://chen1218chen.github.io/2016/04/07/annotation/</id>
-    <published>2016-04-06T16:05:54.000Z</published>
-    <updated>2016-05-04T08:31:17.487Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;model&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#model&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;model&amp;#x5C42;&quot;&gt;&lt;/a&gt;model&amp;#x5C42;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;catalog: &amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x540D;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;schema: postgreSQL&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x4E2D;&amp;#x7684;&amp;#x6A21;&amp;#x5F0F;&lt;/p&gt;
-&lt;p&gt;  @Table(name = &amp;#x201C;category&amp;#x201D;, catalog = &amp;#x201C;users&amp;#x201D;)&lt;br&gt;  @Table(name = &amp;#x201C;roles&amp;#x201D;, schema = &amp;#x201C;public&amp;#x201D;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;service&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#service&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;service&amp;#x5C42;&quot;&gt;&lt;/a&gt;service&amp;#x5C42;&lt;/h2&gt;&lt;h3 id=&quot;Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;a href=&quot;#Repository&amp;#x3001;-Service-&amp;#x548C;-Controller-&amp;#x6CE8;&amp;#x89E3;&quot; class=&quot;headerlink&quot; title=&quot;@Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;/a&gt;@Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x6CE8;&amp;#x89E3;&lt;/h3&gt;&lt;p&gt;&amp;#x6700;&amp;#x597D;&amp;#x5728;&amp;#x6301;&amp;#x4E45;&amp;#x5C42;&amp;#x3001;&amp;#x4E1A;&amp;#x52A1;&amp;#x5C42;&amp;#x548C;&amp;#x63A7;&amp;#x5236;&amp;#x5C42;&amp;#x5206;&amp;#x522B;&amp;#x91C7;&amp;#x7528; @Repository&amp;#x3001;@Service &amp;#x548C; @Controller &amp;#x5BF9;&amp;#x5206;&amp;#x5C42;&amp;#x4E2D;&amp;#x7684;&amp;#x7C7B;&amp;#x8FDB;&amp;#x884C;&amp;#x6CE8;&amp;#x91CA; &lt;/p&gt;
-&lt;h3 id=&quot;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot;&gt;&lt;a href=&quot;#Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;-service&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&quot;&gt;&lt;/a&gt;Spring&amp;#x4E2D;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@Resource&amp;#xFF0C;&amp;#x4EC0;&amp;#x4E48;&amp;#x65F6;&amp;#x5019;&amp;#x7528;@service&lt;/h3&gt;&lt;p&gt;&amp;#x5F53;&amp;#x4F60;&amp;#x9700;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;&amp;#x5219;&amp;#x5728;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x7684;&amp;#x7C7B;&amp;#x540D;&amp;#x524D;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Service(&amp;#x201C;XXX&amp;#x201D;),&amp;#x5C31;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x8BB2;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;bean&amp;#xFF0C;bean&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;XXX;&lt;br&gt;&amp;#x5F53;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x67D0;&amp;#x4E2A;&amp;#x7C7B;&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5DF2;&amp;#x5B58;&amp;#x5728;&amp;#x7684;bean&amp;#xFF0C;&amp;#x8981;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x8D4B;&amp;#x503C;&amp;#x6216;&amp;#x6CE8;&amp;#x5165;&amp;#x65F6;&amp;#x5728;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x4E0A;&amp;#x4E00;&amp;#x884C;&amp;#x4F7F;&amp;#x7528;@Resource(name=&amp;#x201D;xxx&amp;#x201D;)&amp;#xFF0C;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#x4E3A;&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x6CE8;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;xxx&amp;#x7684;bean&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@Autowired&amp;#xFF0C;&amp;#x53EA;&amp;#x4E0D;&amp;#x8FC7;@Autowired&amp;#x6309;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x800C;@Resource&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309; byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7F62;&amp;#x4E86;&amp;#x3002;@Resource&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x662F;&amp;#x6BD4;&amp;#x8F83;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#xFF0C;&amp;#x5206;&amp;#x662F;name&amp;#x548C;type&amp;#xFF0C;Spring&amp;#x5C06;@Resource&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;name&amp;#x5C5E;&amp;#x6027;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x540D;&amp;#x5B57;&amp;#xFF0C;&amp;#x800C;type&amp;#x5C5E;&amp;#x6027;&amp;#x5219;&amp;#x89E3;&amp;#x6790;&amp;#x4E3A;bean&amp;#x7684;&amp;#x7C7B;&amp;#x578B;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x4F7F;&amp;#x7528;name&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byName&amp;#x7684;&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#xFF0C;&amp;#x800C;&amp;#x4F7F;&amp;#x7528;type&amp;#x5C5E;&amp;#x6027;&amp;#x65F6;&amp;#x5219;&amp;#x4F7F;&amp;#x7528;byType&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;name&amp;#x4E5F;&amp;#x4E0D;&amp;#x6307;&amp;#x5B9A;type&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x8FD9;&amp;#x65F6;&amp;#x5C06;&amp;#x901A;&amp;#x8FC7;&amp;#x53CD;&amp;#x5C04;&amp;#x673A;&amp;#x5236;&amp;#x4F7F;&amp;#x7528;byName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#x7B56;&amp;#x7565;&amp;#x3002;&lt;br&gt;&amp;#x3000;&amp;#x3000;@Resource&amp;#x88C5;&amp;#x914D;&amp;#x987A;&amp;#x5E8F;&lt;br&gt;&amp;#x3000;&amp;#x3000;1. &amp;#x5982;&amp;#x679C;&amp;#x540C;&amp;#x65F6;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#x548C;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;Spring&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x552F;&amp;#x4E00;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;2. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;name&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x67E5;&amp;#x627E;&amp;#x540D;&amp;#x79F0;&amp;#xFF08;id&amp;#xFF09;&amp;#x5339;&amp;#x914D;&amp;#x7684;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5219;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;3. &amp;#x5982;&amp;#x679C;&amp;#x6307;&amp;#x5B9A;&amp;#x4E86;type&amp;#xFF0C;&amp;#x5219;&amp;#x4ECE;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#x7C7B;&amp;#x578B;&amp;#x5339;&amp;#x914D;&amp;#x7684;&amp;#x552F;&amp;#x4E00;bean&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x6216;&amp;#x8005;&amp;#x627E;&amp;#x5230;&amp;#x591A;&amp;#x4E2A;&amp;#xFF0C;&amp;#x90FD;&amp;#x4F1A;&amp;#x629B;&amp;#x51FA;&amp;#x5F02;&amp;#x5E38;&lt;br&gt;&amp;#x3000;&amp;#x3000;4. &amp;#x5982;&amp;#x679C;&amp;#x65E2;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;name&amp;#xFF0C;&amp;#x53C8;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;type&amp;#xFF0C;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x6309;&amp;#x7167;byName&amp;#x65B9;&amp;#x5F0F;&amp;#x8FDB;&amp;#x884C;&amp;#x88C5;&amp;#x914D;&amp;#xFF1B;&amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x6709;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5219;&amp;#x56DE;&amp;#x9000;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x539F;&amp;#x59CB;&amp;#x7C7B;&amp;#x578B;&amp;#x8FDB;&amp;#x884C;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5339;&amp;#x914D;&amp;#x5219;&amp;#x81EA;&amp;#x52A8;&amp;#x88C5;&amp;#x914D;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;model&amp;#x5C42;&quot;&gt;&lt;a href=&quot;#model&amp;#x5C42;&quot; class=&quot;headerlink&quot; title=&quot;model&amp;#x5C42;&quot;&gt;&lt;/a&gt;model&amp;#x5C42;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;catalog
-    
-    </summary>
-    
-    
-      <category term="annotation, hibernate" scheme="http://chen1218chen.github.io/tags/annotation-hibernate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shiro角色配置</title>
-    <link href="http://chen1218chen.github.io/2016/04/06/shiro%E8%A7%92%E8%89%B2%E9%85%8D%E7%BD%AE/"/>
-    <id>http://chen1218chen.github.io/2016/04/06/shiro角色配置/</id>
-    <published>2016-04-06T14:50:46.000Z</published>
-    <updated>2016-04-19T08:46:56.064Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&quot;&gt;&lt;a href=&quot;#&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&quot;&gt;&lt;/a&gt;&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x8868;&quot;&gt;&lt;a href=&quot;#&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x8868;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x8868;&quot;&gt;&lt;/a&gt;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x8868;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;tuser:&amp;#x7528;&amp;#x6237;&amp;#x8868;&lt;br&gt;  uid + uname + upassword &lt;/li&gt;
-&lt;li&gt;roles:&amp;#x89D2;&amp;#x8272;&amp;#x8868;&lt;br&gt;  rid + rname&lt;/li&gt;
-&lt;li&gt;user_to_role&amp;#xFF1A;&amp;#x7528;&amp;#x6237;&amp;#x89D2;&amp;#x8272;&amp;#x8868;&amp;#xFF0C;hibernate&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5EFA;&amp;#x7ACB;&lt;br&gt;  user_id  +  role_id&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;roles&quot;&gt;&lt;a href=&quot;#roles&quot; class=&quot;headerlink&quot; title=&quot;roles&quot;&gt;&lt;/a&gt;roles&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;@Entity
-@Table(name = &amp;quot;roles&amp;quot;, schema = &amp;quot;public&amp;quot;)
-public class Roles implements java.io.Serializable {
-    private Integer rid;
-    private String rname;
-//    private Set&amp;lt;User&amp;gt; user;
-
-    public Roles() {
-    }
-    /** full constructor */
-    public Roles(String rname) {
-        this.rname = rname;
-    }
-
-    @Id
-    @GeneratedValue
-    @Column(name = &amp;quot;rid&amp;quot;, unique = true, nullable = false)
-    public Integer getRid() {
-        return rid;
-    }
-
-    public void setRid(Integer rid) {
-        this.rid = rid;
-    }
-
-    @Column(name = &amp;quot;rname&amp;quot;, length = 20)
-    public String getRname() {
-        return rname;
-    }
-
-    public void setRname(String rname) {
-        this.rname = rname;
-    }
-
-    /*    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = &amp;quot;user_to_role&amp;quot;,   
-        joinColumns ={@JoinColumn(name = &amp;quot;role_id&amp;quot;) },   
-        inverseJoinColumns = { @JoinColumn(name = &amp;quot;user_id&amp;quot;)
-    })
-        public Set&amp;lt;User&amp;gt; getUser() {
-        return user;
-    }
-
-    public void setUser(Set&amp;lt;User&amp;gt; user) {
-        this.user = user;
-    }*/
-
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E3A;&amp;#x9632;&amp;#x6B62;&amp;#x8F6C;&amp;#x5316;&amp;#x6210;json&amp;#x65F6;&amp;#x51FA;&amp;#x73B0;&amp;#x5FAA;&amp;#x73AF;&amp;#xFF0C;ManyToMany&amp;#x914D;&amp;#x7F6E;&amp;#x662F;&amp;#x53EA;&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5373;&amp;#x53EA;&amp;#x5728;user&amp;#x7AEF;&amp;#x8FDB;&amp;#x884C;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&lt;/p&gt;
-&lt;h3 id=&quot;user&quot;&gt;&lt;a href=&quot;#user&quot; class=&quot;headerlink&quot; title=&quot;user&quot;&gt;&lt;/a&gt;user&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;@Entity
-@Table(name = &amp;quot;tuser&amp;quot;)
-public class User implements java.io.Serializable {
-
-    private Integer uid;
-    private String uname;
-    private String upassword;
-    //&amp;#x4E00;&amp;#x4E2A;&amp;#x7528;&amp;#x6237;&amp;#x5177;&amp;#x6709;&amp;#x591A;&amp;#x4E2A;&amp;#x89D2;&amp;#x8272; 
-    private Set&amp;lt;Roles&amp;gt; roles = new HashSet&amp;lt;Roles&amp;gt;();
-
-    public User() {
-    }
-
-    // Property accessors
-    @Id
-    @GeneratedValue
-    @Column(name = &amp;quot;uid&amp;quot;, unique = true, nullable = false)
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    @Column(name = &amp;quot;uname&amp;quot;, length = 20)
-    public String getUname() {
-        return this.uname;
-    }
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    @Column(name = &amp;quot;upassword&amp;quot;, length = 20)
-    public String getUpassword() {
-        return this.upassword;
-    }
-
-    public void setUpassword(String upassword) {
-        this.upassword = upassword;
-    }
-
-    @ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-    @JoinTable(name = &amp;quot;user_to_role&amp;quot;,   
-        joinColumns= { @JoinColumn(name = &amp;quot;user_id&amp;quot;)},
-        inverseJoinColumns ={@JoinColumn(name = &amp;quot;role_id&amp;quot;)  
-    })
-    public Set&amp;lt;Roles&amp;gt; getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set&amp;lt;Roles&amp;gt; roles) {
-        this.roles = roles;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6B64;&amp;#x4F8B;&amp;#x5B50;&amp;#x6BD4;&amp;#x8F83;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x6D89;&amp;#x53CA;&amp;#x5230;&amp;#x6743;&amp;#x9650;permission&lt;br&gt;&amp;#x5982;&amp;#x679C;&amp;#x6D89;&amp;#x53CA;&amp;#x5230;&amp;#x6743;&amp;#x9650;&amp;#x5219;&amp;#x9700;&amp;#x8981;&amp;#x5EFA;&amp;#x7ACB;&amp;#x6743;&amp;#x9650;&amp;#x8868;&amp;#x53CA;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;POJO&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;permission&amp;#xFF1A;&amp;#x6743;&amp;#x9650;&amp;#x8868;&lt;br&gt;  id  +  permissionname  +  role_id&lt;br&gt;&amp;#x5728;role&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&amp;#xFF1A;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;private List&amp;lt;Permission&amp;gt; permissionList;//&amp;#x4E00;&amp;#x4E2A;&amp;#x89D2;&amp;#x8272;&amp;#x5BF9;&amp;#x5E94;&amp;#x591A;&amp;#x4E2A;&amp;#x6743;&amp;#x9650;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@OneToMany(mappedBy=&amp;quot;role&amp;quot;)  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public List&amp;lt;Permission&amp;gt; getPermissionList() {  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return permissionList;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public void setPermissionList(List&amp;lt;Permission&amp;gt; permissionList) {  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    this.permissionList = permissionList;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Permission pojo&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Entity  
-@Table(name=&amp;quot;t_permission&amp;quot;)  
-public class Permission {  
-
-    private Integer id;  
-    private String permissionname;  
-    private Role role;//&amp;#x4E00;&amp;#x4E2A;&amp;#x6743;&amp;#x9650;&amp;#x5BF9;&amp;#x5E94;&amp;#x4E00;&amp;#x4E2A;&amp;#x89D2;&amp;#x8272;  
-
-    @Id  
-    @GeneratedValue(strategy=GenerationType.IDENTITY)  
-    public Integer getId() {  
-        return id;  
-    }  
-    public void setId(Integer id) {  
-        this.id = id;  
-    }  
-    public String getPermissionname() {  
-        return permissionname;  
-    }  
-    public void setPermissionname(String permissionname) {  
-        this.permissionname = permissionname;  
-    }  
-    @ManyToOne  
-    @JoinColumn(name=&amp;quot;role_id&amp;quot;)  
-    public Role getRole() {  
-        return role;  
-    }  
-    public void setRole(Role role) {  
-        this.role = role;  
-    }  
-
-} 
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;index-jsp&quot;&gt;&lt;a href=&quot;#index-jsp&quot; class=&quot;headerlink&quot; title=&quot;index.jsp&quot;&gt;&lt;/a&gt;index.jsp&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;%@ taglib prefix=&amp;quot;shiro&amp;quot; uri=&amp;quot;http://shiro.apache.org/tags&amp;quot;%&amp;gt;
-...
-&amp;lt;ul class=&amp;quot;nav navbar-nav navbar-right&amp;quot;&amp;gt;
-&amp;lt;li&amp;gt;&amp;lt;a&amp;gt;
-    &amp;lt;shiro:user&amp;gt;
-        &amp;#x6B22;&amp;#x8FCE;&amp;#x4F60;:&amp;lt;shiro:principal /&amp;gt;
-    &amp;lt;/shiro:user&amp;gt;
-    &amp;lt;!-- &amp;#x6CA1;&amp;#x6709;&amp;#x767B;&amp;#x5F55;&amp;#xFF0C;&amp;#x5C31;&amp;#x8BA4;&amp;#x4E3A;&amp;#x662F;Guest&amp;#xFF0C;&amp;#x663E;&amp;#x793A;&amp;#x6CE8;&amp;#x518C;&amp;#x94FE;&amp;#x63A5; --&amp;gt; 
-    &amp;lt;shiro:guest&amp;gt;
-        &amp;lt;a href=&amp;quot;register.jsp&amp;quot;&amp;gt;&amp;#x6CE8;&amp;#x518C;&amp;lt;/a&amp;gt;
-    &amp;lt;/shiro:guest&amp;gt;&amp;lt;/a&amp;gt;
-&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;
-    &amp;lt;shiro:hasRole name=&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;quot;&amp;gt;  
-        &amp;lt;a href=&amp;quot;manager/index.jsp&amp;quot;&amp;gt;&amp;#x540E;&amp;#x53F0;&amp;#x7BA1;&amp;#x7406;&amp;lt;/a&amp;gt;  
-    &amp;lt;/shiro:hasRole&amp;gt;
-
-    //&amp;#x793A;&amp;#x4F8B;&amp;#xFF0C;&amp;#x5177;&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x4E2D;&amp;#x4EFB;&amp;#x4E00;&amp;#x4E2A;&amp;#x6743;&amp;#x9650;&amp;#x65F6;&amp;#x6709;&amp;#x64CD;&amp;#x4F5C;&amp;#x6743;&amp;#x9650;
-     &amp;lt;shiro:hasAnyRoles name=&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;,&amp;#x666E;&amp;#x901A;&amp;#x7528;&amp;#x6237;&amp;quot;&amp;gt;
-         &amp;#x64CD;&amp;#x4F5C;
-     &amp;lt;/shiro:hasAnyRoles&amp;gt;
-&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;javascript:void(0)&amp;quot; id=&amp;quot;exitBtn&amp;quot; type=&amp;quot;button&amp;quot;&amp;gt;&amp;#x9000;&amp;#x51FA;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Shiro Filter &amp;#x62E6;&amp;#x622A;&amp;#x5668;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E; --&amp;gt;
-&amp;lt;!--shiro&amp;#x8FC7;&amp;#x6EE4;&amp;#x5668;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;bean&amp;#x7684;id&amp;#x503C;&amp;#x987B;&amp;#x4E0E;web&amp;#x4E2D;&amp;#x7684;filter-name&amp;#x7684;&amp;#x503C;&amp;#x76F8;&amp;#x540C; --&amp;gt;
-&amp;lt;bean id=&amp;quot;shiroFilter&amp;quot; class=&amp;quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&amp;quot;&amp;gt;
-    &amp;lt;!-- securityManager --&amp;gt;
-    &amp;lt;property name=&amp;quot;securityManager&amp;quot; ref=&amp;quot;securityManager&amp;quot; /&amp;gt;
-    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
-    &amp;lt;property name=&amp;quot;loginUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
-    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;&amp;#x540E;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
-    &amp;lt;property name=&amp;quot;successUrl&amp;quot; value=&amp;quot;/manager/index.jsp&amp;quot; /&amp;gt;
-    &amp;lt;!-- &amp;#x6388;&amp;#x6743;&amp;#x5931;&amp;#x8D25;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
-    &amp;lt;property name=&amp;quot;unauthorizedUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
-    &amp;lt;!-- &amp;#x8FC7;&amp;#x6EE4;&amp;#x94FE;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;
-    &amp;lt;property name=&amp;quot;filterChainDefinitions&amp;quot;&amp;gt;
-        &amp;lt;value&amp;gt;
-            /login.jsp* = anon
-            /logout* = anon
-            /*.js = anon
-            /*.css = anon
-            &amp;lt;!-- &amp;#x8868;&amp;#x793A;&amp;#x9700;&amp;#x8981;&amp;#x8BA4;&amp;#x8BC1;&amp;#x7684;&amp;#x94FE;&amp;#x63A5; --&amp;gt;
-            /manager/** = authc,roles[&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;quot;]
-            /index.jsp = authc
-        &amp;lt;/value&amp;gt;
-    &amp;lt;/property&amp;gt;
-&amp;lt;/bean&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;myRealm&quot;&gt;&lt;a href=&quot;#myRealm&quot; class=&quot;headerlink&quot; title=&quot;myRealm&quot;&gt;&lt;/a&gt;myRealm&lt;/h2&gt;&lt;p&gt;&amp;#x6743;&amp;#x9650;&amp;#x9A8C;&amp;#x8BC1;&amp;#x548C;&amp;#x767B;&amp;#x9646;&amp;#x9A8C;&amp;#x8BC1;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class myRealm extends AuthorizingRealm {
-    @Resource
-    private IUserService userManagerImpl;
-    /**
-     * &amp;#x6743;&amp;#x9650;&amp;#x9A8C;&amp;#x8BC1;
-     */
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(
-            PrincipalCollection principals) {
-        // TODO Auto-generated method stub
-        String userName = (String) principals.fromRealm(getName()).iterator().next();
-        //&amp;#x6839;&amp;#x636E;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x67E5;&amp;#x627E;&amp;#x62E5;&amp;#x6709;&amp;#x7684;&amp;#x89D2;&amp;#x8272;
-        User user = userManagerImpl.queryByName(userName).get(0);
-        Set&amp;lt;Roles&amp;gt; roles = user.getRoles();
-        if (roles != null) {
-            SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
-            for (Roles role : roles) {
-                info.addRole(role.getRname());
-            }
-
-            return info;
-        } else {
-            return null;
-        }
-
-    }
-
-    /**
-     * &amp;#x767B;&amp;#x5F55;&amp;#x9A8C;&amp;#x8BC1;
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(
-            AuthenticationToken authcToken) throws AuthenticationException {
-
-        // &amp;#x4EE4;&amp;#x724C;&amp;#x2014;&amp;#x2014;&amp;#x57FA;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x548C;&amp;#x5BC6;&amp;#x7801;&amp;#x7684;&amp;#x4EE4;&amp;#x724C;
-        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        // &amp;#x4EE4;&amp;#x724C;&amp;#x4E2D;&amp;#x53EF;&amp;#x4EE5;&amp;#x53D6;&amp;#x51FA;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x5BC6;&amp;#x7801;
-        String userName = token.getUsername();
-        String passWord = new String(token.getPassword());
-        User user = userManagerImpl.queryByName(userName).get(0);
-        String passwd = user.getUpassword();
-        String approval = user.getIsapproval();
-        if(user.getUid() == null){
-            System.out.println(&amp;quot;&amp;#x6CA1;&amp;#x6709;&amp;#x627E;&amp;#x5230;&amp;#x7528;&amp;#x6237; &amp;quot;);
-            throw new UnknownAccountException(&amp;quot;&amp;#x6CA1;&amp;#x6709;&amp;#x627E;&amp;#x5230;&amp;#x7528;&amp;#x6237; [&amp;quot; + userName + &amp;quot;]&amp;quot;);
-        }
-        if(!passwd.equals(passWord)){
-            System.out.println(&amp;quot;&amp;#x5BC6;&amp;#x7801;&amp;#x9519;&amp;#x8BEF;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
-            throw new IncorrectCredentialsException(&amp;quot;&amp;#x5BC6;&amp;#x7801;&amp;#x9519;&amp;#x8BEF;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
-        }
-        if(approval.equals(&amp;quot;0&amp;quot;)){
-            System.out.println(&amp;quot;&amp;#x5BA1;&amp;#x6279;&amp;#x672A;&amp;#x901A;&amp;#x8FC7;&amp;quot;);
-            throw new IncorrectCredentialsException(&amp;quot;&amp;#x5BA1;&amp;#x6279;&amp;#x672A;&amp;#x901A;&amp;#x8FC7;&amp;#xFF01;&amp;#xFF01;&amp;quot;);
-        }
-        //&amp;#x5C06;&amp;#x6B63;&amp;#x786E;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x8BF7;&amp;#x6C42;&amp;#x767B;&amp;#x5F55;&amp;#x7528;&amp;#x6237;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x548C;&amp;#x6B63;&amp;#x786E;&amp;#x7684;&amp;#x5BC6;&amp;#x7801;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;AuthenticationInfo&amp;#x5BF9;&amp;#x8C61;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;  
-        AuthenticationInfo authinfo = new SimpleAuthenticationInfo(userName,
-                passWord, getName());
-        return authinfo;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&quot;&gt;&lt;a href=&quot;#&amp;#x89D2;&amp;#x8272;&amp;#x9A8C;&amp;#x8BC1;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x89D2;&amp;#x8272
-    
-    </summary>
-    
-    
-      <category term="shiro" scheme="http://chen1218chen.github.io/tags/shiro/"/>
     
   </entry>
   
