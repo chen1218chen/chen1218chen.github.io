@@ -118,9 +118,7 @@ npm install -g supervisor
 ```
 配置，在WebStorm中选择要Run--Edit Configurations 
 
-![enter description here][1]
-
 Working directory选择项目目录（supervisor会监控此目录内所有文件的改变自动重启）
-
+![enter description here][1]
 
   [1]: ./images/1445320217363.png "1445320217363.png"
