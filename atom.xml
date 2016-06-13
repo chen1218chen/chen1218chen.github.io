@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-06-12T07:15:10.845Z</updated>
+  <updated>2016-06-13T02:50:27.835Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hibernate之翻页的实现</title>
+    <link href="http://chen1218chen.github.io/2016/06/13/hibernate%E4%B9%8B%E7%BF%BB%E9%A1%B5%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://chen1218chen.github.io/2016/06/13/hibernate之翻页的实现/</id>
+    <published>2016-06-13T10:46:36.000Z</published>
+    <updated>2016-06-13T02:50:27.835Z</updated>
+    
+    <content type="html">&lt;p&gt;pageSize:&amp;#x6BCF;&amp;#x9875;&amp;#x8BB0;&amp;#x5F55;&amp;#x6570;&lt;br&gt;pageNow&amp;#xFF1A;&amp;#x5F53;&amp;#x524D;&amp;#x9875;&amp;#x7801;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Override
+public List&amp;lt;Uploadinfo&amp;gt; onePage(int pageNow, int pageSize,String type) {
+    // TODO Auto-generated method stub
+    String sql;
+    if(&amp;quot;picture&amp;quot;.equals(type)){
+         sql = &amp;quot;from Uploadinfo where picturepath1 &amp;lt;&amp;gt; &amp;apos;&amp;apos; and picturepath1 &amp;lt;&amp;gt; &amp;apos;picture/meizhaopian.png&amp;apos; order by dataTime desc&amp;quot;;
+
+    }else{
+        sql=&amp;quot;from Uploadinfo order by dataTime desc&amp;quot;;
+    }
+    Query query = itemDaoImpl.getQuery(sql);
+    //&amp;#x8BBE;&amp;#x7F6E;&amp;#x8D77;&amp;#x59CB;&amp;#x9875;
+    query.setFirstResult((pageNow - 1) * pageSize);
+    //&amp;#x8BBE;&amp;#x7F6E;&amp;#x6BCF;&amp;#x9875;&amp;#x6700;&amp;#x5927;&amp;#x8BB0;&amp;#x5F55;&amp;#x6570;
+    query.setMaxResults(pageSize);
+    List&amp;lt;Uploadinfo&amp;gt; infolist = query.list();
+    return infolist;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;pageSize:&amp;#x6BCF;&amp;#x9875;&amp;#x8BB0;&amp;#x5F55;&amp;#x6570;&lt;br&gt;pageNow&amp;#xFF1A;&amp;#x5F53;&amp;#x524D;&amp;#x9875;&amp;#x7801;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Override
+public List
+    
+    </summary>
+    
+    
+      <category term="hibernate, java" scheme="http://chen1218chen.github.io/tags/hibernate-java/"/>
+    
+  </entry>
   
   <entry>
     <title>Struts2之ModelDriven接口实现登陆及退出</title>
@@ -473,7 +514,7 @@ $j(&amp;apos;#msg&amp;apos;).hide();//&amp;#x6B64;&amp;#x5904;$j&amp;#x5C31;&amp
     <link href="http://chen1218chen.github.io/2016/05/14/tomcat%E5%85%B3%E4%BA%8E%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
     <id>http://chen1218chen.github.io/2016/05/14/tomcat关于跨域问题/</id>
     <published>2016-05-13T16:53:48.000Z</published>
-    <updated>2016-05-13T08:56:34.126Z</updated>
+    <updated>2016-06-13T02:51:33.167Z</updated>
     
     <content type="html">&lt;p&gt;##&amp;#x3000;tomcat&amp;#x89E3;&amp;#x51B3;&amp;#x8DE8;&amp;#x57DF;&amp;#x95EE;&amp;#x9898;&lt;br&gt;web.xml&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&amp;#x5982;&amp;#x4E0B;&amp;#x914D;&amp;#x7F6E;&amp;#x5373;&amp;#x53EF;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;filter&amp;gt;
@@ -516,6 +557,8 @@ $j(&amp;apos;#msg&amp;apos;).hide();//&amp;#x6B64;&amp;#x5904;$j&amp;#x5C31;&amp
     
     </summary>
     
+    
+      <category term="tomcat" scheme="http://chen1218chen.github.io/tags/tomcat/"/>
     
   </entry>
   
@@ -926,7 +969,7 @@ at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinit
     <link href="http://chen1218chen.github.io/2016/05/04/hibernate%E6%97%B6%E9%97%B4%E6%AE%B5%E6%9F%A5%E8%AF%A2/"/>
     <id>http://chen1218chen.github.io/2016/05/04/hibernate时间段查询/</id>
     <published>2016-05-04T15:55:02.000Z</published>
-    <updated>2016-05-04T08:09:49.699Z</updated>
+    <updated>2016-06-13T02:43:34.830Z</updated>
     
     <content type="html">&lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/searchDate&amp;quot;, method = RequestMethod.POST)
 @ResponseBody
@@ -948,8 +991,13 @@ public List&amp;lt;Uploadinfo&amp;gt; dateRange(String start, String end) {
     List&amp;lt;Uploadinfo&amp;gt; infolist = query.list();
     return infolist;
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x91CD;&amp;#x70B9;&amp;#x5728;hql&amp;#x8BED;&amp;#x53E5;&amp;#x5BF9;&amp;#x65F6;&amp;#x95F4;&amp;#x7684;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x662F;date&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5219;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7C7B;&amp;#x578B;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;date&amp;#x7C7B;&amp;#x578B;&lt;/p&gt;
-&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x524D;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&lt;a href=&quot;http://www.daterangepicker.com/#examples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datarangepicker&amp;#x63D2;&amp;#x4EF6;&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x91CD;&amp;#x70B9;&amp;#x5728;hql&amp;#x8BED;&amp;#x53E5;&amp;#x5BF9;&amp;#x65F6;&amp;#x95F4;&amp;#x7684;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x662F;date&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5219;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7C7B;&amp;#x578B;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;date&amp;#x7C7B;&amp;#x578B;&lt;br&gt;&lt;code&gt;:&amp;#x53C2;&amp;#x6570;&amp;#x540D;&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;br&gt;&lt;code&gt;?&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x4F4D;&amp;#x7F6E;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;String hql = &amp;quot;from Uploadinfo info where info.dataTime &amp;lt;? and info.dataTime &amp;gt;=?&amp;quot;;
+Query query= session.createQuery(hql);
+query.setString(0,&amp;quot;20160606&amp;quot;);
+query.setString(1,&amp;quot;20160706&amp;quot;);
+List user = query.list();
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x524D;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&lt;a href=&quot;http://www.daterangepicker.com/#examples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datarangepicker&amp;#x63D2;&amp;#x4EF6;&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;function dateInit(){
     $(&amp;apos;#dateRange&amp;apos;).daterangepicker({
         &amp;quot;ranges&amp;quot;: {
@@ -1859,75 +1907,6 @@ $.get(url,function(){
     
     
       <category term="ajax，js" scheme="http://chen1218chen.github.io/tags/ajax%EF%BC%8Cjs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMVC</title>
-    <link href="http://chen1218chen.github.io/2016/04/20/SpringMVC/"/>
-    <id>http://chen1218chen.github.io/2016/04/20/SpringMVC/</id>
-    <published>2016-04-19T16:35:41.000Z</published>
-    <updated>2016-05-31T08:20:58.743Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&quot;&gt;&lt;a href=&quot;#&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&quot;&gt;&lt;/a&gt;&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&lt;/h2&gt;&lt;p&gt;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x6A21;&amp;#x578B;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E3B;&amp;#x52A8;&amp;#x63A8;&amp;#x9001;&amp;#x6570;&amp;#x636E;&amp;#x7ED9;&amp;#x89C6;&amp;#x56FE;&amp;#x8FDB;&amp;#x884C;&amp;#x66F4;&amp;#x65B0;&amp;#xFF08;&amp;#x89C2;&amp;#x5BDF;&amp;#x8005;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF09;&amp;#xFF0C;&amp;#x6216;&amp;#x8005;&amp;#x7531;&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x6839;&amp;#x636E;&amp;#x6A21;&amp;#x578B;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x9009;&amp;#x62E9;&amp;#x5408;&amp;#x9002;&amp;#x7684;&amp;#x89C6;&amp;#x56FE;&amp;#x6765;&amp;#x5C55;&amp;#x793A;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/04/20/SpringMVC/2.png&quot; alt=&quot;enter description here&quot; title=&quot;2.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;WEB-MVC&amp;#x6846;&amp;#x67B6;&quot;&gt;&lt;a href=&quot;#WEB-MVC&amp;#x6846;&amp;#x67B6;&quot; class=&quot;headerlink&quot; title=&quot;WEB MVC&amp;#x6846;&amp;#x67B6;&quot;&gt;&lt;/a&gt;WEB MVC&amp;#x6846;&amp;#x67B6;&lt;/h2&gt;&lt;p&gt;&amp;#x5728;WEB MVC&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x6A21;&amp;#x578B;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3B;&amp;#x52A8;&amp;#x8DDF;&amp;#x65B0;&amp;#x7528;&amp;#x6237;&amp;#x754C;&amp;#x9762;&amp;#x3002;&amp;#x4E00;&amp;#x822C;&amp;#x7684;web&amp;#x5F00;&amp;#x53D1;&amp;#x662F;&amp;#x8BF7;&amp;#x6C42;-&amp;#x54CD;&amp;#x5E94;&amp;#x6A21;&amp;#x5F0F;&amp;#x3002;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/04/20/SpringMVC/3.png&quot; alt=&quot;enter description here&quot; title=&quot;3.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;SpringMVC&quot;&gt;&lt;a href=&quot;#SpringMVC&quot; class=&quot;headerlink&quot; title=&quot;SpringMVC&quot;&gt;&lt;/a&gt;SpringMVC&lt;/h2&gt;&lt;p&gt;SpringMVC&amp;#x6846;&amp;#x67B6;&amp;#x57FA;&amp;#x4E8E;WEB MVC&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x8F6C;&amp;#x53D1;&amp;#x8FC7;&amp;#x7A0B;&amp;#x56FE;&amp;#xFF1A;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/04/20/SpringMVC/4.png&quot; alt=&quot;enter description here&quot; title=&quot;4.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;/2016/04/20/SpringMVC/1.png&quot; alt=&quot;enter description here&quot; title=&quot;1.png&quot;&gt;&lt;br&gt;&amp;#x6D89;&amp;#x53CA;&amp;#x5230;&amp;#x51E0;&amp;#x4E2A;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#x8FC7;&amp;#x7A0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DispatcherServlet&lt;/li&gt;
-&lt;li&gt;HandlerMapping&lt;/li&gt;
-&lt;li&gt;HandleAdapter&lt;/li&gt;
-&lt;li&gt;ViewResolver&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Question&amp;#xFF1A;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&amp;#x8BF7;&amp;#x6C42;&amp;#x5982;&amp;#x4F55;&amp;#x53D1;&amp;#x5230;DispatcherServlet(&amp;#x524D;&amp;#x7AEF;&amp;#x63A7;&amp;#x5236;&amp;#x5668;)&amp;#xFF1F;&lt;br&gt;web.xml&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;DispatcherServlet&amp;#xFF08;&amp;#x5982;&amp;#x4E0B;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;2&amp;#xFF09;&amp;#xFF0C;&amp;#x5373;&amp;#x53EF;&amp;#x62E6;&amp;#x622A;&amp;#x8BF7;&amp;#x6C42;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;DispatcherServlet&amp;#x5982;&amp;#x4F55;&amp;#x6839;&amp;#x636E;&amp;#x8BF7;&amp;#x6C42;&amp;#x4FE1;&amp;#x606F;&amp;#x9009;&amp;#x62E9;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#x5668;&amp;#x8FDB;&amp;#x884C;&amp;#x5904;&amp;#x7406;&amp;#xFF1F; HandlerMapping&lt;/li&gt;
-&lt;li&gt;&amp;#x5982;&amp;#x4F55;&amp;#x652F;&amp;#x6301;&amp;#x591A;&amp;#x79CD;&amp;#x9875;&amp;#x9762;&amp;#x5904;&amp;#x7406;&amp;#x5668;&amp;#xFF1F;&lt;br&gt;HandleAdapter&amp;#xFF08;&amp;#x9002;&amp;#x914D;&amp;#x5668;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF09;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot;&gt;&lt;a href=&quot;#Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot; class=&quot;headerlink&quot; title=&quot;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;DispatcherServlet&quot;&gt;&lt;/a&gt;Spring&amp;#x63A7;&amp;#x5236;&amp;#x5668;&lt;strong&gt;DispatcherServlet&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;SpringMVC&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;DispatcherServlet&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;,&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x662F;&amp;#x9996;&amp;#x5148;&amp;#x63D0;&amp;#x4EA4;&amp;#x7ED9;DispatcherServlet,DispatcherServlet&amp;#x8D1F;&amp;#x8D23;&amp;#x8F6C;&amp;#x53D1;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;Request&amp;#x8BF7;&amp;#x6C42;&amp;#x7ED9;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;Handler&amp;#x3002;DispatcherServlet&amp;#x662F;&amp;#x7EE7;&amp;#x627F;&amp;#x81EA;HttpServlet&amp;#x7684;&amp;#x3002;&lt;br&gt;&lt;strong&gt;web.xml&lt;/strong&gt;&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 1.Spring&amp;#x914D;&amp;#x7F6E; --&amp;gt;
-&amp;lt;listener&amp;gt;
-    &amp;lt;listenerclass&amp;gt;
-        org.springframework.web.context.ContextLoaderListener
-    &amp;lt;/listener-class&amp;gt;
-&amp;lt;/listener&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ContextLoaderListener&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x7684;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x52A0;&amp;#x8F7D;&amp;#x7684;Bean&amp;#x662F;&amp;#x5BF9;&amp;#x4E8E;&amp;#x6574;&amp;#x4E2A;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x5171;&amp;#x4EAB;&amp;#x7684;&lt;br&gt;&amp;#xFF0C;Spring&amp;#x76D1;&amp;#x542C;&amp;#x5668;&amp;#x3002;&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x627E;&amp;#x5230;&amp;#x6240;&amp;#x6709;&amp;#x914D;&amp;#x7F6E;&amp;#x5728;applicationContext.xml&amp;#x4E2D;&amp;#x7684;Spring Beans&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 2.springMVC&amp;#x5F0F;rest --&amp;gt;
-&amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;org.springframework.web.servlet.DispatcherServlet&amp;lt;/servlet-class&amp;gt;
-
-&amp;lt;!--&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;servlet.xml&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x548C;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;WEB-INF&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#xFF0C;&amp;#x540D;&amp;#x79F0;&amp;#x4E3A;[&amp;lt;servlet-name&amp;gt;]-servlet.xml&amp;#xFF0C;&amp;#x5982;rest-servlet.xml--&amp;gt;
-
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;contextConfigLocation&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;classpath:rest-servlet.xml&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-    &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt;
-&amp;lt;/servlet&amp;gt;
-&amp;lt;servlet-mapping&amp;gt;
-    &amp;lt;servlet-name&amp;gt;rest&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;url-pattern&amp;gt;/rest/*&amp;lt;/url-pattern&amp;gt;
-&amp;lt;/servlet-mapping&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;!-- 3.指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 --&gt;
-&lt;p&gt;&lt;context-param&gt;&lt;br&gt;    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;&lt;br&gt;    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;&lt;br&gt;&lt;/context-param&gt;&lt;/p&gt;
-&lt;p&gt; &amp;#x4EE5;&amp;#x4E0A;&amp;#x662F;&amp;#x57FA;&amp;#x672C;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&lt;br&gt; &lt;code&gt;&amp;lt;url-pattern&amp;gt;&lt;/code&gt;&amp;#x8868;&amp;#x793A;&amp;#x54EA;&amp;#x4E9B;&amp;#x8BF7;&amp;#x6C42;&amp;#x4EA4;&amp;#x7ED9;Spring Web MVC&amp;#x5904;&amp;#x7406;&amp;#xFF0C; &amp;#x201C;/&amp;#x201D; &amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x5B9A;&amp;#x4E49;&amp;#x9ED8;&amp;#x8BA4;servlet&amp;#x6620;&amp;#x5C04;&amp;#x7684;&lt;/p&gt;
-&lt;h2 id=&quot;rest-servlet-xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#rest-servlet-xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;rest-servlet.xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;rest-servlet.xml&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xmlns:p=&amp;quot;http://www.springframework.org/schema/p&amp;quot;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       http://www.springframework.org/schema/context &amp;lt;a href=&amp;quot;http://www.springframework.org/schema/context/spring-context-3.0.xsd&amp;quot;&amp;gt;http://www.springframework.org/schema/context/spring-context-3.0.xsd&amp;lt;/a&amp;gt;&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- &amp;#x542F;&amp;#x7528;spring mvc &amp;#x6CE8;&amp;#x89E3; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;context:annotation-config /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- &amp;#x8BBE;&amp;#x7F6E;&amp;#x4F7F;&amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x7C7B;&amp;#x6240;&amp;#x5728;&amp;#x7684;jar&amp;#x5305; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;context:component-scan base-package=&amp;quot;com.cc&amp;quot;&amp;gt;&amp;lt;/context:component-scan&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- &amp;#x5B8C;&amp;#x6210;&amp;#x8BF7;&amp;#x6C42;&amp;#x548C;&amp;#x6CE8;&amp;#x89E3;POJO&amp;#x7684;&amp;#x6620;&amp;#x5C04; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;bean class=&amp;quot;org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x3000;&amp;#x3000;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;!-- &amp;#x5BF9;ModelAndView&amp;#x4E2D;&amp;#x7684;&amp;#x8F6C;&amp;#x5411;&amp;#x9875;&amp;#x9762;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&amp;#x89E3;&amp;#x6790;&amp;#xFF0C;&amp;#x81EA;&amp;#x52A8;&amp;#x8DEF;&amp;#x5F84;&amp;#x6DFB;&amp;#x52A0;prefix&amp;#xFF1A;&amp;#x524D;&amp;#x7F00;&amp;#xFF0C; suffix&amp;#xFF1A;&amp;#x540E;&amp;#x7F00; --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;bean class=&amp;quot;org.springframework.web.servlet.view.InternalResourceViewResolver&amp;quot; p:prefix=&amp;quot;/jsp/&amp;quot; p:suffix=&amp;quot;.jsp&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&quot;&gt;&lt;a href=&quot;#&amp;#x6807;&amp;#x51C6;&amp;#x7684;MVC&amp;#x6846;&amp;#x67B6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x680
-    
-    </summary>
-    
-    
-      <category term="spring, springMVC" scheme="http://chen1218chen.github.io/tags/spring-springMVC/"/>
     
   </entry>
   

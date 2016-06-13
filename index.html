@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/annotation-hibernate/" style="font-size: 10px;">annotation, hibernate</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/前端，模块化/" style="font-size: 10px;">前端，模块化</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端，模块化/" style="font-size: 10px;">前端，模块化</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
                     </div>
                 </section>
                 
@@ -229,6 +229,81 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-hibernate之翻页的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/hibernate之翻页的实现/" class="article-date">
+      <time datetime="2016-06-13T10:46:36.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>pageSize:&#x6BCF;&#x9875;&#x8BB0;&#x5F55;&#x6570;<br>pageNow&#xFF1A;&#x5F53;&#x524D;&#x9875;&#x7801;</p>
+<pre><code>@Override
+public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
+    // TODO Auto-generated method stub
+    String sql;
+    if(&quot;picture&quot;.equals(type)){
+         sql = &quot;from Uploadinfo where picturepath1 &lt;&gt; &apos;&apos; and picturepath1 &lt;&gt; &apos;picture/meizhaopian.png&apos; order by dataTime desc&quot;;
+
+    }else{
+        sql=&quot;from Uploadinfo order by dataTime desc&quot;;
+    }
+    Query query = itemDaoImpl.getQuery(sql);
+    //&#x8BBE;&#x7F6E;&#x8D77;&#x59CB;&#x9875;
+    query.setFirstResult((pageNow - 1) * pageSize);
+    //&#x8BBE;&#x7F6E;&#x6BCF;&#x9875;&#x6700;&#x5927;&#x8BB0;&#x5F55;&#x6570;
+    query.setMaxResults(pageSize);
+    List&lt;Uploadinfo&gt; infolist = query.list();
+    return infolist;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate-java/">hibernate, java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-Struts2之ModelDriven接口实现登陆" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -993,6 +1068,10 @@ $j(&apos;#msg&apos;).hide();//&#x6B64;&#x5904;$j&#x5C31;&#x4EE3;&#x8868;JQuery
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -1120,138 +1199,9 @@ $j(&apos;#msg&apos;).hide();//&#x6B64;&#x5904;$j&#x5C31;&#x4EE3;&#x8868;JQuery
 
 
   
-    <article id="post-js实现回到顶部功能" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/js实现回到顶部功能/" class="article-date">
-      <time datetime="2016-05-13T10:56:03.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="&#x56DE;&#x5230;&#x9876;&#x90E8;"><a href="#&#x56DE;&#x5230;&#x9876;&#x90E8;" class="headerlink" title="&#x56DE;&#x5230;&#x9876;&#x90E8;"></a>&#x56DE;&#x5230;&#x9876;&#x90E8;</h2><pre><code>$(function(){
-    $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;none&quot;);
-
-    $(window).scroll(function() {
-        var client_height = $(window).height();
-        //&#x5B9E;&#x73B0;&#x517C;&#x5BB9;&#x6027;
-        var scroll_height = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop;
-        if(scroll_height &gt; client_height) {
-            $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;block&quot;);
-        } else {
-            $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;none&quot;);
-        }
-    });
-
-    $(&quot;#toTop&quot;).click(function(){
-        $(document.documentElement).animate({
-            scrollTop: 0
-        },200);
-        $(document.body).animate({
-            scrollTop: 0
-        },200);
-    });
-
-    //&#x6B63;&#x5219;&#x9A8C;&#x8BC1;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x603B;&#x662F;&#x5426;&#x542B;&#x6709;iphone|ipod|Android|SymbianOS|Windows Phone&#x5B57;&#x6837;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;
-    if (/iphone|ipod|Android|SymbianOS|Windows Phone/i.test(navigator.userAgent)) {
-        location.href = &apos;/jdwsjb/sy_phoneweb/ipadpdxxy/index.shtml&apos;;
-     }
-});  
-&lt;a id=&quot;toTop&quot;&gt;&#x56DE;&#x5230;&#x9876;&#x90E8;&lt;/a&gt;
-</code></pre><p>$(window)&#xFF1A;jQuery&#x4E2D;&#x83B7;&#x53D6;&#x6D4F;&#x89C8;&#x5668;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</p>
-<pre><code>$(window).resize(function(){
-});
-</code></pre><p>$(document) &#xFF1A;jQuery&#x4E2D;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6587;&#x6863;&#xFF0C;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x770B;&#x5230;&#x7684;&#x6574;&#x4E2A;&#x7F51;&#x9875;</p>
-<pre><code>$(document).ready(function(){
-});
-</code></pre><h2 id="&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;"></a>&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;</h2><p><strong>navigator.userAgent</strong><br>&#x6B63;&#x5219;&#x9A8C;&#x8BC1;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x603B;&#x662F;&#x5426;&#x542B;&#x6709;iphone|ipod|Android|SymbianOS|Windows Phone&#x5B57;&#x6837;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;</p>
-<pre><code>if (/iphone|ipod|Android|SymbianOS|Windows Phone/i.test(navigator.userAgent)) {
-    location.href = &apos;/jdwsjb/sy_phoneweb/ipadpdxxy/index.shtml&apos;;
- }
-
- function userBrowser(){
-    var browserName=navigator.userAgent.toLowerCase();
-    if(/msie/i.test(browserName) &amp;&amp; !/opera/.test(browserName)){
-        alert(&quot;IE&quot;);
-        return ;
-    }else if(/firefox/i.test(browserName)){
-        alert(&quot;Firefox&quot;);
-        return ;
-    }else if(/chrome/i.test(browserName) &amp;&amp; /webkit/i.test(browserName) &amp;&amp; /mozilla/i.test(browserName)){
-        alert(&quot;Chrome&quot;);
-        return ;
-    }else if(/opera/i.test(browserName)){
-        alert(&quot;Opera&quot;);
-        return ;
-    }else if(/webkit/i.test(browserName) &amp;&amp;!(/chrome/i.test(browserName) &amp;&amp; /webkit/i.test(browserName) &amp;&amp; /mozilla/i.test(browserName))){
-        alert(&quot;Safari&quot;);
-        return ;
-    }else{
-        alert(&quot;unKnow&quot;);
-    }
-}
-</code></pre><h2 id="&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;"><a href="#&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;" class="headerlink" title="&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;"></a>&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;</h2><p>html5&#x4E2D;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;&#x4F4D;&#x7F6E;:<strong>document.documentElement.scrollTop</strong><br>&#x5728;w3c&#x6807;&#x51C6;&#x4E0B;document.body.scrollTop&#x6052;&#x4E3A;0&#xFF0C;&#x4E14;IE5.5&#x4E4B;&#x540E;&#x4E0D;&#x518D;&#x652F;&#x6301;document.body.scrollX&#x5C5E;&#x6027;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x4EE5;&#x4E0B;&#x5224;&#x65AD;</p>
-<pre><code>if (document.body &amp;&amp; document.body.scrollTop &amp;&amp; document.body.scrollLeft)
-{
-   top  = document.body.scrollTop;
-   left = document.body.scrollleft; 
-}
-if (document.documentElement &amp;&amp; document.documentElement.scrollTop &amp;&amp; document.documentElement.scrollLeft)
-{
-   top  =  document.documentElement.scrollTop;
-   left =  document.documentElement.scrollLeft; 
-}
-</code></pre><h2 id="&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;"><a href="#&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;" class="headerlink" title="&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;"></a>&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;</h2><p><img src="/2016/05/13/js&#x5B9E;&#x73B0;&#x56DE;&#x5230;&#x9876;&#x90E8;&#x529F;&#x80FD;/Image%202.png" alt="enter description here" title="Image 2.png"><br><img src="/2016/05/13/js&#x5B9E;&#x73B0;&#x56DE;&#x5230;&#x9876;&#x90E8;&#x529F;&#x80FD;/Image%203.png" alt="enter description here" title="Image 3.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
