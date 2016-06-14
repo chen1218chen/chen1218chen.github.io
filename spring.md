@@ -85,25 +85,25 @@ My advice is to always declare <context:annotation-config>, but don't bother wit
 	}    
  
 ## **applicationContext.xml** 公共配置
-  
-	<!-- 配置sessionFactory -->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-	    <property name="configLocation">
-	        <value>classpath:hibernate.cfg.xml</value>
-	    </property>
-	    <property name="packagesToScan">
-	        <list>
-	            <value>com.entity</value>
-	        </list>
-	    </property>
-	</bean>
-	
-	<!-- 配置事务管理器（声明式的事务） -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-	    <property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	
-	<!-- 配置DAO --> 
-	<bean id="userDao" class="com.dao.UserDaoImpl">
-	    <property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
+
+    <!-- 配置sessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="configLocation">
+            <value>classpath:hibernate.cfg.xml</value>
+        </property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.entity</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- 配置事务管理器（声明式的事务） -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <!-- 配置DAO --> 
+    <bean id="userDao" class="com.dao.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>

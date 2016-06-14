@@ -5,29 +5,37 @@ tags: hibernate
 ---
 
 ## java
-    
+
     @RequestMapping(value = "/searchDate", method = RequestMethod.POST)
-	@ResponseBody
-	public List<Uploadinfo> searchDate(@RequestParam("start") String start,@RequestParam("end") String end) {
-		
-		List<Uploadinfo> itemList = itemServiceImpl.dateRange(start,end);
-		return itemList;
-	}
-	//使用HQL语句查询，预设字段
-	public List<Uploadinfo> dateRange(String start, String end) {
-		// TODO Auto-generated method stub
-		
-		Date beginDate = java.sql.Date.valueOf(start);
-		Date endDate = java.sql.Date.valueOf(end);
-		String hql = "from Uploadinfo info where info.dataTime <:endDate and info.dataTime >=:beginDate";  
-		Query query = itemDaoImpl.getQuery(hql);
-		query.setDate("beginDate",beginDate);   
-		query.setDate("endDate",endDate);
-		List<Uploadinfo> infolist = query.list();
-		return infolist;
-	}
+    @ResponseBody
+    public List<Uploadinfo> searchDate(@RequestParam("start") String start,@RequestParam("end") String end) {
+    	
+    	List<Uploadinfo> itemList = itemServiceImpl.dateRange(start,end);
+    	return itemList;
+    }
+    //使用HQL语句查询，预设字段
+    public List<Uploadinfo> dateRange(String start, String end) {
+    	// TODO Auto-generated method stub
+    	
+    	Date beginDate = java.sql.Date.valueOf(start);
+    	Date endDate = java.sql.Date.valueOf(end);
+    	String hql = "from Uploadinfo info where info.dataTime <:endDate and info.dataTime >=:beginDate";  
+    	Query query = itemDaoImpl.getQuery(hql);
+    	query.setDate("beginDate",beginDate);   
+    	query.setDate("endDate",endDate);
+    	List<Uploadinfo> infolist = query.list();
+    	return infolist;
+    }
 
 重点在hql语句对时间的查询，由于数据库定义的是date类型，则需要将字符串类型转化为date类型
+`:参数名`根据参数名称来设置参数
+`?`根据参数位置来设置参数
+
+    String hql = "from Uploadinfo info where info.dataTime <? and info.dataTime >=?";
+    Query query= session.createQuery(hql);
+    query.setString(0,"20160606");
+    query.setString(1,"20160706");
+    List user = query.list();
 ## js
 前台使用[datarangepicker插件][1]
     

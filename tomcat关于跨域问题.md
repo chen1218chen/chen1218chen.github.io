@@ -1,7 +1,7 @@
 ---
 title: tomcat关于跨域问题
 date: 2016-05-13 16:53:48
-tags: 
+tags: tomcat
 ---
 ##　tomcat解决跨域问题
 web.xml中添加如下配置即可
