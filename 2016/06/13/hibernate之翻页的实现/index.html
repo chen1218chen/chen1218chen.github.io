@@ -17,7 +17,7 @@ public List&amp;lt;Uploadinfo&amp;gt; onePage(int pageNow, int pageSize,String t
 @Override
 public List&amp;lt;Uploadinfo&amp;gt; onePage(int pageNow, int pageSize,String type) {
     // TODO Au">
-<meta property="og:updated_time" content="2016-06-13T02:50:27.835Z">
+<meta property="og:updated_time" content="2016-06-16T05:55:44.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hibernate之翻页的实现">
 <meta name="twitter:description" content="pageSize:&amp;#x6BCF;&amp;#x9875;&amp;#x8BB0;&amp;#x5F55;&amp;#x6570;pageNow&amp;#xFF1A;&amp;#x5F53;&amp;#x524D;&amp;#x9875;&amp;#x7801;
@@ -290,6 +290,127 @@ public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
     List&lt;Uploadinfo&gt; infolist = query.list();
     return infolist;
 }
+</code></pre><p>index.jsp<br>bootstrap&#x4E2D;&#x7684;&#x5206;&#x9875;&#x7EC4;&#x4EF6;</p>
+<pre><code>&lt;nav style=&quot;text-align: center&quot;&gt;
+    &lt;ul class=&quot;pagination&quot; id=&quot;pageUl&quot;&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre><p>index.js</p>
+<pre><code>$(window).load(function() {
+    ////&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+    queryAll(&quot;rest/Uploadinfo/totlePages&quot;);
+});
+function queryAll(url){
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  url,
+        dataType : &quot;text&quot;,
+        data:{
+             &quot;type&quot;:&quot;&quot;
+        },
+        success : function(msg) {
+            var pages = Math.ceil(msg/5); 
+            var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
+            var options = { 
+                size:&quot;normal&quot;,
+                alignment:&quot;center&quot;,
+                bootstrapMajorVersion:3,  
+                currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
+                numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
+                totalPages: pages, //&#x603B;&#x9875;&#x6570;  
+                itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
+                    switch (type) {
+                    case &quot;first&quot;:
+                        return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
+                    case &quot;prev&quot;:
+                        return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
+                    case &quot;next&quot;:
+                        return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
+                    case &quot;last&quot;:
+                        return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
+                    case &quot;page&quot;:
+                        return page;
+                    }
+                }, 
+                onPageClicked: function (event, originalEvent, type, page) { 
+                    //&#x6362;&#x9875;,&#x4E0B;&#x4E00;&#x9875;
+                    paginator(page);
+                },
+            }  
+            //&#x5206;&#x9875;&#x542F;&#x52A8;
+           element.bootstrapPaginator(options); 
+           paginator(1);
+        }
+    });
+}
+function paginator(pageNow) {
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  &quot;rest/Uploadinfo/onePageData&quot;,
+        dataType : &quot;json&quot;,
+        data:{
+            &quot;pageNow&quot;:pageNow,
+            &quot;pageSize&quot;:5,
+            &quot;type&quot;:&quot;&quot;
+        },
+        success : function(arrData) {
+            console.dir(arrData)
+            var str=&quot;&quot;;
+            var name;
+//            for (i = (page - 1) * 5; i &lt; page * 5; i++) {
+            for(var i=0; i&lt;arrData.length; i++){
+                    var pictureUrl = arrData[i].picturepath1;
+                    var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
+                    var content = arrData[i].content;
+                    var s = content.substr(0, 7);        
+                    if(arrData[i].telephone==&quot;&quot;){
+                        name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
+                    }
+                    else{
+                        name=arrData[i].telephone;
+                    }
+                    str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3 style=&quot;width:95%;&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot; title=&quot;&apos;
+                        + arrData[i].telephone
+                        + &quot;&quot;
+                        + &apos;&quot;&gt;&apos;
+                        + s
+                        + &quot;...&quot;
+                        + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
+                        + &apos;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
+                        + pictureUrl
+                        + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
+                        + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
+                        + arrData[i].content
+                        + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
+                        + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
+                        + name
+                        + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
+                        + arrData[i].dataTime
+                        + &apos;&lt;/span&gt;&apos;
+                        + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
+                        + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
+
+                    $(&apos;#infolist&apos;).html(&apos;&apos;); 
+                    $(&apos;#infolist&apos;).append(str);
+                }
+            }
+    });
+}
+</code></pre><p>onePageData&#x4E2D;&#x8C03;&#x7528;onePage&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x5206;&#x9875;&#x3002;</p>
+<p>java </p>
+<pre><code>//&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+@RequestMapping(value = &quot;/totlePages&quot;, method = RequestMethod.POST)
+@ResponseBody
+public int totlePages(@RequestParam(&quot;type&quot;) String type) {
+    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.totalPage(type);
+    int size = itemList.size();
+    return size;
+}
 </code></pre>
       
     </div>
@@ -301,7 +422,7 @@ public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
         <p><span>本文标题:</span><a href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
         <p><span>发布时间:</span>2016-06-13, 10:46:36</p>
-        <p><span>最后更新:</span>2016-06-13, 10:50:27</p>
+        <p><span>最后更新:</span>2016-06-16, 13:55:44</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/06/13/hibernate之翻页的实现/" title="hibernate之翻页的实现">http://chen1218chen.github.io/2016/06/13/hibernate之翻页的实现/</a>
             <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/06/13/hibernate之翻页的实现/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
