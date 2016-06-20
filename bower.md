@@ -37,7 +37,38 @@ bower只负责把依赖下载到本地的bower_components目录，并不负责�
      npm install -g bower
 -g表示全局安装
 npm是nodejs的默认包管理器
-## 常用命令
+### 常用的插件
+
+    bower install jquery#1.11.1 –save
+    bower install bootstrap –save
+    bower install bootstrap-table –save
+    bower install font-awesome -save
+    bower install d3 –save
+    bower install jqueryui –save
+    bower install datatables#1.10.2 –save
+    bower install echarts –save
+    bower install moment –save
+    bower install backbone –save
+    bower install seajs –save
+    bower install requirejs -save
+    bower install angular -save
+### download 方式
+
+    # 已注册的包，使用简写即可
+    $ bower install jquery
+    # GitHub 上的项目，使用名称即可
+    $ bower install desandro/masonry
+    # GitHub上的项目
+    $ bower install git://github.com/user/package.git
+    # 直接通过 URL 下载
+    $ bower install http://example.com/script.js
+参数：
+
+    -F, –force-latest: 不管冲突问题强制使用最新版本
+    -p, –production: 安装生产环境的库，不安装开发环境所需的文件
+    -S, –save: 将安装的包信息保存到项目的 bower.json 依赖配置中
+    -D, –save-dev: 将已安装的包信息保存到项目开发环境的 bower.json 依赖中
+## 命令
 ### bower init
 创建bower.json文件。
 在命令行中进入项目根目录，输入`bower init`,根据提示输入一些项目基本信息，或者直接回车或空格，会生成一个bower.json文件，用来保存该项目的配置

@@ -1,5 +1,5 @@
 ---
-title: grunt
+title: grunt + bower
 date: 2016-06-08 09:46:40
 tags: grunt
 ---
@@ -20,7 +20,7 @@ Grunt和 Grunt 插件是通过 npm 安装并管理的。Grunt 0.4.x 必须配合
 ![enter description here][3]
 
 并且已经有一份配置好package.json 和 Gruntfile 文件的项目了，至此grunt环境安装好，可以在项目中使用了
-# 必须文件
+# 主要文件
 一个grunt项目需要两个文件：package.json和Gruntfile.js，前者用于nodejs包管理，比如grunt插件安装，后者是grunt配置文件，配置任务或者自定义任务。
 ## package.json
 
@@ -58,14 +58,31 @@ Gruntfile.js 或 Gruntfile.coffee 文件是有效的 JavaScript 或 CoffeeScript
     # 生成Gruntfile
     grunt-init gruntfile
 根据需要回答问题，或者使用默认值，将得到Gruntfile.js文件
+运行`grunt-init gruntfile`时，总报错，折腾好久才明白，被网上的这些资料误导了，`~`是Linux下表示当前目录的参数，如果用`~/.grunt-init/gruntfile`下载地址时，在windows环境下应该是：`grunt-init <PATH>`,PATH是template.js所在路径。
+
+    grunt-init ~\.grunt-init\gruntfile
+然后再根据提示生成gruntfile.js文件。
 Gruntfile由以下几部分构成：
 
 "wrapper" 函数
 项目与任务配置
 加载grunt插件和任务
 自定义任务
+## grunt-bower-task
+bower只负责把依赖下载到本地的 bower_components 目录，并不负责把它们拷贝到我们项目中实际使用的地方，比如 public/js/lib 目录下。为了实现这样的功能，我们还需要另一个插件的帮助：
+
+    npm install grunt-bower-task --save-dev
+根目录下运行：
+
+    # bower具体安装使用请查看《bower》一文
+    npm install bower 
+    # 将grunt与bower完美结合
+    grunt bower
+运行结果：
+![enter description here][4]
 
 
   [1]: http://www.gruntjs.net/getting-started
   [2]: ./images/1.png "1.png"
   [3]: ./images/2.png "2.png"
+  [4]: ./images/3.png "3.png"
