@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-06-16T06:55:33.823Z</updated>
+  <updated>2016-06-21T05:47:22.047Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>eclipse之JRebel热部署</title>
+    <link href="http://chen1218chen.github.io/2016/06/21/eclipse%E4%B9%8BJRebel%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+    <id>http://chen1218chen.github.io/2016/06/21/eclipse之JRebel热部署/</id>
+    <published>2016-06-21T10:57:15.000Z</published>
+    <updated>2016-06-21T05:47:22.047Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x6BCF;&amp;#x6B21;&amp;#x4FEE;&amp;#x6539;java&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x91CD;&amp;#x542F;tomcat&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x5B9E;&amp;#x5728;&amp;#x662F;&amp;#x4E0D;&amp;#x582A;&amp;#x5176;&amp;#x6270;&amp;#xFF0C;&amp;#x679C;&amp;#x65AD;&amp;#x51B3;&amp;#x5B9A;&amp;#x518D;&amp;#x6B21;&amp;#x6298;&amp;#x817E;&amp;#x4E00;&amp;#x4E0B;JRebel&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x70ED;&amp;#x542F;&amp;#x52A8;&amp;#xFF0C;&amp;#x4ECE;eclipse marketplace&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x8FD9;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x90FD;&amp;#x662F;14&amp;#x5929;&amp;#x7684;&amp;#x8BD5;&amp;#x7528;&amp;#x671F;&amp;#xFF0C;&amp;#x8BD5;&amp;#x7528;&amp;#x671F;&amp;#x8FC7;&amp;#x4E86;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x4E0D;&amp;#x80FD;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x91CD;&amp;#x65B0;&amp;#x6363;&amp;#x9F13;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x7EC8;&amp;#x4E8E;&amp;#x6FC0;&amp;#x6D3B;&amp;#x4E86;&amp;#xFF0C;&amp;#x4EE5;&amp;#x540E;&amp;#x5988;&amp;#x5988;&amp;#x518D;&amp;#x4E5F;&amp;#x4E0D;&amp;#x7528;&amp;#x62C5;&amp;#x5FC3;&amp;#x6211;&amp;#x4E0D;&amp;#x505C;&amp;#x7684;&amp;#x91CD;&amp;#x542F;tomcat&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Help &amp;gt; Install New Software&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&lt;br&gt;&lt;a href=&quot;http://update.zeroturnaround.com/update-site-archive/update-site-6.4.2.RELEASE/&amp;#x3002;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://update.zeroturnaround.com/update-site-archive/update-site-6.4.2.RELEASE/&amp;#x3002;&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;/2016/06/21/eclipse&amp;#x4E4B;JRebel&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&amp;#x70B9;&amp;#x51FB;next&amp;#x8FDB;&amp;#x5165;&amp;#x4E0B;&amp;#x4E00;&amp;#x6B65;&amp;#xFF0C;&amp;#x6839;&amp;#x636E;&amp;#x63D0;&amp;#x793A;&amp;#x4E00;&amp;#x6B65;&amp;#x6B65;&amp;#x5B89;&amp;#x88C5;&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x6210;&amp;#x529F;&amp;#x540E;help&amp;#x91CC;&amp;#x9762;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x89C1;JRebel Configuration&amp;#x548C;JRebel Activation&lt;br&gt;&lt;img src=&quot;/2016/06/21/eclipse&amp;#x4E4B;JRebel&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;/Image%202.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 2.png&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&amp;#x6FC0;&amp;#x6D3B;&lt;br&gt;&amp;#x5230;&lt;a href=&quot;https://github.com/chen1218chen/JRebel6.4.2Crack&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x8FD9;&amp;#x91CC;&lt;/a&gt;&amp;#x4E0B;&amp;#x8F7D;&amp;#x7834;&amp;#x89E3;&amp;#x6587;&amp;#x4EF6;&amp;#x5230;&amp;#x672C;&amp;#x5730;&amp;#x3002;&amp;#x89E3;&amp;#x538B;&amp;#xFF0C;&amp;#x628A;&amp;#x538B;&amp;#x7F29;&amp;#x5305;&amp;#x91CC;&amp;#x7684;&amp;#xFF1A;jrebel.jar&amp;#x548C;jreble.lic&amp;#x4E24;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x8986;&amp;#x76D6;&amp;#x5230;Eclipse&amp;#x5B89;&amp;#x88C5;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;plugins&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#x7684;org.zeroturnaround.eclipse.embedder_6.2.2.RELEASE-201507291337&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#x6240;&amp;#x6709;&amp;#x5305;&amp;#x542B;jrebel.jar&amp;#x7684;&amp;#x5B50;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E2D;&amp;#x3002;&lt;br&gt;&amp;#x52A0;&amp;#x8F7D;license&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x91CD;&amp;#x542F;Eclipse&amp;#x3002;&amp;#x5373;&amp;#x53EF;&amp;#x770B;&amp;#x89C1;&amp;#x663E;&amp;#x793A;JRebel activated&amp;#x3002;&lt;br&gt;&lt;img src=&quot;/2016/06/21/eclipse&amp;#x4E4B;JRebel&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;/Image%203.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 3.png&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#x91CD;&amp;#x542F;&amp;#x540E;&amp;#xFF0C;&amp;#x67E5;&amp;#x770B;Eclipse&amp;gt;Window&amp;gt;Preferences&amp;#x4F1A;&amp;#x53D1;&amp;#x73B0;&amp;#xFF0C;&amp;#x591A;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;JRebel&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x3002;&lt;br&gt;&lt;img src=&quot;/2016/06/21/eclipse&amp;#x4E4B;JRebel&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;/Image4.png&quot; alt=&quot;enter description here&quot; title=&quot;Image4.png&quot;&gt;&lt;br&gt;&amp;#x70B9;&amp;#x51FB;JRebel Configuration&amp;#x5373;&amp;#x53EF;&amp;#x770B;&amp;#x89C1;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/06/21/eclipse&amp;#x4E4B;JRebel&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;/Image%206.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 6.png&quot;&gt;&lt;br&gt;&amp;#x6FC0;&amp;#x6D3B;&amp;#x6210;&amp;#x529F;&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6BCF;&amp;#x6B21;&amp;#x4FEE;&amp;#x6539;java&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x91CD;&amp;#x542F;tomcat&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x5B9E;&amp;#x5728
+    
+    </summary>
+    
+    
+      <category term="eclipse, JRebel" scheme="http://chen1218chen.github.io/tags/eclipse-JRebel/"/>
+    
+  </entry>
   
   <entry>
     <title>eclipse工程报错</title>
@@ -1843,198 +1871,6 @@ require([ &amp;apos;jquery&amp;apos;, &amp;apos;bootstrap-dialog&amp;apos;, &amp
     
     
       <category term="bootstrap" scheme="http://chen1218chen.github.io/tags/bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>select2实现三级联动</title>
-    <link href="http://chen1218chen.github.io/2016/04/29/select2%E5%AE%9E%E7%8E%B0%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/"/>
-    <id>http://chen1218chen.github.io/2016/04/29/select2实现三级联动/</id>
-    <published>2016-04-28T16:07:49.000Z</published>
-    <updated>2016-05-04T08:30:56.383Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x6700;&amp;#x8FD1;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x8981;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5206;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x4E3A;&amp;#x4E09;&amp;#x7EA7;&amp;#xFF0C;&amp;#x8003;&amp;#x8651;&amp;#x4F7F;&amp;#x7528;select2&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;&amp;#x6548;&amp;#x679C;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/1.png&quot; alt=&quot;enter description here&quot; title=&quot;1.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Model&quot;&gt;&lt;a href=&quot;#Model&quot; class=&quot;headerlink&quot; title=&quot;Model&quot;&gt;&lt;/a&gt;Model&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;private Integer cid;
-private String cname;
-private String level;//&amp;#x6240;&amp;#x5728;&amp;#x5C42;&amp;#x7EA7;
-private String parent;//&amp;#x592B;&amp;#x7C7B;ID
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;html&quot;&gt;&lt;a href=&quot;#html&quot; class=&quot;headerlink&quot; title=&quot;html&quot;&gt;&lt;/a&gt;html&lt;/h2&gt;&lt;p&gt;&amp;#x4E09;&amp;#x4E2A;select&amp;#x6807;&amp;#x7B7E;&amp;#xFF0C;&amp;#x521D;&amp;#x59CB;&amp;#x5C06;&amp;#x540E;&amp;#x4E24;&amp;#x4E2A;select&amp;#x9690;&amp;#x85CF;&lt;br&gt;&lt;strong&gt;Tips&amp;#x5C0F;&amp;#x6280;&amp;#x5DE7;:&lt;/strong&gt; &amp;#x82E5;&amp;#x4F7F;&amp;#x7528;$.show()&amp;#xFF0C;$.hide()&amp;#x65B9;&amp;#x6CD5;&amp;#x65E0;&amp;#x6CD5;&amp;#x76F4;&amp;#x63A5;&amp;#x5C06;select&amp;#x9690;&amp;#x85CF;&amp;#xFF0C;&amp;#x5219;&amp;#x5C06;&amp;#x5B83;&amp;#x7684;&amp;#x4E0A;&amp;#x5C42;&amp;#x6807;&amp;#x7B7E;&amp;#x9690;&amp;#x85CF;&amp;#xFF0C;&amp;#x6216;&amp;#x8005;&amp;#x5305;&amp;#x88F9;&amp;#x5728;span&amp;#x4E2D;&amp;#xFF0C;&amp;#x5C06;span&amp;#x9690;&amp;#x85CF;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;span id=&amp;quot;one&amp;quot;&amp;gt; &amp;lt;select id=&amp;quot;levelOne&amp;quot; name=&amp;quot;levelOne&amp;quot; placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 100px&amp;quot;&amp;gt;
-&amp;lt;/select&amp;gt;&amp;lt;/span&amp;gt; 
-&amp;lt;span id=&amp;quot;two&amp;quot; &amp;gt; &amp;lt;select id=&amp;quot;levelTwo&amp;quot; name=&amp;quot;levelTwo&amp;quot;
-    placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 100px; display: none;&amp;quot;&amp;gt;
-&amp;lt;/select&amp;gt;
-&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;quot;three&amp;quot;&amp;gt; &amp;lt;select id=&amp;quot;levelThree&amp;quot; name=&amp;quot;levelThree&amp;quot;
-    placeholder=&amp;quot;&amp;#x5206;&amp;#x7C7B;&amp;quot; style=&amp;quot;width: 160px;  display: none;&amp;quot;&amp;gt;
-&amp;lt;/select&amp;gt;
-&amp;lt;/span&amp;gt;
-
-&amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-info&amp;quot; id=&amp;quot;save&amp;quot;
-    style=&amp;quot;margin-top: 5px; padding: 3px 12px&amp;quot;&amp;gt;
-    &amp;lt;i class=&amp;quot;&amp;quot;&amp;gt;&amp;#x4FDD;&amp;#x5B58;&amp;lt;/i&amp;gt;
-&amp;lt;/button&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x5206;&amp;#x89E3;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x9996;&amp;#x6B21;&amp;#x52A0;&amp;#x8F7D;&amp;#x6709;&amp;#x51E0;&amp;#x7EA7;&amp;#x6570;&amp;#x636E;&amp;#x663E;&amp;#x793A;&amp;#x51E0;&amp;#x7EA7;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x70B9;&amp;#x51FB;&amp;#x4E00;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x5C55;&amp;#x793A;&amp;#x4E8C;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x53CA;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8C;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x4E09;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x6CA1;&amp;#x6709;&amp;#x7684;&amp;#x8BA9;&amp;#x5176;&amp;#x9690;&amp;#x85CF;  &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$(function() {
-    var oneselect,twoselect,threeselect;
-    selectAll();
-    selectInit();
-})
-//&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x52A0;&amp;#x8F7D;
-function selectInit(){
-    selectOne();
-
-    $(&amp;quot;#levelOne&amp;quot;).on(&amp;quot;select2:select&amp;quot;, function (e) {
-        var levelOne = $(&amp;quot;#levelOne&amp;quot;).val();
-        selectTwo(levelOne);
-    });
-
-    $(&amp;apos;#levelTwo&amp;apos;).on(&amp;quot;select2:select&amp;quot;,function(){
-        var levelTwo = $(&amp;quot;#levelTwo&amp;quot;).val();
-        selectThree(levelTwo);
-    });
-}
-//&amp;#x83B7;&amp;#x53D6;&amp;#x6240;&amp;#x6709;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5206;&amp;#x7C7B;&amp;#x4FDD;&amp;#x5B58;&amp;#x5230;&amp;#x5168;&amp;#x5C40;&amp;#x6570;&amp;#x7EC4;&amp;#x4E2D;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x540E;&amp;#x9762;&amp;#x4F7F;&amp;#x7528;
-function selectAll(){
-    $.ajax({
-        url : &amp;quot;rest/category/queryAll&amp;quot;,
-        type : &amp;quot;get&amp;quot;,
-        async: false,//&amp;#x6CE8;&amp;#x610F;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x540C;&amp;#x6B65;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7136;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&amp;#x53D6;&amp;#x4E0D;&amp;#x5230;&amp;#x503C;
-        dataType : &amp;apos;json&amp;apos;,
-        success : function(result) {
-            var oneLevel = [];
-            var twoLevel = [];
-            var threeLevel = [];
-            for (var i = 0; i &amp;lt; result.length; i++) {
-                if (result[i].level == &amp;quot;1&amp;quot;) {
-                    oneLevel.push(result[i]);
-                } else if (result[i].level == &amp;quot;2&amp;quot;) {
-                    twoLevel.push(result[i]);
-                } else if (result[i].level == &amp;quot;3&amp;quot;) {
-                    threeLevel.push(result[i]);
-                }
-            }
-            oneselect = oneLevel;
-            twoselect = twoLevel;
-            threeselect = threeLevel;
-        }
-    });
-}
-
-//&amp;#x53D6;&amp;#x7B2C;&amp;#x4E00;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;
-function selectOne(){
-
-    select2Show(&amp;quot;#levelOne&amp;quot;, oneselect);
-
-    selectTwo(oneselect[0].cid);
-}
-//&amp;#x53D6;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x5C42;&amp;#x6570;&amp;#x636E;
-function selectTwo(parent){
-    var twoTmp = [];
-    for (var j = 0; j &amp;lt; twoselect.length; j++) {
-        if (twoselect[j].parent == parent) {
-            twoTmp.push(twoselect[j])
-        }
-    };
-    if (twoTmp.length != 0) {
-        $(&amp;quot;#two&amp;quot;).show();
-        select2Show(&amp;quot;#levelTwo&amp;quot;, twoTmp);
-
-        selectThree(twoTmp[0].cid);
-
-    } else {
-        twoHide();
-        threeHide();
-    }
-}
-//&amp;#x53D6;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x7B2C;&amp;#x4E09;&amp;#x5C42;&amp;#x6570;&amp;#x636E;
-function selectThree(parent){
-    var threeTmp = [];
-    for (var m = 0; m &amp;lt; threeselect.length; m++) {
-        if (parent == threeselect[m].parent) {
-            threeTmp.push(threeselect[m]);
-        }
-    };
-    if (threeTmp.length != 0) {
-        $(&amp;quot;#three&amp;quot;).show();
-        select2Show(&amp;quot;#levelThree&amp;quot;, threeTmp);
-    } else {
-        threeHide();
-    }
-}
-
-function twoHide(){
-    $(&amp;quot;#levelTwo&amp;quot;).empty();
-    $(&amp;quot;#two&amp;quot;).hide();
-}
-function threeHide(){
-    $(&amp;quot;#levelThree&amp;quot;).empty();
-    $(&amp;quot;#three&amp;quot;).hide();
-}
-function select2Show(id,result){
-    if(result.length!=0){
-        var data=[];
-
-        for ( var i = 0; i &amp;lt; result.length; i++) {
-            var tmp = {};
-            tmp[&amp;quot;id&amp;quot;] = result[i].cid;
-            tmp[&amp;quot;text&amp;quot;] = result[i].cname;
-            data.push(tmp);
-        }
-
-        $(id).empty();
-        $(id).select2({
-            data : data,
-        });
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x67D0;&amp;#x5C42;&amp;#x7C7B;&amp;#x522B;&amp;#x9700;&amp;#x8981;&amp;#x9690;&amp;#x85CF;&amp;#x65F6;&amp;#x6E05;&amp;#x7A7A;select2&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5728;&amp;#x4FDD;&amp;#x5B58;&amp;#x5206;&amp;#x7C7B;&amp;#x65F6;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x7C7B;&amp;#x522B;id&amp;#xFF0C;&amp;#x5982;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#x6240;&amp;#x793A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%202.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 2.png&quot;&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function save(){
-    var ids = $.map($table.bootstrapTable(&amp;apos;getSelections&amp;apos;), function(row) {
-        return row.id;
-    });
-
-    if (ids == &amp;quot;&amp;quot;) {
-        alertView(&amp;quot;&amp;#x8BF7;&amp;#x9009;&amp;#x62E9;&amp;#x5F85;&amp;#x5F52;&amp;#x7C7B;&amp;#x4FE1;&amp;#x606F;&amp;quot;);
-        return;
-    }
-    alert(ids);
-    if($(&amp;quot;#levelThree&amp;quot;).val()!=null){
-        saveData($(&amp;quot;#levelThree&amp;quot;).val(),ids);
-    }else {
-        if($(&amp;quot;#levelTwo&amp;quot;).val()!=null){
-            saveData($(&amp;quot;#levelTwo&amp;quot;).val(),ids);
-        }else {
-            saveData($(&amp;quot;#levelOne&amp;quot;).val(),ids);
-        }
-    }
-}
-
-function saveData(id,ids){
-    //&amp;#x6570;&amp;#x636E;&amp;#x4FDD;&amp;#x5B58;&amp;#xFF0C;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x503C;&amp;#x7528;ajax&amp;#x4F20;&amp;#x5230;&amp;#x540E;&amp;#x53F0;&amp;#xFF0C;&amp;#x8FDB;&amp;#x884C;&amp;#x4FDD;&amp;#x5B58;
-    $.ajax({
-        url:&amp;quot;rest/category/saveClassfi&amp;quot;,
-        type:&amp;quot;post&amp;quot;,
-        data:{
-            &amp;quot;id&amp;quot;:id,
-            &amp;quot;ids&amp;quot;:ids
-        },
-        dataType:&amp;quot;json&amp;quot;,
-        success:function(result){
-
-        }
-    })
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0B;&amp;#x56FE;&amp;#x662F;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;&amp;#x7684;&amp;#x5F85;&amp;#x5F52;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;ID&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;br&gt;&amp;#x82E5;&amp;#x672A;&amp;#x9009;&amp;#x62E9;&amp;#x5219;&amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/04/29/select2&amp;#x5B9E;&amp;#x73B0;&amp;#x4E09;&amp;#x7EA7;&amp;#x8054;&amp;#x52A8;/Image%203.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 3.png&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x6700;&amp;#x8FD1;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x8981;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x7C7B;&amp;#xFF0C;&amp;
-    
-    </summary>
-    
-    
-      <category term="select2, bootstrap" scheme="http://chen1218chen.github.io/tags/select2-bootstrap/"/>
     
   </entry>
   
