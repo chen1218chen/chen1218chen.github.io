@@ -3,10 +3,11 @@ title: grunt + bower
 date: 2016-06-08 09:46:40
 tags: grunt
 ---
+[TOC]
 # [入门][1]
 Grunt是JavaScript 任务运行器。对于需要重复执行的任务，例如压缩、编译、单元测试等，这种自动化工具可以减少你的工作量，使你的工作更轻松
 Grunt和 Grunt 插件是通过 npm 安装并管理的。Grunt 0.4.x 必须配合Node.js >= 0.8.0版本使用。；奇数版本号的 Node.js 被认为是不稳定的开发版。
-### 安装
+## 安装
 
     npm install grunt --save-dev
 后面的 --save-dev 参数是说，把这个插件信息，同时添加到 package.json 的 devDependencies 中：
@@ -35,13 +36,17 @@ package.json应当放置于项目的根目录中，与Gruntfile在同一目录�
 
 
     {
-      "name": "my-project-name",
-      "version": "0.1.0",
+      "engines": {
+        "node": ">= 0.10.0"
+      },
       "devDependencies": {
         "grunt": "~0.4.5",
+        "grunt-contrib-concat": "~0.4.0",
+        "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-jshint": "~0.10.0",
         "grunt-contrib-nodeunit": "~0.4.1",
-        "grunt-contrib-uglify": "~0.5.0"
+        "grunt-contrib-uglify": "~0.5.0",
+        "grunt-contrib-watch": "~0.6.1"
       }
     }
 ## Gruntfile

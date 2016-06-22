@@ -3,7 +3,7 @@ title: bower
 date: 2016-06-07 16:11:25
 tags: bower
 ---
-
+[TOC]
 # bower使用
 前端的包管理器。
 Bower是基于Git之上的包管理工具，提供的包的源头都是Git库（多数在Github上，并非所有）。能够通过Bower下载的包，在其Git库下都会有一个bower.json文件。
@@ -130,6 +130,102 @@ bower会动更新包的版本
     bower register 工程名 github地址
 之后就可以通过`bower install`来安装了。
 
+# bower.json
+bower.json是bower的主配置文件，里面有几个主要参数，可以通过bower init来生成
+
+    {
+      "name": "Angular",
+      "authors": [
+        "chen1218chen <cc.2008.com@163.com>"
+      ],
+      "description": "",
+      "main": "",
+      "license": "MIT",
+      "homepage": "https://github.com/chen1218chen/Angular",
+      "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+      ],
+      "dependencies": {
+        "angular": "^1.5.6",
+        "bootstrap": "^3.3.6",
+        "jquery": "^2.2.4",
+        "requirejs": "^2.2.0",
+        "bootstrap-table": "^1.10.1",
+        "react": "^15.1.0",
+        "font-awesome": "^4.6.3",
+        "jquery-confirm": "^2.6.0",
+        "jquery-ui": "^1.11.4",
+        "bootstrap3-dialog": "bootstrap-dialog#^1.35.1"
+      },
+      "exportsOverride": {
+        "angular": {
+          "": "*.min.js"
+        },
+        "bootstrap": {
+          "js": "dist/js/*.min.js",
+          "css": "dist/css/*.min.css",
+          "fonts": "dist/fonts/*.*"
+        },
+         "bootstrap3-dialog": {
+          "js": "dist/js/*.min.js",
+          "css": "dist/css/*.min.css"
+        },
+        "bootstrap-table": {
+          "js": "dist/*.min.js",
+          "locale": "dist/locale/bootstrap-table-zh-CN.min.js",
+          "extensions": [
+            "dist/extensions/export/*.min.js",
+            "dist/extensions/editable/*.min.js",
+            "dist/extensions/angular/*.min.js"
+          ],
+          "css": "dist/*.min.css"
+        },
+        "font-awesome": {
+          "css": "css/*.min.css",
+          "fonts": "fonts/*.*"
+        },
+        "jquery": {
+          "": "dist/jquery.min.js"
+        },
+        "react": {
+          "": "*.min.js"
+        },
+        "requirejs": {
+          "": "require.js"
+        },
+        "jquery-ui": {
+          "": "*.min.js"
+        },
+        "jquery-confirm": {
+          "": "*.min.js"
+        }
+      }
+    }
+**dependencies：** 依赖的软件包运行bower install 即可下载安装这些插件包
+**exportsOverride：** 通过bower下载的插件的路径与真实项目中的不一致，需要这个参数来设置每个包复制的文件及路径。与grunt配合使用gruntfile.js中
+
+        bower: {
+        install: {
+          options: {
+            targetDir: 'WebContent/lib',
+            layout: 'byComponent',
+            install: true,
+            verbose: false,
+            cleanTargetDir: false,
+            cleanBowerDir: false,
+            bowerOptions: {}
+          }
+        }
+      }
+    grunt.loadNpmTasks('grunt-bower-task');
+之后，运行`grunt bower`即可完成复制
+![enter description here][8]
+
+
   [1]: ./images/3.png "3.png"
   [2]: ./images/7.png "7.png"
   [3]: ./images/2.png "2.png"
@@ -137,3 +233,4 @@ bower会动更新包的版本
   [5]: ./images/6.png "6.png"
   [6]: ./images/4.png "4.png"
   [7]: ./images/5.png "5.png"
+  [8]: ./images/Image%203.png "Image 3.png"
