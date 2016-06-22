@@ -378,10 +378,11 @@ public class LogoutAction extends BaseAction {
     <link href="http://chen1218chen.github.io/2016/06/08/grunt/"/>
     <id>http://chen1218chen.github.io/2016/06/08/grunt/</id>
     <published>2016-06-08T09:46:40.000Z</published>
-    <updated>2016-06-17T06:45:14.231Z</updated>
+    <updated>2016-06-21T06:22:01.079Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;a href=&quot;#&amp;#x5165;&amp;#x95E8;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.gruntjs.net/getting-started&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x5165;&amp;#x95E8;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Grunt&amp;#x662F;JavaScript &amp;#x4EFB;&amp;#x52A1;&amp;#x8FD0;&amp;#x884C;&amp;#x5668;&amp;#x3002;&amp;#x5BF9;&amp;#x4E8E;&amp;#x9700;&amp;#x8981;&amp;#x91CD;&amp;#x590D;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x4EFB;&amp;#x52A1;&amp;#xFF0C;&amp;#x4F8B;&amp;#x5982;&amp;#x538B;&amp;#x7F29;&amp;#x3001;&amp;#x7F16;&amp;#x8BD1;&amp;#x3001;&amp;#x5355;&amp;#x5143;&amp;#x6D4B;&amp;#x8BD5;&amp;#x7B49;&amp;#xFF0C;&amp;#x8FD9;&amp;#x79CD;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x5DE5;&amp;#x5177;&amp;#x53EF;&amp;#x4EE5;&amp;#x51CF;&amp;#x5C11;&amp;#x4F60;&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x91CF;&amp;#xFF0C;&amp;#x4F7F;&amp;#x4F60;&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x66F4;&amp;#x8F7B;&amp;#x677E;&lt;br&gt;Grunt&amp;#x548C; Grunt &amp;#x63D2;&amp;#x4EF6;&amp;#x662F;&amp;#x901A;&amp;#x8FC7; npm &amp;#x5B89;&amp;#x88C5;&amp;#x5E76;&amp;#x7BA1;&amp;#x7406;&amp;#x7684;&amp;#x3002;Grunt 0.4.x &amp;#x5FC5;&amp;#x987B;&amp;#x914D;&amp;#x5408;Node.js &amp;gt;= 0.8.0&amp;#x7248;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;&amp;#xFF1B;&amp;#x5947;&amp;#x6570;&amp;#x7248;&amp;#x672C;&amp;#x53F7;&amp;#x7684; Node.js &amp;#x88AB;&amp;#x8BA4;&amp;#x4E3A;&amp;#x662F;&amp;#x4E0D;&amp;#x7A33;&amp;#x5B9A;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x7248;&amp;#x3002;&lt;/p&gt;
-&lt;h3 id=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;npm install grunt --save-dev
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;a href=&quot;#&amp;#x5165;&amp;#x95E8;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.gruntjs.net/getting-started&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x5165;&amp;#x95E8;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Grunt&amp;#x662F;JavaScript &amp;#x4EFB;&amp;#x52A1;&amp;#x8FD0;&amp;#x884C;&amp;#x5668;&amp;#x3002;&amp;#x5BF9;&amp;#x4E8E;&amp;#x9700;&amp;#x8981;&amp;#x91CD;&amp;#x590D;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x4EFB;&amp;#x52A1;&amp;#xFF0C;&amp;#x4F8B;&amp;#x5982;&amp;#x538B;&amp;#x7F29;&amp;#x3001;&amp;#x7F16;&amp;#x8BD1;&amp;#x3001;&amp;#x5355;&amp;#x5143;&amp;#x6D4B;&amp;#x8BD5;&amp;#x7B49;&amp;#xFF0C;&amp;#x8FD9;&amp;#x79CD;&amp;#x81EA;&amp;#x52A8;&amp;#x5316;&amp;#x5DE5;&amp;#x5177;&amp;#x53EF;&amp;#x4EE5;&amp;#x51CF;&amp;#x5C11;&amp;#x4F60;&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x91CF;&amp;#xFF0C;&amp;#x4F7F;&amp;#x4F60;&amp;#x7684;&amp;#x5DE5;&amp;#x4F5C;&amp;#x66F4;&amp;#x8F7B;&amp;#x677E;&lt;br&gt;Grunt&amp;#x548C; Grunt &amp;#x63D2;&amp;#x4EF6;&amp;#x662F;&amp;#x901A;&amp;#x8FC7; npm &amp;#x5B89;&amp;#x88C5;&amp;#x5E76;&amp;#x7BA1;&amp;#x7406;&amp;#x7684;&amp;#x3002;Grunt 0.4.x &amp;#x5FC5;&amp;#x987B;&amp;#x914D;&amp;#x5408;Node.js &amp;gt;= 0.8.0&amp;#x7248;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;&amp;#xFF1B;&amp;#x5947;&amp;#x6570;&amp;#x7248;&amp;#x672C;&amp;#x53F7;&amp;#x7684; Node.js &amp;#x88AB;&amp;#x8BA4;&amp;#x4E3A;&amp;#x662F;&amp;#x4E0D;&amp;#x7A33;&amp;#x5B9A;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x7248;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;npm install grunt --save-dev
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x540E;&amp;#x9762;&amp;#x7684; &amp;#x2013;save-dev &amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x8BF4;&amp;#xFF0C;&amp;#x628A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x540C;&amp;#x65F6;&amp;#x6DFB;&amp;#x52A0;&amp;#x5230; package.json &amp;#x7684; devDependencies &amp;#x4E2D;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/06/08/grunt/1.png&quot; alt=&quot;enter description here&quot; title=&quot;1.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x7531;&amp;#x4E8E;grunt&amp;#x4EC5;&amp;#x5728;&amp;#x5F00;&amp;#x53D1;&amp;#x9636;&amp;#x6BB5;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528; &amp;#x2013;save-dev &amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x662F;&amp;#x8FD0;&amp;#x884C;&amp;#x65F6;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#xFF0C;&amp;#x5219;&amp;#x7528; &amp;#x2013;save&amp;#x3002;&lt;br&gt;&amp;#x547D;&amp;#x4EE4;&amp;#x884C;&amp;#x4E0B;&amp;#x4F7F;&amp;#x7528;grunt&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm install -g grunt-cli
@@ -397,13 +398,17 @@ public class LogoutAction extends BaseAction {
 &lt;li&gt;&amp;#x590D;&amp;#x5236;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x6848;&amp;#x4F8B;&amp;#xFF0C;&amp;#x5E76;&amp;#x6839;&amp;#x636E;&amp;#x9700;&amp;#x8981;&amp;#x505A;&amp;#x6269;&amp;#x5145;&amp;#xFF0C;&amp;#x53C2;&amp;#x8003;&amp;#x6B64;&amp;#x8BF4;&amp;#x660E;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code&gt;{
-  &amp;quot;name&amp;quot;: &amp;quot;my-project-name&amp;quot;,
-  &amp;quot;version&amp;quot;: &amp;quot;0.1.0&amp;quot;,
+  &amp;quot;engines&amp;quot;: {
+    &amp;quot;node&amp;quot;: &amp;quot;&amp;gt;= 0.10.0&amp;quot;
+  },
   &amp;quot;devDependencies&amp;quot;: {
     &amp;quot;grunt&amp;quot;: &amp;quot;~0.4.5&amp;quot;,
+    &amp;quot;grunt-contrib-concat&amp;quot;: &amp;quot;~0.4.0&amp;quot;,
+    &amp;quot;grunt-contrib-copy&amp;quot;: &amp;quot;^1.0.0&amp;quot;,
     &amp;quot;grunt-contrib-jshint&amp;quot;: &amp;quot;~0.10.0&amp;quot;,
     &amp;quot;grunt-contrib-nodeunit&amp;quot;: &amp;quot;~0.4.1&amp;quot;,
-    &amp;quot;grunt-contrib-uglify&amp;quot;: &amp;quot;~0.5.0&amp;quot;
+    &amp;quot;grunt-contrib-uglify&amp;quot;: &amp;quot;~0.5.0&amp;quot;,
+    &amp;quot;grunt-contrib-watch&amp;quot;: &amp;quot;~0.6.1&amp;quot;
   }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Gruntfile&quot;&gt;&lt;a href=&quot;#Gruntfile&quot; class=&quot;headerlink&quot; title=&quot;Gruntfile&quot;&gt;&lt;/a&gt;Gruntfile&lt;/h2&gt;&lt;p&gt;Gruntfile.js &amp;#x6216; Gruntfile.coffee &amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x6709;&amp;#x6548;&amp;#x7684; JavaScript &amp;#x6216; CoffeeScript &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5E94;&amp;#x5F53;&amp;#x653E;&amp;#x5728;&amp;#x4F60;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x4E2D;&amp;#xFF0C;&amp;#x548C;package.json&amp;#x6587;&amp;#x4EF6;&amp;#x5728;&amp;#x540C;&amp;#x4E00;&amp;#x76EE;&amp;#x5F55;&amp;#x5C42;&amp;#x7EA7;&amp;#xFF0C;&amp;#x5E76;&amp;#x548C;&amp;#x9879;&amp;#x76EE;&amp;#x6E90;&amp;#x7801;&amp;#x4E00;&amp;#x8D77;&amp;#x52A0;&amp;#x5165;&amp;#x6E90;&amp;#x7801;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x3002;&lt;br&gt;&amp;#x4E3A;grunt&amp;#x521B;&amp;#x5EFA;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;Gruntfile.js&amp;#xFF0C;&amp;#x5B89;&amp;#x88C5;grunt-init&lt;/p&gt;
@@ -431,7 +436,8 @@ grunt bower
     
     <summary type="html">
     
-      &lt;h1 id=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;a href=&quot;#&amp;#x5165;&amp;#x95E8;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.gruntjs.net/gettin
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;a href=&quot;#&amp;#x5165;&amp;#x95E8;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5165;&amp;#x95E8;&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.grunt
     
     </summary>
     
@@ -445,9 +451,10 @@ grunt bower
     <link href="http://chen1218chen.github.io/2016/06/08/bower/"/>
     <id>http://chen1218chen.github.io/2016/06/08/bower/</id>
     <published>2016-06-07T16:11:25.000Z</published>
-    <updated>2016-06-17T07:17:35.133Z</updated>
+    <updated>2016-06-22T07:38:57.988Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;&amp;#x524D;&amp;#x7AEF;&amp;#x7684;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x3002;&lt;br&gt;Bower&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;Git&amp;#x4E4B;&amp;#x4E0A;&amp;#x7684;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x5305;&amp;#x7684;&amp;#x6E90;&amp;#x5934;&amp;#x90FD;&amp;#x662F;Git&amp;#x5E93;&amp;#xFF08;&amp;#x591A;&amp;#x6570;&amp;#x5728;Github&amp;#x4E0A;&amp;#xFF0C;&amp;#x5E76;&amp;#x975E;&amp;#x6240;&amp;#x6709;&amp;#xFF09;&amp;#x3002;&amp;#x80FD;&amp;#x591F;&amp;#x901A;&amp;#x8FC7;Bower&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x5305;&amp;#xFF0C;&amp;#x5728;&amp;#x5176;Git&amp;#x5E93;&amp;#x4E0B;&amp;#x90FD;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;bower.json&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;br&gt;&amp;#x6211;&amp;#x4EEC;&amp;#x5728;bower&amp;#x4E0A;&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x5305;&amp;#xFF0C;&amp;#x5927;&amp;#x90E8;&amp;#x5206;&amp;#x90FD;&amp;#x662F;&amp;#x5305;&amp;#x7684;&amp;#x6E90;&amp;#x4EE3;&amp;#x7801;&amp;#x5E93;&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x5927;&amp;#x5806;&amp;#x6CA1;&amp;#x6709;&amp;#x7F16;&amp;#x8BD1;&amp;#x6216;&amp;#x8005;&amp;#x6784;&amp;#x5EFA;&amp;#x8FC7;&amp;#x7684;&amp;#x534A;&amp;#x6210;&amp;#x54C1;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5BF9;&amp;#x4E8E;&amp;#x6211;&amp;#x4EEC;&amp;#x4F7F;&amp;#x7528;&amp;#x6765;&amp;#x8BF4;&amp;#x6BD4;&amp;#x8F83;&amp;#x591A;&amp;#x4F59;&amp;#x3002;&amp;#x4E3A;&amp;#x4E86;&amp;#x53EA;&amp;#x83B7;&amp;#x53D6;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x662F;Grunt&amp;#xFF0C;&amp;#x4E00;&amp;#x79CD;&amp;#x4EFB;&amp;#x52A1;&amp;#x8FD0;&amp;#x884C;&amp;#x5668;&amp;#xFF0C;&amp;#x5E38;&amp;#x88AB;&amp;#x7528;&amp;#x4F5C;&amp;#x524D;&amp;#x7AEF;&amp;#x9879;&amp;#x76EE;&amp;#x6784;&amp;#x5EFA;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;bower&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x51E0;&amp;#x4E4E;&amp;#x6CA1;&amp;#x6709;&amp;#x4E0D;&amp;#x4F7F;&amp;#x7528;Grunt&amp;#x6216;&amp;#x5176;&amp;#x4ED6;&amp;#x7C7B;&amp;#x4F3C;&amp;#x5DE5;&amp;#x5177;&amp;#x7684;&amp;#x3002;&lt;br&gt;bower&amp;#x53EA;&amp;#x8D1F;&amp;#x8D23;&amp;#x628A;&amp;#x4F9D;&amp;#x8D56;&amp;#x4E0B;&amp;#x8F7D;&amp;#x5230;&amp;#x672C;&amp;#x5730;&amp;#x7684;bower_components&amp;#x76EE;&amp;#x5F55;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E0D;&amp;#x8D1F;&amp;#x8D23;&amp;#x628A;&amp;#x5B83;&amp;#x4EEC;&amp;#x62F7;&amp;#x8D1D;&amp;#x5230;&amp;#x6211;&amp;#x4EEC;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5B9E;&amp;#x9645;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;public/js/lib&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x3002;&lt;/p&gt;
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;&amp;#x524D;&amp;#x7AEF;&amp;#x7684;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x3002;&lt;br&gt;Bower&amp;#x662F;&amp;#x57FA;&amp;#x4E8E;Git&amp;#x4E4B;&amp;#x4E0A;&amp;#x7684;&amp;#x5305;&amp;#x7BA1;&amp;#x7406;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x5305;&amp;#x7684;&amp;#x6E90;&amp;#x5934;&amp;#x90FD;&amp;#x662F;Git&amp;#x5E93;&amp;#xFF08;&amp;#x591A;&amp;#x6570;&amp;#x5728;Github&amp;#x4E0A;&amp;#xFF0C;&amp;#x5E76;&amp;#x975E;&amp;#x6240;&amp;#x6709;&amp;#xFF09;&amp;#x3002;&amp;#x80FD;&amp;#x591F;&amp;#x901A;&amp;#x8FC7;Bower&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x5305;&amp;#xFF0C;&amp;#x5728;&amp;#x5176;Git&amp;#x5E93;&amp;#x4E0B;&amp;#x90FD;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;bower.json&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;br&gt;&amp;#x6211;&amp;#x4EEC;&amp;#x5728;bower&amp;#x4E0A;&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x5305;&amp;#xFF0C;&amp;#x5927;&amp;#x90E8;&amp;#x5206;&amp;#x90FD;&amp;#x662F;&amp;#x5305;&amp;#x7684;&amp;#x6E90;&amp;#x4EE3;&amp;#x7801;&amp;#x5E93;&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x5927;&amp;#x5806;&amp;#x6CA1;&amp;#x6709;&amp;#x7F16;&amp;#x8BD1;&amp;#x6216;&amp;#x8005;&amp;#x6784;&amp;#x5EFA;&amp;#x8FC7;&amp;#x7684;&amp;#x534A;&amp;#x6210;&amp;#x54C1;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5BF9;&amp;#x4E8E;&amp;#x6211;&amp;#x4EEC;&amp;#x4F7F;&amp;#x7528;&amp;#x6765;&amp;#x8BF4;&amp;#x6BD4;&amp;#x8F83;&amp;#x591A;&amp;#x4F59;&amp;#x3002;&amp;#x4E3A;&amp;#x4E86;&amp;#x53EA;&amp;#x83B7;&amp;#x53D6;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x662F;Grunt&amp;#xFF0C;&amp;#x4E00;&amp;#x79CD;&amp;#x4EFB;&amp;#x52A1;&amp;#x8FD0;&amp;#x884C;&amp;#x5668;&amp;#xFF0C;&amp;#x5E38;&amp;#x88AB;&amp;#x7528;&amp;#x4F5C;&amp;#x524D;&amp;#x7AEF;&amp;#x9879;&amp;#x76EE;&amp;#x6784;&amp;#x5EFA;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;bower&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x51E0;&amp;#x4E4E;&amp;#x6CA1;&amp;#x6709;&amp;#x4E0D;&amp;#x4F7F;&amp;#x7528;Grunt&amp;#x6216;&amp;#x5176;&amp;#x4ED6;&amp;#x7C7B;&amp;#x4F3C;&amp;#x5DE5;&amp;#x5177;&amp;#x7684;&amp;#x3002;&lt;br&gt;bower&amp;#x53EA;&amp;#x8D1F;&amp;#x8D23;&amp;#x628A;&amp;#x4F9D;&amp;#x8D56;&amp;#x4E0B;&amp;#x8F7D;&amp;#x5230;&amp;#x672C;&amp;#x5730;&amp;#x7684;bower_components&amp;#x76EE;&amp;#x5F55;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E0D;&amp;#x8D1F;&amp;#x8D23;&amp;#x628A;&amp;#x5B83;&amp;#x4EEC;&amp;#x62F7;&amp;#x8D1D;&amp;#x5230;&amp;#x6211;&amp;#x4EEC;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5B9E;&amp;#x9645;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;public/js/lib&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x3002;&lt;/p&gt;
 &lt;p&gt;&amp;#x4E3A;&amp;#x4E86;&amp;#x5B9E;&amp;#x73B0;&amp;#x8FD9;&amp;#x6837;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x8FD8;&amp;#x9700;&amp;#x8981;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x5E2E;&amp;#x52A9;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm install grunt-bower-task --save-dev
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#x5728;Gruntfile&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&lt;/p&gt;
@@ -521,11 +528,101 @@ bower uninstall jquery
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x6CE8;&amp;#x518C;&quot;&gt;&lt;a href=&quot;#&amp;#x6CE8;&amp;#x518C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6CE8;&amp;#x518C;&quot;&gt;&lt;/a&gt;&amp;#x6CE8;&amp;#x518C;&lt;/h2&gt;&lt;p&gt;&amp;#x5148;&amp;#x5728;github&amp;#x4E0A;&amp;#x521B;&amp;#x5EFA;&amp;#x8D44;&amp;#x6E90;&amp;#x5E93;&amp;#xFF0C;&amp;#x5C06;&amp;#x672C;&amp;#x5730;&amp;#x5DE5;&amp;#x7A0B;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;git push origin master&lt;/code&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x6CE8;&amp;#x518C;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;bower register &amp;#x5DE5;&amp;#x7A0B;&amp;#x540D; github&amp;#x5730;&amp;#x5740;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;bower install&lt;/code&gt;&amp;#x6765;&amp;#x5B89;&amp;#x88C5;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;bower-json&quot;&gt;&lt;a href=&quot;#bower-json&quot; class=&quot;headerlink&quot; title=&quot;bower.json&quot;&gt;&lt;/a&gt;bower.json&lt;/h1&gt;&lt;p&gt;bower.json&amp;#x662F;bower&amp;#x7684;&amp;#x4E3B;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x91CC;&amp;#x9762;&amp;#x6709;&amp;#x51E0;&amp;#x4E2A;&amp;#x4E3B;&amp;#x8981;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;bower init&amp;#x6765;&amp;#x751F;&amp;#x6210;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;Angular&amp;quot;,
+  &amp;quot;authors&amp;quot;: [
+    &amp;quot;chen1218chen &amp;lt;cc.2008.com@163.com&amp;gt;&amp;quot;
+  ],
+  &amp;quot;description&amp;quot;: &amp;quot;&amp;quot;,
+  &amp;quot;main&amp;quot;: &amp;quot;&amp;quot;,
+  &amp;quot;license&amp;quot;: &amp;quot;MIT&amp;quot;,
+  &amp;quot;homepage&amp;quot;: &amp;quot;https://github.com/chen1218chen/Angular&amp;quot;,
+  &amp;quot;ignore&amp;quot;: [
+    &amp;quot;**/.*&amp;quot;,
+    &amp;quot;node_modules&amp;quot;,
+    &amp;quot;bower_components&amp;quot;,
+    &amp;quot;test&amp;quot;,
+    &amp;quot;tests&amp;quot;
+  ],
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;angular&amp;quot;: &amp;quot;^1.5.6&amp;quot;,
+    &amp;quot;bootstrap&amp;quot;: &amp;quot;^3.3.6&amp;quot;,
+    &amp;quot;jquery&amp;quot;: &amp;quot;^2.2.4&amp;quot;,
+    &amp;quot;requirejs&amp;quot;: &amp;quot;^2.2.0&amp;quot;,
+    &amp;quot;bootstrap-table&amp;quot;: &amp;quot;^1.10.1&amp;quot;,
+    &amp;quot;react&amp;quot;: &amp;quot;^15.1.0&amp;quot;,
+    &amp;quot;font-awesome&amp;quot;: &amp;quot;^4.6.3&amp;quot;,
+    &amp;quot;jquery-confirm&amp;quot;: &amp;quot;^2.6.0&amp;quot;,
+    &amp;quot;jquery-ui&amp;quot;: &amp;quot;^1.11.4&amp;quot;,
+    &amp;quot;bootstrap3-dialog&amp;quot;: &amp;quot;bootstrap-dialog#^1.35.1&amp;quot;
+  },
+  &amp;quot;exportsOverride&amp;quot;: {
+    &amp;quot;angular&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;*.min.js&amp;quot;
+    },
+    &amp;quot;bootstrap&amp;quot;: {
+      &amp;quot;js&amp;quot;: &amp;quot;dist/js/*.min.js&amp;quot;,
+      &amp;quot;css&amp;quot;: &amp;quot;dist/css/*.min.css&amp;quot;,
+      &amp;quot;fonts&amp;quot;: &amp;quot;dist/fonts/*.*&amp;quot;
+    },
+     &amp;quot;bootstrap3-dialog&amp;quot;: {
+      &amp;quot;js&amp;quot;: &amp;quot;dist/js/*.min.js&amp;quot;,
+      &amp;quot;css&amp;quot;: &amp;quot;dist/css/*.min.css&amp;quot;
+    },
+    &amp;quot;bootstrap-table&amp;quot;: {
+      &amp;quot;js&amp;quot;: &amp;quot;dist/*.min.js&amp;quot;,
+      &amp;quot;locale&amp;quot;: &amp;quot;dist/locale/bootstrap-table-zh-CN.min.js&amp;quot;,
+      &amp;quot;extensions&amp;quot;: [
+        &amp;quot;dist/extensions/export/*.min.js&amp;quot;,
+        &amp;quot;dist/extensions/editable/*.min.js&amp;quot;,
+        &amp;quot;dist/extensions/angular/*.min.js&amp;quot;
+      ],
+      &amp;quot;css&amp;quot;: &amp;quot;dist/*.min.css&amp;quot;
+    },
+    &amp;quot;font-awesome&amp;quot;: {
+      &amp;quot;css&amp;quot;: &amp;quot;css/*.min.css&amp;quot;,
+      &amp;quot;fonts&amp;quot;: &amp;quot;fonts/*.*&amp;quot;
+    },
+    &amp;quot;jquery&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;dist/jquery.min.js&amp;quot;
+    },
+    &amp;quot;react&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;*.min.js&amp;quot;
+    },
+    &amp;quot;requirejs&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;require.js&amp;quot;
+    },
+    &amp;quot;jquery-ui&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;*.min.js&amp;quot;
+    },
+    &amp;quot;jquery-confirm&amp;quot;: {
+      &amp;quot;&amp;quot;: &amp;quot;*.min.js&amp;quot;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;dependencies&amp;#xFF1A;&lt;/strong&gt; &amp;#x4F9D;&amp;#x8D56;&amp;#x7684;&amp;#x8F6F;&amp;#x4EF6;&amp;#x5305;&amp;#x8FD0;&amp;#x884C;bower install &amp;#x5373;&amp;#x53EF;&amp;#x4E0B;&amp;#x8F7D;&amp;#x5B89;&amp;#x88C5;&amp;#x8FD9;&amp;#x4E9B;&amp;#x63D2;&amp;#x4EF6;&amp;#x5305;&lt;br&gt;&lt;strong&gt;exportsOverride&amp;#xFF1A;&lt;/strong&gt; &amp;#x901A;&amp;#x8FC7;bower&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&amp;#x4E0E;&amp;#x771F;&amp;#x5B9E;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684;&amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x6BCF;&amp;#x4E2A;&amp;#x5305;&amp;#x590D;&amp;#x5236;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x53CA;&amp;#x8DEF;&amp;#x5F84;&amp;#x3002;&amp;#x4E0E;grunt&amp;#x914D;&amp;#x5408;&amp;#x4F7F;&amp;#x7528;gruntfile.js&amp;#x4E2D;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    bower: {
+    install: {
+      options: {
+        targetDir: &amp;apos;WebContent/lib&amp;apos;,
+        layout: &amp;apos;byComponent&amp;apos;,
+        install: true,
+        verbose: false,
+        cleanTargetDir: false,
+        cleanBowerDir: false,
+        bowerOptions: {}
+      }
+    }
+  }
+grunt.loadNpmTasks(&amp;apos;grunt-bower-task&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x8FD0;&amp;#x884C;&lt;code&gt;grunt bower&lt;/code&gt;&amp;#x5373;&amp;#x53EF;&amp;#x5B8C;&amp;#x6210;&amp;#x590D;&amp;#x5236;&lt;br&gt;&lt;img src=&quot;/2016/06/08/bower/Image%203.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 3.png&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F7F;&amp;#x7528;&lt;/
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bower&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bower&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bower&amp;#x4F
     
     </summary>
     
