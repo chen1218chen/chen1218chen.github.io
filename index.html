@@ -1,1537 +1,1625 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+<!doctype html>
+
+
+
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>chen&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一锅乱炖之chen" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="chen's blog">
+<meta property="og:title" content="一锅乱炖之chen">
 <meta property="og:url" content="http://chen1218chen.github.io/index.html">
-<meta property="og:site_name" content="chen's blog">
+<meta property="og:site_name" content="一锅乱炖之chen">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="chen's blog">
+<meta name="twitter:title" content="一锅乱炖之chen">
 <meta name="twitter:description">
-  
-    <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://chen1218chen.github.io/"/>
+
+  <title> 一锅乱炖之chen </title>
 </head>
 
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="null" class="js-avatar">
-			
-		</a>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">chen</a></h1>
-		</hgroup>
+  
 
-		
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/eclipse-JRebel/" style="font-size: 10px;">eclipse, JRebel</a> <a href="/tags/express-js/" style="font-size: 10px;">express.js</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 15px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端-模块化-SeaJS-RequireJS/" style="font-size: 10px;">前端, 模块化, SeaJS, RequireJS</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一锅乱炖之chen</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">chen</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="null" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">chen</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+  
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-OneToMany关系的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/08/OneToMany关系的实现/" class="article-date">
-  	<time datetime="2016-07-08T14:01:44.000Z" itemprop="datePublished">2016-07-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-      <input type="hidden" class="isFancy" />
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/OneToMany关系的实现/">OneToMany关系的实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x5E94;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x5BF9;&#x4E3E;&#x62A5;&#x4FE1;&#x606F;&#x6DFB;&#x52A0;&#x56DE;&#x590D;&#x529F;&#x80FD;&#xFF0C;&#x4E3E;&#x62A5;&#x4FE1;&#x606F;&#x8868;&#xFF08;Uploadinfo&#xFF09;&#x4E0E;&#x56DE;&#x590D;&#x8868;&#xFF08;reply&#xFF09;&#x4E4B;&#x95F4;&#x662F;1&#xFF1A;n&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
-<blockquote>
-<p>Uploadinfo.java&#x4E2D;&#x6DFB;&#x52A0;</p>
-</blockquote>
-<pre><code>@OneToMany(targetEntity = Reply.class, cascade = { CascadeType.ALL })
-@JoinColumn(name=&quot;itemid&quot;)
-@OrderBy(value = &quot;replyTime desc&quot;)
-private Set&lt;Reply&gt; replyid = new HashSet&lt;Reply&gt;();
-
-public Set&lt;Reply&gt; getReplyid() {
-    return replyid;
-}
-
-public void setReplyid(Set&lt;Reply&gt; replyid) {
-    this.replyid = replyid;
-}
-</code></pre><p>@OrderBy&#xFF1A;&#x6392;&#x5E8F;&#xFF0C;&#x5BF9;&#x5173;&#x8054;&#x7684;reply&#x8868;&#x7684;&#x6570;&#x636E;&#x6309;&#x7167;replyTime&#x503C;&#x5012;&#x5E8F;&#x6392;&#x5217;<br>itemid&#xFF1A; &#x5916;&#x952E;&#xFF0C;&#x82E5;reply&#x8868;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x3002;</p>
-<blockquote>
-<p>Reply.java</p>
-</blockquote>
-<p>&#x5355;&#x5411;&#x5173;&#x7CFB;&#x65F6;&#xFF0C;&#x5728;reply&#x65B9;&#x4E0D;&#x505A;&#x8BBE;&#x7F6E;&#xFF0C;&#x4EE5;&#x4E0B;&#x662F;reply&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
-<pre><code>private Integer id;
-private Integer itemid;
-private String message;
-private String replyTime;
-</code></pre><p>&#x53D6;&#x503C;&#xFF1A;<br><img src="/2016/07/08/OneToMany&#x5173;&#x7CFB;&#x7684;&#x5B9E;&#x73B0;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-eclipse之JRebel热部署" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/21/eclipse之JRebel热部署/" class="article-date">
-  	<time datetime="2016-06-21T10:57:15.000Z" itemprop="datePublished">2016-06-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/21/eclipse之JRebel热部署/">eclipse之JRebel热部署</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x6BCF;&#x6B21;&#x4FEE;&#x6539;java&#x6587;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x542F;tomcat&#xFF0C;&#x6700;&#x8FD1;&#x5B9E;&#x5728;&#x662F;&#x4E0D;&#x582A;&#x5176;&#x6270;&#xFF0C;&#x679C;&#x65AD;&#x51B3;&#x5B9A;&#x518D;&#x6B21;&#x6298;&#x817E;&#x4E00;&#x4E0B;JRebel&#x6765;&#x5B9E;&#x73B0;&#x70ED;&#x542F;&#x52A8;&#xFF0C;&#x4ECE;eclipse marketplace&#x4E0B;&#x8F7D;&#x7684;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x90FD;&#x662F;14&#x5929;&#x7684;&#x8BD5;&#x7528;&#x671F;&#xFF0C;&#x8BD5;&#x7528;&#x671F;&#x8FC7;&#x4E86;&#x4E4B;&#x540E;&#x5C31;&#x4E0D;&#x80FD;&#x5728;&#x4F7F;&#x7528;&#x4E86;&#xFF0C;&#x4ECA;&#x5929;&#x91CD;&#x65B0;&#x6363;&#x9F13;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x7EC8;&#x4E8E;&#x6FC0;&#x6D3B;&#x4E86;&#xFF0C;&#x4EE5;&#x540E;&#x5988;&#x5988;&#x518D;&#x4E5F;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x6211;&#x4E0D;&#x505C;&#x7684;&#x91CD;&#x542F;tomcat&#x4E86;&#x3002;</p>
-<ol>
-<li>Help &gt; Install New Software&#x4E2D;&#x8F93;&#x5165;<br><a href="http://update.zeroturnaround.com/update-site-archive/update-site-6.4.2.RELEASE/&#x3002;" target="_blank" rel="external">http://update.zeroturnaround.com/update-site-archive/update-site-6.4.2.RELEASE/&#x3002;</a><br><img src="/2016/06/21/eclipse&#x4E4B;JRebel&#x70ED;&#x90E8;&#x7F72;/Image%201.png" alt="enter description here" title="Image 1.png"></li>
-<li>&#x70B9;&#x51FB;next&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x6B65;&#xFF0C;&#x6839;&#x636E;&#x63D0;&#x793A;&#x4E00;&#x6B65;&#x6B65;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x3002;</li>
-<li>&#x5B89;&#x88C5;&#x6210;&#x529F;&#x540E;help&#x91CC;&#x9762;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x89C1;JRebel Configuration&#x548C;JRebel Activation<br><img src="/2016/06/21/eclipse&#x4E4B;JRebel&#x70ED;&#x90E8;&#x7F72;/Image%202.png" alt="enter description here" title="Image 2.png"></li>
-<li>&#x6FC0;&#x6D3B;<br>&#x5230;<a href="https://github.com/chen1218chen/JRebel6.4.2Crack" target="_blank" rel="external">&#x8FD9;&#x91CC;</a>&#x4E0B;&#x8F7D;&#x7834;&#x89E3;&#x6587;&#x4EF6;&#x5230;&#x672C;&#x5730;&#x3002;&#x89E3;&#x538B;&#xFF0C;&#x628A;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x7684;&#xFF1A;jrebel.jar&#x548C;jreble.lic&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x8986;&#x76D6;&#x5230;Eclipse&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E0B;plugins&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x7684;org.zeroturnaround.eclipse.embedder_6.2.2.RELEASE-201507291337&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6240;&#x6709;&#x5305;&#x542B;jrebel.jar&#x7684;&#x5B50;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;<br>&#x52A0;&#x8F7D;license&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x542F;Eclipse&#x3002;&#x5373;&#x53EF;&#x770B;&#x89C1;&#x663E;&#x793A;JRebel activated&#x3002;<br><img src="/2016/06/21/eclipse&#x4E4B;JRebel&#x70ED;&#x90E8;&#x7F72;/Image%203.png" alt="enter description here" title="Image 3.png"></li>
-</ol>
-<p>&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x67E5;&#x770B;Eclipse&gt;Window&gt;Preferences&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x591A;&#x4E86;&#x4E00;&#x4E2A;JRebel&#x7684;&#x76EE;&#x5F55;&#x3002;<br><img src="/2016/06/21/eclipse&#x4E4B;JRebel&#x70ED;&#x90E8;&#x7F72;/Image4.png" alt="enter description here" title="Image4.png"><br>&#x70B9;&#x51FB;JRebel Configuration&#x5373;&#x53EF;&#x770B;&#x89C1;&#xFF1A;<br><img src="/2016/06/21/eclipse&#x4E4B;JRebel&#x70ED;&#x90E8;&#x7F72;/Image%206.png" alt="enter description here" title="Image 6.png"><br>&#x6FC0;&#x6D3B;&#x6210;&#x529F;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse-JRebel/">eclipse, JRebel</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-eclipse工程报错" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/16/eclipse工程报错/" class="article-date">
-  	<time datetime="2016-06-16T14:46:07.000Z" itemprop="datePublished">2016-06-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/08/OneToMany关系的实现/" itemprop="url">
+                  OneToMany关系的实现
+                </a>
+              
+            
+          </h1>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/16/eclipse工程报错/">eclipse工程报错</a>
-    </h1>
-  
 
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-08T14:01:44+00:00" content="2016-07-08">
+              2016-07-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x5DE5;&#x7A0B;&#x5BFC;&#x5165;eclipse&#x4E2D;&#x8001;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x7ECF;&#x8FC7;&#x5404;&#x79CD;&#x6298;&#x817E;&#x53D1;&#x73B0;&#x662F;java&#x7684;&#x539F;&#x5DE5;&#x7A0B;&#x9ED8;&#x8BA4;&#x7F16;&#x8BD1;&#x7248;&#x672C;&#x4E0E;eclipse&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x7F16;&#x8BD1;&#x7248;&#x672C;&#x4E0D;&#x540C;&#x3002;&#x5728;&#x5DE5;&#x7A0B;&#x6839;&#x76EE;&#x5F55;&#x7684;.setting&#x76EE;&#x5F55;&#x4E0B;&#x7684;<code>org.eclipse.wst.common.project.facet.core.prefs.xml</code>&#x6587;&#x4EF6;&#x4E2D;<br><img src="/2016/06/16/eclipse&#x5DE5;&#x7A0B;&#x62A5;&#x9519;/Image%201.png" alt="enter description here" title="Image 1.png"><br>&#x539F;&#x6587;&#x4EF6;&#x4E3A;&#xFF1A;<br><img src="/2016/06/16/eclipse&#x5DE5;&#x7A0B;&#x62A5;&#x9519;/Image%203.png" alt="enter description here" title="Image 3.png"></p>
-<p>&#x4FEE;&#x6539;&#x4E3A;<br><img src="/2016/06/16/eclipse&#x5DE5;&#x7A0B;&#x62A5;&#x9519;/Image%204.png" alt="enter description here" title="Image 4.png"><br>&#x5E76;&#x4E14;&#x4FEE;&#x6539;&#x5DE5;&#x7A0B;&#x7684;&#x7F16;&#x8BD1;&#x7248;&#x672C;<br><img src="/2016/06/16/eclipse&#x5DE5;&#x7A0B;&#x62A5;&#x9519;/Image%205.png" alt="enter description here" title="Image 5.png"><br>&#x7EDF;&#x4E00;&#x4F7F;&#x7528;JRE1.7&#x7248;&#x672C;</p>
 
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hibernate之翻页的实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/13/hibernate之翻页的实现/" class="article-date">
-  	<time datetime="2016-06-13T10:46:36.000Z" itemprop="datePublished">2016-06-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a>
-    </h1>
-  
+          
+          @OneToMany&#x7684;&#x5B9E;&#x73B0;&#x5E94;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x5BF9;&#x4E3E;&#x62A5;&#x4FE1;&#x606F;&#x6DFB;&#x52A0;&#x56DE;&#x5
+          ...
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>pageSize:&#x6BCF;&#x9875;&#x8BB0;&#x5F55;&#x6570;<br>pageNow&#xFF1A;&#x5F53;&#x524D;&#x9875;&#x7801;</p>
-<pre><code>@Override
-public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
-    // TODO Auto-generated method stub
-    String sql;
-    if(&quot;picture&quot;.equals(type)){
-         sql = &quot;from Uploadinfo where picturepath1 &lt;&gt; &apos;&apos; and picturepath1 &lt;&gt; &apos;picture/meizhaopian.png&apos; order by dataTime desc&quot;;
-
-    }else{
-        sql=&quot;from Uploadinfo order by dataTime desc&quot;;
-    }
-    Query query = itemDaoImpl.getQuery(sql);
-    //&#x8BBE;&#x7F6E;&#x8D77;&#x59CB;&#x9875;
-    query.setFirstResult((pageNow - 1) * pageSize);
-    //&#x8BBE;&#x7F6E;&#x6BCF;&#x9875;&#x6700;&#x5927;&#x8BB0;&#x5F55;&#x6570;
-    query.setMaxResults(pageSize);
-    List&lt;Uploadinfo&gt; infolist = query.list();
-    return infolist;
-}
-</code></pre><p>index.jsp<br>bootstrap&#x4E2D;&#x7684;&#x5206;&#x9875;&#x7EC4;&#x4EF6;</p>
-<pre><code>&lt;nav style=&quot;text-align: center&quot;&gt;
-    &lt;ul class=&quot;pagination&quot; id=&quot;pageUl&quot;&gt;&lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre><p>index.js</p>
-<pre><code>$(window).load(function() {
-    ////&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
-    queryAll(&quot;rest/Uploadinfo/totlePages&quot;);
-});
-function queryAll(url){
-    $.ajax({
-        type : &quot;post&quot;,
-        url :  url,
-        dataType : &quot;text&quot;,
-        data:{
-             &quot;type&quot;:&quot;&quot;
-        },
-        success : function(msg) {
-            var pages = Math.ceil(msg/5); 
-            var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
-            var options = { 
-                size:&quot;normal&quot;,
-                alignment:&quot;center&quot;,
-                bootstrapMajorVersion:3,  
-                currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
-                numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
-                totalPages: pages, //&#x603B;&#x9875;&#x6570;  
-                itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
-                    switch (type) {
-                    case &quot;first&quot;:
-                        return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
-                    case &quot;prev&quot;:
-                        return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
-                    case &quot;next&quot;:
-                        return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
-                    case &quot;last&quot;:
-                        return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
-                    case &quot;page&quot;:
-                        return page;
-                    }
-                }, 
-                onPageClicked: function (event, originalEvent, type, page) { 
-                    //&#x6362;&#x9875;,&#x4E0B;&#x4E00;&#x9875;
-                    paginator(page);
-                },
-            }  
-            //&#x5206;&#x9875;&#x542F;&#x52A8;
-           element.bootstrapPaginator(options); 
-           paginator(1);
-        }
-    });
-}
-function paginator(pageNow) {
-    $.ajax({
-        type : &quot;post&quot;,
-        url :  &quot;rest/Uploadinfo/onePageData&quot;,
-        dataType : &quot;json&quot;,
-        data:{
-            &quot;pageNow&quot;:pageNow,
-            &quot;pageSize&quot;:5,
-            &quot;type&quot;:&quot;&quot;
-        },
-        success : function(arrData) {
-            console.dir(arrData)
-            var str=&quot;&quot;;
-            var name;
-//            for (i = (page - 1) * 5; i &lt; page * 5; i++) {
-            for(var i=0; i&lt;arrData.length; i++){
-                    var pictureUrl = arrData[i].picturepath1;
-                    var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
-                    var content = arrData[i].content;
-                    var s = content.substr(0, 7);        
-                    if(arrData[i].telephone==&quot;&quot;){
-                        name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
-                    }
-                    else{
-                        name=arrData[i].telephone;
-                    }
-                    str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3 style=&quot;width:95%;&quot;&gt;&lt;a href=&quot;&apos;
-                        + param
-                        + &apos;&quot; title=&quot;&apos;
-                        + arrData[i].telephone
-                        + &quot;&quot;
-                        + &apos;&quot;&gt;&apos;
-                        + s
-                        + &quot;...&quot;
-                        + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
-                        + &apos;&lt;a href=&quot;&apos;
-                        + param
-                        + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
-                        + pictureUrl
-                        + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
-                        + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
-                        + arrData[i].content
-                        + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
-                        + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
-                        + name
-                        + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
-                        + arrData[i].dataTime
-                        + &apos;&lt;/span&gt;&apos;
-                        + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
-                        + param
-                        + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
-                        + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
-
-                    $(&apos;#infolist&apos;).html(&apos;&apos;); 
-                    $(&apos;#infolist&apos;).append(str);
-                }
-            }
-    });
-}
-</code></pre><p>onePageData&#x4E2D;&#x8C03;&#x7528;onePage&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x5206;&#x9875;&#x3002;</p>
-<p>java </p>
-<pre><code>//&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
-@RequestMapping(value = &quot;/totlePages&quot;, method = RequestMethod.POST)
-@ResponseBody
-public int totlePages(@RequestParam(&quot;type&quot;) String type) {
-    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.totalPage(type);
-    int size = itemList.size();
-    return size;
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate-java/">hibernate, java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Struts2之ModelDriven接口实现登陆" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/12/Struts2之ModelDriven接口实现登陆/" class="article-date">
-  	<time datetime="2016-06-12T14:05:01.000Z" itemprop="datePublished">2016-06-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/08/OneToMany关系的实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/">Struts2之ModelDriven接口实现登陆及退出</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x5F53;&#x7528;POST&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#xFF0C;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5927;&#x65F6;&#xFF0C;action&#x4E2D;&#x5B9A;&#x4E49;&#x5404;&#x79CD;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;get/set&#x8BF7;&#x6C42;&#x5C31;&#x663E;&#x5F97;&#x8FC7;&#x4E8E;&#x81C3;&#x80BF;&#xFF0C;&#x6539;&#x7528;Struts2&#x7684;ModelDriven&#x63A5;&#x53E3;&#x6765;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x76F8;&#x5E94;&#x7684;Model&#xFF0C;Struts2&#x6846;&#x67B6;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x4FE1;&#x606F;&#x8D4B;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Model&#x3002;<br>&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x7684;LoginAction&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x91C7;&#x7528;ModelDriven&#x65B9;&#x5F0F;&#x3002;</p>
-<h2 id="LoginModel"><a href="#LoginModel" class="headerlink" title="LoginModel"></a>LoginModel</h2><p>&#x9996;&#x5148;&#xFF0C;&#x7CFB;&#x7EDF;&#x91C7;&#x7528;&#x7535;&#x8BDD;+&#x5BC6;&#x7801;&#x7684;&#x767B;&#x9646;&#x65B9;&#x5F0F;&#xFF0C;&#x5EFA;&#x7ACB;&#x5BF9;&#x5E94;&#x7684;LoginModel.java&#x3002;</p>
-<pre><code>public class LoginModel {
-    private String telephone;
-    private String password;
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-</code></pre><h2 id="LoginAction"><a href="#LoginAction" class="headerlink" title="LoginAction"></a>LoginAction</h2><p>&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x7684;action&#x7EE7;&#x627F;ModelDriven<loginmodel>&#x63A5;&#x53E3;&#xFF0C;&#x5B9E;&#x73B0;getter&#x65B9;&#x6CD5;&#xFF0C;&#x91CD;&#x8F7D;execute&#x65B9;&#x6CD5;&#x3002;</loginmodel></p>
-<pre><code>@ParentPackage(value = &quot;json-default&quot;)
-@Controller
-@Action(value = &quot;/loginAction2&quot;, results = { @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;),
-        @Result(name = &quot;input&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;),
-        @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;) }, exceptionMappings = {
-                @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
-public class LoginAction2 extends BaseAction implements ModelDriven&lt;LoginModel&gt; {
-
-    private static final long serialVersionUID = 1L;
-
-    @Resource
-    private IUserService userManagerImpl;
-    private LoginModel login = new LoginModel();
-
-    @Override
-    public LoginModel getModel() {
-        // TODO Auto-generated method stub
-        return login;
-    }
-
-    // &#x91CD;&#x8F7D;
-    public String execute() throws Exception {
-        String password = login.getPassword();
-        String telephone = login.getTelephone();
-        if (password != null &amp;&amp; !&quot;&quot;.equals(password)) {
-            // password = MD5.MD5Encode(password);
-        }
-        if (telephone == null || telephone == &quot;&quot; || password == null || password == &quot;&quot;)
-            return INPUT;
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(telephone, password);
-        token.setRememberMe(true);// &#x8BB0;&#x4F4F;&#x6211;
-
-        try {
-            // &#x767B;&#x5F55;&#xFF0C;&#x5373;&#x8FDB;&#x884C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x64CD;&#x4F5C;
-            subject.login(token);// &#x8C03;&#x7528; myRealm&#x7684; doGetAuthenticationInfo&#x65B9;&#x6CD5;
-            String telephone2 = (String) subject.getPrincipal();// &#x767B;&#x9646;&#x6210;&#x529F;&#x5C31;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5B50;&#x62FF;&#x5230;&#x7528;&#x6237;&#x540D;&#x4E86;
-            User user = userManagerImpl.queryByTel(telephone2);
-            subject.getSession().setAttribute(&quot;uname&quot;, user.getName());
-        } catch (UnknownSessionException uae) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
-            return ERROR;
-        } catch (UnknownAccountException ex) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x5B58;&#x5728;!&quot;);
-            return INPUT;
-        } catch (IncorrectCredentialsException ice) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x5BC6;&#x7801;&#x9519;&#x8BEF;!&quot;);
-            return INPUT;
-        } catch (LockedAccountException lae) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
-            return INPUT;
-        } catch (AuthenticationException e) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x767B;&#x5F55;&#x5931;&#x8D25;!&quot;);
-            return INPUT;
-        }
-        return SUCCESS;
-    }
-
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
-        }
-        return INPUT;
-    }
-}
-</code></pre><p>&#x6CE8;&#x610F;<code>subject.getSession().setAttribute(arg0, arg1);</code>shiro&#x7684;seeion&#xFF0C;&#x53EF;&#x4EE5;&#x5728;login.jsp&#x9875;&#x9762;&#x83B7;&#x53D6;&#x5230;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x3002;</p>
-<pre><code>&lt;%
-    Object error = session.getAttribute(&quot;myerror&quot;); 
-    if(error==null)
-        error=&quot; &quot;;
- %&gt;
- &lt;form action=&quot;login.action&quot;&gt;
-    ...
-    &lt;label style=&quot;color:red&quot;&gt;&lt;%=error%&gt;&lt;/label&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-        &lt;input type=&quot;text&quot; name=&quot;telephone&quot; class=&quot;email&quot;
-            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x7535;&#x8BDD;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group &quot;&gt;
-        &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;password&quot;
-            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x81;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
-    &lt;/div&gt;
-    ...
-&lt;/form&gt;
-</code></pre><h2 id="LogoutAction"><a href="#LogoutAction" class="headerlink" title="LogoutAction"></a>LogoutAction</h2><p>&#x6CE8;&#x9500;&#x8D26;&#x53F7;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;LoginAction&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;logout&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>loginAction!logout.action</code>&#xFF0C;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x5199;&#x4E00;&#x4E2A;Action</p>
-<pre><code>@ParentPackage(value = &quot;json-default&quot;)
-@Controller
-public class LogoutAction extends BaseAction {
-
-    private static final long serialVersionUID = 1L;
-
-    @Action(value = &quot;/logoutAction&quot;, results = { 
-            @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/login.jsp&quot;),
-            @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;) }, exceptionMappings = {
-                    @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
-        }
-        return SUCCESS;
-    }
-}
-</code></pre><p>&#x8C03;&#x7528;<code>logoutAction.action</code>&#x5373;&#x53EF;&#x3002;</p>
-
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struts2/">struts2</a></li></ul>
-	</div>
 
+    <div>
       
-
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
-  
-</article>
 
-
-
-
-
-
-
-
-
-  
-    <article id="post-grunt" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/grunt/" class="article-date">
-  	<time datetime="2016-06-08T09:46:40.000Z" itemprop="datePublished">2016-06-08</time>
-</a>
+    <div>
+      
     </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
   
-  <div class="article-inner">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/grunt/">grunt + bower</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="&#x5165;&#x95E8;"><a href="#&#x5165;&#x95E8;" class="headerlink" title="&#x5165;&#x95E8;"></a><a href="http://www.gruntjs.net/getting-started" target="_blank" rel="external">&#x5165;&#x95E8;</a></h1><p>Grunt&#x662F;JavaScript &#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x5668;&#x3002;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x91CD;&#x590D;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4F8B;&#x5982;&#x538B;&#x7F29;&#x3001;&#x7F16;&#x8BD1;&#x3001;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7B49;&#xFF0C;&#x8FD9;&#x79CD;&#x81EA;&#x52A8;&#x5316;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4F60;&#x7684;&#x5DE5;&#x4F5C;&#x91CF;&#xFF0C;&#x4F7F;&#x4F60;&#x7684;&#x5DE5;&#x4F5C;&#x66F4;&#x8F7B;&#x677E;<br>Grunt&#x548C; Grunt &#x63D2;&#x4EF6;&#x662F;&#x901A;&#x8FC7; npm &#x5B89;&#x88C5;&#x5E76;&#x7BA1;&#x7406;&#x7684;&#x3002;Grunt 0.4.x &#x5FC5;&#x987B;&#x914D;&#x5408;Node.js &gt;= 0.8.0&#x7248;&#x672C;&#x4F7F;&#x7528;&#x3002;&#xFF1B;&#x5947;&#x6570;&#x7248;&#x672C;&#x53F7;&#x7684; Node.js &#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#x5F00;&#x53D1;&#x7248;&#x3002;</p>
-<h2 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h2><pre><code>npm install grunt --save-dev
-</code></pre><p>&#x540E;&#x9762;&#x7684; &#x2013;save-dev &#x53C2;&#x6570;&#x662F;&#x8BF4;&#xFF0C;&#x628A;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x4FE1;&#x606F;&#xFF0C;&#x540C;&#x65F6;&#x6DFB;&#x52A0;&#x5230; package.json &#x7684; devDependencies &#x4E2D;&#xFF1A;<br><img src="/2016/06/08/grunt/1.png" alt="enter description here" title="1.png"></p>
-<p>&#x7531;&#x4E8E;grunt&#x4EC5;&#x5728;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528; &#x2013;save-dev &#x3002;&#x5982;&#x679C;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5219;&#x7528; &#x2013;save&#x3002;<br>&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x4F7F;&#x7528;grunt&#xFF1A;</p>
-<pre><code>npm install -g grunt-cli
-</code></pre><p>-g &#x662F;&#x8BF4;&#x628A;grunt-cli&#x5B89;&#x88C5;&#x6210;&#x5168;&#x5C40;&#x5DE5;&#x5177;&#x3002;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6D4B;&#x8BD5;&#xFF1A;<br><img src="/2016/06/08/grunt/2.png" alt="enter description here" title="2.png"></p>
-<p>&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x6709;&#x4E00;&#x4EFD;&#x914D;&#x7F6E;&#x597D;package.json &#x548C; Gruntfile &#x6587;&#x4EF6;&#x7684;&#x9879;&#x76EE;&#x4E86;&#xFF0C;&#x81F3;&#x6B64;grunt&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x597D;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;</p>
-<h1 id="&#x4E3B;&#x8981;&#x6587;&#x4EF6;"><a href="#&#x4E3B;&#x8981;&#x6587;&#x4EF6;" class="headerlink" title="&#x4E3B;&#x8981;&#x6587;&#x4EF6;"></a>&#x4E3B;&#x8981;&#x6587;&#x4EF6;</h1><p>&#x4E00;&#x4E2A;grunt&#x9879;&#x76EE;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;package.json&#x548C;Gruntfile.js&#xFF0C;&#x524D;&#x8005;&#x7528;&#x4E8E;nodejs&#x5305;&#x7BA1;&#x7406;&#xFF0C;&#x6BD4;&#x5982;grunt&#x63D2;&#x4EF6;&#x5B89;&#x88C5;&#xFF0C;&#x540E;&#x8005;&#x662F;grunt&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x914D;&#x7F6E;&#x4EFB;&#x52A1;&#x6216;&#x8005;&#x81EA;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#x3002;</p>
-<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>package.json&#x5E94;&#x5F53;&#x653E;&#x7F6E;&#x4E8E;&#x9879;&#x76EE;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x4E0E;Gruntfile&#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x5E94;&#x8BE5;&#x4E0E;&#x9879;&#x76EE;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4E00;&#x8D77;&#x88AB;&#x63D0;&#x4EA4;&#x3002;&#x5728;&#x4E0A;&#x8FF0;&#x76EE;&#x5F55;(package.json&#x6240;&#x5728;&#x76EE;&#x5F55;)&#x4E2D;&#x8FD0;&#x884C;npm install&#x5C06;&#x4F9D;&#x636E;package.json&#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x5217;&#x51FA;&#x7684;&#x6BCF;&#x4E2A;&#x4F9D;&#x8D56;&#x6765;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x9002;&#x5F53;&#x7248;&#x672C;&#x7684;&#x4F9D;&#x8D56;&#x3002;</p>
-<p>&#x4E0B;&#x9762;&#x5217;&#x51FA;&#x4E86;&#x51E0;&#x79CD;&#x4E3A;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x521B;&#x5EFA;package.json&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<pre><code>npm init/grunt-init
-</code></pre><ol>
-<li>&#x5927;&#x90E8;&#x5206; grunt-init &#x6A21;&#x7248;&#x90FD;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7279;&#x5B9A;&#x4E8E;&#x9879;&#x76EE;&#x7684;package.json&#x6587;&#x4EF6;&#x3002;</li>
-<li>npm init&#x547D;&#x4EE4;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;package.json&#x6587;&#x4EF6;&#x3002;</li>
-<li>&#x590D;&#x5236;&#x4E0B;&#x9762;&#x7684;&#x6848;&#x4F8B;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x9700;&#x8981;&#x505A;&#x6269;&#x5145;&#xFF0C;&#x53C2;&#x8003;&#x6B64;&#x8BF4;&#x660E;.</li>
-</ol>
-<pre><code>{
-  &quot;engines&quot;: {
-    &quot;node&quot;: &quot;&gt;= 0.10.0&quot;
-  },
-  &quot;devDependencies&quot;: {
-    &quot;grunt&quot;: &quot;~0.4.5&quot;,
-    &quot;grunt-contrib-concat&quot;: &quot;~0.4.0&quot;,
-    &quot;grunt-contrib-copy&quot;: &quot;^1.0.0&quot;,
-    &quot;grunt-contrib-jshint&quot;: &quot;~0.10.0&quot;,
-    &quot;grunt-contrib-nodeunit&quot;: &quot;~0.4.1&quot;,
-    &quot;grunt-contrib-uglify&quot;: &quot;~0.5.0&quot;,
-    &quot;grunt-contrib-watch&quot;: &quot;~0.6.1&quot;
-  }
-}
-</code></pre><h2 id="Gruntfile"><a href="#Gruntfile" class="headerlink" title="Gruntfile"></a>Gruntfile</h2><p>Gruntfile.js &#x6216; Gruntfile.coffee &#x6587;&#x4EF6;&#x662F;&#x6709;&#x6548;&#x7684; JavaScript &#x6216; CoffeeScript &#x6587;&#x4EF6;&#xFF0C;&#x5E94;&#x5F53;&#x653E;&#x5728;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x548C;package.json&#x6587;&#x4EF6;&#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x5C42;&#x7EA7;&#xFF0C;&#x5E76;&#x548C;&#x9879;&#x76EE;&#x6E90;&#x7801;&#x4E00;&#x8D77;&#x52A0;&#x5165;&#x6E90;&#x7801;&#x7BA1;&#x7406;&#x5668;&#x3002;<br>&#x4E3A;grunt&#x521B;&#x5EFA;&#x914D;&#x7F6E;&#x6587;&#x4EF6;Gruntfile.js&#xFF0C;&#x5B89;&#x88C5;grunt-init</p>
-<pre><code># &#x5B89;&#x88C5;grunt-init
-npm install grunt-init -g
-
-# &#x4E0B;&#x8F7D;grunt&#x6A21;&#x677F;
-git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
-
-# &#x751F;&#x6210;Gruntfile
-grunt-init gruntfile
-</code></pre><p>&#x6839;&#x636E;&#x9700;&#x8981;&#x56DE;&#x7B54;&#x95EE;&#x9898;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5C06;&#x5F97;&#x5230;Gruntfile.js&#x6587;&#x4EF6;<br>&#x8FD0;&#x884C;<code>grunt-init gruntfile</code>&#x65F6;&#xFF0C;&#x603B;&#x62A5;&#x9519;&#xFF0C;&#x6298;&#x817E;&#x597D;&#x4E45;&#x624D;&#x660E;&#x767D;&#xFF0C;&#x88AB;&#x7F51;&#x4E0A;&#x7684;&#x8FD9;&#x4E9B;&#x8D44;&#x6599;&#x8BEF;&#x5BFC;&#x4E86;&#xFF0C;<code>~</code>&#x662F;Linux&#x4E0B;&#x8868;&#x793A;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x7528;<code>~/.grunt-init/gruntfile</code>&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#x65F6;&#xFF0C;&#x5728;windows&#x73AF;&#x5883;&#x4E0B;&#x5E94;&#x8BE5;&#x662F;&#xFF1A;<code>grunt-init &lt;PATH&gt;</code>,PATH&#x662F;template.js&#x6240;&#x5728;&#x8DEF;&#x5F84;&#x3002;</p>
-<pre><code>grunt-init ~\.grunt-init\gruntfile
-</code></pre><p>&#x7136;&#x540E;&#x518D;&#x6839;&#x636E;&#x63D0;&#x793A;&#x751F;&#x6210;gruntfile.js&#x6587;&#x4EF6;&#x3002;<br>Gruntfile&#x7531;&#x4EE5;&#x4E0B;&#x51E0;&#x90E8;&#x5206;&#x6784;&#x6210;&#xFF1A;</p>
-<p>&#x201C;wrapper&#x201D; &#x51FD;&#x6570;<br>&#x9879;&#x76EE;&#x4E0E;&#x4EFB;&#x52A1;&#x914D;&#x7F6E;<br>&#x52A0;&#x8F7D;grunt&#x63D2;&#x4EF6;&#x548C;&#x4EFB;&#x52A1;<br>&#x81EA;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;</p>
-<h2 id="grunt-bower-task"><a href="#grunt-bower-task" class="headerlink" title="grunt-bower-task"></a>grunt-bower-task</h2><p>bower&#x53EA;&#x8D1F;&#x8D23;&#x628A;&#x4F9D;&#x8D56;&#x4E0B;&#x8F7D;&#x5230;&#x672C;&#x5730;&#x7684; bower_components &#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x4E0D;&#x8D1F;&#x8D23;&#x628A;&#x5B83;&#x4EEC;&#x62F7;&#x8D1D;&#x5230;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x4E2D;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6BD4;&#x5982; public/js/lib &#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x53E6;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x5E2E;&#x52A9;&#xFF1A;</p>
-<pre><code>npm install grunt-bower-task --save-dev
-</code></pre><p>&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x8FD0;&#x884C;&#xFF1A;</p>
-<pre><code># bower&#x5177;&#x4F53;&#x5B89;&#x88C5;&#x4F7F;&#x7528;&#x8BF7;&#x67E5;&#x770B;&#x300A;bower&#x300B;&#x4E00;&#x6587;
-npm install bower 
-# &#x5C06;grunt&#x4E0E;bower&#x5B8C;&#x7F8E;&#x7ED3;&#x5408;
-grunt bower
-</code></pre><p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;<br><img src="/2016/06/08/grunt/3.png" alt="enter description here" title="3.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grunt/">grunt</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bower" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/bower/" class="article-date">
-  	<time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/bower/">bower</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="bower&#x4F7F;&#x7528;"><a href="#bower&#x4F7F;&#x7528;" class="headerlink" title="bower&#x4F7F;&#x7528;"></a>bower&#x4F7F;&#x7528;</h1><p>&#x524D;&#x7AEF;&#x7684;&#x5305;&#x7BA1;&#x7406;&#x5668;&#x3002;<br>Bower&#x662F;&#x57FA;&#x4E8E;Git&#x4E4B;&#x4E0A;&#x7684;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x63D0;&#x4F9B;&#x7684;&#x5305;&#x7684;&#x6E90;&#x5934;&#x90FD;&#x662F;Git&#x5E93;&#xFF08;&#x591A;&#x6570;&#x5728;Github&#x4E0A;&#xFF0C;&#x5E76;&#x975E;&#x6240;&#x6709;&#xFF09;&#x3002;&#x80FD;&#x591F;&#x901A;&#x8FC7;Bower&#x4E0B;&#x8F7D;&#x7684;&#x5305;&#xFF0C;&#x5728;&#x5176;Git&#x5E93;&#x4E0B;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;bower.json&#x6587;&#x4EF6;&#x3002;<br>&#x6211;&#x4EEC;&#x5728;bower&#x4E0A;&#x4E0B;&#x8F7D;&#x7684;&#x5305;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x662F;&#x5305;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x5E93;&#xFF0C;&#x6709;&#x4E00;&#x5927;&#x5806;&#x6CA1;&#x6709;&#x7F16;&#x8BD1;&#x6216;&#x8005;&#x6784;&#x5EFA;&#x8FC7;&#x7684;&#x534A;&#x6210;&#x54C1;&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6765;&#x8BF4;&#x6BD4;&#x8F83;&#x591A;&#x4F59;&#x3002;&#x4E3A;&#x4E86;&#x53EA;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x662F;Grunt&#xFF0C;&#x4E00;&#x79CD;&#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x5668;&#xFF0C;&#x5E38;&#x88AB;&#x7528;&#x4F5C;&#x524D;&#x7AEF;&#x9879;&#x76EE;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x4F7F;&#x7528;bower&#x7684;&#x9879;&#x76EE;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x4E0D;&#x4F7F;&#x7528;Grunt&#x6216;&#x5176;&#x4ED6;&#x7C7B;&#x4F3C;&#x5DE5;&#x5177;&#x7684;&#x3002;<br>bower&#x53EA;&#x8D1F;&#x8D23;&#x628A;&#x4F9D;&#x8D56;&#x4E0B;&#x8F7D;&#x5230;&#x672C;&#x5730;&#x7684;bower_components&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x4E0D;&#x8D1F;&#x8D23;&#x628A;&#x5B83;&#x4EEC;&#x62F7;&#x8D1D;&#x5230;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x4E2D;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6BD4;&#x5982;public/js/lib&#x76EE;&#x5F55;&#x4E0B;&#x3002;</p>
-<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x53E6;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x5E2E;&#x52A9;&#xFF1A;</p>
-<pre><code>npm install grunt-bower-task --save-dev
-</code></pre><p>&#x9996;&#x5148;&#x5728;Gruntfile&#x4E2D;&#x6DFB;&#x52A0;</p>
-<pre><code>grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
-</code></pre><p>&#x7136;&#x540E;&#x5728;grunt.initConfig({&#x2026;})&#x53C2;&#x6570;&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#x9879;&#xFF1A;</p>
-<pre><code>bower: {
-    install: {
-      options: {
-        targetDir: &apos;./public/js/lib&apos;,
-        layout: &apos;byComponent&apos;,
-        install: true,
-        verbose: false,
-        cleanTargetDir: false,
-        cleanBowerDir: false,
-        bowerOptions: {}
-      }
-    }
-  }
-</code></pre><p>&#x8FD9;&#x91CC;&#x6307;&#x5B9A;&#x62F7;&#x8D1D;&#x7684;&#x76EE;&#x6807;&#x76EE;&#x5F55;&#x4E3A;public/js/lib&#xFF0C;&#x4E14;&#x6587;&#x4EF6;&#x6309;&#x7167;&#x6A21;&#x5757;&#x5206;&#x6210;&#x5355;&#x4E2A;&#x76EE;&#x5F55;(byComponent)&#x3002;&#x5982;&#x679C;&#x60F3;&#x628A;&#x6240;&#x6709;&#x7684;js&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x6240;&#x6709;&#x7684;css&#x6587;&#x4EF6;&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x5219;&#x4F7F;&#x7528;byType</p>
-<h2 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h2><pre><code>npm install -g bower
-</code></pre><p>-g&#x8868;&#x793A;&#x5168;&#x5C40;&#x5B89;&#x88C5;<br>npm&#x662F;nodejs&#x7684;&#x9ED8;&#x8BA4;&#x5305;&#x7BA1;&#x7406;&#x5668;</p>
-<h3 id="&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;"><a href="#&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;" class="headerlink" title="&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;"></a>&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;</h3><pre><code>bower install jquery#1.11.1 &#x2013;save
-bower install bootstrap &#x2013;save
-bower install bootstrap-table &#x2013;save
-bower install font-awesome -save
-bower install d3 &#x2013;save
-bower install jqueryui &#x2013;save
-bower install datatables#1.10.2 &#x2013;save
-bower install echarts &#x2013;save
-bower install moment &#x2013;save
-bower install backbone &#x2013;save
-bower install seajs &#x2013;save
-bower install requirejs -save
-bower install angular -save
-</code></pre><h3 id="download-&#x65B9;&#x5F0F;"><a href="#download-&#x65B9;&#x5F0F;" class="headerlink" title="download &#x65B9;&#x5F0F;"></a>download &#x65B9;&#x5F0F;</h3><pre><code># &#x5DF2;&#x6CE8;&#x518C;&#x7684;&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x7B80;&#x5199;&#x5373;&#x53EF;
-$ bower install jquery
-# GitHub &#x4E0A;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x4F7F;&#x7528;&#x540D;&#x79F0;&#x5373;&#x53EF;
-$ bower install desandro/masonry
-# GitHub&#x4E0A;&#x7684;&#x9879;&#x76EE;
-$ bower install git://github.com/user/package.git
-# &#x76F4;&#x63A5;&#x901A;&#x8FC7; URL &#x4E0B;&#x8F7D;
-$ bower install http://example.com/script.js
-</code></pre><p>&#x53C2;&#x6570;&#xFF1A;</p>
-<pre><code>-F, &#x2013;force-latest: &#x4E0D;&#x7BA1;&#x51B2;&#x7A81;&#x95EE;&#x9898;&#x5F3A;&#x5236;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7248;&#x672C;
--p, &#x2013;production: &#x5B89;&#x88C5;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x5E93;&#xFF0C;&#x4E0D;&#x5B89;&#x88C5;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x6240;&#x9700;&#x7684;&#x6587;&#x4EF6;
--S, &#x2013;save: &#x5C06;&#x5B89;&#x88C5;&#x7684;&#x5305;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;&#x9879;&#x76EE;&#x7684; bower.json &#x4F9D;&#x8D56;&#x914D;&#x7F6E;&#x4E2D;
--D, &#x2013;save-dev: &#x5C06;&#x5DF2;&#x5B89;&#x88C5;&#x7684;&#x5305;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684; bower.json &#x4F9D;&#x8D56;&#x4E2D;
-</code></pre><h2 id="&#x547D;&#x4EE4;"><a href="#&#x547D;&#x4EE4;" class="headerlink" title="&#x547D;&#x4EE4;"></a>&#x547D;&#x4EE4;</h2><h3 id="bower-init"><a href="#bower-init" class="headerlink" title="bower init"></a>bower init</h3><p>&#x521B;&#x5EFA;bower.json&#x6587;&#x4EF6;&#x3002;<br>&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8FDB;&#x5165;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x8F93;&#x5165;<code>bower init</code>,&#x6839;&#x636E;&#x63D0;&#x793A;&#x8F93;&#x5165;&#x4E00;&#x4E9B;&#x9879;&#x76EE;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x6216;&#x8005;&#x76F4;&#x63A5;&#x56DE;&#x8F66;&#x6216;&#x7A7A;&#x683C;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;bower.json&#x6587;&#x4EF6;&#xFF0C;&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x8BE5;&#x9879;&#x76EE;&#x7684;&#x914D;&#x7F6E;<br><img src="/2016/06/08/bower/3.png" alt="enter description here" title="3.png"></p>
-<h3 id="bower-help"><a href="#bower-help" class="headerlink" title="bower help"></a>bower help</h3><p>&#x5E2E;&#x52A9;&#x547D;&#x4EE4;<br><img src="/2016/06/08/bower/7.png" alt="enter description here" title="7.png"></p>
-<h3 id="bower-install-uninstall"><a href="#bower-install-uninstall" class="headerlink" title="bower install/uninstall"></a>bower install/uninstall</h3><p>&#x5305;&#x7684;&#x7BA1;&#x7406;</p>
-<pre><code>bower install jquery
-bower uninstall jquery
-</code></pre><p>&#x5305;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x4FEE;&#x6539;bower.json&#x4E2D;&#x7684;dependencies&#x53C2;&#x6570;&#x540E;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
-<pre><code>bower update 
-</code></pre><p>bower&#x4F1A;&#x52A8;&#x66F4;&#x65B0;&#x5305;&#x7684;&#x7248;&#x672C;<br>&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#xFF0C;&#x4F60;&#x4F1A;&#x5728;&#x4F60;&#x521A;&#x624D;&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#x770B;&#x5230;&#x4E00;&#x4E2A;bower_components&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5176;&#x4E2D;&#x76EE;&#x5F55;&#x5305;&#x542B;&#x6240;&#x6709;&#x5B89;&#x88C5;&#x7684;&#x63D2;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;<br><img src="/2016/06/08/bower/2.png" alt="enter description here" title="2.png"></p>
-<pre><code>bower install jquery --save
-</code></pre><p>&#x5176;&#x4E2D;&#x2013;save&#x53C2;&#x6570;&#x662F;&#x4FDD;&#x5B58;&#x914D;&#x7F6E;&#x5230;&#x4F60;&#x7684;bower.json&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;bower.json&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x591A;&#x4E86;&#x4E00;&#x884C;&#xFF1A;</p>
-<pre><code>&quot;dependencies&quot;: {
-   &quot;jquery&quot;: &quot;~2.1.4&quot;
- }
-</code></pre><h3 id="bower-list"><a href="#bower-list" class="headerlink" title="bower list"></a>bower list</h3><p>&#x67E5;&#x770B;&#x9879;&#x76EE;&#x6240;&#x5B89;&#x88C5;&#x7684;&#x6240;&#x6709;&#x5305;&#x3002;<br><img src="/2016/06/08/bower/1.png" alt="enter description here" title="1.png"><br>&#x67E5;&#x770B;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x5305;</p>
-<pre><code>bower cache list
-</code></pre><h3 id="bower-search"><a href="#bower-search" class="headerlink" title="bower search"></a>bower search</h3><p>&#x67E5;&#x627E;&#x76F8;&#x5173;&#x5305;<br>&#x6BD4;&#x5982;&#xFF0C;&#x9700;&#x8981;&#x641C;&#x7D22;bootstrap&#x76F8;&#x5173;&#x7684;&#x63D2;&#x4EF6;&#xFF1A;</p>
-<pre><code>bower search bootstrap
-</code></pre><p><img src="/2016/06/08/bower/6.png" alt="enter description here" title="6.png"></p>
-<h3 id="bower-info"><a href="#bower-info" class="headerlink" title="bower info"></a>bower info</h3><p>&#x5305;&#x7684;&#x4FE1;&#x606F;<br>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x67E5;&#x627E;jquery&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x4E2A;&#x7248;&#x672C;&#xFF0C;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
-<pre><code>bower info jquery
-</code></pre><p>&#x5982;&#x4E0B;&#x56FE;&#x8BF4;&#x6240;&#x793A;&#xFF1A;<br><img src="/2016/06/08/bower/4.png" alt="enter description here" title="4.png"><br>&#x2026;<br><img src="/2016/06/08/bower/5.png" alt="enter description here" title="5.png"></p>
-<h3 id="&#x67E5;&#x770B;&#x5E93;&#x7684;url"><a href="#&#x67E5;&#x770B;&#x5E93;&#x7684;url" class="headerlink" title="&#x67E5;&#x770B;&#x5E93;&#x7684;url"></a>&#x67E5;&#x770B;&#x5E93;&#x7684;url</h3><pre><code>bower lookup jquery
-</code></pre><h3 id="&#x67E5;&#x770B;&#x5E93;&#x7684;&#x4E3B;&#x9875;"><a href="#&#x67E5;&#x770B;&#x5E93;&#x7684;&#x4E3B;&#x9875;" class="headerlink" title="&#x67E5;&#x770B;&#x5E93;&#x7684;&#x4E3B;&#x9875;"></a>&#x67E5;&#x770B;&#x5E93;&#x7684;&#x4E3B;&#x9875;</h3><pre><code>bower home jquery
-</code></pre><h2 id="&#x6CE8;&#x518C;"><a href="#&#x6CE8;&#x518C;" class="headerlink" title="&#x6CE8;&#x518C;"></a>&#x6CE8;&#x518C;</h2><p>&#x5148;&#x5728;github&#x4E0A;&#x521B;&#x5EFA;&#x8D44;&#x6E90;&#x5E93;&#xFF0C;&#x5C06;&#x672C;&#x5730;&#x5DE5;&#x7A0B;&#x901A;&#x8FC7;<code>git push origin master</code>&#x4E0A;&#x4F20;&#xFF0C;&#x7136;&#x540E;&#x6CE8;&#x518C;&#xFF1A;</p>
-<pre><code>bower register &#x5DE5;&#x7A0B;&#x540D; github&#x5730;&#x5740;
-</code></pre><p>&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>bower install</code>&#x6765;&#x5B89;&#x88C5;&#x4E86;&#x3002;</p>
-<h1 id="bower-json"><a href="#bower-json" class="headerlink" title="bower.json"></a>bower.json</h1><p>bower.json&#x662F;bower&#x7684;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x6709;&#x51E0;&#x4E2A;&#x4E3B;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;bower init&#x6765;&#x751F;&#x6210;</p>
-<pre><code>{
-  &quot;name&quot;: &quot;Angular&quot;,
-  &quot;authors&quot;: [
-    &quot;chen1218chen &lt;cc.2008.com@163.com&gt;&quot;
-  ],
-  &quot;description&quot;: &quot;&quot;,
-  &quot;main&quot;: &quot;&quot;,
-  &quot;license&quot;: &quot;MIT&quot;,
-  &quot;homepage&quot;: &quot;https://github.com/chen1218chen/Angular&quot;,
-  &quot;ignore&quot;: [
-    &quot;**/.*&quot;,
-    &quot;node_modules&quot;,
-    &quot;bower_components&quot;,
-    &quot;test&quot;,
-    &quot;tests&quot;
-  ],
-  &quot;dependencies&quot;: {
-    &quot;angular&quot;: &quot;^1.5.6&quot;,
-    &quot;bootstrap&quot;: &quot;^3.3.6&quot;,
-    &quot;jquery&quot;: &quot;^2.2.4&quot;,
-    &quot;requirejs&quot;: &quot;^2.2.0&quot;,
-    &quot;bootstrap-table&quot;: &quot;^1.10.1&quot;,
-    &quot;react&quot;: &quot;^15.1.0&quot;,
-    &quot;font-awesome&quot;: &quot;^4.6.3&quot;,
-    &quot;jquery-confirm&quot;: &quot;^2.6.0&quot;,
-    &quot;jquery-ui&quot;: &quot;^1.11.4&quot;,
-    &quot;bootstrap3-dialog&quot;: &quot;bootstrap-dialog#^1.35.1&quot;
-  },
-  &quot;exportsOverride&quot;: {
-    &quot;angular&quot;: {
-      &quot;&quot;: &quot;*.min.js&quot;
-    },
-    &quot;bootstrap&quot;: {
-      &quot;js&quot;: &quot;dist/js/*.min.js&quot;,
-      &quot;css&quot;: &quot;dist/css/*.min.css&quot;,
-      &quot;fonts&quot;: &quot;dist/fonts/*.*&quot;
-    },
-     &quot;bootstrap3-dialog&quot;: {
-      &quot;js&quot;: &quot;dist/js/*.min.js&quot;,
-      &quot;css&quot;: &quot;dist/css/*.min.css&quot;
-    },
-    &quot;bootstrap-table&quot;: {
-      &quot;js&quot;: &quot;dist/*.min.js&quot;,
-      &quot;locale&quot;: &quot;dist/locale/bootstrap-table-zh-CN.min.js&quot;,
-      &quot;extensions&quot;: [
-        &quot;dist/extensions/export/*.min.js&quot;,
-        &quot;dist/extensions/editable/*.min.js&quot;,
-        &quot;dist/extensions/angular/*.min.js&quot;
-      ],
-      &quot;css&quot;: &quot;dist/*.min.css&quot;
-    },
-    &quot;font-awesome&quot;: {
-      &quot;css&quot;: &quot;css/*.min.css&quot;,
-      &quot;fonts&quot;: &quot;fonts/*.*&quot;
-    },
-    &quot;jquery&quot;: {
-      &quot;&quot;: &quot;dist/jquery.min.js&quot;
-    },
-    &quot;react&quot;: {
-      &quot;&quot;: &quot;*.min.js&quot;
-    },
-    &quot;requirejs&quot;: {
-      &quot;&quot;: &quot;require.js&quot;
-    },
-    &quot;jquery-ui&quot;: {
-      &quot;&quot;: &quot;*.min.js&quot;
-    },
-    &quot;jquery-confirm&quot;: {
-      &quot;&quot;: &quot;*.min.js&quot;
-    }
-  }
-}
-</code></pre><p><strong>dependencies&#xFF1A;</strong> &#x4F9D;&#x8D56;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#x8FD0;&#x884C;bower install &#x5373;&#x53EF;&#x4E0B;&#x8F7D;&#x5B89;&#x88C5;&#x8FD9;&#x4E9B;&#x63D2;&#x4EF6;&#x5305;<br><strong>exportsOverride&#xFF1A;</strong> &#x901A;&#x8FC7;bower&#x4E0B;&#x8F7D;&#x7684;&#x63D2;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x4E0E;&#x771F;&#x5B9E;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x9700;&#x8981;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x8BBE;&#x7F6E;&#x6BCF;&#x4E2A;&#x5305;&#x590D;&#x5236;&#x7684;&#x6587;&#x4EF6;&#x53CA;&#x8DEF;&#x5F84;&#x3002;&#x4E0E;grunt&#x914D;&#x5408;&#x4F7F;&#x7528;gruntfile.js&#x4E2D;</p>
-<pre><code>    bower: {
-    install: {
-      options: {
-        targetDir: &apos;WebContent/lib&apos;,
-        layout: &apos;byComponent&apos;,
-        install: true,
-        verbose: false,
-        cleanTargetDir: false,
-        cleanBowerDir: false,
-        bowerOptions: {}
-      }
-    }
-  }
-grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
-</code></pre><p>&#x4E4B;&#x540E;&#xFF0C;&#x8FD0;&#x884C;<code>grunt bower</code>&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x590D;&#x5236;<br><img src="/2016/06/08/bower/Image%203.png" alt="enter description here" title="Image 3.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/Express.js/" class="article-date">
-  	<time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/21/eclipse之JRebel热部署/" itemprop="url">
+                  eclipse之JRebel热部署
+                </a>
+              
+            
+          </h1>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/Express.js/">Express.js</a>
-    </h1>
-  
 
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-21T10:57:15+00:00" content="2016-06-21">
+              2016-06-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2. &#x9759;&#x6001;&#x8DEF;&#x7531;</span><br><span class="line">&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</span><br></pre></td></tr></table></figure></p>
-<p>app.get(&#x2018;/&#x2018;, function(req, res) {<br>   res.sendfile(&#x2018;./views/index.html&#x2019;);<br>});</p>
-<p>//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;<br>app.get(&#x2018;/:name&#x2019;, function(req, res) {<br>    var fileName = req.params.name;<br>    //console.log(&#x2018;./views/&#x2018;+fileName);<br>    res.sendFile(fileName);<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. &#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</span><br></pre></td></tr></table></figure></p>
-<p>//&#x5B89;&#x88C5;<br>npm install -g supervisor<br>```<br>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
-	</div>
-
       
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Angular" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/Angular/" class="article-date">
-  	<time datetime="2016-06-07T16:07:01.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/Angular/">Angular</a>
-    </h1>
-  
+          
+          &#x6BCF;&#x6B21;&#x4FEE;&#x6539;java&#x6587;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x542F;tomcat&#xFF0C;&#x6700;&#x8FD1;&#x5B9E;&#x5728;&#x662F;&#x4
+          ...
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="&#x521D;&#x8BC6;Angular"><a href="#&#x521D;&#x8BC6;Angular" class="headerlink" title="&#x521D;&#x8BC6;Angular"></a>&#x521D;&#x8BC6;Angular</h1><p>angular&#x662F;&#x4E00;&#x79CD;MVVM&#x524D;&#x7AEF;&#x6846;&#x67B6;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x524D;&#x540E;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x5F00;&#x5F00;&#x53D1;&#x90E8;&#x7F72;&#xFF1B;&#x8FD9;&#x6837;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x6A21;&#x5757;&#x5316;&#x9AD8;&#xFF0C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x9AD8;&#xFF0C;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#xFF1B;&#x53EF;&#x6D4B;&#x8BD5;&#x6027;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x65B9;&#x4FBF;</p>
-<h1 id="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"><a href="#&#x6838;&#x5FC3;&#x6982;&#x5FF5;" class="headerlink" title="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"></a>&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h1><ul>
-<li>&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF1A;MVVM&#x6A21;&#x578B;&#xFF0C;view&#x548C;model&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E00;&#x65B9;&#x6539;&#x53D8;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#x3002;</li>
-<li>scope&#xFF1A;view&#x548C;controller&#x4E4B;&#x95F4;&#x7684;&#x7EBD;&#x5E26;&#xFF0C;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x6A21;&#x578B;model&#xFF0C;&#x76D1;&#x542C;model&#x7684;&#x53D8;&#x5316;&#x3002;&#x6BCF;&#x4E2A;angular-app&#x53EA;&#x6709;&#x4E00;&#x4E2A;rootScope&#xFF0C;&#x4E5F;&#x5B58;&#x5728;childScope,&#x6BCF;&#x4E2A;childScope&#x90FD;&#x4F1A;&#x6709;parentScope&#x548C;childScope&#xFF0C;&#x539F;&#x578B;&#x65B9;&#x5F0F;&#x7EE7;&#x627F;&#x3002;</li>
-<li>controller&#xFF1A;&#x89C4;&#x8303;&#x7684;angular&#x4E2D;&#xFF0C;controller&#x4E2D;&#x4E0D;&#x51FA;&#x73B0;&#x4EFB;&#x4F55;DOM&#x64CD;&#x4F5C;&#xFF0C;controller&#x4EC5;&#x4EC5;&#x662F;&#x6539;&#x53D8;scope&#x4E0A;&#x7684;&#x6570;&#x636E;&#x5373;&#x53EF;&#x3002;</li>
-<li>view: angular&#x4F1A;&#x5229;&#x7528;DOM&#x6811;&#xFF0C;&#x7ECF;&#x8FC7;complie&#x518D;&#x548C;scope&#x6570;&#x636E;&#x7ED3;&#x5408;&#xFF0C;&#x5448;&#x73B0;&#x7ED9;&#x7528;&#x6237;&#x3002;</li>
-</ul>
-<h1 id="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"><a href="#angular&#x5E94;&#x7528;&#x5165;&#x53E3;" class="headerlink" title="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"></a>angular&#x5E94;&#x7528;&#x5165;&#x53E3;</h1><p>&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#x6216;&#x8005;angular.bootstrap(element,[&#x2018;&#x6A21;&#x5757;&#x540D;&#x2019;])&#x542F;&#x52A8;&#x3002;ng-app&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6CA1;&#x6709;&#x503C;&#xFF0C;angular&#x4F1A;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;<br>ng-model&#x6307;&#x4EE4;&#x7684;&#x503C;&#x6302;&#x5728;$scope&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
-<h1 id="angular-requirejs"><a href="#angular-requirejs" class="headerlink" title="angular + requirejs"></a>angular + requirejs</h1><pre><code>&lt;div ng-controller=&quot;myCtrl&quot;&gt;
-    &lt;span&gt;{{title}}&lt;/span&gt;
-&lt;/div&gt;
-
-requirejs.config({
-    paths : {
-        angular : &apos;angular/angular&apos;
-    },
-    shim : {
-        angular : {
-            exports : &apos;angular&apos;
-        },
-    }
-})
-define([ &apos;angular&apos; ], function( angular) {
-    var title = angular.module(&quot;myApp&quot;, []);
-    title.controller(&apos;myCtrl&apos;, function($scope) {
-        $scope.title = &quot;&#x4E3B;&#x9875;&quot;;
-    });
-    angular.element(document).ready(function() {
-        angular.bootstrap(document, [ &apos;myApp&apos; ]);
-    });
-});
-</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#xFF0C;&#x91C7;&#x7528;&#x624B;&#x52A8;&#x542F;&#x52A8;angularjs&#x5E94;&#x7528;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-前端模块化管理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/26/前端模块化管理/" class="article-date">
-  	<time datetime="2016-05-26T09:58:04.000Z" itemprop="datePublished">2016-05-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/21/eclipse之JRebel热部署/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/26/前端模块化管理/">SeaJS与RequireJS</a>
-    </h1>
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/16/eclipse工程报错/" itemprop="url">
+                  eclipse工程报错
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-16T14:46:07+00:00" content="2016-06-16">
+              2016-06-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
       </header>
-      
     
-    <div class="article-entry" itemprop="articleBody">
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>[TOC]</p>
-<p>&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x4F9D;&#x7136;&#x6210;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x7684;&#x4E3B;&#x6D41;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x3002;&#x6700;&#x6709;&#x540D;&#x7684;&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5373;requireJS&#xFF0C;&#x91C7;&#x7528;AMD&#x6807;&#x51C6;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5404;&#x6709;&#x7279;&#x8272;&#x3002;</p>
-<h1 id="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"><a href="#&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"></a>&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>CommonJS&#x662F;&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;&#x5316;&#x7684;&#x4E00;&#x79CD;&#x89C4;&#x8303;&#xFF0C;NodeJS&#x662F;&#x5176;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;&#x7531;&#x4E8E;NodeJS&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F16;&#x7A0B;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x8D77;&#x6765;&#x5F88;&#x5FEB;&#xFF0C;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x524D;&#x7AEF;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x5C31;&#x9700;&#x8981;AMD&#xFF0C;CDM&#x3002;<br>CommonJS&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#x5206;&#x4E3A;:{&#x6A21;&#x5757;&#x5F15;&#x7528;(require)} {&#x6A21;&#x5757;&#x5B9A;&#x4E49;(exports)} {&#x6A21;&#x5757;&#x6807;&#x8BC6;(module)}</p>
-<ul>
-<li>require()&#x7528;&#x6765;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x6A21;&#x5757;&#xFF1B;</li>
-<li>exports&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x5BFC;&#x51FA;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x53D8;&#x91CF;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x5BFC;&#x51FA;&#x53E3;&#xFF1B;</li>
-<li>module&#x5BF9;&#x8C61;&#x5C31;&#x4EE3;&#x8868;&#x6A21;&#x5757;&#x672C;&#x8EAB;,&#x5B58;&#x50A8;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x3002;&#x5177;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;<ul>
-<li>module.id&#x2014;&#x2014;&#x6A21;&#x5757;&#x7684;ID&#x3002;</li>
-<li>module.dependencies&#x2014;&#x2014;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5B58;&#x50A8;&#x4E86;&#x6B64;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x7684;&#x6240;&#x6709;&#x6A21;&#x5757;&#x7684;ID&#x5217;&#x8868;&#x3002;   </li>
-<li>module.exports&#x2014;&#x2014;&#x4E0E;exports&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</li>
-</ul>
-</li>
-</ul>
-<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p><strong>AMD</strong>&#xFF1A;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;RequireJS&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br><strong>CMD</strong>&#xFF1A;&#x901A;&#x7528;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;SeaJS (&#x7531;&#x7389;&#x4F2F;-&#x6DD8;&#x5B9D;&#x524D;&#x7AEF;&#x5DE5;&#x7A0B;&#x5E08;&#x63D0;&#x51FA;)&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br>&#x533A;&#x522B;&#xFF1A;</p>
-<ol>
-<li>&#x5BF9;&#x4E8E;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;AMD&#x662F;&#x63D0;&#x524D;&#x6267;&#x884C;&#xFF0C;CMD&#x662F;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#x3002;&#x4E0D;&#x8FC7;RequireJS&#x4ECE;2.0&#x5F00;&#x59CB;&#xFF0C;&#x4E5F;&#x6539;&#x6210;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF08;&#x6839;&#x636E;&#x5199;&#x6CD5;&#x4E0D;&#x540C;&#xFF0C;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x4E0D;&#x901A;&#x8FC7;&#xFF09;&#x3002;</li>
-<li>CMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x5C31;&#x8FD1;&#xFF0C;AMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x524D;&#x7F6E;&#x3002;<strong>&#x5373;SeaJS&#x662F;&#x61D2;&#x6267;&#x884C;&#xFF0C;requireJS&#x662F;&#x9884;&#x6267;&#x884C;&#x3002;</strong></li>
-</ol>
-<ul>
-<li>SeaJS&#x53EA;&#x4F1A;&#x5728;&#x771F;&#x6B63;&#x9700;&#x8981;&#x65F6;&#x624D;&#x6267;&#x884C;&#x8BE5;&#x6A21;&#x5757;&#xFF0C;&#x4E25;&#x683C;&#x6309;&#x7167;&#x4EE3;&#x7801;&#x4E2D;require&#x6A21;&#x5757;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3002;</li>
-<li>RequireJS&#x4E2D;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x88AB;&#x63D0;&#x524D;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4F7F;&#x7528;shim&#x53C2;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;shim&#x91CC;&#x9762;&#x914D;&#x7F6E;&#x597D;&#x4F9D;&#x8D56;&#x3002;</li>
-</ul>
-<p><strong>&#x5B98;&#x65B9;&#x7684;&#x89E3;&#x91CA;&#xFF1A;</strong><a href="https://github.com/seajs/seajs/issues/277" target="_blank" rel="external">SeaJS&#x4E0E;RequireJS &#x7684;&#x5F02;&#x540C;</a></p>
-<pre><code>//AMD 
-define([&apos;./a&apos;,&apos;./b&apos;], function (a, b) { 
+      
 
-    //&#x4F9D;&#x8D56;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x5199;&#x597D; 
-    a.test(); 
-    b.test(); 
-}); 
+      
+        
+          
+          &#x5DE5;&#x7A0B;&#x5BFC;&#x5165;eclipse&#x4E2D;&#x8001;&#x6709;&#x62A5;&#x9519;&#xFF0C;&#x7ECF;&#x8FC7;&#x5404;&#x79CD;&#x6298;&#x817E;&#x53D1;&#x73B0
+          ...
 
-//CMD 
-define(function (requie, exports, module) { 
-
-    //&#x4F9D;&#x8D56;&#x53EF;&#x4EE5;&#x5C31;&#x8FD1;&#x4E66;&#x5199; 
-    var a = require(&apos;./a&apos;); 
-    a.test(); 
-
-    ... 
-    //&#x8F6F;&#x4F9D;&#x8D56; 
-    if (status) { 
-
-        var b = requie(&apos;./b&apos;); 
-        b.test(); 
-    } 
-}); 
-</code></pre><h3 id="SeaJS&#x548C;-RequireJS&#x4E2D;&#x7684;define"><a href="#SeaJS&#x548C;-RequireJS&#x4E2D;&#x7684;define" class="headerlink" title="SeaJS&#x548C; RequireJS&#x4E2D;&#x7684;define"></a>SeaJS&#x548C; RequireJS&#x4E2D;&#x7684;define</h3><pre><code>define(id?, deps?, factory);
-</code></pre><p>&#x4E8B;&#x5B9E;&#x4E0A;SeaJS&#x548C;RequireJS&#x7684;define&#x524D;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x786E;&#x4E00;&#x6837;&#x3002;id&#x90FD;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x90FD;&#x9075;&#x5FAA; Module Identifiers&#x3002;deps&#x90FD;&#x662F;&#x6307;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#xFF0C;&#x7C7B;&#x578B;&#x90FD;&#x4E3A;&#x6570;&#x7EC4;&#x3002;&#x533A;&#x522B;&#x4EC5;&#x5728;&#x4E8E;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;factory&#xFF0C;&#x867D;&#x7136;&#x7C7B;&#x578B;&#x4E5F;&#x90FD;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x4F46;factory&#x7684;&#x53C2;&#x6570;&#x610F;&#x4E49;&#x5374;&#x4E0D;&#x540C;&#x3002;<br>RequireJS&#x4E2D;factory&#x7684;&#x53C2;&#x6570;&#x6709;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;</p>
-<ol>
-<li>factory&#x5B9E;&#x53C2;&#x548C;deps&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x6709;&#x51E0;&#x4E2A;&#xFF0C;factory&#x5B9E;&#x53C2;&#x4E2A;&#x6570;&#x5C31;&#x6709;&#x51E0;&#x4E2A;&#x3002;</li>
-</ol>
-<pre><code>define([&apos;a&apos;, &apos;b&apos;], function(a, b){
-        // todo
-});
-</code></pre><ol>
-<li>&#x56FA;&#x5B9A;&#x4E3A;require,exports, module&#xFF08;modules/wrappings&#x683C;&#x5F0F;&#xFF09;&#x3002;</li>
-</ol>
-<pre><code>define(function(require, exports, module){
-    // todo
-});
-</code></pre><p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x662F;RequireJS&#x540E;&#x671F;&#x5411; Modules/Wrappings &#x7684;&#x59A5;&#x534F;&#xFF0C;&#x5373;&#x517C;&#x5BB9;&#x4E86;&#x5B83;&#x3002;&#x800C;SeaJS&#x7684;define&#x4EC5;&#x652F;&#x6301;RequireJS&#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x5199;&#x6CD5;&#xFF1A;Modules/Wrappings&#x3002;</p>
-<h3 id="SeaJS&#x548C;-RequireJS&#x4E2D;&#x7684;require"><a href="#SeaJS&#x548C;-RequireJS&#x4E2D;&#x7684;require" class="headerlink" title="SeaJS&#x548C; RequireJS&#x4E2D;&#x7684;require"></a>SeaJS&#x548C; RequireJS&#x4E2D;&#x7684;require</h3><p>SeaJS&#x4E2D;&#x201C;&#x4F9D;&#x8D56;&#x201D;&#x90FD;&#x9700;&#x8981;&#x4F7F;&#x7528;require&#x51FD;&#x6570;&#x53BB;&#x83B7;&#x53D6;&#xFF0C;&#x867D;&#x7136;SeaJS&#x7684;define&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;deps&#x4E5F;&#x6709;&#x201C;&#x4F9D;&#x8D56;&#x201D;&#x7684;&#x610F;&#x601D;&#xFF0C;&#x4F46;&#x5B83;&#x662F;&#x63D0;&#x4F9B;&#x6253;&#x5305;&#x5DE5;&#x5177;&#xFF08;SPM&#xFF09;&#x7528;&#x7684;&#x3002;&#x6B64;&#x5916;&#xFF0C;SeaJS&#x7684;require&#x662F;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x533F;&#x540D;&#x51FD;&#x6570;&#x5185;&#x7684;&#xFF0C;RequireJS&#x7684;require&#x5219;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;</p>
-<h3 id="&#x4E09;&#x79CD;&#x7F16;&#x5199;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5F0F;"><a href="#&#x4E09;&#x79CD;&#x7F16;&#x5199;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5F0F;" class="headerlink" title="&#x4E09;&#x79CD;&#x7F16;&#x5199;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5F0F;"></a>&#x4E09;&#x79CD;&#x7F16;&#x5199;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5F0F;</h3><pre><code>    define(function(require, exports, module) {
-    var a = require(&apos;a&apos;); //&#x5F15;&#x5165;a&#x6A21;&#x5757;
-    var b = require(&apos;b&apos;); //&#x5F15;&#x5165;b&#x6A21;&#x5757;
-
-    var data1 = 1; //&#x79C1;&#x6709;&#x6570;&#x636E;
-
-    var func1 = function() { //&#x79C1;&#x6709;&#x65B9;&#x6CD5;
-        return a.run(data1);
-    }
-
-    exports.data2 = 2; //&#x516C;&#x5171;&#x6570;&#x636E;
-
-    exports.func2 = function() { //&#x516C;&#x5171;&#x65B9;&#x6CD5;
-        return &apos;hello&apos;;
-    }
-});
-</code></pre><p>&#x6216;&#x8005;&#xFF1A;</p>
-<pre><code>    define(function(require) {
-    var a = require(&apos;a&apos;); //&#x5F15;&#x5165;a&#x6A21;&#x5757;
-    var b = require(&apos;b&apos;); //&#x5F15;&#x5165;b&#x6A21;&#x5757;
-
-    var data1 = 1; //&#x79C1;&#x6709;&#x6570;&#x636E;
-
-    var func1 = function() { //&#x79C1;&#x6709;&#x65B9;&#x6CD5;
-        return a.run(data1);
-    }
-
-    return {
-        data2: 2,
-        func2: function() {
-            return &apos;hello&apos;;
-        }
-    };
-});
-</code></pre><p>&#x5982;&#x679C;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x6CA1;&#x6709;&#x5176;&#x5B83;&#x4EE3;&#x7801;&#xFF0C;&#x53EA;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x6709;&#x5982;&#x4E0B;&#x7B80;&#x5316;&#x5199;&#x6CD5;&#xFF1A;</p>
-<pre><code>define({
-    data: 1,
-    func: function() {
-        return &apos;hello&apos;;
-    }
-})
-</code></pre><p>&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x9002;&#x5408;&#x5B9A;&#x4E49;&#x7EAF;JSON&#x6570;&#x636E;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
-<h1 id="&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;"><a href="#&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;"></a>&#x6A21;&#x5757;&#x5316;&#x7BA1;&#x7406;&#x5668;</h1><h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><p>&#x4E3B;&#x8981;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x7684;&#x5B89;&#x88C5;&#xFF0C;&#x5347;&#x7EA7;&#x548C;&#x5220;&#x9664;</p>
-<pre><code>npm install -g bower
-bower install jquery
-bower update jquery
-bower uninstall jquery
-</code></pre><p>&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x8BE6;&#x89C1;<a href="http://chen1218chen.github.io/2016/06/08/bower/">bower</a>&#x4E00;&#x6587;&#x4E2D;&#x3002;</p>
-<h2 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt"></a>Grunt</h2><p>&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x5229;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x6253;&#x5305;&#x7BA1;&#x7406;.js<br>&#x5177;&#x4F53;&#x8BE6;&#x89C1;<a href="http://chen1218chen.github.io/2016/06/08/grunt/">grunt+bower </a>&#x4E00;&#x6587;&#x4E2D;&#x3002;</p>
-<h2 id="browserify"><a href="#browserify" class="headerlink" title="browserify"></a>browserify</h2><p>Browserify &#x662F;&#x76EE;&#x524D;&#x6700;&#x5E38;&#x7528;&#x7684; CommonJS &#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;NodeJS&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;npm&#x6765;&#x5B89;&#x88C5;&#x3002;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;NodeJS&#x7684;require&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x7EC4;&#x7EC7;&#x6D4F;&#x89C8;&#x5668;&#x7684;javascript&#x7AEF;&#x4EE3;&#x7801;&#x3002;    </p>
-<pre><code>npm install -g browserify
-</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/16/eclipse工程报错/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端-模块化-SeaJS-RequireJS/">前端, 模块化, SeaJS, RequireJS</a></li></ul>
-	</div>
 
+    <div>
       
-
-      
-      <div class="clearfix"></div>
     </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/13/hibernate之翻页的实现/" itemprop="url">
+                  hibernate之翻页的实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-13T10:46:36+00:00" content="2016-06-13">
+              2016-06-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          pageSize:&#x6BCF;&#x9875;&#x8BB0;&#x5F55;&#x6570;pageNow&#xFF1A;&#x5F53;&#x524D;&#x9875;&#x7801;
+@Override
+public List&lt;Uploadinfo&gt; onePage(int p
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/13/hibernate之翻页的实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/" itemprop="url">
+                  Struts2之ModelDriven接口实现登陆及退出
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-12T14:05:01+00:00" content="2016-06-12">
+              2016-06-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          &#x5F53;&#x7528;POST&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#xFF0C;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5927;&#x65F6;&#xFF0C;ac
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/grunt/" itemprop="url">
+                  grunt + bower
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-08T09:46:40+00:00" content="2016-06-08">
+              2016-06-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          [TOC]
+&#x5165;&#x95E8;Grunt&#x662F;JavaScript &#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x5668;&#x3002;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x91CD;&#x590D;&#x6267;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/grunt/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/bower/" itemprop="url">
+                  bower
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T16:11:25+00:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          [TOC]
+bower&#x4F7F;&#x7528;&#x524D;&#x7AEF;&#x7684;&#x5305;&#x7BA1;&#x7406;&#x5668;&#x3002;Bower&#x662F;&#x57FA;&#x4E8E;Git&#x4E4B;&#x4E0A;&#x7684;&#x
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/bower/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/Express.js/" itemprop="url">
+                  Express.js
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T16:11:25+00:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          [TOC]
+Express&#x5B89;&#x88C5;
+&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/Express.js/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/08/Angular/" itemprop="url">
+                  Angular
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-07T16:07:01+00:00" content="2016-06-07">
+              2016-06-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          &#x521D;&#x8BC6;Angularangular&#x662F;&#x4E00;&#x79CD;MVVM&#x524D;&#x7AEF;&#x6846;&#x67B6;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x524D;&#x540E;&#x7AEF;&#x4
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/08/Angular/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/26/前端模块化管理/" itemprop="url">
+                  SeaJS与RequireJS
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-26T09:58:04+00:00" content="2016-05-26">
+              2016-05-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          [TOC]
+&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x4F9D;&#x7136;&#x6210;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x7684;&#x4E3B;&#x6D41;&#xFF0C;&#x6211;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/26/前端模块化管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="chen" />
+          <p class="site-author-name" itemprop="name">chen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:cc.2008.com@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chen1218chen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
 </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 chen
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
     </div>
   </div>
-</footer>
-    </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
+  
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: true,
-		isPost: false,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
 
 
 
 
 
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
     }
-});
+    var path = "/" + search_path;
+    // monitor main search box;
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
 
 
-  </div>
+  
+
+  
+
+  
+
 </body>
 </html>
