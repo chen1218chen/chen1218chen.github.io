@@ -1,238 +1,213 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
   <meta charset="utf-8">
   
-  <title>Hibernate ManyToOne, ManyToMany注解 | chen&#39;s blog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ManyToOne, ManyToMany注解 | chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
+  <meta name="description" content="[TOC]
+&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hibernate ManyToOne, ManyToMany注解">
+<meta property="og:title" content="ManyToOne, ManyToMany注解">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/03/31/ManyToOne/index.html">
 <meta property="og:site_name" content="chen's blog">
-<meta property="og:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
-<meta property="og:updated_time" content="2016-05-04T08:30:30.251Z">
+<meta property="og:description" content="[TOC]
+&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
+<meta property="og:updated_time" content="2016-07-08T06:51:28.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hibernate ManyToOne, ManyToMany注解">
-<meta name="twitter:description" content="hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x65B9;&amp;#xFF09;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x5355;&amp;#x5411;&amp;#x4F9D;&amp;">
+<meta name="twitter:title" content="ManyToOne, ManyToMany注解">
+<meta name="twitter:description" content="[TOC]
+&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
+&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
   
     <link rel="alternative" href="/atom.xml" title="chen&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-  
   <link rel="stylesheet" href="/css/style.css">
-  
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: true,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-      }
-  </script>
-
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
-
-  
 </head>
+
 <body>
   <div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">chen</a></h1>
-        </hgroup>
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
 
-        
-                
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chen</a></h1>
+		</hgroup>
 
+		
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:cc.2008.com@163.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/chen1218chen" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/eclipse-JRebel/" style="font-size: 10px;">eclipse, JRebel</a> <a href="/tags/express-js/" style="font-size: 10px;">express.js</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端-模块化-SeaJS-RequireJS/" style="font-size: 10px;">前端, 模块化, SeaJS, RequireJS</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                    </div>
-                </section>
-                
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/eclipse-JRebel/" style="font-size: 10px;">eclipse, JRebel</a> <a href="/tags/express-js/" style="font-size: 10px;">express.js</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 15px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端-模块化-SeaJS-RequireJS/" style="font-size: 10px;">前端, 模块化, SeaJS, RequireJS</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chen</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">chen</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:cc.2008.com@163.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/chen1218chen" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">chen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chen</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
+
       <div class="body-wrap"><article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/31/ManyToOne/" class="article-date">
-      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
+  	<time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
 </a>
     </div>
   
@@ -245,7 +220,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hibernate ManyToOne, ManyToMany注解
+      ManyToOne, ManyToMany注解
     </h1>
   
 
@@ -253,11 +228,11 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
+	</div>
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
-    </div>
 
         <div class="clearfix"></div>
       </div>
@@ -265,9 +240,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
-        <p><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></p>
-<ul>
+        <p>[TOC]</p>
+<h1 id="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"><a href="#&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"></a>&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;</h1><h2 id="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"><a href="#hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;" class="headerlink" title="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"></a><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></h2><ul>
 <li>&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#xFF08;many&#x65B9;&#xFF09;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</li>
 <li><p>one&#x662F;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x65B9;&#xFF0C;many&#x662F;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x3002;&#x5728;&#x5173;&#x7CFB;&#x88AB;&#x7EF4;&#x62A4;&#x7AEF;&#xFF0C;&#x5373;many&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;@JoinColumn&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#x5217;&#x6307;&#x5411;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x7AEF;&#x7684;&#x4E3B;&#x952E;&#x5217;&#x3002;</p>
 <ul>
@@ -293,11 +267,8 @@
     inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
 })
 </code></pre><h2 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="ManyToOne"></a>ManyToOne</h2><p>user-onganization&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
-<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-@JoinTable(name = &quot;user_to_role&quot;,   
-    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
-    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
-})
+<pre><code>@ManyToOne(targetEntity = Organization.class, cascade = { CascadeType.MERGE })
+@JoinColumn(name = &quot;oid&quot;)
 </code></pre><h2 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h2><blockquote>
 <p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
 </blockquote>
@@ -308,7 +279,6 @@ JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
 <pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
 @ResponseBody
 public JSONArray queryAllOrgan() {
-
     JSONArray userJSONList;
     JsonConfig jsonConfig = new JsonConfig();
     jsonConfig.setIgnoreDefaultExcludes(false);
@@ -327,7 +297,7 @@ public JSONArray queryAllOrgan() {
     List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
     userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
     return userJSONList;
-}
+    }
 </code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
 <pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
 //    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
@@ -339,199 +309,134 @@ public JSONArray queryAllOrgan() {
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-31, 15:02:55</p>
-        <p><span>最后更新:</span>2016-05-04, 16:30:30</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/31/ManyToOne/" title="Hibernate ManyToOne, ManyToMany注解">http://chen1218chen.github.io/2016/03/31/ManyToOne/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/31/ManyToOne/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
+<nav id="article-nav">
+  
+    <a href="/2016/04/06/shiro角色配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/06/shiro角色配置/">
-                    shiro角色配置
-                </a>
-            </div>
+          shiro角色配置
         
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/30/shiro入门/">
-                    shiro入门配置
-                </a>
-            </div>
-        
-    </nav>
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/30/shiro入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">shiro入门配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
   
 </article>
 
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#manyToMany"><span class="toc-number">1.</span> <span class="toc-text">manyToMany</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ManyToOne"><span class="toc-number">2.</span> <span class="toc-text">ManyToOne</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json死循环"><span class="toc-number">3.</span> <span class="toc-text">json死循环</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-<script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
-
-    if ($(".left-col").is(":hidden")) {
-        $("#tocButton").attr("value", valueShow);
-    }
-
-    $("#tocButton").click(function() {
-        if ($("#toc").is(":hidden")) {
-            $("#tocButton").attr("value", valueHide);
-            $("#toc").slideDown(320);
-            $(".switch-btn, .switch-area").fadeOut(300);
-        }
-        else {
-            $("#tocButton").attr("value", valueShow);
-            $("#toc").slideUp(350);
-            $(".switch-btn, .switch-area").fadeIn(500);
-        }
-    })
-
-    if ($(".toc").length < 1) {
-        $("#toc, #tocButton").hide();
-        $(".switch-btn, .switch-area").show();
-    }
-</script>
-
-
-
-
-    <div class="share">
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-    </div>
-    <script>
-        window._bd_share_config={
-            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    </script>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
 
 
 
-    
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ManyToOne" data-title="ManyToOne, ManyToMany注解" data-url="http://chen1218chen.github.io/2016/03/31/ManyToOne/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2016/04/06/shiro角色配置/" title="上一篇: shiro角色配置">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2016/03/30/shiro入门/" title="下一篇: shiro入门配置">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/eclipse之JRebel热部署/">eclipse之JRebel热部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/16/eclipse工程报错/">eclipse工程报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/">Struts2之ModelDriven接口实现登陆及退出</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/grunt/">grunt + bower</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/bower/">bower</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Angular/">Angular</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">SeaJS与RequireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的原型及继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrapTable总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">bootstrap框架中对于用户表操作的js代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">Spring注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">Hibernate ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/17/bootstrap插件的使用/">bootstrap 常用插件使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">git入门及常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS技术整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2016 chen
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a> 
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 chen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
+  </div>
 </footer>
     </div>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
 </script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
   </div>
 </body>
 </html>

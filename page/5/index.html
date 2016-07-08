@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
   <meta charset="utf-8">
   
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>chen&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
@@ -20,219 +21,375 @@
   
     <link rel="icon" href="/favicon.png">
   
-  
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-  
   <link rel="stylesheet" href="/css/style.css">
-  
-      <style> .article { opacity: 0;} </style>
-  
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  
-  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-      }
-  </script>
-
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
-
-  
 </head>
+
 <body>
   <div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">chen</a></h1>
-        </hgroup>
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
 
-        
-                
+		<hgroup>
+		  <h1 class="header-author"><a href="/">chen</a></h1>
+		</hgroup>
 
+		
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:cc.2008.com@163.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/chen1218chen" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/eclipse-JRebel/" style="font-size: 10px;">eclipse, JRebel</a> <a href="/tags/express-js/" style="font-size: 10px;">express.js</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 10px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端-模块化-SeaJS-RequireJS/" style="font-size: 10px;">前端, 模块化, SeaJS, RequireJS</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                    </div>
-                </section>
-                
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Bootstrap-Paginator-Bootstrap/" style="font-size: 10px;">Bootstrap Paginator, Bootstrap</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax，js/" style="font-size: 10px;">ajax，js</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/arcgis/" style="font-size: 10px;">arcgis</a> <a href="/tags/bootstrap/" style="font-size: 20px;">bootstrap</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/eclipse-JRebel/" style="font-size: 10px;">eclipse, JRebel</a> <a href="/tags/express-js/" style="font-size: 10px;">express.js</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/grunt/" style="font-size: 10px;">grunt</a> <a href="/tags/hexo-blog/" style="font-size: 10px;">hexo,blog</a> <a href="/tags/hibernate/" style="font-size: 15px;">hibernate</a> <a href="/tags/hibernate-java/" style="font-size: 10px;">hibernate, java</a> <a href="/tags/hibernate-spring/" style="font-size: 10px;">hibernate, spring</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/node-js/" style="font-size: 10px;">node.js</a> <a href="/tags/question/" style="font-size: 10px;">question</a> <a href="/tags/select2-bootstrap/" style="font-size: 10px;">select2, bootstrap</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/spring-springMVC/" style="font-size: 10px;">spring, springMVC</a> <a href="/tags/ssh-aop-hibernate/" style="font-size: 10px;">ssh, aop,hibernate</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/前端-模块化-SeaJS-RequireJS/" style="font-size: 10px;">前端, 模块化, SeaJS, RequireJS</a> <a href="/tags/常用软件/" style="font-size: 10px;">常用软件</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
-            </div>
-        </div>
-    </header>                
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chen</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">chen</a></h1>
-            </hgroup>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:cc.2008.com@163.com" title="Email"></a></li>
-                            
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/chen1218chen" title="GitHub"></a></li>
-                            
-                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">chen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">chen</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
 </nav>
+
       <div class="body-wrap">
+  
+    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/JS/" class="article-date">
+  	<time datetime="2016-03-02T02:00:26.806Z" itemprop="datePublished">2016-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/JS/">JS技术整理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h2 id="setTimeOut-&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;"><a href="#setTimeOut-&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;" class="headerlink" title="setTimeOut()&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;"></a>setTimeOut()&#x53CA;js&#x5F15;&#x64CE;&#x3001;&#x7EBF;&#x7A0B;</h2><p>js&#x5F15;&#x64CE;&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x9075;&#x5FAA;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x7684;&#x673A;&#x5236;&#x3002;js&#x5F15;&#x64CE;&#x5904;&#x7406;&#x5230;&#x4E0E;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x4F1A;&#x5206;&#x53D1;&#x7ED9;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#xFF0C;&#x4ED6;&#x4EEC;&#x5904;&#x7406;&#x5B8C;&#x540E;&#x9700;&#x8981;JS&#x5F15;&#x64CE;&#x5904;&#x7406;&#x662F;&#xFF0C;&#x5728;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x540E;&#x9762;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code>&lt;script&gt;
+    alert(&quot;1&quot;);
+    setTimeOut(&quot;alert(2)&quot;,0);
+    alert(3);
+&lt;/script&gt;
+</code></pre><blockquote>
+<p>&#x6267;&#x884C;&#x987A;&#x5E8F;1,3,2</p>
+</blockquote>
+<p>&#x53EF;&#x770B;&#x51FA;setTimeOut(fn,0);&#x4E0D;&#x662F;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;&#x3002;&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x5F53;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5230;setTimeOut&#x8FD9;&#x91CC;&#xFF0C;&#x4F1A;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x65B0;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8BE5;&#x7EBF;&#x7A0B;&#x4F1A;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x540E;&#x5728;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x91CC;&#x9762;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x4EFB;&#x52A1;&#xFF0C;&#x6240;&#x4EE5;setTimeOut&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x4E3B;&#x4EFB;&#x52A1;&#x4E4B;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x5C31;&#x662F;1,3,2&#x4E86;&#x3002;<br><strong>setTimeOut&#x65B0;&#x89E3;&#xFF1A;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#xFF0C;&#x5C06;&#x4EFB;&#x52A1;&#x653E;&#x5165;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#xFF0C;&#x7B49;&#x5F85;js&#x5F15;&#x64CE;&#x7A7A;&#x95F2;&#x65F6;&#x88AB;&#x6267;&#x884C;</strong><br>js&#x5F15;&#x64CE;&#x548C;GUI&#x5F15;&#x64CE;&#xFF08;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#xFF09;&#x662F;&#x4E92;&#x65A5;&#x7684;&#x3002;&#x4E00;&#x4E2A;&#x6302;&#x8D77;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x3002;<br>&#x6D4F;&#x89C8;&#x5668;&#x5F15;&#x64CE;&#x662F;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x5185;&#x6838;&#x7684;&#x63A7;&#x5236;&#x4E0B;&#x4FDD;&#x6301;&#x540C;&#x6B65;&#xFF0C;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x81F3;&#x5C11;&#x5B9E;&#x73B0;&#x4E09;&#x4E2A;&#x5E38;&#x9A7B;&#x7EBF;&#x7A0B;&#x3002;&#xFF1A;js&#x5F15;&#x64CE;&#x7EBF;&#x7A0B;&#x3001;GUI&#x5F15;&#x64CE;&#x7EBF;&#x7A0B;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x65F6;&#x95F4;&#x89E6;&#x53D1;&#x7EBF;&#x7A0B;&#x3002;</p>
+<h2 id="&#x95ED;&#x5305;"><a href="#&#x95ED;&#x5305;" class="headerlink" title="&#x95ED;&#x5305;"></a>&#x95ED;&#x5305;</h2><p>js&#x91C7;&#x7528;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x4F9D;&#x8D56;&#x4E8E;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x800C;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x5728;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x662F;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x3002;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x76F8;&#x4E92;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x90FD;&#x4FDD;&#x5B58;&#x5728;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#xFF0C;&#x8FD9;&#x79CD;&#x7279;&#x6027;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x6210;&#x4E3A;&#x95ED;&#x5305;&#x3002;&#x4ECE;&#x6280;&#x672F;&#x7684;&#x89D2;&#x5EA6;&#x4E0A;&#x8BB2;&#xFF0C;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x3002;</p>
+<pre><code>function test() {
+    var a = 4;
+    return {
+        add : function() {
+            a++;
+            console.log(a);
+        },
+        plus : function() {
+            a--;
+            console.log(a);
+        }
+    };
+}
+var c1 = new test();
+var c2 = new test();
+c1.add();//5
+c2.plus();//
+</code></pre><p>&#x4E24;&#x4E2A;&#x53D8;&#x91CF;&#x4E0D;&#x4F1A;&#x76F8;&#x4E92;&#x5F71;&#x54CD;&#x3002;<br>&#x521D;&#x59CB;&#x5316;&#x79C1;&#x6709;&#x53D8;&#x91CF;&#x503C;</p>
+<pre><code>function test(n){
+    return{
+        get count(){
+            return n++;
+        },
+        set count(m){
+            if(n&gt;m)
+                n=m;
+            else throw Error(&quot;ddd&quot;);
+        }
+    };
+}
+var t = test(100);
+t.count;
+console.log(t.count);//100
+t.count=99;
+console.log(t.count);//99
+</code></pre><h2 id="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"><a href="#JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;" class="headerlink" title="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"></a>JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;</h2><ol>
+<li>this&#x6307;&#x5411;&#x5168;&#x5C40;&#x53D8;&#x91CF;</li>
+</ol>
+<pre><code>var a=1;
+console.log(this);// Window&#x5168;&#x5C40;&#x5BF9;&#x8C61;
+console.log(this.a);//1
+</code></pre><ol>
+<li>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;this</li>
+</ol>
+<pre><code>var a=1;
+function test(){
+    var a=3;
+    console.log(this.a);
+}
+test.a=5;
+test();//1
+</code></pre><p>&#x53EF;&#x770B;&#x51FA;this&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5411;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E5F;&#x5E76;&#x672A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;this&#x6700;&#x7EC8;&#x6307;&#x5411;&#x7684;&#x90FD;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<ol>
+<li>&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</li>
+</ol>
+<pre><code>var a=1;
+function test(){
+    var a=3;
+    console.log(this.a);
+}
+var obj={
+        a:6,
+        fn:test
+};
+obj.fn();//6
+obj.fn.call();//1
+</code></pre><p>this&#x6307;&#x5411;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;call&#xFF0C;this&#x9ED8;&#x8BA4;&#x6307;&#x5411;&#x7684;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#xFF0C;&#x82E5;&#x60F3;&#x6539;&#x53D8;this&#x6307;&#x5411;</p>
+<pre><code>var a=1;
+function test3(){
+    console.log(this.a);
+}
+test3.call();//1
+var obj={
+    a:8,
+    fn:test3
+}
+var para={a:9};
+obj.fn.call(para);//9
+</code></pre><p>call&#x548C;apply&#x90FD;&#x662F;Function&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;</p>
+<ol>
+<li>&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+</ol>
+<pre><code>function test2(){
+    this.a=7;
+}
+var o = new test2();
+console.log(o); //7
+</code></pre><ol>
+<li>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;</li>
+</ol>
+<pre><code>var a=1;
+function test4(){
+    console.log(this.a);//2
+    function test5(){
+        console.dir(this.a);//1
+    }
+    test5();
+}
+var obj = {a:2,fn:test4};
+obj.fn();
+</code></pre><h2 id="apply-call"><a href="#apply-call" class="headerlink" title="apply(),call()"></a>apply(),call()</h2><p>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>f.call(o,1,2);
+f.apply(o,[1,2]);
+</code></pre><h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5D4C;&#x5957;&#x51FD;&#x6570;"><a href="#&#x5D4C;&#x5957;&#x51FD;&#x6570;" class="headerlink" title="&#x5D4C;&#x5957;&#x51FD;&#x6570;"></a>&#x5D4C;&#x5957;&#x51FD;&#x6570;</h3><p>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;test2&#x53EA;&#x80FD;&#x5728;test&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x4E0D;&#x80FD;&#x518D;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</p>
+<pre><code>function test(){
+    var a=1;
+    function test2(){
+        a++;
+        console.log(a);
+    }
+    test2();
+}
+test();//2
+</code></pre><p><strong>console.log();</strong>&#x7EC8;&#x7AEF;&#x6253;&#x5370;&#x8F93;&#x51FA;&#xFF0C;&#x6700;&#x65E9;&#x662F;&#x706B;&#x72D0;&#x5728;fiebug&#x4E2D;&#x7528;&#x6765;&#x8C03;&#x8BD5;</p>
+<h2 id="prompt"><a href="#prompt" class="headerlink" title="prompt"></a>prompt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var  username = prompt(&quot;what is your name?&quot;);</span><br><span class="line">//username&#x5219;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;</span><br></pre></td></tr></table></figure>
+<h2 id="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"><a href="#js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;" class="headerlink" title="js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;"></a>js&#x4E2D;&#x5F15;&#x7528;jsp&#x4EE3;&#x7801;</h2><p>&#x5728;<strong>&#x2018; &#x2018;</strong>&#x4E2D;&#x76F4;&#x63A5;&#x5199;JSP&#x4EE3;&#x7801;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function getCId(){</span><br><span class="line">	return &apos;&lt;%=session.getAttribute(&quot;cId&quot;)%&gt;&apos;;</span><br><span class="line">}</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## JSON&#x603B;&#x7ED3;</span><br></pre></td></tr></table></figure></p>
+<p>//str-&gt;obj<br>JSON.parse();<br>//obj-&gt;str<br>JSON.stringify();<br>```</p>
+<h2 id="js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;"><a href="#js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;" class="headerlink" title="js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;"></a>js&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x9650;&#x5236;</h2><p><a href="">&#x662F;&#x4F7F;&#x7528;get&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;url&#x65E0;&#x8BBA;&#x5982;&#x4F55;&#x90FD;&#x6709;2k&#x7684;&#x957F;&#x5EA6;&#x9650;&#x5236;</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/02/java学习/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">2016-03-02</time>
+  	<time datetime="2016-03-02T02:00:26.797Z" itemprop="datePublished">2016-03-02</time>
 </a>
     </div>
   
@@ -254,7 +411,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;</h2><ol>
 <li>&#x5FC5;&#x987B;&#x4E0E;&#x7C7B;&#x540D;&#x540C;&#x540D;</li>
@@ -269,11 +425,11 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
 
       
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
 
       
       <div class="clearfix"></div>
@@ -290,12 +446,13 @@
 
 
 
+
   
     <article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/02/ARCGIS/" class="article-date">
-      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+  	<time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
 </a>
     </div>
   
@@ -317,7 +474,6 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
     //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
@@ -460,11 +616,11 @@ require([
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+	</div>
 
       
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
-    </div>
 
       
       <div class="clearfix"></div>
@@ -481,12 +637,13 @@ require([
 
 
 
+
   
     <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/02/hexo/" class="article-date">
-      <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
+  	<time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
 </a>
     </div>
   
@@ -508,7 +665,6 @@ require([
     
     <div class="article-entry" itemprop="articleBody">
       
-          
         <p>[TOC]</p>
 <h2 id="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"><a href="#&#x5229;&#x7528;npm&#x5B89;&#x88C5;" class="headerlink" title="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"></a>&#x5229;&#x7528;npm&#x5B89;&#x88C5;</h2><pre><code>npm install -g hexo;
 hexo init &lt;folder&gt;;
@@ -561,11 +717,11 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
+	</div>
 
       
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo-blog/">hexo,blog</a></li></ul>
-    </div>
 
       
       <div class="clearfix"></div>
@@ -582,6 +738,7 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
 
 
 
+
   
   
     <nav id="page-nav">
@@ -590,69 +747,64 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
   
 </div>
       <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                &copy; 2016 chen
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a> 
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 chen
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
+  </div>
 </footer>
     </div>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
 </script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
   </div>
 </body>
 </html>
