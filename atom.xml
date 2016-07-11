@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-07-08T08:16:19.632Z</updated>
+  <updated>2016-07-11T05:31:24.141Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tags</title>
+    <link href="http://chen1218chen.github.io/2016/07/11/tags/"/>
+    <id>http://chen1218chen.github.io/2016/07/11/tags/</id>
+    <published>2016-07-11T10:15:48.000Z</published>
+    <updated>2016-07-11T05:31:24.141Z</updated>
+    
+    <content type="html">&lt;p&gt;hibernate&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hibernate&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://chen1218chen.github.io/tags/js/"/>
+    
+      <category term="hibernate" scheme="http://chen1218chen.github.io/tags/hibernate/"/>
+    
+  </entry>
   
   <entry>
     <title>OneToMany关系的实现</title>
@@ -66,7 +90,7 @@ private String replyTime;
     <link href="http://chen1218chen.github.io/2016/06/21/eclipse%E4%B9%8BJRebel%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
     <id>http://chen1218chen.github.io/2016/06/21/eclipse之JRebel热部署/</id>
     <published>2016-06-21T10:57:15.000Z</published>
-    <updated>2016-06-21T05:47:22.047Z</updated>
+    <updated>2016-07-11T05:43:50.143Z</updated>
     
     <content type="html">&lt;p&gt;&amp;#x6BCF;&amp;#x6B21;&amp;#x4FEE;&amp;#x6539;java&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x91CD;&amp;#x542F;tomcat&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x5B9E;&amp;#x5728;&amp;#x662F;&amp;#x4E0D;&amp;#x582A;&amp;#x5176;&amp;#x6270;&amp;#xFF0C;&amp;#x679C;&amp;#x65AD;&amp;#x51B3;&amp;#x5B9A;&amp;#x518D;&amp;#x6B21;&amp;#x6298;&amp;#x817E;&amp;#x4E00;&amp;#x4E0B;JRebel&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x70ED;&amp;#x542F;&amp;#x52A8;&amp;#xFF0C;&amp;#x4ECE;eclipse marketplace&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x8FD9;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x90FD;&amp;#x662F;14&amp;#x5929;&amp;#x7684;&amp;#x8BD5;&amp;#x7528;&amp;#x671F;&amp;#xFF0C;&amp;#x8BD5;&amp;#x7528;&amp;#x671F;&amp;#x8FC7;&amp;#x4E86;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x4E0D;&amp;#x80FD;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x91CD;&amp;#x65B0;&amp;#x6363;&amp;#x9F13;&amp;#x4E86;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x7EC8;&amp;#x4E8E;&amp;#x6FC0;&amp;#x6D3B;&amp;#x4E86;&amp;#xFF0C;&amp;#x4EE5;&amp;#x540E;&amp;#x5988;&amp;#x5988;&amp;#x518D;&amp;#x4E5F;&amp;#x4E0D;&amp;#x7528;&amp;#x62C5;&amp;#x5FC3;&amp;#x6211;&amp;#x4E0D;&amp;#x505C;&amp;#x7684;&amp;#x91CD;&amp;#x542F;tomcat&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
 &lt;ol&gt;
@@ -85,7 +109,9 @@ private String replyTime;
     </summary>
     
     
-      <category term="eclipse, JRebel" scheme="http://chen1218chen.github.io/tags/eclipse-JRebel/"/>
+      <category term="eclipse" scheme="http://chen1218chen.github.io/tags/eclipse/"/>
+    
+      <category term="JRebel" scheme="http://chen1218chen.github.io/tags/JRebel/"/>
     
   </entry>
   
@@ -94,7 +120,7 @@ private String replyTime;
     <link href="http://chen1218chen.github.io/2016/06/16/eclipse%E5%B7%A5%E7%A8%8B%E6%8A%A5%E9%94%99/"/>
     <id>http://chen1218chen.github.io/2016/06/16/eclipse工程报错/</id>
     <published>2016-06-16T14:46:07.000Z</published>
-    <updated>2016-06-16T06:55:33.823Z</updated>
+    <updated>2016-07-11T05:43:14.490Z</updated>
     
     <content type="html">&lt;p&gt;&amp;#x5DE5;&amp;#x7A0B;&amp;#x5BFC;&amp;#x5165;eclipse&amp;#x4E2D;&amp;#x8001;&amp;#x6709;&amp;#x62A5;&amp;#x9519;&amp;#xFF0C;&amp;#x7ECF;&amp;#x8FC7;&amp;#x5404;&amp;#x79CD;&amp;#x6298;&amp;#x817E;&amp;#x53D1;&amp;#x73B0;&amp;#x662F;java&amp;#x7684;&amp;#x539F;&amp;#x5DE5;&amp;#x7A0B;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7F16;&amp;#x8BD1;&amp;#x7248;&amp;#x672C;&amp;#x4E0E;eclipse&amp;#x73AF;&amp;#x5883;&amp;#x4E0B;&amp;#x7684;&amp;#x7F16;&amp;#x8BD1;&amp;#x7248;&amp;#x672C;&amp;#x4E0D;&amp;#x540C;&amp;#x3002;&amp;#x5728;&amp;#x5DE5;&amp;#x7A0B;&amp;#x6839;&amp;#x76EE;&amp;#x5F55;&amp;#x7684;.setting&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x7684;&lt;code&gt;org.eclipse.wst.common.project.facet.core.prefs.xml&lt;/code&gt;&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&lt;br&gt;&lt;img src=&quot;/2016/06/16/eclipse&amp;#x5DE5;&amp;#x7A0B;&amp;#x62A5;&amp;#x9519;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;br&gt;&amp;#x539F;&amp;#x6587;&amp;#x4EF6;&amp;#x4E3A;&amp;#xFF1A;&lt;br&gt;&lt;img src=&quot;/2016/06/16/eclipse&amp;#x5DE5;&amp;#x7A0B;&amp;#x62A5;&amp;#x9519;/Image%203.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 3.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x4FEE;&amp;#x6539;&amp;#x4E3A;&lt;br&gt;&lt;img src=&quot;/2016/06/16/eclipse&amp;#x5DE5;&amp;#x7A0B;&amp;#x62A5;&amp;#x9519;/Image%204.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 4.png&quot;&gt;&lt;br&gt;&amp;#x5E76;&amp;#x4E14;&amp;#x4FEE;&amp;#x6539;&amp;#x5DE5;&amp;#x7A0B;&amp;#x7684;&amp;#x7F16;&amp;#x8BD1;&amp;#x7248;&amp;#x672C;&lt;br&gt;&lt;img src=&quot;/2016/06/16/eclipse&amp;#x5DE5;&amp;#x7A0B;&amp;#x62A5;&amp;#x9519;/Image%205.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 5.png&quot;&gt;&lt;br&gt;&amp;#x7EDF;&amp;#x4E00;&amp;#x4F7F;&amp;#x7528;JRE1.7&amp;#x7248;&amp;#x672C;&lt;/p&gt;
@@ -106,6 +132,8 @@ private String replyTime;
     
     </summary>
     
+    
+      <category term="eclipse" scheme="http://chen1218chen.github.io/tags/eclipse/"/>
     
   </entry>
   
@@ -821,7 +849,7 @@ define([ &amp;apos;angular&amp;apos; ], function( angular) {
     <link href="http://chen1218chen.github.io/2016/05/26/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%AE%A1%E7%90%86/"/>
     <id>http://chen1218chen.github.io/2016/05/26/前端模块化管理/</id>
     <published>2016-05-26T09:58:04.000Z</published>
-    <updated>2016-07-08T08:13:35.545Z</updated>
+    <updated>2016-07-11T05:46:26.643Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;p&gt;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x4F9D;&amp;#x7136;&amp;#x6210;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x7684;&amp;#x4E3B;&amp;#x6D41;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x505A;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x5C06;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x7EC4;&amp;#x7EC7;&amp;#x8D77;&amp;#x6765;&amp;#x3002;&amp;#x6700;&amp;#x6709;&amp;#x540D;&amp;#x7684;&amp;#x524D;&amp;#x7AEF;&amp;#x6A21;&amp;#x5757;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x5373;requireJS&amp;#xFF0C;&amp;#x91C7;&amp;#x7528;AMD&amp;#x6807;&amp;#x51C6;&amp;#x3002;&amp;#x9664;&amp;#x6B64;&amp;#x4E4B;&amp;#x5916;&amp;#x7684;&amp;#x5176;&amp;#x4ED6;&amp;#x6A21;&amp;#x5757;&amp;#x7BA1;&amp;#x7406;&amp;#x5668;&amp;#x5404;&amp;#x6709;&amp;#x7279;&amp;#x8272;&amp;#x3002;&lt;/p&gt;
@@ -946,7 +974,13 @@ bower uninstall jquery
     </summary>
     
     
-      <category term="前端,模块化,SeaJS,RequireJS" scheme="http://chen1218chen.github.io/tags/%E5%89%8D%E7%AB%AF-%E6%A8%A1%E5%9D%97%E5%8C%96-SeaJS-RequireJS/"/>
+      <category term="前端" scheme="http://chen1218chen.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="模块化" scheme="http://chen1218chen.github.io/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+      <category term="SeaJS" scheme="http://chen1218chen.github.io/tags/SeaJS/"/>
+    
+      <category term="RequireJS" scheme="http://chen1218chen.github.io/tags/RequireJS/"/>
     
   </entry>
   
@@ -1497,136 +1531,6 @@ at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinit
     
     
       <category term="spring" scheme="http://chen1218chen.github.io/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hibernate时间段查询</title>
-    <link href="http://chen1218chen.github.io/2016/05/04/hibernate%E6%97%B6%E9%97%B4%E6%AE%B5%E6%9F%A5%E8%AF%A2/"/>
-    <id>http://chen1218chen.github.io/2016/05/04/hibernate时间段查询/</id>
-    <published>2016-05-04T15:55:02.000Z</published>
-    <updated>2016-06-13T02:43:34.830Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/searchDate&amp;quot;, method = RequestMethod.POST)
-@ResponseBody
-public List&amp;lt;Uploadinfo&amp;gt; searchDate(@RequestParam(&amp;quot;start&amp;quot;) String start,@RequestParam(&amp;quot;end&amp;quot;) String end) {
-
-    List&amp;lt;Uploadinfo&amp;gt; itemList = itemServiceImpl.dateRange(start,end);
-    return itemList;
-}
-//&amp;#x4F7F;&amp;#x7528;HQL&amp;#x8BED;&amp;#x53E5;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x9884;&amp;#x8BBE;&amp;#x5B57;&amp;#x6BB5;
-public List&amp;lt;Uploadinfo&amp;gt; dateRange(String start, String end) {
-    // TODO Auto-generated method stub
-
-    Date beginDate = java.sql.Date.valueOf(start);
-    Date endDate = java.sql.Date.valueOf(end);
-    String hql = &amp;quot;from Uploadinfo info where info.dataTime &amp;lt;:endDate and info.dataTime &amp;gt;=:beginDate&amp;quot;;  
-    Query query = itemDaoImpl.getQuery(hql);
-    query.setDate(&amp;quot;beginDate&amp;quot;,beginDate);   
-    query.setDate(&amp;quot;endDate&amp;quot;,endDate);
-    List&amp;lt;Uploadinfo&amp;gt; infolist = query.list();
-    return infolist;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x91CD;&amp;#x70B9;&amp;#x5728;hql&amp;#x8BED;&amp;#x53E5;&amp;#x5BF9;&amp;#x65F6;&amp;#x95F4;&amp;#x7684;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x662F;date&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5219;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7C7B;&amp;#x578B;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;date&amp;#x7C7B;&amp;#x578B;&lt;br&gt;&lt;code&gt;:&amp;#x53C2;&amp;#x6570;&amp;#x540D;&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;br&gt;&lt;code&gt;?&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x4F4D;&amp;#x7F6E;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;String hql = &amp;quot;from Uploadinfo info where info.dataTime &amp;lt;? and info.dataTime &amp;gt;=?&amp;quot;;
-Query query= session.createQuery(hql);
-query.setString(0,&amp;quot;20160606&amp;quot;);
-query.setString(1,&amp;quot;20160706&amp;quot;);
-List user = query.list();
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x524D;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&lt;a href=&quot;http://www.daterangepicker.com/#examples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datarangepicker&amp;#x63D2;&amp;#x4EF6;&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function dateInit(){
-    $(&amp;apos;#dateRange&amp;apos;).daterangepicker({
-        &amp;quot;ranges&amp;quot;: {
-            &amp;quot;Today&amp;quot;: [
-                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;,
-                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
-            ],
-            &amp;quot;Yesterday&amp;quot;: [
-                &amp;quot;2016-05-03T05:40:05.879Z&amp;quot;,
-                &amp;quot;2016-05-03T05:40:05.879Z&amp;quot;
-            ],
-            &amp;quot;Last 7 Days&amp;quot;: [
-                &amp;quot;2016-04-28T05:40:05.879Z&amp;quot;,
-                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
-            ],
-            &amp;quot;Last 30 Days&amp;quot;: [
-                &amp;quot;2016-04-05T05:40:05.879Z&amp;quot;,
-                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
-            ],
-            &amp;quot;This Month&amp;quot;: [
-                &amp;quot;2016-04-30T16:00:00.000Z&amp;quot;,
-                &amp;quot;2016-05-31T15:59:59.999Z&amp;quot;
-            ],
-            &amp;quot;Last Month&amp;quot;: [
-                &amp;quot;2016-03-31T16:00:00.000Z&amp;quot;,
-                &amp;quot;2016-04-30T15:59:59.999Z&amp;quot;
-            ]
-        },
-        &amp;quot;locale&amp;quot;: {
-            &amp;quot;format&amp;quot;: &amp;quot;YYYY-MM-DD&amp;quot;,
-            &amp;quot;separator&amp;quot;: &amp;quot;   &amp;quot;,
-            &amp;quot;applyLabel&amp;quot;: &amp;quot;&amp;#x786E;&amp;#x5B9A;&amp;quot;,
-            &amp;quot;cancelLabel&amp;quot;: &amp;quot;&amp;#x53D6;&amp;#x6D88;&amp;quot;,
-            &amp;quot;fromLabel&amp;quot;: &amp;quot;From&amp;quot;,
-            &amp;quot;toLabel&amp;quot;: &amp;quot;To&amp;quot;,
-            &amp;quot;customRangeLabel&amp;quot;: &amp;quot;Custom&amp;quot;,
-            &amp;quot;daysOfWeek&amp;quot;: [
-                &amp;quot;&amp;#x65E5;&amp;quot;,
-                &amp;quot;&amp;#x4E00;&amp;quot;,
-                &amp;quot;&amp;#x4E8C;&amp;quot;,
-                &amp;quot;&amp;#x4E09;&amp;quot;,
-                &amp;quot;&amp;#x56DB;&amp;quot;,
-                &amp;quot;&amp;#x4E94;&amp;quot;,
-                &amp;quot;&amp;#x516D;&amp;quot;
-            ],
-            &amp;quot;monthNames&amp;quot;: [
-                &amp;quot;&amp;#x4E00;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x4E8C;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x4E09;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x56DB;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x4E94;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x516D;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x4E03;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x516B;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x4E5D;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x5341;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x5341;&amp;#x4E00;&amp;#x6708;&amp;quot;,
-                &amp;quot;&amp;#x5341;&amp;#x4E8C;&amp;#x6708;&amp;quot;
-            ],
-            &amp;quot;firstDay&amp;quot;: 1
-        },
-        &amp;quot;alwaysShowCalendars&amp;quot;: true,
-        &amp;quot;startDate&amp;quot;: &amp;quot;2016-05-04&amp;quot;,
-        &amp;quot;endDate&amp;quot;: &amp;quot;2016-06-03&amp;quot;
-    }, function(start, end, label) {
-        searchDate(start.format(&amp;apos;YYYY-MM-DD&amp;apos;),end.format(&amp;apos;YYYY-MM-DD&amp;apos;));
-    });
-}
-
-function searchDate(start,end){
-    $.ajax({
-        url : &amp;quot;rest/Uploadinfo/searchDate&amp;quot;,
-        type : &amp;quot;post&amp;quot;,
-        dataType : &amp;apos;json&amp;apos;,
-        data:{
-            &amp;quot;start&amp;quot;:start,
-            &amp;quot;end&amp;quot;:end
-        },
-        success : function(data) {
-            tableShow(data);
-        }
-    });
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/searchDate&amp;quot;, metho
-    
-    </summary>
-    
-    
-      <category term="hibernate" scheme="http://chen1218chen.github.io/tags/hibernate/"/>
     
   </entry>
   
