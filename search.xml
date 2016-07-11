@@ -4,13 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://chen1218chen.github.io/2016/07/11/tags/</url>
-      <content type="html"><![CDATA[<p>hibernate</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[OneToMany关系的实现]]></title>
       <url>http://chen1218chen.github.io/2016/07/08/OneToMany%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
       <content type="html"><![CDATA[<h1 id="OneToMany&#x7684;&#x5B9E;&#x73B0;"><a href="#OneToMany&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="@OneToMany&#x7684;&#x5B9E;&#x73B0;"></a>@OneToMany&#x7684;&#x5B9E;&#x73B0;</h1><p>&#x5E94;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x5BF9;&#x4E3E;&#x62A5;&#x4FE1;&#x606F;&#x6DFB;&#x52A0;&#x56DE;&#x590D;&#x529F;&#x80FD;&#xFF0C;&#x4E3E;&#x62A5;&#x4FE1;&#x606F;&#x8868;&#xFF08;Uploadinfo&#xFF09;&#x4E0E;&#x56DE;&#x590D;&#x8868;&#xFF08;reply&#xFF09;&#x4E4B;&#x95F4;&#x662F;1&#xFF1A;n&#x7684;&#x5173;&#x7CFB;&#x3002;</p>

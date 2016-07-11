@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-07-11T05:31:24.141Z</updated>
+  <updated>2016-07-08T08:16:19.632Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,30 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>tags</title>
-    <link href="http://chen1218chen.github.io/2016/07/11/tags/"/>
-    <id>http://chen1218chen.github.io/2016/07/11/tags/</id>
-    <published>2016-07-11T10:15:48.000Z</published>
-    <updated>2016-07-11T05:31:24.141Z</updated>
-    
-    <content type="html">&lt;p&gt;hibernate&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;hibernate&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://chen1218chen.github.io/tags/js/"/>
-    
-      <category term="hibernate" scheme="http://chen1218chen.github.io/tags/hibernate/"/>
-    
-  </entry>
   
   <entry>
     <title>OneToMany关系的实现</title>
@@ -1531,6 +1507,136 @@ at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinit
     
     
       <category term="spring" scheme="http://chen1218chen.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hibernate时间段查询</title>
+    <link href="http://chen1218chen.github.io/2016/05/04/hibernate%E6%97%B6%E9%97%B4%E6%AE%B5%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://chen1218chen.github.io/2016/05/04/hibernate时间段查询/</id>
+    <published>2016-05-04T15:55:02.000Z</published>
+    <updated>2016-06-13T02:43:34.830Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/searchDate&amp;quot;, method = RequestMethod.POST)
+@ResponseBody
+public List&amp;lt;Uploadinfo&amp;gt; searchDate(@RequestParam(&amp;quot;start&amp;quot;) String start,@RequestParam(&amp;quot;end&amp;quot;) String end) {
+
+    List&amp;lt;Uploadinfo&amp;gt; itemList = itemServiceImpl.dateRange(start,end);
+    return itemList;
+}
+//&amp;#x4F7F;&amp;#x7528;HQL&amp;#x8BED;&amp;#x53E5;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x9884;&amp;#x8BBE;&amp;#x5B57;&amp;#x6BB5;
+public List&amp;lt;Uploadinfo&amp;gt; dateRange(String start, String end) {
+    // TODO Auto-generated method stub
+
+    Date beginDate = java.sql.Date.valueOf(start);
+    Date endDate = java.sql.Date.valueOf(end);
+    String hql = &amp;quot;from Uploadinfo info where info.dataTime &amp;lt;:endDate and info.dataTime &amp;gt;=:beginDate&amp;quot;;  
+    Query query = itemDaoImpl.getQuery(hql);
+    query.setDate(&amp;quot;beginDate&amp;quot;,beginDate);   
+    query.setDate(&amp;quot;endDate&amp;quot;,endDate);
+    List&amp;lt;Uploadinfo&amp;gt; infolist = query.list();
+    return infolist;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x91CD;&amp;#x70B9;&amp;#x5728;hql&amp;#x8BED;&amp;#x53E5;&amp;#x5BF9;&amp;#x65F6;&amp;#x95F4;&amp;#x7684;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x662F;date&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5219;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7C7B;&amp;#x578B;&amp;#x8F6C;&amp;#x5316;&amp;#x4E3A;date&amp;#x7C7B;&amp;#x578B;&lt;br&gt;&lt;code&gt;:&amp;#x53C2;&amp;#x6570;&amp;#x540D;&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;br&gt;&lt;code&gt;?&lt;/code&gt;&amp;#x6839;&amp;#x636E;&amp;#x53C2;&amp;#x6570;&amp;#x4F4D;&amp;#x7F6E;&amp;#x6765;&amp;#x8BBE;&amp;#x7F6E;&amp;#x53C2;&amp;#x6570;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;String hql = &amp;quot;from Uploadinfo info where info.dataTime &amp;lt;? and info.dataTime &amp;gt;=?&amp;quot;;
+Query query= session.createQuery(hql);
+query.setString(0,&amp;quot;20160606&amp;quot;);
+query.setString(1,&amp;quot;20160706&amp;quot;);
+List user = query.list();
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;p&gt;&amp;#x524D;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&lt;a href=&quot;http://www.daterangepicker.com/#examples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;datarangepicker&amp;#x63D2;&amp;#x4EF6;&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function dateInit(){
+    $(&amp;apos;#dateRange&amp;apos;).daterangepicker({
+        &amp;quot;ranges&amp;quot;: {
+            &amp;quot;Today&amp;quot;: [
+                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;,
+                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
+            ],
+            &amp;quot;Yesterday&amp;quot;: [
+                &amp;quot;2016-05-03T05:40:05.879Z&amp;quot;,
+                &amp;quot;2016-05-03T05:40:05.879Z&amp;quot;
+            ],
+            &amp;quot;Last 7 Days&amp;quot;: [
+                &amp;quot;2016-04-28T05:40:05.879Z&amp;quot;,
+                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
+            ],
+            &amp;quot;Last 30 Days&amp;quot;: [
+                &amp;quot;2016-04-05T05:40:05.879Z&amp;quot;,
+                &amp;quot;2016-05-04T05:40:05.879Z&amp;quot;
+            ],
+            &amp;quot;This Month&amp;quot;: [
+                &amp;quot;2016-04-30T16:00:00.000Z&amp;quot;,
+                &amp;quot;2016-05-31T15:59:59.999Z&amp;quot;
+            ],
+            &amp;quot;Last Month&amp;quot;: [
+                &amp;quot;2016-03-31T16:00:00.000Z&amp;quot;,
+                &amp;quot;2016-04-30T15:59:59.999Z&amp;quot;
+            ]
+        },
+        &amp;quot;locale&amp;quot;: {
+            &amp;quot;format&amp;quot;: &amp;quot;YYYY-MM-DD&amp;quot;,
+            &amp;quot;separator&amp;quot;: &amp;quot;   &amp;quot;,
+            &amp;quot;applyLabel&amp;quot;: &amp;quot;&amp;#x786E;&amp;#x5B9A;&amp;quot;,
+            &amp;quot;cancelLabel&amp;quot;: &amp;quot;&amp;#x53D6;&amp;#x6D88;&amp;quot;,
+            &amp;quot;fromLabel&amp;quot;: &amp;quot;From&amp;quot;,
+            &amp;quot;toLabel&amp;quot;: &amp;quot;To&amp;quot;,
+            &amp;quot;customRangeLabel&amp;quot;: &amp;quot;Custom&amp;quot;,
+            &amp;quot;daysOfWeek&amp;quot;: [
+                &amp;quot;&amp;#x65E5;&amp;quot;,
+                &amp;quot;&amp;#x4E00;&amp;quot;,
+                &amp;quot;&amp;#x4E8C;&amp;quot;,
+                &amp;quot;&amp;#x4E09;&amp;quot;,
+                &amp;quot;&amp;#x56DB;&amp;quot;,
+                &amp;quot;&amp;#x4E94;&amp;quot;,
+                &amp;quot;&amp;#x516D;&amp;quot;
+            ],
+            &amp;quot;monthNames&amp;quot;: [
+                &amp;quot;&amp;#x4E00;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x4E8C;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x4E09;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x56DB;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x4E94;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x516D;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x4E03;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x516B;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x4E5D;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x5341;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x5341;&amp;#x4E00;&amp;#x6708;&amp;quot;,
+                &amp;quot;&amp;#x5341;&amp;#x4E8C;&amp;#x6708;&amp;quot;
+            ],
+            &amp;quot;firstDay&amp;quot;: 1
+        },
+        &amp;quot;alwaysShowCalendars&amp;quot;: true,
+        &amp;quot;startDate&amp;quot;: &amp;quot;2016-05-04&amp;quot;,
+        &amp;quot;endDate&amp;quot;: &amp;quot;2016-06-03&amp;quot;
+    }, function(start, end, label) {
+        searchDate(start.format(&amp;apos;YYYY-MM-DD&amp;apos;),end.format(&amp;apos;YYYY-MM-DD&amp;apos;));
+    });
+}
+
+function searchDate(start,end){
+    $.ajax({
+        url : &amp;quot;rest/Uploadinfo/searchDate&amp;quot;,
+        type : &amp;quot;post&amp;quot;,
+        dataType : &amp;apos;json&amp;apos;,
+        data:{
+            &amp;quot;start&amp;quot;:start,
+            &amp;quot;end&amp;quot;:end
+        },
+        success : function(data) {
+            tableShow(data);
+        }
+    });
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/searchDate&amp;quot;, metho
+    
+    </summary>
+    
+    
+      <category term="hibernate" scheme="http://chen1218chen.github.io/tags/hibernate/"/>
     
   </entry>
   
