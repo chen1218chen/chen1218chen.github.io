@@ -1,10 +1,10 @@
-# Express.js
-
-----
+---
+title: Express.js
+date: 2016-06-07 16:11:25
+tags: express.js
+---
 
 [TOC]
-
----
 
 ## Express安装
 1. 全局安装express，express作为命令被安装到了系统中
@@ -99,23 +99,25 @@ router.get('/', function(req, res, next) {
 若渲染文件原本就是.html文件则可以不用写后缀名。并且.html文件中依然可以写```<%=title%>```这种类似的语法
 2. 静态路由
 添加主页路由
-```
-app.get('/', function(req, res) {
-   res.sendfile('./views/index.html');
-});
 
-//路径参数获取
-app.get('/:name', function(req, res) {
-    var fileName = req.params.name;
-    //console.log('./views/'+fileName);
-    res.sendFile(fileName);
-});
-```
+
+    app.get('/', function(req, res) {
+       res.sendfile('./views/index.html');
+    });
+
+    //路径参数获取
+    app.get('/:name', function(req, res) {
+        var fileName = req.params.name;
+        //console.log('./views/'+fileName);
+        res.sendFile(fileName);
+    });
+
 3. 配置supervisor热部署NodeJS
-```
-//安装
-npm install -g supervisor
-```
+
+
+    //安装
+    npm install -g supervisor
+
 配置，在WebStorm中选择要Run--Edit Configurations 
 
 Working directory选择项目目录（supervisor会监控此目录内所有文件的改变自动重启）

@@ -1,7 +1,7 @@
 ---
 title: eclipse工程报错
 date: 2016-06-16 14:46:07
-tags:
+tags: eclipse
 ---
 
 工程导入eclipse中老有报错，经过各种折腾发现是java的原工程默认编译版本与eclipse环境下的编译版本不同。在工程根目录的.setting目录下的`org.eclipse.wst.common.project.facet.core.prefs.xml`文件中

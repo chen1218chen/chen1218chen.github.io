@@ -1,7 +1,9 @@
 ---
 title: grunt + bower
 date: 2016-06-08 09:46:40
-tags: grunt
+tags: 
+    - grunt
+    - bower
 ---
 [TOC]
 # [入门][1]

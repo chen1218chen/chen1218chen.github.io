@@ -168,22 +168,22 @@ git config user.email
 设置路径
 
     git config --global mergetool.p4merge.path c:/Users/my-login/AppData/Local/Perforce/p4merge.exe
-## 遇到问题
-- Q1
+## 常见问题
+### error:failed to push som refs to
 ```
 error:failed to push som refs to ......
 ```
 解决方法：
  1、先输入 git pull origin master ，先把远程服务器github上面的文件拉下来
  2、再输入git push origin master
- - Q2
+### fatal: remote origin already exists.
 ```
 fatal: remote origin already exists.
 ```
 解决方法：
    1、先输入 git remote rm origin
     2、再输入git remote add origin https://github.com/chen1218chen/bootstrap.git 就不会报错了！
-- Q3
+### fatal: The remote end hung up unexpectedly
 ```
 fatal: The remote end hung up unexpectedly
 ```
@@ -193,11 +193,29 @@ The problem is due to git/https buffer settings.
 git config http.postBuffer 524288000
 ```
 
-
 获取项目
 ```
 git clone https://github.com/chne1218chen/bootstrap.git
 ```
+### 更新时与本地文件冲突
+报错：
+
+    error: Your local changes to the following files would be overwritten by merge:
+            _config.yml
+            layout/_partial/footer.ejs
+    Please, commit your changes or stash them before you can merge.
+    Aborting
+解决方法：
+
+    # 暂存
+    git stash
+    git pull
+    # 恢复
+    git stash pop
+    # 查看暂存
+    git stash list
+    # 清空暂存
+    git stash clear
 
 
   [1]: ./images/Image%201.png "Image 1.png"

@@ -1,7 +1,8 @@
 ---
 title: Angular
 date: 2016-06-07 16:07:01
-tags: angular
+tags: 
+    - angular
 ---
 # 初识Angular
 angular是一种MVVM前端框架，解决了前后端代码的耦合性，可以分开开发部署；这样使得程序模块化高，可维护性高，灵活性高；可测试性，单元测试方便

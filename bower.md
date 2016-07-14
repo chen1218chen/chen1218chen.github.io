@@ -1,7 +1,8 @@
 ---
 title: bower
 date: 2016-06-07 16:11:25
-tags: bower
+tags: 
+    - bower
 ---
 [TOC]
 # bower使用

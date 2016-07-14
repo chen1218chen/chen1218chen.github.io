@@ -1,7 +1,7 @@
 ---
 title: hibernate
 date: 2016-03-02 17:17:05
-tags: hibernate, spring
+tags: Hibernate
 ---
 [TOC]
 

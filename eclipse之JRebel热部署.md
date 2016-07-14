@@ -1,7 +1,7 @@
 ---
 title: eclipse之JRebel热部署
 date: 2016-06-21 10:57:15
-tags: eclipse, JRebel
+tags: [eclipse, JRebel]
 ---
 
 每次修改java文件都需要重启tomcat，最近实在是不堪其扰，果断决定再次折腾一下JRebel来实现热启动，从eclipse marketplace下载的这个插件都是14天的试用期，试用期过了之后就不能在使用了，今天重新捣鼓了一下，终于激活了，以后妈妈再也不用担心我不停的重启tomcat了。
