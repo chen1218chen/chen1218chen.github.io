@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-07-14T05:39:16.717Z</updated>
+  <updated>2016-07-21T08:47:14.470Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bootstrapSwitch使用</title>
+    <link href="http://chen1218chen.github.io/2016/07/22/bootstrapSwitch%E4%BD%BF%E7%94%A8/"/>
+    <id>http://chen1218chen.github.io/2016/07/22/bootstrapSwitch使用/</id>
+    <published>2016-07-21T16:43:59.000Z</published>
+    <updated>2016-07-21T08:47:14.470Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.bootstrap-switch.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x4E3B;&amp;#x9875;&amp;#x5730;&amp;#x5740;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;a href=&quot;#&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;/a&gt;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;alert($(&amp;apos;#isHistory&amp;apos;).bootstrapSwitch(&amp;apos;state&amp;apos;));
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;a href=&quot;#&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;/a&gt;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(&amp;apos;#isHistory&amp;apos;).bootstrapSwitch(&amp;apos;state&amp;apos;, false,true);
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bootstrapSwitch&amp;#
+    
+    </summary>
+    
+    
+      <category term="Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap/"/>
+    
+  </entry>
   
   <entry>
     <title>RequireJS模块化开发百度地图</title>
@@ -1548,53 +1573,6 @@ var cc = new Student();
     <summary type="html">
     
       &lt;h1 id=&quot;prototype&quot;&gt;&lt;a href=&quot;#prototype&quot; class=&quot;headerlink&quot; title=&quot;prototype&quot;&gt;&lt;/a&gt;prototype&lt;/h1&gt;&lt;p&gt;&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://chen1218chen.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js Date格式化</title>
-    <link href="http://chen1218chen.github.io/2016/05/10/Date%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-    <id>http://chen1218chen.github.io/2016/05/10/Date格式化/</id>
-    <published>2016-05-09T17:02:52.000Z</published>
-    <updated>2016-05-09T09:30:53.076Z</updated>
-    
-    <content type="html">&lt;pre&gt;&lt;code&gt;Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
-    &amp;quot;d+&amp;quot; : this.getDate(), // &amp;#x65E5;
-    &amp;quot;h+&amp;quot; : this.getHours(), // &amp;#x5C0F;&amp;#x65F6;
-    &amp;quot;m+&amp;quot; : this.getMinutes(), // &amp;#x5206;
-    &amp;quot;s+&amp;quot; : this.getSeconds(), // &amp;#x79D2;
-    &amp;quot;q+&amp;quot; : Math.floor((this.getMonth() + 3) / 3), // &amp;#x5B63;&amp;#x5EA6;
-    &amp;quot;S&amp;quot; : this.getMilliseconds()
-// &amp;#x6BEB;&amp;#x79D2;
-};
-if (/(y+)/.test(fmt))
-    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + &amp;quot;&amp;quot;)
-            .substr(4 - RegExp.$1.length));
-for ( var k in o)
-    if (new RegExp(&amp;quot;(&amp;quot; + k + &amp;quot;)&amp;quot;).test(fmt))
-        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k])
-                : ((&amp;quot;00&amp;quot; + o[k]).substr((&amp;quot;&amp;quot; + o[k]).length)));
-return fmt;
-}
-var time1 = new Date().format(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;);   
-
-var time2 = new Date().format(&amp;quot;yyyy-MM-dd&amp;quot;);  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;js&amp;#x65F6;&amp;#x95F4;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x6BD4;&amp;#x8F83;&amp;#x5927;&amp;#x5C0F;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;Date.prototype.Format = function(fmt) { // author: meizz
-var o = {
-    &amp;quot;M+&amp;quot; : this.getMonth() + 1, // &amp;#x6708;&amp;#x4EFD;
-
     
     </summary>
     

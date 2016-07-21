@@ -4,6 +4,16 @@
   
     
     <entry>
+      <title><![CDATA[bootstrapSwitch使用]]></title>
+      <url>http://chen1218chen.github.io/2016/07/22/bootstrapSwitch%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="bootstrapSwitch&#x4F7F;&#x7528;"><a href="#bootstrapSwitch&#x4F7F;&#x7528;" class="headerlink" title="bootstrapSwitch&#x4F7F;&#x7528;"></a>bootstrapSwitch&#x4F7F;&#x7528;</h1><p><a href="http://www.bootstrap-switch.org/" target="_blank" rel="external">&#x4E3B;&#x9875;&#x5730;&#x5740;</a></p>
+<h2 id="&#x67E5;&#x770B;&#x72B6;&#x6001;"><a href="#&#x67E5;&#x770B;&#x72B6;&#x6001;" class="headerlink" title="&#x67E5;&#x770B;&#x72B6;&#x6001;"></a>&#x67E5;&#x770B;&#x72B6;&#x6001;</h2><pre><code>alert($(&apos;#isHistory&apos;).bootstrapSwitch(&apos;state&apos;));
+</code></pre><h2 id="&#x8BBE;&#x7F6E;&#x72B6;&#x6001;"><a href="#&#x8BBE;&#x7F6E;&#x72B6;&#x6001;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x72B6;&#x6001;"></a>&#x8BBE;&#x7F6E;&#x72B6;&#x6001;</h2><pre><code>$(&apos;#isHistory&apos;).bootstrapSwitch(&apos;state&apos;, false,true);
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[RequireJS模块化开发百度地图]]></title>
       <url>http://chen1218chen.github.io/2016/07/14/RequireJS%E5%8A%A0%E8%BD%BD%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -2930,6 +2940,7 @@ public class Permission {
 <li>&#x5C5E;&#x6027;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5173;&#x8054;&#x7C7B;&#x662F;&#x5426;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;&#x9ED8;&#x8BA4;true&#xFF0C;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x53EF;&#x4EE5;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x82E5;&#x4E3A;false&#x5219;&#x53CC;&#x65B9;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;null&#x3002;</li>
 </ul>
 </li>
+<li>&#x65E0;&#x8BBA;&#x662F;&#x4E00;&#x5BF9;&#x591A;&#x8FD8;&#x662F;&#x591A;&#x5BF9;&#x4E00;&#x5173;&#x7CFB;&#xFF0C;&#x90FD;&#x662F;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;&#x7EF4;&#x62A4;&#x5173;&#x7CFB;&#x3002; </li>
 </ul>
 <h2 id="manyToMany"><a href="#manyToMany" class="headerlink" title="manyToMany"></a>manyToMany</h2><p>user-role&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
 <pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
