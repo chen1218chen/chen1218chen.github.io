@@ -1,23 +1,18 @@
 ---
 title: SpringMVC
 date: 2016-04-19 16:35:41
-tags: spring, springMVC
+tags: [spring, springMVC]
 ---
+[TOC]
+# SpringMVC
 
-
-## 标准的MVC框架
-一个标准的MVC框架中模型可以主动推送数据给视图进行更新（观察者模式），或者由控制器根据模型返回的数据选择合适的视图来展示如下图所示：
-
-![enter description here][1]
-## WEB MVC框架
-在WEB MVC框架中模型不能主动跟新用户界面。一般的web开发是请求-响应模式。
-
-![enter description here][3]
-## SpringMVC
 SpringMVC框架基于WEB MVC的一个轻量级框架，转发过程图：
 
-![enter description here][2]
+![enter description here][3]
+
 ![enter description here][4]
+
+![enter description here][5]
 涉及到几个重要的处理过程：
 - DispatcherServlet
 - HandlerMapping
@@ -27,9 +22,9 @@ SpringMVC框架基于WEB MVC的一个轻量级框架，转发过程图：
 > Question：
 > 1. 请求如何发到DispatcherServlet(前端控制器)？   
 web.xml中配置DispatcherServlet（如下的步骤2），即可拦截请求。
-> 2. DispatcherServlet如何根据请求信息选择不同的处理器进行处理？ HandlerMapping
+> 2. DispatcherServlet如何根据请求信息选择不同的处理器进行处理？ HandlerMapping,里面包含一儿handler和多个拦截器HandlerInterceptor,通过策略模式，很容易添加新拦截器。
 > 3. 如何支持多种页面处理器？ 
-HandleAdapter（适配器模式）
+HandleAdapter（适配器模式）将根据适配结果调用真正的处理器进行处理。
 
 
 ## Spring控制器**DispatcherServlet**  
@@ -96,8 +91,11 @@ ContextLoaderListener初始化的上下文加载的Bean是对于整个应用程�
 	</beans>
 ```
 
+参考文献：
+[第二章 Spring MVC入门][6]
 
-  [1]: ./images/2.png "2.png"
-  [2]: ./images/4.png "4.png"
-  [3]: ./images/3.png "3.png"
-  [4]: ./images/1.png "1.png"
+
+  [3]: ./images/4.png "4.png"
+  [4]: ./images/5.png "5.png"
+  [5]: ./images/1.png "1.png"
+  [6]: http://jinnianshilongnian.iteye.com/blog/1594806
