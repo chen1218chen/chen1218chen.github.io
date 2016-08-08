@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="struts2," />
+  <meta name="keywords" content="jQuery," />
 
 
 
@@ -86,16 +86,19 @@
 
 
 
-<meta name="description" content="&amp;#x5F53;&amp;#x7528;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x63D0;&amp;#x4EA4;&amp;#x8868;&amp;#x5355;&amp;#xFF0C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x65F6;&amp;#xFF0C;action&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x5404;&amp;#x79CD;&amp;#x657">
+<meta name="description" content="[TOC]
+jquery&amp;#x7C7B;&amp;#x5E93;jQuery&amp;#x7684;setter&amp;#x548C;getter&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;-attr()&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struts2之ModelDriven接口实现登陆及退出">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/06/12/Struts2之ModelDriven接口实现登陆/index.html">
+<meta property="og:title" content="jquery类库">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/08/08/jquery类库/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="&amp;#x5F53;&amp;#x7528;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x63D0;&amp;#x4EA4;&amp;#x8868;&amp;#x5355;&amp;#xFF0C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x65F6;&amp;#xFF0C;action&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x5404;&amp;#x79CD;&amp;#x657">
-<meta property="og:updated_time" content="2016-06-12T07:15:10.845Z">
+<meta property="og:description" content="[TOC]
+jquery&amp;#x7C7B;&amp;#x5E93;jQuery&amp;#x7684;setter&amp;#x548C;getter&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;-attr()&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x">
+<meta property="og:updated_time" content="2016-08-08T08:49:09.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2之ModelDriven接口实现登陆及退出">
-<meta name="twitter:description" content="&amp;#x5F53;&amp;#x7528;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x63D0;&amp;#x4EA4;&amp;#x8868;&amp;#x5355;&amp;#xFF0C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x65F6;&amp;#xFF0C;action&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x5404;&amp;#x79CD;&amp;#x657">
+<meta name="twitter:title" content="jquery类库">
+<meta name="twitter:description" content="[TOC]
+jquery&amp;#x7C7B;&amp;#x5E93;jQuery&amp;#x7684;setter&amp;#x548C;getter&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;-attr()&amp;#x83B7;&amp;#x53D6;&amp;#x548C;&amp;#x8BBE;&amp;#x7F6E;html&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x">
 
 
 
@@ -116,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://chen1218chen.github.io/2016/06/12/Struts2之ModelDriven接口实现登陆/"/>
+  <link rel="canonical" href="http://chen1218chen.github.io/2016/08/08/jquery类库/"/>
 
-  <title> Struts2之ModelDriven接口实现登陆及退出 | 一锅乱炖 </title>
+  <title> jquery类库 | 一锅乱炖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +264,7 @@
             
             
               
-                Struts2之ModelDriven接口实现登陆及退出
+                jquery类库
               
             
           </h1>
@@ -273,8 +276,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T22:05:01+08:00" content="2016-06-12">
-              2016-06-12
+            <time itemprop="dateCreated" datetime="2016-08-08T23:44:28+08:00" content="2016-08-08">
+              2016-08-08
             </time>
           </span>
 
@@ -306,134 +309,90 @@
       
 
       
-        <p>&#x5F53;&#x7528;POST&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#xFF0C;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5927;&#x65F6;&#xFF0C;action&#x4E2D;&#x5B9A;&#x4E49;&#x5404;&#x79CD;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;get/set&#x8BF7;&#x6C42;&#x5C31;&#x663E;&#x5F97;&#x8FC7;&#x4E8E;&#x81C3;&#x80BF;&#xFF0C;&#x6539;&#x7528;Struts2&#x7684;ModelDriven&#x63A5;&#x53E3;&#x6765;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x76F8;&#x5E94;&#x7684;Model&#xFF0C;Struts2&#x6846;&#x67B6;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x4FE1;&#x606F;&#x8D4B;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Model&#x3002;<br>&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x7684;LoginAction&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x91C7;&#x7528;ModelDriven&#x65B9;&#x5F0F;&#x3002;</p>
-<h2 id="LoginModel"><a href="#LoginModel" class="headerlink" title="LoginModel"></a>LoginModel</h2><p>&#x9996;&#x5148;&#xFF0C;&#x7CFB;&#x7EDF;&#x91C7;&#x7528;&#x7535;&#x8BDD;+&#x5BC6;&#x7801;&#x7684;&#x767B;&#x9646;&#x65B9;&#x5F0F;&#xFF0C;&#x5EFA;&#x7ACB;&#x5BF9;&#x5E94;&#x7684;LoginModel.java&#x3002;</p>
-<pre><code>public class LoginModel {
-    private String telephone;
-    private String password;
+        <p>[TOC]</p>
+<h1 id="jquery&#x7C7B;&#x5E93;"><a href="#jquery&#x7C7B;&#x5E93;" class="headerlink" title="jquery&#x7C7B;&#x5E93;"></a>jquery&#x7C7B;&#x5E93;</h1><h2 id="jQuery&#x7684;setter&#x548C;getter"><a href="#jQuery&#x7684;setter&#x548C;getter" class="headerlink" title="jQuery&#x7684;setter&#x548C;getter"></a>jQuery&#x7684;setter&#x548C;getter</h2><h3 id="&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr"><a href="#&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr" class="headerlink" title="&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr()"></a>&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr()</h3><p>&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;&#x3002;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x7684;&#x662F;removeAttr()&#x7528;&#x6765;&#x79FB;&#x9664;&#x9009;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code># &#x83B7;&#x53D6;a&#x6807;&#x7B7E;&#x7684;href&#x503C;
+$(&quot;a&quot;).attr(&quot;href&quot;);
 
-    public String getTelephone() {
-        return telephone;
-    }
+#&#x8BBE;&#x7F6E;src&#x503C;
+$(&quot;#img&quot;).attr(&quot;src&quot;,&quot;images/a.png&quot;);
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+#&#x4E00;&#x6B21;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x503C;
+$(&quot;#banner&quot;).attr({src:&quot;banner.png&quot;,alt:&quot;&#x56FE;&#x7247;&quot;,width:&quot;200px&quot;,heigth:&quot;200px&quot;});
 
-    public String getPassword() {
-        return password;
-    }
+#&#x8FDE;&#x63A5;&#x5728;&#x65B0;&#x7A97;&#x53E3;&#x6253;&#x5F00;
+$(&quot;a&quot;).attr(&quot;target&quot;,&quot;_blank&quot;);
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-</code></pre><h2 id="LoginAction"><a href="#LoginAction" class="headerlink" title="LoginAction"></a>LoginAction</h2><p>&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x7684;action&#x7EE7;&#x627F;ModelDriven<loginmodel>&#x63A5;&#x53E3;&#xFF0C;&#x5B9E;&#x73B0;getter&#x65B9;&#x6CD5;&#xFF0C;&#x91CD;&#x8F7D;execute&#x65B9;&#x6CD5;&#x3002;</loginmodel></p>
-<pre><code>@ParentPackage(value = &quot;json-default&quot;)
-@Controller
-@Action(value = &quot;/loginAction2&quot;, results = { @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;),
-        @Result(name = &quot;input&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;),
-        @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;) }, exceptionMappings = {
-                @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
-public class LoginAction2 extends BaseAction implements ModelDriven&lt;LoginModel&gt; {
+#&#x7AD9;&#x5185;&#x8FDE;&#x63A5;&#x5728;&#x672C;&#x7A97;&#x53E3;&#xFF0C;&#x7AD9;&#x5916;&#x8FDE;&#x63A5;&#x5728;&#x65B0;&#x7A97;&#x53E3;&#x6253;&#x5F00;
+$(&quot;a&quot;).attr(&quot;target&quot;,function(){
+    if(this.host==location.host)
+        return &quot;_slef&quot;;
+    else
+        return &quot;_blank&quot;
+})
+&#x6216;&#x8005;
+$(&quot;a&quot;).attr(target:function(){
+    ...//&#x50CF;&#x8FD9;&#x6837;&#x4F20;&#x5165;&#x51FD;&#x6570;
+})
+</code></pre><p>&#x7531;&#x4E0A;&#x4F8B;&#x5B50;&#x53EF;&#x770B;&#x51FA;&#xFF0C;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x51FD;&#x6570;&#x3002;</p>
+<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css()"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css()</h3><p>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;&#xFF0C;&#x7528;&#x6CD5;&#x4E0E;attr()&#x7C7B;&#x4F3C;&#x3002;<br>&#x4E0D;&#x80FD;&#x83B7;&#x53D6;font,margin,padding&#x7B49;&#x590D;&#x5408;&#x6837;&#x5F0F;&#x7684;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x53D6;&#x5355;&#x4E2A;&#x503C;&#xFF0C;&#x6BD4;&#x5982;&#x201D;font-size&#x201D;,&#x201D;margin-left&#x201D;&#x7B49;&#x3002;</p>
+<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;</h3><p>jQuery&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E0B;&#x56DB;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;CSS&#x7C7B;&#x3002;</p>
+<pre><code>addClass()
+removeClass()
 
-    private static final long serialVersionUID = 1L;
+# &#x5F53;&#x5143;&#x7D20;&#x6CA1;&#x6709;&#x67D0;&#x7C7B;&#x65F6;&#x6DFB;&#x52A0;&#xFF0C;&#x53CD;&#x4E4B;&#x5220;&#x9664;
+toggleClass()
 
-    @Resource
-    private IUserService userManagerImpl;
-    private LoginModel login = new LoginModel();
+# &#x7528;&#x6765;&#x5224;&#x65AD;&#x67D0;&#x7C7B;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x8FD4;&#x56DE;true
+hasClass() 
+</code></pre><h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val()"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val()</h3><p>val()&#x7528;&#x6765;&#x83B7;&#x53D6;HTML&#x8868;&#x5355;&#x5143;&#x7D20;&#x7684;value&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x53EF;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x590D;&#x9009;&#x6846;&#x3001;&#x5355;&#x9009;&#x6309;&#x94AE;&#x4EE5;&#x53CA;select&#x5143;&#x7D20;&#x7684;&#x9009;&#x4E2D;&#x72B6;&#x6001;&#x3002;</p>
+<pre><code>#&#x83B7;&#x53D6;input&#x503C;&#xFF0C;select&#x7684;&#x9009;&#x4E2D;&#x503C;
+$(&quot;id&quot;).val();
 
-    @Override
-    public LoginModel getModel() {
-        // TODO Auto-generated method stub
-        return login;
-    }
+#&#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x7684;&#x5355;&#x9009;&#x6309;&#x94AE;&#x7684;&#x503C;
+$(&quot;input:radio[name=ship]:checked&quot;).val();
+</code></pre><h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;</h3><p>text(),html()&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x548C;html&#x5185;&#x5BB9;</p>
+<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;</h3><p>offset():&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x5E26;&#x6709;left,top&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;X&#x548C;Y&#x5750;&#x6807;</p>
+<pre><code>var node = $(&quot;div&quot;);//&#x9700;&#x8981;&#x79FB;&#x52A8;&#x7684;&#x5143;&#x7D20;
+var position = node.offset();//&#x5143;&#x7D20;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;
+position.top +=100;//&#x6539;&#x53D8;Y&#x8F74;&#x4F4D;&#x7F6E;
+node.offset(position);//&#x8BBE;&#x7F6E;&#x65B0;&#x4F4D;&#x7F6E;
+</code></pre><p>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;&#xFF1A;</p>
+<pre><code>#&#x8FD4;&#x56DE;&#x57FA;&#x672C;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;,&#x4E0D;&#x542B;&#x5185;&#x5916;&#x8FB9;&#x8DDD;&#x548C;&#x8FB9;&#x6846;
+width(),heigth()
 
-    // &#x91CD;&#x8F7D;
-    public String execute() throws Exception {
-        String password = login.getPassword();
-        String telephone = login.getTelephone();
-        if (password != null &amp;&amp; !&quot;&quot;.equals(password)) {
-            // password = MD5.MD5Encode(password);
-        }
-        if (telephone == null || telephone == &quot;&quot; || password == null || password == &quot;&quot;)
-            return INPUT;
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(telephone, password);
-        token.setRememberMe(true);// &#x8BB0;&#x4F4F;&#x6211;
+#&#x8FD4;&#x56DE;&#x5305;&#x542B;&#x5185;&#x8FB9;&#x8DDD;&#x548C;&#x8FB9;&#x6846;&#x7684;&#x5C3A;&#x5BF8;
+innerWidth(),innerHeight()
 
-        try {
-            // &#x767B;&#x5F55;&#xFF0C;&#x5373;&#x8FDB;&#x884C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x64CD;&#x4F5C;
-            subject.login(token);// &#x8C03;&#x7528; myRealm&#x7684; doGetAuthenticationInfo&#x65B9;&#x6CD5;
-            String telephone2 = (String) subject.getPrincipal();// &#x767B;&#x9646;&#x6210;&#x529F;&#x5C31;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5B50;&#x62FF;&#x5230;&#x7528;&#x6237;&#x540D;&#x4E86;
-            User user = userManagerImpl.queryByTel(telephone2);
-            subject.getSession().setAttribute(&quot;uname&quot;, user.getName());
-        } catch (UnknownSessionException uae) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
-            return ERROR;
-        } catch (UnknownAccountException ex) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x5B58;&#x5728;!&quot;);
-            return INPUT;
-        } catch (IncorrectCredentialsException ice) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x5BC6;&#x7801;&#x9519;&#x8BEF;!&quot;);
-            return INPUT;
-        } catch (LockedAccountException lae) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
-            return INPUT;
-        } catch (AuthenticationException e) {
-            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x767B;&#x5F55;&#x5931;&#x8D25;!&quot;);
-            return INPUT;
-        }
-        return SUCCESS;
-    }
+#&#x8FD4;&#x56DE;&#x8FB9;&#x6846;&#x4EE5;&#x5185;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5305;&#x62EC;&#x5185;&#x8FB9;&#x8DDD;&#xFF0C;&#x82E5;&#x5411;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x4F20;&#x5165;true&#x503C;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5305;&#x62EC;&#x5143;&#x7D20;&#x5916;&#x8FB9;&#x8DDD;&#x7684;&#x5C3A;&#x5BF8;&#x3002;
+outerWidth(),outerHeight()
 
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
-        }
-        return INPUT;
-    }
-}
-</code></pre><p>&#x6CE8;&#x610F;<code>subject.getSession().setAttribute(arg0, arg1);</code>shiro&#x7684;seeion&#xFF0C;&#x53EF;&#x4EE5;&#x5728;login.jsp&#x9875;&#x9762;&#x83B7;&#x53D6;&#x5230;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x3002;</p>
-<pre><code>&lt;%
-    Object error = session.getAttribute(&quot;myerror&quot;); 
-    if(error==null)
-        error=&quot; &quot;;
- %&gt;
- &lt;form action=&quot;login.action&quot;&gt;
-    ...
-    &lt;label style=&quot;color:red&quot;&gt;&lt;%=error%&gt;&lt;/label&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-        &lt;input type=&quot;text&quot; name=&quot;telephone&quot; class=&quot;email&quot;
-            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x7535;&#x8BDD;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group &quot;&gt;
-        &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;password&quot;
-            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x81;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
-    &lt;/div&gt;
-    ...
-&lt;/form&gt;
-</code></pre><h2 id="LogoutAction"><a href="#LogoutAction" class="headerlink" title="LogoutAction"></a>LogoutAction</h2><p>&#x6CE8;&#x9500;&#x8D26;&#x53F7;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;LoginAction&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;logout&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>loginAction!logout.action</code>&#xFF0C;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x5199;&#x4E00;&#x4E2A;Action</p>
-<pre><code>@ParentPackage(value = &quot;json-default&quot;)
-@Controller
-public class LogoutAction extends BaseAction {
-
-    private static final long serialVersionUID = 1L;
-
-    @Action(value = &quot;/logoutAction&quot;, results = { 
-            @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/login.jsp&quot;),
-            @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;) }, exceptionMappings = {
-                    @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
-        }
-        return SUCCESS;
-    }
-}
-</code></pre><p>&#x8C03;&#x7528;<code>logoutAction.action</code>&#x5373;&#x53EF;&#x3002;</p>
+#&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x7684;&#x548C;
+var margin = body.outerWidth(true)-body.outerWidth();
+# &#x5DE6;&#x53F3;&#x8FB9;&#x6846;&#x7684;&#x548C;
+var border = body.outerWidth()-body.innerWidth();
+#&#x5DE6;&#x53F3;&#x5185;&#x8FB9;&#x8DDD;&#x7684;&#x548C;
+var padding = body.innerWidth()-body.width();
+</code></pre><h3 id="data"><a href="#data" class="headerlink" title="data()"></a>data()</h3><pre><code>&lt;div data-test=&quot;this is test&quot;&gt;&lt;/div&gt;
+$(&quot;div&quot;).data(&quot;test&quot;);//this is test
+</code></pre><h2 id="jQuery&#x9009;&#x62E9;&#x5668;"><a href="#jQuery&#x9009;&#x62E9;&#x5668;" class="headerlink" title="jQuery&#x9009;&#x62E9;&#x5668;"></a>jQuery&#x9009;&#x62E9;&#x5668;</h2><p>&#x9664;&#x4E86;&#x5E38;&#x89C1;&#x7684;id&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x7C7B;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5143;&#x7D20;&#x9009;&#x62E9;&#x5668;&#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x9009;&#x62E9;&#x5668;&#xFF1A;</p>
+<h3 id="&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;"><a href="#&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;" class="headerlink" title="&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;"></a>&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;</h3><ul>
+<li><strong>:input</strong></li>
+<li><strong>:radio</strong></li>
+<li><strong>:text</strong></li>
+<li><strong>:password</strong></li>
+<li><strong>:checkbox</strong></li>
+<li><strong>:submit</strong></li>
+<li><strong>:image</strong></li>
+<li><strong>:reset</strong></li>
+<li><strong>:button</strong></li>
+<li><strong>:file</strong><h3 id="&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;"><a href="#&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;" class="headerlink" title="&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;"></a>&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;</h3></li>
+<li><strong>:enabled</strong></li>
+<li><strong>:disabled</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x4E0D;&#x53EF;&#x7528;&#x5143;&#x7D20;</li>
+<li><strong>:checked</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x9009;&#x4E2D;&#x7684;&#x88AB;&#x9009;&#x4E2D;&#x5143;&#x7D20;(&#x590D;&#x9009;&#x6846;&#x3001;&#x5355;&#x9009;&#x6846;&#x7B49;&#xFF0C;select&#x4E2D;&#x7684;option)&#xFF0C;&#x5BF9;&#x4E8E;select&#x5143;&#x7D20;&#x6765;&#x8BF4;&#xFF0C;&#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x63A8;&#x8350;&#x4F7F;&#x7528; :selected</li>
+<li><strong>:selected</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x9009;&#x4E2D;&#x7684;option&#x5143;&#x7D20;</li>
+</ul>
+<p>&#x3002;&#x3002;&#x3002;<br>&#x540E;&#x7EED;&#x5F85;&#x8865;&#x5145;</p>
 
       
     </div>
@@ -456,7 +415,7 @@ public class LogoutAction extends BaseAction {
       
         <div class="post-tags">
           
-            <a href="/tags/struts2/" rel="tag">#struts2</a>
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
           
         </div>
       
@@ -465,17 +424,13 @@ public class LogoutAction extends BaseAction {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/08/grunt/" rel="next" title="grunt + bower">
-                <i class="fa fa-chevron-left"></i> grunt + bower
+              <a href="/2016/08/05/MVC、MVVM模式/" rel="next" title="MVC、MVVM模式">
+                <i class="fa fa-chevron-left"></i> MVC、MVVM模式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/13/hibernate之翻页的实现/" rel="prev" title="hibernate之翻页的实现">
-                hibernate之翻页的实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +587,7 @@ public class LogoutAction extends BaseAction {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LoginModel"><span class="nav-number">1.</span> <span class="nav-text">LoginModel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LoginAction"><span class="nav-number">2.</span> <span class="nav-text">LoginAction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LogoutAction"><span class="nav-number">3.</span> <span class="nav-text">LogoutAction</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jquery类库"><span class="nav-number">1.</span> <span class="nav-text">jquery类库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery的setter和getter"><span class="nav-number">1.1.</span> <span class="nav-text">jQuery的setter和getter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取和设置html属性-attr"><span class="nav-number">1.1.1.</span> <span class="nav-text">获取和设置html属性-attr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取设置css值-css"><span class="nav-number">1.1.2.</span> <span class="nav-text">获取设置css值-css()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取设置CSS类"><span class="nav-number">1.1.3.</span> <span class="nav-text">获取设置CSS类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取设置HTML表单值-val"><span class="nav-number">1.1.4.</span> <span class="nav-text">获取设置HTML表单值-val()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取设置元素内容"><span class="nav-number">1.1.5.</span> <span class="nav-text">获取设置元素内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取设置元素的位置和大小"><span class="nav-number">1.1.6.</span> <span class="nav-text">获取设置元素的位置和大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data"><span class="nav-number">1.1.7.</span> <span class="nav-text">data()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery选择器"><span class="nav-number">1.2.</span> <span class="nav-text">jQuery选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">表单选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单对象属性"><span class="nav-number">1.2.2.</span> <span class="nav-text">表单对象属性</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
