@@ -9,6 +9,9 @@ tags: spring
 
 ## 简单理解   
 Spring其实就是一个管理框架的容器，你不用再考虑你new对象了，它会帮你做，降低了层与层之间的耦合度。Spring里面有很多的思想，IOC就是控制反转，注入。AOP是面向切面的，有点像拦截器。
+## spring的jar包
+如果是web项目就需要spring-web，在web.xml中配置的ContextLoaderListener监听器（listen）就需要用到spring-web。
+如果是web项目并且要使用spring mvc技术，就需要用到spring-webmvc
 
 ## 事务
 事务是数据库中的概念，为了保证数据的一致和完整。是指单个逻辑功能单元执行的一系列操作，要么完整执行，要么都不执行。
