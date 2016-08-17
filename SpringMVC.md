@@ -38,7 +38,7 @@ SpringMVC是一个基于DispatcherServlet的MVC框架,所有的请求都是首�
         </listener-class>
     </listener>
 ContextLoaderListener初始化的上下文加载的Bean是对于整个应用程序共享的
-，Spring监听器。会自动找到所有配置在applicationContext.xml中的Spring Beans
+，Spring监听器。会自动找到所有配置在applicationContext.xml中的Spring Beans。简单来说**它的作用就是启动Web容器时，自动装配ApplicationContext的配置信息**
 
     <!-- 2.springMVC式rest -->
     <servlet>
