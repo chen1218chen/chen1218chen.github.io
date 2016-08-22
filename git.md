@@ -61,6 +61,8 @@ $ git push [remote] --tags
  // 新建一个分支，指向某个tag
 $ git checkout -b [branch] [tag]
 ```
+## 免密码
+git 配置SSH即可提交免密码
 ## 命令分析
  
 ### git help <verb>
