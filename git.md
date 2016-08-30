@@ -63,6 +63,26 @@ $ git checkout -b [branch] [tag]
 ```
 ## 免密码
 git 配置SSH即可提交免密码
+1. 生成秘钥
+
+
+    ssh-keygen -t rsa -C "cc.2008.com@163.com"
+按3个回车，密码为空。(不要输密码)。然后到.ssh文件夹下面将id_rsa.pub里的内容复制出来粘贴到github个人中心的账户设置的ssh key里面
+2. 设置用户名密码
+
+
+    $ git config --global user.name "chen1218chen"
+    $ git config --global user.email "cc.2008.com@163.com"
+
+    # 查看
+    git config --list
+3. 测试
+
+
+    ssh -T git@github.com 
+成功提示：
+
+    Hi chen1218chen! You've successfully authenticated, but GitHub does not provide shell access.  
 ## 命令分析
  
 ### git help <verb>
