@@ -98,7 +98,7 @@ data-sort-name=&amp;quot;dataTime&amp;qu">
 data-sort-name=&amp;quot;dataTime&amp;qu">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/05/04/bootstrapTable总结/Image%201.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/05/04/bootstrapTable总结/2.png">
-<meta property="og:updated_time" content="2016-05-09T08:40:43.605Z">
+<meta property="og:updated_time" content="2016-09-02T07:22:04.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bootstrapTable总结">
 <meta name="twitter:description" content="table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table options&amp;#xFF09;The table options are defined in jQuery.fn.bootstrapTable.defaults.
@@ -325,7 +325,9 @@ function detailFommater(index, row, element) {
     return &apos;ccc&apos;+row;
 }
 </code></pre><p><img src="/2016/05/04/bootstrapTable&#x603B;&#x7ED3;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
-<h2 id="pageNum&#x521D;&#x59CB;&#x5316;"><a href="#pageNum&#x521D;&#x59CB;&#x5316;" class="headerlink" title="pageNum&#x521D;&#x59CB;&#x5316;"></a>pageNum&#x521D;&#x59CB;&#x5316;</h2><pre><code>data-page-list=&quot;[10, 25, 50, 100, ALL]&quot;
+<h2 id="&#x624B;&#x52A8;&#x542F;&#x52A8;"><a href="#&#x624B;&#x52A8;&#x542F;&#x52A8;" class="headerlink" title="&#x624B;&#x52A8;&#x542F;&#x52A8;"></a>&#x624B;&#x52A8;&#x542F;&#x52A8;</h2><p>&#x5982;&#x679C;bootstrapTable&#x6CA1;&#x6709;&#x542F;&#x7528;&#xFF0C;&#x9009;&#x62E9;&#x624B;&#x52A8;&#x89E6;&#x53D1;&#x3002;</p>
+<pre><code>$(&apos;#table&apos;).bootstrapTable();
+</code></pre><h2 id="pageNum&#x521D;&#x59CB;&#x5316;"><a href="#pageNum&#x521D;&#x59CB;&#x5316;" class="headerlink" title="pageNum&#x521D;&#x59CB;&#x5316;"></a>pageNum&#x521D;&#x59CB;&#x5316;</h2><pre><code>data-page-list=&quot;[10, 25, 50, 100, ALL]&quot;
 </code></pre><h2 id="&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;"><a href="#&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;" class="headerlink" title="&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;"></a>&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;</h2><pre><code>$(function(){
     $table = $(&apos;#table&apos;);
     $table.bootstrapTable(&apos;resetView&apos;, {
@@ -333,12 +335,37 @@ function detailFommater(index, row, element) {
     });
 })
 function getHeight() {
-return $(window).height() - $(&apos;h1&apos;).outerHeight(true);
-</code></pre><p>}<br>table&#x7684;&#x9AD8;&#x5EA6;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8BBE;&#x5B9A;</p>
+    return $(window).height() - $(&apos;h1&apos;).outerHeight(true);
+}
+</code></pre><p>&#x6216;&#x8005;</p>
+<pre><code>$(window).resize(function() {
+    $(&apos;#table&apos;).bootstrapTable(&apos;resetView&apos;);
+});
+</code></pre><p>table&#x7684;&#x9AD8;&#x5EA6;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8BBE;&#x5B9A;</p>
 <pre><code>data-height=&quot;300px&quot;
-</code></pre><h2 id="table-data-from-url"><a href="#table-data-from-url" class="headerlink" title="table data from url"></a>table data from url</h2><pre><code>&lt;table data-toggle=&quot;table&quot; data-url=&quot;rest/Uploadinfo/queryAll&quot; data-show-refresh=&quot;true&quot;&gt;
-
-@RequestMapping(value = &quot;/queryAll&quot;, method = RequestMethod.GET)
+</code></pre><h2 id="&#x624B;&#x52A8;&#x52A0;&#x8F7D;table&#x503C;"><a href="#&#x624B;&#x52A8;&#x52A0;&#x8F7D;table&#x503C;" class="headerlink" title="&#x624B;&#x52A8;&#x52A0;&#x8F7D;table&#x503C;"></a>&#x624B;&#x52A8;&#x52A0;&#x8F7D;table&#x503C;</h2><pre><code>$(&apos;#table&apos;).bootstrapTable({
+    data : result
+});
+</code></pre><h2 id="table-data-from-url"><a href="#table-data-from-url" class="headerlink" title="table data from url"></a>table data from url</h2><blockquote>
+<p>html&#x4EE3;&#x7801;</p>
+</blockquote>
+<pre><code>&lt;table data-toggle=&quot;table&quot; data-url=&quot;rest/Uploadinfo/queryAll&quot; data-show-refresh=&quot;true&quot;&gt;
+</code></pre><blockquote>
+<p>&#x6216;&#x8005;&#x5728;JS&#x4E2D;&#x7528;URL&#x5730;&#x5740;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x4E0E;data-url&#x7684;&#x4F5C;&#x7528;&#x76F8;&#x540C;&#xFF1A;<br>&#x65B9;&#x6CD5;&#x4E00;</p>
+</blockquote>
+<pre><code>$(&apos;#table&apos;).bootstrapTable({url:&quot;rest/Uploadinfo/queryAll&quot;});
+</code></pre><blockquote>
+<p>&#x65B9;&#x6CD5;&#x4E8C;</p>
+</blockquote>
+<pre><code>$.get(&quot;rest/Uploadinfo/queryAll&quot;,function(result){
+    $(&apos;#table&apos;).bootstrapTable({
+        data : result
+    });
+})
+</code></pre><blockquote>
+<p>&#x540E;&#x53F0;java&#x4EE3;&#x7801;&#xFF1A;</p>
+</blockquote>
+<pre><code>@RequestMapping(value = &quot;/queryAll&quot;, method = RequestMethod.GET)
 @ResponseBody
     public JSONArray queryAll() {
         List&lt;Uploadinfo&gt; itemList = itemServiceImpl.queryAll();
@@ -380,7 +407,7 @@ if(index % 2 ===0){
 return {};
 }
 function runningFormatter(value, row, index) {
-return index+1;
+    return index+1;
 }
 </code></pre><blockquote>
 <p>tablet&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;</p>
@@ -612,7 +639,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#table参数（Table-options）"><span class="nav-number">1.</span> <span class="nav-text">table参数（Table options）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageNum初始化"><span class="nav-number">2.</span> <span class="nav-text">pageNum初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度自适应"><span class="nav-number">3.</span> <span class="nav-text">高度自适应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-data-from-url"><span class="nav-number">4.</span> <span class="nav-text">table data from url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据重新加载"><span class="nav-number">5.</span> <span class="nav-text">数据重新加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新操作"><span class="nav-number">6.</span> <span class="nav-text">更新操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加操作"><span class="nav-number">7.</span> <span class="nav-text">添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#editable"><span class="nav-number">8.</span> <span class="nav-text">editable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-model远程加载示例"><span class="nav-number"></span> <span class="nav-text">bootstrap model远程加载示例</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#table参数（Table-options）"><span class="nav-number">1.</span> <span class="nav-text">table参数（Table options）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动启动"><span class="nav-number">2.</span> <span class="nav-text">手动启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageNum初始化"><span class="nav-number">3.</span> <span class="nav-text">pageNum初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度自适应"><span class="nav-number">4.</span> <span class="nav-text">高度自适应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动加载table值"><span class="nav-number">5.</span> <span class="nav-text">手动加载table值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-data-from-url"><span class="nav-number">6.</span> <span class="nav-text">table data from url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据重新加载"><span class="nav-number">7.</span> <span class="nav-text">数据重新加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新操作"><span class="nav-number">8.</span> <span class="nav-text">更新操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加操作"><span class="nav-number">9.</span> <span class="nav-text">添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#editable"><span class="nav-number">10.</span> <span class="nav-text">editable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-model远程加载示例"><span class="nav-number"></span> <span class="nav-text">bootstrap model远程加载示例</span></a></div>
             
           </div>
         </section>
