@@ -1,7 +1,6 @@
 ---
 title: git入门及常用命令
 tags: git
-grammar_cjkRuby: true
 ---
 
 [TOC]
@@ -86,7 +85,8 @@ git 配置SSH即可提交免密码
 ## 命令分析
  
 ### git help <verb>
-
+### git log
+提交记录过长，按q键退出
 ### git mv 
 修改文件名：
 
@@ -116,7 +116,18 @@ git 配置SSH即可提交免密码
 
     # clone时创建新的分支替代默认Origin HEAD（master）
     git clone -b [new_branch_name]  xxx.git
-   
+### git checkout
+#### 下载历史版本
+
+    # 查看历史版本的sha-1(也是commit版本号)
+    git log
+    # 获取
+    git checkout 75adcf5d3a33bb7266adfa7ae3d20ee6e841c68b
+#### 单个文件恢复到历史版本
+
+    git reset commit_id 文件路径
+    git checkout 文件路径
+
 ### git push
 推送数据到远程仓库
 
@@ -168,7 +179,28 @@ git config user.email
 
 ### git branch
 ![enter description here][4]
-    
+### git tag
+
+    # 查看标签
+    git tag
+    # 打标签
+    git tag -a 'V1.1' -m 'first version'
+    # 轻量级标签
+    git tag V1.1
+-a: 创建标签
+-m: 存储标签信息
+
+    # 查看标签信息
+    git show V1.1
+    # 推送标签到远程服务器
+    git push origin V1.1
+    # 把所有不在远程仓库上的标签推送上去
+    git push origin --tags
+
+    # 补打标签
+    git log --pretty=oneline //查看版本号
+    git tag -a v1.2 9fceb02...（commit提交版本号）
+    git push origin v1.2 //提交tag
 ### git reset
 ![enter description here][5]
 

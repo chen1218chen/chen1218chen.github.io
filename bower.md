@@ -1,8 +1,7 @@
 ---
 title: bower
 date: 2016-06-07 16:11:25
-tags: 
-    - bower
+tags: bower
 ---
 [TOC]
 # bower使用
@@ -89,6 +88,7 @@ npm是nodejs的默认包管理器
 bower会动更新包的版本  
 上述命令完成以后，你会在你刚才创建的目录下看到一个bower_components的文件夹，其中目录包含所有安装的插件如下：
 ![enter description here][3]
+#### --save参数
 
       bower install jquery --save
 
