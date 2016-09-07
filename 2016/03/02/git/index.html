@@ -92,7 +92,7 @@ Workspace&amp;#xFF1A;&amp;#x5DE5;&amp;#x4F5C;&amp;#x533A;
 Index / Stage&amp;#xFF1A;&amp;#x6682;&amp;#x5B58;&amp;#x533A;
 Repository&amp;#xFF1A;&amp;#x4ED3;&amp;#x5E93;&amp;#x533A;&amp;#xFF08;&amp;#x6216;&amp;#x672C;&amp;#x5730">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git入门及常用命令">
+<meta property="og:title" content="新手常用的git命令及问题分析">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/03/02/git/index.html">
 <meta property="og:site_name" content="一锅乱炖">
 <meta property="og:description" content="[TOC]
@@ -107,9 +107,9 @@ Repository&amp;#xFF1A;&amp;#x4ED3;&amp;#x5E93;&amp;#x533A;&amp;#xFF08;&amp;#x621
 <meta property="og:image" content="http://chen1218chen.github.io/2016/03/02/git/1450160447699.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/03/02/git/1450160697037.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/03/02/git/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20160530161258.png">
-<meta property="og:updated_time" content="2016-09-02T07:02:08.168Z">
+<meta property="og:updated_time" content="2016-09-07T00:49:49.302Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git入门及常用命令">
+<meta name="twitter:title" content="新手常用的git命令及问题分析">
 <meta name="twitter:description" content="[TOC]
 &amp;#x4E13;&amp;#x6709;&amp;#x540D;&amp;#x8BCD;
 Workspace&amp;#xFF1A;&amp;#x5DE5;&amp;#x4F5C;&amp;#x533A;
@@ -138,7 +138,7 @@ Repository&amp;#xFF1A;&amp;#x4ED3;&amp;#x5E93;&amp;#x533A;&amp;#xFF08;&amp;#x621
 
   <link rel="canonical" href="http://chen1218chen.github.io/2016/03/02/git/"/>
 
-  <title> git入门及常用命令 | 一锅乱炖 </title>
+  <title> 新手常用的git命令及问题分析 | 一锅乱炖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@ Repository&amp;#xFF1A;&amp;#x4ED3;&amp;#x5E93;&amp;#x533A;&amp;#xFF08;&amp;#x621
             
             
               
-                git入门及常用命令
+                新手常用的git命令及问题分析
               
             
           </h1>
@@ -413,6 +413,11 @@ git show V1.1
 git push origin V1.1
 # &#x628A;&#x6240;&#x6709;&#x4E0D;&#x5728;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E0A;&#x7684;&#x6807;&#x7B7E;&#x63A8;&#x9001;&#x4E0A;&#x53BB;
 git push origin --tags
+
+# &#x8865;&#x6253;&#x6807;&#x7B7E;
+git log --pretty=oneline //&#x67E5;&#x770B;&#x7248;&#x672C;&#x53F7;
+git tag -a v1.2 9fceb02...&#xFF08;commit&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x53F7;&#xFF09;
+git push origin v1.2 //&#x63D0;&#x4EA4;tag
 </code></pre><h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><p><img src="/2016/03/02/git/1450160697037.png" alt="enter description here" title="1450160697037.png"></p>
 <pre><code>git reset HEAD &lt;file&gt; //HEAD&#x6307;&#x9488;&#x6307;&#x5411;&#x5F53;&#x524D;&#x5206;&#x652F;&#x7684;&#x6700;&#x65B0;&#x7684;&#x63D0;&#x4EA4;
 git reflog  //&#x67E5;&#x770B;&#x6240;&#x6709;&#x65E5;&#x5FD7;&#x5305;&#x62EC;&#x64A4;&#x9500;&#x7684;&#x64CD;&#x4F5C;
@@ -582,7 +587,7 @@ git stash clear
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -592,7 +597,7 @@ git stash clear
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
