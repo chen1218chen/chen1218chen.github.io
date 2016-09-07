@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-09-07T08:05:30.467Z</updated>
+  <updated>2016-09-07T08:49:13.304Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,140 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>angular实现用户登陆</title>
+    <link href="http://chen1218chen.github.io/2016/09/08/angular%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86/"/>
+    <id>http://chen1218chen.github.io/2016/09/08/angular实现用户登陆/</id>
+    <published>2016-09-07T16:38:30.000Z</published>
+    <updated>2016-09-07T08:49:13.304Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x5C1D;&amp;#x8BD5;&amp;#x7528;angular&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x767B;&amp;#x9646;&amp;#xFF0C;&amp;#x8868;&amp;#x5355;&amp;#x7684;&amp;#x9A8C;&amp;#x8BC1;&amp;#x548C;&amp;#x63A7;&amp;#x5236;&amp;#x679C;&amp;#x7136;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#x65B9;&amp;#x4FBF;&amp;#x54CE;&amp;#xFF0C;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x671B;&amp;#x4E0D;&amp;#x541D;&amp;#x8D50;&amp;#x6559;&amp;#x3002;&lt;br&gt;&amp;#x767B;&amp;#x9646;&amp;#x754C;&amp;#x9762;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2016/09/08/angular&amp;#x5B9E;&amp;#x73B0;&amp;#x7528;&amp;#x6237;&amp;#x767B;&amp;#x9646;/Image%202.png&quot; alt=&quot;&amp;#x767B;&amp;#x9646;&amp;#x754C;&amp;#x9762;&quot; title=&quot;Image 2.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&amp;#x6548;&amp;#x679C;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2016/09/08/angular&amp;#x5B9E;&amp;#x73B0;&amp;#x7528;&amp;#x6237;&amp;#x767B;&amp;#x9646;/Image%203.png&quot; alt=&quot;&amp;#x8868;&amp;#x5355;&amp;#x9A8C;&amp;#x8BC1;&quot; title=&quot;Image 3.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x9A8C;&amp;#x8BC1;&amp;#x901A;&amp;#x8FC7;&amp;#x6548;&amp;#x679C;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2016/09/08/angular&amp;#x5B9E;&amp;#x73B0;&amp;#x7528;&amp;#x6237;&amp;#x767B;&amp;#x9646;/Image%204.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 4.png&quot;&gt;&lt;br&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;../lib/bootstrap-3.3.5/css/bootstrap.min.css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;form.css&amp;quot;&amp;gt;
+    &amp;lt;title&amp;gt;&amp;#x767B;&amp;#x5F55;&amp;#x8868;&amp;#x5355;&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body ng-app=&amp;quot;myApp&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;row&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;col-md-offset-3 col-md-6 location &amp;quot;&amp;gt;
+            &amp;lt;div class=&amp;quot;panel panel-primary&amp;quot;&amp;gt;
+                &amp;lt;div class=&amp;quot;panel-heading&amp;quot;&amp;gt;
+                    &amp;lt;div class=&amp;quot;panel-title&amp;quot;&amp;gt;&amp;#x767B;&amp;#x5F55;&amp;lt;/div&amp;gt;
+                &amp;lt;/div&amp;gt;
+                &amp;lt;div class=&amp;quot;panel-body&amp;quot;&amp;gt;
+                    &amp;lt;div class=&amp;quot;row&amp;quot; ng-controller=&amp;quot;loginCtrl&amp;quot;&amp;gt;
+                        &amp;lt;div class=&amp;quot;col-md-12&amp;quot;&amp;gt;
+                            &amp;lt;form class=&amp;quot;form-horizontal&amp;quot; name=&amp;quot;loginForm&amp;quot;  ng-submit=&amp;quot;submitForm()&amp;quot; novalidate&amp;gt;
+                                &amp;lt;div class=&amp;quot;form-group&amp;quot; &amp;gt;
+                                    &amp;lt;label class=&amp;quot;col-md-2 control-label&amp;quot;&amp;gt;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#xFF1A;&amp;lt;/label&amp;gt;
+                                    &amp;lt;div class=&amp;quot;col-md-10&amp;quot;&amp;gt;
+                                        &amp;lt;input type=&amp;quot;text&amp;quot; class=&amp;quot;form-control&amp;quot; name=&amp;quot;name&amp;quot; ng-model=&amp;quot;user.name&amp;quot; ng-class=&amp;quot;{error:loginForm.name.$invalid&amp;amp;&amp;amp;!loginForm.name.$pristine}&amp;quot; ng-minlength=&amp;quot;4&amp;quot; ng-maxlength=&amp;quot;10&amp;quot;placeholder=&amp;quot;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;quot; required=&amp;quot;&amp;quot;&amp;gt;
+                                        &amp;lt;p ng-show=&amp;quot;loginForm.name.$error.minlength&amp;quot; class=&amp;quot;help-block&amp;quot;&amp;gt;name is too short&amp;lt;/p&amp;gt;
+                                        &amp;lt;p class=&amp;quot;help-block&amp;quot; ng-show=&amp;quot;loginFOrm.name.$error.maxlength&amp;quot;&amp;gt;name is too long&amp;lt;/p&amp;gt;
+                                    &amp;lt;/div&amp;gt;
+                                &amp;lt;/div&amp;gt;
+                                &amp;lt;div class=&amp;quot;form-group&amp;quot; &amp;gt;
+                                    &amp;lt;label class=&amp;quot;col-md-2 control-label&amp;quot;&amp;gt;&amp;#x5BC6;&amp;#x7801;&amp;#xFF1A;&amp;lt;/label&amp;gt;
+                                    &amp;lt;div class=&amp;quot;col-md-10&amp;quot;&amp;gt;
+                                        &amp;lt;input type=&amp;quot;text&amp;quot; class=&amp;quot;form-control&amp;quot; name=&amp;quot;password&amp;quot; ng-model=&amp;quot;user.password&amp;quot; placeholder=&amp;quot;&amp;#x53EA;&amp;#x80FD;&amp;#x662F;&amp;#x6570;&amp;#x5B57;&amp;#x3001;&amp;#x5B57;&amp;#x6BCD;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;quot; ng-minlength=&amp;quot;6&amp;quot; ng-maxlength=&amp;quot;10&amp;quot;   ng-class=&amp;quot;{error:loginForm.password.$invalid&amp;amp;&amp;amp;!loginForm.password.$pristine}&amp;quot; ng-pattern=&amp;quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&amp;quot; required=&amp;quot;&amp;quot;&amp;gt;
+                                        &amp;lt;p class=&amp;quot;help-block&amp;quot; ng-show=&amp;quot;loginForm.password.$error.minlength&amp;quot;&amp;gt;password is too short&amp;lt;/p&amp;gt;
+                                        &amp;lt;p class=&amp;quot;help-block&amp;quot; ng-show=&amp;quot;loginForm.password.$error.maxlength&amp;quot;&amp;gt;password is too long&amp;lt;/p&amp;gt;
+                                    &amp;lt;/div&amp;gt;
+                                &amp;lt;/div&amp;gt;
+                                &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
+                                    &amp;lt;div class=&amp;quot;col-md-offset-2 col-md-10&amp;quot;&amp;gt;
+                                        &amp;lt;div class=&amp;quot;checkbox&amp;quot;&amp;gt;
+                                            &amp;lt;label&amp;gt;&amp;lt;input type=&amp;quot;checkbox&amp;quot; ng-model=&amp;quot;user.autoLogin&amp;quot;&amp;gt;&amp;#x81EA;&amp;#x52A8;&amp;#x767B;&amp;#x5F55;&amp;lt;/label&amp;gt;
+                                        &amp;lt;/div&amp;gt;
+                                    &amp;lt;/div&amp;gt;
+                                &amp;lt;/div&amp;gt;
+                                &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
+                                    &amp;lt;div class=&amp;quot;col-md-offset-2 col-md-10&amp;quot;&amp;gt;
+                                        &amp;lt;button class=&amp;quot;btn btn-primary&amp;quot; ng-disabled=&amp;quot;loginForm.$invalid&amp;quot;&amp;gt;&amp;#x767B;&amp;#x5F55;&amp;lt;/button&amp;gt;
+                                    &amp;lt;/div&amp;gt;
+                                &amp;lt;/div&amp;gt;
+                            &amp;lt;/form&amp;gt;
+                        &amp;lt;/div&amp;gt;
+                    &amp;lt;/div&amp;gt;
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;script src=&amp;quot;../lib/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;../lib/jquery-2.2.0.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;../lib/bootstrap-3.3.5/js/bootstrap.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;form.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;js&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;&amp;apos;use strict&amp;apos;;
+
+var myApp = angular.module(&amp;apos;myApp&amp;apos;,[]);
+myApp.controller(&amp;apos;loginCtrl&amp;apos;,[&amp;apos;$scope&amp;apos;, function($scope){
+    $scope.user={
+    /*    name: &amp;quot;ch&amp;quot;,
+        password: 1,
+        autoLogin: true*/
+    };
+    $scope.submitForm = function(){
+        var formData = {
+            name : $(&amp;quot;input[name=name]&amp;quot;).val(),
+            password : $(&amp;quot;input[name=password]&amp;quot;).val()
+        };
+        console.dir(formData);
+        alert(formData);
+        $.ajax({
+            type:&amp;quot;post&amp;quot;,
+            url:&amp;quot;&amp;quot;,
+            dataType:&amp;quot;json&amp;quot;,
+            data:formData,
+            success:function(data){
+                alert(&amp;quot;submit success!&amp;quot;);
+            }
+        });
+/*        event.preventDefault();*/
+    }
+}])
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;css&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;.location{
+    margin-top: 150px; 
+}
+.error{
+    color:red;
+    border-color: red;
+    -webkit-box-shadow: 0 0 6px #f8b9b7;
+    -moz-box-shadow: 0 0 6px #f8b9b7;
+    box-shadow: 0 0 6px #f8b9b7;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x5C1D;&amp;#x8BD5;&amp;#x7528;angular&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x767B;&amp;#x9646;&amp;#xFF0C;&amp;#x8868;&amp;#x5355;&amp;#x7684;&amp;#x9A8C;&amp;#x8BC1;&amp;#x548C;&amp;#x63A7;&amp;#
+    
+    </summary>
+    
+    
+      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
+    
+  </entry>
   
   <entry>
     <title>bootstrap file文件上传</title>
@@ -1002,154 +1136,6 @@ public List
     
     
       <category term="hibernate, java" scheme="http://chen1218chen.github.io/tags/hibernate-java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Struts2之ModelDriven接口实现登陆及退出</title>
-    <link href="http://chen1218chen.github.io/2016/06/12/Struts2%E4%B9%8BModelDriven%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%99%BB%E9%99%86/"/>
-    <id>http://chen1218chen.github.io/2016/06/12/Struts2之ModelDriven接口实现登陆/</id>
-    <published>2016-06-12T14:05:01.000Z</published>
-    <updated>2016-06-12T07:15:10.845Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x5F53;&amp;#x7528;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x63D0;&amp;#x4EA4;&amp;#x8868;&amp;#x5355;&amp;#xFF0C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x65F6;&amp;#xFF0C;action&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x5404;&amp;#x79CD;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x5E76;&amp;#x5B9E;&amp;#x73B0;get/set&amp;#x8BF7;&amp;#x6C42;&amp;#x5C31;&amp;#x663E;&amp;#x5F97;&amp;#x8FC7;&amp;#x4E8E;&amp;#x81C3;&amp;#x80BF;&amp;#xFF0C;&amp;#x6539;&amp;#x7528;Struts2&amp;#x7684;ModelDriven&amp;#x63A5;&amp;#x53E3;&amp;#x6765;&amp;#x83B7;&amp;#x53D6;&amp;#x7528;&amp;#x6237;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;HTTP&amp;#x8BF7;&amp;#x6C42;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;Model&amp;#xFF0C;Struts2&amp;#x6846;&amp;#x67B6;&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5C06;&amp;#x7528;&amp;#x6237;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;HTTP&amp;#x4FE1;&amp;#x606F;&amp;#x8D4B;&amp;#x7ED9;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;Model&amp;#x3002;&lt;br&gt;&amp;#x5BF9;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7684;LoginAction&amp;#x8FDB;&amp;#x884C;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C;&amp;#x91C7;&amp;#x7528;ModelDriven&amp;#x65B9;&amp;#x5F0F;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;LoginModel&quot;&gt;&lt;a href=&quot;#LoginModel&quot; class=&quot;headerlink&quot; title=&quot;LoginModel&quot;&gt;&lt;/a&gt;LoginModel&lt;/h2&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#xFF0C;&amp;#x7CFB;&amp;#x7EDF;&amp;#x91C7;&amp;#x7528;&amp;#x7535;&amp;#x8BDD;+&amp;#x5BC6;&amp;#x7801;&amp;#x7684;&amp;#x767B;&amp;#x9646;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5EFA;&amp;#x7ACB;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;LoginModel.java&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;public class LoginModel {
-    private String telephone;
-    private String password;
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;LoginAction&quot;&gt;&lt;a href=&quot;#LoginAction&quot; class=&quot;headerlink&quot; title=&quot;LoginAction&quot;&gt;&lt;/a&gt;LoginAction&lt;/h2&gt;&lt;p&gt;&amp;#x8868;&amp;#x5355;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;action&amp;#x7EE7;&amp;#x627F;ModelDriven&lt;loginmodel&gt;&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;getter&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x91CD;&amp;#x8F7D;execute&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/loginmodel&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@ParentPackage(value = &amp;quot;json-default&amp;quot;)
-@Controller
-@Action(value = &amp;quot;/loginAction2&amp;quot;, results = { @Result(name = &amp;quot;success&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/index.jsp&amp;quot;),
-        @Result(name = &amp;quot;input&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/login.html&amp;quot;),
-        @Result(name = &amp;quot;error&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/login.html&amp;quot;) }, exceptionMappings = {
-                @ExceptionMapping(exception = &amp;quot;java.lang.Exception&amp;quot;, result = &amp;quot;error&amp;quot;) })
-public class LoginAction2 extends BaseAction implements ModelDriven&amp;lt;LoginModel&amp;gt; {
-
-    private static final long serialVersionUID = 1L;
-
-    @Resource
-    private IUserService userManagerImpl;
-    private LoginModel login = new LoginModel();
-
-    @Override
-    public LoginModel getModel() {
-        // TODO Auto-generated method stub
-        return login;
-    }
-
-    // &amp;#x91CD;&amp;#x8F7D;
-    public String execute() throws Exception {
-        String password = login.getPassword();
-        String telephone = login.getTelephone();
-        if (password != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(password)) {
-            // password = MD5.MD5Encode(password);
-        }
-        if (telephone == null || telephone == &amp;quot;&amp;quot; || password == null || password == &amp;quot;&amp;quot;)
-            return INPUT;
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(telephone, password);
-        token.setRememberMe(true);// &amp;#x8BB0;&amp;#x4F4F;&amp;#x6211;
-
-        try {
-            // &amp;#x767B;&amp;#x5F55;&amp;#xFF0C;&amp;#x5373;&amp;#x8FDB;&amp;#x884C;&amp;#x8EAB;&amp;#x4EFD;&amp;#x9A8C;&amp;#x8BC1;&amp;#x64CD;&amp;#x4F5C;
-            subject.login(token);// &amp;#x8C03;&amp;#x7528; myRealm&amp;#x7684; doGetAuthenticationInfo&amp;#x65B9;&amp;#x6CD5;
-            String telephone2 = (String) subject.getPrincipal();// &amp;#x767B;&amp;#x9646;&amp;#x6210;&amp;#x529F;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x8FD9;&amp;#x6837;&amp;#x5B50;&amp;#x62FF;&amp;#x5230;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E86;
-            User user = userManagerImpl.queryByTel(telephone2);
-            subject.getSession().setAttribute(&amp;quot;uname&amp;quot;, user.getName());
-        } catch (UnknownSessionException uae) {
-            subject.getSession().setAttribute(&amp;quot;myerror&amp;quot;, &amp;quot;&amp;#x767B;&amp;#x5F55;&amp;#x5F02;&amp;#x5E38;!&amp;quot;);
-            return ERROR;
-        } catch (UnknownAccountException ex) {
-            subject.getSession().setAttribute(&amp;quot;myerror&amp;quot;, &amp;quot;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;!&amp;quot;);
-            return INPUT;
-        } catch (IncorrectCredentialsException ice) {
-            subject.getSession().setAttribute(&amp;quot;myerror&amp;quot;, &amp;quot;&amp;#x5BC6;&amp;#x7801;&amp;#x9519;&amp;#x8BEF;!&amp;quot;);
-            return INPUT;
-        } catch (LockedAccountException lae) {
-            subject.getSession().setAttribute(&amp;quot;myerror&amp;quot;, &amp;quot;&amp;#x767B;&amp;#x5F55;&amp;#x5F02;&amp;#x5E38;!&amp;quot;);
-            return INPUT;
-        } catch (AuthenticationException e) {
-            subject.getSession().setAttribute(&amp;quot;myerror&amp;quot;, &amp;quot;&amp;#x7528;&amp;#x6237;&amp;#x767B;&amp;#x5F55;&amp;#x5931;&amp;#x8D25;!&amp;quot;);
-            return INPUT;
-        }
-        return SUCCESS;
-    }
-
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &amp;#x4F1A;&amp;#x9500;&amp;#x6BC1;&amp;#xFF0C;&amp;#x5728;SessionListener&amp;#x76D1;&amp;#x542C;session&amp;#x9500;&amp;#x6BC1;&amp;#xFF0C;&amp;#x6E05;&amp;#x7406;&amp;#x6743;&amp;#x9650;&amp;#x7F13;&amp;#x5B58;
-        }
-        return INPUT;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6CE8;&amp;#x610F;&lt;code&gt;subject.getSession().setAttribute(arg0, arg1);&lt;/code&gt;shiro&amp;#x7684;seeion&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;login.jsp&amp;#x9875;&amp;#x9762;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;&amp;#x9519;&amp;#x8BEF;&amp;#x7C7B;&amp;#x578B;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;%
-    Object error = session.getAttribute(&amp;quot;myerror&amp;quot;); 
-    if(error==null)
-        error=&amp;quot; &amp;quot;;
- %&amp;gt;
- &amp;lt;form action=&amp;quot;login.action&amp;quot;&amp;gt;
-    ...
-    &amp;lt;label style=&amp;quot;color:red&amp;quot;&amp;gt;&amp;lt;%=error%&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;telephone&amp;quot; class=&amp;quot;email&amp;quot;
-            placeholder=&amp;quot;&amp;#x8BF7;&amp;#x8F93;&amp;#x5165;&amp;#x7535;&amp;#x8BDD;&amp;quot; autocomplete=&amp;quot;off&amp;quot; required=&amp;quot;required&amp;quot; /&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group &amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;password&amp;quot; name=&amp;quot;password&amp;quot; class=&amp;quot;password&amp;quot;
-            placeholder=&amp;quot;&amp;#x8BF7;&amp;#x8F93;&amp;#x5165;&amp;#x5BC6;&amp;#x7801;&amp;#x81;&amp;quot; autocomplete=&amp;quot;off&amp;quot; required=&amp;quot;required&amp;quot; /&amp;gt;
-    &amp;lt;/div&amp;gt;
-    ...
-&amp;lt;/form&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;LogoutAction&quot;&gt;&lt;a href=&quot;#LogoutAction&quot; class=&quot;headerlink&quot; title=&quot;LogoutAction&quot;&gt;&lt;/a&gt;LogoutAction&lt;/h2&gt;&lt;p&gt;&amp;#x6CE8;&amp;#x9500;&amp;#x8D26;&amp;#x53F7;&amp;#x9000;&amp;#x51FA;&amp;#x7CFB;&amp;#x7EDF;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;LoginAction&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&amp;#x4E00;&amp;#x4E2A;logout&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x8C03;&amp;#x7528;&lt;code&gt;loginAction!logout.action&lt;/code&gt;&amp;#xFF0C;&amp;#x6216;&amp;#x8005;&amp;#x91CD;&amp;#x65B0;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;Action&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@ParentPackage(value = &amp;quot;json-default&amp;quot;)
-@Controller
-public class LogoutAction extends BaseAction {
-
-    private static final long serialVersionUID = 1L;
-
-    @Action(value = &amp;quot;/logoutAction&amp;quot;, results = { 
-            @Result(name = &amp;quot;success&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/login.jsp&amp;quot;),
-            @Result(name = &amp;quot;error&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/index.jsp&amp;quot;) }, exceptionMappings = {
-                    @ExceptionMapping(exception = &amp;quot;java.lang.Exception&amp;quot;, result = &amp;quot;error&amp;quot;) })
-    public String logout() throws Exception {
-        Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            subject.logout(); // session &amp;#x4F1A;&amp;#x9500;&amp;#x6BC1;&amp;#xFF0C;&amp;#x5728;SessionListener&amp;#x76D1;&amp;#x542C;session&amp;#x9500;&amp;#x6BC1;&amp;#xFF0C;&amp;#x6E05;&amp;#x7406;&amp;#x6743;&amp;#x9650;&amp;#x7F13;&amp;#x5B58;
-        }
-        return SUCCESS;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8C03;&amp;#x7528;&lt;code&gt;logoutAction.action&lt;/code&gt;&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x5F53;&amp;#x7528;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x63D0;&amp;#x4EA4;&amp;#x8868;&amp;#x5355;&amp;#xFF0C;&amp;#x63D0;&amp;#x4EA4;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CF;&amp;#x5927;&amp;#x65
-    
-    </summary>
-    
-    
-      <category term="struts2" scheme="http://chen1218chen.github.io/tags/struts2/"/>
     
   </entry>
   
