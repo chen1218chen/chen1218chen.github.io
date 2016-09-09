@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="bootstrap," />
+  <meta name="keywords" content="Bootstrap,bootstrap table," />
 
 
 
@@ -88,16 +88,16 @@
 
 <meta name="description" content="&amp;#x91C7;&amp;#x7528;requireJS&amp;#x5B9E;&amp;#x73B0;js&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;&amp;#x5404;&amp;#x79CD;bootstrap&amp;#x63D2;&amp;#x4EF6;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x5BF9;&amp;#x7528;&amp;#x6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bootstrap框架中对于用户表操作的js代码">
+<meta property="og:title" content="操作bootstrap table的js代码总结">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/index.html">
 <meta property="og:site_name" content="一锅乱炖">
 <meta property="og:description" content="&amp;#x91C7;&amp;#x7528;requireJS&amp;#x5B9E;&amp;#x73B0;js&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;&amp;#x5404;&amp;#x79CD;bootstrap&amp;#x63D2;&amp;#x4EF6;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x5BF9;&amp;#x7528;&amp;#x6">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/%E5%9B%BE%E7%89%871.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/%E5%9B%BE%E7%89%872.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/%E5%9B%BE%E7%89%873.png">
-<meta property="og:updated_time" content="2016-04-28T09:02:31.171Z">
+<meta property="og:updated_time" content="2016-09-09T09:08:37.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bootstrap框架中对于用户表操作的js代码">
+<meta name="twitter:title" content="操作bootstrap table的js代码总结">
 <meta name="twitter:description" content="&amp;#x91C7;&amp;#x7528;requireJS&amp;#x5B9E;&amp;#x73B0;js&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;&amp;#x5404;&amp;#x79CD;bootstrap&amp;#x63D2;&amp;#x4EF6;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x5BF9;&amp;#x7528;&amp;#x6">
 <meta name="twitter:image" content="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/%E5%9B%BE%E7%89%871.png">
 
@@ -122,7 +122,7 @@
 
   <link rel="canonical" href="http://chen1218chen.github.io/2016/04/29/bootstrap框架中对于用户表操作的js代码/"/>
 
-  <title> bootstrap框架中对于用户表操作的js代码 | 一锅乱炖 </title>
+  <title> 操作bootstrap table的js代码总结 | 一锅乱炖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +265,7 @@
             
             
               
-                bootstrap框架中对于用户表操作的js代码
+                操作bootstrap table的js代码总结
               
             
           </h1>
@@ -310,7 +310,11 @@
       
 
       
-        <p>&#x91C7;&#x7528;requireJS&#x5B9E;&#x73B0;js&#x7684;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#xFF0C;&#x96C6;&#x6210;&#x5404;&#x79CD;bootstrap&#x63D2;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x7528;&#x6237;&#x6570;&#x636E;&#x7684;&#x7BA1;&#x7406;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%871.png" alt="enter description here" title="&#x56FE;&#x7247;1.png"><br>&#x6DFB;&#x52A0;&#x529F;&#x80FD;&#xFF1A;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%872.png" alt="enter description here" title="&#x56FE;&#x7247;2.png"><br>&#x4FEE;&#x6539;&#x529F;&#x80FD;&#xFF08;&#x7C7B;&#x4F3C;&#x4E0B;&#x56FE;&#xFF09;&#xFF1A;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%873.png" alt="enter description here" title="&#x56FE;&#x7247;3.png"></p>
+        <p>&#x91C7;&#x7528;requireJS&#x5B9E;&#x73B0;js&#x7684;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#xFF0C;&#x96C6;&#x6210;&#x5404;&#x79CD;bootstrap&#x63D2;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x7528;&#x6237;&#x6570;&#x636E;&#x7684;&#x7BA1;&#x7406;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%871.png" alt="enter description here" title="&#x56FE;&#x7247;1.png"></p>
+<p>&#x6DFB;&#x52A0;&#x529F;&#x80FD;&#xFF1A;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%872.png" alt="enter description here" title="&#x56FE;&#x7247;2.png"><br>&#x4FEE;&#x6539;&#x529F;&#x80FD;&#xFF08;&#x7C7B;&#x4F3C;&#x4E0B;&#x56FE;&#xFF09;&#xFF1A;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%873.png" alt="enter description here" title="&#x56FE;&#x7247;3.png"></p>
 <p>main.js</p>
 <pre><code>require.config({
 //    baseUrl : &apos;js&apos;,
@@ -768,7 +772,9 @@ require([ &apos;jquery&apos;, &apos;bootstrap-dialog&apos;, &apos;common&apos;, 
       
         <div class="post-tags">
           
-            <a href="/tags/bootstrap/" rel="tag">#bootstrap</a>
+            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
+          
+            <a href="/tags/bootstrap-table/" rel="tag">#bootstrap table</a>
           
         </div>
       
@@ -785,8 +791,8 @@ require([ &apos;jquery&apos;, &apos;bootstrap-dialog&apos;, &apos;common&apos;, 
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/04/bootstrapTable总结/" rel="prev" title="bootstrapTable总结">
-                bootstrapTable总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/04/bootstrapTable总结/" rel="prev" title="bootstrap table小技巧">
+                bootstrap table小技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -878,7 +884,7 @@ require([ &apos;jquery&apos;, &apos;bootstrap-dialog&apos;, &apos;common&apos;, 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">60</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -888,7 +894,7 @@ require([ &apos;jquery&apos;, &apos;bootstrap-dialog&apos;, &apos;common&apos;, 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

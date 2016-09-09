@@ -86,16 +86,19 @@
 
 
 
-<meta name="description" content="ReactJS&amp;#x521D;&amp;#x8BC6;##&amp;#x3000;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;">
+<meta name="description" content="[toc]
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactJS初识">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/07/12/ReactJS初识/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="ReactJS&amp;#x521D;&amp;#x8BC6;##&amp;#x3000;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;">
-<meta property="og:updated_time" content="2016-07-12T08:49:28.754Z">
+<meta property="og:description" content="[toc]
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
+<meta property="og:updated_time" content="2016-09-09T09:12:25.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactJS初识">
-<meta name="twitter:description" content="ReactJS&amp;#x521D;&amp;#x8BC6;##&amp;#x3000;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;">
+<meta name="twitter:description" content="[toc]
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
 
 
 
@@ -306,7 +309,8 @@
       
 
       
-        <h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><p>##&#x3000;&#x865A;&#x62DF;DOM<br>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+        <p>[toc]</p>
+<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
 
       
     </div>
@@ -439,7 +443,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">60</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -449,7 +453,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -505,7 +509,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactJS初识"><span class="nav-number">1.</span> <span class="nav-text">ReactJS初识</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactJS初识"><span class="nav-number">1.</span> <span class="nav-text">ReactJS初识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟DOM</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

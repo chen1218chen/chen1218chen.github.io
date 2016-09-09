@@ -4,6 +4,141 @@
   
     
     <entry>
+      <title><![CDATA[bootstrap的使用]]></title>
+      <url>http://chen1218chen.github.io/2016/09/10/bootstrap%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>[toc]</p>
+<h2 id="bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;"><a href="#bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;" class="headerlink" title="bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;"></a>bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;</h2><pre><code>&lt;a id=&quot;adduser&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;    href=&quot;addUser.html&quot; data-target=&quot;#adduserModal&quot;&gt;&#x6DFB;&#x52A0;&lt;/a&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;adduserModal&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; data-keyboard=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><blockquote>
+<p>table&#x8868;&#x4E2D;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;model&#x5F39;&#x51FA;&#x6846;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x503C;</p>
+</blockquote>
+<pre><code>function editTerminal(row,index) {
+    index1=index;
+    $(&apos;#editTerminalModal&apos;).on(&apos;show.bs.modal&apos;,function(event) {
+        var button = $(event.relatedTarget);
+        var recipient = button.data(&apos;whatever&apos;);
+        var modal = $(this);
+        modal.find(&apos;.modal-title&apos;).text(recipient);
+        modal.find(&apos;#tid&apos;).val(row.tid);
+        modal.find(&apos;#type&apos;).val(row.type);
+        modal.find(&apos;#cid&apos;).val(row.cid);
+        modal.find(&apos;#uid&apos;).val(row.uid);
+        modal.find(&apos;#date&apos;).val(row.date);
+    })
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[bootstrap-validator]]></title>
+      <url>http://chen1218chen.github.io/2016/09/10/bootstrap-validator/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>reset&#x91CD;&#x7F6E;&#x8868;&#x5355;</p>
+</blockquote>
+<pre><code>$(&apos;#btn-reset&apos;).click(function() {
+    $(&apos;#changeForm&apos;).data(&apos;bootstrapValidator&apos;).resetForm(true);
+});
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[jQuery-confirm]]></title>
+      <url>http://chen1218chen.github.io/2016/09/10/jQuery-confirm/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="Jquery-confirm"><a href="#Jquery-confirm" class="headerlink" title="Jquery-confirm"></a>Jquery-confirm</h1><h2 id="1-alert&#x4F7F;&#x7528;"><a href="#1-alert&#x4F7F;&#x7528;" class="headerlink" title="1. alert&#x4F7F;&#x7528;"></a>1. alert&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>function alertView(str){
+    $.alert({
+        animation : &apos;zoom&apos;,
+        animationBounce : 2,
+        keyboardEnabled : true,
+        title : false,
+        content : str,
+        theme : &apos;white&apos;,
+    });
+}
+</code></pre><h2 id="2-confirm&#x4F7F;&#x7528;"><a href="#2-confirm&#x4F7F;&#x7528;" class="headerlink" title="2. confirm&#x4F7F;&#x7528;"></a>2. confirm&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>$.confirm({
+    title: &apos;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#x767B;&#x9646;&#x5417;&#xFF1F;&apos;, 
+    content : false,
+    // autoClose: &apos;confirm|10000&apos;,
+    confirmButtonClass : &apos;btn-info&apos;,
+    cancelButtonClass : &apos;btn-danger&apos;,
+    confirm : function() {
+        $.ajax({
+            type : &quot;post&quot;,
+            url : &quot;logoutAction.action&quot;,
+            async: false,
+            success :function(){
+                location.href = &quot;../login.jsp&quot;;
+            }
+        });
+    },
+    cancel : function() {
+        alert(&apos;canceled&apos;);
+    }
+});
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[bootstrap-dialog使用]]></title>
+      <url>http://chen1218chen.github.io/2016/09/10/bootstrap-dialog%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="&#x9875;&#x9762;&#x52A0;&#x8F7D;"><a href="#&#x9875;&#x9762;&#x52A0;&#x8F7D;" class="headerlink" title="&#x9875;&#x9762;&#x52A0;&#x8F7D;"></a>&#x9875;&#x9762;&#x52A0;&#x8F7D;</h2><pre><code>function changePasswd(){
+ BootstrapDialog.show({
+     title : &quot;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&quot;,
+     message: function(dialog) {
+         var $message = $(&apos;&lt;div&gt;&lt;/div&gt;&apos;);
+         var pageToLoad = dialog.getData(&apos;pageToLoad&apos;);
+         $message.load(pageToLoad);
+         return $message;
+     },
+     data: {
+         &apos;pageToLoad&apos;: &apos;changePasswd.html&apos;
+     },
+        buttons: [{
+         id: &apos;btn-ok&apos;,   
+         icon: &apos;glyphicon glyphicon-check&apos;,       
+         label: &apos;OK&apos;,
+         cssClass: &apos;btn-success&apos;, 
+         autospin: false,
+         action: function(dialogItself){    
+             change();
+               dialogItself.close();
+         }
+     }, {
+         id:&apos;btn-reset&apos;,
+         cssClass: &apos;btn-warning&apos;,
+         label: &apos;&#x91CD;&#x7F6E;&apos;,
+         icon: &apos;glyphicon glyphicon-repeat&apos;,
+         action : function(){
+             document.getElementById(&quot;changeForm&quot;).reset();
+            $(&apos;#btn-reset&apos;).click(function() {
+            });
+         }
+     }, {
+         id:&apos;btn-close&apos;,
+         icon:&apos;glyphicon glyphicon-remove&apos;,
+         label: &apos;Close&apos;,
+         cssClass: &apos;btn-danger&apos;,
+         action: function(dialogItself){
+             dialogItself.close();
+         }
+     }]
+ });
+}
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[angular实现用户登陆]]></title>
       <url>http://chen1218chen.github.io/2016/09/08/angular%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E9%99%86/</url>
       <content type="html"><![CDATA[<p>&#x5C1D;&#x8BD5;&#x7528;angular&#x6765;&#x5B9E;&#x73B0;&#x767B;&#x9646;&#xFF0C;&#x8868;&#x5355;&#x7684;&#x9A8C;&#x8BC1;&#x548C;&#x63A7;&#x5236;&#x679C;&#x7136;&#x5F88;&#x7B80;&#x5355;&#x65B9;&#x4FBF;&#x54CE;&#xFF0C;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#xFF0C;&#x671B;&#x4E0D;&#x541D;&#x8D50;&#x6559;&#x3002;<br>&#x767B;&#x9646;&#x754C;&#x9762;&#x5982;&#x4E0B;&#xFF1A;</p>
@@ -150,9 +285,12 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
     <entry>
       <title><![CDATA[关于HTML5的一些零碎]]></title>
       <url>http://chen1218chen.github.io/2016/09/05/%E5%85%B3%E4%BA%8EHTML5%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E7%A2%8E/</url>
-      <content type="html"><![CDATA[<p>tabindex &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x7684; tab &#x952E;&#x63A7;&#x5236;&#x6B21;&#x5E8F;</p>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="&#x5C5E;&#x6027;"><a href="#&#x5C5E;&#x6027;" class="headerlink" title="&#x5C5E;&#x6027;"></a>&#x5C5E;&#x6027;</h2><h3 id="tabindex"><a href="#tabindex" class="headerlink" title="tabindex"></a>tabindex</h3><p>tabindex &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x7684; tab &#x952E;&#x63A7;&#x5236;&#x6B21;&#x5E8F;</p>
 <pre><code>&lt;input type=&quot;text&quot; tabindex=&quot;1&quot;&gt;
-</code></pre>]]></content>
+</code></pre><h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><p>&#x73B0;&#x5728;html5&#x7684;&#x51FA;&#x73B0;&#x5F00;&#x59CB;&#x5168;&#x9762;&#x652F;&#x6301;defer&#x3002;defer &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5F53;&#x9875;&#x9762;&#x5DF2;&#x5B8C;&#x6210;&#x52A0;&#x8F7D;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x811A;&#x672C;&#x3002;defer &#x5C5E;&#x6027;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF08;&#x53EA;&#x6709;&#x5728;&#x4F7F;&#x7528; src &#x5C5E;&#x6027;&#x65F6;&#xFF09;</p>
+<h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><p>async &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x4E00;&#x65E6;&#x811A;&#x672C;&#x53EF;&#x7528;&#xFF0C;&#x5219;&#x4F1A;&#x5F02;&#x6B65;&#x6267;&#x884C;</p>
+]]></content>
     </entry>
     
     <entry>
@@ -618,7 +756,8 @@ define([&apos;jquery&apos;,&apos;async!BMap&apos;], function(){
     <entry>
       <title><![CDATA[ReactJS初识]]></title>
       <url>http://chen1218chen.github.io/2016/07/12/ReactJS%E5%88%9D%E8%AF%86/</url>
-      <content type="html"><![CDATA[<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><p>##&#x3000;&#x865A;&#x62DF;DOM<br>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+      <content type="html"><![CDATA[<p>[toc]</p>
+<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
 ]]></content>
     </entry>
     
@@ -1015,6 +1154,76 @@ grunt bower
     </entry>
     
     <entry>
+      <title><![CDATA[Express.js]]></title>
+      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
+});
+
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
+});
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[bower]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/bower/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -1185,76 +1394,6 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
     </entry>
     
     <entry>
-      <title><![CDATA[Express.js]]></title>
-      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
-      <content type="html"><![CDATA[<p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Angular]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/Angular/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -1312,7 +1451,7 @@ define([ &apos;angular&apos; ], function( angular) {
       <url>http://chen1218chen.github.io/2016/05/26/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%AE%A1%E7%90%86/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
 <p>&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x4F9D;&#x7136;&#x6210;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x7684;&#x4E3B;&#x6D41;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x5C31;&#x662F;&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x3002;&#x6700;&#x6709;&#x540D;&#x7684;&#x524D;&#x7AEF;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5373;requireJS&#xFF0C;&#x91C7;&#x7528;AMD&#x6807;&#x51C6;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x7BA1;&#x7406;&#x5668;&#x5404;&#x6709;&#x7279;&#x8272;&#x3002;</p>
-<h1 id="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"><a href="#&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"></a>&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>CommonJS&#x662F;&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;&#x5316;&#x7684;&#x4E00;&#x79CD;&#x89C4;&#x8303;&#xFF0C;NodeJS&#x662F;&#x5176;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;&#x7531;&#x4E8E;NodeJS&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F16;&#x7A0B;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x8D77;&#x6765;&#x5F88;&#x5FEB;&#xFF0C;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x524D;&#x7AEF;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x5C31;&#x9700;&#x8981;AMD&#xFF0C;CDM&#x3002;<br>CommonJS&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#x5206;&#x4E3A;:{&#x6A21;&#x5757;&#x5F15;&#x7528;(require)} {&#x6A21;&#x5757;&#x5B9A;&#x4E49;(exports)} {&#x6A21;&#x5757;&#x6807;&#x8BC6;(module)}</p>
+<h1 id="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"><a href="#&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;"></a>&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>CommonJS<strong>&#x7528;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7AEF;</strong>&#xFF0C;&#x662F;&#x670D;&#x52A1;&#x5668;&#x6A21;&#x5757;&#x5316;&#x7684;&#x4E00;&#x79CD;&#x89C4;&#x8303;&#xFF0C;NodeJS&#x662F;&#x5176;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x662F;<strong>&#x540C;&#x6B65;</strong>&#x7684;&#x3002;&#x7531;&#x4E8E;NodeJS&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7F16;&#x7A0B;&#xFF0C;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x4E00;&#x822C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x6240;&#x4EE5;&#x52A0;&#x8F7D;&#x8D77;&#x6765;&#x5F88;&#x5FEB;&#xFF0C;&#x4E0D;&#x7528;&#x8003;&#x8651;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x95EE;&#x9898;&#xFF0C;&#x800C;&#x524D;&#x7AEF;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#xFF0C;&#x5C31;&#x9700;&#x8981;AMD&#xFF0C;CDM&#x3002;<br>&#x6839;&#x636E;CommonJS&#x89C4;&#x8303;&#xFF0C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x4F7F;&#x7528;require()&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5E76;&#x6267;&#x884C;&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;exports&#x5BF9;&#x8C61;&#x3002;<br>CommonJS&#x5B9A;&#x4E49;&#x7684;&#x6A21;&#x5757;&#x5206;&#x4E3A;:{&#x6A21;&#x5757;&#x5F15;&#x7528;(require)} {&#x6A21;&#x5757;&#x5B9A;&#x4E49;(exports)} {&#x6A21;&#x5757;&#x6807;&#x8BC6;(module)}</p>
 <ul>
 <li>require()&#x7528;&#x6765;&#x5F15;&#x5165;&#x5916;&#x90E8;&#x6A21;&#x5757;&#xFF1B;</li>
 <li>exports&#x5BF9;&#x8C61;&#x7528;&#x4E8E;&#x5BFC;&#x51FA;&#x5F53;&#x524D;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#x6216;&#x53D8;&#x91CF;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x5BFC;&#x51FA;&#x53E3;&#xFF1B;</li>
@@ -1323,7 +1462,7 @@ define([ &apos;angular&apos; ], function( angular) {
 </ul>
 </li>
 </ul>
-<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p><strong>AMD</strong>&#xFF1A;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;RequireJS&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br><strong>CMD</strong>&#xFF1A;&#x901A;&#x7528;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;SeaJS (&#x7531;&#x7389;&#x4F2F;-&#x6DD8;&#x5B9D;&#x524D;&#x7AEF;&#x5DE5;&#x7A0B;&#x5E08;&#x63D0;&#x51FA;)&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br>&#x533A;&#x522B;&#xFF1A;</p>
+<h2 id="AMD-CMD"><a href="#AMD-CMD" class="headerlink" title="AMD/CMD"></a>AMD/CMD</h2><p><strong>&#x7528;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#xFF0C;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;</strong>&#x3002;<br><strong>AMD</strong>&#xFF1A;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;RequireJS&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;&#x3002;&#x5148;&#x63D0;&#x51FA;&#x7684;<br><strong>CMD</strong>&#xFF1A;&#x901A;&#x7528;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF0C;&#x662F;SeaJS (&#x7531;&#x7389;&#x4F2F;-&#x6DD8;&#x5B9D;&#x524D;&#x7AEF;&#x5DE5;&#x7A0B;&#x5E08;&#x63D0;&#x51FA;)&#x5728;&#x63A8;&#x5E7F;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x7684;&#x89C4;&#x8303;&#x5316;&#x4EA7;&#x51FA;<br>&#x533A;&#x522B;&#xFF1A;</p>
 <ol>
 <li>&#x5BF9;&#x4E8E;&#x4F9D;&#x8D56;&#x7684;&#x6A21;&#x5757;AMD&#x662F;&#x63D0;&#x524D;&#x6267;&#x884C;&#xFF0C;CMD&#x662F;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#x3002;&#x4E0D;&#x8FC7;RequireJS&#x4ECE;2.0&#x5F00;&#x59CB;&#xFF0C;&#x4E5F;&#x6539;&#x6210;&#x53EF;&#x4EE5;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF08;&#x6839;&#x636E;&#x5199;&#x6CD5;&#x4E0D;&#x540C;&#xFF0C;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x4E0D;&#x901A;&#x8FC7;&#xFF09;&#x3002;</li>
 <li>CMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x5C31;&#x8FD1;&#xFF0C;AMD&#x63A8;&#x5D07;&#x4F9D;&#x8D56;&#x524D;&#x7F6E;&#x3002;<strong>&#x5373;SeaJS&#x662F;&#x61D2;&#x6267;&#x884C;&#xFF0C;requireJS&#x662F;&#x9884;&#x6267;&#x884C;&#x3002;</strong></li>
@@ -1967,9 +2106,10 @@ function searchDate(start,end){
     </entry>
     
     <entry>
-      <title><![CDATA[bootstrapTable总结]]></title>
+      <title><![CDATA[bootstrap table小技巧]]></title>
       <url>http://chen1218chen.github.io/2016/05/04/bootstrapTable%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<h2 id="table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;"><a href="#table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;" class="headerlink" title="table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;"></a>table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;</h2><p>The table options are defined in <strong>jQuery.fn.bootstrapTable.defaults</strong>.</p>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;"><a href="#table&#x53C2;&#x6570;&#xFF08;Table-options&#xFF09;" class="headerlink" title="table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;"></a>table&#x53C2;&#x6570;&#xFF08;Table options&#xFF09;</h2><p>The table options are defined in <strong>jQuery.fn.bootstrapTable.defaults</strong>.</p>
 <p>&#x6309;&#x7167;&#x67D0;&#x5217;&#x6392;&#x5E8F;:</p>
 <pre><code>data-sort-name=&quot;dataTime&quot; data-sort-order=&quot;desc&quot;
 </code></pre><p>&#x67E5;&#x770B;&#x7EC6;&#x8282;,&#x6548;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;</p>
@@ -1981,7 +2121,7 @@ function detailFommater(index, row, element) {
 </code></pre><p><img src="/2016/05/04/bootstrapTable&#x603B;&#x7ED3;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
 <h2 id="&#x624B;&#x52A8;&#x542F;&#x52A8;"><a href="#&#x624B;&#x52A8;&#x542F;&#x52A8;" class="headerlink" title="&#x624B;&#x52A8;&#x542F;&#x52A8;"></a>&#x624B;&#x52A8;&#x542F;&#x52A8;</h2><p>&#x5982;&#x679C;bootstrapTable&#x6CA1;&#x6709;&#x542F;&#x7528;&#xFF0C;&#x9009;&#x62E9;&#x624B;&#x52A8;&#x89E6;&#x53D1;&#x3002;</p>
 <pre><code>$(&apos;#table&apos;).bootstrapTable();
-</code></pre><h2 id="pageNum&#x521D;&#x59CB;&#x5316;"><a href="#pageNum&#x521D;&#x59CB;&#x5316;" class="headerlink" title="pageNum&#x521D;&#x59CB;&#x5316;"></a>pageNum&#x521D;&#x59CB;&#x5316;</h2><pre><code>data-page-list=&quot;[10, 25, 50, 100, ALL]&quot;
+</code></pre><h2 id="pageNum&#x521D;&#x59CB;&#x5316;"><a href="#pageNum&#x521D;&#x59CB;&#x5316;" class="headerlink" title="pageNum&#x521D;&#x59CB;&#x5316;"></a>pageNum&#x521D;&#x59CB;&#x5316;</h2><pre><code>data-page-list=&quot;[10, 25, 50, 100, &apos;ALL&apos;]&quot;
 </code></pre><h2 id="&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;"><a href="#&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;" class="headerlink" title="&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;"></a>&#x9AD8;&#x5EA6;&#x81EA;&#x9002;&#x5E94;</h2><pre><code>$(function(){
     $table = $(&apos;#table&apos;);
     $table.bootstrapTable(&apos;resetView&apos;, {
@@ -2072,36 +2212,17 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
 <pre><code>$(&apos;#table&apos;).on(&apos;editable-save.bs.table&apos;, function (field, row, oldValue, $el) {
     data.changeField(row,oldValue,name);
 });
-</code></pre><h1 id="bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"><a href="#bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;" class="headerlink" title="bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;"></a>bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;&#x793A;&#x4F8B;</h1><pre><code>&lt;a id=&quot;adduser&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;    href=&quot;addUser.html&quot; data-target=&quot;#adduserModal&quot;&gt;&#x6DFB;&#x52A0;&lt;/a&gt;
-&lt;div class=&quot;modal fade&quot; id=&quot;adduserModal&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; data-keyboard=&quot;true&quot;&gt;
-    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
-    &lt;div class=&quot;modal-content&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><blockquote>
-<p>table&#x8868;&#x4E2D;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;model&#x5F39;&#x51FA;&#x6846;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x503C;</p>
-</blockquote>
-<pre><code>function editTerminal(row,index) {
-    index1=index;
-    $(&apos;#editTerminalModal&apos;).on(&apos;show.bs.modal&apos;,function(event) {
-        var button = $(event.relatedTarget);
-        var recipient = button.data(&apos;whatever&apos;);
-        var modal = $(this);
-        modal.find(&apos;.modal-title&apos;).text(recipient);
-        modal.find(&apos;#tid&apos;).val(row.tid);
-        modal.find(&apos;#type&apos;).val(row.type);
-        modal.find(&apos;#cid&apos;).val(row.cid);
-        modal.find(&apos;#uid&apos;).val(row.uid);
-        modal.find(&apos;#date&apos;).val(row.date);
-    })
-}
 </code></pre>]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[bootstrap框架中对于用户表操作的js代码]]></title>
+      <title><![CDATA[操作bootstrap table的js代码总结]]></title>
       <url>http://chen1218chen.github.io/2016/04/29/bootstrap%E6%A1%86%E6%9E%B6%E4%B8%AD%E5%AF%B9%E4%BA%8E%E7%94%A8%E6%88%B7%E8%A1%A8%E6%93%8D%E4%BD%9C%E7%9A%84js%E4%BB%A3%E7%A0%81/</url>
-      <content type="html"><![CDATA[<p>&#x91C7;&#x7528;requireJS&#x5B9E;&#x73B0;js&#x7684;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#xFF0C;&#x96C6;&#x6210;&#x5404;&#x79CD;bootstrap&#x63D2;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x7528;&#x6237;&#x6570;&#x636E;&#x7684;&#x7BA1;&#x7406;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%871.png" alt="enter description here" title="&#x56FE;&#x7247;1.png"><br>&#x6DFB;&#x52A0;&#x529F;&#x80FD;&#xFF1A;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%872.png" alt="enter description here" title="&#x56FE;&#x7247;2.png"><br>&#x4FEE;&#x6539;&#x529F;&#x80FD;&#xFF08;&#x7C7B;&#x4F3C;&#x4E0B;&#x56FE;&#xFF09;&#xFF1A;<br><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%873.png" alt="enter description here" title="&#x56FE;&#x7247;3.png"></p>
+      <content type="html"><![CDATA[<p>&#x91C7;&#x7528;requireJS&#x5B9E;&#x73B0;js&#x7684;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#xFF0C;&#x96C6;&#x6210;&#x5404;&#x79CD;bootstrap&#x63D2;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x7528;&#x6237;&#x6570;&#x636E;&#x7684;&#x7BA1;&#x7406;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%871.png" alt="enter description here" title="&#x56FE;&#x7247;1.png"></p>
+<p>&#x6DFB;&#x52A0;&#x529F;&#x80FD;&#xFF1A;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%872.png" alt="enter description here" title="&#x56FE;&#x7247;2.png"><br>&#x4FEE;&#x6539;&#x529F;&#x80FD;&#xFF08;&#x7C7B;&#x4F3C;&#x4E0B;&#x56FE;&#xFF09;&#xFF1A;</p>
+<p><img src="/2016/04/29/bootstrap&#x6846;&#x67B6;&#x4E2D;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x8868;&#x64CD;&#x4F5C;&#x7684;js&#x4EE3;&#x7801;/%E5%9B%BE%E7%89%873.png" alt="enter description here" title="&#x56FE;&#x7247;3.png"></p>
 <p>main.js</p>
 <pre><code>require.config({
 //    baseUrl : &apos;js&apos;,
@@ -3536,107 +3657,6 @@ if (currentUser.hasRole(&quot;administrator&quot;)) {
     //don&apos;t show the button?  Grey it out?
 }
 </code></pre>]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[bootstrap 常用插件使用]]></title>
-      <url>http://chen1218chen.github.io/2016/03/17/bootstrap%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-      <content type="html"><![CDATA[<p>[TOC]</p>
-<h1 id="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"><a href="#select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"></a>select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</h1><blockquote>
-<p>&#x9009;&#x62E9;select2&#x63D2;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</p>
-</blockquote>
-<pre><code>$(id).select2({
-                data : data,
-                minimumResultsForSearch : Infinity,// &#x7981;&#x7528;&#x641C;&#x7D22;
-                allowClear : true
-            });
-</code></pre><h1 id="bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;"><a href="#bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;" class="headerlink" title="bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;"></a>bootstrap-validator&#x8868;&#x5355;&#x9A8C;&#x8BC1;</h1><blockquote>
-<p>&#x4F7F;&#x7528;bootstrap-validator&#x63D2;&#x4EF6;</p>
-<p>reset&#x91CD;&#x7F6E;&#x8868;&#x5355;</p>
-</blockquote>
-<pre><code>$(&apos;#btn-reset&apos;).click(function() {
-    $(&apos;#changeForm&apos;).data(&apos;bootstrapValidator&apos;).resetForm(true);
-});
-</code></pre><h1 id="bootstrap-dialog"><a href="#bootstrap-dialog" class="headerlink" title="bootstrap-dialog"></a>bootstrap-dialog</h1><h2 id="1-&#x9875;&#x9762;&#x52A0;&#x8F7D;"><a href="#1-&#x9875;&#x9762;&#x52A0;&#x8F7D;" class="headerlink" title="1. &#x9875;&#x9762;&#x52A0;&#x8F7D;"></a>1. &#x9875;&#x9762;&#x52A0;&#x8F7D;</h2><pre><code>function changePasswd(){
- BootstrapDialog.show({
-     title : &quot;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&quot;,
-     message: function(dialog) {
-         var $message = $(&apos;&lt;div&gt;&lt;/div&gt;&apos;);
-         var pageToLoad = dialog.getData(&apos;pageToLoad&apos;);
-         $message.load(pageToLoad);
-         return $message;
-     },
-     data: {
-         &apos;pageToLoad&apos;: &apos;changePasswd.html&apos;
-     },
-        buttons: [{
-         id: &apos;btn-ok&apos;,   
-         icon: &apos;glyphicon glyphicon-check&apos;,       
-         label: &apos;OK&apos;,
-         cssClass: &apos;btn-success&apos;, 
-         autospin: false,
-         action: function(dialogItself){    
-             change();
-               dialogItself.close();
-         }
-     }, {
-         id:&apos;btn-reset&apos;,
-         cssClass: &apos;btn-warning&apos;,
-         label: &apos;&#x91CD;&#x7F6E;&apos;,
-         icon: &apos;glyphicon glyphicon-repeat&apos;,
-         action : function(){
-             document.getElementById(&quot;changeForm&quot;).reset();
-            $(&apos;#btn-reset&apos;).click(function() {
-            });
-         }
-     }, {
-         id:&apos;btn-close&apos;,
-         icon:&apos;glyphicon glyphicon-remove&apos;,
-         label: &apos;Close&apos;,
-         cssClass: &apos;btn-danger&apos;,
-         action: function(dialogItself){
-             dialogItself.close();
-         }
-     }]
- });
-}
-</code></pre><h1 id="Jquery-confirm"><a href="#Jquery-confirm" class="headerlink" title="Jquery-confirm"></a>Jquery-confirm</h1><h2 id="1-alert&#x4F7F;&#x7528;"><a href="#1-alert&#x4F7F;&#x7528;" class="headerlink" title="1. alert&#x4F7F;&#x7528;"></a>1. alert&#x4F7F;&#x7528;</h2><blockquote>
-<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
-</blockquote>
-<pre><code>function alertView(str){
-    $.alert({
-        animation : &apos;zoom&apos;,
-        animationBounce : 2,
-        keyboardEnabled : true,
-        title : false,
-        content : str,
-        theme : &apos;white&apos;,
-    });
-}
-</code></pre><h2 id="2-confirm&#x4F7F;&#x7528;"><a href="#2-confirm&#x4F7F;&#x7528;" class="headerlink" title="2. confirm&#x4F7F;&#x7528;"></a>2. confirm&#x4F7F;&#x7528;</h2><blockquote>
-<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
-</blockquote>
-<pre><code>$.confirm({
-    title: &apos;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#x767B;&#x9646;&#x5417;&#xFF1F;&apos;, 
-    content : false,
-    // autoClose: &apos;confirm|10000&apos;,
-    confirmButtonClass : &apos;btn-info&apos;,
-    cancelButtonClass : &apos;btn-danger&apos;,
-    confirm : function() {
-        $.ajax({
-            type : &quot;post&quot;,
-            url : &quot;logoutAction.action&quot;,
-            async: false,
-            success :function(){
-                location.href = &quot;../login.jsp&quot;;
-            }
-        });
-    },
-    cancel : function() {
-        alert(&apos;canceled&apos;);
-    }
-});
-</code></pre><h1 id="bootstrap-Table"><a href="#bootstrap-Table" class="headerlink" title="bootstrap Table"></a>bootstrap Table</h1>]]></content>
     </entry>
     
     <entry>
