@@ -54,7 +54,7 @@ ng-model指令的值挂在$scope对象上。
         	angular.bootstrap(document, [ 'myApp' ]);
         });
     });
-注意：不能添加ng-app属性，采用手动启动angularjs应用
+> 注意：不能添加ng-app属性，采用手动启动angularjs应用
 ## 插件
 ###  1. angularAMD
  RequireJS+AngularJS

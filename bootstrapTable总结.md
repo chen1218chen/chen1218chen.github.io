@@ -1,9 +1,9 @@
 ---
-title: bootstrapTable总结
+title: bootstrap table小技巧
 date: 2016-05-04 15:54:29
 tags: bootstrap
 ---
-
+[TOC]
 ## table参数（Table options）
 The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
 
@@ -26,7 +26,7 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
     $('#table').bootstrapTable();
 ## pageNum初始化
 
-    data-page-list="[10, 25, 50, 100, ALL]"
+    data-page-list="[10, 25, 50, 100, 'ALL']"
 
 ## 高度自适应
 
@@ -154,33 +154,6 @@ bootstrap table的修改，只需要引入bootstrap-table-editable.js、bootstra
     $('#table').on('editable-save.bs.table', function (field, row, oldValue, $el) {
     	data.changeField(row,oldValue,name);
     });
-# bootstrap model远程加载示例 #
-
-    <a id="adduser" class="btn btn-danger" data-toggle="modal"	href="addUser.html" data-target="#adduserModal">添加</a>
-    <div class="modal fade" id="adduserModal" role="dialog" aria-labelledby="myModalLabel" data-keyboard="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content"></div>
-        </div>
-    </div>
-  
-
-> table表中修改某一条记录时，model弹出框获取记录值
-
-
-    function editTerminal(row,index) {
-    	index1=index;
-    	$('#editTerminalModal').on('show.bs.modal',function(event) {
-    		var button = $(event.relatedTarget);
-    		var recipient = button.data('whatever');
-    		var modal = $(this);
-    		modal.find('.modal-title').text(recipient);
-    		modal.find('#tid').val(row.tid);
-    		modal.find('#type').val(row.type);
-    		modal.find('#cid').val(row.cid);
-    		modal.find('#uid').val(row.uid);
-    		modal.find('#date').val(row.date);
-    	})
-    }
 
 
   [1]: ./images/Image%201.png "Image 1.png"

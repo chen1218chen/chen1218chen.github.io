@@ -1,31 +1,11 @@
 ---
-title: bootstrap 常用插件使用
-tags: bootstrap
+title: bootstrap-dialog使用
+date: 2016-09-09 17:05:23
+tags: [Bootstrap, bootstrap-dialog]
 ---
-
 [TOC]
 
-# select2插件的使用 #
- 
-> 选择select2插件的使用
-
-    $(id).select2({
-					data : data,
-					minimumResultsForSearch : Infinity,// 禁用搜索
-					allowClear : true
-				});
-
-# bootstrap-validator表单验证 #
->使用bootstrap-validator插件
->
->reset重置表单
-
-    $('#btn-reset').click(function() {
-		$('#changeForm').data('bootstrapValidator').resetForm(true);
-	});
-
-#  bootstrap-dialog #
-## 1. 页面加载
+## 页面加载
 
     function changePasswd(){
      BootstrapDialog.show({
@@ -70,44 +50,4 @@ tags: bootstrap
          }]
      });
     }
-# Jquery-confirm
-## 1. alert使用 ##
->使用 Jquery-confirm.js插件
-
-    function alertView(str){
-    	$.alert({
-    		animation : 'zoom',
-    		animationBounce : 2,
-    		keyboardEnabled : true,
-    		title : false,
-    		content : str,
-    		theme : 'white',
-    	});
-    }
-
-## 2. confirm使用 ##
->使用 Jquery-confirm.js插件
-
-    $.confirm({
-    	title: '退出系统登陆吗？', 
-    	content : false,
-    	// autoClose: 'confirm|10000',
-    	confirmButtonClass : 'btn-info',
-    	cancelButtonClass : 'btn-danger',
-    	confirm : function() {
-    		$.ajax({
-    			type : "post",
-    			url : "logoutAction.action",
-    			async: false,
-    			success :function(){
-    				location.href = "../login.jsp";
-    			}
-    		});
-    	},
-    	cancel : function() {
-    		alert('canceled');
-    	}
-    });
-    
-# bootstrap Table #
 

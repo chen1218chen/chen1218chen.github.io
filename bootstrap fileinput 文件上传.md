@@ -1,6 +1,6 @@
 ---
 title: bootstrap file文件上传
-tags: bootstrap
+tags: Bootstrap
 ---
 
 最近因为项目需要研究了下bootstrap fileinput的使用，来记录下这几天的使用心得吧。

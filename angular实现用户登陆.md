@@ -3,8 +3,50 @@ title: angular实现用户登陆
 date: 2016-09-07 16:38:30
 tags: angular
 ---
+[toc]
 
 尝试用angular来实现登陆，表单的验证和控制果然很简单方便哎，跟大家分享一下，望不吝赐教。
+## 表单验证
+### $pristine
+布尔值，表示用户是否修改了表单。如果为true，表示没有修改过；false表示修改过。
+
+    formName.inputFieldName.$pristine;
+### $dirty
+布尔值，表示用户已修改过表单
+
+    formName.inputFieldName.$dirty
+### $valid
+布尔值，表示表单是否通过验证，为true，则表示通过验证
+
+    formName.inputFieldName.$valid
+
+### $invalid
+布尔值，为true表示未通过验证
+
+    formName.inputFieldName.$invalid
+### $error
+$error对象，包含input每个验证是有效还是无效的
+
+    form.name.$error.minlength
+    form.name.$error.maxlength
+    form.name.$error.required //非空
+    form.email.$error.email  //无效邮箱
+### 其他验证
+
+    form.name.$touched  //触发
+## ng-pattern
+关于正则表达式的验证
+
+    <input type="password" 
+            class="form-control" 
+            ng-model="user.password" 
+            name="password"
+            ng-pattern="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/">
+            
+    <p class="help-block has-error" ng-show="regForm.password.$error.pattern&&regForm.password.$touched">只能是数字、字母和下划线</p>
+
+由上可看出，正则表达式验证是否通过可以通过**regForm.password.$error.pattern**此表达式验证。
+## 登陆案例
 登陆界面如下：
 
 ![登陆界面][1]

@@ -1,13 +1,17 @@
 ---
-title: bootstrap框架中对于用户表操作的js代码
+title: 操作bootstrap table的js代码总结
 date: 2016-04-28 16:45:41
-tags: bootstrap
+tags: [Bootstrap, bootstrap table]
 ---
 采用requireJS实现js的模块化开发，集成各种bootstrap插件来实现对用户数据的管理
+
 ![enter description here][1]
+
 添加功能：
+
 ![enter description here][2]
 修改功能（类似下图）：
+
 ![enter description here][3]
 
 main.js
@@ -453,3 +457,4 @@ table.js 主要功能实现
   [1]: ./images/%E5%9B%BE%E7%89%871.png "图片1.png"
   [2]: ./images/%E5%9B%BE%E7%89%872.png "图片2.png"
   [3]: ./images/%E5%9B%BE%E7%89%873.png "图片3.png"
+  [4]: ./images/%E5%9B%BE%E7%89%873.png "图片3.png"
