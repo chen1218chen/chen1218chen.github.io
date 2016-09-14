@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-09-12T08:11:20.881Z</updated>
+  <updated>2016-09-14T03:23:13.179Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,124 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Restful web services</title>
+    <link href="http://chen1218chen.github.io/2016/09/14/Spring-Restful-web-services/"/>
+    <id>http://chen1218chen.github.io/2016/09/14/Spring-Restful-web-services/</id>
+    <published>2016-09-14T10:42:30.000Z</published>
+    <updated>2016-09-14T03:23:13.179Z</updated>
+    
+    <content type="html">&lt;p&gt;Spring &amp;#x662F;&amp;#x6D41;&amp;#x884C;&amp;#x7684; Java EE &amp;#x5E94;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x73B0;&amp;#x5728;&amp;#x5B83;&amp;#x7684; MVC &amp;#x5C42;&amp;#x4E5F;&amp;#x652F;&amp;#x6301; REST &amp;#x4E86;,&lt;br&gt;&amp;#x5728;Spring&amp;#x6846;&amp;#x67B6;&amp;#x652F;&amp;#x6301;REST&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x4EBA;&amp;#x4EEC;&amp;#x4F1A;&amp;#x9009;&amp;#x7528;&amp;#x5176;&amp;#x4ED6;&amp;#x51E0;&amp;#x79CD;&amp;#x6280;&amp;#x672F;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;java&amp;#x7684;RESTful Web Services,&amp;#x5982;REStlet,Jersey&amp;#x548C;RESTEasy&amp;#x3002;&lt;br&gt;&lt;strong&gt;Spring3.0&lt;/strong&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x589E;&amp;#x52A0;&amp;#x4E86;&amp;#x5BF9;RESTful Web Services&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x3002;REST &amp;#x652F;&amp;#x6301;&amp;#x88AB;&amp;#x65E0;&amp;#x7F1D;&amp;#x6574;&amp;#x5408;&amp;#x5230; Spring &amp;#x7684; MVC &amp;#x5C42;&amp;#xFF0C;&amp;#x5B83;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x5E94;&amp;#x7528;&amp;#x5230;&amp;#x4F7F;&amp;#x7528; Spring &amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x3002;&lt;br&gt;Spring REST &amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E3B;&amp;#x8981;&amp;#x7279;&amp;#x6027;&amp;#x5305;&amp;#x62EC;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x6CE8;&amp;#x91CA;&amp;#xFF0C;&amp;#x5982; @RequestMapping &amp;#x548C; @PathVariable&amp;#xFF0C;&amp;#x652F;&amp;#x6301;&amp;#x8D44;&amp;#x6E90;&amp;#x6807;&amp;#x8BC6;&amp;#x548C; URL &amp;#x6620;&amp;#x5C04;&lt;/li&gt;
+&lt;li&gt;ContentNegotiatingViewResolver &amp;#x652F;&amp;#x6301;&amp;#x4E3A;&amp;#x4E0D;&amp;#x540C;&amp;#x7684; MIME/&amp;#x5185;&amp;#x5BB9;&amp;#x7C7B;&amp;#x578B;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x8868;&amp;#x793A;&amp;#x65B9;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x76F8;&amp;#x4F3C;&amp;#x7684;&amp;#x7F16;&amp;#x7A0B;&amp;#x6A21;&amp;#x578B;&amp;#x65E0;&amp;#x7F1D;&amp;#x5730;&amp;#x6574;&amp;#x5408;&amp;#x5230;&amp;#x539F;&amp;#x59CB;&amp;#x7684; MVC &amp;#x5C42;&lt;h2 id=&quot;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;a href=&quot;#&amp;#x5B9E;&amp;#x73B0;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;/a&gt;&amp;#x5B9E;&amp;#x73B0;&lt;/h2&gt;web.xml&amp;#x4E2D;&amp;#x6FC0;&amp;#x6D3B;Spring,&amp;#x914D;&amp;#x7F6E;&amp;#xFF1A;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;listener-ContextLoadListener
+servlet-DispatcherServlet
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Spring&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--&amp;#x6307;&amp;#x660E; controller &amp;#x6240;&amp;#x5728;&amp;#x5305;&amp;#xFF0C;&amp;#x5E76;&amp;#x626B;&amp;#x63CF;&amp;#x5176;&amp;#x4E2D;&amp;#x7684;&amp;#x6CE8;&amp;#x89E3;--&amp;gt;
+&amp;lt;context:component-scan base-package=&amp;quot;com.aerors.th.gis&amp;quot;/&amp;gt;
+&amp;lt;!-- &amp;#x5F00;&amp;#x542F;&amp;#x6CE8;&amp;#x89E3; --&amp;gt;
+&amp;lt;mvc:annotation-driven/&amp;gt;
+&amp;lt;!-- &amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x8FDB;&amp;#x884C;&amp;#x4F9D;&amp;#x8D56;&amp;#x6CE8;&amp;#x5165; --&amp;gt;
+&amp;lt;context:annotation-config&amp;gt;&amp;lt;/context:annotation-config&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;component-scan:&lt;/strong&gt; &amp;#x542F;&amp;#x7528;&amp;#x5BF9;&amp;#x5E26;&amp;#x6709; Spring &amp;#x6CE8;&amp;#x91CA;&amp;#x7684;&amp;#x7C7B;&amp;#x8FDB;&amp;#x884C;&amp;#x81EA;&amp;#x52A8;&amp;#x626B;&amp;#x63CF;&lt;br&gt;&amp;#x5728;&amp;#x5B9E;&amp;#x8DF5;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5B83;&amp;#x5C06;&amp;#x68C0;&amp;#x67E5;&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x7C7B;&amp;#x4E2D;&amp;#x6240;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684; @Controller &amp;#x6CE8;&amp;#x91CA;&lt;/p&gt;
+&lt;h2 id=&quot;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;a href=&quot;#Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot; class=&quot;headerlink&quot; title=&quot;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;/a&gt;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@Controller
+@RequestMapping(&amp;quot;/user&amp;quot;)
+public class UserRest {
+    @Resource
+    private IUserService userManagerImpl;
+
+    @RequestMapping(value = &amp;quot;/queryAllUser&amp;quot;, method = RequestMethod.GET)
+    @ResponseBody
+    public JSONArray queryAllUser() {
+
+        List&amp;lt;User&amp;gt; dataList = userManagerImpl.queryAll();
+        JSONArray userJSONList2 = JSONArray.fromObject(dataList);
+        return userJSONList2;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;@PathVariable&amp;#x4E0E;@RequestParam&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;@Controller
+public class EmployeeController {
+    @RequestMapping(method=RequestMethod.GET, value=&amp;quot;/employee/{id}&amp;quot;)
+    public ModelAndView getEmployee(@PathVariable String id) {
+        Employee e = employeeDS.get(Long.parseLong(id));
+        returnnew ModelAndView(XML_VIEW_NAME, &amp;quot;object&amp;quot;, e);
+    }
+    ...
+}
+
+
+@Controller
+@RequestMapping(&amp;quot;employees&amp;quot;)
+public class EmployeeController {
+
+    Employee employee = new Employee();
+
+    @RequestMapping(value = &amp;quot;/{name}&amp;quot;, method = RequestMethod.GET, produces = &amp;quot;application/json&amp;quot;)
+    public @ResponseBody Employee getEmployeeInJSON(@PathVariable String name) {
+
+        employee.setName(name);
+        employee.setEmail(&amp;quot;employee1@genuitec.com&amp;quot;);
+
+        return employee;
+
+    }
+
+    @RequestMapping(value = &amp;quot;/queryByName&amp;quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public User queryByName(@RequestParam(&amp;quot;uname&amp;quot;) String uname) {
+
+        User user;
+        try {
+            user = userManagerImpl.queryByName(uname).get(0);
+        } catch (Exception e) {
+            // TODO &amp;#x81EA;&amp;#x52A8;&amp;#x751F;&amp;#x6210;&amp;#x7684; catch &amp;#x5757;
+            e.printStackTrace();
+            return null;
+        }
+
+        return user;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;@RestController&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Spring 4.0&amp;#x4E2D;&amp;#x5F15;&amp;#x5165; @RestController&amp;#x7B80;&amp;#x5316;&amp;#x4E86;@Controller&amp;#xFF0C;@ResponseBody&amp;#x6CE8;&amp;#x91CA;&lt;br&gt;@RestController&amp;#x6CE8;&amp;#x89E3;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@ResponseBody &amp;#xFF0B; @Controller&amp;#x5408;&amp;#x5728;&amp;#x4E00;&amp;#x8D77;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@RestController
+@RequestMapping(&amp;quot;employees&amp;quot;)
+public class EmployeeController {
+
+    Employee employee = new Employee();
+
+    @RequestMapping(value = &amp;quot;/{name}&amp;quot;, method = RequestMethod.GET, produces = &amp;quot;application/json&amp;quot;)
+    public Employee getEmployeeInJSON(@PathVariable String name) {
+
+        employee.setName(name);
+        employee.setEmail(&amp;quot;employee1@genuitec.com&amp;quot;);
+
+        return employee;
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Spring &amp;#x662F;&amp;#x6D41;&amp;#x884C;&amp;#x7684; Java EE &amp;#x5E94;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x73B0;&amp;#x5728;&amp;#x5B83;&amp;#x7684; 
+    
+    </summary>
+    
+    
+      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
+    
+      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
+    
+  </entry>
   
   <entry>
     <title>angular用户注册及密码一致性验证</title>
@@ -1054,121 +1172,6 @@ define([&amp;apos;jquery&amp;apos;,&amp;apos;async!BMap&amp;apos;], function(){
     
       &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x52A0;&amp;#x8F7D;&amp;#x767E;&amp;#x5EA6;&amp;#x5730;&amp;#x56FE;&quot;&gt;&lt;a href=&quot;#&amp;#x52A0;&amp;#x8F7D;&amp;#x767E;&amp;#x5EA6;&amp;#x5730;&amp;#x56FE;&quot; class=&quot;he
-    
-    </summary>
-    
-    
-      <category term="RequireJS" scheme="http://chen1218chen.github.io/tags/RequireJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RequireJS</title>
-    <link href="http://chen1218chen.github.io/2016/07/14/RequireJS/"/>
-    <id>http://chen1218chen.github.io/2016/07/14/RequireJS/</id>
-    <published>2016-07-13T16:02:31.000Z</published>
-    <updated>2016-07-14T05:21:13.335Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;RequireJS&quot;&gt;&lt;a href=&quot;#RequireJS&quot; class=&quot;headerlink&quot; title=&quot;RequireJS&quot;&gt;&lt;/a&gt;RequireJS&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x63D2;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#&amp;#x63D2;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x63D2;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;&amp;#x63D2;&amp;#x4EF6;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;RequireJS&amp;#x5B98;&amp;#x65B9;&amp;#x9ED8;&amp;#x8BA4;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x63D2;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5982;&amp;#xFF1A;text&amp;#xFF0C;domReady&amp;#xFF0C;i18n&amp;#x3002;&lt;br&gt;&amp;#x5176;&amp;#x4ED6;&amp;#x8BE6;&amp;#x60C5;&amp;#x8BF7;&amp;#x67E5;&amp;#x770B;&lt;a href=&quot;https://github.com/requirejs/requirejs/wiki/Plugins&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RequireJS&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&amp;#x5217;&amp;#x8868;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/millermedeiros/requirejs-plugins&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;requirejs-plugins&amp;#x63D2;&amp;#x4EF6;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&amp;#x53EF;&amp;#x901A;&amp;#x8FC7;bower&amp;#x5B89;&amp;#x88C5;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;bower install requirejs-plugins --save
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/h2&gt;&lt;p&gt;requireJS&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x5E38;&amp;#x7528;&amp;#x6587;&amp;#x4EF6;config.js:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;requirejs.config({
-    baseUrl : &amp;apos;lib/&amp;apos;,
-    paths : {
-        app : &amp;apos;../js/app&amp;apos;,
-        css : &amp;apos;../js/css.min&amp;apos;,
-        custom: &amp;apos;../js/custom&amp;apos;,
-        common: &amp;apos;../js/common&amp;apos;,
-        domReady: &amp;apos;domReady/domReady&amp;apos;,
-        jquery : &amp;apos;jquery/jquery.min&amp;apos;,
-        async: &amp;apos;requirejs-plugins/async&amp;apos;,
-        react : &amp;apos;react/react.min&amp;apos;,
-        angular : &amp;apos;angular/angular&amp;apos;,
-        bootstrap : &amp;apos;bootstrap/js/bootstrap.min&amp;apos;,
-        bootstrapTable : &amp;apos;bootstrap-table/js/bootstrap-table.min&amp;apos;,
-        tableLanguage : &amp;apos;bootstrap-table/locale/bootstrap-table-zh-CN.min&amp;apos;,
-        tableExport:&amp;apos;bootstrap-table/extensions/tableExport&amp;apos;,
-        bootstrapTableExport:&amp;apos;bootstrap-table/extensions/bootstrap-table-export.min&amp;apos;,
-        confirm : &amp;apos;jquery-confirm2/jquery-confirm.min&amp;apos;,
-        &amp;apos;bootstrap-dialog&amp;apos; : &amp;apos;bootstrap3-dialog/js/bootstrap-dialog.min&amp;apos;,
-        BMap : &amp;apos;http://api.map.baidu.com/api?v=2.0&amp;amp;ak=Ua9wlu6LbqmNKVbMEGtkgSxvljqZC5fc&amp;apos;
-    },
-    shim : {
-        jquery : {
-            init : function() {
-                return jquery.noConflict(true);
-            },
-            exports : &amp;apos;jquery&amp;apos;
-        },
-        custom : {
-            deps: [&amp;apos;jquery&amp;apos;]
-        },
-        common : {
-            deps: [&amp;apos;confirm&amp;apos;, &amp;apos;bootstrap-dialog&amp;apos;]
-        },
-        index : {
-            deps: [&amp;apos;jquery&amp;apos;]
-        },
-        angular : {
-            exports : &amp;apos;angular&amp;apos;
-        },
-
-        bootstrap : {
-            deps : [ &amp;apos;jquery&amp;apos;, &amp;apos;css!../lib/bootstrap/css/bootstrap.min.css&amp;apos; ],
-            exports : &amp;quot;$.fn.popover&amp;quot;
-        },
-        tableLanguage : {
-            deps : [ &amp;apos;bootstrapTable&amp;apos; ],
-            exports : &amp;apos;$.fn.bootstrapTable.defaults&amp;apos;
-        },
-        bootstrapTable : {
-            deps : [&amp;apos;bootstrap&amp;apos;,
-            exports : &amp;apos;$.fn.bootstrapTable&amp;apos;
-        },
-        tableExport : {
-            deps: [&amp;apos;jquery&amp;apos;],
-            exports : &amp;apos;$.fn.extend&amp;apos;
-        },
-        bootstrapTableExport:{
-            deps:[&amp;apos;bootstrapTable&amp;apos;],
-            exports : &amp;apos;$.fn.bootstrapTable.defaults&amp;apos;
-        },
-        confirm : {
-            deps : [ &amp;apos;jquery&amp;apos;,&amp;apos;css!./jquery-confirm2/jquery-confirm.min.css&amp;apos; ]
-        },
-        &amp;apos;bootstrap-dialog&amp;apos; : {
-            deps : [&amp;apos;bootstrap&amp;apos;, &amp;apos;css!./bootstrap3-dialog/css/bootstrap-dialog.min.css&amp;apos; ]
-        },
-        &amp;apos;BMap&amp;apos;: {
-            deps: [&amp;apos;jquery&amp;apos;],
-            exports: &amp;apos;BMap&amp;apos;
-        }
-
-    },
-    //&amp;#x9996;&amp;#x5148;&amp;#x52A0;&amp;#x8F7D;bootstrap
-    deps: [&amp;apos;bootstrap&amp;apos;],
-    //&amp;#x5F00;&amp;#x53D1;&amp;#x4E13;&amp;#x7528;&amp;#xFF0C;&amp;#x963B;&amp;#x6B62;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;
-    urlArgs: &amp;quot;bust=&amp;quot; +  (new Date()).getTime(),
-    //&amp;#x5728;&amp;#x653E;&amp;#x5F03;&amp;#x52A0;&amp;#x8F7D;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x672C;&amp;#x4E4B;&amp;#x524D;&amp;#x7B49;&amp;#x5F85;&amp;#x7684;&amp;#x79D2;&amp;#x6570;&amp;#x3002;
-    waitSeconds: 0
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5E38;&amp;#x7528;&amp;#x53C2;&amp;#x6570;&amp;#x89E3;&amp;#x6790;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;h3 id=&quot;deps&quot;&gt;&lt;a href=&quot;#deps&quot; class=&quot;headerlink&quot; title=&quot;deps&quot;&gt;&lt;/a&gt;deps&lt;/h3&gt;&lt;p&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x9996;&amp;#x5148;&amp;#x52A0;&amp;#x8F7D;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;deps: [&amp;apos;bootstrap&amp;apos;],
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;urlArgs&quot;&gt;&lt;a href=&quot;#urlArgs&quot; class=&quot;headerlink&quot; title=&quot;urlArgs&quot;&gt;&lt;/a&gt;urlArgs&lt;/h3&gt;&lt;p&gt;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x7528;&amp;#x6765;&amp;#x7EC4;&amp;#x7EC7;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7F13;&amp;#x5B58;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urlArgs: &amp;quot;bust=&amp;quot; +  (new Date()).getTime(),
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;waitSeconds&quot;&gt;&lt;a href=&quot;#waitSeconds&quot; class=&quot;headerlink&quot; title=&quot;waitSeconds&quot;&gt;&lt;/a&gt;waitSeconds&lt;/h3&gt;&lt;p&gt;&amp;#x52A0;&amp;#x8F7D;&amp;#x811A;&amp;#x672C;&amp;#x7684;&amp;#x6700;&amp;#x957F;&amp;#x7B49;&amp;#x5F85;&amp;#x65F6;&amp;#x95F4;,&amp;#x8BBE;&amp;#x4E3A;0&amp;#x7981;&amp;#x7528;&amp;#x7B49;&amp;#x5F85;&amp;#x8D85;&amp;#x65F6;&amp;#x3002;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;7&amp;#x79D2;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;RequireJS&quot;&gt;&lt;a href=&quot;#RequireJS&quot; class=&quot;headerlink&quot; title=&quot;RequireJS&quot;&gt;&lt;/a&gt;RequireJS&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x63D2;&amp;#x4EF6;&quot;&gt;&lt;a hre
     
     </summary>
     
