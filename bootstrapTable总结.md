@@ -20,7 +20,7 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
     }
 
 ![enter description here][1]
-## 手动启动
+## table手动启动
 如果bootstrapTable没有启用，选择手动触发。
 
     $('#table').bootstrapTable();
@@ -47,7 +47,37 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
 table的高度可以自己设定
     
     data-height="300px"
-## 手动加载table值
+## table的分页方式
+
+> js中
+
+
+     $('#table').bootstrapTable({
+      sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+      });
+
+> html中 data-side-pagination = "server"
+
+
+    <table id="table"
+               data-toggle="table"
+               data-url="/examples/bootstrap_table/data"
+               data-height="400"
+               data-side-pagination="server"
+               data-pagination="true"
+               data-page-list="[5, 10, 20, 50, 100, 200]"
+               data-search="true">
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th data-field="id">ID</th>
+                <th data-field="name">Item Name</th>
+                <th data-field="price">Item Price</th>
+            </tr>
+            </thead>
+        </table>
+
+## 手动加载table data
 
     $('#table').bootstrapTable({
     	data : result

@@ -1,5 +1,5 @@
 ---
-title: spring
+title: spring浅析及配置实现
 date: 2016-04-18 10:13:55
 tags: spring
 ---
@@ -65,30 +65,30 @@ My advice is to always declare <context:annotation-config>, but don't bother wit
 ## 事务配置  
 在dao层类、方法上面添加@Transactional注解，为默认事务配置
 
-	package com.dao;
-	
-	@Transactional
-	public class UserDaoImpl_BAK extends HibernateTemplate {
-	
-	    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	    public void addUser(User user) throws Exception {
-	        this.save(user);
-	    }
-	
-	    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	    public void modifyUser(User user) {
-	        this.update(user);
-	    }
-	
-	    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	    public void delUser(String username) {
-	        this.delete(this.load(User.class, username));
-	    }
-	    
-	    @Transactional(readOnly=true)
-	    public void selectUser() {
-	    }
-	}    
+    package com.dao;
+    
+    @Transactional
+    public class UserDaoImpl_BAK extends HibernateTemplate {
+    
+        @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
+        public void addUser(User user) throws Exception {
+            this.save(user);
+        }
+    
+        @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
+        public void modifyUser(User user) {
+            this.update(user);
+        }
+    
+        @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
+        public void delUser(String username) {
+            this.delete(this.load(User.class, username));
+        }
+        
+        @Transactional(readOnly=true)
+        public void selectUser() {
+        }
+    }    
  
 ## **applicationContext.xml** 公共配置
 

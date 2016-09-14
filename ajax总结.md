@@ -29,6 +29,13 @@ tags: [ajax, JS]
     		alert("删除失败！！");
     	}
     });
+##  $.ajaxSetup()
+jQuery的$.ajaxSetup方法可以设置AJAX请求的全局默认参数选项，当程序中需要发起多个AJAX请求时，则不用再为每一个请求配置请求的参数。
+既然是全局默认选项，所以，该项中设置的参数会影响所有的$.ajax请求，如$.get()，$.post()，$.ajax等
+
+    $.ajaxSetup({  
+        contentType : 'application/json'  
+    }); 
 ## 扩展
 get了一个新技能，mark一下。
 

@@ -1,5 +1,5 @@
 ---
-title: SpringMVC
+title: SpringMVC框架原理及项目配置
 date: 2016-04-19 16:35:41
 tags: [spring, springMVC]
 ---
