@@ -73,8 +73,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="一锅乱炖" type="application/atom+xml" />
 
@@ -104,7 +102,7 @@ web.xml
 web.xml
 
 &amp;lt;!--log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6">
-<meta property="og:updated_time" content="2016-09-18T07:57:00.597Z">
+<meta property="og:updated_time" content="2016-09-18T07:59:24.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring集成Log4j">
 <meta name="twitter:description" content="Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j 
@@ -389,6 +387,13 @@ log4j.appender.error.datePattern=&apos;.&apos;yyyy-MM-dd
 log4j.appender.error.Threshold = ERROR    
 log4j.appender.error.append=true    
 log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
+</code></pre><ol>
+<li>&#x4EE3;&#x7801;&#x4E2D;&#x5199;&#x5165;&#x65E5;</li>
+</ol>
+<pre><code>private static final Logger logger = LoggerFactory.getLogger(XXX.class);
+logger.info(&quot;XXXX&quot;);
+logger.warn(&quot;XXXX&quot;);
+logger.error(&quot;XXXX&quot;);
 </code></pre>
       
     </div>

@@ -72,6 +72,13 @@ log4j.appender.error.datePattern=&apos;.&apos;yyyy-MM-dd
 log4j.appender.error.Threshold = ERROR    
 log4j.appender.error.append=true    
 log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
+</code></pre><ol>
+<li>&#x4EE3;&#x7801;&#x4E2D;&#x5199;&#x5165;&#x65E5;</li>
+</ol>
+<pre><code>private static final Logger logger = LoggerFactory.getLogger(XXX.class);
+logger.info(&quot;XXXX&quot;);
+logger.warn(&quot;XXXX&quot;);
+logger.error(&quot;XXXX&quot;);
 </code></pre>]]></content>
     </entry>
     
