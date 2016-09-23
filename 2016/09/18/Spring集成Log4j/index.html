@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Spring,Log4j," />
+  <meta name="keywords" content="Spring,Log4j,Slf4j," />
 
 
 
@@ -86,31 +86,28 @@
 
 
 
-<meta name="description" content="Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j 
+<meta name="description" content="[toc]
+Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j
 
 &amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;log4j-1.2.11.jar&amp;#xFF09;
-web.xml
-
-&amp;lt;!--log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6">
+web.xml">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring集成Log4j">
+<meta property="og:title" content="Spring集成Log4j和Slf4j">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/09/18/Spring集成Log4j/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j 
+<meta property="og:description" content="[toc]
+Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j
 
 &amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;log4j-1.2.11.jar&amp;#xFF09;
-web.xml
-
-&amp;lt;!--log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6">
-<meta property="og:updated_time" content="2016-09-18T07:59:24.079Z">
+web.xml">
+<meta property="og:updated_time" content="2016-09-20T02:32:15.839Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring集成Log4j">
-<meta name="twitter:description" content="Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j 
+<meta name="twitter:title" content="Spring集成Log4j和Slf4j">
+<meta name="twitter:description" content="[toc]
+Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j
 
 &amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;log4j-1.2.11.jar&amp;#xFF09;
-web.xml
-
-&amp;lt;!--log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6">
+web.xml">
 
 
 
@@ -133,7 +130,7 @@ web.xml
 
   <link rel="canonical" href="http://chen1218chen.github.io/2016/09/18/Spring集成Log4j/"/>
 
-  <title> Spring集成Log4j | 一锅乱炖 </title>
+  <title> Spring集成Log4j和Slf4j | 一锅乱炖 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +273,7 @@ web.xml
             
             
               
-                Spring集成Log4j
+                Spring集成Log4j和Slf4j
               
             
           </h1>
@@ -321,7 +318,8 @@ web.xml
       
 
       
-        <p>Spring&#x9879;&#x76EE;&#x4E2D;&#x96C6;&#x6210;Log4j </p>
+        <p>[toc]</p>
+<h2 id="Log4j&#x7684;&#x96C6;&#x6210;"><a href="#Log4j&#x7684;&#x96C6;&#x6210;" class="headerlink" title="Log4j&#x7684;&#x96C6;&#x6210;"></a>Log4j&#x7684;&#x96C6;&#x6210;</h2><p>Spring&#x9879;&#x76EE;&#x4E2D;&#x96C6;&#x6210;Log4j</p>
 <ol>
 <li>&#x4E0B;&#x8F7D;&#x597D;log4j&#x7684;jar&#x5305;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;log4j-1.2.11.jar&#xFF09;</li>
 <li>web.xml</li>
@@ -331,7 +329,8 @@ web.xml
    &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;      
    &lt;param-value&gt;/WEB-INF/log4j.properties&lt;/param-value&gt;      
 &lt;/context-param&gt;  
-&lt;!--&#x542F;&#x52A8;&#x4E00;&#x4E2A;watchdog&#x7EBF;&#x7A0B;&#x6BCF;1800&#x79D2;&#x626B;&#x63CF;&#x4E00;&#x4E0B;log4j&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;--&gt;  
+&lt;!--&#x542F;&#x52A8;&#x4E00;&#x4E2A;watchdog&#x7EBF;&#x7A0B;&#x6BCF;1800&#x79D2;&#x626B;&#x63CF;&#x4E00;&#x4E0B;log4j&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;--&gt; 
+&lt;!-- log4j &#x914D;&#x7F6E;&#x626B;&#x63CF;&#x5237;&#x65B0;&#x95F4;&#x9694; &#x53EF;&#x4EE5;&#x4E0D;&#x7528; --&gt; 
 &lt;context-param&gt;      
    &lt;param-name&gt;log4jRefreshInterval&lt;/param-name&gt;      
    &lt;param-value&gt;1800000&lt;/param-value&gt;      
@@ -394,6 +393,16 @@ log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
 logger.info(&quot;XXXX&quot;);
 logger.warn(&quot;XXXX&quot;);
 logger.error(&quot;XXXX&quot;);
+</code></pre><h2 id="Slf4j&#x7684;&#x96C6;&#x6210;"><a href="#Slf4j&#x7684;&#x96C6;&#x6210;" class="headerlink" title="Slf4j&#x7684;&#x96C6;&#x6210;"></a>Slf4j&#x7684;&#x96C6;&#x6210;</h2><p>Slf4j&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x65E5;&#x5FD7;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5C42;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728;&#x540E;&#x53F0;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x7C7B;&#x5E93;&#x3002;&#x6240;&#x4EE5;<strong>&#x4EE5;&#x540E;&#x66F4;&#x6362;&#x4E3A;&#x5176;&#x5B83;&#x65E5;&#x5FD7;&#x5DE5;&#x5177;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x7528;&#x4FEE;&#x6539;&#x4EE3;&#x7801;</strong>&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x6E90;&#x6846;&#x67B6;&#x5E38;&#x7528;&#x5230;Slf4j&#x3002;<br>spring 4&#x9ED8;&#x8BA4;&#x662F;&#x4E0D;&#x4F9D;&#x8D56;slf4j&#x7684;&#xFF0C;&#x53EA;&#x4F9D;&#x8D56;common logging.<br>&#x96C6;&#x6210;&#x597D;Log4j&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Slf4j&#x4E86;</p>
+<ol>
+<li>&#x52A0;&#x5165;slf4j&#x7684;jar&#x5305;</li>
+<li>&#x914D;&#x7F6E;&#x540C;&#x4E0A;Log4j&#x7684;&#x914D;&#x7F6E;</li>
+</ol>
+<p>&#x5373;&#x96C6;&#x6210;&#x597D;Log4j&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Slf4j&#x4E86;&#x3002;<br>&#x4F7F;&#x7528;:</p>
+<pre><code>import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;
+...
+private static final Logger logger = LoggerFactory.getLogger(User.class);  
 </code></pre>
       
     </div>
@@ -419,6 +428,8 @@ logger.error(&quot;XXXX&quot;);
             <a href="/tags/Spring/" rel="tag">#Spring</a>
           
             <a href="/tags/Log4j/" rel="tag">#Log4j</a>
+          
+            <a href="/tags/Slf4j/" rel="tag">#Slf4j</a>
           
         </div>
       
@@ -534,7 +545,7 @@ logger.error(&quot;XXXX&quot;);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -590,7 +601,7 @@ logger.error(&quot;XXXX&quot;);
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Log4j的集成"><span class="nav-number">1.</span> <span class="nav-text">Log4j的集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slf4j的集成"><span class="nav-number">2.</span> <span class="nav-text">Slf4j的集成</span></a></li></ol></div>
             
           </div>
         </section>

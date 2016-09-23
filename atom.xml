@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-09-18T07:59:24.079Z</updated>
+  <updated>2016-09-20T02:32:15.839Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -16,13 +16,14 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Spring集成Log4j</title>
+    <title>Spring集成Log4j和Slf4j</title>
     <link href="http://chen1218chen.github.io/2016/09/18/Spring%E9%9B%86%E6%88%90Log4j/"/>
     <id>http://chen1218chen.github.io/2016/09/18/Spring集成Log4j/</id>
     <published>2016-09-18T15:50:43.000Z</published>
-    <updated>2016-09-18T07:59:24.079Z</updated>
+    <updated>2016-09-20T02:32:15.839Z</updated>
     
-    <content type="html">&lt;p&gt;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j &lt;/p&gt;
+    <content type="html">&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2 id=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;/a&gt;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&lt;/h2&gt;&lt;p&gt;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;log4j-1.2.11.jar&amp;#xFF09;&lt;/li&gt;
 &lt;li&gt;web.xml&lt;/li&gt;
@@ -32,7 +33,8 @@
    &amp;lt;param-name&amp;gt;log4jConfigLocation&amp;lt;/param-name&amp;gt;      
    &amp;lt;param-value&amp;gt;/WEB-INF/log4j.properties&amp;lt;/param-value&amp;gt;      
 &amp;lt;/context-param&amp;gt;  
-&amp;lt;!--&amp;#x542F;&amp;#x52A8;&amp;#x4E00;&amp;#x4E2A;watchdog&amp;#x7EBF;&amp;#x7A0B;&amp;#x6BCF;1800&amp;#x79D2;&amp;#x626B;&amp;#x63CF;&amp;#x4E00;&amp;#x4E0B;log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x53D8;&amp;#x5316;--&amp;gt;  
+&amp;lt;!--&amp;#x542F;&amp;#x52A8;&amp;#x4E00;&amp;#x4E2A;watchdog&amp;#x7EBF;&amp;#x7A0B;&amp;#x6BCF;1800&amp;#x79D2;&amp;#x626B;&amp;#x63CF;&amp;#x4E00;&amp;#x4E0B;log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x53D8;&amp;#x5316;--&amp;gt; 
+&amp;lt;!-- log4j &amp;#x914D;&amp;#x7F6E;&amp;#x626B;&amp;#x63CF;&amp;#x5237;&amp;#x65B0;&amp;#x95F4;&amp;#x9694; &amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x7528; --&amp;gt; 
 &amp;lt;context-param&amp;gt;      
    &amp;lt;param-name&amp;gt;log4jRefreshInterval&amp;lt;/param-name&amp;gt;      
    &amp;lt;param-value&amp;gt;1800000&amp;lt;/param-value&amp;gt;      
@@ -95,13 +97,22 @@ log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
 logger.info(&amp;quot;XXXX&amp;quot;);
 logger.warn(&amp;quot;XXXX&amp;quot;);
 logger.error(&amp;quot;XXXX&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;/a&gt;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&lt;/h2&gt;&lt;p&gt;Slf4j&amp;#x4E0D;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x771F;&amp;#x6B63;&amp;#x7684;&amp;#x65E5;&amp;#x5FD7;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x800C;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x62BD;&amp;#x8C61;&amp;#x5C42;&amp;#xFF0C;&amp;#x5B83;&amp;#x5141;&amp;#x8BB8;&amp;#x6211;&amp;#x4EEC;&amp;#x5728;&amp;#x540E;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&amp;#x4EFB;&amp;#x610F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65E5;&amp;#x5FD7;&amp;#x7C7B;&amp;#x5E93;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&lt;strong&gt;&amp;#x4EE5;&amp;#x540E;&amp;#x66F4;&amp;#x6362;&amp;#x4E3A;&amp;#x5176;&amp;#x5B83;&amp;#x65E5;&amp;#x5FD7;&amp;#x5DE5;&amp;#x5177;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7528;&amp;#x4FEE;&amp;#x6539;&amp;#x4EE3;&amp;#x7801;&lt;/strong&gt;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F00;&amp;#x6E90;&amp;#x6846;&amp;#x67B6;&amp;#x5E38;&amp;#x7528;&amp;#x5230;Slf4j&amp;#x3002;&lt;br&gt;spring 4&amp;#x9ED8;&amp;#x8BA4;&amp;#x662F;&amp;#x4E0D;&amp;#x4F9D;&amp;#x8D56;slf4j&amp;#x7684;&amp;#xFF0C;&amp;#x53EA;&amp;#x4F9D;&amp;#x8D56;common logging.&lt;br&gt;&amp;#x96C6;&amp;#x6210;&amp;#x597D;Log4j&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;Slf4j&amp;#x4E86;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#x52A0;&amp;#x5165;slf4j&amp;#x7684;jar&amp;#x5305;&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x540C;&amp;#x4E0A;Log4j&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;#x5373;&amp;#x96C6;&amp;#x6210;&amp;#x597D;Log4j&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;Slf4j&amp;#x4E86;&amp;#x3002;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;
+...
+private static final Logger logger = LoggerFactory.getLogger(User.class);  
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982
+      &lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2 id=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Log4j&amp;#x7684;&amp;#x96C6;
     
     </summary>
     
@@ -109,6 +120,8 @@ logger.error(&amp;quot;XXXX&amp;quot;);
       <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
     
       <category term="Log4j" scheme="http://chen1218chen.github.io/tags/Log4j/"/>
+    
+      <category term="Slf4j" scheme="http://chen1218chen.github.io/tags/Slf4j/"/>
     
   </entry>
   
