@@ -38,7 +38,7 @@ js采用词法作用域，即函数的执行依赖于变量的作用域，而变
     var c1 = new test();
     var c2 = new test();
     c1.add();//5
-    c2.plus();//
+    c2.plus();//3
 两个变量不会相互影响。
 初始化私有变量值
 
@@ -60,24 +60,6 @@ js采用词法作用域，即函数的执行依赖于变量的作用域，而变
     t.count=99;
     console.log(t.count);//99
 
-## JS中this关键字
-1. this指向全局变量
-
-
-    var a=1;
-    console.log(this);// Window全局对象
-    console.log(this.a);//1
-2. 函数作用域中的this
-
-
-    var a=1;
-    function test(){
-    	var a=3;
-    	console.log(this.a);
-    }
-    test.a=5;
-    test();//1
-可看出this并没有指向函数作用域，也并未指向函数本身，this最终指向的都是全局对象
 3. 对象的方法调用
 
 
@@ -127,13 +109,6 @@ call和apply都是Function对象的方法
     }
     var obj = {a:2,fn:test4};
     obj.fn();
-## apply(),call()
-
-第一个函数是调用函数的母对象。它是调用上下文，函数体内通过this来获得对它的引用。可以改变this的指示方向。
-比如，以对象o的方法的形式调用函数f()，并传入两个实参，如下：
-
-    f.call(o,1,2);
-    f.apply(o,[1,2]);
 
 ## 函数定义
 ```

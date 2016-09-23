@@ -1,11 +1,14 @@
 ---
-title: Spring集成Log4j
+title: Spring集成Log4j和Slf4j
 date: 2016-09-18 15:50:43
-tags: [Spring, Log4j]
+tags: [Spring, Log4j, Slf4j]
 ---
-Spring项目中集成Log4j 
-1. 下载好log4j的jar包（例如：log4j-1.2.11.jar）
-2. web.xml
+
+[toc]
+## Log4j的集成 
+Spring项目中集成Log4j
+ 1. 下载好log4j的jar包（例如：log4j-1.2.11.jar）
+ 2. web.xml
 
 
     <!--log4j配置文件加载-->  
@@ -13,7 +16,8 @@ Spring项目中集成Log4j
        <param-name>log4jConfigLocation</param-name>      
        <param-value>/WEB-INF/log4j.properties</param-value>      
     </context-param>  
-    <!--启动一个watchdog线程每1800秒扫描一下log4j配置文件的变化-->  
+    <!--启动一个watchdog线程每1800秒扫描一下log4j配置文件的变化--> 
+    <!-- log4j 配置扫描刷新间隔 可以不用 --> 
     <context-param>      
        <param-name>log4jRefreshInterval</param-name>      
        <param-value>1800000</param-value>      
@@ -24,7 +28,7 @@ Spring项目中集成Log4j
        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>      
     </listener> 
 只配置listener也可以
-3. log4j.properties
+ 3. log4j.properties
 日志的主配置文件
 
 
@@ -71,10 +75,24 @@ Spring项目中集成Log4j
     log4j.appender.error.append=true    
     log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
 
-4. 代码中写入日
+ 4. 代码中写入日
 
 
     private static final Logger logger = LoggerFactory.getLogger(XXX.class);
     logger.info("XXXX");
     logger.warn("XXXX");
     logger.error("XXXX");
+## Slf4j的集成
+Slf4j不是一个真正的日志实现，而是一个抽象层，它允许我们在后台使用任意一个日志类库。所以**以后更换为其它日志工具时，只要修改配置文件，不用修改代码**，所以开源框架常用到Slf4j。
+spring 4默认是不依赖slf4j的，只依赖common logging.
+集成好Log4j之后就可直接使用Slf4j了
+1. 加入slf4j的jar包
+2. 配置同上Log4j的配置
+
+即集成好Log4j之后就可直接使用Slf4j了。
+使用:
+
+    import org.slf4j.Logger;  
+    import org.slf4j.LoggerFactory;
+    ...
+    private static final Logger logger = LoggerFactory.getLogger(User.class);  
