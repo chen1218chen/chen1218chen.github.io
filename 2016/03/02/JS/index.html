@@ -94,7 +94,7 @@ setTimeOut()&amp;#x53CA;js&amp;#x5F15;&amp;#x64CE;&amp;#x3001;&amp;#x7EBF;&amp;#
 <meta property="og:site_name" content="一锅乱炖">
 <meta property="og:description" content="[TOC]
 setTimeOut()&amp;#x53CA;js&amp;#x5F15;&amp;#x64CE;&amp;#x3001;&amp;#x7EBF;&amp;#x7A0B;js&amp;#x5F15;&amp;#x64CE;&amp;#x662F;&amp;#x5355;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7684;&amp;#xFF0C;&amp;#x57FA;&amp;#x4E8E;&amp;#x4E8B;&amp;#x4EF6;&amp;#x9A71;&amp;#x52A8;&amp;#x7684;&amp;#x8BED;&amp;#">
-<meta property="og:updated_time" content="2016-09-23T02:03:19.135Z">
+<meta property="og:updated_time" content="2016-09-23T05:51:30.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS技术整理">
 <meta name="twitter:description" content="[TOC]
@@ -356,24 +356,7 @@ t.count;
 console.log(t.count);//100
 t.count=99;
 console.log(t.count);//99
-</code></pre><h2 id="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"><a href="#JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;" class="headerlink" title="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"></a>JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;</h2><ol>
-<li>this&#x6307;&#x5411;&#x5168;&#x5C40;&#x53D8;&#x91CF;</li>
-</ol>
-<pre><code>var a=1;
-console.log(this);// Window&#x5168;&#x5C40;&#x5BF9;&#x8C61;
-console.log(this.a);//1
 </code></pre><ol>
-<li>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;this</li>
-</ol>
-<pre><code>var a=1;
-function test(){
-    var a=3;
-    console.log(this.a);
-}
-test.a=5;
-test();//1
-</code></pre><p>&#x53EF;&#x770B;&#x51FA;this&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5411;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E5F;&#x5E76;&#x672A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;this&#x6700;&#x7EC8;&#x6307;&#x5411;&#x7684;&#x90FD;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
-<ol>
 <li>&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</li>
 </ol>
 <pre><code>var a=1;
@@ -421,9 +404,6 @@ function test4(){
 }
 var obj = {a:2,fn:test4};
 obj.fn();
-</code></pre><h2 id="apply-call"><a href="#apply-call" class="headerlink" title="apply(),call()"></a>apply(),call()</h2><p>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>f.call(o,1,2);
-f.apply(o,[1,2]);
 </code></pre><h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h3 id="&#x5D4C;&#x5957;&#x51FD;&#x6570;"><a href="#&#x5D4C;&#x5957;&#x51FD;&#x6570;" class="headerlink" title="&#x5D4C;&#x5957;&#x51FD;&#x6570;"></a>&#x5D4C;&#x5957;&#x51FD;&#x6570;</h3><p>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;test2&#x53EA;&#x80FD;&#x5728;test&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x4E0D;&#x80FD;&#x518D;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</p>
 <pre><code>function test(){
@@ -572,7 +552,7 @@ test();//2
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">66</span>
+              <span class="site-state-item-count">67</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -638,7 +618,7 @@ test();//2
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeOut-及js引擎、线程"><span class="nav-number">1.</span> <span class="nav-text">setTimeOut()及js引擎、线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS中this关键字"><span class="nav-number">3.</span> <span class="nav-text">JS中this关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-call"><span class="nav-number">4.</span> <span class="nav-text">apply(),call()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义"><span class="nav-number">5.</span> <span class="nav-text">函数定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套函数"><span class="nav-number">5.1.</span> <span class="nav-text">嵌套函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prompt"><span class="nav-number">6.</span> <span class="nav-text">prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中引用jsp代码"><span class="nav-number">7.</span> <span class="nav-text">js中引用jsp代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js字符串长度限制"><span class="nav-number">8.</span> <span class="nav-text">js字符串长度限制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeOut-及js引擎、线程"><span class="nav-number">1.</span> <span class="nav-text">setTimeOut()及js引擎、线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数定义"><span class="nav-number">3.</span> <span class="nav-text">函数定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套函数"><span class="nav-number">3.1.</span> <span class="nav-text">嵌套函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prompt"><span class="nav-number">4.</span> <span class="nav-text">prompt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js中引用jsp代码"><span class="nav-number">5.</span> <span class="nav-text">js中引用jsp代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js字符串长度限制"><span class="nav-number">6.</span> <span class="nav-text">js字符串长度限制</span></a></li></ol></div>
             
           </div>
         </section>

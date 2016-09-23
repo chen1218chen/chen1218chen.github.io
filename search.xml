@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title><![CDATA[js中this的用法]]></title>
+      <url>http://chen1218chen.github.io/2016/09/23/js%E4%B8%ADthis%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<p>&#x5373;&#x4F7F;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x5173;&#x4E8E;js&#x4E2D;this&#x7684;&#x7528;&#x6CD5;&#x8BE6;&#x89E3;&#xFF0C;&#x6211;&#x8FD8;&#x662F;&#x60F3;&#x5199;&#x4E00;&#x7BC7;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x81EA;&#x5DF1;&#x65E5;&#x540E;&#x56DE;&#x987E;&#x3002;<br>&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#xFF1A;</p>
+<h2 id="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"><a href="#&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;" class="headerlink" title="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"></a>&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;</h2><pre><code>var x = 0;
+function test(){
+    this.x = 1;
+}
+
+test();
+alert(x); // 1
+</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;</h2><p>&#x8FD9;&#x91CC;&#x6240;&#x8BF4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x6307;&#x7528;&#x51FD;&#x6570;new&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;,&#x5373;&#xFF1A;</p>
+<pre><code>var t = new test();
+</code></pre><p>&#x8FD9;&#x65F6;&#xFF0C;this&#x6307;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;</p>
+<pre><code>var x = 2;
+function test(){
+    this.x = 1;
+}
+
+var t = new test();
+alert(t.x); // 1
+alert(x);   // 2
+</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"><a href="#&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"></a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</h2><p>&#x8FD9;&#x65F6;this&#x503C;&#x4E0A;&#x7EA7;&#x5BF9;&#x8C61;</p>
+<pre><code>function test(){
+    alert(this.x); // 2
+    this.x = 1;
+    alert(this.x); // 1
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o();
+</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<pre><code>var x = 3
+function test(){
+    alert(this.x);
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o(); //2
+t.o.apply(); //3
+t.o.apply(t); //2 &#x76F8;&#x5F53;&#x4E8E;t.o();
+</code></pre><p>apply&#x7684;&#x8BE6;&#x89E3;&#x67E5;&#x770B;<a href="http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/">js&#x7684;&#x539F;&#x578B;&#x53CA;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;</a>&#x4E00;&#x6587;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring集成Log4j和Slf4j]]></title>
       <url>http://chen1218chen.github.io/2016/09/18/Spring%E9%9B%86%E6%88%90Log4j/</url>
       <content type="html"><![CDATA[<p>[toc]</p>
@@ -1446,76 +1496,6 @@ grunt bower
     </entry>
     
     <entry>
-      <title><![CDATA[Express.js]]></title>
-      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
-      <content type="html"><![CDATA[<p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[bower]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/bower/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -1682,6 +1662,76 @@ bower uninstall jquery
   }
 grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
 </code></pre><p>&#x4E4B;&#x540E;&#xFF0C;&#x8FD0;&#x884C;<code>grunt bower</code>&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x590D;&#x5236;<br><img src="/2016/06/08/bower/Image%203.png" alt="enter description here" title="Image 3.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Express.js]]></title>
+      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
+});
+
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
+});
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
 ]]></content>
     </entry>
     
@@ -2110,7 +2160,8 @@ if (document.documentElement &amp;&amp; document.documentElement.scrollTop &amp;
     <entry>
       <title><![CDATA[js的原型及继承实现]]></title>
       <url>http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/</url>
-      <content type="html"><![CDATA[<h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="prototype&#x7EE7;&#x627F;"><a href="#prototype&#x7EE7;&#x627F;" class="headerlink" title="prototype&#x7EE7;&#x627F;"></a>prototype&#x7EE7;&#x627F;</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
 <ul>
 <li>Object.prototype&#x6CA1;&#x6709;&#x539F;&#x578B;</li>
 <li>&#x6240;&#x6709;&#x7684;&#x5185;&#x7F6E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x81EA;Object.prototype&#x7684;&#x539F;&#x578B;</li>
@@ -2181,6 +2232,34 @@ var cc = new Student();
 </code></pre><p>&#x539F;&#x578B;&#x94FE;&#x7684;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x662F;&#xFF1A;</p>
 <pre><code>cc---&gt;Student.prototype---&gt;People.prototype---&gt;Object.prototype
 </code></pre><p>&#x539F;&#x578B;&#x94FE;&#x5BF9;&#x4E86;&#xFF0C;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
+<h1 id="apply-call-&#x7EE7;&#x627F;"><a href="#apply-call-&#x7EE7;&#x627F;" class="headerlink" title="apply(),call()&#x7EE7;&#x627F;"></a>apply(),call()&#x7EE7;&#x627F;</h1><p>call&#x548C;apply&#x662F;&#x4E3A;&#x4E86;&#x52A8;&#x6001;&#x6539;&#x53D8;this&#x800C;&#x51FA;&#x73B0;&#x7684;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>f.call(o,1,2);
+f.apply(o,[1,2]);  
+</code></pre><p>apply&#x4E0E;call&#x7684;&#x533A;&#x522B;&#x4EC5;&#x5728;&#x4E8E;&#xFF0C;apply&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x5FC5;&#x4E00;&#x4E00;&#x6307;&#x51FA;&#x53C2;&#x6570;&#x3002;&#x5982;&#x4E0B;&#xFF1A;<br>&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>obj.myFunc();
+myFunc.call(obj,arg);
+myFunc.apply(obj,[arg1,arg2..]);
+</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<pre><code>Function.apply(obj,args);  //&#x65B9;&#x6CD5;&#x80FD;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;
+</code></pre><p>obj&#xFF1A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C06;&#x4EE3;&#x66FF;Function&#x7C7B;&#x91CC;this&#x5BF9;&#x8C61;<br>args&#xFF1A;&#x8FD9;&#x4E2A;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x5C06;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;Function&#xFF08;args&#x2013;&gt;arguments&#xFF09;<br>&#x5982;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>function Person(name,age){
+    this.name = name;
+    this.age = age;
+    this.hello = function(){
+        console.log(&quot;hello!&quot;+this.name);
+    }
+}
+
+function Student(name, age, school){
+    this.name = name;
+    this.age = age;
+    this.school = school;
+}
+ var p = new Person(&quot;person&quot;,100);
+ var s = new Student(&quot;cc&quot;,25,&quot;85&quot;);
+ p.hello.apply(s);//hello!cc
+ p.hello.call(s); //hello!cc
+</code></pre><p>student&#x5BF9;&#x8C61;&#x6CA1;&#x6709;hello&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;apply&#x6765;&#x8C03;&#x7528;&#x3002;</p>
 ]]></content>
     </entry>
     
@@ -4574,24 +4653,7 @@ t.count;
 console.log(t.count);//100
 t.count=99;
 console.log(t.count);//99
-</code></pre><h2 id="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"><a href="#JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;" class="headerlink" title="JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;"></a>JS&#x4E2D;this&#x5173;&#x952E;&#x5B57;</h2><ol>
-<li>this&#x6307;&#x5411;&#x5168;&#x5C40;&#x53D8;&#x91CF;</li>
-</ol>
-<pre><code>var a=1;
-console.log(this);// Window&#x5168;&#x5C40;&#x5BF9;&#x8C61;
-console.log(this.a);//1
 </code></pre><ol>
-<li>&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;this</li>
-</ol>
-<pre><code>var a=1;
-function test(){
-    var a=3;
-    console.log(this.a);
-}
-test.a=5;
-test();//1
-</code></pre><p>&#x53EF;&#x770B;&#x51FA;this&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5411;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E5F;&#x5E76;&#x672A;&#x6307;&#x5411;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#xFF0C;this&#x6700;&#x7EC8;&#x6307;&#x5411;&#x7684;&#x90FD;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
-<ol>
 <li>&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</li>
 </ol>
 <pre><code>var a=1;
@@ -4639,9 +4701,6 @@ function test4(){
 }
 var obj = {a:2,fn:test4};
 obj.fn();
-</code></pre><h2 id="apply-call"><a href="#apply-call" class="headerlink" title="apply(),call()"></a>apply(),call()</h2><p>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>f.call(o,1,2);
-f.apply(o,[1,2]);
 </code></pre><h2 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"><a href="#&#x51FD;&#x6570;&#x5B9A;&#x4E49;" class="headerlink" title="&#x51FD;&#x6570;&#x5B9A;&#x4E49;"></a>&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var func = function(name){</span><br><span class="line">	console.log(&quot;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;&quot;+name);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h3 id="&#x5D4C;&#x5957;&#x51FD;&#x6570;"><a href="#&#x5D4C;&#x5957;&#x51FD;&#x6570;" class="headerlink" title="&#x5D4C;&#x5957;&#x51FD;&#x6570;"></a>&#x5D4C;&#x5957;&#x51FD;&#x6570;</h3><p>&#x5D4C;&#x5957;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF0C;test2&#x53EA;&#x80FD;&#x5728;test&#x4E2D;&#x8C03;&#x7528;&#x3002;&#x4E0D;&#x80FD;&#x518D;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;</p>
 <pre><code>function test(){

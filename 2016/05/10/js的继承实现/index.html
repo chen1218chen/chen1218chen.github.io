@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
+<meta name="description" content="[TOC]
+prototype&amp;#x7EE7;&amp;#x627F;&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js的原型及继承实现">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
+<meta property="og:description" content="[TOC]
+prototype&amp;#x7EE7;&amp;#x627F;&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/Image%201.png">
-<meta property="og:updated_time" content="2016-05-27T07:48:36.833Z">
+<meta property="og:updated_time" content="2016-09-23T06:24:57.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js的原型及继承实现">
-<meta name="twitter:description" content="prototype&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x901A;&amp;#x8FC7;Obj">
+<meta name="twitter:description" content="[TOC]
+prototype&amp;#x7EE7;&amp;#x627F;&amp;#x6240;&amp;#x6709;&amp;#x901A;&amp;#x8FC7;new Object()&amp;#x521B;&amp;#x5EFA;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x90FD;&amp;#x5176;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E">
 <meta name="twitter:image" content="http://chen1218chen.github.io/2016/05/10/js的继承实现/Image%201.png">
 
 
@@ -308,7 +311,8 @@
       
 
       
-        <h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
+        <p>[TOC]</p>
+<h1 id="prototype&#x7EE7;&#x627F;"><a href="#prototype&#x7EE7;&#x627F;" class="headerlink" title="prototype&#x7EE7;&#x627F;"></a>prototype&#x7EE7;&#x627F;</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
 <ul>
 <li>Object.prototype&#x6CA1;&#x6709;&#x539F;&#x578B;</li>
 <li>&#x6240;&#x6709;&#x7684;&#x5185;&#x7F6E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x81EA;Object.prototype&#x7684;&#x539F;&#x578B;</li>
@@ -379,6 +383,34 @@ var cc = new Student();
 </code></pre><p>&#x539F;&#x578B;&#x94FE;&#x7684;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x662F;&#xFF1A;</p>
 <pre><code>cc---&gt;Student.prototype---&gt;People.prototype---&gt;Object.prototype
 </code></pre><p>&#x539F;&#x578B;&#x94FE;&#x5BF9;&#x4E86;&#xFF0C;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
+<h1 id="apply-call-&#x7EE7;&#x627F;"><a href="#apply-call-&#x7EE7;&#x627F;" class="headerlink" title="apply(),call()&#x7EE7;&#x627F;"></a>apply(),call()&#x7EE7;&#x627F;</h1><p>call&#x548C;apply&#x662F;&#x4E3A;&#x4E86;&#x52A8;&#x6001;&#x6539;&#x53D8;this&#x800C;&#x51FA;&#x73B0;&#x7684;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>f.call(o,1,2);
+f.apply(o,[1,2]);  
+</code></pre><p>apply&#x4E0E;call&#x7684;&#x533A;&#x522B;&#x4EC5;&#x5728;&#x4E8E;&#xFF0C;apply&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x5FC5;&#x4E00;&#x4E00;&#x6307;&#x51FA;&#x53C2;&#x6570;&#x3002;&#x5982;&#x4E0B;&#xFF1A;<br>&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>obj.myFunc();
+myFunc.call(obj,arg);
+myFunc.apply(obj,[arg1,arg2..]);
+</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<pre><code>Function.apply(obj,args);  //&#x65B9;&#x6CD5;&#x80FD;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;
+</code></pre><p>obj&#xFF1A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C06;&#x4EE3;&#x66FF;Function&#x7C7B;&#x91CC;this&#x5BF9;&#x8C61;<br>args&#xFF1A;&#x8FD9;&#x4E2A;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x5C06;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;Function&#xFF08;args&#x2013;&gt;arguments&#xFF09;<br>&#x5982;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>function Person(name,age){
+    this.name = name;
+    this.age = age;
+    this.hello = function(){
+        console.log(&quot;hello!&quot;+this.name);
+    }
+}
+
+function Student(name, age, school){
+    this.name = name;
+    this.age = age;
+    this.school = school;
+}
+ var p = new Person(&quot;person&quot;,100);
+ var s = new Student(&quot;cc&quot;,25,&quot;85&quot;);
+ p.hello.apply(s);//hello!cc
+ p.hello.call(s); //hello!cc
+</code></pre><p>student&#x5BF9;&#x8C61;&#x6CA1;&#x6709;hello&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;apply&#x6765;&#x8C03;&#x7528;&#x3002;</p>
 
       
     </div>
@@ -511,7 +543,7 @@ var cc = new Student();
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">66</span>
+              <span class="site-state-item-count">67</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -577,7 +609,7 @@ var cc = new Student();
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#prototype"><span class="nav-number">1.</span> <span class="nav-text">prototype</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.1.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.2.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型检测"><span class="nav-number">2.1.</span> <span class="nav-text">类型检测</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#prototype继承"><span class="nav-number">1.</span> <span class="nav-text">prototype继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.1.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.2.</span> <span class="nav-text">原型链</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型检测"><span class="nav-number">2.1.</span> <span class="nav-text">类型检测</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#apply-call-继承"><span class="nav-number">3.</span> <span class="nav-text">apply(),call()继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#apply"><span class="nav-number">3.1.</span> <span class="nav-text">apply()</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

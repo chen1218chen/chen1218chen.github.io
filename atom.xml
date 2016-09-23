@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-09-20T02:32:15.839Z</updated>
+  <updated>2016-09-23T05:54:09.273Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js中this的用法</title>
+    <link href="http://chen1218chen.github.io/2016/09/23/js%E4%B8%ADthis%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <id>http://chen1218chen.github.io/2016/09/23/js中this的用法/</id>
+    <published>2016-09-23T10:18:23.000Z</published>
+    <updated>2016-09-23T05:54:09.273Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x5373;&amp;#x4F7F;&amp;#x7F51;&amp;#x4E0A;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x5173;&amp;#x4E8E;js&amp;#x4E2D;this&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x8BE6;&amp;#x89E3;&amp;#xFF0C;&amp;#x6211;&amp;#x8FD8;&amp;#x662F;&amp;#x60F3;&amp;#x5199;&amp;#x4E00;&amp;#x7BC7;&amp;#x5C5E;&amp;#x4E8E;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x7406;&amp;#x89E3;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x81EA;&amp;#x5DF1;&amp;#x65E5;&amp;#x540E;&amp;#x56DE;&amp;#x987E;&amp;#x3002;&lt;br&gt;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x56DB;&amp;#x79CD;&amp;#xFF1A;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;a href=&quot;#&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;/a&gt;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;var x = 0;
+function test(){
+    this.x = 1;
+}
+
+test();
+alert(x); // 1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&lt;/h2&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x91CC;&amp;#x6240;&amp;#x8BF4;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x662F;&amp;#x6307;&amp;#x7528;&amp;#x51FD;&amp;#x6570;new&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5BF9;&amp;#x8C61;,&amp;#x5373;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var t = new test();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x65F6;&amp;#xFF0C;this&amp;#x6307;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B0;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var x = 2;
+function test(){
+    this.x = 1;
+}
+
+var t = new test();
+alert(t.x); // 1
+alert(x);   // 2
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&lt;/h2&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x65F6;this&amp;#x503C;&amp;#x4E0A;&amp;#x7EA7;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function test(){
+    alert(this.x); // 2
+    this.x = 1;
+    alert(this.x); // 1
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o();
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;apply&quot;&gt;&lt;a href=&quot;#apply&quot; class=&quot;headerlink&quot; title=&quot;apply&quot;&gt;&lt;/a&gt;apply&lt;/h2&gt;&lt;p&gt;apply&amp;#x662F;&amp;#x51FD;&amp;#x6570;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x6539;&amp;#x53D8;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x5B83;&amp;#x7684;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x6539;&amp;#x53D8;&amp;#x540E;&amp;#x8C03;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;this&amp;#x5C31;&amp;#x6307;&amp;#x7684;&amp;#x662F;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x53C2;&amp;#x6570;&amp;#x4E3A;&amp;#x7A7A;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x8C03;&amp;#x7528;&amp;#x5168;&amp;#x5C40;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var x = 3
+function test(){
+    alert(this.x);
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o(); //2
+t.o.apply(); //3
+t.o.apply(t); //2 &amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;t.o();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;apply&amp;#x7684;&amp;#x8BE6;&amp;#x89E3;&amp;#x67E5;&amp;#x770B;&lt;a href=&quot;http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/&quot;&gt;js&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x53CA;&amp;#x7EE7;&amp;#x627F;&amp;#x5B9E;&amp;#x73B0;&lt;/a&gt;&amp;#x4E00;&amp;#x6587;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x5373;&amp;#x4F7F;&amp;#x7F51;&amp;#x4E0A;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x5173;&amp;#x4E8E;js&amp;#x4E2D;this&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x8BE6;&amp;#x89E
+    
+    </summary>
+    
+    
+      <category term="JS" scheme="http://chen1218chen.github.io/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring集成Log4j和Slf4j</title>
@@ -1209,31 +1274,6 @@ System.out.println(str1==str2); // false
       <category term="JAX-RS" scheme="http://chen1218chen.github.io/tags/JAX-RS/"/>
     
       <category term="Jersey" scheme="http://chen1218chen.github.io/tags/Jersey/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrapSwitch使用</title>
-    <link href="http://chen1218chen.github.io/2016/07/22/bootstrapSwitch%E4%BD%BF%E7%94%A8/"/>
-    <id>http://chen1218chen.github.io/2016/07/22/bootstrapSwitch使用/</id>
-    <published>2016-07-21T16:43:59.000Z</published>
-    <updated>2016-07-21T08:47:14.470Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://www.bootstrap-switch.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x4E3B;&amp;#x9875;&amp;#x5730;&amp;#x5740;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;a href=&quot;#&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;/a&gt;&amp;#x67E5;&amp;#x770B;&amp;#x72B6;&amp;#x6001;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;alert($(&amp;apos;#isHistory&amp;apos;).bootstrapSwitch(&amp;apos;state&amp;apos;));
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;a href=&quot;#&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&quot;&gt;&lt;/a&gt;&amp;#x8BBE;&amp;#x7F6E;&amp;#x72B6;&amp;#x6001;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(&amp;apos;#isHistory&amp;apos;).bootstrapSwitch(&amp;apos;state&amp;apos;, false,true);
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#bootstrapSwitch&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;bootstrapSwitch&amp;#
-    
-    </summary>
-    
-    
-      <category term="Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap/"/>
     
   </entry>
   
