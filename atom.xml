@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2016-09-23T05:54:09.273Z</updated>
+  <updated>2016-09-28T03:15:02.385Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringMVC之多文件上传</title>
+    <link href="http://chen1218chen.github.io/2016/09/28/SpringMVC%E4%B9%8B%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    <id>http://chen1218chen.github.io/2016/09/28/SpringMVC之多文件上传/</id>
+    <published>2016-09-28T11:02:45.000Z</published>
+    <updated>2016-09-28T03:15:02.385Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;MultipartFile&quot;&gt;&lt;a href=&quot;#MultipartFile&quot; class=&quot;headerlink&quot; title=&quot;MultipartFile&quot;&gt;&lt;/a&gt;MultipartFile&lt;/h2&gt;&lt;p&gt;Spring&amp;#x4F7F;&amp;#x7528;MultipartFile&amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x591A;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x914D;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;multipartResolver&amp;#x7684;bean&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;multipartResolver&amp;quot; class=&amp;quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&amp;quot; /&amp;gt;
+
+@RequestMapping(value=&amp;quot;/parseAttr.json&amp;quot;, method = RequestMethod.POST)
+public ModelMap parseAttr(@RequestParam(&amp;quot;file&amp;quot;) MultipartFile uFile) {
+     ModelMap result = new ModelMap();
+     ...
+     result.put(&amp;quot;keys&amp;quot;,set);
+     return result;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;a href=&quot;#&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;/a&gt;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;MultipartFile file = new MultipartFile();   
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;file.getOriginalFilename():&amp;#x83B7;&amp;#x53D6;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x539F;&amp;#x540D;&lt;br&gt;file.getInputStream():&amp;#x83B7;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;MultipartFile&quot;&gt;&lt;a href=&quot;#MultipartFile&quot; class=&quot;headerlink&quot; title=&quot;MultipartFile&quot;&gt;&lt;/a&gt;MultipartFile&lt;/h2&gt;&lt;p&gt;Spring&amp;#x4F7F
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
+    
+      <category term="MultipartFile" scheme="http://chen1218chen.github.io/tags/MultipartFile/"/>
+    
+  </entry>
   
   <entry>
     <title>js中this的用法</title>
@@ -1237,43 +1273,6 @@ System.out.println(str1==str2); // false
     
     
       <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>@FormParam与@RequestParam</title>
-    <link href="http://chen1218chen.github.io/2016/07/26/FormParam%E4%B8%8E-RequestParam/"/>
-    <id>http://chen1218chen.github.io/2016/07/26/FormParam与-RequestParam/</id>
-    <published>2016-07-25T17:15:36.000Z</published>
-    <updated>2016-07-25T09:24:42.101Z</updated>
-    
-    <content type="html">&lt;p&gt;@FormParam &amp;#x662F; Jersey&amp;#xFF08;JAX-RS&amp;#xFF09; &amp;#x7684;&lt;br&gt;@RequestParam &amp;#x662F; SpringMVC &amp;#x7684;&lt;/p&gt;
-&lt;h1 id=&quot;RESTful&quot;&gt;&lt;a href=&quot;#RESTful&quot; class=&quot;headerlink&quot; title=&quot;RESTful&quot;&gt;&lt;/a&gt;RESTful&lt;/h1&gt;&lt;p&gt;RESTful Web Service&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;&amp;#x65B9;&amp;#x6848;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x4E00;&amp;#x79CD;&amp;#x662F;&amp;#x6309;&amp;#x7167;JAX-RS&amp;#x89C4;&amp;#x8303;&amp;#x7684;&amp;#x6807;&amp;#x51C6;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&lt;/li&gt;
-&lt;li&gt;&amp;#x53E6;&amp;#x5916;&amp;#x4E00;&amp;#x79CD;&amp;#x662F;&amp;#x6309;&amp;#x7167;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;JAX-RS&amp;#x6807;&amp;#x51C6;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x6846;&amp;#x67B6;&amp;#x6BD4;&amp;#x8F83;&amp;#x6709;&amp;#x540D;&amp;#x7684;&amp;#x6709;&amp;#xFF1A;Jersey&amp;#x3001;Apache Wink&amp;#x7B49;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#xFF0C;Jersey&amp;#x662F;JAX-RS&amp;#x89C4;&amp;#x8303;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x6BD4;&amp;#x8F83;&amp;#x6709;&amp;#x4EE3;&amp;#x8868;&amp;#x6027;&amp;#x3002; &lt;/p&gt;
-&lt;p&gt;&amp;#x975E;&amp;#x6807;&amp;#x51C6;&amp;#x5B9E;&amp;#x73B0;&amp;#x7684;&amp;#x6846;&amp;#x67B6;&amp;#x4E2D;&amp;#x6BD4;&amp;#x8F83;&amp;#x6709;&amp;#x540D;&amp;#x7684;&amp;#x6709;&amp;#xFF1A;Spring MVC3.0&amp;#x3001;Restlet&amp;#x7B49;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#xFF0C;Spring MVC3.0&amp;#x7531;&amp;#x4E8E;Spring&amp;#x6846;&amp;#x67B6;&amp;#x5728;&amp;#x5F00;&amp;#x53D1;&amp;#x793E;&amp;#x533A;&amp;#x7684;&amp;#x5F71;&amp;#x54CD;&amp;#x529B;&amp;#xFF0C;&amp;#x4F7F;&amp;#x5F97;&amp;#x5B83;&amp;#x5728;&amp;#x975E;&amp;#x6807;&amp;#x51C6;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E2D;&amp;#x6BD4;&amp;#x8F83;&amp;#x6709;&amp;#x4EE3;&amp;#x8868;&amp;#x6027;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x4F7F;&amp;#x7528;&amp;#x4EBA;&amp;#x7FA4;&amp;#x8F83;&amp;#x591A;&amp;#x3002;&lt;br&gt;&amp;#x53E6;&amp;#x5916;&amp;#x3001;&amp;#x9664;&amp;#x4E86;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6210;&amp;#x719F;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x6846;&amp;#x67B6;&amp;#x4EE5;&amp;#x5916;&amp;#xFF0C;&amp;#x8981;&amp;#x5B9E;&amp;#x73B0;REST Web Service&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5229;&amp;#x7528; Apache URL&amp;#x91CD;&amp;#x5199;&amp;#x673A;&amp;#x5236;&amp;#xFF0C;HTTPClient&amp;#x5F00;&amp;#x53D1;&amp;#x5305;&amp;#xFF0C;Java Servlet&amp;#x7B49;&amp;#x65B9;&amp;#x5F0F;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&lt;/p&gt;
-&lt;h1 id=&quot;Jersey&amp;#xFF08;JAX-RS&amp;#xFF09;&quot;&gt;&lt;a href=&quot;#Jersey&amp;#xFF08;JAX-RS&amp;#xFF09;&quot; class=&quot;headerlink&quot; title=&quot;Jersey&amp;#xFF08;JAX-RS&amp;#xFF09;&quot;&gt;&lt;/a&gt;Jersey&amp;#xFF08;JAX-RS&amp;#xFF09;&lt;/h1&gt;&lt;p&gt;JAX-RS&amp;#x5373;Java API for RESTful Web Services&amp;#xFF0C;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Java &amp;#x7F16;&amp;#x7A0B;&amp;#x8BED;&amp;#x8A00;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x652F;&amp;#x6301;&amp;#x6309;&amp;#x7167;&amp;#x8868;&amp;#x8FF0;&amp;#x6027;&amp;#x72B6;&amp;#x6001;&amp;#x8F6C;&amp;#x79FB;&amp;#xFF08;REST&amp;#xFF09;&amp;#x67B6;&amp;#x6784;&amp;#x98CE;&amp;#x683C;&amp;#x521B;&amp;#x5EFA;Web&amp;#x670D;&amp;#x52A1;&amp;#x3002;&lt;/p&gt;
-&lt;h3 id=&quot;FormParam&quot;&gt;&lt;a href=&quot;#FormParam&quot; class=&quot;headerlink&quot; title=&quot;@FormParam&quot;&gt;&lt;/a&gt;@FormParam&lt;/h3&gt;&lt;p&gt; form&amp;#x4F20;&amp;#x9012;&amp;#x7684;&amp;#x53C2;&amp;#x6570;    &amp;#x63A5;&amp;#x53D7;form&amp;#x4F20;&amp;#x9012;&amp;#x8FC7;&amp;#x6765;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x3002;&amp;#x6BD4;&amp;#x5982;&amp;#xFF1A;@FormParam(&amp;#x201C;name&amp;#x201D;)  String userName&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;@FormParam &amp;#x662F; Jersey&amp;#xFF08;JAX-RS&amp;#xFF09; &amp;#x7684;&lt;br&gt;@RequestParam &amp;#x662F; SpringMVC &amp;#x7684;&lt;/p&gt;
-&lt;h1 id=&quot;RESTful&quot;&gt;&lt;a href=&quot;#RES
-    
-    </summary>
-    
-    
-      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
-    
-      <category term="REST" scheme="http://chen1218chen.github.io/tags/REST/"/>
-    
-      <category term="JAX-RS" scheme="http://chen1218chen.github.io/tags/JAX-RS/"/>
-    
-      <category term="Jersey" scheme="http://chen1218chen.github.io/tags/Jersey/"/>
     
   </entry>
   

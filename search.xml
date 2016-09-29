@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title><![CDATA[SpringMVC之多文件上传]]></title>
+      <url>http://chen1218chen.github.io/2016/09/28/SpringMVC%E4%B9%8B%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="MultipartFile"><a href="#MultipartFile" class="headerlink" title="MultipartFile"></a>MultipartFile</h2><p>Spring&#x4F7F;&#x7528;MultipartFile&#x6765;&#x8FDB;&#x884C;&#x591A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#xFF0C;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;multipartResolver&#x7684;bean</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot; /&gt;
+
+@RequestMapping(value=&quot;/parseAttr.json&quot;, method = RequestMethod.POST)
+public ModelMap parseAttr(@RequestParam(&quot;file&quot;) MultipartFile uFile) {
+     ModelMap result = new ModelMap();
+     ...
+     result.put(&quot;keys&quot;,set);
+     return result;
+}
+</code></pre><h2 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h2><pre><code>MultipartFile file = new MultipartFile();   
+</code></pre><p>file.getOriginalFilename():&#x83B7;&#x53D6;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x540D;<br>file.getInputStream():&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x6D41;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[js中this的用法]]></title>
       <url>http://chen1218chen.github.io/2016/09/23/js%E4%B8%ADthis%E7%9A%84%E7%94%A8%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
