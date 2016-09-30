@@ -16,3 +16,5 @@ tabindex 属性规定元素的 tab 键控制次序
 
 ### async
 async 属性规定一旦脚本可用，则会异步执行
+### novalidate
+通过将novalidate属性放置到form元素上，form元素的原生校验特征就会忽略，这样就可以防止它同你的自己写的JavaScript的校验方法起冲突。
