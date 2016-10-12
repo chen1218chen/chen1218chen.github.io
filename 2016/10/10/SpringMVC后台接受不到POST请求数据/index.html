@@ -1,0 +1,829 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="springMVC,ajax," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一锅乱炖" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="[TOC]
+&amp;#x5E8F;&amp;#x9879;&amp;#x76EE;&amp;#x4EE3;&amp;#x7801;&amp;#x5408;&amp;#x5E76;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x9047;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BA9;&amp;#x6211;&amp;#x8FD9;&amp;#x51E0;&amp;#x5929;&amp;#x53CA;&amp;#x5176;&amp;#x5D29;&amp;#x6E83;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC后台接受不到POST请求数据">
+<meta property="og:url" content="http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/index.html">
+<meta property="og:site_name" content="一锅乱炖">
+<meta property="og:description" content="[TOC]
+&amp;#x5E8F;&amp;#x9879;&amp;#x76EE;&amp;#x4EE3;&amp;#x7801;&amp;#x5408;&amp;#x5E76;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x9047;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BA9;&amp;#x6211;&amp;#x8FD9;&amp;#x51E0;&amp;#x5929;&amp;#x53CA;&amp;#x5176;&amp;#x5D29;&amp;#x6E83;&amp;#">
+<meta property="og:image" content="http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/Image%201.png">
+<meta property="og:image" content="http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/Image%202.png">
+<meta property="og:updated_time" content="2016-10-12T02:47:56.991Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringMVC后台接受不到POST请求数据">
+<meta name="twitter:description" content="[TOC]
+&amp;#x5E8F;&amp;#x9879;&amp;#x76EE;&amp;#x4EE3;&amp;#x7801;&amp;#x5408;&amp;#x5E76;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x9047;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BA9;&amp;#x6211;&amp;#x8FD9;&amp;#x51E0;&amp;#x5929;&amp;#x53CA;&amp;#x5176;&amp;#x5D29;&amp;#x6E83;&amp;#">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/Image%201.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/"/>
+
+  <title> SpringMVC后台接受不到POST请求数据 | 一锅乱炖 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一锅乱炖</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                SpringMVC后台接受不到POST请求数据
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-10T18:45:42+08:00" content="2016-10-10">
+              2016-10-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">本文总阅读量
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h2 id="&#x5E8F;"><a href="#&#x5E8F;" class="headerlink" title="&#x5E8F;"></a>&#x5E8F;</h2><p>&#x9879;&#x76EE;&#x4EE3;&#x7801;&#x5408;&#x5E76;&#x66F4;&#x65B0;&#x4E4B;&#x540E;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x8BA9;&#x6211;&#x8FD9;&#x51E0;&#x5929;&#x53CA;&#x5176;&#x5D29;&#x6E83;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;Spring MVC&#x7684;Controller&#x91CC;&#x9762;&#x4F7F;&#x7528;&#x4E86;@RequestParam&#x6CE8;&#x89E3;&#x6765;&#x63A5;&#x6536;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x5728;GET&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x8BBF;&#x95EE;&#xFF0C;&#x5728;&#x4F7F;&#x7528;POST&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4EA7;&#x751F;&#x627E;&#x4E0D;&#x5230;&#x53C2;&#x6570;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x539F;&#x672C;&#x597D;&#x597D;&#x7684;POST&#x8BF7;&#x6C42;&#x5F00;&#x59CB;&#x62A5;400&#x9519;&#x8BEF;&#xFF0C;&#x627E;&#x4E0D;&#x5230;REST&#x670D;&#x52A1;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x62A5;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;&#x591A;&#x662F;&#x7531;&#x4E8E;POST&#x8BF7;&#x6C42;&#x65F6;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6B21;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x767E;&#x601D;&#x4E0D;&#x5F97;&#x5176;&#x89E3;&#x554A;&#x3002;&#x3002;&#x3002;&#x7F51;&#x4E0A;&#x5404;&#x79CD;&#x8D44;&#x6599;&#x663E;&#x793A;&#xFF0C;&#x53EF;&#x80FD;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x5728;jquery&#x53D1;&#x9001;&#x7684;ajax&#x8BF7;&#x6C42;&#x4E0A;&#x3002;&#x521A;&#x597D;&#x6076;&#x8865;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x8FD9;&#x65B9;&#x9762;&#x5185;&#x5BB9;&#x3002;&#xFF08;PS&#xFF1A;&#x7ECF;&#x8FC7;&#x4E24;&#x5929;&#x7684;&#x6298;&#x817E;&#xFF0C;&#x5C1D;&#x8BD5;&#x6362;Tomcat&#xFF0C;IDE&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x662F;&#x73AF;&#x5883;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E4B;&#x524D;&#x7528;&#x7684;eclipse&#x914D;&#x7F6E;&#x4E86;&#x7834;&#x89E3;&#x7684;JRebel&#xFF0C;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x5230;&#x4E86;&#xFF0C;&#x5230;&#x7B2C;&#x4E09;&#x5929;&#x7EC8;&#x4E8E;&#x89E3;&#x51B3;&#xFF0C;&#x795E;&#x554A;&#x3002;&#x3002;&#x3002;&#xFF09;</p>
+<h2 id="ajax&#x63D0;&#x4EA4;"><a href="#ajax&#x63D0;&#x4EA4;" class="headerlink" title="ajax&#x63D0;&#x4EA4;"></a>ajax&#x63D0;&#x4EA4;</h2><p><strong>jQuery</strong>&#xFF1A;&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x65F6;&#x7528;&amp;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/10/10/SpringMVC&#x540E;&#x53F0;&#x63A5;&#x53D7;&#x4E0D;&#x5230;POST&#x8BF7;&#x6C42;&#x6570;&#x636E;/Image%201.png" alt="enter description here" title="Image 1.png"><br>&#x5BF9;&#x5E94;&#x7684;Content-Type&#x662F; application/x-www-form-urlencoded&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/10/10/SpringMVC&#x540E;&#x53F0;&#x63A5;&#x53D7;&#x4E0D;&#x5230;POST&#x8BF7;&#x6C42;&#x6570;&#x636E;/Image%202.png" alt="enter description here" title="Image 2.png"></p>
+<p><strong>AngularJS</strong>&#xFF1A;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x4F7F;&#x7528;&#x7684;Content-Type&#x662F;&#xFF1A;application/json&#x683C;&#x5F0F;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x683C;&#x5F0F;&#x4E3A;{&#x201C;pageNow&#x201D;:1,&#x201D;pageSize&#x201D;:5,&#x201D;type&#x201D;:&#x201D;&#x201D;}</p>
+<p><strong>&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#x4E00;&#x5B9A;&#x8981;&#x548C;Content-Type&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</strong></p>
+<h2 id="form&#x63D0;&#x4EA4;"><a href="#form&#x63D0;&#x4EA4;" class="headerlink" title="form&#x63D0;&#x4EA4;"></a>form&#x63D0;&#x4EA4;</h2><p>form&#x7684;enctype&#x5C5E;&#x6027;&#x4E3A;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x5E38;&#x7528;&#x6709;&#x4E24;&#x79CD;&#xFF1A;application/x-www-form-urlencoded&#x548C;multipart/form-data&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;application/x-www-form-urlencoded&#x3002; &#x5F53;action&#x4E3A;get&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7528;x-www-form-urlencoded&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x628A;form&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210;&#x4E00;&#x4E2A;&#x5B57;&#x4E32;&#xFF08;name1=value1&amp;name2=value2&#x2026;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E2A;&#x5B57;&#x4E32;append&#x5230;url&#x540E;&#x9762;&#xFF0C;&#x7528;?&#x5206;&#x5272;&#xFF0C;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;url&#x3002; &#x5F53;action&#x4E3A;post&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x628A;form&#x6570;&#x636E;&#x5C01;&#x88C5;&#x5230;http body&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x9001;&#x5230;server&#x3002; &#x5982;&#x679C;&#x6CA1;&#x6709;type=file&#x7684;&#x63A7;&#x4EF6;&#xFF0C;&#x7528;&#x9ED8;&#x8BA4;&#x7684;application/x-www-form-urlencoded&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002; &#x4F46;&#x662F;&#x5982;&#x679C;&#x6709;type=file&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x8981;&#x7528;&#x5230;multipart/form-data&#x4E86;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x628A;&#x6574;&#x4E2A;&#x8868;&#x5355;&#x4EE5;&#x63A7;&#x4EF6;&#x4E3A;&#x5355;&#x4F4D;&#x5206;&#x5272;&#xFF0C;&#x5E76;&#x4E3A;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#x52A0;&#x4E0A;Content-Disposition(form-data&#x6216;&#x8005;file),Content-Type(&#x9ED8;&#x8BA4;&#x4E3A;text/plain),name(&#x63A7;&#x4EF6;name)&#x7B49;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x52A0;&#x4E0A;&#x5206;&#x5272;&#x7B26;(boundary)&#x3002;</p>
+<h2 id="&#x6CE8;&#x89E3;"><a href="#&#x6CE8;&#x89E3;" class="headerlink" title="&#x6CE8;&#x89E3;"></a>&#x6CE8;&#x89E3;</h2><h3 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h3><p>&#x8BE5;&#x6CE8;&#x89E3;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;Request&#x8BF7;&#x6C42;&#x7684;body&#x90E8;&#x5206;&#x6570;&#x636E;</p>
+<h3 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h3><p>&#x8BE5;&#x6CE8;&#x89E3;&#x7528;&#x4E8E;&#x5C06;Controller&#x7684;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;&#x9002;&#x5F53;&#x7684;HttpMessageConverter&#x8F6C;&#x6362;&#x4E3A;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x540E;&#xFF0C;&#x5199;&#x5165;&#x5230;Response&#x5BF9;&#x8C61;&#x7684;body&#x6570;&#x636E;&#x533A;&#x3002;<br>&#x5F53;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x662F;html&#x7684;&#x9875;&#x9762;&#xFF0C;&#x800C;&#x662F;&#x5176;&#x4ED6;&#x67D0;&#x79CD;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x65F6;&#xFF08;&#x5982;json&#x3001;xml&#x7B49;&#xFF09;&#x4F7F;&#x7528;&#xFF1B;</p>
+<h3 id="RequestMapping-produces"><a href="#RequestMapping-produces" class="headerlink" title="@RequestMapping produces"></a>@RequestMapping produces</h3><pre><code>@RequestMapping(value = &quot;/upload&quot;,produces=&quot;application/json&quot;)  
+</code></pre><p>produces&#xFF1A;&#x65B9;&#x6CD5;&#x4EC5;&#x5904;&#x7406;request&#x8BF7;&#x6C42;&#x4E2D;Accept&#x5934;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x201D;application/json&#x201D;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x540C;&#x65F6;&#x6697;&#x793A;&#x4E86;&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#x4E3A;application/json;</p>
+<h2 id="springMVC&#x53D6;&#x503C;&#x65B9;&#x5F0F;"><a href="#springMVC&#x53D6;&#x503C;&#x65B9;&#x5F0F;" class="headerlink" title="springMVC&#x53D6;&#x503C;&#x65B9;&#x5F0F;"></a>springMVC&#x53D6;&#x503C;&#x65B9;&#x5F0F;</h2><h3 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h3><p>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;@PathVariable&#x83B7;&#x53D6;url&#x4E2D;&#x7684;&#x503C;&#x3002;</p>
+<pre><code>@RequestMapping(value=&quot;user/{id}/{name}&quot;,method=RequestMethod.GET)
+public String myController(@PathVariable String id,@PathVariable String name, ModelMap model) {
+     &#x2026;&#x2026;
+      return &quot;ok&quot;;
+  }
+</code></pre><h3 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h3><p>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;RequestParam&#x83B7;&#x53D6;&#x4F20;&#x9012;&#x8FC7;&#x6765;&#x7684;&#x503C;&#x3002;</p>
+<pre><code>@RequestMapping(value = &quot;/test&quot;, method = RequestMethod.POST) 
+public String myTest(@RequestParam(&quot;name&quot;) String name,@RequestParam(&quot;phone&quot;) String phone, ModelMap model) { 
+     &#x2026;&#x2026;
+     return &quot;ok&quot;;
+ }
+</code></pre><h3 id="HttpServletRequest"><a href="#HttpServletRequest" class="headerlink" title="HttpServletRequest"></a>HttpServletRequest</h3><p>&#x901A;&#x8FC7;&#x539F;&#x751F;HttpServletRequest&#x83B7;&#x53D6;&#x503C;&#x3002;</p>
+<pre><code>@RequestMapping(value=&quot;/test&quot; method = RequestMethod.POST) 
+public String get(HttpServletRequest request, HttpServletResponse response) { 
+     String name = request.getParameter(&quot;name&quot;)); 
+     return &quot;ok&quot;; 
+ }
+</code></pre><h3 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="ModelAttribute"></a>ModelAttribute</h3><p>&#x901A;&#x8FC7;&#x6CE8;&#x89E3;ModelAttribute&#x76F4;&#x63A5;&#x6620;&#x5C04;&#x8868;&#x5355;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x5230;POJO&#x3002;</p>
+<h2 id="&#x8865;&#x5145;"><a href="#&#x8865;&#x5145;" class="headerlink" title="&#x8865;&#x5145;"></a>&#x8865;&#x5145;</h2><ul>
+<li><strong>application/x-www-form-urlencoded</strong>&#xFF1A; &#x7A97;&#x4F53;&#x6570;&#x636E;&#x88AB;&#x7F16;&#x7801;&#x4E3A;&#x540D;&#x79F0;/&#x503C;&#x5BF9;&#x3002;&#x8FD9;&#x662F;&#x6807;&#x51C6;&#x7684;&#x7F16;&#x7801;&#x683C;&#x5F0F;&#x3002;&#x7A7A;&#x683C;&#x8F6C;&#x6362;&#x4E3A; &#x201C;+&#x201D; &#x52A0;&#x53F7;&#xFF0C;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x8F6C;&#x6362;&#x4E3A; ASCII HEX &#x503C;&#x3002;</li>
+<li><strong>multipart/form-data</strong>&#xFF1A; &#x7A97;&#x4F53;&#x6570;&#x636E;&#x88AB;&#x7F16;&#x7801;&#x4E3A;&#x4E00;&#x6761;&#x6D88;&#x606F;&#xFF0C;&#x9875;&#x4E0A;&#x7684;&#x6BCF;&#x4E2A;&#x63A7;&#x4EF6;&#x5BF9;&#x5E94;&#x6D88;&#x606F;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#x3002; &#x4E0D;&#x5BF9;&#x5B57;&#x7B26;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x4F7F;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;<strong>&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;</strong>&#xFF0C;&#x975E;&#x6587;&#x672C;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;</li>
+</ul>
+<p>Spring&#x5982;&#x679C;&#x8981;&#x63A5;&#x53D7;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#xFF0C;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;</p>
+<pre><code>&lt;bean id=&quot;multipartResolver&quot;
+      class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;       
+&lt;/bean&gt;
+</code></pre><ul>
+<li><strong>text/plain</strong>&#xFF1A; &#x7A97;&#x4F53;&#x6570;&#x636E;&#x4EE5;&#x7EAF;&#x6587;&#x672C;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x5176;&#x4E2D;&#x4E0D;&#x542B;&#x4EFB;&#x4F55;&#x63A7;&#x4EF6;&#x6216;&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x3002;</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/springMVC/" rel="tag">#springMVC</a>
+          
+            <a href="/tags/ajax/" rel="tag">#ajax</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/08/单页面应用/" rel="next" title="单页面应用">
+                <i class="fa fa-chevron-left"></i> 单页面应用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/12/IntellJ-IDEA生成war包/" rel="prev" title="IntellJ IDEA生成war包">
+                IntellJ IDEA生成war包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="chen" />
+          <p class="site-author-name" itemprop="name">chen</p>
+          <p class="site-description motion-element" itemprop="description">热爱生活，热爱学习</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">71</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="mailto:cc.2008.com@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chen1218chen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序"><span class="nav-number">1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax提交"><span class="nav-number">2.</span> <span class="nav-text">ajax提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#form提交"><span class="nav-number">3.</span> <span class="nav-text">form提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解"><span class="nav-number">4.</span> <span class="nav-text">注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RequestBody"><span class="nav-number">4.1.</span> <span class="nav-text">@RequestBody</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ResponseBody"><span class="nav-number">4.2.</span> <span class="nav-text">@ResponseBody</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RequestMapping-produces"><span class="nav-number">4.3.</span> <span class="nav-text">@RequestMapping produces</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springMVC取值方式"><span class="nav-number">5.</span> <span class="nav-text">springMVC取值方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PathVariable"><span class="nav-number">5.1.</span> <span class="nav-text">@PathVariable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RequestParam"><span class="nav-number">5.2.</span> <span class="nav-text">@RequestParam</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpServletRequest"><span class="nav-number">5.3.</span> <span class="nav-text">HttpServletRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModelAttribute"><span class="nav-number">5.4.</span> <span class="nav-text">ModelAttribute</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chen</span>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
