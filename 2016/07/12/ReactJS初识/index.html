@@ -87,18 +87,18 @@
 
 
 <meta name="description" content="[toc]
-ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5468;&amp;#x671F;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5206;&amp;#x4E3A;&amp;#x4E09;&amp;#x4E2A;&amp;#x9636;&amp;#x6BB5;&amp;#xFF1A;Mounting, U">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactJS初识">
 <meta property="og:url" content="http://chen1218chen.github.io/2016/07/12/ReactJS初识/index.html">
 <meta property="og:site_name" content="一锅乱炖">
 <meta property="og:description" content="[toc]
-ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
-<meta property="og:updated_time" content="2016-09-09T09:12:25.348Z">
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5468;&amp;#x671F;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5206;&amp;#x4E3A;&amp;#x4E09;&amp;#x4E2A;&amp;#x9636;&amp;#x6BB5;&amp;#xFF1A;Mounting, U">
+<meta property="og:updated_time" content="2016-10-28T01:43:33.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactJS初识">
 <meta name="twitter:description" content="[toc]
-ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7ECF;&amp;#x5E38;&amp;#x9700;&amp;#x8981;&amp;#x5C06;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x65F6;&amp;#x65F6;&amp;#x53D8;&amp;#x5316;&amp;#x53">
+ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5468;&amp;#x671F;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x751F;&amp;#x547D;&amp;#x5468;&amp;#x671F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5206;&amp;#x4E3A;&amp;#x4E09;&amp;#x4E2A;&amp;#x9636;&amp;#x6BB5;&amp;#xFF1A;Mounting, U">
 
 
 
@@ -310,7 +310,47 @@ ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x
 
       
         <p>[toc]</p>
-<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x7EC4;&#x4EF6;&#x5468;&#x671F;"><a href="#&#x7EC4;&#x4EF6;&#x5468;&#x671F;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x5468;&#x671F;"></a>&#x7EC4;&#x4EF6;&#x5468;&#x671F;</h2><p>&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;Mounting, Updating, Unmonuting&#x3002;<br><strong>Mounting</strong>&#xFF1A; &#x7EC4;&#x4EF6;&#x88AB;&#x63D2;&#x5165;DOM&#x4E2D;<br><strong>Updating</strong>&#xFF1A;DOM&#x6570;&#x636E;&#x88AB;&#x66F4;&#x65B0;&#xFF0C;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6E32;&#x67D3;<br><strong>Unmounting</strong>: &#x4ECE;DOM&#x4E2D;&#x6740;&#x51FA;&#x7EC4;&#x4EF6;<br>React&#x5728;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x5F00;&#x59CB;&#x524D;&#x63D0;&#x4F9B;&#x4E86;will&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5728;&#x8FD9;&#x4E00;&#x9636;&#x6BB5;&#x5F00;&#x59CB;&#x524D;&#x7684;&#x64CD;&#x4F5C;&#x3002;did&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p>Mounting&#x9636;&#x6BB5;</p>
+</blockquote>
+<p>&#x9996;&#x5148;&#x5728;Mounting&#x9636;&#x6BB5;&#xFF0C;Component&#x901A;&#x8FC7;React.createClass&#x88AB;&#x521B;&#x5EFA;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528; getInitialState &#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316; this.state&#x3002;&#x5728; Component &#x6267;&#x884C; render &#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528; componentWillMount&#xFF08;&#x65B9;&#x6CD5;&#x4FEE;&#x6539; state &#x72B6;&#x6001;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C; render&#x3002;Reder&#x7684;&#x8FC7;&#x7A0B;&#x5373;&#x662F;&#x7EC4;&#x4EF6;&#x751F;&#x6210;HTML&#x7ED3;&#x6784;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x5728;render&#x4E4B;&#x540E;&#xFF0C;Component &#x4F1A;&#x8C03;&#x7528; componentDidMount &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x624D;&#x80FD;&#x901A;&#x8FC7; this.getDOMNode()&#x83B7;&#x53D6;&#x5230;&#x7EC4;&#x4EF6;&#x7684; DOM &#x8282;&#x70B9;&#x3002;</p>
+<ul>
+<li>getInitialState()</li>
+<li>componentWillMount(): mounting occurs&#x4E4B;&#x524D;&#x7ACB;&#x5373;&#x8C03;&#x7528;</li>
+<li>componentDidMount(): mounting occurs&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;DOM&#x8282;&#x70B9;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x3002;<blockquote>
+<p>Updating&#x9636;&#x6BB5;</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x5F53; Component &#x5728; mount &#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x5B83;&#x5F53;&#x4E2D;&#x6709;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x5BFC;&#x81F4;&#x7684;&#x66F4;&#x65B0;&#x90FD;&#x4F1A;&#x5728; Updating &#x9636;&#x6BB5;&#x6267;&#x884C;&#x3002;Component &#x7684; componentWillReceiveProps &#x65B9;&#x6CD5;&#x4F1A;&#x76D1;&#x542C;&#x7EC4;&#x4EF6;&#x4E2D; props&#x3002;&#x76D1;&#x542C;&#x5230; props &#x53D1;&#x751F;&#x4FEE;&#x6539;&#xFF0C;&#x5B83;&#x4F1A;&#x6BD4;&#x5BF9;&#x65B0;&#x7684;&#x6570;&#x636E;&#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5DEE;&#x522B;&#x8FDB;&#x800C;&#x4FEE;&#x6539; state &#x7684;&#x503C;&#x3002;&#x5F53;&#x6BD4;&#x5BF9;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#x6570;&#x636E;&#x53D8;&#x5316;&#x9700;&#x8981;&#x5BF9; Component &#x5BF9;&#x5E94;&#x7684; DOM &#x8282;&#x70B9;&#x505A;&#x51FA;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x5019;&#xFF0C;shouldCoponentUpdate &#x65B9;&#x6CD5;&#x5B83;&#x4F1A;&#x8FD4;&#x56DE; true &#x7528;&#x4E8E;&#x89E6;&#x53D1; componentWillUpdate &#x548C; componentDidUpdate &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x9ED8;&#x8BA4;&#x7684;&#x60C5;&#x51B5;&#x4E0B; shouldComponentUpdate &#x8FD4;&#x56DE;&#x4E3A; true&#x3002;&#x6709;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x5F53; component &#x4E2D;&#x7684; props &#x53D1;&#x751F;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x672C;&#x8EAB;&#x6570;&#x636E;&#x5E76;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x624B;&#x5DE5;&#x8BBE;&#x7F6E; shouldComponentUpdate &#x4E3A; false &#x65F6;&#xFF0C;React &#x5C31;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;&#x8FD9;&#x4E2A; component &#x5BF9;&#x5E94;&#x7684; DOM &#x8282;&#x70B9;&#x4E86;&#x3002;&#x4E0E; componentWillMount &#x548C; componentDidMount &#x76F8;&#x7C7B;&#x4F3C;&#xFF0C;componentWillUpdate &#x548C; componentDidUpdate &#x4E5F;&#x5206;&#x522B;&#x5728;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x7684; render &#x8FC7;&#x7A0B;&#x524D;&#x540E;&#x6267;&#x884C;&#x3002;</p>
+<blockquote>
+<p>Unmounting&#x9636;&#x6BB5;</p>
+</blockquote>
+<p>&#x5F53;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x5C06; component &#x4ECE; DOM &#x4E2D;&#x79FB;&#x9664;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; UnMounting &#x9636;&#x6BB5;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x4E2D;&#xFF0C;React &#x53EA;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; componentWillUnmount &#x65B9;&#x6CD5;&#x5728;&#x5378;&#x8F7D;&#x548C;&#x9500;&#x6BC1;&#x8FD9;&#x4E2A; component &#x4E4B;&#x524D;&#x89E6;&#x53D1;&#xFF0C;&#x7528;&#x4E8E;&#x5220;&#x9664; component &#x4E2D;&#x7684; DOM &#x5143;&#x7D20;&#x7B49;&#x3002;</p>
+<h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2 id="ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;"><a href="#ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;" class="headerlink" title="ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;"></a>ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;</h2><pre><code>render: function() {
+return (
+  &lt;TextInput
+    ref={function(input) {
+      if (input != null) {
+        input.focus();
+      }
+    }} /&gt;
+);
+},
+</code></pre><p>&#x6216;&#x8005;&#x4F7F;&#x7528;ES6&#x7684;arrow function</p>
+<pre><code>render: function() {
+    return &lt;TextInput ref={(c) =&gt; this._input = c} /&gt;;
+  },
+  componentDidMount: function() {
+    this._input.focus();
+  },
+</code></pre><p>this callback will be executed immediately after the component is mounted<br>&#x53C2;&#x8003;&#x6587;&#x732E;&#xFF1A;</p>
+<ol>
+<li><a href="http://www.ibm.com/developerworks/cn/web/1509_dongyue_react/index.html" target="_blank" rel="external">React &#x4ECB;&#x7ECD;&#x53CA;&#x5B9E;&#x8DF5;&#x6559;&#x7A0B;</a></li>
+<li><a href="https://facebook.github.io/react/docs/tutorial.html" target="_blank" rel="external">&#x5B98;&#x7F51;&#x6559;&#x7A0B;</a></li>
+</ol>
 
       
     </div>
@@ -443,7 +483,7 @@ ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">71</span>
+              <span class="site-state-item-count">75</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -453,7 +493,7 @@ ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -509,7 +549,7 @@ ReactJS&amp;#x521D;&amp;#x8BC6;&amp;#x865A;&amp;#x62DF;DOMWeb&amp;#x5F00;&amp;#x
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactJS初识"><span class="nav-number">1.</span> <span class="nav-text">ReactJS初识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟DOM</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactJS初识"><span class="nav-number">1.</span> <span class="nav-text">ReactJS初识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件周期"><span class="nav-number">1.1.</span> <span class="nav-text">组件周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟DOM"><span class="nav-number">1.2.</span> <span class="nav-text">虚拟DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ref回调属性"><span class="nav-number">1.3.</span> <span class="nav-text">ref回调属性</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -4,6 +4,311 @@
   
     
     <entry>
+      <title><![CDATA[chrome跨域报错]]></title>
+      <url>http://chen1218chen.github.io/2016/11/03/chrome%E8%B7%A8%E5%9F%9F%E6%8A%A5%E9%94%99/</url>
+      <content type="html"><![CDATA[<p>ajax&#x8BF7;&#x6C42;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x6587;&#x4EF6;&#xFF0C;chrome&#x62A5;&#x8DE8;&#x57DF;&#x9519;&#x8BEF;</p>
+<pre><code>XMLHttpRequest cannot loadfile:///C:/Users/Li/Desktop/images/alist.json.Cross origin requests are only supported for protocol schemes: http, data,chrome-extension, https, chrome-extension-resource.
+</code></pre><p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x7ED9;chrome&#x6DFB;&#x52A0;&#x542F;&#x52A8;&#x53C2;&#x6570;&#xFF1A;<code>--allow-file-access-from-files</code><br><strong>&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x4E0A;&#x53F3;&#x952E;-&#x5C5E;&#x6027;-&#x5FEB;&#x6377;&#x65B9;&#x5F0F;-&#x76EE;&#x6807; &#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/11/03/chrome&#x8DE8;&#x57DF;&#x62A5;&#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161103140925.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20161103140925.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[angular常见错误分析（新手篇）]]></title>
+      <url>http://chen1218chen.github.io/2016/11/02/angular%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90%EF%BC%88%E6%96%B0%E6%89%8B%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>&#x65B0;&#x624B;&#x5165;&#x95E8;angular&#x78B0;&#x89C1;&#x5404;&#x79CD;&#x9519;&#x8BEF;&#xFF0C;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#xFF0C;&#x5E0C;&#x671B;&#x6709;&#x7528;&#x3002;</p>
+<blockquote>
+<p>[ng:areq] Argument &#x2018;DemoCtrl&#x2019; is not a function, got undefined&#xFF01;</p>
+</blockquote>
+<p>&#x8FD9;&#x5F80;&#x5F80;&#x662F;&#x56E0;&#x4E3A;&#x5FD8;&#x8BB0;&#x5B9A;&#x4E49;controller&#x6216;&#x8005;&#x662F;&#x58F0;&#x660E;&#x4E86;&#x591A;&#x6B21;module&#xFF0C;&#x591A;&#x6B21;&#x58F0;&#x660E;module&#x4F1A;&#x5BFC;&#x81F4;&#x524D;&#x8FB9;&#x7684;module&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x88AB;&#x6E05;&#x7A7A;&#xFF0C;&#x6240;&#x4EE5;&#x7A0B;&#x5E8F;&#x5C31;&#x4F1A;&#x627E;&#x4E0D;&#x5230;&#x5DF2;&#x5B9A;&#x4E49;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
+<blockquote>
+<p>Error: [$injector:unpr] </p>
+</blockquote>
+<p>unpr&#x5168;&#x79F0;&#x662F;Unknown Provider&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x4F60;&#x6CE8;&#x5165;&#x7684;&#x4E1C;&#x897F;</p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>angular.module(&#x2018;MyApp&#x2019;,[&#x2026;])&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Angular&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x65B9;&#x62EC;&#x53F7;&#xFF08;[&#x2026;]&#xFF09;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x5217;&#x8868;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#xFF1B;<br>&#x800C;angular.module(&#x2018;MyApp&#x2019;)&#x4F1A;&#x4F7F;&#x7528;&#x7531;&#x7B2C;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x7684;&#x73B0;&#x6709;&#x7684;&#x6A21;&#x5757;&#x3002;<br>&#x6240;&#x4EE5;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x5728;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x4E2D;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#xFF1A;</p>
+<pre><code>angular.module(&apos;MyApp&apos;, [...]);
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[React Demo]]></title>
+      <url>http://chen1218chen.github.io/2016/10/28/react-Demo/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="React-findDOMNode"><a href="#React-findDOMNode" class="headerlink" title="React.findDOMNode()"></a>React.findDOMNode()</h2><p>React.findDOMNode()&#x4ECE;&#x7EC4;&#x4EF6;&#x83B7;&#x53D6;&#x771F;&#x5B9E;DOM&#x7684;&#x8282;&#x70B9;&#x3002;</p>
+<pre><code>var MyComponent = React.createClass({
+        handleClick:function(){
+            React.findDOMNode(this.refs.myTextInput).focus();
+        },
+        render:function(){
+            return (
+                &lt;div&gt;
+                    &lt;input type=&quot;text&quot; ref=&quot;myTextInput&quot; /&gt;
+                    &lt;input type=&quot;button&quot; value=&quot;Focus the text input&quot; onClick={this.handleClick}/&gt;
+                &lt;/div&gt;
+            );
+        }
+    });
+    React.render(
+        &lt;MyComponent /&gt;,
+        document.getElementById(&apos;example&apos;)
+    );
+</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>ref&#x4E0E;React.findDOMNode()&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x8BE5;&#x529F;&#x80FD;&#x662F;&#x4E3A;&#x4E86;&#x7ED3;&#x5408;&#x73B0;&#x6709;&#x975E;React&#x7C7B;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;ref/refs&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5F97;&#x5230;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FDB;&#x800C;&#x53D6;&#x5F97;&#x539F;&#x751F;&#x8282;&#x70B9;&#x3002;</p>
+<pre><code>var Test = React.createClass({
+    componentDidMount(){
+      alert(React.findDOMNode(this.refs.content).innerHTML);
+    },
+    render(){
+        return &lt;div&gt;
+            &lt;h3&gt;header&lt;/h3&gt;
+            &lt;div ref=&apos;content&apos;&gt;content&lt;/div&gt;
+        &lt;/div&gt;;
+    }
+});
+
+React.render(&lt;Test /&gt;,document.getElementById(&apos;example&apos;));
+</code></pre><h2 id="this-state"><a href="#this-state" class="headerlink" title="this.state"></a>this.state</h2><pre><code>var LikeButton = React.createClass({
+        getInitialState:function(){
+            return {liked:false};
+        },
+        handleClick:function(event){
+            this.setState({liked: !this.state.liked});
+        },
+        render:function(){
+            var text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+            return (
+                &lt;p onClick={this.handleClick}&gt;
+                    You {text} this.Click to toggle.
+                &lt;/p&gt;
+            ); 
+        }
+    });
+    React.render(
+        &lt;LikeButton /&gt;,
+        document.getElementById(&apos;example&apos;)
+    );
+</code></pre><h2 id="&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;"><a href="#&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;" class="headerlink" title="&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;"></a>&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;</h2><p>&#x7528;&#x6237;&#x5728;&#x8868;&#x5355;&#x586B;&#x5165;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5C5E;&#x4E8E;&#x7528;&#x6237;&#x8DDF;&#x7EC4;&#x4EF6;&#x7684;&#x4E92;&#x52A8;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x7528;this.props&#x8BFB;&#x53D6;&#x3002;</p>
+<pre><code>  var Input = React.createClass({
+    getInitialState:function(){
+        return {value:&apos;Hello!&apos;};
+    },
+    handleChange:function(event){
+        this.setState({value:event.target.value});
+    },
+    render:function(){
+        var value = this.state.value;
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; value={value} onChange={this.handleChange} /&gt;
+                &lt;p&gt;{value}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+React.render(&lt;Input /&gt;,document.getElementById(&apos;example&apos;));
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6587;&#x672C;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;this.props.value&#x8BFB;&#x53D6;&#xFF0C;&#x800C;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;onChange&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;event.target.value&#x8BFB;&#x53D6;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x503C;&#x3002;textarea&#x5143;&#x7D20;&#x3001;select&#x5143;&#x7D20;&#x3001;radio&#x5143;&#x7D20;&#x90FD;&#x5C5E;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;</p>
+<ul>
+<li>value/checked&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x8F93;&#x5165;&#x65E0;&#x6548;</li>
+<li>textarea&#x7684;&#x503C;&#x8981;&#x8BBE;&#x7F6E;&#x5728;value&#x5C5E;&#x6027;&#x4E0A;</li>
+<li>select&#x7684;value&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;option&#x7684;selected&#x5C5E;&#x6027;</li>
+<li>input/textarea&#x7684;onChange&#x7528;&#x6237;&#x6BCF;&#x6B21;&#x8F93;&#x5165;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;</li>
+<li>radio/checkbox&#x70B9;&#x51FB;&#x540E;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;onChange</li>
+</ul>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;value&#x5C5E;&#x6027;&#xFF0C;&#x7EC4;&#x4EF6;&#x53D8;&#x4E3A;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;&#xFF0C;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8F93;&#x5165;&#xFF0C;&#x9664;&#x975E;&#x7A0B;&#x5E8F;&#x6539;&#x53D8;value&#x5C5E;&#x6027;&#x3002;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x76D1;&#x542C;handleChange&#x4E8B;&#x4EF6;&#xFF0C;&#x7ED3;&#x5408;state&#x6765;&#x6539;&#x53D8;input&#x503C;&#x3002;</p>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><p>&#x5177;&#x4F53;&#x89C1;<strong>&#x8BC4;&#x8BBA;&#x6846;&#x793A;&#x4F8B;&#x4E2D;</strong>&#xFF0C;ajax&#x4E5F;&#x53EF;&#x76F4;&#x63A5;&#x5199;&#x5728;componentDidMount&#x4E2D;&#x3002;</p>
+<h2 id="&#x8BC4;&#x8BBA;&#x6846;Demo"><a href="#&#x8BC4;&#x8BBA;&#x6846;Demo" class="headerlink" title="&#x8BC4;&#x8BBA;&#x6846;Demo"></a>&#x8BC4;&#x8BBA;&#x6846;Demo</h2><pre><code>// &#x4EE3;&#x7801;&#x6458;&#x81EA;&#x5B98;&#x7F51;&#x6559;&#x7A0B;
+var CommentBox = React.createClass({
+    getInitialState: function() {
+        return {data: []};
+    },
+  loadCommentsFromServer: function() {
+      getInitialState: function() {
+        return {data: []};
+      },
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        &lt;Comment author={comment.author} key={comment.id}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;form className=&quot;commentForm&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Your name&quot; /&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Say something...&quot; /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;CommentBox url=&quot;/api/comments&quot; pollInterval={2000} /&gt;,
+  document.getElementById(&apos;content&apos;)
+);
+</code></pre><p>&#x82E5;child&#x9700;&#x8981;&#x5411;parent&#x4F20;&#x9012;&#x503C;&#xFF0C;&#x5219;</p>
+<pre><code>//&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;
+var CommentForm = React.createClass({
+  getInitialState: function() {
+    return {author: &apos;&apos;, text: &apos;&apos;};
+  },
+  handleAuthorChange: function(e) {
+    this.setState({author: e.target.value});
+  },
+  handleTextChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var author = this.state.author.trim();
+    var text = this.state.text.trim();
+    if (!text || !author) {
+      return;
+    }
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState({author: &apos;&apos;, text: &apos;&apos;});
+  },
+  render: function() {
+    return (
+      &lt;form className=&quot;commentForm&quot; onSubmit={this.handleSubmit}&gt;
+        &lt;input
+          type=&quot;text&quot;
+          placeholder=&quot;Your name&quot;
+          value={this.state.author}
+          onChange={this.handleAuthorChange}
+        /&gt;
+        &lt;input
+          type=&quot;text&quot;
+          placeholder=&quot;Say something...&quot;
+          value={this.state.text}
+          onChange={this.handleTextChange}
+        /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleCommentSubmit: function(comment) {
+    var comments = this.state.data;
+    &lt;!-- Optimistically set an id on the new comment. It will be replaced by an id generated by the server. In a production application you would likely not use Date.now() for this and would have a more robust system in place.--&gt;
+    comment.id = Date.now();
+    var newComments = comments.concat([comment]);
+    this.setState({data: newComments});
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      type: &apos;POST&apos;,
+      data: comment,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: comments});
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm onCommentSubmit={this.handleCommentSubmit} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tomcat发布后访问路径问题]]></title>
+      <url>http://chen1218chen.github.io/2016/10/27/tomcat%E5%8F%91%E5%B8%83%E5%90%8E%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>&#x8FD1;&#x6765;&#x4E00;&#x76F4;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;tomcat&#x5DE5;&#x7A0B;&#x53D1;&#x5E03;&#x540E;&#x8DEF;&#x5F84;&#x4E0D;&#x5BF9;&#xFF0C;&#x7528;<a href="http://localhost:8080/Urban/login.jsp&#x62A5;404&#xFF0C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#x62A5;404&#xFF0C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;</a></p>
+<blockquote>
+<p>&#x8FD9;&#x662F;tomcat&#x7684;server.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;</p>
+</blockquote>
+<pre><code>&lt;Context docBase=&quot;chengguanfuwuqi&quot; path=&quot;/Urban&quot; reloadable=&quot;false&quot; source=&quot;org.eclipse.jst.jee.server:chengguanfuwuqi&quot;/&gt;&lt;/Host&gt;
+</code></pre><p>&#x67E5;&#x9605;&#x8D44;&#x6599;&#x90FD;&#x8BF4;&#xFF0C;docBase&#x662F;&#x5DE5;&#x7A0B;&#x7684;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x662F;&#x6307;%TOMCAT_HOME%/webapps/&#x4E0B;&#xFF0C;path&#x662F;&#x6307;&#x865A;&#x62DF;&#x7684;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;&#x3002;&#x8FD9;&#x4E48;&#x8BF4;&#x6765;<a href="http://localhost:8080/Urban/login.jsp&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</a></p>
+<p>&#x5982;&#x679C;&#x8FD8;&#x662F;&#x51FA;&#x73B0;404&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x4E14;&#x524D;&#x9762;&#x914D;&#x7F6E;&#x6CA1;&#x6709;&#x9519;&#xFF0C;&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x5728;%TOMCAT_HOME%/conf/web.xml&#x6587;&#x4EF6;&#x4E2D;&#x628A;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x663E;&#x793A;&#x76EE;&#x5F55;&#x7ED9;&#x7981;&#x6B62;&#x5566;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x5728;tomcat&#x7684;web.xml&#x6587;&#x4EF6;&#x4E2D;&#x627E;&#x5230;&#xFF1A;</p>
+<pre><code> &lt;servlet&gt;
+    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.catalina.servlets.DefaultServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;debug&lt;/param-name&gt;
+        &lt;param-value&gt;0&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;listings&lt;/param-name&gt;
+        &lt;param-value&gt;false&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</code></pre><p>&#x5C06;listings&#x7684;value&#x6539;&#x4E3A;true,&#x7136;&#x540E;&#x91CD;&#x65B0;&#x542F;&#x52A8;tomcat&#xFF0C;&#x5728;&#x8F93;&#x5165;<a href="http://localhost:8080/Urban/login.jsp&#xFF0C;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#xFF01;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#xFF0C;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#xFF01;</a><br>&#x5982;&#x679C;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x5B8C;&#x6210;&#xFF0C;&#x51C6;&#x5907;&#x90E8;&#x7F72;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x65F6;&#xFF0C;&#x8BB0;&#x4F4F;&#x8981;&#x628A;web.xml&#x6587;&#x4EF6;&#x4E2D;&#x53C2;&#x6570;listings&#x7684;&#x503C;&#x6539;&#x4E3A;false&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x628A;&#x9879;&#x76EE;&#x7684;&#x90E8;&#x7F72;&#x8DEF;&#x5F84;&#x5448;&#x73B0;&#x7ED9;&#x4F7F;&#x7528;&#x8005;&#xFF01;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[IntellJ IDEA生成war包]]></title>
       <url>http://chen1218chen.github.io/2016/10/12/IntellJ-IDEA%E7%94%9F%E6%88%90war%E5%8C%85/</url>
       <content type="html"><![CDATA[<p>&#x70B9;&#x51FB;&#x9879;&#x76EE;&#x540D;&#xFF0C;&#x6309;F4</p>
@@ -1188,7 +1493,47 @@ define([&apos;jquery&apos;,&apos;async!BMap&apos;], function(){
       <title><![CDATA[ReactJS初识]]></title>
       <url>http://chen1218chen.github.io/2016/07/12/ReactJS%E5%88%9D%E8%AF%86/</url>
       <content type="html"><![CDATA[<p>[toc]</p>
-<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+<h1 id="ReactJS&#x521D;&#x8BC6;"><a href="#ReactJS&#x521D;&#x8BC6;" class="headerlink" title="ReactJS&#x521D;&#x8BC6;"></a>ReactJS&#x521D;&#x8BC6;</h1><h2 id="&#x7EC4;&#x4EF6;&#x5468;&#x671F;"><a href="#&#x7EC4;&#x4EF6;&#x5468;&#x671F;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x5468;&#x671F;"></a>&#x7EC4;&#x4EF6;&#x5468;&#x671F;</h2><p>&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;Mounting, Updating, Unmonuting&#x3002;<br><strong>Mounting</strong>&#xFF1A; &#x7EC4;&#x4EF6;&#x88AB;&#x63D2;&#x5165;DOM&#x4E2D;<br><strong>Updating</strong>&#xFF1A;DOM&#x6570;&#x636E;&#x88AB;&#x66F4;&#x65B0;&#xFF0C;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6E32;&#x67D3;<br><strong>Unmounting</strong>: &#x4ECE;DOM&#x4E2D;&#x6740;&#x51FA;&#x7EC4;&#x4EF6;<br>React&#x5728;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x5F00;&#x59CB;&#x524D;&#x63D0;&#x4F9B;&#x4E86;will&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5728;&#x8FD9;&#x4E00;&#x9636;&#x6BB5;&#x5F00;&#x59CB;&#x524D;&#x7684;&#x64CD;&#x4F5C;&#x3002;did&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p>Mounting&#x9636;&#x6BB5;</p>
+</blockquote>
+<p>&#x9996;&#x5148;&#x5728;Mounting&#x9636;&#x6BB5;&#xFF0C;Component&#x901A;&#x8FC7;React.createClass&#x88AB;&#x521B;&#x5EFA;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528; getInitialState &#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316; this.state&#x3002;&#x5728; Component &#x6267;&#x884C; render &#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528; componentWillMount&#xFF08;&#x65B9;&#x6CD5;&#x4FEE;&#x6539; state &#x72B6;&#x6001;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C; render&#x3002;Reder&#x7684;&#x8FC7;&#x7A0B;&#x5373;&#x662F;&#x7EC4;&#x4EF6;&#x751F;&#x6210;HTML&#x7ED3;&#x6784;&#x7684;&#x8FC7;&#x7A0B;&#x3002;&#x5728;render&#x4E4B;&#x540E;&#xFF0C;Component &#x4F1A;&#x8C03;&#x7528; componentDidMount &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x624D;&#x80FD;&#x901A;&#x8FC7; this.getDOMNode()&#x83B7;&#x53D6;&#x5230;&#x7EC4;&#x4EF6;&#x7684; DOM &#x8282;&#x70B9;&#x3002;</p>
+<ul>
+<li>getInitialState()</li>
+<li>componentWillMount(): mounting occurs&#x4E4B;&#x524D;&#x7ACB;&#x5373;&#x8C03;&#x7528;</li>
+<li>componentDidMount(): mounting occurs&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;DOM&#x8282;&#x70B9;&#x7684;&#x64CD;&#x4F5C;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x3002;<blockquote>
+<p>Updating&#x9636;&#x6BB5;</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x5F53; Component &#x5728; mount &#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x5B83;&#x5F53;&#x4E2D;&#x6709;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x5BFC;&#x81F4;&#x7684;&#x66F4;&#x65B0;&#x90FD;&#x4F1A;&#x5728; Updating &#x9636;&#x6BB5;&#x6267;&#x884C;&#x3002;Component &#x7684; componentWillReceiveProps &#x65B9;&#x6CD5;&#x4F1A;&#x76D1;&#x542C;&#x7EC4;&#x4EF6;&#x4E2D; props&#x3002;&#x76D1;&#x542C;&#x5230; props &#x53D1;&#x751F;&#x4FEE;&#x6539;&#xFF0C;&#x5B83;&#x4F1A;&#x6BD4;&#x5BF9;&#x65B0;&#x7684;&#x6570;&#x636E;&#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5DEE;&#x522B;&#x8FDB;&#x800C;&#x4FEE;&#x6539; state &#x7684;&#x503C;&#x3002;&#x5F53;&#x6BD4;&#x5BF9;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#x6570;&#x636E;&#x53D8;&#x5316;&#x9700;&#x8981;&#x5BF9; Component &#x5BF9;&#x5E94;&#x7684; DOM &#x8282;&#x70B9;&#x505A;&#x51FA;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x5019;&#xFF0C;shouldCoponentUpdate &#x65B9;&#x6CD5;&#x5B83;&#x4F1A;&#x8FD4;&#x56DE; true &#x7528;&#x4E8E;&#x89E6;&#x53D1; componentWillUpdate &#x548C; componentDidUpdate &#x65B9;&#x6CD5;&#x3002;&#x5728;&#x9ED8;&#x8BA4;&#x7684;&#x60C5;&#x51B5;&#x4E0B; shouldComponentUpdate &#x8FD4;&#x56DE;&#x4E3A; true&#x3002;&#x6709;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x5F53; component &#x4E2D;&#x7684; props &#x53D1;&#x751F;&#x4FEE;&#x6539;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x672C;&#x8EAB;&#x6570;&#x636E;&#x5E76;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x624B;&#x5DE5;&#x8BBE;&#x7F6E; shouldComponentUpdate &#x4E3A; false &#x65F6;&#xFF0C;React &#x5C31;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;&#x8FD9;&#x4E2A; component &#x5BF9;&#x5E94;&#x7684; DOM &#x8282;&#x70B9;&#x4E86;&#x3002;&#x4E0E; componentWillMount &#x548C; componentDidMount &#x76F8;&#x7C7B;&#x4F3C;&#xFF0C;componentWillUpdate &#x548C; componentDidUpdate &#x4E5F;&#x5206;&#x522B;&#x5728;&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x7684; render &#x8FC7;&#x7A0B;&#x524D;&#x540E;&#x6267;&#x884C;&#x3002;</p>
+<blockquote>
+<p>Unmounting&#x9636;&#x6BB5;</p>
+</blockquote>
+<p>&#x5F53;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x5C06; component &#x4ECE; DOM &#x4E2D;&#x79FB;&#x9664;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; UnMounting &#x9636;&#x6BB5;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x4E2D;&#xFF0C;React &#x53EA;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; componentWillUnmount &#x65B9;&#x6CD5;&#x5728;&#x5378;&#x8F7D;&#x548C;&#x9500;&#x6BC1;&#x8FD9;&#x4E2A; component &#x4E4B;&#x524D;&#x89E6;&#x53D1;&#xFF0C;&#x7528;&#x4E8E;&#x5220;&#x9664; component &#x4E2D;&#x7684; DOM &#x5143;&#x7D20;&#x7B49;&#x3002;</p>
+<h2 id="&#x865A;&#x62DF;DOM"><a href="#&#x865A;&#x62DF;DOM" class="headerlink" title="&#x865A;&#x62DF;DOM"></a>&#x865A;&#x62DF;DOM</h2><p>Web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x6570;&#x636E;&#x7684;&#x65F6;&#x65F6;&#x53D8;&#x5316;&#x53CD;&#x5E94;&#x5230;&#x524D;&#x53F0;&#x9875;&#x9762;&#x4E0A;&#xFF0C;&#x800C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;DOM&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x590D;&#x6742;&#x9891;&#x7E41;&#x7684;DOM&#x64CD;&#x4F5C;&#x662F;&#x4F1A;&#x4EA7;&#x751F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#xFF0C;ReactJS&#x4E3A;&#x6B64;&#x5F15;&#x5165;&#x4E86;&#x865A;&#x62DF;DOM&#x7684;&#x6982;&#x5FF5;&#x3002;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7528;javascript&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;DOM API&#x3002;&#x57FA;&#x4E8E;React&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x65F6;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5BF9;&#x865A;&#x62DF;&#x7684;DOM&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x5F53;&#x6570;&#x636E;&#x53D8;&#x5316;&#x65F6;&#xFF0C;React&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6784;&#x9020;DOM&#x6811;&#xFF0C;&#x7136;&#x540E;&#x4E0E;&#x4E0A;&#x6B21;&#x6784;&#x9020;&#x7684;DOM&#x6811;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#xFF0C;&#x4EC5;&#x5BF9;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x6D4F;&#x89C8;&#x5668;&#x7684;DOM&#x66F4;&#x65B0;&#x3002;<br>&#x524D;&#x7AEF;&#x4EFB;&#x4F55;UI&#x7684;&#x6539;&#x53D8;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x6574;&#x4F53;&#x5237;&#x65B0;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2 id="ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;"><a href="#ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;" class="headerlink" title="ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;"></a>ref&#x56DE;&#x8C03;&#x5C5E;&#x6027;</h2><pre><code>render: function() {
+return (
+  &lt;TextInput
+    ref={function(input) {
+      if (input != null) {
+        input.focus();
+      }
+    }} /&gt;
+);
+},
+</code></pre><p>&#x6216;&#x8005;&#x4F7F;&#x7528;ES6&#x7684;arrow function</p>
+<pre><code>render: function() {
+    return &lt;TextInput ref={(c) =&gt; this._input = c} /&gt;;
+  },
+  componentDidMount: function() {
+    this._input.focus();
+  },
+</code></pre><p>this callback will be executed immediately after the component is mounted<br>&#x53C2;&#x8003;&#x6587;&#x732E;&#xFF1A;</p>
+<ol>
+<li><a href="http://www.ibm.com/developerworks/cn/web/1509_dongyue_react/index.html" target="_blank" rel="external">React &#x4ECB;&#x7ECD;&#x53CA;&#x5B9E;&#x8DF5;&#x6559;&#x7A0B;</a></li>
+<li><a href="https://facebook.github.io/react/docs/tutorial.html" target="_blank" rel="external">&#x5B98;&#x7F51;&#x6559;&#x7A0B;</a></li>
+</ol>
 ]]></content>
     </entry>
     
@@ -1585,6 +1930,76 @@ grunt bower
     </entry>
     
     <entry>
+      <title><![CDATA[Express.js]]></title>
+      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
+});
+
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
+});
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[bower]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/bower/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -1755,76 +2170,6 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
     </entry>
     
     <entry>
-      <title><![CDATA[Express.js]]></title>
-      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
-      <content type="html"><![CDATA[<p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Angular]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/Angular/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -1864,14 +2209,106 @@ define([ &apos;angular&apos; ], function( angular) {
     title.controller(&apos;myCtrl&apos;, function($scope) {
         $scope.title = &quot;&#x4E3B;&#x9875;&quot;;
     });
+    //&#x624B;&#x52A8;&#x542F;&#x7528;angular
     angular.element(document).ready(function() {
         angular.bootstrap(document, [ &apos;myApp&apos; ]);
     });
 });
 </code></pre><blockquote>
 <p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#xFF0C;&#x91C7;&#x7528;&#x624B;&#x52A8;&#x542F;&#x52A8;angularjs&#x5E94;&#x7528;</p>
-<h2 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h2><h3 id="1-angularAMD"><a href="#1-angularAMD" class="headerlink" title="1. angularAMD"></a>1. angularAMD</h3><p> RequireJS+AngularJS<br>angularAMD is an utility that facilitates the use of RequireJS in AngularJS applications supporting on-demand loading of 3rd party modules such as angular-ui.</p>
 </blockquote>
+<h2 id="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"><a href="#&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service" class="headerlink" title="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"></a>&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x9879;&#x76EE;&#x6240;&#x7528;&#x5230;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x9884;&#x5148;&#x52A0;&#x8F7D;&#x5B8C;&#x518D;&#x521D;&#x59CB;&#x5316;AngularJS&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x9879;&#x76EE;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x6253;&#x5F00;&#x5BF9;&#x5E94;&#x7684;&#x754C;&#x9762;&#x624D;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;controller&#x7B49;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x662F;AngularJS&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E4B;&#x540E;&#x52A0;&#x8F7D;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x662F;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5230;&#x6A21;&#x5757;&#x4E0A;&#x7684;&#x3002;&#x7528;AngularJS + ui-router + RequireJS&#x6765;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x662F;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5C31;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x6765;&#x770B;&#x770B;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;<br>&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.tuicool.com/articles/IJNFNnf" target="_blank" rel="external">AngularJS + ui-router + RequireJS&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</a></p>
+<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><p>angular&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#xFF1A;</p>
+<ul>
+<li>&#x5DE5;&#x5382; Factory<br>factory&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x516C;&#x5171;&#x7684;&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#xFF0C;&#x63A8;&#x8350;&#x62BD;&#x8C61;&#xFF0C;&#x91CD;&#x7528;factory&#x3002;</li>
+<li><p>&#x670D;&#x52A1; Service<br>service&#x7C7B;&#x4F3C;factory&#xFF0C;&#x4F1A;&#x88AB;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x6570;&#x636E;&#xFF0C;&#x4F5C;&#x4E3A;controller&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x8BAF;&#x5DE5;&#x5177;&#xFF0C;&#x6BD4;&#x597D;&#x597D;&#x7528;&#x3002;</p>
+<h3 id="http&#x670D;&#x52A1;"><a href="#http&#x670D;&#x52A1;" class="headerlink" title="$http&#x670D;&#x52A1;"></a>$http&#x670D;&#x52A1;</h3><p>$http &#x662F; AngularJS &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x670D;&#x52A1;&#xFF0C;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>  var app = angular.module(&#x2018;myApp&#x2019;, []);<br>  app.controller(&#x2018;siteCtrl&#x2019;, function($scope, $http) {</p>
+<pre><code>$http.get(&quot;http://www.runoob.com/try/angularjs/data/sites.php&quot;)
+.success(function (response) {$scope.names = response.sites;});
+</code></pre><p>  });</p>
+<h3 id="timeout-&#x670D;&#x52A1;"><a href="#timeout-&#x670D;&#x52A1;" class="headerlink" title="$timeout &#x670D;&#x52A1;"></a>$timeout &#x670D;&#x52A1;</h3><p>AngularJS $timeout &#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x4E86; JS window.setTimeout &#x51FD;&#x6570;&#x3002;</p>
+<blockquote>
+<p>&#x4E24;&#x79D2;&#x540E;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $timeout) {
+    $scope.myHeader = &quot;Hello World!&quot;;
+    $timeout(function () {
+        $scope.myHeader = &quot;How are you today?&quot;;
+    }, 2000);
+});
+</code></pre><h3 id="interval-&#x670D;&#x52A1;"><a href="#interval-&#x670D;&#x52A1;" class="headerlink" title="$interval &#x670D;&#x52A1;"></a>$interval &#x670D;&#x52A1;</h3><blockquote>
+<p>&#x6BCF;&#x4E24;&#x79D2;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
+</blockquote>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+});
+</code></pre><h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;</h3><blockquote>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;test&#x7684;&#x670D;&#x52A1;</p>
+</blockquote>
+<pre><code>app.service(&apos;test&apos;, function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+</code></pre><blockquote>
+<p>&#x63A7;&#x5236;&#x5668;myCtrl&#x4E2D;&#x8C03;&#x7528;</p>
+</blockquote>
+<pre><code>app.controller(&apos;myCtrl&apos;, function($scope, test) {
+    $scope.hex = test.myFunc(255);
+});
+</code></pre><blockquote>
+<p>&#x8FC7;&#x6EE4;&#x5668;myFormat&#x4E2D;&#x7684;&#x4F7F;&#x7528;</p>
+</blockquote>
+<pre><code>app.filter(&apos;myFormat&apos;,[&apos;hexafy&apos;, function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+</code></pre><h2 id="Directive&#x6307;&#x4EE4;"><a href="#Directive&#x6307;&#x4EE4;" class="headerlink" title="Directive&#x6307;&#x4EE4;"></a>Directive&#x6307;&#x4EE4;</h2><p>&#x6269;&#x5C55;html&#x8BED;&#x8A00;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;React&#x7684;&#x7EC4;&#x4EF6;</p>
+<pre><code>var app = angular.module(&quot;myApp&quot;, []);
+app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+});
+//&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x90FD;&#x53EF;&#x4EE5;
+&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+&lt;div runoob-directive&gt;&lt;/div&gt;
+</code></pre><p>&#x7C7B;&#x540D;&#x8C03;&#x7528;</p>
+<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        restrict : &quot;C&quot;,
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+});
+&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;
+</code></pre><p>&#x6CE8;&#x91CA;&#x8C03;&#x7528;</p>
+<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        restrict : &quot;M&quot;,
+        replace : true,
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+})
+</code></pre><blockquote>
+<p>&#x6CE8;&#x610F;: &#x9700;&#x8981;&#x5728;&#x8BE5;&#x5B9E;&#x4F8B;&#x6DFB;&#x52A0; replace &#x5C5E;&#x6027;&#xFF0C; &#x5426;&#x5219;&#x8BC4;&#x8BBA;&#x662F;&#x4E0D;&#x53EF;&#x89C1;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;: &#x5FC5;&#x987B;&#x8BBE;&#x7F6E; restrict &#x7684;&#x503C;&#x4E3A; &#x201C;M&#x201D; &#x624D;&#x80FD;&#x901A;&#x8FC7;&#x6CE8;&#x91CA;&#x6765;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x3002;</p>
+</blockquote>
+<h3 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h3><p>restrict &#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;:</p>
+<ul>
+<li>E &#x4F5C;&#x4E3A;&#x5143;&#x7D20;&#x540D;&#x4F7F;&#x7528; </li>
+<li>A &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x4F7F;&#x7528; </li>
+<li>C &#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#x4F7F;&#x7528; </li>
+<li>M &#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;&#x4F7F;&#x7528;</li>
+</ul>
+<h2 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h2><h3 id="1-angularAMD"><a href="#1-angularAMD" class="headerlink" title="1. angularAMD"></a>1. angularAMD</h3><p> RequireJS+AngularJS<br>angularAMD is an utility that facilitates the use of RequireJS in AngularJS applications supporting on-demand loading of 3rd party modules such as angular-ui.<br>angularAMD&#x662F;&#x4F5C;&#x8005;@ marcoslin&#x4F7F;&#x7528; RequireJS &#xFF0B; AngularJS&#x5F00;&#x53D1;&#x7684;&#x524D;&#x7AEF;mvvm&#x6846;&#x67B6;,&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x6B3E;Web App.&#x5B83;&#x7279;&#x522B;&#x9002;&#x5408;&#x5FEB;&#x901F;&#x5F00;&#x53D1;SPA&#x5E94;&#x7528;&#x3002;</p>
 <h3 id="2-angularUI"><a href="#2-angularUI" class="headerlink" title="2. angularUI"></a>2. angularUI</h3><p> AngularJS &#x7684;UI&#x589E;&#x5F3A;&#x6307;&#x4EE4;&#x96C6;&#x3002;&#x5305;&#x542B;&#x7684;&#x6A21;&#x5757;&#x6709;&#xFF1A;<br>    UI-Utils<br>    UI-Modules<br>    UI-Alias<br>    UI-Bootstrap<br>    NG-Grid<br>    UI-Router<br>    IDE Plugins<br>    GSoC</p>
 <h4 id="UI-Router&#x4E0E;ngRoute"><a href="#UI-Router&#x4E0E;ngRoute" class="headerlink" title="UI-Router&#x4E0E;ngRoute"></a><strong>UI-Router&#x4E0E;ngRoute</strong></h4><p>ngRoute&#x662F;&#x7528;AngularJS&#x6846;&#x67B6;&#x7684;&#x6838;&#x5FC3;&#x90E8;&#x5206;<br>ui-router&#x662F;&#x4E00;&#x4E2A;&#x793E;&#x533A;&#x5E93;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6765;&#x63D0;&#x9AD8;&#x5B8C;&#x5584;ngroute&#x8DEF;&#x7531;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x3002;&#x5B83;&#x652F;&#x6301;&#x4E00;&#x5207;&#x6B63;&#x5E38;ngroute&#x4E5F;&#x53EF;&#x4EE5;&#x505A;&#x8BB8;&#x591A;&#x989D;&#x5916;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
 <h3 id="3-Angular-UI-Bootstrap"><a href="#3-Angular-UI-Bootstrap" class="headerlink" title="3. Angular UI Bootstrap"></a>3. Angular UI Bootstrap</h3><p> UI Bootstrap &#x662F;&#x7531; AngularJS UI &#x56E2;&#x961F;&#x7F16;&#x5199;&#x7684;&#x7EAF; AngularJS &#x5B9E;&#x73B0;&#x7684; Bootstrap &#x7EC4;&#x4EF6;&#x3002;</p>
