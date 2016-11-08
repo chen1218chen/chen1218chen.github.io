@@ -19,6 +19,19 @@ AngularJS 也是遵循 AMD 的。
         '$scope',
          function ($scope) {
     }]);
+对相同的类型归类：
+
+    var services = angular.module('services',[]);
+    services.service('MyService', function(){
+      //service code
+    });
+
+    var controllers = angular.module('controllers',['services']);
+    controllers.controller('MyCtrl', function($scope, MyService){
+        //controller code
+    });
+
+    var app = angular.module('app',['controllers', 'services']);
 # 核心概念
 - 双向绑定：MVVM模型，view和model双向绑定，一方改变，另一方也会跟着变化。
 - scope：view和controller之间的纽带，作为数据模型model，监听model的变化。每个angular-app只有一个rootScope，也存在childScope,每个childScope都会有parentScope和childScope，原型方式继承。
@@ -63,11 +76,9 @@ ng-model指令的值挂在$scope对象上。
 [AngularJS + ui-router + RequireJS异步加载注册controller／directive／filter／service][1]
 
 ## Services
-angular有两种方法来创建服务：
-- 工厂 Factory
-factory提供一些公共的方法函数，推荐抽象，重用factory。
-- 服务 Service
-service类似factory，会被实例化，可以保存数据，作为controller之间的通讯工具，比好好用。
+### Service vs Factory
+见**angular之Service vs Factory**一文。
+
 ### $http服务 
 $http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。
 
