@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title><![CDATA[Sublime Angular snippets安装]]></title>
+      <url>http://chen1218chen.github.io/2016/11/08/Sublime-Angular-snippets%E5%AE%89%E8%A3%85/</url>
+      <content type="html"><![CDATA[<p>&#x8FD9;&#x662F;john papa&#x5199;&#x7684;&#x4E00;&#x4E2A;sublime&#x63D2;&#x4EF6;&#xFF0C;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x5FEB;&#x901F;&#x751F;&#x6210;angular&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x6307;&#x4EE4;</p>
+<pre><code>ngcontroller // creates an Angular controller
+ngdirective  // creates an Angular directive
+ngfactory    // creates an Angular factory
+ngmodule     // creates an Angular module
+ngservice    // creates an Angular service
+ngfilter     // creates an Angular filter
+</code></pre><blockquote>
+<p>js&#x6587;&#x4EF6;&#x4E2D;&#x8F93;&#x5165;ngfactory&#xFF0C;&#x6309;&#x4E0B;Tab&#x952E;&#x4E4B;&#x540E;&#x2026;</p>
+</blockquote>
+<pre><code>(function() {
+    &apos;use strict&apos;;
+
+    angular
+        .module(&apos;module&apos;)
+        .factory(&apos;factory&apos;, factory);
+
+    factory.$inject = [&apos;dependencies&apos;];
+
+    /* @ngInject */
+    function factory(dependencies) {
+        var service = {
+            func: func
+        };
+        return service;
+
+        function func() {
+        }
+    }
+})();
+</code></pre><p>&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/johnpapa/angular-styleguide" target="_blank" rel="external">johnpapa/angular-styleguide</a><br>&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x4E4B;&#x540E;&#xFF0C;copy <code>angular-styleguide/a1/assets/sublime-angular-snippets</code>&#xFF0C;&#x653E;&#x5728;sublime&#x4E0B;&#x7684;packages&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x91CD;&#x542F;sublime&#x5373;&#x53EF;&#x3002;<br>&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x653E;&#x5165;&#x540E;&#x6CA1;&#x6709;&#x53CD;&#x5E94;&#xFF0C;&#x540E;&#x6765;&#x624D;&#x53D1;&#x73B0;&#x672A;&#x77E5;&#x4E0D;&#x5BF9;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;sublime&#x7684;&#x63D2;&#x4EF6;&#x5B89;&#x88C5;&#x5730;&#x5740;&#x662F;<code>C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages</code>&#xFF0C;&#x6240;&#x4EE5;&#x5C06;<code>sublime-angular-snippets</code>&#x6587;&#x4EF6;&#x5939;&#x653E;&#x5165;&#x5176;&#x4E2D;&#x5373;&#x53EF;&#x3002;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[angular之Service vs Factory]]></title>
       <url>http://chen1218chen.github.io/2016/11/04/angular%E4%B9%8BService-vs-Factory/</url>
       <content type="html"><![CDATA[<p>angular&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#xFF1A;</p>
