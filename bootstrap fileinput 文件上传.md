@@ -63,6 +63,7 @@ $("#excelFile").fileinput({
 					}
 				});
 ```
+
 注意： uploadExtraData函数中只能用原生JS来取值，不能用JQuery来获取值，此参数用来向后台传递附加参数，以方便处理，最简单的写法是：
 
 ```
@@ -70,6 +71,7 @@ uploadExtraData: {
 						"excelType": document.getElementByID('id')
 					}
 ```
+
 > 文件上传成功后的回调方法
 
 ```
