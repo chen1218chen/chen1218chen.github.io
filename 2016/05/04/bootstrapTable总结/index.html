@@ -100,7 +100,7 @@ table&amp;#x53C2;&amp;#x6570;&amp;#xFF08;Table options&amp;#xFF09;The table opti
 data-sort-name=&amp;quot;dataT">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/05/04/bootstrapTable总结/Image%201.png">
 <meta property="og:image" content="http://chen1218chen.github.io/2016/05/04/bootstrapTable总结/2.png">
-<meta property="og:updated_time" content="2016-09-12T08:58:08.836Z">
+<meta property="og:updated_time" content="2017-01-11T02:29:57.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bootstrap table小技巧">
 <meta name="twitter:description" content="[TOC]
@@ -444,10 +444,6 @@ function runningFormatter(value, row, index) {
 </blockquote>
 <pre><code>&lt;th data-field=&quot;operate&quot; data-formatter=&quot;operateFormatter&quot;
 data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&#x4F5C;&lt;/th&gt;
-</code></pre><h2 id="editable"><a href="#editable" class="headerlink" title="editable"></a>editable</h2><p>bootstrap table&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5F15;&#x5165;bootstrap-table-editable.js&#x3001;bootstrap-editable.js&#x3001;bootstrap-editable.css&#x5373;&#x53EF;&#x3002;bootstrap table &#x63D2;&#x4EF6;&#x6269;&#x5C55;&#x4E86;X-editable&#x529F;&#x80FD;&#x3002;<br>&#x4FEE;&#x6539;table&#x5C5E;&#x6027;&#x89E6;&#x53D1;<strong>editable-save.bs.table</strong>&#x4E8B;&#x4EF6;&#x3002;</p>
-<pre><code>$(&apos;#table&apos;).on(&apos;editable-save.bs.table&apos;, function (field, row, oldValue, $el) {
-    data.changeField(row,oldValue,name);
-});
 </code></pre>
       
     </div>
@@ -580,7 +576,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">80</span>
+              <span class="site-state-item-count">83</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -590,7 +586,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -646,7 +642,7 @@ data-events=&quot;operateEvents&quot; data-align=&quot;center&quot;&gt;&#x64CD;&
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#table参数（Table-options）"><span class="nav-number">1.</span> <span class="nav-text">table参数（Table options）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table手动启动"><span class="nav-number">2.</span> <span class="nav-text">table手动启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageNum初始化"><span class="nav-number">3.</span> <span class="nav-text">pageNum初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度自适应"><span class="nav-number">4.</span> <span class="nav-text">高度自适应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table的分页方式"><span class="nav-number">5.</span> <span class="nav-text">table的分页方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动加载table-data"><span class="nav-number">6.</span> <span class="nav-text">手动加载table data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-data-from-url"><span class="nav-number">7.</span> <span class="nav-text">table data from url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据重新加载"><span class="nav-number">8.</span> <span class="nav-text">数据重新加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新操作"><span class="nav-number">9.</span> <span class="nav-text">更新操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加操作"><span class="nav-number">10.</span> <span class="nav-text">添加操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#editable"><span class="nav-number">11.</span> <span class="nav-text">editable</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#table参数（Table-options）"><span class="nav-number">1.</span> <span class="nav-text">table参数（Table options）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table手动启动"><span class="nav-number">2.</span> <span class="nav-text">table手动启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageNum初始化"><span class="nav-number">3.</span> <span class="nav-text">pageNum初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度自适应"><span class="nav-number">4.</span> <span class="nav-text">高度自适应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table的分页方式"><span class="nav-number">5.</span> <span class="nav-text">table的分页方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动加载table-data"><span class="nav-number">6.</span> <span class="nav-text">手动加载table data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-data-from-url"><span class="nav-number">7.</span> <span class="nav-text">table data from url</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据重新加载"><span class="nav-number">8.</span> <span class="nav-text">数据重新加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新操作"><span class="nav-number">9.</span> <span class="nav-text">更新操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加操作"><span class="nav-number">10.</span> <span class="nav-text">添加操作</span></a></li></ol></div>
             
           </div>
         </section>

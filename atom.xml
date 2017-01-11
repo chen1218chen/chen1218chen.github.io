@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-01-03T02:57:28.606Z</updated>
+  <updated>2017-01-11T07:06:28.537Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java与JSON对象相互转换</title>
+    <link href="http://chen1218chen.github.io/2017/01/11/java%E4%B8%8EJSON%E5%AF%B9%E8%B1%A1%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://chen1218chen.github.io/2017/01/11/java与JSON对象相互转换/</id>
+    <published>2017-01-11T15:00:48.000Z</published>
+    <updated>2017-01-11T07:06:28.537Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;-gt-json&amp;#x5BF9;&amp;#x8C61;-JSONObject-fromObject&quot;&gt;&lt;a href=&quot;#json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;-gt-json&amp;#x5BF9;&amp;#x8C61;-JSONObject-fromObject&quot; class=&quot;headerlink&quot; title=&quot;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;&amp;gt;json&amp;#x5BF9;&amp;#x8C61; JSONObject.fromObject()&quot;&gt;&lt;/a&gt;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;&amp;gt;json&amp;#x5BF9;&amp;#x8C61; JSONObject.fromObject()&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;JSONObject jsonObj = JSONObject.fromObject(value);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;rest&amp;#x4E2D;@RequestBody&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Json&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;json&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
+&lt;h2 id=&quot;json&amp;#x5BF9;&amp;#x8C61;&amp;#x2014;&amp;#x2014;-gt-JavaBean&amp;#x5BF9;&amp;#x8C61;-JSONObject-toBean&quot;&gt;&lt;a href=&quot;#json&amp;#x5BF9;&amp;#x8C61;&amp;#x2014;&amp;#x2014;-gt-JavaBean&amp;#x5BF9;&amp;#x8C61;-JSONObject-toBean&quot; class=&quot;headerlink&quot; title=&quot;json&amp;#x5BF9;&amp;#x8C61;&amp;#x2014;&amp;#x2014;&amp;gt;JavaBean&amp;#x5BF9;&amp;#x8C61; JSONObject.toBean()&quot;&gt;&lt;/a&gt;json&amp;#x5BF9;&amp;#x8C61;&amp;#x2014;&amp;#x2014;&amp;gt;JavaBean&amp;#x5BF9;&amp;#x8C61; JSONObject.toBean()&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;PublicGarden publicgarden = (PublicGarden) JSONObject.toBean(jsonObj,PublicGarden.class);
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;-gt-json&amp;#x5BF9;&amp;#x8C61;-JSONObject-fromObject&quot;&gt;&lt;a href=&quot;#json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
+    
+      <category term="JSON" scheme="http://chen1218chen.github.io/tags/JSON/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ajax传输Object及@RequestBody的用法</title>
+    <link href="http://chen1218chen.github.io/2017/01/11/ajax%E4%BC%A0%E8%BE%93Object/"/>
+    <id>http://chen1218chen.github.io/2017/01/11/ajax传输Object/</id>
+    <published>2017-01-11T14:27:19.000Z</published>
+    <updated>2017-01-11T06:58:48.697Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x901A;&amp;#x8FC7;ajax&amp;#x5411;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x8F93;object&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;&lt;a href=&quot;#javascript&quot; class=&quot;headerlink&quot; title=&quot;javascript&quot;&gt;&lt;/a&gt;javascript&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$.ajax({
+    url:&amp;quot;rest/publicgarden/edit&amp;quot;,
+    type:&amp;quot;post&amp;quot;,
+    cache:false,
+    dataType:&amp;quot;json&amp;quot;,
+    contentType:&amp;quot;application/json; charset=utf-8&amp;quot;,
+    data:JSON.stringify(oldValue),
+    success:function(result){
+        if (result)
+            alertConfirm(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x6210;&amp;#x529F;&amp;quot;);
+        else
+            alertView(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x5931;&amp;#x8D25;&amp;quot;);
+    }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/2017/01/11/ajax&amp;#x4F20;&amp;#x8F93;Object/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170111143952.png&quot; alt=&quot;oldValue&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170111143952.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;JSON-stringify&quot;&gt;&lt;a href=&quot;#JSON-stringify&quot; class=&quot;headerlink&quot; title=&quot;JSON.stringify()&quot;&gt;&lt;/a&gt;JSON.stringify()&lt;/h3&gt;&lt;p&gt;&amp;#x4EE5;&amp;#x5C06;&amp;#x4EFB;&amp;#x610F;&amp;#x7684;JavaScript&amp;#x503C;&amp;#x5E8F;&amp;#x5217;&amp;#x5316;&amp;#x6210;&amp;#x7B26;&amp;#x5408;JSON&amp;#x8BED;&amp;#x6CD5;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;JSON.stringify({});                        // &amp;apos;{}&amp;apos;
+JSON.stringify(true);                      // &amp;apos;true&amp;apos;
+JSON.stringify(&amp;quot;foo&amp;quot;);                     // &amp;apos;&amp;quot;foo&amp;quot;&amp;apos;
+JSON.stringify([1, &amp;quot;false&amp;quot;, false]);       // &amp;apos;[1,&amp;quot;false&amp;quot;,false]&amp;apos;
+JSON.stringify({ x: 5 });                  // &amp;apos;{&amp;quot;x&amp;quot;:5}&amp;apos;
+
+JSON.stringify({x: 5, y: 6});              
+// &amp;apos;{&amp;quot;x&amp;quot;:5,&amp;quot;y&amp;quot;:6}&amp;apos; &amp;#x6216;&amp;#x8005; &amp;apos;{&amp;quot;y&amp;quot;:6,&amp;quot;x&amp;quot;:5}&amp;apos; &amp;#x90FD;&amp;#x53EF;&amp;#x80FD;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;java&quot;&gt;&lt;a href=&quot;#java&quot; class=&quot;headerlink&quot; title=&quot;java&quot;&gt;&lt;/a&gt;java&lt;/h2&gt;&lt;h3 id=&quot;RequestBody&quot;&gt;&lt;a href=&quot;#RequestBody&quot; class=&quot;headerlink&quot; title=&quot;@RequestBody&quot;&gt;&lt;/a&gt;@RequestBody&lt;/h3&gt;&lt;p&gt;@RequestBody&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Json&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x800C;&amp;#x4E0D;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Json&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x7136;&amp;#x800C;&amp;#x5728;ajax&amp;#x8BF7;&amp;#x6C42;&amp;#x5F80;&amp;#x5F80;&amp;#x4F20;&amp;#x7684;&amp;#x90FD;&amp;#x662F;Json&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x540E;&amp;#x6765;&amp;#x53D1;&amp;#x73B0;&amp;#x7528; JSON.stringify(data)&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x5C31;&amp;#x80FD;&amp;#x5C06;&amp;#x5BF9;&amp;#x8C61;&amp;#x53D8;&amp;#x6210;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x3002;&amp;#x540C;&amp;#x65F6;ajax&amp;#x8BF7;&amp;#x6C42;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4E5F;&amp;#x8981;&amp;#x6307;&amp;#x5B9A;dataType: &amp;#x201C;json&amp;#x201D;,contentType:&amp;#x201D;application/json&amp;#x201D; &amp;#x8FD9;&amp;#x6837;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x8F7B;&amp;#x6613;&amp;#x7684;&amp;#x5C06;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#x6216;&amp;#x8005;List&amp;#x4F20;&amp;#x5230;Java&amp;#x7AEF;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;@RequestBody&amp;#x5373;&amp;#x53EF;&amp;#x7ED1;&amp;#x5B9A;&amp;#x5BF9;&amp;#x8C61;&amp;#x6216;&amp;#x8005;List.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/edit&amp;quot;,method=RequestMethod.POST)
+@ResponseBody
+public boolean edit(@RequestBody Object value) {
+
+    JSONObject jsonObj = JSONObject.fromObject(value);//&amp;#x5C06;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;json&amp;#x5BF9;&amp;#x8C61;
+    PublicGarden publicgarden = (PublicGarden) JSONObject.toBean(jsonObj,PublicGarden.class);//&amp;#x5C06;&amp;#x5EFA;json&amp;#x5BF9;&amp;#x8C61;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;PublicGarden&amp;#x5BF9;&amp;#x8C61;
+    ipGardenServiceImpl.update(publicgarden);
+    return true;
+}
+
+@RequestMapping(value = &amp;quot;saveUser&amp;quot;, method = {RequestMethod.POST }}) 
+@ResponseBody  
+public void saveUser(@RequestBody List&amp;lt;User&amp;gt; users) { 
+     userService.batchSave(users); 
+} 
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x901A;&amp;#x8FC7;ajax&amp;#x5411;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x8F93;object&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;javascript&quot;&gt;&lt;a href=&quot;#javascript&quot; 
+    
+    </summary>
+    
+    
+      <category term="ajax" scheme="http://chen1218chen.github.io/tags/ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bootstrap-table之editable</title>
+    <link href="http://chen1218chen.github.io/2017/01/11/bootstrap-table%E4%B9%8Beditable/"/>
+    <id>http://chen1218chen.github.io/2017/01/11/bootstrap-table之editable/</id>
+    <published>2017-01-11T10:24:33.000Z</published>
+    <updated>2017-01-11T02:32:39.329Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;editable&quot;&gt;&lt;a href=&quot;#editable&quot; class=&quot;headerlink&quot; title=&quot;editable&quot;&gt;&lt;/a&gt;editable&lt;/h2&gt;&lt;p&gt;bootstrap table&amp;#x7684;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x5F15;&amp;#x5165;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bootstrap-table-editable.js&lt;/li&gt;
+&lt;li&gt;bootstrap-editable.js&lt;/li&gt;
+&lt;li&gt;bootstrap-editable.css&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x5217;&amp;#x5C5E;&amp;#x6027;&amp;#x4E0A;&amp;#x6DFB;&amp;#x52A0;&lt;code&gt;data-editable=&amp;quot;true&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;th data-field=&amp;quot;address&amp;quot; data-align=&amp;quot;center&amp;quot; data-valign=&amp;quot;middle&amp;quot; data-editable=&amp;quot;true&amp;quot;&amp;gt;&amp;#x5730;&amp;#x5740;&amp;lt;/th&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bootstrap table &amp;#x63D2;&amp;#x4EF6;&amp;#x6269;&amp;#x5C55;&amp;#x4E86;X-editable&amp;#x529F;&amp;#x80FD;&amp;#x3002;&lt;br&gt;&amp;#x4FEE;&amp;#x6539;table&amp;#x5C5E;&amp;#x6027;&amp;#x89E6;&amp;#x53D1;&lt;strong&gt;editable-save.bs.table&lt;/strong&gt;&amp;#x4E8B;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(&amp;apos;#table&amp;apos;).on(&amp;apos;editable-save.bs.table&amp;apos;, function (field, row, oldValue, $el) {
+    editSave(row,oldValue,name);
+});
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;editable&quot;&gt;&lt;a href=&quot;#editable&quot; class=&quot;headerlink&quot; title=&quot;editable&quot;&gt;&lt;/a&gt;editable&lt;/h2&gt;&lt;p&gt;bootstrap table&amp;#x7684;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C
+    
+    </summary>
+    
+    
+      <category term="bootstrap table" scheme="http://chen1218chen.github.io/tags/bootstrap-table/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringMVC之转发请求和重定向</title>
@@ -1441,141 +1560,6 @@ public class EmployeeController {
     
     
       <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap的使用</title>
-    <link href="http://chen1218chen.github.io/2016/09/10/bootstrap%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://chen1218chen.github.io/2016/09/10/bootstrap的使用/</id>
-    <published>2016-09-09T17:13:17.000Z</published>
-    <updated>2016-09-09T09:15:08.177Z</updated>
-    
-    <content type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h2 id=&quot;bootstrap-model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#bootstrap-model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;bootstrap model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;bootstrap model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;a id=&amp;quot;adduser&amp;quot; class=&amp;quot;btn btn-danger&amp;quot; data-toggle=&amp;quot;modal&amp;quot;    href=&amp;quot;addUser.html&amp;quot; data-target=&amp;quot;#adduserModal&amp;quot;&amp;gt;&amp;#x6DFB;&amp;#x52A0;&amp;lt;/a&amp;gt;
-&amp;lt;div class=&amp;quot;modal fade&amp;quot; id=&amp;quot;adduserModal&amp;quot; role=&amp;quot;dialog&amp;quot; aria-labelledby=&amp;quot;myModalLabel&amp;quot; data-keyboard=&amp;quot;true&amp;quot;&amp;gt;
-    &amp;lt;div class=&amp;quot;modal-dialog&amp;quot; role=&amp;quot;document&amp;quot;&amp;gt;
-    &amp;lt;div class=&amp;quot;modal-content&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;table&amp;#x8868;&amp;#x4E2D;&amp;#x4FEE;&amp;#x6539;&amp;#x67D0;&amp;#x4E00;&amp;#x6761;&amp;#x8BB0;&amp;#x5F55;&amp;#x65F6;&amp;#xFF0C;model&amp;#x5F39;&amp;#x51FA;&amp;#x6846;&amp;#x83B7;&amp;#x53D6;&amp;#x8BB0;&amp;#x5F55;&amp;#x503C;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;function editTerminal(row,index) {
-    index1=index;
-    $(&amp;apos;#editTerminalModal&amp;apos;).on(&amp;apos;show.bs.modal&amp;apos;,function(event) {
-        var button = $(event.relatedTarget);
-        var recipient = button.data(&amp;apos;whatever&amp;apos;);
-        var modal = $(this);
-        modal.find(&amp;apos;.modal-title&amp;apos;).text(recipient);
-        modal.find(&amp;apos;#tid&amp;apos;).val(row.tid);
-        modal.find(&amp;apos;#type&amp;apos;).val(row.type);
-        modal.find(&amp;apos;#cid&amp;apos;).val(row.cid);
-        modal.find(&amp;apos;#uid&amp;apos;).val(row.uid);
-        modal.find(&amp;apos;#date&amp;apos;).val(row.date);
-    })
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[toc]&lt;/p&gt;
-&lt;h2 id=&quot;bootstrap-model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#bootstrap-model&amp;#x8FDC;&amp;#x7A0B;&amp;#x52A0;&amp;#x8F7D;&quot; class=&quot;head
-    
-    </summary>
-    
-    
-      <category term="Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap-validator</title>
-    <link href="http://chen1218chen.github.io/2016/09/10/bootstrap-validator/"/>
-    <id>http://chen1218chen.github.io/2016/09/10/bootstrap-validator/</id>
-    <published>2016-09-09T17:09:54.000Z</published>
-    <updated>2016-09-09T09:10:29.802Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;reset&amp;#x91CD;&amp;#x7F6E;&amp;#x8868;&amp;#x5355;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$(&amp;apos;#btn-reset&amp;apos;).click(function() {
-    $(&amp;apos;#changeForm&amp;apos;).data(&amp;apos;bootstrapValidator&amp;apos;).resetForm(true);
-});
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;reset&amp;#x91CD;&amp;#x7F6E;&amp;#x8868;&amp;#x5355;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$(&amp;apos;#btn-reset&amp;apos;).click(function() {
-    $(&amp;apos;
-    
-    </summary>
-    
-    
-      <category term="Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery-confirm</title>
-    <link href="http://chen1218chen.github.io/2016/09/10/jQuery-confirm/"/>
-    <id>http://chen1218chen.github.io/2016/09/10/jQuery-confirm/</id>
-    <published>2016-09-09T17:08:00.000Z</published>
-    <updated>2016-09-09T09:09:04.694Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;Jquery-confirm&quot;&gt;&lt;a href=&quot;#Jquery-confirm&quot; class=&quot;headerlink&quot; title=&quot;Jquery-confirm&quot;&gt;&lt;/a&gt;Jquery-confirm&lt;/h1&gt;&lt;h2 id=&quot;1-alert&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#1-alert&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;1. alert&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;1. alert&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4F7F;&amp;#x7528; Jquery-confirm.js&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;function alertView(str){
-    $.alert({
-        animation : &amp;apos;zoom&amp;apos;,
-        animationBounce : 2,
-        keyboardEnabled : true,
-        title : false,
-        content : str,
-        theme : &amp;apos;white&amp;apos;,
-    });
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;2-confirm&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#2-confirm&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;2. confirm&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;2. confirm&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4F7F;&amp;#x7528; Jquery-confirm.js&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;$.confirm({
-    title: &amp;apos;&amp;#x9000;&amp;#x51FA;&amp;#x7CFB;&amp;#x7EDF;&amp;#x767B;&amp;#x9646;&amp;#x5417;&amp;#xFF1F;&amp;apos;, 
-    content : false,
-    // autoClose: &amp;apos;confirm|10000&amp;apos;,
-    confirmButtonClass : &amp;apos;btn-info&amp;apos;,
-    cancelButtonClass : &amp;apos;btn-danger&amp;apos;,
-    confirm : function() {
-        $.ajax({
-            type : &amp;quot;post&amp;quot;,
-            url : &amp;quot;logoutAction.action&amp;quot;,
-            async: false,
-            success :function(){
-                location.href = &amp;quot;../login.jsp&amp;quot;;
-            }
-        });
-    },
-    cancel : function() {
-        alert(&amp;apos;canceled&amp;apos;);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;Jquery-confirm&quot;&gt;&lt;a href=&quot;#Jquery-confirm&quot; class=&quot;headerlink&quot; title=&quot;Jquery-confirm&quot;&gt;&lt;/a&gt;Jquery-confirm&lt;/h1&gt;&lt;h2 id=&quot;1-al
-    
-    </summary>
-    
-    
-      <category term="Bootstrap" scheme="http://chen1218chen.github.io/tags/Bootstrap/"/>
-    
-      <category term="jQuery" scheme="http://chen1218chen.github.io/tags/jQuery/"/>
     
   </entry>
   
