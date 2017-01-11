@@ -177,13 +177,6 @@ table的高度可以自己设定
     <th data-field="operate" data-formatter="operateFormatter"
     data-events="operateEvents" data-align="center">操作</th>
 
-## editable
-bootstrap table的修改，只需要引入bootstrap-table-editable.js、bootstrap-editable.js、bootstrap-editable.css即可。bootstrap table 插件扩展了X-editable功能。
-修改table属性触发**editable-save.bs.table**事件。
-
-    $('#table').on('editable-save.bs.table', function (field, row, oldValue, $el) {
-    	data.changeField(row,oldValue,name);
-    });
 
 
   [1]: ./images/Image%201.png "Image 1.png"
