@@ -27,7 +27,17 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
 ## pageNum初始化
 
     data-page-list="[10, 25, 50, 100, 'ALL']"
+## 分页初始值
 
+    data-page-size=15
+
+## 表格添加序号
+
+    function runningFormatter(value, row, index) {
+    	return index + 1;
+    }
+
+    <th data-align="center" data-valign="middle" data-sortable="true" data-formatter="runningFormatter" >序号</th>
 ## 高度自适应
 
     $(function(){
@@ -45,7 +55,7 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
         $('#table').bootstrapTable('resetView');
     });
 table的高度可以自己设定
-    
+
     data-height="300px"
 ## table的分页方式
 
@@ -177,7 +187,9 @@ table的高度可以自己设定
     <th data-field="operate" data-formatter="operateFormatter"
     data-events="operateEvents" data-align="center">操作</th>
 
+更全更详细的文档请查看：[bootstrap-table官方文档][3]
 
 
   [1]: ./images/Image%201.png "Image 1.png"
   [2]: ./images/2.png "2.png"
+  [3]: http://bootstrap-table.wenzhixin.net.cn/documentation/
