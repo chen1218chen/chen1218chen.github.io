@@ -277,84 +277,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-rest" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/12/19/rest/" class="article-date">
-      <time datetime="2016-12-19T08:46:32.584Z" itemprop="datePublished">2016-12-19</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>&#x7531;&#x4E8E;&#x5728; RequestMapping &#x6CE8;&#x89E3;&#x7C7B;&#x4E2D; method() &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x662F; RequestMethod &#x6570;&#x7EC4;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7ED9; method &#x540C;&#x65F6;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</p>
-<pre><code>@Controller
-@RequestMapping(path = &quot;/user&quot;)
-public class UserController {
-        // &#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x540C;&#x65F6;&#x63A5;&#x6536;&#x901A;&#x8FC7;GET&#x548C;POST&#x65B9;&#x5F0F;&#x53D1;&#x6765;&#x7684;&#x8BF7;&#x6C42;
-    @RequestMapping(path = &quot;/login&quot;, method={RequestMethod.POST,RequestMethod.GET})
-    public String login() {
-        return &quot;success&quot;;
-    }
-}
-</code></pre><h2 id="params"><a href="#params" class="headerlink" title="params"></a>params</h2><p>@RequestMapping &#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; params &#x6765;&#x9650;&#x5236;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x8FC7;&#x6EE4;&#x8BF7;&#x6C42;</p>
-<pre><code>@Controller
-@RequestMapping(path = &quot;/user&quot;)
-public class UserController {
-
-        // &#x8BE5;&#x65B9;&#x6CD5;&#x5C06;&#x63A5;&#x6536; /user/login &#x53D1;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4E14;&#x8BF7;&#x6C42;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x4E3A; username=kolbe&amp;password=123456
-    @RequestMapping(path = &quot;/login&quot;, params={&quot;username=kolbe&quot;,&quot;password=123456&quot;})
-    public String login() {
-        return &quot;success&quot;;
-    }
-}
-</code></pre><blockquote>
-<p>&#x5982;&#xFF1A;<a href="http://localhost/SpringMVC/user/login?username=kolbe&amp;password=123456" target="_blank" rel="external">http://localhost/SpringMVC/user/login?username=kolbe&amp;password=123456</a></p>
-</blockquote>
-<h2 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h2><p> @RequestMapping &#x7684; headers &#x5C5E;&#x6027;,&#x8BE5;&#x5C5E;&#x6027;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x5934;</p>
-<pre><code>@Controller
-@RequestMapping(path = &quot;/user&quot;)
-public class UserController {
-        // &#x8868;&#x793A;&#x53EA;&#x63A5;&#x6536;&#x672C;&#x673A;&#x53D1;&#x6765;&#x7684;&#x8BF7;&#x6C42;
-    @RequestMapping(path = &quot;/login&quot;, headers=&quot;Host=localhost:8080&quot;)
-    public String login() {
-        return &quot;success&quot;;
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Sublime-Angular-snippets安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1300,6 +1222,297 @@ public String get(HttpServletRequest request, HttpServletResponse response) {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-SpringMVC之多文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/28/SpringMVC之多文件上传/" class="article-date">
+      <time datetime="2016-09-28T11:02:45.000Z" itemprop="datePublished">2016-09-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/28/SpringMVC之多文件上传/">bootstrap-fileinput之文件上传</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<p>&#x6B64;&#x529F;&#x80FD;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;bootstrap-fileinput(fileinput.min.js)&#x63D2;&#x4EF6;,&#x4E3B;&#x9875;&#x5730;&#x5740;&#xFF1A;</p>
+<ol>
+<li><a href="https://github.com/kartik-v/bootstrap-fileinput" target="_blank" rel="external">bootstrap-fileinput Github</a></li>
+<li><p><a href="http://plugins.krajee.com/file-input" target="_blank" rel="external">&#x4E3B;&#x9875;</a></p>
+<h2 id="MultipartFile"><a href="#MultipartFile" class="headerlink" title="MultipartFile"></a>MultipartFile</h2><p>Spring&#x4F7F;&#x7528;MultipartFile&#x6765;&#x8FDB;&#x884C;&#x591A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#xFF0C;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;multipartResolver&#x7684;bean</p>
+ <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+<p> @RequestMapping(value=&#x201D;/parseAttr.json&#x201D;, method = RequestMethod.POST)<br> public ModelMap parseAttr(@RequestParam(&#x201C;file&#x201D;) MultipartFile uFile) {</p>
+<pre><code>ModelMap result = new ModelMap();
+...
+result.put(&quot;keys&quot;,set);
+return result;
+</code></pre><p> }</p>
+<h2 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h2><p> MultipartFile file = new MultipartFile();<br> file.getOriginalFilename():&#x83B7;&#x53D6;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x540D;<br> file.getInputStream():&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x6D41;</p>
+</bean></li>
+</ol>
+<h2 id="form&#x8868;&#x5355;"><a href="#form&#x8868;&#x5355;" class="headerlink" title="form&#x8868;&#x5355;"></a>form&#x8868;&#x5355;</h2><p>&#x5206;&#x4E24;&#x7C7B;&#x4E0A;&#x4F20;&#xFF1A;&#x529E;&#x4E8B;&#x6307;&#x5357;&#x3001;&#x5178;&#x578B;&#x6848;&#x4F8B;&#x3002;</p>
+<pre><code>&lt;form role=&quot;form&quot; class=&quot;form-horizontal&quot; id=&quot;importFile&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label class=&quot;col-lg-2 control-label&quot; for=&quot;descption&quot;&gt;&#x6587;&#x7AE0;&#x7C7B;&#x578B;&lt;/label&gt;
+        &lt;div class=&quot;col-lg-9&quot;&gt;
+            &lt;select name=&quot;descption&quot; id=&quot;descption&quot; style=&quot;padding: 6px 12px;line-height: 1.42857143;    border: 1px solid #ccc;    border-radius: 4px;&quot;&gt;
+                &lt;option value=&quot;1&quot;&gt;&#x529E;&#x4E8B;&#x6307;&#x5357;&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;&#x5178;&#x578B;&#x6848;&#x4F8B;&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label class=&quot;col-lg-2 control-label&quot; for=&quot;fileInput&quot;&gt;&#x6587;&#x7AE0;&#x4E0A;&#x4F20;&lt;/label&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+
+            &lt;input id=&quot;fileInput&quot; name=&quot;fileInput&quot; type=&quot;file&quot; multiple
+                class=&quot;file-loading&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;hr /&gt;
+    &lt;div class=&quot;btn-group&quot; style=&quot;margin-left: 160px;margin-right:5px&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; id=&quot;submitOK&quot;&gt;
+            &lt;i class=&quot;glyphicon glyphicon-check&quot;&gt;&#x63D0;&#x4EA4;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; data-dismiss=&quot;modal&quot;
+            id=&quot;btn-close&quot;&gt;
+            &lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&#x5173;&#x95ED;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt; 
+</code></pre><h2 id="js&#x4EE3;&#x7801;"><a href="#js&#x4EE3;&#x7801;" class="headerlink" title="js&#x4EE3;&#x7801;"></a>js&#x4EE3;&#x7801;</h2><pre><code>$(&quot;#fileInput&quot;).fileinput({
+    uploadUrl:&quot;#&quot;,//&#x4E0A;&#x4F20;&#x7684;&#x5730;&#x5740;
+    uploadAsync: false,
+    language : &quot;zh&quot;,//&#x8BBE;&#x7F6E;&#x8BED;&#x8A00;
+    showCaption: true,//&#x662F;&#x5426;&#x663E;&#x793A;&#x6807;&#x9898;
+    showUpload: false, //&#x662F;&#x5426;&#x663E;&#x793A;&#x4E0A;&#x4F20;&#x6309;&#x94AE;
+    browseClass: &quot;btn btn-primary&quot;, //&#x6309;&#x94AE;&#x6837;&#x5F0F; 
+    allowedFileExtensions: [&quot;html&quot;,&quot;htm&quot;], //&#x63A5;&#x6536;&#x7684;&#x6587;&#x4EF6;&#x540E;&#x7F00;
+    maxFileCount: 1,//&#x6700;&#x5927;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x6570;&#x9650;&#x5236;
+    maxFileSize: 1000,//&#x6700;&#x5927;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x5927;&#x5C0F;
+    uploadAsync: true,
+    previewFileIcon: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,
+    allowedPreviewTypes: null, 
+    previewFileIconSettings: {
+        &apos;doc&apos;: &apos;&lt;i class=&quot;fa fa-file-word-o text-primary&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;xls&apos;: &apos;&lt;i class=&quot;fa fa-file-excel-o text-success&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;ppt&apos;: &apos;&lt;i class=&quot;fa fa-file-powerpoint-o text-danger&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;jpg&apos;: &apos;&lt;i class=&quot;fa fa-file-photo-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;pdf&apos;: &apos;&lt;i class=&quot;fa fa-file-pdf-o text-danger&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;zip&apos;: &apos;&lt;i class=&quot;fa fa-file-archive-o text-muted&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;htm&apos;: &apos;&lt;i class=&quot;fa fa-file-code-o text-info&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;txt&apos;: &apos;&lt;i class=&quot;fa fa-file-text-o text-info&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;mov&apos;: &apos;&lt;i class=&quot;fa fa-file-movie-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;mp3&apos;: &apos;&lt;i class=&quot;fa fa-file-audio-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+    },
+    previewFileExtSettings: {
+        &apos;doc&apos;: function(ext) {
+            return ext.match(/(doc|docx)$/i);
+        },
+        &apos;xls&apos;: function(ext) {
+            return ext.match(/(xls|xlsx)$/i);
+        },
+        &apos;ppt&apos;: function(ext) {
+            return ext.match(/(ppt|pptx)$/i);
+        },
+        &apos;zip&apos;: function(ext) {
+            return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+        },
+        &apos;htm&apos;: function(ext) {
+            return ext.match(/(php|js|css|htm|html)$/i);
+        },
+        &apos;txt&apos;: function(ext) {
+            return ext.match(/(txt|ini|md)$/i);
+        },
+        &apos;mov&apos;: function(ext) {
+            return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+        },
+        &apos;mp3&apos;: function(ext) {
+            return ext.match(/(mp3|wav)$/i);
+        },
+    }
+});
+</code></pre><p>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x53EF;&#x9644;&#x52A0;&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x8FC7;uploadExtraData&#x53C2;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code>uploadExtraData: function() {
+    var extraValue = null;
+    var radios = document.getElementsByName(&apos;excelType&apos;);
+    for(var i=0;i&lt;radios.length;i++){
+        if(radios[i].checked){
+            extraValue = radios[i].value;
+        }
+    }
+    return {&quot;excelType&quot;: extraValue};
+}
+</code></pre><p>&#x4E0A;&#x4F20;&#x6210;&#x529F;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code> $(&quot;#fileInput&quot;).on(&quot;fileuploaded&quot;, function(event, data, previewId, index) {
+    alertView(&quot;&#x4E0A;&#x4F20;&#x6210;&#x529F;!&quot;);
+}); 
+</code></pre><p>&#x4E0A;&#x4F20;&#x5931;&#x8D25;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>$(&apos;#excelFile&apos;).on(&apos;fileuploaderror&apos;, function(event, data, previewId, index) {
+    alertView(&quot;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x4E0D;&#x6B63;&#x786E;!&quot;);
+});
+</code></pre><p>js&#x63D0;&#x4EA4;&#x5E26;&#x6587;&#x4EF6;&#x8868;&#x5355;</p>
+<pre><code> $(&quot;#submitOK&quot;).click(function() {
+    $.ajax({
+        cache: true,
+        type: &quot;POST&quot;,
+        url: &quot;rest/guide/importfile&quot;,
+        data: new FormData($(&apos;#importFile&apos;)[0]),// &#x4F60;&#x7684;formid
+        processData: false,
+        contentType: false,
+        error: function(request) {
+            alert(&quot;&#x4E0A;&#x4F20;&#x5931;&#x8D25;&quot;);
+        },
+        success: function(data) {
+            if(data){                    
+                alert(&quot;&#x4E0A;&#x4F20;&#x6210;&#x529F;&quot;);
+            }
+            else {
+                alert(&quot;&#x4E0A;&#x4F20;&#x5931;&#x8D25;&quot;);
+            }
+        }
+    });
+}); 
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>processData&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;&#x56E0;&#x4E3A;data&#x503C;&#x662F;FormData&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x6570;&#x636E;&#x505A;&#x5904;&#x7406;&#x3002;</li>
+<li><form>&#x6807;&#x7B7E;&#x6DFB;&#x52A0;enctype=&#x201D;multipart/form-data&#x201D;&#x5C5E;&#x6027;&#x3002;</form></li>
+<li>cache&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x4E0D;&#x9700;&#x8981;&#x7F13;&#x5B58;&#x3002;</li>
+<li>contentType&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x7531;<form>&#x8868;&#x5355;&#x6784;&#x9020;&#x7684;FormData&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x4E86;&#x5C5E;&#x6027;enctype=&#x201D;multipart/form-data&#x201D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;</form></li>
+<li>&#x4E0A;&#x4F20;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4ECE;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x540D;&#x4E3A;file&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x8F93;&#x5165;&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;input&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x662F;name=&#x201D;file&#x201D;&#x3002;</li>
+</ul>
+<h2 id="&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;"><a href="#&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;" class="headerlink" title="&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;"></a>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;</h2><pre><code>@RequestMapping(value = &quot;/importfile&quot;, method = RequestMethod.POST)
+@ResponseBody
+public boolean importfile(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+    final String allowFileSuffix = &quot;html,htm&quot;;
+    String basePath = request.getSession().getServletContext().getRealPath(&quot;/&quot;);
+    String realpath = null;
+
+    // &#x68C0;&#x67E5;&#x8F93;&#x5165;&#x8BF7;&#x6C42;&#x662F;&#x5426;&#x4E3A;multipart&#x8868;&#x5355;&#x6570;&#x636E;&#x3002;
+    if (ServletFileUpload.isMultipartContent(request)) {
+        DiskFileItemFactory dff = new DiskFileItemFactory();//&#x83B7;&#x5F97;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x6761;&#x76EE;&#x5DE5;&#x5382;  
+        dff.setSizeThreshold(1024000);// &#x6307;&#x5B9A;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x5927;&#x5C0F;,&#x5355;&#x4F4D;&#x4E3A;byte
+        ServletFileUpload upload = new ServletFileUpload(dff);// &#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;
+        upload.setFileSizeMax(5000000);//&#x6307;&#x5B9A;&#x5355;&#x4E2A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;
+        upload.setSizeMax(10000000);// &#x6307;&#x5B9A;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x603B;&#x5C3A;&#x5BF8;
+        upload.setHeaderEncoding(&quot;utf-8&quot;);
+        List&lt;FileItem&gt; fileItems = new ArrayList&lt;FileItem&gt;();
+        try {
+            fileItems = upload.parseRequest(request);
+        } catch (FileUploadException e1) {
+            logger.error(&quot;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x53D1;&#x751F;&#x9519;&#x8BEF;&quot; + e1.getMessage());
+            return false;
+        }
+        String fullPath = null;
+        String fileName = null;
+        String fullName=null;
+        String type=&quot;&quot;;
+        for (FileItem fileItem : fileItems) {
+
+            // &#x5224;&#x65AD;&#x8BE5;&#x8868;&#x5355;&#x9879;&#x662F;&#x5426;&#x662F;&#x666E;&#x901A;&#x7C7B;&#x578B;
+            if (fileItem.isFormField()) {
+                String name = fileItem.getFieldName();// &#x63A7;&#x4EF6;&#x540D;
+                String value = fileItem.getString(); //&#x63A7;&#x4EF6;&#x503C;        
+                if (name.equals(&quot;descption&quot;)) {
+                    if(value.equals(&quot;1&quot;)){
+                        type=&quot;guide&quot;;//&#x529E;&#x4E8B;&#x6307;&#x5357;
+                    }
+                    else if(value.equals(&quot;2&quot;)){
+                        type=&quot;case&quot;;//&#x5178;&#x578B;&#x6848;&#x4F8B;
+                    }
+                    realpath=basePath+type;
+                    File tmpDir = new File(realpath);// &#x521D;&#x59CB;&#x5316;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x5B58;&#x653E;&#x76EE;&#x5F55;
+                    if (!tmpDir.exists()) {
+                        tmpDir.mkdirs();
+                    }
+                    dff.setRepository(tmpDir);// &#x6307;&#x5B9A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;
+
+                }
+            } else {
+                String filePath = fileItem.getName();
+                if (filePath == null || filePath.trim().length() == 0)
+                    continue;
+                fullName = filePath.substring(filePath.lastIndexOf(File.separator) + 1);
+                fileName = filePath.substring(0,filePath.lastIndexOf(&quot;.&quot;));
+
+                String extName = filePath.substring(filePath.lastIndexOf(&quot;.&quot;) + 1);
+                fullPath = realpath + File.separator + fullName;
+                if (allowFileSuffix.indexOf(extName) != -1) {
+                    try {
+                        fileItem.write(new File(fullPath));
+                        //&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;
+                        Guide guide = new Guide();
+                        guide.setName(fileName);
+                        guide.setUrl(&quot;../&quot;+type +&quot;/&quot; + fullName);
+                        if(type.equals(&quot;guide&quot;)){                                
+                            guide.setType(1);
+                        }
+                        else if(type.equals(&quot;case&quot;)){
+                            guide.setType(2);
+                        } 
+                        guideServiceImpl.insert(guide);
+                    } catch (Exception e) {
+                        logger.error(&quot;&#x6587;&#x4EF6;&#x5199;&#x5165;Guide&#x8868;&#x51FA;&#x9519;&quot;);
+                        return false;
+                    }
+                } else {
+                    throw new FileUploadException(&quot;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x4E0D;&#x6B63;&#x786E;&quot;);
+                }
+            }
+        }
+    }
+    return true;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MultipartFile/">MultipartFile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fileInput/">fileInput</a></li></ul>
     </div>
 
       

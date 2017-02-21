@@ -277,165 +277,6 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-js的继承实现" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/10/js的继承实现/" class="article-date">
-      <time datetime="2016-05-10T14:31:57.000Z" itemprop="datePublished">2016-05-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/10/js的继承实现/">js的原型及继承实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h1 id="prototype&#x7EE7;&#x627F;"><a href="#prototype&#x7EE7;&#x627F;" class="headerlink" title="prototype&#x7EE7;&#x627F;"></a>prototype&#x7EE7;&#x627F;</h1><p>&#x6240;&#x6709;&#x901A;&#x8FC7;new Object()&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x901A;&#x8FC7;Object.prototype&#x83B7;&#x5F97;&#x5BF9;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x901A;&#x8FC7;new&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;&#x5373;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x7684;&#x503C;&#x3002;</p>
-<ul>
-<li>Object.prototype&#x6CA1;&#x6709;&#x539F;&#x578B;</li>
-<li>&#x6240;&#x6709;&#x7684;&#x5185;&#x7F6E;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7EE7;&#x627F;&#x81EA;Object.prototype&#x7684;&#x539F;&#x578B;</li>
-<li>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x662F;&#x7C7B;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;</li>
-<li>&#x6BCF;&#x4E2A;JS&#x51FD;&#x6570;&#x90FD;&#x81EA;&#x52A8;&#x62E5;&#x6709;&#x4E00;&#x4E2A;prototype&#x5C5E;&#x6027;&#xFF0C;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A;constructor&#x5C5E;&#x6027;&#xFF0C;&#x6B64;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</li>
-</ul>
-<pre><code>function People(props){
-    this.name = props.name || &apos;unnamed&apos;;
-}
-
-People.prototype.hello = function(){
-    alert(&apos;hello,&apos;+this.name);
-}
-</code></pre><p><img src="/2016/05/10/js&#x7684;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;/Image%201.png" alt="enter description here" title="Image 1.png"></p>
-<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><pre><code>var p = new F();
-p === F.prototype;  //true
-var c = p.constructor;
-c === F;  // true
-</code></pre><p>&#x7531;&#x4E0A;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;</p>
-<pre><code>var o = new F();
-o.constructor === F; //true,constructor&#x5C5E;&#x6027;&#x6307;&#x4EE3;&#x8FD9;&#x4E2A;&#x7C7B;
-</code></pre><p>A&#x7684;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x81EA;A.prototype&#xFF0C;B&#x7684;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x81EA;B.prototype&#x3002;&#x6240;&#x4EE5;B&#x7EE7;&#x627F;A&#xFF0C;&#x5373;B&#x7EE7;&#x627F;A.prototype&#x3002;</p>
-<pre><code>var object = new Object();
-object == Object.prototype
-</code></pre><p>Object.prototype&#x5373;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;<br><strong>&#xFF08;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;Object&#x6CDB;&#x6307;&#x4E00;&#x4E2A;JS&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x975E;&#x771F;&#x6B63;&#x7684;Object&#x5BF9;&#x8C61;&#xFF09;</strong></p>
-<h2 id="&#x539F;&#x578B;&#x94FE;"><a href="#&#x539F;&#x578B;&#x94FE;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;"></a>&#x539F;&#x578B;&#x94FE;</h2><p><code>var date = new Date();</code> date&#x5BF9;&#x8C61;&#x540C;&#x65F6;&#x7EE7;&#x627F;Date.prototype&#x548C;Object.prototype&#xFF0C;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;&#x94FE;&#x63A5;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x539F;&#x578B;&#x94FE;&#x3002;</p>
-<h1 id="&#x7EE7;&#x627F;"><a href="#&#x7EE7;&#x627F;" class="headerlink" title="&#x7EE7;&#x627F;"></a>&#x7EE7;&#x627F;</h1><h2 id="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"><a href="#&#x7C7B;&#x578B;&#x68C0;&#x6D4B;" class="headerlink" title="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"></a>&#x7C7B;&#x578B;&#x68C0;&#x6D4B;</h2><ol>
-<li>instanceof<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a instanceof A //&#x5982;&#x679C;a&#x7EE7;&#x627F;&#x81EA;A&#xFF0C;&#x5219;&#x8FD4;&#x56DE;true</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x53EF;&#x4EE5;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x7EE7;&#x627F;</p>
-<ol>
-<li>constructor&#x5C5E;&#x6027;&#x68C0;&#x6D4B;</li>
-</ol>
-<pre><code>function typeValue(x){
-    if(x==null) return ;
-    switch(x.constructor){
-    case Number: return &quot;Number&quot;+x;
-    case String: return &quot;String&quot;+x;
-    case Date: return &quot;Date&quot;+x;
-    ...
-
-    }
-}
-</code></pre><p>JS&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x4E2D;&#x95F4;&#x51FD;&#x6570;F()</p>
-<pre><code>function inherits(child,parent){
-    var F = function(){};
-    F.prototype = parent.prototype;
-    child.prototype = F;
-    //&#x4FEE;&#x590D;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8C03;&#x7528;F&#x7684;constructor
-    child.prototype.constructor = child;
-}
-
-function People(props){
-    this.name = props.name || &apos;unnamed&apos;;
-}
-
-People.prototype.hello = function(){
-    alert(&apos;hello,&apos;+this.name);
-}
-
-function Student(props){
-    People.call(this,props);
-    this.age = props.age||1;
-}
-inherits(Student,People);
-var cc = new Student();
-</code></pre><p>&#x539F;&#x578B;&#x94FE;&#x7684;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x662F;&#xFF1A;</p>
-<pre><code>cc---&gt;Student.prototype---&gt;People.prototype---&gt;Object.prototype
-</code></pre><p>&#x539F;&#x578B;&#x94FE;&#x5BF9;&#x4E86;&#xFF0C;&#x7EE7;&#x627F;&#x987A;&#x5E8F;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
-<h1 id="apply-call-&#x7EE7;&#x627F;"><a href="#apply-call-&#x7EE7;&#x627F;" class="headerlink" title="apply(),call()&#x7EE7;&#x627F;"></a>apply(),call()&#x7EE7;&#x627F;</h1><p>call&#x548C;apply&#x662F;&#x4E3A;&#x4E86;&#x52A8;&#x6001;&#x6539;&#x53D8;this&#x800C;&#x51FA;&#x73B0;&#x7684;&#x3002;<br>&#x7B2C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x6BCD;&#x5BF9;&#x8C61;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x901A;&#x8FC7;this&#x6765;&#x83B7;&#x5F97;&#x5BF9;&#x5B83;&#x7684;&#x5F15;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x6539;&#x53D8;this&#x7684;&#x6307;&#x793A;&#x65B9;&#x5411;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x4EE5;&#x5BF9;&#x8C61;o&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x51FD;&#x6570;f()&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5B9E;&#x53C2;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>f.call(o,1,2);
-f.apply(o,[1,2]);  
-</code></pre><p>apply&#x4E0E;call&#x7684;&#x533A;&#x522B;&#x4EC5;&#x5728;&#x4E8E;&#xFF0C;apply&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x5FC5;&#x4E00;&#x4E00;&#x6307;&#x51FA;&#x53C2;&#x6570;&#x3002;&#x5982;&#x4E0B;&#xFF1A;<br>&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code>obj.myFunc();
-myFunc.call(obj,arg);
-myFunc.apply(obj,[arg1,arg2..]);
-</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
-<pre><code>Function.apply(obj,args);  //&#x65B9;&#x6CD5;&#x80FD;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;
-</code></pre><p>obj&#xFF1A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C06;&#x4EE3;&#x66FF;Function&#x7C7B;&#x91CC;this&#x5BF9;&#x8C61;<br>args&#xFF1A;&#x8FD9;&#x4E2A;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x5B83;&#x5C06;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;Function&#xFF08;args&#x2013;&gt;arguments&#xFF09;<br>&#x5982;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#xFF1A;</p>
-<pre><code>function Person(name,age){
-    this.name = name;
-    this.age = age;
-    this.hello = function(){
-        console.log(&quot;hello!&quot;+this.name);
-    }
-}
-
-function Student(name, age, school){
-    this.name = name;
-    this.age = age;
-    this.school = school;
-}
- var p = new Person(&quot;person&quot;,100);
- var s = new Student(&quot;cc&quot;,25,&quot;85&quot;);
- p.hello.apply(s);//hello!cc
- p.hello.call(s); //hello!cc
-</code></pre><p>student&#x5BF9;&#x8C61;&#x6CA1;&#x6709;hello&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x7528;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;apply&#x6765;&#x8C03;&#x7528;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="js-Date格式化" class="article article-type-js" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1982,6 +1823,132 @@ $.get(url,function(){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-spring" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/18/spring/" class="article-date">
+      <time datetime="2016-04-18T10:13:55.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/18/spring/">spring浅析及配置实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x4E3B;&#x9875;&#xFF1A;<a href="http://spring.io/&#xFF0C;&#x8FDB;&#x5165;projects&#xFF0C;&#x627E;&#x5230;spring" target="_blank" rel="external">http://spring.io/&#xFF0C;&#x8FDB;&#x5165;projects&#xFF0C;&#x627E;&#x5230;spring</a> framework,&#x8FDB;&#x5165;&#x7684;spring framework&#x9875;&#xFF0C;&#x5373;&#x53EF;&#x627E;&#x5230;spring&#x5305;&#x53CA;&#x4E0B;&#x8F7D;spring&#x6846;&#x67B6;&#x7248;&#x672C;&#x5BF9;jdk&#x7684;&#x8981;&#x6C42;</p>
+<h2 id="&#x7B80;&#x5355;&#x7406;&#x89E3;"><a href="#&#x7B80;&#x5355;&#x7406;&#x89E3;" class="headerlink" title="&#x7B80;&#x5355;&#x7406;&#x89E3;"></a>&#x7B80;&#x5355;&#x7406;&#x89E3;</h2><p>Spring&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x6846;&#x67B6;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x4F60;&#x4E0D;&#x7528;&#x518D;&#x8003;&#x8651;&#x4F60;new&#x5BF9;&#x8C61;&#x4E86;&#xFF0C;&#x5B83;&#x4F1A;&#x5E2E;&#x4F60;&#x505A;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x5C42;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;Spring&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x7684;&#x601D;&#x60F3;&#xFF0C;IOC&#x5C31;&#x662F;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#xFF0C;&#x6CE8;&#x5165;&#x3002;AOP&#x662F;&#x9762;&#x5411;&#x5207;&#x9762;&#x7684;&#xFF0C;&#x6709;&#x70B9;&#x50CF;&#x62E6;&#x622A;&#x5668;&#x3002;</p>
+<h2 id="spring&#x7684;jar&#x5305;"><a href="#spring&#x7684;jar&#x5305;" class="headerlink" title="spring&#x7684;jar&#x5305;"></a>spring&#x7684;jar&#x5305;</h2><p>Spring&#x6846;&#x67B6;&#x7684;jar&#x5305;&#x4F9D;&#x8D56;&#x4E8E;commons-logging.jar<br>&#x5982;&#x679C;&#x662F;web&#x9879;&#x76EE;&#x5C31;&#x9700;&#x8981;spring-web&#xFF0C;&#x5728;web.xml&#x4E2D;&#x914D;&#x7F6E;&#x7684;ContextLoaderListener&#x76D1;&#x542C;&#x5668;&#xFF08;listen&#xFF09;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;spring-web&#x3002;<br>&#x5982;&#x679C;&#x662F;web&#x9879;&#x76EE;&#x5E76;&#x4E14;&#x8981;&#x4F7F;&#x7528;spring mvc&#x6280;&#x672F;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;spring-webmvc</p>
+<h2 id="spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;"><a href="#spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;" class="headerlink" title="spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;"></a>spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;</h2><p>Ioc: &#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;&#x89E3;&#x8026;service&#x5C42;&#x548C;DAO&#x5C42;<br>AOP: &#x5207;&#x9762;&#x5F00;&#x53D1;</p>
+<h2 id="&#x4E8B;&#x52A1;"><a href="#&#x4E8B;&#x52A1;" class="headerlink" title="&#x4E8B;&#x52A1;"></a>&#x4E8B;&#x52A1;</h2><p>&#x4E8B;&#x52A1;&#x662F;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x548C;&#x5B8C;&#x6574;&#x3002;&#x662F;&#x6307;&#x5355;&#x4E2A;&#x903B;&#x8F91;&#x529F;&#x80FD;&#x5355;&#x5143;&#x6267;&#x884C;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF0C;&#x8981;&#x4E48;&#x5B8C;&#x6574;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#x3002;</p>
+<p> <strong>&#x56DB;&#x5927;&#x7279;&#x6027;</strong>&#xFF1A;  </p>
+<ul>
+<li>&#x539F;&#x5B50;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5FC5;&#x987B;&#x662F;&#x539F;&#x5B50;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF1B;&#x5BF9;&#x4E8E;&#x5176;&#x6570;&#x636E;&#x4FEE;&#x6539;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#xFF1B;  </li>
+<li>&#x4E00;&#x81F4;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x72B6;&#x6001;&#xFF1B;  </li>
+<li>&#x9694;&#x79BB;&#x6027;&#xFF1A;&#x7531;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x5FC5;&#x987B;&#x4E0E;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x9694;&#x79BB;&#xFF1B;  </li>
+<li>&#x6301;&#x4E45;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5B83;&#x5BF9;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#x662F;&#x6C38;&#x4E45;&#x6027;&#x7684;&#x3002;</li>
+</ul>
+<h2 id="Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;"><a href="#Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;" class="headerlink" title="Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;"></a>Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;</h2><p>Spring&#x7684;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5206;&#x4E3A;&#x58F0;&#x660E;&#x5F0F;&#x8DDF;&#x7F16;&#x7A0B;&#x5F0F;&#x3002;&#x58F0;&#x660E;&#x5F0F;&#x5C31;&#x662F;&#x5728;Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#xFF1B;&#x7F16;&#x7A0B;&#x5F0F;&#x5C31;&#x662F;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x5199;&#x5230;&#x4EE3;&#x7801;&#x91CC;&#x3002;</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&#x5F00;&#x542F;&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;--&gt;</span><br><span class="line">&lt;context:annotation-config /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;sessionFactory --&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;configLocation&quot;&gt;</span><br><span class="line">        &lt;value&gt;classpath:config/hibernate.cfg.xml&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;value&gt;com.entity&lt;/value&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668; --&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x7B2C;&#x56DB;&#x79CD;&#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x89E3; --&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="&#x6CE8;&#x89E3;&#x914D;&#x7F6E;"><a href="#&#x6CE8;&#x89E3;&#x914D;&#x7F6E;" class="headerlink" title="&#x6CE8;&#x89E3;&#x914D;&#x7F6E;"></a>&#x6CE8;&#x89E3;&#x914D;&#x7F6E;</h2><ul>
+<li><strong><context:annotation-config></context:annotation-config></strong> &#x662F;spring&#x63D0;&#x4F9B;&#x7684;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x5165;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x5BFC;&#x5165;spring&#x76EE;&#x5F55;common-annotations.jar&#x8FD9;&#x4E2A;&#x5305;&#x3002;   </li>
+<li><strong><mvc:annotation-driven></mvc:annotation-driven></strong> 3.1&#x7248;&#x672C;&#x5F00;&#x59CB;&#x6709;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E; ,&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;DefaultAnnotationHandlerMapping&#x4E0E;AnnotationMethodHandlerAdapter &#x4E24;&#x4E2A;bean,&#x662F;spring MVC&#x4E3A;@Controllers&#x5206;&#x53D1;&#x8BF7;&#x6C42;&#x6240;&#x5FC5;&#x987B;&#x7684;&#x3002;  </li>
+</ul>
+<p><context:annotation-config> declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.  </context:annotation-config></p>
+<p><mvc:annotation-driven> is actually rather pointless. It declares explicit support for annotation-driven MVC controllers (i.e.@RequestMapping, @Controller, etc), even though support for those is the default behaviour.</mvc:annotation-driven></p>
+<p>My advice is to always declare <context:annotation-config>, but don&#x2019;t bother with &lt;mvc:annotation-driven /unless you want JSON support via Jackson.  </context:annotation-config></p>
+<h2 id="&#x4E8B;&#x52A1;&#x914D;&#x7F6E;"><a href="#&#x4E8B;&#x52A1;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E8B;&#x52A1;&#x914D;&#x7F6E;"></a>&#x4E8B;&#x52A1;&#x914D;&#x7F6E;</h2><p>&#x5728;dao&#x5C42;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;@Transactional&#x6CE8;&#x89E3;&#xFF0C;&#x4E3A;&#x9ED8;&#x8BA4;&#x4E8B;&#x52A1;&#x914D;&#x7F6E;</p>
+<pre><code>package com.dao;
+
+@Transactional
+public class UserDaoImpl_BAK extends HibernateTemplate {
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void addUser(User user) throws Exception {
+        this.save(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void modifyUser(User user) {
+        this.update(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void delUser(String username) {
+        this.delete(this.load(User.class, username));
+    }
+
+    @Transactional(readOnly=true)
+    public void selectUser() {
+    }
+}    
+</code></pre><h2 id="applicationContext-xml-&#x516C;&#x5171;&#x914D;&#x7F6E;"><a href="#applicationContext-xml-&#x516C;&#x5171;&#x914D;&#x7F6E;" class="headerlink" title="applicationContext.xml &#x516C;&#x5171;&#x914D;&#x7F6E;"></a><strong>applicationContext.xml</strong> &#x516C;&#x5171;&#x914D;&#x7F6E;</h2><pre><code>&lt;!-- &#x914D;&#x7F6E;sessionFactory --&gt;
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;configLocation&quot;&gt;
+        &lt;value&gt;classpath:hibernate.cfg.xml&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;packagesToScan&quot;&gt;
+        &lt;list&gt;
+            &lt;value&gt;com.entity&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- &#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#xFF08;&#x58F0;&#x660E;&#x5F0F;&#x7684;&#x4E8B;&#x52A1;&#xFF09; --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- &#x914D;&#x7F6E;DAO --&gt; 
+&lt;bean id=&quot;userDao&quot; class=&quot;com.dao.UserDaoImpl&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
     </div>
 
       
