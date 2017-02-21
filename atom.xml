@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-01-11T07:06:28.537Z</updated>
+  <updated>2017-02-21T08:43:32.170Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -16,11 +16,257 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>structs2之Action与ActionContext</title>
+    <link href="http://chen1218chen.github.io/2017/02/21/structs2%E4%B9%8BActionContext/"/>
+    <id>http://chen1218chen.github.io/2017/02/21/structs2之ActionContext/</id>
+    <published>2017-02-21T10:10:30.000Z</published>
+    <updated>2017-02-21T08:43:32.170Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;Action&quot;&gt;&lt;a href=&quot;#Action&quot; class=&quot;headerlink&quot; title=&quot;Action&quot;&gt;&lt;/a&gt;Action&lt;/h2&gt;&lt;p&gt;structs2&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&amp;#x529F;&amp;#x80FD;&amp;#x5C31;&amp;#x662F;action&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x7F16;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E2A;action&amp;#x6765;&amp;#x5904;&amp;#x7406;&amp;#x903B;&amp;#x8F91;&amp;#x3002;&lt;br&gt;action&amp;#x7C7B;&amp;#x901A;&amp;#x5E38;&amp;#x90FD;&amp;#x8981;&amp;#x5B9E;&amp;#x73B0;&lt;code&gt;com.opensymphony.xwork2.Action&lt;/code&gt;&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x5E76;&amp;#x5B9E;&amp;#x73B0;&amp;#x8BE5;&amp;#x63A5;&amp;#x53E3;&amp;#x4E2D;&amp;#x7684;&lt;code&gt;execute()&lt;/code&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;Struts2&amp;#x5E76;&amp;#x4E0D;&amp;#x662F;&amp;#x8981;&amp;#x6C42;&amp;#x6240;&amp;#x6709;&amp;#x7F16;&amp;#x5199;&amp;#x7684;action&amp;#x7C7B;&amp;#x90FD;&amp;#x8981;&amp;#x5B9E;&amp;#x73B0;Action&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x7F16;&amp;#x5199;&amp;#x4E00;&amp;#x4E2A;&amp;#x666E;&amp;#x901A;&amp;#x7684;Java&amp;#x7C7B;&amp;#x4F5C;&amp;#x4E3A;action&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x5B9E;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x8FD4;&amp;#x56DE;&amp;#x7C7B;&amp;#x578B;&amp;#x4E3A;String&amp;#x7684;&amp;#x65E0;&amp;#x53C2;&amp;#x7684;public&amp;#x65B9;&amp;#x6CD5;&amp;#x5373;&amp;#x53EF;&amp;#xFF1A;&lt;code&gt;public String  xxx()&lt;/code&gt;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5728;&amp;#x5B9E;&amp;#x9645;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;action&amp;#x7C7B;&amp;#x5F88;&amp;#x5C11;&amp;#x76F4;&amp;#x63A5;&amp;#x5B9E;&amp;#x73B0;Action&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x901A;&amp;#x5E38;&amp;#x90FD;&amp;#x662F;&amp;#x4ECE;&lt;code&gt;com.opensymphony.xwork2.ActionSupport&lt;/code&gt;&amp;#x7C7B;&amp;#x7EE7;&amp;#x627F;&amp;#xFF0C;ActionSupport&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;Action&amp;#x63A5;&amp;#x53E3;&amp;#x548C;&amp;#x5176;&amp;#x4ED6;&amp;#x4E00;&amp;#x4E9B;&amp;#x53EF;&amp;#x9009;&amp;#x7684;&amp;#x63A5;&amp;#x53E3;&amp;#xFF0C;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x8F93;&amp;#x5165;&amp;#x9A8C;&amp;#x8BC1;&amp;#xFF0C;&amp;#x9519;&amp;#x8BEF;&amp;#x4FE1;&amp;#x606F;&amp;#x5B58;&amp;#x53D6;&amp;#xFF0C;&amp;#x4EE5;&amp;#x53CA;&amp;#x56FD;&amp;#x9645;&amp;#x5316;&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#xFF0C;&amp;#x9009;&amp;#x62E9;&amp;#x4ECE;ActionSupport&amp;#x7EE7;&amp;#x627F;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7B80;&amp;#x5316;action&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5E38;&amp;#x7528;&amp;#x7684;action&amp;#x57FA;&amp;#x7C7B;&amp;#xFF0C;&amp;#x5C01;&amp;#x88C5;&amp;#x4E86;&amp;#x5BF9;&lt;code&gt;HttpServletRequest&amp;#x3001;HttpServletResponse&amp;#x3001;HttpSession&lt;/code&gt;&amp;#x7684;&amp;#x83B7;&amp;#x53D6;&amp;#xFF0C;&amp;#x6240;&amp;#x6709;&amp;#x7684;action&amp;#x90FD;&amp;#x4ECE;baseAction&amp;#x7EE7;&amp;#x627F;&amp;#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;public class BaseAction extends ActionSupport{
+    protected final transient Log log = LogFactory.getLog(getClass());
+
+      /**
+     * &amp;#x83B7;&amp;#x53D6;&amp;#x8BF7;&amp;#x6C42;
+     * Convenience method to get the request
+     * @return current request
+     */
+    protected HttpServletRequest getRequest() {
+        return ServletActionContext.getRequest();
+    }
+
+    /**
+     * &amp;#x83B7;&amp;#x53D6;&amp;#x56DE;&amp;#x5E94;
+     * Convenience method to get the response
+     * @return current response
+     */
+    protected HttpServletResponse getResponse() {
+        return ServletActionContext.getResponse();
+    }
+
+    /**
+     * &amp;#x83B7;&amp;#x53D6;session
+     * @return
+     */
+    protected HttpSession getSession() {
+        return getRequest().getSession();
+    }
+}
+
+@ParentPackage(value = &amp;quot;json-default&amp;quot;)
+@Controller
+@Scope(&amp;quot;prototype&amp;quot;)
+@Action(value = &amp;quot;/loginAction&amp;quot;, results = { @Result(name = &amp;quot;success&amp;quot;, type = &amp;quot;redirect&amp;quot;,location = &amp;quot;/index.jsp&amp;quot;),
+@Result(name = &amp;quot;input&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/login.jsp&amp;quot;),
+@Result(name = &amp;quot;error&amp;quot;, type = &amp;quot;redirect&amp;quot;, location = &amp;quot;/login.jsp&amp;quot;) }, exceptionMappings = {
+        @ExceptionMapping(exception = &amp;quot;java.lang.Exception&amp;quot;, result = &amp;quot;error&amp;quot;) })
+public class LoginAction extends BaseAction {
+    ...
+    public String login() throws Exception {
+        ...
+        HttpServletRequest request= getRequest(); 
+        ...
+        return SUCCESS;
+    }
+
+     public String logout() throws Exception {
+        ...
+        HttpServletRequest request= getRequest(); 
+        ...
+        return SUCCESS;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5F00;&amp;#x53D1;&amp;#x597D;action&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x597D;&amp;#x9700;&amp;#x8981;&amp;#x5BF9;action&amp;#x8FDB;&amp;#x884C;&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x4EE5;&amp;#x544A;&amp;#x8BC9;Struts2&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x9488;&amp;#x5BF9;&amp;#x67D0;&amp;#x4E2A;URL&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#x5E94;&amp;#x8BE5;&amp;#x4EA4;&amp;#x7531;&amp;#x54EA;&amp;#x4E2A;action&amp;#x8FDB;&amp;#x884C;&amp;#x5904;&amp;#x7406;&amp;#x3002;&lt;code&gt;@Action&lt;/code&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x5728;&amp;#x7C7B;&amp;#x540D;&amp;#x4E0A;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x5728;&amp;#x65B9;&amp;#x6CD5;&amp;#x540D;&amp;#x4E0A;&amp;#x3002;&lt;br&gt;&amp;#x7EE7;&amp;#x627F;baseAction&amp;#x7C7B;&amp;#x7684;action&amp;#x7C7B;&amp;#x4E2D;&amp;#x5219;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&lt;code&gt;getRequest()&amp;#x3001;getResponse()&amp;#x3001;getSession()&lt;/code&gt;&amp;#x76F4;&amp;#x63A5;&amp;#x83B7;&amp;#x53D6;&amp;#x5230;Http&amp;#x8BF7;&amp;#x6C42;&amp;#x6216;&amp;#x8005;&amp;#x54CD;&amp;#x5E94;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;Action&amp;#x539F;&amp;#x578B;&quot;&gt;&lt;a href=&quot;#Action&amp;#x539F;&amp;#x578B;&quot; class=&quot;headerlink&quot; title=&quot;Action&amp;#x539F;&amp;#x578B;&quot;&gt;&lt;/a&gt;Action&amp;#x539F;&amp;#x578B;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Prototype &amp;#x539F;&amp;#x578B;&lt;/strong&gt;    &amp;#x6BCF;&amp;#x6B21;&amp;#x8BF7;&amp;#x6C42;&amp;#x90FD;&amp;#x4F1A;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;Action&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4FD7;&amp;#x79F0;&amp;#x201C;&amp;#x591A;&amp;#x4F8B;&amp;#x201D;&amp;#x3002;&amp;#x4E00;&amp;#x4E2A;&amp;#x6CE8;&amp;#x518C;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;,&amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x52A0;&amp;#x4E0A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x6CE8;&amp;#x89E3;,&amp;#x6CE8;&amp;#x518C;&amp;#x5B8C;&amp;#x6210;&amp;#x540E;,&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BF7;&amp;#x6C42;&amp;#x518D;&amp;#x6CE8;&amp;#x518C;&amp;#x4E00;&amp;#x6B21;,Action&amp;#x91CC;&amp;#x4F1A;&amp;#x4FDD;&amp;#x7559;&amp;#x4E0A;&amp;#x4E00;&amp;#x6B21;&amp;#x6CE8;&amp;#x518C;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;..&lt;br&gt;&lt;strong&gt;Singleton &amp;#x539F;&amp;#x578B;&amp;#xFF1A;&lt;/strong&gt;    &amp;#x5F53;&amp;#x7B2C;&amp;#x4E00;&amp;#x6B21;&amp;#x8BF7;&amp;#x6C42;&amp;#x65F6;&amp;#xFF0C;&amp;#x521B;&amp;#x5EFA;servlet&amp;#x5BF9;&amp;#x8C61;&amp;#x4E4B;&amp;#x540E;&amp;#x6BCF;&amp;#x6B21;&amp;#x90FD;&amp;#x4F7F;&amp;#x7528;&amp;#x8BE5;&amp;#x5BF9;&amp;#x8C61;&amp;#x5373;&amp;#x53EF;&amp;#x3002;spring &amp;#x9ED8;&amp;#x8BA4;scope &amp;#x662F;&amp;#x5355;&amp;#x4F8B;&amp;#x6A21;&amp;#x5F0F;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Scope(&amp;quot;prototype&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6DFB;&amp;#x52A0;@Scope&amp;#x6CE8;&amp;#x89E3;&amp;#xFF0C;&amp;#x5982;&amp;#x4E0A;&lt;code&gt;LoginAction&lt;/code&gt;&amp;#x7C7B;&amp;#x6240;&amp;#x793A;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;ActionContext&quot;&gt;&lt;a href=&quot;#ActionContext&quot; class=&quot;headerlink&quot; title=&quot;ActionContext&quot;&gt;&lt;/a&gt;ActionContext&lt;/h2&gt;&lt;p&gt;&amp;#x5728;Web&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E8F;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;,&amp;#x9664;&amp;#x4E86;&amp;#x5C06;&amp;#x8BF7;&amp;#x6C42;&amp;#x53C2;&amp;#x6570;&amp;#x81EA;&amp;#x52A8;&amp;#x8BBE;&amp;#x7F6E;&amp;#x5230;Action&amp;#x7684;&amp;#x5B57;&amp;#x6BB5;&amp;#x4E2D;,&amp;#x6211;&amp;#x4EEC;&amp;#x5F80;&amp;#x5F80;&amp;#x4E5F;&amp;#x9700;&amp;#x8981;&amp;#x5728;Action&amp;#x91CC;&amp;#x76F4;&amp;#x63A5;&amp;#x83B7;&amp;#x53D6;&amp;#x8BF7;&amp;#x6C42;(Request)&amp;#x6216;&amp;#x4F1A;&amp;#x8BDD; (Session)&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x4FE1;&amp;#x606F;, &amp;#x751A;&amp;#x81F3;&amp;#x9700;&amp;#x8981;&amp;#x76F4;&amp;#x63A5;&amp;#x5BF9;JavaServlet Http&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;(HttpServletRequest),&amp;#x54CD;&amp;#x5E94;(HttpServletResponse)&amp;#x64CD;&amp;#x4F5C;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ActionContext context = ActionContext.getContext();
+Map params = context.getParameters();
+String username = (String) params.get(&amp;quot;username&amp;quot;);
+Map session = context.getSession();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;ActionContext(&lt;code&gt;com.opensymphony.xwork.ActionContext&lt;/code&gt;)&amp;#x662F;Action&amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x7684;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;,&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x4F5C;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BB9;&amp;#x5668;(&amp;#x5176;&amp;#x5B9E;&amp;#x6211;&amp;#x4EEC;&amp;#x8FD9;&amp;#x91CC;&amp;#x7684;&amp;#x5BB9;&amp;#x5668;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Map&amp;#x800C;&amp;#x5DF2;),&amp;#x5B83;&amp;#x5B58;&amp;#x653E;&amp;#x653E;&amp;#x7684;&amp;#x662F;Action&amp;#x5728;&amp;#x6267;&amp;#x884C;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;ServletActionContext&quot;&gt;&lt;a href=&quot;#ServletActionContext&quot; class=&quot;headerlink&quot; title=&quot;ServletActionContext&quot;&gt;&lt;/a&gt;ServletActionContext&lt;/h2&gt;&lt;p&gt;ServletActionContext(&lt;code&gt;com.opensymphony.webwork. ServletActionContext&lt;/code&gt;),&amp;#x8FD9;&amp;#x4E2A;&amp;#x7C7B;&amp;#x76F4;&amp;#x63A5;&amp;#x7EE7;&amp;#x627F;&amp;#x4E86;&amp;#x6211;&amp;#x4EEC;&amp;#x4E0A;&amp;#x9762;&amp;#x4ECB;&amp;#x7ECD;&amp;#x7684;ActionContext,&amp;#x5B83;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x76F4;&amp;#x63A5;&amp;#x4E0E;Java Servlet&amp;#x76F8;&amp;#x5173;&amp;#x5BF9;&amp;#x8C61;&amp;#x8BBF;&amp;#x95EE;&amp;#x7684;&amp;#x529F;&amp;#x80FD;,&amp;#x5B83;&amp;#x53EF;&amp;#x4EE5;&amp;#x53D6;&amp;#x5F97;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x6709;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;javax.servlet.http.HttpServletRequest:HTTPservlet&amp;#x8BF7;&amp;#x6C42;&amp;#x5BF9;&amp;#x8C61; &lt;/li&gt;
+&lt;li&gt;javax.servlet.http.HttpServletResponse;:HTTPservlet&amp;#x76F8;&amp;#x5E94;&amp;#x5BF9;&amp;#x8C61; &lt;/li&gt;
+&lt;li&gt;javax.servlet.ServletContext:Servlet &amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&amp;#x4FE1;&amp;#x606F; &lt;/li&gt;
+&lt;li&gt;javax.servlet.ServletConfig:Servlet&amp;#x914D;&amp;#x7F6E;&amp;#x5BF9;&amp;#x8C61;  &lt;/li&gt;
+&lt;li&gt;javax.servlet.jsp.PageContext:Http&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x4E0B;&amp;#x6587;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x4ECE;ServletActionContext&amp;#x91CC;&amp;#x53D6;&amp;#x5F97;Servlet&amp;#x7684;&amp;#x76F8;&amp;#x5173;&amp;#x5BF9;&amp;#x8C61;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;HttpServletRequest request = ServletActionContext. getRequest();
+HttpSession session = ServletActionContext.getRequest().getSession();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5982;&amp;#x4E0A;baseAction&amp;#x7C7B;&amp;#x6240;&amp;#x793A;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&quot;&gt;&lt;a href=&quot;#&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&quot;&gt;&lt;/a&gt;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&lt;/h2&gt;&lt;p&gt;ActionContext&amp;#x662F;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&amp;#x7684;&amp;#xFF0C;&amp;#x800C;ServletActionContext&amp;#x7EE7;&amp;#x627F;&amp;#x81EA;ActionContext&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;ServletActionContext&amp;#x4E5F;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&amp;#xFF0C;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5B89;&amp;#x5168;&amp;#x8981;&amp;#x6C42;&amp;#x6BCF;&amp;#x4E2A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x90FD;&amp;#x72EC;&amp;#x7ACB;&amp;#x8FDB;&amp;#x884C;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;req&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x4E5F;&amp;#x8981;&amp;#x6C42;&amp;#x72EC;&amp;#x7ACB;&amp;#x8FDB;&amp;#x884C;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&lt;code&gt;ServletActionContext.getRequest()&lt;/code&gt;&amp;#x8FD9;&amp;#x53E5;&amp;#x8BDD;&amp;#x4E0D;&amp;#x8981;&amp;#x653E;&amp;#x5728;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x4E2D;&amp;#xFF0C;&amp;#x4E5F;&amp;#x4E0D;&amp;#x8981;&amp;#x76F4;&amp;#x63A5;&amp;#x653E;&amp;#x5728;&amp;#x7C7B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x800C;&amp;#x5E94;&amp;#x8BE5;&amp;#x653E;&amp;#x5728;&amp;#x6BCF;&amp;#x4E2A;&amp;#x5177;&amp;#x4F53;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x4F53;&amp;#x4E2D;(eg&amp;#xFF1A;login()&amp;#x3001;queryAll()&amp;#x3001;insert()&amp;#x7B49;)&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;&amp;#x624D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x6BCF;&amp;#x6B21;&amp;#x4EA7;&amp;#x751F;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#x72EC;&amp;#x7ACB;&amp;#x7684;&amp;#x5EFA;&amp;#x7ACB;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;request&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x5982;&amp;#x4E0A;LoginAction&amp;#x7C7B;&amp;#x6240;&amp;#x793A;&amp;#xFF0C;&lt;code&gt;HttpServletRequest request= getRequest();&lt;/code&gt;&amp;#x653E;&amp;#x5728;login(),logout()&amp;#x65B9;&amp;#x6CD5;&amp;#x4F53;&amp;#x91CC;&amp;#x9762;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x653E;&amp;#x5728;&amp;#x4E4B;&amp;#x5916;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;servlet&amp;#x548C;Structs2&quot;&gt;&lt;a href=&quot;#servlet&amp;#x548C;Structs2&quot; class=&quot;headerlink&quot; title=&quot;servlet&amp;#x548C;Structs2&quot;&gt;&lt;/a&gt;servlet&amp;#x548C;Structs2&lt;/h2&gt;&lt;p&gt;&amp;#x521A;&amp;#x597D;&amp;#x62BD;&amp;#x7A7A;&amp;#x603B;&amp;#x7ED3;&amp;#x4E00;&amp;#x4E0B;&amp;#x8FD9;&amp;#x4E9B;&amp;#x77E5;&amp;#x8BC6;&amp;#x70B9;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5C31;&amp;#x4F1A;&amp;#x66F4;&amp;#x52A0;&amp;#x6E05;&amp;#x6670;&amp;#xFF0C;&amp;#x8BF4;&amp;#x9053;&amp;#x8FD9;&amp;#x91CC;&amp;#x5C31;&amp;#x96BE;&amp;#x514D;&amp;#x60F3;&amp;#x5230;servlet&amp;#xFF0C;&amp;#x6BD5;&amp;#x7ADF;Structs2&amp;#x662F;&amp;#x5728;servlet&amp;#x4E0A;&amp;#x53D1;&amp;#x5C55;&amp;#x8D77;&amp;#x6765;&amp;#x7684;&amp;#x3002;&amp;#x770B;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F88;&amp;#x4E0D;&amp;#x9519;&amp;#x7684;&amp;#x5206;&amp;#x6790;&amp;#x5173;&amp;#x4E8E;servlet&amp;#x548C;Structs2&amp;#xFF0C;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&quot;servlet&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#servlet&amp;#x5206;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;servlet&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;/a&gt;servlet&amp;#x5206;&amp;#x6790;&lt;/h3&gt;&lt;p&gt; &amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x2014;&amp;gt;web&amp;#x5BB9;&amp;#x5668;&amp;#x2013;&amp;gt;web.xml&amp;#x2013;&amp;gt;servlet&amp;#x6765;&amp;#x5904;&amp;#x7406; &amp;#x2014;&amp;#x2013;&amp;gt;model&amp;#x2013;&amp;gt;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&lt;/p&gt;
+&lt;h3 id=&quot;structs2&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#structs2&amp;#x5206;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;structs2&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;/a&gt;structs2&amp;#x5206;&amp;#x6790;&lt;/h3&gt;&lt;p&gt;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x2014;&amp;#x2013;&amp;gt;web&amp;#x5BB9;&amp;#x5668;&amp;#x2014;&amp;gt;web.xml&amp;#x2013;&amp;gt;struts2&amp;#x8FC7;&amp;#x6EE4;&amp;#x5668;&amp;#x2014;&amp;gt;struts.xml&amp;#x2014;&amp;gt;Action&amp;#x2014;&amp;gt;model&amp;#x2014;&amp;gt;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;Action&quot;&gt;&lt;a href=&quot;#Action&quot; class=&quot;headerlink&quot; title=&quot;Action&quot;&gt;&lt;/a&gt;Action&lt;/h2&gt;&lt;p&gt;structs2&amp;#x7684;&amp;#x6838;&amp;#x5FC3;&amp;#x529F;&amp;
+    
+    </summary>
+    
+    
+      <category term="struts2" scheme="http://chen1218chen.github.io/tags/struts2/"/>
+    
+      <category term="servlet" scheme="http://chen1218chen.github.io/tags/servlet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>list&lt;Object&gt;的排序</title>
+    <link href="http://chen1218chen.github.io/2017/02/14/list-Object-%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
+    <id>http://chen1218chen.github.io/2017/02/14/list-Object-的排序/</id>
+    <published>2017-02-14T11:40:24.000Z</published>
+    <updated>2017-02-14T03:46:05.033Z</updated>
+    
+    <content type="html">&lt;p&gt;list&amp;#x96C6;&amp;#x5408;&amp;#x7684;&amp;#x6392;&amp;#x5E8F;&lt;br&gt;&amp;#x5F53;&amp;#x96C6;&amp;#x5408;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7684;&amp;#x662F;Object&amp;#x590D;&amp;#x6742;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;Comparable&amp;#x63A5;&amp;#x53E3;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x6392;&amp;#x5E8F;&amp;#x3002;&lt;br&gt;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@Entity
+@Table(name = &amp;quot;guide&amp;quot;)
+public class Guide implements java.io.Serializable,Comparable&amp;lt;Guide&amp;gt; {
+
+    private Integer id;
+    private Integer number;//&amp;#x6392;&amp;#x5E8F;&amp;#x5E8F;&amp;#x53F7;
+    ...(&amp;#x6B64;&amp;#x5904;&amp;#x7701;&amp;#x7565;set&amp;#xFF0C;get&amp;#x65B9;&amp;#x6CD5;)
+
+    @Override
+    public int compareTo(Guide o) {
+        int i = this.getNumber() - o.getNumber();// &amp;#x5148;&amp;#x6309;&amp;#x7167;number&amp;#x6392;&amp;#x5E8F;
+        if (i == 0) {
+            return this.getId() - o.getId();// &amp;#x5982;&amp;#x679C;number&amp;#x76F8;&amp;#x7B49;&amp;#x4E86;&amp;#x518D;&amp;#x7528;id&amp;#x8FDB;&amp;#x884C;&amp;#x6392;&amp;#x5E8F;
+        }
+        return i;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7528;&lt;code&gt;Collections.sort(list);&lt;/code&gt;&amp;#x76F4;&amp;#x63A5;&amp;#x6392;&amp;#x5E8F;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/queryAllDepart&amp;quot;,method=RequestMethod.GET)
+@ResponseBody
+public JSONArray queryAllDepart(){
+
+    List&amp;lt;Department&amp;gt; list = departServiceImpl.queryAll();
+    Collections.sort(list);
+    JSONArray lostJSONList = JSONArray.fromObject(list, Common.getJsonConfig());
+    return lostJSONList;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;list&amp;#x96C6;&amp;#x5408;&amp;#x7684;&amp;#x6392;&amp;#x5E8F;&lt;br&gt;&amp;#x5F53;&amp;#x96C6;&amp;#x5408;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7684;&amp;#x662F;Object&amp;#x590D;&amp;#x6742;&amp;#x
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shiro实现SSL登陆</title>
+    <link href="http://chen1218chen.github.io/2017/01/19/shiro%E5%AE%9E%E7%8E%B0SSL%E7%99%BB%E9%99%86/"/>
+    <id>http://chen1218chen.github.io/2017/01/19/shiro实现SSL登陆/</id>
+    <published>2017-01-18T16:14:50.000Z</published>
+    <updated>2017-01-18T08:25:26.191Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x8003;&amp;#x8651;&amp;#x9879;&amp;#x76EE;&amp;#x5B89;&amp;#x5168;&amp;#x9700;&amp;#x6C42;&amp;#xFF0C;&amp;#x5C06;http&amp;#x8BF7;&amp;#x6C42;&amp;#x8F6C;&amp;#x4E3A;https&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x5DF2;&amp;#x96C6;&amp;#x6210;&amp;#x7684;shiro&amp;#x6846;&amp;#x67B6;&amp;#x5DF2;&amp;#x5B9E;&amp;#x73B0;SSL&amp;#x767B;&amp;#x9646;&amp;#xFF0C;&amp;#x6765;&amp;#x770B;&amp;#x4E0B;&amp;#x5177;&amp;#x4F53;&amp;#x5B9E;&amp;#x73B0;&amp;#x5427;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;tomcat&amp;#x7684;server.xml&amp;#x6587;&amp;#x4EF6;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&amp;#x5C06;http&amp;#x7684;8080&amp;#x7AEF;&amp;#x53E3;&amp;#x8C03;&amp;#x8F6C;&amp;#x5230;https&amp;#x7684;8443&amp;#x7AEF;&amp;#x53E3;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;Connector acceptCount=&amp;quot;500&amp;quot; connectionTimeout=&amp;quot;20000&amp;quot; enableLookups=&amp;quot;false&amp;quot; maxThreads=&amp;quot;400&amp;quot; port=&amp;quot;8080&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot; URIEncoding=&amp;quot;UTF-8&amp;quot; redirectPort=&amp;quot;8443&amp;quot;/&amp;gt;
+
+&amp;lt;Connector SSLEnabled=&amp;quot;true&amp;quot; acceptCount=&amp;quot;500&amp;quot; clientAuth=&amp;quot;false&amp;quot; keystoreFile=&amp;quot;D:\localhost.keystore&amp;quot; keystorePass=&amp;quot;aerors123&amp;quot; maxThreads=&amp;quot;400&amp;quot; port=&amp;quot;8443&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot; scheme=&amp;quot;https&amp;quot; secure=&amp;quot;true&amp;quot; sslProtocol=&amp;quot;TLS&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;applicationContext.xml&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;shiro&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;sslFilter&amp;quot; class=&amp;quot;org.apache.shiro.web.filter.authz.SslFilter&amp;quot;&amp;gt;
+        &amp;lt;property name=&amp;quot;port&amp;quot; value=&amp;quot;8443&amp;quot; /&amp;gt;
+    &amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id=&amp;quot;shiroFilter&amp;quot; class=&amp;quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&amp;quot;&amp;gt;
+    &amp;lt;!-- securityManager --&amp;gt;
+    &amp;lt;property name=&amp;quot;securityManager&amp;quot; ref=&amp;quot;securityManager&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;loginUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;&amp;#x540E;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;successUrl&amp;quot; value=&amp;quot;/index.jsp&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x6388;&amp;#x6743;&amp;#x5931;&amp;#x8D25;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;unauthorizedUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;filters&amp;quot;&amp;gt;
+        &amp;lt;util:map&amp;gt;
+            &amp;lt;entry key=&amp;quot;authc&amp;quot; value-ref=&amp;quot;formAuthenticationFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;sysUser&amp;quot; value-ref=&amp;quot;sysUserFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;kickout&amp;quot; value-ref=&amp;quot;kickoutSessionControlFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;ssl&amp;quot; value-ref=&amp;quot;sslFilter&amp;quot; /&amp;gt;
+        &amp;lt;/util:map&amp;gt;
+    &amp;lt;/property&amp;gt;
+    &amp;lt;!-- &amp;#x8FC7;&amp;#x6EE4;&amp;#x94FE;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;
+    &amp;lt;property name=&amp;quot;filterChainDefinitions&amp;quot;&amp;gt;
+        &amp;lt;value&amp;gt;
+            /login.jsp = ssl,anon
+            /logout = logout
+            /*.js = anon
+            /*.css = anon
+            /error.jsp= anon
+            /mapdaohang.jsp= anon
+            /unauthor.jsp= anon
+            &amp;lt;!-- authc&amp;#x8868;&amp;#x793A;&amp;#x9700;&amp;#x8981;&amp;#x8BA4;&amp;#x8BC1;&amp;#x7684;&amp;#x94FE;&amp;#x63A5; --&amp;gt;
+            /lost.jsp = kickout,authc,roles[&amp;quot;lost&amp;quot;]
+            /*.jsp = kickout,authc
+        &amp;lt;/value&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5728;filters&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;&lt;code&gt;&amp;lt;entry key=&amp;quot;ssl&amp;quot; value-ref=&amp;quot;sslFilter&amp;quot; /&amp;gt;&lt;/code&gt;&amp;#x5373;&amp;#x53EF;&amp;#x5728;&lt;code&gt;filterChainDefinitions&lt;/code&gt;&amp;#x4E2D;&amp;#x76F4;&amp;#x63A5;&amp;#x5F15;&amp;#x7528;.&lt;/p&gt;
+&lt;p&gt;&amp;#x63A8;&amp;#x8350;&amp;#x4E2A;&amp;#x8BE6;&amp;#x7EC6;&amp;#x6559;&amp;#x7A0B;&amp;#xFF1A;&lt;a href=&quot;http://jinnianshilongnian.iteye.com/blog/2036420&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x7B2C;&amp;#x5341;&amp;#x56DB;&amp;#x7AE0; SSL&amp;#x2014;&amp;#x2014;&amp;#x300A;&amp;#x8DDF;&amp;#x6211;&amp;#x5B66;Shiro&amp;#x300B;&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x8003;&amp;#x8651;&amp;#x9879;&amp;#x76EE;&amp;#x5B89;&amp;#x5168;&amp;#x9700;&amp;#x6C42;&amp;#xFF0C;&amp;#x5C06;http&amp;#x8BF7;&amp;#x6C42;&amp;#x8F6C;&amp;#x4E3A;https&amp;#xFF0C;&amp;#x9879;
+    
+    </summary>
+    
+    
+      <category term="shiro" scheme="http://chen1218chen.github.io/tags/shiro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>URL路径含中文</title>
+    <link href="http://chen1218chen.github.io/2017/01/19/URL%E8%B7%AF%E5%BE%84%E5%90%AB%E4%B8%AD%E6%96%87/"/>
+    <id>http://chen1218chen.github.io/2017/01/19/URL路径含中文/</id>
+    <published>2017-01-18T16:01:59.000Z</published>
+    <updated>2017-01-18T08:13:06.266Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x6700;&amp;#x8FD1;&amp;#x78B0;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x4EE5;&amp;#x524D;&amp;#x4ECE;&amp;#x6765;&amp;#x6CA1;&amp;#x6709;&amp;#x6CE8;&amp;#x610F;&amp;#x5230;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5C31;&amp;#x662F;URL&amp;#x8DEF;&amp;#x5F84;&amp;#x5305;&amp;#x542B;&amp;#x4E2D;&amp;#x6587;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x867D;&amp;#x8BF4;&amp;#x4E0D;&amp;#x5EFA;&amp;#x8BAE;&amp;#x8DEF;&amp;#x5F84;&amp;#x540D;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;&amp;#x4E2D;&amp;#x6587;&amp;#xFF0C;&amp;#x4F46;&amp;#x6709;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4E5F;&amp;#x4E0D;&amp;#x53EF;&amp;#x907F;&amp;#x514D;&amp;#x7684;&amp;#x51FA;&amp;#x73B0;&amp;#x8FD9;&amp;#x79CD;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x627E;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x7BA1;&amp;#x7528;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x4FEE;&amp;#x6539;tomcat&amp;#x7684;server.xml&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0; &lt;code&gt;URIEncoding=&amp;quot;UTF-8&amp;quot;&lt;/code&gt;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x5982;&amp;#x4E0B;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;Connector acceptCount=&amp;quot;500&amp;quot; connectionTimeout=&amp;quot;20000&amp;quot; enableLookups=&amp;quot;false&amp;quot; maxThreads=&amp;quot;400&amp;quot; port=&amp;quot;8080&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot; URIEncoding=&amp;quot;UTF-8&amp;quot; redirectPort=&amp;quot;8443&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x6700;&amp;#x8FD1;&amp;#x78B0;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x4EE5;&amp;#x524D;&amp;#x4ECE;&amp;#x6765;&amp;#x6CA1;&amp;#x6709;&amp;#x6CE8;&amp;#x610F;&amp;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Java与JSON对象相互转换</title>
     <link href="http://chen1218chen.github.io/2017/01/11/java%E4%B8%8EJSON%E5%AF%B9%E8%B1%A1%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
     <id>http://chen1218chen.github.io/2017/01/11/java与JSON对象相互转换/</id>
     <published>2017-01-11T15:00:48.000Z</published>
-    <updated>2017-01-11T07:06:28.537Z</updated>
+    <updated>2017-01-11T08:36:19.506Z</updated>
     
     <content type="html">&lt;h2 id=&quot;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;-gt-json&amp;#x5BF9;&amp;#x8C61;-JSONObject-fromObject&quot;&gt;&lt;a href=&quot;#json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;-gt-json&amp;#x5BF9;&amp;#x8C61;-JSONObject-fromObject&quot; class=&quot;headerlink&quot; title=&quot;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;&amp;gt;json&amp;#x5BF9;&amp;#x8C61; JSONObject.fromObject()&quot;&gt;&lt;/a&gt;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x2014;&amp;#x2014;&amp;gt;json&amp;#x5BF9;&amp;#x8C61; JSONObject.fromObject()&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;JSONObject jsonObj = JSONObject.fromObject(value);
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;rest&amp;#x4E2D;@RequestBody&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;Json&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;json&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
@@ -45,7 +291,7 @@
     <link href="http://chen1218chen.github.io/2017/01/11/ajax%E4%BC%A0%E8%BE%93Object/"/>
     <id>http://chen1218chen.github.io/2017/01/11/ajax传输Object/</id>
     <published>2017-01-11T14:27:19.000Z</published>
-    <updated>2017-01-11T06:58:48.697Z</updated>
+    <updated>2017-01-11T07:12:48.165Z</updated>
     
     <content type="html">&lt;p&gt;&amp;#x901A;&amp;#x8FC7;ajax&amp;#x5411;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x8F93;object&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
 &lt;h2 id=&quot;javascript&quot;&gt;&lt;a href=&quot;#javascript&quot; class=&quot;headerlink&quot; title=&quot;javascript&quot;&gt;&lt;/a&gt;javascript&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$.ajax({
@@ -88,7 +334,8 @@ public boolean edit(@RequestBody Object value) {
 public void saveUser(@RequestBody List&amp;lt;User&amp;gt; users) { 
      userService.batchSave(users); 
 } 
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&quot;http://chen1218chen.github.io/2017/01/11/java%E4%B8%8EJSON%E5%AF%B9%E8%B1%A1%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/&quot;&gt;java&amp;#x4E0E;JSON&amp;#x76F8;&amp;#x4E92;&amp;#x8F6C;&amp;#x6362;&lt;/a&gt;&amp;#x8BE6;&amp;#x60C5;&amp;#x8BF7;&amp;#x70B9;&amp;#x51FB;&amp;#x8FD9;&amp;#x91CC;&amp;#x67E5;&amp;#x770B;&amp;#x3002;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
@@ -1179,387 +1426,6 @@ public boolean importfile(HttpServletRequest request, HttpServletResponse respon
       <category term="MultipartFile" scheme="http://chen1218chen.github.io/tags/MultipartFile/"/>
     
       <category term="fileInput" scheme="http://chen1218chen.github.io/tags/fileInput/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js中this的用法</title>
-    <link href="http://chen1218chen.github.io/2016/09/23/js%E4%B8%ADthis%E7%9A%84%E7%94%A8%E6%B3%95/"/>
-    <id>http://chen1218chen.github.io/2016/09/23/js中this的用法/</id>
-    <published>2016-09-23T10:18:23.000Z</published>
-    <updated>2016-09-23T05:54:09.273Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x5373;&amp;#x4F7F;&amp;#x7F51;&amp;#x4E0A;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x5173;&amp;#x4E8E;js&amp;#x4E2D;this&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x8BE6;&amp;#x89E3;&amp;#xFF0C;&amp;#x6211;&amp;#x8FD8;&amp;#x662F;&amp;#x60F3;&amp;#x5199;&amp;#x4E00;&amp;#x7BC7;&amp;#x5C5E;&amp;#x4E8E;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x7406;&amp;#x89E3;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x81EA;&amp;#x5DF1;&amp;#x65E5;&amp;#x540E;&amp;#x56DE;&amp;#x987E;&amp;#x3002;&lt;br&gt;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x5206;&amp;#x4E3A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x56DB;&amp;#x79CD;&amp;#xFF1A;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;a href=&quot;#&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;/a&gt;&amp;#x4EE3;&amp;#x8868;&amp;#x5168;&amp;#x5C40;&amp;#x53D8;&amp;#x91CF;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;var x = 0;
-function test(){
-    this.x = 1;
-}
-
-test();
-alert(x); // 1
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x4F5C;&amp;#x4E3A;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&lt;/h2&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x91CC;&amp;#x6240;&amp;#x8BF4;&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x662F;&amp;#x6307;&amp;#x7528;&amp;#x51FD;&amp;#x6570;new&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5BF9;&amp;#x8C61;,&amp;#x5373;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var t = new test();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x65F6;&amp;#xFF0C;this&amp;#x6307;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B0;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var x = 2;
-function test(){
-    this.x = 1;
-}
-
-var t = new test();
-alert(t.x); // 1
-alert(x);   // 2
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x4F5C;&amp;#x4E3A;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8C03;&amp;#x7528;&lt;/h2&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x65F6;this&amp;#x503C;&amp;#x4E0A;&amp;#x7EA7;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function test(){
-    alert(this.x); // 2
-    this.x = 1;
-    alert(this.x); // 1
-}
-
-var t = {};
-t.x = 2;
-t.o = test;
-t.o();
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;apply&quot;&gt;&lt;a href=&quot;#apply&quot; class=&quot;headerlink&quot; title=&quot;apply&quot;&gt;&lt;/a&gt;apply&lt;/h2&gt;&lt;p&gt;apply&amp;#x662F;&amp;#x51FD;&amp;#x6570;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x6539;&amp;#x53D8;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x5B83;&amp;#x7684;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x5C31;&amp;#x662F;&amp;#x6539;&amp;#x53D8;&amp;#x540E;&amp;#x8C03;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;this&amp;#x5C31;&amp;#x6307;&amp;#x7684;&amp;#x662F;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x53C2;&amp;#x6570;&amp;#x4E3A;&amp;#x7A7A;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x8C03;&amp;#x7528;&amp;#x5168;&amp;#x5C40;&amp;#x5BF9;&amp;#x8C61;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var x = 3
-function test(){
-    alert(this.x);
-}
-
-var t = {};
-t.x = 2;
-t.o = test;
-t.o(); //2
-t.o.apply(); //3
-t.o.apply(t); //2 &amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;t.o();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;apply&amp;#x7684;&amp;#x8BE6;&amp;#x89E3;&amp;#x67E5;&amp;#x770B;&lt;a href=&quot;http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/&quot;&gt;js&amp;#x7684;&amp;#x539F;&amp;#x578B;&amp;#x53CA;&amp;#x7EE7;&amp;#x627F;&amp;#x5B9E;&amp;#x73B0;&lt;/a&gt;&amp;#x4E00;&amp;#x6587;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x5373;&amp;#x4F7F;&amp;#x7F51;&amp;#x4E0A;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x5173;&amp;#x4E8E;js&amp;#x4E2D;this&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x8BE6;&amp;#x89E
-    
-    </summary>
-    
-    
-      <category term="JS" scheme="http://chen1218chen.github.io/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring集成Log4j和Slf4j</title>
-    <link href="http://chen1218chen.github.io/2016/09/18/Spring%E9%9B%86%E6%88%90Log4j/"/>
-    <id>http://chen1218chen.github.io/2016/09/18/Spring集成Log4j/</id>
-    <published>2016-09-18T15:50:43.000Z</published>
-    <updated>2016-09-20T02:32:15.839Z</updated>
-    
-    <content type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h2 id=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;/a&gt;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&lt;/h2&gt;&lt;p&gt;Spring&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Log4j&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;log4j&amp;#x7684;jar&amp;#x5305;&amp;#xFF08;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;log4j-1.2.11.jar&amp;#xFF09;&lt;/li&gt;
-&lt;li&gt;web.xml&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!--log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x52A0;&amp;#x8F7D;--&amp;gt;  
-&amp;lt;context-param&amp;gt;      
-   &amp;lt;param-name&amp;gt;log4jConfigLocation&amp;lt;/param-name&amp;gt;      
-   &amp;lt;param-value&amp;gt;/WEB-INF/log4j.properties&amp;lt;/param-value&amp;gt;      
-&amp;lt;/context-param&amp;gt;  
-&amp;lt;!--&amp;#x542F;&amp;#x52A8;&amp;#x4E00;&amp;#x4E2A;watchdog&amp;#x7EBF;&amp;#x7A0B;&amp;#x6BCF;1800&amp;#x79D2;&amp;#x626B;&amp;#x63CF;&amp;#x4E00;&amp;#x4E0B;log4j&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x53D8;&amp;#x5316;--&amp;gt; 
-&amp;lt;!-- log4j &amp;#x914D;&amp;#x7F6E;&amp;#x626B;&amp;#x63CF;&amp;#x5237;&amp;#x65B0;&amp;#x95F4;&amp;#x9694; &amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x7528; --&amp;gt; 
-&amp;lt;context-param&amp;gt;      
-   &amp;lt;param-name&amp;gt;log4jRefreshInterval&amp;lt;/param-name&amp;gt;      
-   &amp;lt;param-value&amp;gt;1800000&amp;lt;/param-value&amp;gt;      
-&amp;lt;/context-param&amp;gt;   
-
-&amp;lt;!--spring log4j&amp;#x76D1;&amp;#x542C;&amp;#x5668;--&amp;gt;  
-&amp;lt;listener&amp;gt;      
-   &amp;lt;listener-class&amp;gt;org.springframework.web.util.Log4jConfigListener&amp;lt;/listener-class&amp;gt;      
-&amp;lt;/listener&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x53EA;&amp;#x914D;&amp;#x7F6E;listener&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;log4j.properties&lt;br&gt;&amp;#x65E5;&amp;#x5FD7;&amp;#x7684;&amp;#x4E3B;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;log4j.rootLogger=info,stdout,debug,error    
-log4j.logger.org.springframework=info
-#log4j.logger.org.springframework.web=debug
-log4j.appender.stdout=org.apache.log4j.ConsoleAppender    
-log4j.appender.stdout.layout=org.apache.log4j.PatternLayout    
-log4j.appender.stdout.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
-
-log4j.logger.info=info    
-log4j.appender.info=org.apache.log4j.DailyRollingFileAppender    
-log4j.appender.info.layout=org.apache.log4j.PatternLayout    
-log4j.appender.info.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
-log4j.appender.info.datePattern=&amp;apos;.&amp;apos;yyyy-MM-dd    
-log4j.appender.info.Threshold = INFO    
-log4j.appender.info.append=true    
-log4j.appender.info.File=${catalina.home}/logs/log4j/info.log
-log4j.appender.warn.File=${catalina.home}/logs/log4j/warn.log    
-
-log4j.logger.debug=debug    
-log4j.appender.debug=org.apache.log4j.DailyRollingFileAppender    
-log4j.appender.debug.layout=org.apache.log4j.PatternLayout    
-log4j.appender.debug.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
-log4j.appender.debug.datePattern=&amp;apos;.&amp;apos;yyyy-MM-dd    
-log4j.appender.debug.Threshold = DEBUG    
-log4j.appender.debug.append=true    
-log4j.appender.debug.File=${catalina.home}/logs/log4j/debug.log
-
-log4j.logger.warn=warn    
-log4j.appender.warn=org.apache.log4j.DailyRollingFileAppender    
-log4j.appender.warn.layout=org.apache.log4j.PatternLayout    
-log4j.appender.warn.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
-log4j.appender.warn.datePattern=&amp;apos;.&amp;apos;yyyy-MM-dd    
-log4j.appender.warn.Threshold = DEBUG    
-log4j.appender.warn.append=true    
-
-log4j.logger.error=error    
-log4j.appender.error=org.apache.log4j.DailyRollingFileAppender    
-log4j.appender.error.layout=org.apache.log4j.PatternLayout    
-log4j.appender.error.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
-log4j.appender.error.datePattern=&amp;apos;.&amp;apos;yyyy-MM-dd    
-log4j.appender.error.Threshold = ERROR    
-log4j.appender.error.append=true    
-log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#x5199;&amp;#x5165;&amp;#x65E5;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;private static final Logger logger = LoggerFactory.getLogger(XXX.class);
-logger.info(&amp;quot;XXXX&amp;quot;);
-logger.warn(&amp;quot;XXXX&amp;quot;);
-logger.error(&amp;quot;XXXX&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;/a&gt;Slf4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&lt;/h2&gt;&lt;p&gt;Slf4j&amp;#x4E0D;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x771F;&amp;#x6B63;&amp;#x7684;&amp;#x65E5;&amp;#x5FD7;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x800C;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x62BD;&amp;#x8C61;&amp;#x5C42;&amp;#xFF0C;&amp;#x5B83;&amp;#x5141;&amp;#x8BB8;&amp;#x6211;&amp;#x4EEC;&amp;#x5728;&amp;#x540E;&amp;#x53F0;&amp;#x4F7F;&amp;#x7528;&amp;#x4EFB;&amp;#x610F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65E5;&amp;#x5FD7;&amp;#x7C7B;&amp;#x5E93;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&lt;strong&gt;&amp;#x4EE5;&amp;#x540E;&amp;#x66F4;&amp;#x6362;&amp;#x4E3A;&amp;#x5176;&amp;#x5B83;&amp;#x65E5;&amp;#x5FD7;&amp;#x5DE5;&amp;#x5177;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7528;&amp;#x4FEE;&amp;#x6539;&amp;#x4EE3;&amp;#x7801;&lt;/strong&gt;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5F00;&amp;#x6E90;&amp;#x6846;&amp;#x67B6;&amp;#x5E38;&amp;#x7528;&amp;#x5230;Slf4j&amp;#x3002;&lt;br&gt;spring 4&amp;#x9ED8;&amp;#x8BA4;&amp;#x662F;&amp;#x4E0D;&amp;#x4F9D;&amp;#x8D56;slf4j&amp;#x7684;&amp;#xFF0C;&amp;#x53EA;&amp;#x4F9D;&amp;#x8D56;common logging.&lt;br&gt;&amp;#x96C6;&amp;#x6210;&amp;#x597D;Log4j&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;Slf4j&amp;#x4E86;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&amp;#x52A0;&amp;#x5165;slf4j&amp;#x7684;jar&amp;#x5305;&lt;/li&gt;
-&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x540C;&amp;#x4E0A;Log4j&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&amp;#x5373;&amp;#x96C6;&amp;#x6210;&amp;#x597D;Log4j&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;Slf4j&amp;#x4E86;&amp;#x3002;&lt;br&gt;&amp;#x4F7F;&amp;#x7528;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;import org.slf4j.Logger;  
-import org.slf4j.LoggerFactory;
-...
-private static final Logger logger = LoggerFactory.getLogger(User.class);  
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[toc]&lt;/p&gt;
-&lt;h2 id=&quot;Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot;&gt;&lt;a href=&quot;#Log4j&amp;#x7684;&amp;#x96C6;&amp;#x6210;&quot; class=&quot;headerlink&quot; title=&quot;Log4j&amp;#x7684;&amp;#x96C6;
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
-    
-      <category term="Log4j" scheme="http://chen1218chen.github.io/tags/Log4j/"/>
-    
-      <category term="Slf4j" scheme="http://chen1218chen.github.io/tags/Slf4j/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Restful web services</title>
-    <link href="http://chen1218chen.github.io/2016/09/14/Spring-Restful-web-services/"/>
-    <id>http://chen1218chen.github.io/2016/09/14/Spring-Restful-web-services/</id>
-    <published>2016-09-14T10:42:30.000Z</published>
-    <updated>2016-09-14T03:23:13.179Z</updated>
-    
-    <content type="html">&lt;p&gt;Spring &amp;#x662F;&amp;#x6D41;&amp;#x884C;&amp;#x7684; Java EE &amp;#x5E94;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x73B0;&amp;#x5728;&amp;#x5B83;&amp;#x7684; MVC &amp;#x5C42;&amp;#x4E5F;&amp;#x652F;&amp;#x6301; REST &amp;#x4E86;,&lt;br&gt;&amp;#x5728;Spring&amp;#x6846;&amp;#x67B6;&amp;#x652F;&amp;#x6301;REST&amp;#x4E4B;&amp;#x524D;&amp;#xFF0C;&amp;#x4EBA;&amp;#x4EEC;&amp;#x4F1A;&amp;#x9009;&amp;#x7528;&amp;#x5176;&amp;#x4ED6;&amp;#x51E0;&amp;#x79CD;&amp;#x6280;&amp;#x672F;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;java&amp;#x7684;RESTful Web Services,&amp;#x5982;REStlet,Jersey&amp;#x548C;RESTEasy&amp;#x3002;&lt;br&gt;&lt;strong&gt;Spring3.0&lt;/strong&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x589E;&amp;#x52A0;&amp;#x4E86;&amp;#x5BF9;RESTful Web Services&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x3002;REST &amp;#x652F;&amp;#x6301;&amp;#x88AB;&amp;#x65E0;&amp;#x7F1D;&amp;#x6574;&amp;#x5408;&amp;#x5230; Spring &amp;#x7684; MVC &amp;#x5C42;&amp;#xFF0C;&amp;#x5B83;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x5E94;&amp;#x7528;&amp;#x5230;&amp;#x4F7F;&amp;#x7528; Spring &amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x3002;&lt;br&gt;Spring REST &amp;#x652F;&amp;#x6301;&amp;#x7684;&amp;#x4E3B;&amp;#x8981;&amp;#x7279;&amp;#x6027;&amp;#x5305;&amp;#x62EC;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x6CE8;&amp;#x91CA;&amp;#xFF0C;&amp;#x5982; @RequestMapping &amp;#x548C; @PathVariable&amp;#xFF0C;&amp;#x652F;&amp;#x6301;&amp;#x8D44;&amp;#x6E90;&amp;#x6807;&amp;#x8BC6;&amp;#x548C; URL &amp;#x6620;&amp;#x5C04;&lt;/li&gt;
-&lt;li&gt;ContentNegotiatingViewResolver &amp;#x652F;&amp;#x6301;&amp;#x4E3A;&amp;#x4E0D;&amp;#x540C;&amp;#x7684; MIME/&amp;#x5185;&amp;#x5BB9;&amp;#x7C7B;&amp;#x578B;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x8868;&amp;#x793A;&amp;#x65B9;&amp;#x5F0F;&lt;/li&gt;
-&lt;li&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x76F8;&amp;#x4F3C;&amp;#x7684;&amp;#x7F16;&amp;#x7A0B;&amp;#x6A21;&amp;#x578B;&amp;#x65E0;&amp;#x7F1D;&amp;#x5730;&amp;#x6574;&amp;#x5408;&amp;#x5230;&amp;#x539F;&amp;#x59CB;&amp;#x7684; MVC &amp;#x5C42;&lt;h2 id=&quot;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;a href=&quot;#&amp;#x5B9E;&amp;#x73B0;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;/a&gt;&amp;#x5B9E;&amp;#x73B0;&lt;/h2&gt;web.xml&amp;#x4E2D;&amp;#x6FC0;&amp;#x6D3B;Spring,&amp;#x914D;&amp;#x7F6E;&amp;#xFF1A;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;listener-ContextLoadListener
-servlet-DispatcherServlet
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Spring&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!--&amp;#x6307;&amp;#x660E; controller &amp;#x6240;&amp;#x5728;&amp;#x5305;&amp;#xFF0C;&amp;#x5E76;&amp;#x626B;&amp;#x63CF;&amp;#x5176;&amp;#x4E2D;&amp;#x7684;&amp;#x6CE8;&amp;#x89E3;--&amp;gt;
-&amp;lt;context:component-scan base-package=&amp;quot;com.aerors.th.gis&amp;quot;/&amp;gt;
-&amp;lt;!-- &amp;#x5F00;&amp;#x542F;&amp;#x6CE8;&amp;#x89E3; --&amp;gt;
-&amp;lt;mvc:annotation-driven/&amp;gt;
-&amp;lt;!-- &amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&amp;#x8FDB;&amp;#x884C;&amp;#x4F9D;&amp;#x8D56;&amp;#x6CE8;&amp;#x5165; --&amp;gt;
-&amp;lt;context:annotation-config&amp;gt;&amp;lt;/context:annotation-config&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;component-scan:&lt;/strong&gt; &amp;#x542F;&amp;#x7528;&amp;#x5BF9;&amp;#x5E26;&amp;#x6709; Spring &amp;#x6CE8;&amp;#x91CA;&amp;#x7684;&amp;#x7C7B;&amp;#x8FDB;&amp;#x884C;&amp;#x81EA;&amp;#x52A8;&amp;#x626B;&amp;#x63CF;&lt;br&gt;&amp;#x5728;&amp;#x5B9E;&amp;#x8DF5;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5B83;&amp;#x5C06;&amp;#x68C0;&amp;#x67E5;&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x7C7B;&amp;#x4E2D;&amp;#x6240;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684; @Controller &amp;#x6CE8;&amp;#x91CA;&lt;/p&gt;
-&lt;h2 id=&quot;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;a href=&quot;#Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot; class=&quot;headerlink&quot; title=&quot;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&quot;&gt;&lt;/a&gt;Controller&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x5B9E;&amp;#x73B0;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@Controller
-@RequestMapping(&amp;quot;/user&amp;quot;)
-public class UserRest {
-    @Resource
-    private IUserService userManagerImpl;
-
-    @RequestMapping(value = &amp;quot;/queryAllUser&amp;quot;, method = RequestMethod.GET)
-    @ResponseBody
-    public JSONArray queryAllUser() {
-
-        List&amp;lt;User&amp;gt; dataList = userManagerImpl.queryAll();
-        JSONArray userJSONList2 = JSONArray.fromObject(dataList);
-        return userJSONList2;
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;@PathVariable&amp;#x4E0E;@RequestParam&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;@Controller
-public class EmployeeController {
-    @RequestMapping(method=RequestMethod.GET, value=&amp;quot;/employee/{id}&amp;quot;)
-    public ModelAndView getEmployee(@PathVariable String id) {
-        Employee e = employeeDS.get(Long.parseLong(id));
-        returnnew ModelAndView(XML_VIEW_NAME, &amp;quot;object&amp;quot;, e);
-    }
-    ...
-}
-
-
-@Controller
-@RequestMapping(&amp;quot;employees&amp;quot;)
-public class EmployeeController {
-
-    Employee employee = new Employee();
-
-    @RequestMapping(value = &amp;quot;/{name}&amp;quot;, method = RequestMethod.GET, produces = &amp;quot;application/json&amp;quot;)
-    public @ResponseBody Employee getEmployeeInJSON(@PathVariable String name) {
-
-        employee.setName(name);
-        employee.setEmail(&amp;quot;employee1@genuitec.com&amp;quot;);
-
-        return employee;
-
-    }
-
-    @RequestMapping(value = &amp;quot;/queryByName&amp;quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public User queryByName(@RequestParam(&amp;quot;uname&amp;quot;) String uname) {
-
-        User user;
-        try {
-            user = userManagerImpl.queryByName(uname).get(0);
-        } catch (Exception e) {
-            // TODO &amp;#x81EA;&amp;#x52A8;&amp;#x751F;&amp;#x6210;&amp;#x7684; catch &amp;#x5757;
-            e.printStackTrace();
-            return null;
-        }
-
-        return user;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;@RestController&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Spring 4.0&amp;#x4E2D;&amp;#x5F15;&amp;#x5165; @RestController&amp;#x7B80;&amp;#x5316;&amp;#x4E86;@Controller&amp;#xFF0C;@ResponseBody&amp;#x6CE8;&amp;#x91CA;&lt;br&gt;@RestController&amp;#x6CE8;&amp;#x89E3;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@ResponseBody &amp;#xFF0B; @Controller&amp;#x5408;&amp;#x5728;&amp;#x4E00;&amp;#x8D77;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RestController
-@RequestMapping(&amp;quot;employees&amp;quot;)
-public class EmployeeController {
-
-    Employee employee = new Employee();
-
-    @RequestMapping(value = &amp;quot;/{name}&amp;quot;, method = RequestMethod.GET, produces = &amp;quot;application/json&amp;quot;)
-    public Employee getEmployeeInJSON(@PathVariable String name) {
-
-        employee.setName(name);
-        employee.setEmail(&amp;quot;employee1@genuitec.com&amp;quot;);
-
-        return employee;
-
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Spring &amp;#x662F;&amp;#x6D41;&amp;#x884C;&amp;#x7684; Java EE &amp;#x5E94;&amp;#x7528;&amp;#x5F00;&amp;#x53D1;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x73B0;&amp;#x5728;&amp;#x5B83;&amp;#x7684; 
-    
-    </summary>
-    
-    
-      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
-    
-      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular用户注册及密码一致性验证</title>
-    <link href="http://chen1218chen.github.io/2016/09/12/angular%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%AF%86%E7%A0%81%E7%A1%AE%E8%AE%A4%E9%AA%8C%E8%AF%81/"/>
-    <id>http://chen1218chen.github.io/2016/09/12/angular用户注册与密码确认验证/</id>
-    <published>2016-09-12T15:52:30.000Z</published>
-    <updated>2016-09-12T08:11:20.881Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;a href=&quot;#&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;/a&gt;&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&lt;/h1&gt;&lt;p&gt;&amp;#x521D;&amp;#x5B66;&amp;#x4E60;angular&amp;#xFF0C;&amp;#x7528;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x6CE8;&amp;#x518C;&amp;#x9875;&amp;#x9762;&amp;#x6765;&amp;#x7EC3;&amp;#x7EC3;&amp;#x624B;&amp;#xFF0C;mark&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x4EE5;&amp;#x540E;&amp;#x9700;&amp;#x8981;&amp;#x5C31;&amp;#x76F4;&amp;#x63A5;Ctrl+c&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;form action=&amp;quot;&amp;quot; class=&amp;quot;form-horizontal&amp;quot; name=&amp;quot;regForm&amp;quot;     ng-controller=&amp;quot;regController&amp;quot; 
- ng-submit=&amp;quot;submitForm()&amp;quot; novalidate&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot; ng-class=&amp;quot;{&amp;apos;has-success&amp;apos;:regForm.username.$valid&amp;amp;&amp;amp;regForm.username.$touched,&amp;apos;has-error&amp;apos;:regForm.username.$invalid&amp;amp;&amp;amp;regForm.username.$touched }&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;&amp;quot; class=&amp;quot;col-md-2 control-label&amp;quot;&amp;gt;
-            &amp;#x7528;&amp;#x6237;&amp;#x540D;
-        &amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-9&amp;quot;&amp;gt;
-            &amp;lt;input type=&amp;quot;text&amp;quot; 
-            class=&amp;quot;form-control&amp;quot; 
-            ng-model=&amp;quot;user.username&amp;quot; 
-            name=&amp;quot;username&amp;quot; 
-            ng-minlength=&amp;quot;4&amp;quot; ng-maxlength=&amp;quot;10&amp;quot; 
-            placeholder=&amp;quot;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;quot; 
-            required&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.username.$error.required&amp;amp;&amp;amp;regForm.username.$touched&amp;quot;&amp;gt;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;lt;/p&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.username.$error.minlength||regForm.username.$error.maxlength&amp;quot;&amp;gt;&amp;#x957F;&amp;#x5EA6;&amp;#x4E3A;4-10&amp;#x4F4D;&amp;lt;/p&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot; ng-class=&amp;quot;{&amp;apos;has-success&amp;apos;:regForm.password.$valid&amp;amp;&amp;amp;regForm.password.$touched,&amp;apos;has-error&amp;apos;:regForm.password.$invalid&amp;amp;&amp;amp;regForm.password.$touched}&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;&amp;quot; class=&amp;quot;col-md-2 control-label&amp;quot;&amp;gt;
-            &amp;#x5BC6;&amp;#x7801;
-        &amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-9&amp;quot;&amp;gt;
-            &amp;lt;input type=&amp;quot;password&amp;quot; 
-            class=&amp;quot;form-control&amp;quot; 
-            ng-model=&amp;quot;user.password&amp;quot; 
-            name=&amp;quot;password&amp;quot; 
-            ng-pattern=&amp;quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&amp;quot;
-            ng-minlength=&amp;quot;4&amp;quot; ng-maxlength=&amp;quot;10&amp;quot; 
-            placeholder=&amp;quot;&amp;#x53EA;&amp;#x80FD;&amp;#x662F;&amp;#x6570;&amp;#x5B57;&amp;#x3001;&amp;#x5B57;&amp;#x6BCD;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF; &amp;quot; 
-            required&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.password.$error.required
-            &amp;amp;&amp;amp;regForm.password.$touched&amp;quot;&amp;gt;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;lt;/p&amp;gt;
-            &amp;lt;!--&amp;#x6B63;&amp;#x5219;&amp;#x9A8C;&amp;#x8BC1;--&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.password.$error.pattern&amp;amp;&amp;amp;regForm.password.$touched&amp;quot;&amp;gt;
-            &amp;#x53EA;&amp;#x80FD;&amp;#x662F;&amp;#x6570;&amp;#x5B57;&amp;#x3001;&amp;#x5B57;&amp;#x6BCD;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;lt;/p&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; 
-            ng-show=&amp;quot;regForm.password.$error.minlength||regForm.password.$error.maxlength&amp;quot;&amp;gt;&amp;#x5BC6;&amp;#x7801;&amp;#x4E3A;4-10&amp;#x4F4D;&amp;lt;/p&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot; ng-class=&amp;quot;{&amp;apos;has-success&amp;apos;:regForm.confirmPassword.$valid&amp;amp;&amp;amp;regForm.confirmPassword.$touched,&amp;apos;has-error&amp;apos;:(regForm.confirmPassword.$invalid&amp;amp;&amp;amp;regForm.confirmPassword.$touched)||(user.password!=user.confirmPassword&amp;amp;&amp;amp;regForm.confirmPassword.$touched)}&amp;quot;&amp;gt;
-        &amp;lt;label for=&amp;quot;&amp;quot; class=&amp;quot;col-md-2 control-label&amp;quot;&amp;gt;
-            &amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;
-        &amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-9&amp;quot;&amp;gt;
-            &amp;lt;input type=&amp;quot;password&amp;quot; 
-            class=&amp;quot;form-control&amp;quot; 
-            ng-model=&amp;quot;user.confirmPassword&amp;quot; 
-            name=&amp;quot;confirmPassword&amp;quot; 
-            ng-minlength=&amp;quot;4&amp;quot; ng-maxlength=&amp;quot;10&amp;quot; 
-            ng-pattern=&amp;quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&amp;quot;
-            placeholder=&amp;quot;&amp;#x53EA;&amp;#x80FD;&amp;#x662F;&amp;#x6570;&amp;#x5B57;&amp;#x3001;&amp;#x5B57;&amp;#x6BCD;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;quot; 
-            required&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.confirmPassword.$error.required&amp;amp;&amp;amp;regForm.confirmPassword.$touched&amp;quot;&amp;gt;&amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x80FD;&amp;#x4E3A;&amp;#x7A7A;&amp;lt;/p&amp;gt;
-            &amp;lt;!--&amp;#x6B63;&amp;#x5219;&amp;#x9A8C;&amp;#x8BC1;--&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.confirmPassword.$error.pattern&amp;amp;&amp;amp;regForm.confirmPassword.$touched&amp;quot;&amp;gt;&amp;#x53EA;&amp;#x80FD;&amp;#x662F;&amp;#x6570;&amp;#x5B57;&amp;#x3001;&amp;#x5B57;&amp;#x6BCD;&amp;#x548C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;lt;/p&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; ng-show=&amp;quot;regForm.confirmPassword.$error.minlength||regForm.confirmPassword.$error.maxlength&amp;quot;&amp;gt;&amp;#x786E;&amp;#x8BA4;&amp;#x5BC6;&amp;#x7801;&amp;#x4E3A;4-10&amp;#x4F4D;&amp;lt;/p&amp;gt;
-            &amp;lt;p class=&amp;quot;help-block has-error&amp;quot; 
-            ng-show=&amp;quot;user.password!=user.confirmPassword&amp;amp;&amp;amp;regForm.confirmPassword.$touched&amp;quot;&amp;gt;&amp;#x4E24;&amp;#x6B21;&amp;#x5BC6;&amp;#x7801;&amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;lt;/p&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-offset-2 col-md-9&amp;quot;&amp;gt;
-            &amp;lt;button class=&amp;quot;btn btn-primary&amp;quot; ng-disabled=&amp;quot;regForm.$invalid&amp;quot;&amp;gt;&amp;#x767B;&amp;#x9646;&amp;lt;/button&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;a href=&quot;#&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5
-    
-    </summary>
-    
-    
-      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
     
   </entry>
   

@@ -1,88 +1,18 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion">
+<!DOCTYPE html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="bootstrap table," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="一锅乱炖" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="baidu-site-verification" content="3AXkMPkEjZ" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="chen" />
 
 
 
@@ -115,215 +45,290 @@ bootstrap-editable.css&amp;#x5373;&amp;#x53EF;&amp;#x3002;
 
 &amp;#x52">
 
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
+    <link rel="alternate" href="/atom.xml" title="一锅乱炖" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>bootstrap-table之editable | 一锅乱炖</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
     }
-  };
 </script>
 
 
+    <script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-  <link rel="canonical" href="http://chen1218chen.github.io/2017/01/11/bootstrap-table之editable/"/>
 
-  <title> bootstrap-table之editable | 一锅乱炖 </title>
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?350fe2b781f9de55d96f5f676f44930e";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/images/avatar.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">chen</a></h1>
+        </hgroup>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">一锅乱炖</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+        
 
-  
-    <div class="site-search">
-      
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/cc.2008.com@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/chen1218chen" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" href="http://blog.csdn.net/chen1218chen" title="CSDN"></a>
+                            
+                                <a class="fa 微信" href="/chen1218chen" title="微信"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AOP/">AOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap-Paginator/">Bootstrap Paginator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDE/">IDE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellJ-IDAE/">IntellJ IDAE</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAX-RS/">JAX-RS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JRebel/">JRebel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSP/">JSP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jersey/">Jersey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log4j/">Log4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/">MVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MultipartFile/">MultipartFile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactJS/">ReactJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RequireJS/">RequireJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSH/">SSH</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeaJS/">SeaJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sublime/">Sublime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XML/">XML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arcgis/">arcgis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-table/">bootstrap table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bootstrap-dialog/">bootstrap-dialog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-js/">express.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fileInput/">fileInput</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/grunt/">grunt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hibernate/">hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/question/">question</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select2/">select2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiro/">shiro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springMVC/">springMVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/struts2/">struts2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用软件/">常用软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模块化/">模块化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://blog.csdn.net/chen1218chen">CSDN</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://github.com/chen1218chen">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="/cc.2008.com@163.com">Email</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chen</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/images/avatar.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">chen</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/cc.2008.com@163.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/chen1218chen" title="GitHub"></a>
+                            
+                                <a class="fa CSDN" target="_blank" href="http://blog.csdn.net/chen1218chen" title="CSDN"></a>
+                            
+                                <a class="fa 微信" target="_blank" href="/chen1218chen" title="微信"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-bootstrap-table之editable" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/11/bootstrap-table之editable/" class="article-date">
+      <time datetime="2017-01-11T10:24:33.000Z" itemprop="datePublished">2017-01-11</time>
+</a>
 
 
     </div>
   
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+  <div class="article-inner">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                bootstrap-table之editable
-              
-            
-          </h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      bootstrap-table之editable
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-11T18:24:33+08:00" content="2017-01-11">
-              2017-01-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-              &nbsp; | &nbsp;
-              <span class="page-pv">本文总阅读量
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-              </span>
-          
-        </div>
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-table/">bootstrap table</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
+          
         <h2 id="editable"><a href="#editable" class="headerlink" title="editable"></a>editable</h2><p>bootstrap table&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5F15;&#x5165;</p>
 <ul>
 <li>bootstrap-table-editable.js</li>
@@ -339,471 +344,214 @@ bootstrap-editable.css&amp;#x5373;&amp;#x53EF;&amp;#x3002;
 </code></pre>
       
     </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/bootstrap-table/" rel="tag">#bootstrap table</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/01/03/SpringMVC之转发请求和重定向/" rel="next" title="SpringMVC之转发请求和重定向">
-                <i class="fa fa-chevron-left"></i> SpringMVC之转发请求和重定向
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/11/ajax传输Object/" rel="prev" title="ajax传输Object及@RequestBody的用法">
-                ajax传输Object及@RequestBody的用法 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
     
   </div>
-
-
-        </div>
-        
-          
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/11/bootstrap-table之editable/">bootstrap-table之editable</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
+        <p><span>发布时间:</span>2017-01-11, 10:24:33</p>
+        <p><span>最后更新:</span>2017-01-11, 10:32:39</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/11/bootstrap-table之editable/" title="bootstrap-table之editable">http://chen1218chen.github.io/2017/01/11/bootstrap-table之editable/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2017/01/11/bootstrap-table之editable/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="chen" />
-          <p class="site-author-name" itemprop="name">chen</p>
-          <p class="site-description motion-element" itemprop="description">热爱生活，热爱学习</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">83</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">59</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/01/11/ajax传输Object/">
+                    ajax传输Object及@RequestBody的用法
+                </a>
             </div>
-          
-
-        </nav>
-
         
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
         
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/01/03/SpringMVC之转发请求和重定向/">
+                    SpringMVC之转发请求和重定向
+                </a>
+            </div>
+        
+    </nav>
 
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="mailto:cc.2008.com@163.com" target="_blank" title="Email">
-                  
-                    <i class="fa fa-fw fa-envelope"></i>
-                  
-                  Email
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/chen1218chen" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-          
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#editable"><span class="toc-number">1.</span> <span class="toc-text">editable</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"bootstrap-table之editable　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
 
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#editable"><span class="nav-number">1.</span> <span class="nav-text">editable</span></a></li></ol></div>
-            
-          </div>
-        </section>
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">chen</span>
-</div>
-
-        
-
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人次</span>
-  
-
-  
-    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
-  
-  
+    
 </div>
 
 
 
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-      </div>
-    </footer>
+            <a href="/2017/01/11/ajax传输Object/" title="上一篇: ajax传输Object及@RequestBody的用法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/01/03/SpringMVC之转发请求和重定向/" title="下一篇: SpringMVC之转发请求和重定向">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-  </div>
 
-  
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/structs2之ActionContext/">structs2之Action与ActionContext</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/14/list-Object-的排序/">list<Object>的排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/shiro实现SSL登陆/">shiro实现SSL登陆</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/19/URL路径含中文/">URL路径含中文</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/java与JSON对象相互转换/">Java与JSON对象相互转换</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/ajax传输Object/">ajax传输Object及@RequestBody的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/11/bootstrap-table之editable/">bootstrap-table之editable</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/03/SpringMVC之转发请求和重定向/">SpringMVC之转发请求和重定向</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/27/XML文档解读/">XML文档解读</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/19/rest/">rest</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/08/Sublime-Angular-snippets安装/">Sublime Angular snippets安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/04/angular之Service-vs-Factory/">angular之Service vs Factory</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/03/chrome跨域报错/">angular的ajax请求chrome跨域报错(XMLHttpRequest cannot loadfile:* Cross origin requests are only supported for protocol schemes)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/angular常见错误分析（新手）/">angular常见错误分析（新手篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/react-Demo/">React Demo</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/27/tomcat发布后访问路径问题/">tomcat发布后访问路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/12/IntellJ-IDEA生成war包/">IntellJ IDEA生成war包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/10/SpringMVC后台接受不到POST请求数据/">SpringMVC后台接受不到POST请求数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/单页面应用/">单页面应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/SpringMVC之多文件上传/">bootstrap-fileinput之文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/js中this的用法/">js中this的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/Spring集成Log4j/">Spring集成Log4j和Slf4j</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/14/Spring-Restful-web-services/">Spring Restful web services</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/12/angular用户注册与密码确认验证/">angular用户注册及密码一致性验证</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/bootstrap的使用/">bootstrap的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/bootstrap-validator/">bootstrap-validator</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/jQuery-confirm/">jQuery-confirm</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/bootstrap-dialog使用/">bootstrap-dialog使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/angular实现用户登陆/">angular实现用户登陆</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/07/bootstrap fileinput 文件上传/">bootstrap file文件上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/关于HTML5的一些零碎/">关于HTML5的一些零碎</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/05/Sublime初识/">Sublime初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/IDEA/">Intellij IDEA</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/关于Servlet理解与认识/">关于servlet理解与认识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/JSP浅析/">JSP浅析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/08/jquery类库/">jquery类库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/05/MVC、MVVM模式/">MVC、MVVM模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/String解析/">String解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/04/Java内存分配浅析/">Java内存分配浅析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/FormParam与-RequestParam/">@FormParam与@RequestParam</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/bootstrapSwitch使用/">bootstrapSwitch使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/14/RequireJS加载百度地图/">RequireJS模块化开发百度地图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/14/RequireJS/">RequireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/12/ReactJS初识/">ReactJS初识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/08/OneToMany关系的实现/">OneToMany关系的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/21/eclipse之JRebel热部署/">eclipse之JRebel热部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/16/eclipse工程报错/">eclipse工程报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/">Struts2之ModelDriven接口实现登陆及退出</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/grunt/">grunt + bower</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Express.js/">Express.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/bower/">bower</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/08/Angular/">Angular</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/前端模块化管理/">SeaJS与RequireJS</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/README/">README</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/19/jquery源码解析/">jquery源码解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/tomcat关于跨域问题/">tomcat关于跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/js的继承实现/">js的原型及继承实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/Date格式化/">js Date格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/04/bootstrapTable总结/">bootstrap table小技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/bootstrap框架中对于用户表操作的js代码/">操作bootstrap table的js代码总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/22/ajax总结/">ajax总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/SpringMVC/">SpringMVC框架原理及项目配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/18/spring/">spring浅析及配置实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/07/annotation/">Spring注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/06/shiro角色配置/">shiro角色配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/31/ManyToOne/">ManyToOne, ManyToMany注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/shiro入门/">shiro入门配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/SSH多个数据源动态数据切换/">SSH多个数据源动态数据切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/hibernate/">hibernate</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/node.js/">node.js</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/mongodb/">mongodb</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/git/">新手常用的git命令及问题分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常用软件/">常用软件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/常见问题/">常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/SSH/">SSH配置集成</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/JS/">JS基础概念之大杂烩</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/java学习/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/ARCGIS/">ArcGIS入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/hexo/">hexo的使用</a></li></ul>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 chen
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
 </script>
 
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-       search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = true;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            }
-                        });
-                    }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
-
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
-                    }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
-        }
-    });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
-
-
-  
-
-  
-
-  
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>
