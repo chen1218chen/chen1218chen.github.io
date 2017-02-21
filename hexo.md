@@ -1,6 +1,6 @@
 ---
 title: hexo的使用 
-tags: hexo,blog
+tags: [hexo]
 grammar_cjkRuby: true
 ---
 [TOC]

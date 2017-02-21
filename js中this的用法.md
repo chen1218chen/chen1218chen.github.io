@@ -1,7 +1,7 @@
 ---
 title: js中this的用法
 date: 2016-09-23 10:18:23
-tags: JS
+tags: JavaScript
 ---
 [TOC]
 

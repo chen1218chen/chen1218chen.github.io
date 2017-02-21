@@ -1,7 +1,7 @@
 ---
 title: js的原型及继承实现
 date: 2016-05-10 14:31:57
-tags: js
+tags: JavaScript
 ---
 [TOC]
 

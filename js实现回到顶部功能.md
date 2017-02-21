@@ -1,7 +1,7 @@
 ---
 title: js实现回到顶部功能及页面定位
 date: 2016-05-13 10:56:03
-tags: JS
+tags: JavaScript
 ---
 ## 回到顶部
 

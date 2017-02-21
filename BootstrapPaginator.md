@@ -1,7 +1,7 @@
 ---
 title: 使用BootstrapPaginator插件数据分页
 date: 2016-04-14 14:38:49
-tags: Bootstrap Paginator, Bootstrap
+tags: [Bootstrap Paginator, Bootstrap]
 ---
 根据项目需要在信息展示列表页面进行分页显示由于数据时一次性取出分页展示，在数据量大的时候数据获取时速度慢的问题，后续改进取数据的方法，每次只取一页的数据。
 # 居中显示

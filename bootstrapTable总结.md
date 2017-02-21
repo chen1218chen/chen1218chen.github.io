@@ -1,7 +1,7 @@
 ---
 title: bootstrap table小技巧
 date: 2016-05-04 15:54:29
-tags: bootstrap
+tags: Bootstrap
 ---
 [TOC]
 ## table参数（Table options）

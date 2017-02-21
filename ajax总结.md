@@ -1,7 +1,7 @@
 ---
 title: ajax总结
 date: 2016-04-22 09:27:06
-tags: [ajax, JS]
+tags: [ajax, JavaScript]
 ---
 [TOC]
 

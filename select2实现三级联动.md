@@ -1,7 +1,7 @@
 ---
 title: select2实现三级联动
 date: 2016-04-28 16:07:49
-tags: select2, bootstrap
+tags: [select2, Bootstrap]
 ---
 最近根据项目需求要求实现数据分类，分类数据分为三级，考虑使用select2来实现三级联动效果
 ![enter description here][1]

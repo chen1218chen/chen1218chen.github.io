@@ -1,7 +1,7 @@
 ---
 title: hibernate之翻页的实现
 date: 2016-06-13 10:46:36
-tags: hibernate, java
+tags: [Hibernate, java]
 ---
 pageSize:每页记录数
 pageNow：当前页码

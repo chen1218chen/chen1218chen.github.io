@@ -1,6 +1,6 @@
 ---
 title: JS基础概念之大杂烩
-tags: JS
+tags: JavaScript
 ---
 
 [TOC]

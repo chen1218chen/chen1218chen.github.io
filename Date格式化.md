@@ -1,7 +1,7 @@
 layout: js
 title: js Date格式化
 date: 2016-05-09 17:02:52
-tags: js
+tags: JavaScript
 ---
 
     Date.prototype.Format = function(fmt) { // author: meizz

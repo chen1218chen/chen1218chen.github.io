@@ -1,13 +1,14 @@
 ---
 title: SSH多个数据源动态数据切换
 date: 2016-03-04 16:16:29
-tags: ssh, aop,hibernate
+tags: [SSH, AOP, Hibernate]
 ---
 
 [TOC]
 
 ## SSH多个数据源动态数据切换 
 一般情况下我们在spring配置中只配置一个dataSource来连接数据库，然后在SessionFactory中绑定dataSource。如果有需要连接多个数据库时的正确做法是：
+
 ![enter description here][1]
 
 SSH框架的项目中我需要连接两个PostgreSQL数据库既可以手动切换，也可以使用aop来动态切换。
@@ -125,10 +126,12 @@ Spring的事务管理是与数据源绑定的，一旦程序执行到事务管�
     
 ### 2. java文件
 需要写以下三个.java文件来实现切换
+
 ![enter description here][2]
 
 > DatabaseContextHolder， 用来保存当前应该使用的数据源名称
-   
+
+
     package com.lbs.core;
 
     public class DatabaseContextHolder {
@@ -145,12 +148,13 @@ Spring的事务管理是与数据源绑定的，一旦程序执行到事务管�
     }
 > AbstractRoutingDataSource实现类，实现数据源路由选择
 
+
     package com.lbs.core;
 
     import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-    
+
     public class DynamicDataSource extends AbstractRoutingDataSource{
-    
+
     	@Override
     	protected Object determineCurrentLookupKey() {
     		// TODO 自动生成的方法存根
@@ -158,13 +162,14 @@ Spring的事务管理是与数据源绑定的，一旦程序执行到事务管�
     	}
     }
 > DataSourceInterceptor来进行切换
-    
+
+
     package com.lbs.core;
 
     import org.aspectj.lang.JoinPoint;
     import org.aspectj.lang.annotation.Aspect;
     import org.springframework.stereotype.Component;
-    
+
     @Aspect
     @Component
     //@Order(value=1)
@@ -182,7 +187,7 @@ Spring的事务管理是与数据源绑定的，一旦程序执行到事务管�
     }
     
 或者不用aop @before来拦截，手动调用以下语句
-    
+
     DatabaseContextHolder.setCustomerType("dataSourceSDE");
     
 
