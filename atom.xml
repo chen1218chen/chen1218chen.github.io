@@ -128,6 +128,24 @@ HttpSession session = ServletActionContext.getRequest().getSession();
   </entry>
   
   <entry>
+    <title></title>
+    <link href="http://chen1218chen.github.io/2017/02/21/baidu_verify_3AXkMPkEjZ/"/>
+    <id>http://chen1218chen.github.io/2017/02/21/baidu_verify_3AXkMPkEjZ/</id>
+    <published>2017-02-21T08:53:11.597Z</published>
+    <updated>2017-02-21T08:52:53.586Z</updated>
+    
+    <content type="html">3AXkMPkEjZ</content>
+    
+    <summary type="html">
+    
+      3AXkMPkEjZ
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>list&lt;Object&gt;的排序</title>
     <link href="http://chen1218chen.github.io/2017/02/14/list-Object-%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
     <id>http://chen1218chen.github.io/2017/02/14/list-Object-的排序/</id>
@@ -1169,263 +1187,6 @@ public String get(HttpServletRequest request, HttpServletResponse response) {
     
     
       <category term="web" scheme="http://chen1218chen.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap-fileinput之文件上传</title>
-    <link href="http://chen1218chen.github.io/2016/09/28/SpringMVC%E4%B9%8B%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://chen1218chen.github.io/2016/09/28/SpringMVC之多文件上传/</id>
-    <published>2016-09-28T11:02:45.000Z</published>
-    <updated>2017-01-09T03:41:14.168Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x6B64;&amp;#x529F;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&amp;#x4F7F;&amp;#x7528;bootstrap-fileinput(fileinput.min.js)&amp;#x63D2;&amp;#x4EF6;,&amp;#x4E3B;&amp;#x9875;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kartik-v/bootstrap-fileinput&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bootstrap-fileinput Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://plugins.krajee.com/file-input&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x4E3B;&amp;#x9875;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;MultipartFile&quot;&gt;&lt;a href=&quot;#MultipartFile&quot; class=&quot;headerlink&quot; title=&quot;MultipartFile&quot;&gt;&lt;/a&gt;MultipartFile&lt;/h2&gt;&lt;p&gt;Spring&amp;#x4F7F;&amp;#x7528;MultipartFile&amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x591A;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x914D;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;multipartResolver&amp;#x7684;bean&lt;/p&gt;
- &lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
-
-&lt;p&gt; @RequestMapping(value=&amp;#x201D;/parseAttr.json&amp;#x201D;, method = RequestMethod.POST)&lt;br&gt; public ModelMap parseAttr(@RequestParam(&amp;#x201C;file&amp;#x201D;) MultipartFile uFile) {&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ModelMap result = new ModelMap();
-...
-result.put(&amp;quot;keys&amp;quot;,set);
-return result;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; }&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;a href=&quot;#&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;/a&gt;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&lt;/h2&gt;&lt;p&gt; MultipartFile file = new MultipartFile();&lt;br&gt; file.getOriginalFilename():&amp;#x83B7;&amp;#x53D6;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x539F;&amp;#x540D;&lt;br&gt; file.getInputStream():&amp;#x83B7;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&lt;/p&gt;
-&lt;/bean&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;form&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;a href=&quot;#form&amp;#x8868;&amp;#x5355;&quot; class=&quot;headerlink&quot; title=&quot;form&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;/a&gt;form&amp;#x8868;&amp;#x5355;&lt;/h2&gt;&lt;p&gt;&amp;#x5206;&amp;#x4E24;&amp;#x7C7B;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF1A;&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;&amp;#x3001;&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;form role=&amp;quot;form&amp;quot; class=&amp;quot;form-horizontal&amp;quot; id=&amp;quot;importFile&amp;quot; method=&amp;quot;post&amp;quot; accept-charset=&amp;quot;utf-8&amp;quot; enctype=&amp;quot;multipart/form-data&amp;quot;&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;label class=&amp;quot;col-lg-2 control-label&amp;quot; for=&amp;quot;descption&amp;quot;&amp;gt;&amp;#x6587;&amp;#x7AE0;&amp;#x7C7B;&amp;#x578B;&amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-lg-9&amp;quot;&amp;gt;
-            &amp;lt;select name=&amp;quot;descption&amp;quot; id=&amp;quot;descption&amp;quot; style=&amp;quot;padding: 6px 12px;line-height: 1.42857143;    border: 1px solid #ccc;    border-radius: 4px;&amp;quot;&amp;gt;
-                &amp;lt;option value=&amp;quot;1&amp;quot;&amp;gt;&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;&amp;lt;/option&amp;gt;
-                &amp;lt;option value=&amp;quot;2&amp;quot;&amp;gt;&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;&amp;lt;/option&amp;gt;
-            &amp;lt;/select&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;label class=&amp;quot;col-lg-2 control-label&amp;quot; for=&amp;quot;fileInput&amp;quot;&amp;gt;&amp;#x6587;&amp;#x7AE0;&amp;#x4E0A;&amp;#x4F20;&amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-9&amp;quot;&amp;gt;
-
-            &amp;lt;input id=&amp;quot;fileInput&amp;quot; name=&amp;quot;fileInput&amp;quot; type=&amp;quot;file&amp;quot; multiple
-                class=&amp;quot;file-loading&amp;quot;&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-
-    &amp;lt;hr /&amp;gt;
-    &amp;lt;div class=&amp;quot;btn-group&amp;quot; style=&amp;quot;margin-left: 160px;margin-right:5px&amp;quot;&amp;gt;
-        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-success&amp;quot; id=&amp;quot;submitOK&amp;quot;&amp;gt;
-            &amp;lt;i class=&amp;quot;glyphicon glyphicon-check&amp;quot;&amp;gt;&amp;#x63D0;&amp;#x4EA4;&amp;lt;/i&amp;gt;
-        &amp;lt;/button&amp;gt;
-        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-danger&amp;quot; data-dismiss=&amp;quot;modal&amp;quot;
-            id=&amp;quot;btn-close&amp;quot;&amp;gt;
-            &amp;lt;i class=&amp;quot;glyphicon glyphicon-remove&amp;quot;&amp;gt;&amp;#x5173;&amp;#x95ED;&amp;lt;/i&amp;gt;
-        &amp;lt;/button&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;a href=&quot;#js&amp;#x4EE3;&amp;#x7801;&quot; class=&quot;headerlink&quot; title=&quot;js&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;/a&gt;js&amp;#x4EE3;&amp;#x7801;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(&amp;quot;#fileInput&amp;quot;).fileinput({
-    uploadUrl:&amp;quot;#&amp;quot;,//&amp;#x4E0A;&amp;#x4F20;&amp;#x7684;&amp;#x5730;&amp;#x5740;
-    uploadAsync: false,
-    language : &amp;quot;zh&amp;quot;,//&amp;#x8BBE;&amp;#x7F6E;&amp;#x8BED;&amp;#x8A00;
-    showCaption: true,//&amp;#x662F;&amp;#x5426;&amp;#x663E;&amp;#x793A;&amp;#x6807;&amp;#x9898;
-    showUpload: false, //&amp;#x662F;&amp;#x5426;&amp;#x663E;&amp;#x793A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6309;&amp;#x94AE;
-    browseClass: &amp;quot;btn btn-primary&amp;quot;, //&amp;#x6309;&amp;#x94AE;&amp;#x6837;&amp;#x5F0F; 
-    allowedFileExtensions: [&amp;quot;html&amp;quot;,&amp;quot;htm&amp;quot;], //&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x7F00;
-    maxFileCount: 1,//&amp;#x6700;&amp;#x5927;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x6570;&amp;#x9650;&amp;#x5236;
-    maxFileSize: 1000,//&amp;#x6700;&amp;#x5927;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x5927;&amp;#x5C0F;
-    uploadAsync: true,
-    previewFileIcon: &amp;apos;&amp;lt;i class=&amp;quot;glyphicon glyphicon-file&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-    allowedPreviewTypes: null, 
-    previewFileIconSettings: {
-        &amp;apos;doc&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-word-o text-primary&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;xls&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-excel-o text-success&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;ppt&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-powerpoint-o text-danger&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;jpg&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-photo-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;pdf&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-pdf-o text-danger&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;zip&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-archive-o text-muted&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;htm&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-code-o text-info&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;txt&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-text-o text-info&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;mov&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-movie-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;mp3&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-audio-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-    },
-    previewFileExtSettings: {
-        &amp;apos;doc&amp;apos;: function(ext) {
-            return ext.match(/(doc|docx)$/i);
-        },
-        &amp;apos;xls&amp;apos;: function(ext) {
-            return ext.match(/(xls|xlsx)$/i);
-        },
-        &amp;apos;ppt&amp;apos;: function(ext) {
-            return ext.match(/(ppt|pptx)$/i);
-        },
-        &amp;apos;zip&amp;apos;: function(ext) {
-            return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
-        },
-        &amp;apos;htm&amp;apos;: function(ext) {
-            return ext.match(/(php|js|css|htm|html)$/i);
-        },
-        &amp;apos;txt&amp;apos;: function(ext) {
-            return ext.match(/(txt|ini|md)$/i);
-        },
-        &amp;apos;mov&amp;apos;: function(ext) {
-            return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
-        },
-        &amp;apos;mp3&amp;apos;: function(ext) {
-            return ext.match(/(mp3|wav)$/i);
-        },
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x53EF;&amp;#x9644;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;uploadExtraData&amp;#x53C2;&amp;#x6570;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;uploadExtraData: function() {
-    var extraValue = null;
-    var radios = document.getElementsByName(&amp;apos;excelType&amp;apos;);
-    for(var i=0;i&amp;lt;radios.length;i++){
-        if(radios[i].checked){
-            extraValue = radios[i].value;
-        }
-    }
-    return {&amp;quot;excelType&amp;quot;: extraValue};
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;&amp;#x7684;&amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $(&amp;quot;#fileInput&amp;quot;).on(&amp;quot;fileuploaded&amp;quot;, function(event, data, previewId, index) {
-    alertView(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;!&amp;quot;);
-}); 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;#x7684;&amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$(&amp;apos;#excelFile&amp;apos;).on(&amp;apos;fileuploaderror&amp;apos;, function(event, data, previewId, index) {
-    alertView(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;!&amp;quot;);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;js&amp;#x63D0;&amp;#x4EA4;&amp;#x5E26;&amp;#x6587;&amp;#x4EF6;&amp;#x8868;&amp;#x5355;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $(&amp;quot;#submitOK&amp;quot;).click(function() {
-    $.ajax({
-        cache: true,
-        type: &amp;quot;POST&amp;quot;,
-        url: &amp;quot;rest/guide/importfile&amp;quot;,
-        data: new FormData($(&amp;apos;#importFile&amp;apos;)[0]),// &amp;#x4F60;&amp;#x7684;formid
-        processData: false,
-        contentType: false,
-        error: function(request) {
-            alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;quot;);
-        },
-        success: function(data) {
-            if(data){                    
-                alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;&amp;quot;);
-            }
-            else {
-                alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;quot;);
-            }
-        }
-    });
-}); 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x70B9;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;processData&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&amp;#x56E0;&amp;#x4E3A;data&amp;#x503C;&amp;#x662F;FormData&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x5BF9;&amp;#x6570;&amp;#x636E;&amp;#x505A;&amp;#x5904;&amp;#x7406;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&lt;form&gt;&amp;#x6807;&amp;#x7B7E;&amp;#x6DFB;&amp;#x52A0;enctype=&amp;#x201D;multipart/form-data&amp;#x201D;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&lt;/form&gt;&lt;/li&gt;
-&lt;li&gt;cache&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#xFF0C;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x7F13;&amp;#x5B58;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;contentType&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&amp;#x56E0;&amp;#x4E3A;&amp;#x662F;&amp;#x7531;&lt;form&gt;&amp;#x8868;&amp;#x5355;&amp;#x6784;&amp;#x9020;&amp;#x7684;FormData&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x5DF2;&amp;#x7ECF;&amp;#x58F0;&amp;#x660E;&amp;#x4E86;&amp;#x5C5E;&amp;#x6027;enctype=&amp;#x201D;multipart/form-data&amp;#x201D;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x8FD9;&amp;#x91CC;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&lt;/form&gt;&lt;/li&gt;
-&lt;li&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x540E;&amp;#xFF0C;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7AEF;&amp;#x4EE3;&amp;#x7801;&amp;#x9700;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x4ECE;&amp;#x67E5;&amp;#x8BE2;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x4E3A;file&amp;#x83B7;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x8F93;&amp;#x5165;&amp;#x6D41;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;input&amp;#x4E2D;&amp;#x58F0;&amp;#x660E;&amp;#x7684;&amp;#x662F;name=&amp;#x201D;file&amp;#x201D;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot;&gt;&lt;a href=&quot;#&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot;&gt;&lt;/a&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/importfile&amp;quot;, method = RequestMethod.POST)
-@ResponseBody
-public boolean importfile(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    request.setCharacterEncoding(&amp;quot;utf-8&amp;quot;);
-    final String allowFileSuffix = &amp;quot;html,htm&amp;quot;;
-    String basePath = request.getSession().getServletContext().getRealPath(&amp;quot;/&amp;quot;);
-    String realpath = null;
-
-    // &amp;#x68C0;&amp;#x67E5;&amp;#x8F93;&amp;#x5165;&amp;#x8BF7;&amp;#x6C42;&amp;#x662F;&amp;#x5426;&amp;#x4E3A;multipart&amp;#x8868;&amp;#x5355;&amp;#x6570;&amp;#x636E;&amp;#x3002;
-    if (ServletFileUpload.isMultipartContent(request)) {
-        DiskFileItemFactory dff = new DiskFileItemFactory();//&amp;#x83B7;&amp;#x5F97;&amp;#x78C1;&amp;#x76D8;&amp;#x6587;&amp;#x4EF6;&amp;#x6761;&amp;#x76EE;&amp;#x5DE5;&amp;#x5382;  
-        dff.setSizeThreshold(1024000);// &amp;#x6307;&amp;#x5B9A;&amp;#x5728;&amp;#x5185;&amp;#x5B58;&amp;#x4E2D;&amp;#x7F13;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#x5927;&amp;#x5C0F;,&amp;#x5355;&amp;#x4F4D;&amp;#x4E3A;byte
-        ServletFileUpload upload = new ServletFileUpload(dff);// &amp;#x521B;&amp;#x5EFA;&amp;#x8BE5;&amp;#x5BF9;&amp;#x8C61;
-        upload.setFileSizeMax(5000000);//&amp;#x6307;&amp;#x5B9A;&amp;#x5355;&amp;#x4E2A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x6700;&amp;#x5927;&amp;#x5C3A;&amp;#x5BF8;
-        upload.setSizeMax(10000000);// &amp;#x6307;&amp;#x5B9A;&amp;#x4E00;&amp;#x6B21;&amp;#x4E0A;&amp;#x4F20;&amp;#x591A;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x603B;&amp;#x5C3A;&amp;#x5BF8;
-        upload.setHeaderEncoding(&amp;quot;utf-8&amp;quot;);
-        List&amp;lt;FileItem&amp;gt; fileItems = new ArrayList&amp;lt;FileItem&amp;gt;();
-        try {
-            fileItems = upload.parseRequest(request);
-        } catch (FileUploadException e1) {
-            logger.error(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#x53D1;&amp;#x751F;&amp;#x9519;&amp;#x8BEF;&amp;quot; + e1.getMessage());
-            return false;
-        }
-        String fullPath = null;
-        String fileName = null;
-        String fullName=null;
-        String type=&amp;quot;&amp;quot;;
-        for (FileItem fileItem : fileItems) {
-
-            // &amp;#x5224;&amp;#x65AD;&amp;#x8BE5;&amp;#x8868;&amp;#x5355;&amp;#x9879;&amp;#x662F;&amp;#x5426;&amp;#x662F;&amp;#x666E;&amp;#x901A;&amp;#x7C7B;&amp;#x578B;
-            if (fileItem.isFormField()) {
-                String name = fileItem.getFieldName();// &amp;#x63A7;&amp;#x4EF6;&amp;#x540D;
-                String value = fileItem.getString(); //&amp;#x63A7;&amp;#x4EF6;&amp;#x503C;        
-                if (name.equals(&amp;quot;descption&amp;quot;)) {
-                    if(value.equals(&amp;quot;1&amp;quot;)){
-                        type=&amp;quot;guide&amp;quot;;//&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;
-                    }
-                    else if(value.equals(&amp;quot;2&amp;quot;)){
-                        type=&amp;quot;case&amp;quot;;//&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;
-                    }
-                    realpath=basePath+type;
-                    File tmpDir = new File(realpath);// &amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4E34;&amp;#x65F6;&amp;#x5B58;&amp;#x653E;&amp;#x76EE;&amp;#x5F55;
-                    if (!tmpDir.exists()) {
-                        tmpDir.mkdirs();
-                    }
-                    dff.setRepository(tmpDir);// &amp;#x6307;&amp;#x5B9A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4E34;&amp;#x65F6;&amp;#x76EE;&amp;#x5F55;
-
-                }
-            } else {
-                String filePath = fileItem.getName();
-                if (filePath == null || filePath.trim().length() == 0)
-                    continue;
-                fullName = filePath.substring(filePath.lastIndexOf(File.separator) + 1);
-                fileName = filePath.substring(0,filePath.lastIndexOf(&amp;quot;.&amp;quot;));
-
-                String extName = filePath.substring(filePath.lastIndexOf(&amp;quot;.&amp;quot;) + 1);
-                fullPath = realpath + File.separator + fullName;
-                if (allowFileSuffix.indexOf(extName) != -1) {
-                    try {
-                        fileItem.write(new File(fullPath));
-                        //&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x5730;&amp;#x5740;&amp;#x5B58;&amp;#x5165;&amp;#x6570;&amp;#x636E;&amp;#x5E93;
-                        Guide guide = new Guide();
-                        guide.setName(fileName);
-                        guide.setUrl(&amp;quot;../&amp;quot;+type +&amp;quot;/&amp;quot; + fullName);
-                        if(type.equals(&amp;quot;guide&amp;quot;)){                                
-                            guide.setType(1);
-                        }
-                        else if(type.equals(&amp;quot;case&amp;quot;)){
-                            guide.setType(2);
-                        } 
-                        guideServiceImpl.insert(guide);
-                    } catch (Exception e) {
-                        logger.error(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x5199;&amp;#x5165;Guide&amp;#x8868;&amp;#x51FA;&amp;#x9519;&amp;quot;);
-                        return false;
-                    }
-                } else {
-                    throw new FileUploadException(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x683C;&amp;#x5F0F;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;&amp;quot;);
-                }
-            }
-        }
-    }
-    return true;
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x6B64;&amp;#x529F;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&amp;#x4F7F;&amp;#x7528;bootstrap-fileinput(fileinput.min.js)&amp;#x63D2;&amp;#x4EF6;,&amp;#x4E3B;&amp;#x987
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
-    
-      <category term="MultipartFile" scheme="http://chen1218chen.github.io/tags/MultipartFile/"/>
-    
-      <category term="fileInput" scheme="http://chen1218chen.github.io/tags/fileInput/"/>
     
   </entry>
   
