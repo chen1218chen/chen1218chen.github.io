@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-02-21T08:43:32.170Z</updated>
+  <updated>2017-03-03T03:59:55.228Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,127 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java实现文件下载</title>
+    <link href="http://chen1218chen.github.io/2017/03/03/java%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
+    <id>http://chen1218chen.github.io/2017/03/03/java实现文件下载/</id>
+    <published>2017-03-03T11:56:48.000Z</published>
+    <updated>2017-03-03T03:59:55.228Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;word&amp;#x6587;&amp;#x6863;&amp;#x4E0B;&amp;#x8F7D;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x8FD9;&amp;#x662F;java&amp;#x7684;&amp;#x540E;&amp;#x53F0;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x524D;&amp;#x53F0;&amp;#x8C03;&amp;#x7528;&amp;#x91C7;&amp;#x7528;ajax&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping(&amp;quot;laws&amp;quot;)
+public class LawsRest {
+    private static Logger logger = LoggerFactory.getLogger(LawsRest.class);
+
+    @RequestMapping(value = &amp;quot;/downloadFile/{value}&amp;quot;,method=RequestMethod.GET)
+    @ResponseBody
+    public void downloadFile(@PathVariable(&amp;quot;value&amp;quot;) String value, HttpServletRequest request,
+            HttpServletResponse response) throws IOException {
+
+        String directory = request.getSession().getServletContext().getRealPath(&amp;quot;/&amp;quot;);
+        String fileName = value+&amp;quot;.doc&amp;quot;;
+        String filePath = directory + &amp;quot;laws\\&amp;quot; + fileName;
+
+        //&amp;#x8BBE;&amp;#x7F6E;&amp;#x5411;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7AEF;&amp;#x4F20;&amp;#x9001;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x683C;&amp;#x5F0F;
+        //&amp;#x5224;&amp;#x65AD;&amp;#x6587;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x5B58;&amp;#x5728;
+        File file=new File(filePath);
+        if(!file.exists()){
+            fileName = value+&amp;quot;.docx&amp;quot;;
+            filePath = directory + &amp;quot;laws\\&amp;quot; + fileName;
+        }
+        logger.info(value);
+        logger.info(filePath);
+        response.setContentType(&amp;quot;application/msword&amp;quot;);  
+        response.setHeader(&amp;quot;content-disposition&amp;quot;, &amp;quot;attachment;filename=&amp;quot; + URLEncoder.encode(fileName, &amp;quot;UTF-8&amp;quot;));
+        FileInputStream in = new FileInputStream(filePath);
+        // &amp;#x521B;&amp;#x5EFA;&amp;#x8F93;&amp;#x51FA;&amp;#x6D41;
+        OutputStream out = response.getOutputStream();
+        // &amp;#x521B;&amp;#x5EFA;&amp;#x7F13;&amp;#x51B2;&amp;#x533A;
+        byte buffer[] = new byte[1024];
+        int len = 0;
+        // &amp;#x5FAA;&amp;#x73AF;&amp;#x5C06;&amp;#x8F93;&amp;#x5165;&amp;#x6D41;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8BFB;&amp;#x53D6;&amp;#x5230;&amp;#x7F13;&amp;#x51B2;&amp;#x533A;&amp;#x5F53;&amp;#x4E2D;
+        while ((len = in.read(buffer)) &amp;gt; 0) {
+            // &amp;#x8F93;&amp;#x51FA;&amp;#x7F13;&amp;#x51B2;&amp;#x533A;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5230;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;,&amp;#x5B9E;&amp;#x73B0;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0B;&amp;#x8F7D;
+            out.write(buffer, 0, len);
+        }
+        out.flush();
+
+        in.close();
+        out.close();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#x5B9E;&amp;#x73B0;word&amp;#x6587;&amp;#x6863;&amp;#x4E0B;&amp;#x8F7D;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x8FD9;&amp;#x66
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue.js初探</title>
+    <link href="http://chen1218chen.github.io/2017/02/24/vue-js%E5%88%9D%E6%8E%A2/"/>
+    <id>http://chen1218chen.github.io/2017/02/24/vue-js初探/</id>
+    <published>2017-02-23T17:11:10.000Z</published>
+    <updated>2017-02-27T08:46:10.806Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://cn.vuejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Vue&amp;#x4E2D;&amp;#x6587;&amp;#x5B98;&amp;#x7F51;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vue&amp;#x521D;&amp;#x63A2;&amp;#xFF0C;&amp;#x5373;&amp;#x4F7F;&amp;#x7167;&amp;#x7740;&amp;#x5B98;&amp;#x65B9;&amp;#x6559;&amp;#x7A0B;&amp;#x4E00;&amp;#x6B65;&amp;#x6B65;&amp;#x6765;&amp;#xFF0C;&amp;#x4F9D;&amp;#x7136;&amp;#x662F;&amp;#x9519;&amp;#x8BEF;&amp;#x767E;&amp;#x51FA;&amp;#xFF0C;&amp;#x8BB0;&amp;#x5F97;&amp;#x6700;&amp;#x597D;&amp;#x662F;&amp;#x5C06;node.js&amp;#x66F4;&amp;#x65B0;&amp;#x5230;&amp;#x6700;&amp;#x65B0;&amp;#x7248;&amp;#x672C;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7136;&amp;#x5404;&amp;#x79CD;&amp;#x62A5;&amp;#x9519;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x600E;&amp;#x4E48;&amp;#x89E3;&amp;#x51B3;&amp;#x3002;&lt;br&gt;&amp;#x679C;&amp;#x4E0D;&amp;#x5176;&amp;#x7136;&amp;#xFF0C;&amp;#x518D;&amp;#x7ECF;&amp;#x8FC7;&amp;#x5C06;&amp;#x73AF;&amp;#x5883;&amp;#x6574;&amp;#x4E2A;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x5728;&amp;#x6839;&amp;#x636E;&amp;#x4EE5;&amp;#x4E0B;&amp;#x5B98;&amp;#x7F51;&amp;#x4E0A;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&amp;#x4E00;&amp;#x6B65;&amp;#x6B65;&amp;#x6765;&amp;#x5C31;&amp;#x6728;&amp;#x6709;&amp;#x95EE;&amp;#x9898;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# &amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5; vue-cli
+$ npm install --global vue-cli
+# &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E; webpack &amp;#x6A21;&amp;#x677F;&amp;#x7684;&amp;#x65B0;&amp;#x9879;&amp;#x76EE;
+$ vue init webpack first
+# &amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8D70;&amp;#x4F60;
+$ cd first
+$ npm install
+$ npm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6210;&amp;#x529F;&amp;#x663E;&amp;#x793A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223172730.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223172730.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223173009.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223173009.png&quot;&gt;&lt;br&gt;main.js:&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x4E3B;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x56FD;&amp;#x5185;&amp;#x7684;npm&amp;#x7F51;&amp;#x901F;&amp;#x4E0D;&amp;#x7A33;&amp;#x5B9A;&amp;#xFF0C;&amp;#x63A8;&amp;#x8350;&amp;#x4F7F;&amp;#x7528;&amp;#x6DD8;&amp;#x5B9D;&amp;#x955C;&amp;#x50CF;&amp;#xFF0C;&lt;a href=&quot;http://npm.taobao.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x70B9;&amp;#x51FB;&amp;#x67E5;&amp;#x770B;&amp;#x8BE6;&amp;#x60C5;&lt;/a&gt;&amp;#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170227101809.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170227101809.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x5B98;&amp;#x65B9;&amp;#x63A8;&amp;#x8350;&amp;#x7684;&amp;#x5F15;&amp;#x5165;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://unpkg.com/vue/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>structs2之Action与ActionContext</title>
@@ -1146,286 +1267,6 @@ public String get(HttpServletRequest request, HttpServletResponse response) {
       <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
     
       <category term="ajax" scheme="http://chen1218chen.github.io/tags/ajax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单页面应用</title>
-    <link href="http://chen1218chen.github.io/2016/10/08/%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8/"/>
-    <id>http://chen1218chen.github.io/2016/10/08/单页面应用/</id>
-    <published>2016-10-08T09:01:28.000Z</published>
-    <updated>2016-10-08T06:37:11.255Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x5355;&amp;#x9875;Web&amp;#x5E94;&amp;#x7528;&amp;#xFF08;single page web application&amp;#xFF0C;SPA&amp;#xFF09;&amp;#xFF0C;&amp;#x987E;&amp;#x540D;&amp;#x601D;&amp;#x4E49;&amp;#xFF0C;&amp;#x5C31;&amp;#x662F;&amp;#x53EA;&amp;#x6709;&amp;#x4E00;&amp;#x5F20;Web&amp;#x9875;&amp;#x9762;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x3002;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4E00;&amp;#x5F00;&amp;#x59CB;&amp;#x4F1A;&amp;#x52A0;&amp;#x8F7D;&amp;#x5FC5;&amp;#x9700;&amp;#x7684;HTML&amp;#x3001;CSS&amp;#x548C;JavaScript&amp;#xFF0C;&amp;#x4E4B;&amp;#x540E;&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x90FD;&amp;#x5728;&amp;#x8FD9;&amp;#x5F20;&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x5B8C;&amp;#x6210;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E00;&amp;#x5207;&amp;#x90FD;&amp;#x7531;JavaScript&amp;#x6765;&amp;#x63A7;&amp;#x5236;&amp;#x3002;&amp;#x56E0;&amp;#x6B64;&amp;#xFF0C;&amp;#x5355;&amp;#x9875;Web&amp;#x5E94;&amp;#x7528;&amp;#x4F1A;&amp;#x5305;&amp;#x542B;&amp;#x5927;&amp;#x91CF;&amp;#x7684;JavaScript&amp;#x4EE3;&amp;#x7801;&amp;#xFF0C;&amp;#x590D;&amp;#x6742;&amp;#x5EA6;&amp;#x53EF;&amp;#x60F3;&amp;#x800C;&amp;#x77E5;&amp;#xFF0C;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x548C;&amp;#x8BBE;&amp;#x8BA1;&amp;#x7684;&amp;#x91CD;&amp;#x8981;&amp;#x6027;&amp;#x4E0D;&amp;#x8A00;&amp;#x800C;&amp;#x55BB;&amp;#x3002;&lt;br&gt;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x6307;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4E2D;&amp;#x8FD0;&amp;#x884C;&amp;#x7684;&amp;#x5F15;&amp;#x7528;&amp;#xFF0C;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;&amp;#x671F;&amp;#x95F4;&amp;#x4E0D;&amp;#x4F1A;&amp;#x91CD;&amp;#x65B0;&amp;#x52A0;&amp;#x8F7D;&amp;#x9875;&amp;#x9762;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7406;&amp;#x89E3;&amp;#x4E3A;&amp;#x4ECE;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x52A0;&amp;#x8F7D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5BCC;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#x3002;&amp;#x4F18;&amp;#x52BF;&amp;#x5728;&amp;#x4E8E;&amp;#xFF1A;&amp;#x5373;&amp;#x62E5;&amp;#x6709;&amp;#x5DE6;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x53CA;&amp;#x65F6;&amp;#x6027;&amp;#x53C8;&amp;#x62E5;&amp;#x6709;&amp;#x7F51;&amp;#x7AD9;&amp;#x7684;&amp;#x53EF;&amp;#x79FB;&amp;#x690D;&amp;#x6027;&amp;#x548C;&amp;#x53EF;&amp;#x8BBF;&amp;#x95EE;&amp;#x6027;&amp;#x3002;&lt;br&gt;&amp;#x4F20;&amp;#x7EDF;&amp;#x7684;&amp;#x7F51;&amp;#x7AD9;&amp;#x5E94;&amp;#x7528;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7684;&amp;#x4E1A;&amp;#x52A1;&amp;#x903B;&amp;#x8F91;&amp;#x5927;&amp;#x591A;&amp;#x5728;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7AEF;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x5BF9;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x7684;&amp;#x8F93;&amp;#x5165;&amp;#x54CD;&amp;#x5E94;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x7B49;&amp;#x5F85;&amp;#x4E00;&amp;#x4E2A;&amp;#x201C;&amp;#x8BF7;&amp;#x6C42;&amp;#x3001;&amp;#x54CD;&amp;#x5E94;&amp;#x3001;&amp;#x91CD;&amp;#x7ED8;&amp;#x201D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5468;&amp;#x671F;&amp;#x5FAA;&amp;#x73AF;&amp;#x3002;&amp;#x800C;&amp;#x5355;&amp;#x9875;&amp;#x5E94;&amp;#x7528;&amp;#x53EF;&amp;#x4EE5;&amp;#x50CF;&amp;#x684C;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x4E00;&amp;#x6837;&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x7684;&amp;#x628A;&amp;#x4E1A;&amp;#x52A1;&amp;#x6570;&amp;#x636E;&amp;#x5904;&amp;#x7406;&amp;#x8FC7;&amp;#x7A0B;&amp;#x8F6C;&amp;#x79FB;&amp;#x5230;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7AEF;&amp;#xFF0C;&amp;#x628A;&amp;#x6570;&amp;#x636E;&amp;#x9A8C;&amp;#x8BC1;&amp;#x3001;&amp;#x6388;&amp;#x6743;&amp;#x3001;&amp;#x6301;&amp;#x4E45;&amp;#x5B58;&amp;#x50A8;&amp;#x5FC5;&amp;#x987B;&amp;#x8981;&amp;#x653E;&amp;#x5728;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7AEF;&amp;#xFF0C;&amp;#x628A;&amp;#x54CD;&amp;#x5E94;&amp;#x65F6;&amp;#x95F4;&amp;#x51CF;&amp;#x81F3;&amp;#x6700;&amp;#x5C0F;&amp;#x3002;&lt;br&gt;&amp;#x968F;&amp;#x7740;&amp;#x5355;&amp;#x9875;web&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x5D1B;&amp;#x8D77;&amp;#xFF0C;&amp;#x5404;&amp;#x79CD;&amp;#x6846;&amp;#x67B6;&amp;#x4E0D;&amp;#x65AD;&amp;#x6D8C;&amp;#x73B0;&amp;#xFF0C;&amp;#x5982;Angular.js&amp;#x3001;backbone.js&amp;#x3001;ember.js&amp;#x7B49;&amp;#xFF0C;&amp;#x8FD8;&amp;#x6709;Require.js&amp;#x7B49;&amp;#x6A21;&amp;#x5757;&amp;#x52A0;&amp;#x8F7D;&amp;#x5668;&amp;#x3002;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/08/&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zuoninger/article/details/38842823&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x5355;&amp;#x9875;web&amp;#x5E94;&amp;#x7528;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#xFF1F;&amp;#x5B83;&amp;#x53C8;&amp;#x4F1A;&amp;#x7ED9;&amp;#x4F20;&amp;#x7EDF;&amp;#x7F51;&amp;#x7AD9;&amp;#x5E26;&amp;#x6765;&amp;#x54EA;&amp;#x4E9B;&amp;#x597D;&amp;#x5904;?&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x5355;&amp;#x9875;Web&amp;#x5E94;&amp;#x7528;&amp;#xFF08;single page web application&amp;#xFF0C;SPA&amp;#xFF09;&amp;#xFF0C;&amp;#x987E;&amp;#x540D;&amp;#x601D;&amp;#x4E49;&amp;#xFF0C;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="http://chen1218chen.github.io/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap-fileinput之文件上传</title>
-    <link href="http://chen1218chen.github.io/2016/09/28/SpringMVC%E4%B9%8B%E5%A4%9A%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://chen1218chen.github.io/2016/09/28/SpringMVC之多文件上传/</id>
-    <published>2016-09-28T11:02:45.000Z</published>
-    <updated>2017-01-09T03:41:14.168Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x6B64;&amp;#x529F;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&amp;#x4F7F;&amp;#x7528;bootstrap-fileinput(fileinput.min.js)&amp;#x63D2;&amp;#x4EF6;,&amp;#x4E3B;&amp;#x9875;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kartik-v/bootstrap-fileinput&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bootstrap-fileinput Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://plugins.krajee.com/file-input&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x4E3B;&amp;#x9875;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;MultipartFile&quot;&gt;&lt;a href=&quot;#MultipartFile&quot; class=&quot;headerlink&quot; title=&quot;MultipartFile&quot;&gt;&lt;/a&gt;MultipartFile&lt;/h2&gt;&lt;p&gt;Spring&amp;#x4F7F;&amp;#x7528;MultipartFile&amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x591A;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x914D;&amp;#x7F6E;&amp;#x4E00;&amp;#x4E2A;multipartResolver&amp;#x7684;bean&lt;/p&gt;
- &lt;bean id=&quot;multipartResolver&quot; class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
-
-&lt;p&gt; @RequestMapping(value=&amp;#x201D;/parseAttr.json&amp;#x201D;, method = RequestMethod.POST)&lt;br&gt; public ModelMap parseAttr(@RequestParam(&amp;#x201C;file&amp;#x201D;) MultipartFile uFile) {&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ModelMap result = new ModelMap();
-...
-result.put(&amp;quot;keys&amp;quot;,set);
-return result;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; }&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;a href=&quot;#&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&quot;&gt;&lt;/a&gt;&amp;#x5E38;&amp;#x7528;&amp;#x65B9;&amp;#x6CD5;&lt;/h2&gt;&lt;p&gt; MultipartFile file = new MultipartFile();&lt;br&gt; file.getOriginalFilename():&amp;#x83B7;&amp;#x53D6;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x539F;&amp;#x540D;&lt;br&gt; file.getInputStream():&amp;#x83B7;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x6D41;&lt;/p&gt;
-&lt;/bean&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;form&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;a href=&quot;#form&amp;#x8868;&amp;#x5355;&quot; class=&quot;headerlink&quot; title=&quot;form&amp;#x8868;&amp;#x5355;&quot;&gt;&lt;/a&gt;form&amp;#x8868;&amp;#x5355;&lt;/h2&gt;&lt;p&gt;&amp;#x5206;&amp;#x4E24;&amp;#x7C7B;&amp;#x4E0A;&amp;#x4F20;&amp;#xFF1A;&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;&amp;#x3001;&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;form role=&amp;quot;form&amp;quot; class=&amp;quot;form-horizontal&amp;quot; id=&amp;quot;importFile&amp;quot; method=&amp;quot;post&amp;quot; accept-charset=&amp;quot;utf-8&amp;quot; enctype=&amp;quot;multipart/form-data&amp;quot;&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;label class=&amp;quot;col-lg-2 control-label&amp;quot; for=&amp;quot;descption&amp;quot;&amp;gt;&amp;#x6587;&amp;#x7AE0;&amp;#x7C7B;&amp;#x578B;&amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-lg-9&amp;quot;&amp;gt;
-            &amp;lt;select name=&amp;quot;descption&amp;quot; id=&amp;quot;descption&amp;quot; style=&amp;quot;padding: 6px 12px;line-height: 1.42857143;    border: 1px solid #ccc;    border-radius: 4px;&amp;quot;&amp;gt;
-                &amp;lt;option value=&amp;quot;1&amp;quot;&amp;gt;&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;&amp;lt;/option&amp;gt;
-                &amp;lt;option value=&amp;quot;2&amp;quot;&amp;gt;&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;&amp;lt;/option&amp;gt;
-            &amp;lt;/select&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;quot;form-group&amp;quot;&amp;gt;
-        &amp;lt;label class=&amp;quot;col-lg-2 control-label&amp;quot; for=&amp;quot;fileInput&amp;quot;&amp;gt;&amp;#x6587;&amp;#x7AE0;&amp;#x4E0A;&amp;#x4F20;&amp;lt;/label&amp;gt;
-        &amp;lt;div class=&amp;quot;col-md-9&amp;quot;&amp;gt;
-
-            &amp;lt;input id=&amp;quot;fileInput&amp;quot; name=&amp;quot;fileInput&amp;quot; type=&amp;quot;file&amp;quot; multiple
-                class=&amp;quot;file-loading&amp;quot;&amp;gt;
-        &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-
-    &amp;lt;hr /&amp;gt;
-    &amp;lt;div class=&amp;quot;btn-group&amp;quot; style=&amp;quot;margin-left: 160px;margin-right:5px&amp;quot;&amp;gt;
-        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-success&amp;quot; id=&amp;quot;submitOK&amp;quot;&amp;gt;
-            &amp;lt;i class=&amp;quot;glyphicon glyphicon-check&amp;quot;&amp;gt;&amp;#x63D0;&amp;#x4EA4;&amp;lt;/i&amp;gt;
-        &amp;lt;/button&amp;gt;
-        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;btn btn-danger&amp;quot; data-dismiss=&amp;quot;modal&amp;quot;
-            id=&amp;quot;btn-close&amp;quot;&amp;gt;
-            &amp;lt;i class=&amp;quot;glyphicon glyphicon-remove&amp;quot;&amp;gt;&amp;#x5173;&amp;#x95ED;&amp;lt;/i&amp;gt;
-        &amp;lt;/button&amp;gt;
-    &amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;js&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;a href=&quot;#js&amp;#x4EE3;&amp;#x7801;&quot; class=&quot;headerlink&quot; title=&quot;js&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;/a&gt;js&amp;#x4EE3;&amp;#x7801;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$(&amp;quot;#fileInput&amp;quot;).fileinput({
-    uploadUrl:&amp;quot;#&amp;quot;,//&amp;#x4E0A;&amp;#x4F20;&amp;#x7684;&amp;#x5730;&amp;#x5740;
-    uploadAsync: false,
-    language : &amp;quot;zh&amp;quot;,//&amp;#x8BBE;&amp;#x7F6E;&amp;#x8BED;&amp;#x8A00;
-    showCaption: true,//&amp;#x662F;&amp;#x5426;&amp;#x663E;&amp;#x793A;&amp;#x6807;&amp;#x9898;
-    showUpload: false, //&amp;#x662F;&amp;#x5426;&amp;#x663E;&amp;#x793A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6309;&amp;#x94AE;
-    browseClass: &amp;quot;btn btn-primary&amp;quot;, //&amp;#x6309;&amp;#x94AE;&amp;#x6837;&amp;#x5F0F; 
-    allowedFileExtensions: [&amp;quot;html&amp;quot;,&amp;quot;htm&amp;quot;], //&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x7F00;
-    maxFileCount: 1,//&amp;#x6700;&amp;#x5927;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x6570;&amp;#x9650;&amp;#x5236;
-    maxFileSize: 1000,//&amp;#x6700;&amp;#x5927;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x5927;&amp;#x5C0F;
-    uploadAsync: true,
-    previewFileIcon: &amp;apos;&amp;lt;i class=&amp;quot;glyphicon glyphicon-file&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-    allowedPreviewTypes: null, 
-    previewFileIconSettings: {
-        &amp;apos;doc&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-word-o text-primary&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;xls&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-excel-o text-success&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;ppt&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-powerpoint-o text-danger&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;jpg&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-photo-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;pdf&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-pdf-o text-danger&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;zip&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-archive-o text-muted&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;htm&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-code-o text-info&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;txt&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-text-o text-info&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;mov&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-movie-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-        &amp;apos;mp3&amp;apos;: &amp;apos;&amp;lt;i class=&amp;quot;fa fa-file-audio-o text-warning&amp;quot;&amp;gt;&amp;lt;/i&amp;gt;&amp;apos;,
-    },
-    previewFileExtSettings: {
-        &amp;apos;doc&amp;apos;: function(ext) {
-            return ext.match(/(doc|docx)$/i);
-        },
-        &amp;apos;xls&amp;apos;: function(ext) {
-            return ext.match(/(xls|xlsx)$/i);
-        },
-        &amp;apos;ppt&amp;apos;: function(ext) {
-            return ext.match(/(ppt|pptx)$/i);
-        },
-        &amp;apos;zip&amp;apos;: function(ext) {
-            return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
-        },
-        &amp;apos;htm&amp;apos;: function(ext) {
-            return ext.match(/(php|js|css|htm|html)$/i);
-        },
-        &amp;apos;txt&amp;apos;: function(ext) {
-            return ext.match(/(txt|ini|md)$/i);
-        },
-        &amp;apos;mov&amp;apos;: function(ext) {
-            return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
-        },
-        &amp;apos;mp3&amp;apos;: function(ext) {
-            return ext.match(/(mp3|wav)$/i);
-        },
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x53EF;&amp;#x9644;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;uploadExtraData&amp;#x53C2;&amp;#x6570;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;uploadExtraData: function() {
-    var extraValue = null;
-    var radios = document.getElementsByName(&amp;apos;excelType&amp;apos;);
-    for(var i=0;i&amp;lt;radios.length;i++){
-        if(radios[i].checked){
-            extraValue = radios[i].value;
-        }
-    }
-    return {&amp;quot;excelType&amp;quot;: extraValue};
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;&amp;#x7684;&amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $(&amp;quot;#fileInput&amp;quot;).on(&amp;quot;fileuploaded&amp;quot;, function(event, data, previewId, index) {
-    alertView(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;!&amp;quot;);
-}); 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;#x7684;&amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$(&amp;apos;#excelFile&amp;apos;).on(&amp;apos;fileuploaderror&amp;apos;, function(event, data, previewId, index) {
-    alertView(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;!&amp;quot;);
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;js&amp;#x63D0;&amp;#x4EA4;&amp;#x5E26;&amp;#x6587;&amp;#x4EF6;&amp;#x8868;&amp;#x5355;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; $(&amp;quot;#submitOK&amp;quot;).click(function() {
-    $.ajax({
-        cache: true,
-        type: &amp;quot;POST&amp;quot;,
-        url: &amp;quot;rest/guide/importfile&amp;quot;,
-        data: new FormData($(&amp;apos;#importFile&amp;apos;)[0]),// &amp;#x4F60;&amp;#x7684;formid
-        processData: false,
-        contentType: false,
-        error: function(request) {
-            alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;quot;);
-        },
-        success: function(data) {
-            if(data){                    
-                alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6210;&amp;#x529F;&amp;quot;);
-            }
-            else {
-                alert(&amp;quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x5931;&amp;#x8D25;&amp;quot;);
-            }
-        }
-    });
-}); 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51E0;&amp;#x70B9;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;processData&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&amp;#x56E0;&amp;#x4E3A;data&amp;#x503C;&amp;#x662F;FormData&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x5BF9;&amp;#x6570;&amp;#x636E;&amp;#x505A;&amp;#x5904;&amp;#x7406;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&lt;form&gt;&amp;#x6807;&amp;#x7B7E;&amp;#x6DFB;&amp;#x52A0;enctype=&amp;#x201D;multipart/form-data&amp;#x201D;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&lt;/form&gt;&lt;/li&gt;
-&lt;li&gt;cache&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#xFF0C;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x7F13;&amp;#x5B58;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;contentType&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&amp;#x56E0;&amp;#x4E3A;&amp;#x662F;&amp;#x7531;&lt;form&gt;&amp;#x8868;&amp;#x5355;&amp;#x6784;&amp;#x9020;&amp;#x7684;FormData&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x4E14;&amp;#x5DF2;&amp;#x7ECF;&amp;#x58F0;&amp;#x660E;&amp;#x4E86;&amp;#x5C5E;&amp;#x6027;enctype=&amp;#x201D;multipart/form-data&amp;#x201D;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x8FD9;&amp;#x91CC;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E3A;false&amp;#x3002;&lt;/form&gt;&lt;/li&gt;
-&lt;li&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x540E;&amp;#xFF0C;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7AEF;&amp;#x4EE3;&amp;#x7801;&amp;#x9700;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x4ECE;&amp;#x67E5;&amp;#x8BE2;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x4E3A;file&amp;#x83B7;&amp;#x53D6;&amp;#x6587;&amp;#x4EF6;&amp;#x8F93;&amp;#x5165;&amp;#x6D41;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;input&amp;#x4E2D;&amp;#x58F0;&amp;#x660E;&amp;#x7684;&amp;#x662F;name=&amp;#x201D;file&amp;#x201D;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot;&gt;&lt;a href=&quot;#&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&quot;&gt;&lt;/a&gt;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x540E;&amp;#x53F0;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/importfile&amp;quot;, method = RequestMethod.POST)
-@ResponseBody
-public boolean importfile(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    request.setCharacterEncoding(&amp;quot;utf-8&amp;quot;);
-    final String allowFileSuffix = &amp;quot;html,htm&amp;quot;;
-    String basePath = request.getSession().getServletContext().getRealPath(&amp;quot;/&amp;quot;);
-    String realpath = null;
-
-    // &amp;#x68C0;&amp;#x67E5;&amp;#x8F93;&amp;#x5165;&amp;#x8BF7;&amp;#x6C42;&amp;#x662F;&amp;#x5426;&amp;#x4E3A;multipart&amp;#x8868;&amp;#x5355;&amp;#x6570;&amp;#x636E;&amp;#x3002;
-    if (ServletFileUpload.isMultipartContent(request)) {
-        DiskFileItemFactory dff = new DiskFileItemFactory();//&amp;#x83B7;&amp;#x5F97;&amp;#x78C1;&amp;#x76D8;&amp;#x6587;&amp;#x4EF6;&amp;#x6761;&amp;#x76EE;&amp;#x5DE5;&amp;#x5382;  
-        dff.setSizeThreshold(1024000);// &amp;#x6307;&amp;#x5B9A;&amp;#x5728;&amp;#x5185;&amp;#x5B58;&amp;#x4E2D;&amp;#x7F13;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#x5927;&amp;#x5C0F;,&amp;#x5355;&amp;#x4F4D;&amp;#x4E3A;byte
-        ServletFileUpload upload = new ServletFileUpload(dff);// &amp;#x521B;&amp;#x5EFA;&amp;#x8BE5;&amp;#x5BF9;&amp;#x8C61;
-        upload.setFileSizeMax(5000000);//&amp;#x6307;&amp;#x5B9A;&amp;#x5355;&amp;#x4E2A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x6700;&amp;#x5927;&amp;#x5C3A;&amp;#x5BF8;
-        upload.setSizeMax(10000000);// &amp;#x6307;&amp;#x5B9A;&amp;#x4E00;&amp;#x6B21;&amp;#x4E0A;&amp;#x4F20;&amp;#x591A;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x603B;&amp;#x5C3A;&amp;#x5BF8;
-        upload.setHeaderEncoding(&amp;quot;utf-8&amp;quot;);
-        List&amp;lt;FileItem&amp;gt; fileItems = new ArrayList&amp;lt;FileItem&amp;gt;();
-        try {
-            fileItems = upload.parseRequest(request);
-        } catch (FileUploadException e1) {
-            logger.error(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#x53D1;&amp;#x751F;&amp;#x9519;&amp;#x8BEF;&amp;quot; + e1.getMessage());
-            return false;
-        }
-        String fullPath = null;
-        String fileName = null;
-        String fullName=null;
-        String type=&amp;quot;&amp;quot;;
-        for (FileItem fileItem : fileItems) {
-
-            // &amp;#x5224;&amp;#x65AD;&amp;#x8BE5;&amp;#x8868;&amp;#x5355;&amp;#x9879;&amp;#x662F;&amp;#x5426;&amp;#x662F;&amp;#x666E;&amp;#x901A;&amp;#x7C7B;&amp;#x578B;
-            if (fileItem.isFormField()) {
-                String name = fileItem.getFieldName();// &amp;#x63A7;&amp;#x4EF6;&amp;#x540D;
-                String value = fileItem.getString(); //&amp;#x63A7;&amp;#x4EF6;&amp;#x503C;        
-                if (name.equals(&amp;quot;descption&amp;quot;)) {
-                    if(value.equals(&amp;quot;1&amp;quot;)){
-                        type=&amp;quot;guide&amp;quot;;//&amp;#x529E;&amp;#x4E8B;&amp;#x6307;&amp;#x5357;
-                    }
-                    else if(value.equals(&amp;quot;2&amp;quot;)){
-                        type=&amp;quot;case&amp;quot;;//&amp;#x5178;&amp;#x578B;&amp;#x6848;&amp;#x4F8B;
-                    }
-                    realpath=basePath+type;
-                    File tmpDir = new File(realpath);// &amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4E34;&amp;#x65F6;&amp;#x5B58;&amp;#x653E;&amp;#x76EE;&amp;#x5F55;
-                    if (!tmpDir.exists()) {
-                        tmpDir.mkdirs();
-                    }
-                    dff.setRepository(tmpDir);// &amp;#x6307;&amp;#x5B9A;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x4E34;&amp;#x65F6;&amp;#x76EE;&amp;#x5F55;
-
-                }
-            } else {
-                String filePath = fileItem.getName();
-                if (filePath == null || filePath.trim().length() == 0)
-                    continue;
-                fullName = filePath.substring(filePath.lastIndexOf(File.separator) + 1);
-                fileName = filePath.substring(0,filePath.lastIndexOf(&amp;quot;.&amp;quot;));
-
-                String extName = filePath.substring(filePath.lastIndexOf(&amp;quot;.&amp;quot;) + 1);
-                fullPath = realpath + File.separator + fullName;
-                if (allowFileSuffix.indexOf(extName) != -1) {
-                    try {
-                        fileItem.write(new File(fullPath));
-                        //&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x5730;&amp;#x5740;&amp;#x5B58;&amp;#x5165;&amp;#x6570;&amp;#x636E;&amp;#x5E93;
-                        Guide guide = new Guide();
-                        guide.setName(fileName);
-                        guide.setUrl(&amp;quot;../&amp;quot;+type +&amp;quot;/&amp;quot; + fullName);
-                        if(type.equals(&amp;quot;guide&amp;quot;)){                                
-                            guide.setType(1);
-                        }
-                        else if(type.equals(&amp;quot;case&amp;quot;)){
-                            guide.setType(2);
-                        } 
-                        guideServiceImpl.insert(guide);
-                    } catch (Exception e) {
-                        logger.error(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x5199;&amp;#x5165;Guide&amp;#x8868;&amp;#x51FA;&amp;#x9519;&amp;quot;);
-                        return false;
-                    }
-                } else {
-                    throw new FileUploadException(&amp;quot;&amp;#x6587;&amp;#x4EF6;&amp;#x683C;&amp;#x5F0F;&amp;#x4E0D;&amp;#x6B63;&amp;#x786E;&amp;quot;);
-                }
-            }
-        }
-    }
-    return true;
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x6B64;&amp;#x529F;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&amp;#x4F7F;&amp;#x7528;bootstrap-fileinput(fileinput.min.js)&amp;#x63D2;&amp;#x4EF6;,&amp;#x4E3B;&amp;#x987
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="http://chen1218chen.github.io/tags/Spring/"/>
-    
-      <category term="MultipartFile" scheme="http://chen1218chen.github.io/tags/MultipartFile/"/>
-    
-      <category term="fileInput" scheme="http://chen1218chen.github.io/tags/fileInput/"/>
     
   </entry>
   
