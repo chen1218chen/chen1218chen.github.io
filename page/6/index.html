@@ -286,6 +286,205 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hibernate之翻页的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/hibernate之翻页的实现/" class="article-date">
+      <time datetime="2016-06-13T10:46:36.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>pageSize:&#x6BCF;&#x9875;&#x8BB0;&#x5F55;&#x6570;<br>pageNow&#xFF1A;&#x5F53;&#x524D;&#x9875;&#x7801;</p>
+<pre><code>@Override
+public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
+    // TODO Auto-generated method stub
+    String sql;
+    if(&quot;picture&quot;.equals(type)){
+         sql = &quot;from Uploadinfo where picturepath1 &lt;&gt; &apos;&apos; and picturepath1 &lt;&gt; &apos;picture/meizhaopian.png&apos; order by dataTime desc&quot;;
+
+    }else{
+        sql=&quot;from Uploadinfo order by dataTime desc&quot;;
+    }
+    Query query = itemDaoImpl.getQuery(sql);
+    //&#x8BBE;&#x7F6E;&#x8D77;&#x59CB;&#x9875;
+    query.setFirstResult((pageNow - 1) * pageSize);
+    //&#x8BBE;&#x7F6E;&#x6BCF;&#x9875;&#x6700;&#x5927;&#x8BB0;&#x5F55;&#x6570;
+    query.setMaxResults(pageSize);
+    List&lt;Uploadinfo&gt; infolist = query.list();
+    return infolist;
+}
+</code></pre><p>index.jsp<br>bootstrap&#x4E2D;&#x7684;&#x5206;&#x9875;&#x7EC4;&#x4EF6;</p>
+<pre><code>&lt;nav style=&quot;text-align: center&quot;&gt;
+    &lt;ul class=&quot;pagination&quot; id=&quot;pageUl&quot;&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre><p>index.js</p>
+<pre><code>$(window).load(function() {
+    ////&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+    queryAll(&quot;rest/Uploadinfo/totlePages&quot;);
+});
+function queryAll(url){
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  url,
+        dataType : &quot;text&quot;,
+        data:{
+             &quot;type&quot;:&quot;&quot;
+        },
+        success : function(msg) {
+            var pages = Math.ceil(msg/5); 
+            var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
+            var options = { 
+                size:&quot;normal&quot;,
+                alignment:&quot;center&quot;,
+                bootstrapMajorVersion:3,  
+                currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
+                numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
+                totalPages: pages, //&#x603B;&#x9875;&#x6570;  
+                itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
+                    switch (type) {
+                    case &quot;first&quot;:
+                        return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
+                    case &quot;prev&quot;:
+                        return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
+                    case &quot;next&quot;:
+                        return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
+                    case &quot;last&quot;:
+                        return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
+                    case &quot;page&quot;:
+                        return page;
+                    }
+                }, 
+                onPageClicked: function (event, originalEvent, type, page) { 
+                    //&#x6362;&#x9875;,&#x4E0B;&#x4E00;&#x9875;
+                    paginator(page);
+                },
+            }  
+            //&#x5206;&#x9875;&#x542F;&#x52A8;
+           element.bootstrapPaginator(options); 
+           paginator(1);
+        }
+    });
+}
+function paginator(pageNow) {
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  &quot;rest/Uploadinfo/onePageData&quot;,
+        dataType : &quot;json&quot;,
+        data:{
+            &quot;pageNow&quot;:pageNow,
+            &quot;pageSize&quot;:5,
+            &quot;type&quot;:&quot;&quot;
+        },
+        success : function(arrData) {
+            console.dir(arrData)
+            var str=&quot;&quot;;
+            var name;
+//            for (i = (page - 1) * 5; i &lt; page * 5; i++) {
+            for(var i=0; i&lt;arrData.length; i++){
+                    var pictureUrl = arrData[i].picturepath1;
+                    var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
+                    var content = arrData[i].content;
+                    var s = content.substr(0, 7);        
+                    if(arrData[i].telephone==&quot;&quot;){
+                        name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
+                    }
+                    else{
+                        name=arrData[i].telephone;
+                    }
+                    str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3 style=&quot;width:95%;&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot; title=&quot;&apos;
+                        + arrData[i].telephone
+                        + &quot;&quot;
+                        + &apos;&quot;&gt;&apos;
+                        + s
+                        + &quot;...&quot;
+                        + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
+                        + &apos;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
+                        + pictureUrl
+                        + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
+                        + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
+                        + arrData[i].content
+                        + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
+                        + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
+                        + name
+                        + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
+                        + arrData[i].dataTime
+                        + &apos;&lt;/span&gt;&apos;
+                        + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
+                        + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
+
+                    $(&apos;#infolist&apos;).html(&apos;&apos;); 
+                    $(&apos;#infolist&apos;).append(str);
+                }
+            }
+    });
+}
+</code></pre><p>onePageData&#x4E2D;&#x8C03;&#x7528;onePage&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x5206;&#x9875;&#x3002;</p>
+<p>java </p>
+<pre><code>//&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+@RequestMapping(value = &quot;/totlePages&quot;, method = RequestMethod.POST)
+@ResponseBody
+public int totlePages(@RequestParam(&quot;type&quot;) String type) {
+    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.totalPage(type);
+    int size = itemList.size();
+    return size;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Struts2之ModelDriven接口实现登陆" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1543,120 +1742,6 @@ $j(&apos;#msg&apos;).hide();//&#x6B64;&#x5904;$j&#x5C31;&#x4EE3;&#x8868;JQuery
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-css3技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/css3技巧/" class="article-date">
-      <time datetime="2016-05-13T14:26:59.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;"><a href="#&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;" class="headerlink" title="&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;"></a>&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;</h2><p>&#x4F7F;&#x7528;css3&#x7684;&#x7070;&#x5EA6;&#x8FC7;&#x6EE4;&#x529F;&#x80FD;</p>
-<pre><code>.icon_f{
-      -webkit-filter: grayscale(100%);
-      -moz-filter: grayscale(100%);
-      -ms-filter: grayscale(100%);
-      -o-filter: grayscale(100%);    
-      filter: grayscale(100%);
-      filter: gray;
-  }
-</code></pre><h2 id="&#x6A21;&#x7CCA;&#x56FE;&#x7247;"><a href="#&#x6A21;&#x7CCA;&#x56FE;&#x7247;" class="headerlink" title="&#x6A21;&#x7CCA;&#x56FE;&#x7247;"></a>&#x6A21;&#x7CCA;&#x56FE;&#x7247;</h2><pre><code>img{
-    -webkit-filter: blur(5px); /* Chrome, Safari, Opera */
-    filter: blur(5px);
-}
-</code></pre><h2 id="&#x56FE;&#x7247;&#x53D8;&#x4EAE;"><a href="#&#x56FE;&#x7247;&#x53D8;&#x4EAE;" class="headerlink" title="&#x56FE;&#x7247;&#x53D8;&#x4EAE;"></a>&#x56FE;&#x7247;&#x53D8;&#x4EAE;</h2><pre><code>img {
-    -webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
-    filter: brightness(200%);
-}
-</code></pre><h2 id="&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;"><a href="#&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;" class="headerlink" title="&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;"></a>&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;</h2><pre><code>img {
-    -webkit-filter: contrast(200%); /* Chrome, Safari, Opera */
-    filter: contrast(200%);
-}
-</code></pre><h2 id="&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;"><a href="#&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;" class="headerlink" title="&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;"></a>&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;</h2><pre><code>img {
-    -webkit-filter: drop-shadow(8px 8px 10px red); /* Chrome, Safari, Opera */
-    filter: drop-shadow(8px 8px 10px red);
-}
-</code></pre><p>&#x9664;&#x6B64;&#x4E4B;&#x5916;</p>
-<pre><code>.contrast {
-    -webkit-filter: contrast(180%);
-    filter: contrast(180%);
-}
-//&#x7ED9;&#x56FE;&#x50CF;&#x5E94;&#x7528;&#x8272;&#x76F8;&#x65CB;&#x8F6C;
-.huerotate {
-    -webkit-filter: hue-rotate(180deg);
-    filter: hue-rotate(180deg);
-}
-//&#x53CD;&#x8F6C;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#x3002;
-.invert {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-}
-//&#x8F6C;&#x5316;&#x56FE;&#x50CF;&#x7684;&#x900F;&#x660E;&#x7A0B;&#x5EA6;&#x3002;
-.opacity {
-    -webkit-filter: opacity(50%);
-    filter: opacity(50%);
-}
-//&#x8F6C;&#x6362;&#x56FE;&#x50CF;&#x9971;&#x548C;&#x5EA6;
-.saturate {
-    -webkit-filter: saturate(7);
-    filter: saturate(7);
-}
-//&#x5C06;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x4E3A;&#x6DF1;&#x8910;&#x8272;&#x3002;
-.sepia {
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
     </div>
 
       

@@ -286,6 +286,109 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bootstrap-dialog使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/bootstrap-dialog使用/" class="article-date">
+      <time datetime="2016-09-09T17:05:23.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/bootstrap-dialog使用/">bootstrap-dialog使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="&#x9875;&#x9762;&#x52A0;&#x8F7D;"><a href="#&#x9875;&#x9762;&#x52A0;&#x8F7D;" class="headerlink" title="&#x9875;&#x9762;&#x52A0;&#x8F7D;"></a>&#x9875;&#x9762;&#x52A0;&#x8F7D;</h2><pre><code>function changePasswd(){
+ BootstrapDialog.show({
+     title : &quot;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&quot;,
+     message: function(dialog) {
+         var $message = $(&apos;&lt;div&gt;&lt;/div&gt;&apos;);
+         var pageToLoad = dialog.getData(&apos;pageToLoad&apos;);
+         $message.load(pageToLoad);
+         return $message;
+     },
+     data: {
+         &apos;pageToLoad&apos;: &apos;changePasswd.html&apos;
+     },
+        buttons: [{
+         id: &apos;btn-ok&apos;,   
+         icon: &apos;glyphicon glyphicon-check&apos;,       
+         label: &apos;OK&apos;,
+         cssClass: &apos;btn-success&apos;, 
+         autospin: false,
+         action: function(dialogItself){    
+             change();
+               dialogItself.close();
+         }
+     }, {
+         id:&apos;btn-reset&apos;,
+         cssClass: &apos;btn-warning&apos;,
+         label: &apos;&#x91CD;&#x7F6E;&apos;,
+         icon: &apos;glyphicon glyphicon-repeat&apos;,
+         action : function(){
+             document.getElementById(&quot;changeForm&quot;).reset();
+            $(&apos;#btn-reset&apos;).click(function() {
+            });
+         }
+     }, {
+         id:&apos;btn-close&apos;,
+         icon:&apos;glyphicon glyphicon-remove&apos;,
+         label: &apos;Close&apos;,
+         cssClass: &apos;btn-danger&apos;,
+         action: function(dialogItself){
+             dialogItself.close();
+         }
+     }]
+ });
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-dialog/">bootstrap-dialog</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular实现用户登陆" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1136,81 +1239,6 @@ $(&quot;div&quot;).data(&quot;test&quot;);//this is test
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-String解析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/04/String解析/" class="article-date">
-      <time datetime="2016-08-04T10:22:34.000Z" itemprop="datePublished">2016-08-04</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/04/String解析/">String解析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<p>String&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5305;&#x88C5;&#x7C7B;&#xFF0C;&#x4E0D;&#x5C5E;&#x4E8E;8&#x79CD;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x4E4B;&#x4E00;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F;null&#xFF0C;&#x6240;&#x4EE5;String&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E5F;&#x662F;null&#x3002;</p>
-<h2 id="&#x5B58;&#x653E;&#x533A;&#x57DF;"><a href="#&#x5B58;&#x653E;&#x533A;&#x57DF;" class="headerlink" title="&#x5B58;&#x653E;&#x533A;&#x57DF;"></a>&#x5B58;&#x653E;&#x533A;&#x57DF;</h2><p>&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x5305;&#x88C5;&#x7C7B;,&#x5176;&#x5F15;&#x7528;&#x662F;&#x5B58;&#x653E;&#x5728;&#x6808;&#x91CC;&#x7684;,&#x800C;&#x5BF9;&#x8C61;&#x5185;&#x5BB9;&#x5FC5;&#x987B;&#x6839;&#x636E;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x5B9A;(&#x5E38;&#x91CF;&#x6C60;&#x548C;&#x5806;).&#x6709;&#x7684;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x5C31;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x597D;&#xFF0C;&#x5B58;&#x653E;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x5E38; &#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x800C;&#x6709;&#x7684;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x624D;&#x88AB;&#x521B;&#x5EFA;.&#x4F7F;&#x7528;new&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5B58;&#x653E;&#x5728;&#x5806;&#x4E2D;&#x3002;</p>
-<h2 id="&#x6BD4;&#x8F83;"><a href="#&#x6BD4;&#x8F83;" class="headerlink" title="&#x6BD4;&#x8F83;"></a>&#x6BD4;&#x8F83;</h2><p>&#x6BD4;&#x8F83;&#x6570;&#x503C;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x65F6;&#xFF0C;&#x7528;&#x2019;equals()&#x2019;&#x65B9;&#x6CD5;&#xFF1B;&#x6BD4;&#x8F83;&#x5F15;&#x7528;&#x503C;&#x662F;&#x5426;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x7528;==&#x3002; </p>
-<p>&#x8FD9;&#x4E2A;&#x5BF9;&#x4E8E;String&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x6BD4;&#x8F83;&#x4E24;&#x5B57;&#x7B26;&#x4E32;&#x7684;Unicode&#x5E8F;&#x5217;&#x662F;&#x5426;&#x76F8;&#x5F53;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true;&#x800C;==&#x662F; &#x6BD4;&#x8F83;&#x4E24;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5730;&#x5740;&#x662F;&#x5426;&#x76F8;&#x540C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x662F;&#x5426;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F15;&#x7528;&#x3002;<br>new String()&#x548C;new String(&#x201C; &#x201C;)&#x90FD;&#x662F;&#x7533;&#x660E;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x662F;&#x7A7A;&#x4E32;&#x4E0D;&#x662F;null&#x3002;</p>
-<h2 id="&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x521D;&#x59CB;&#x5316;"><a href="#&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x521D;&#x59CB;&#x5316;" class="headerlink" title="&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x521D;&#x59CB;&#x5316;"></a>&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x521D;&#x59CB;&#x5316;</h2><pre><code>String str = new String(&quot;aaa&quot;);
-String str1 = &quot;aaa&quot;;
-</code></pre><h3 id="String-str-new-String-&#x201C;aaa&#x201D;"><a href="#String-str-new-String-&#x201C;aaa&#x201D;" class="headerlink" title="String str = new String(&#x201C;aaa&#x201D;);"></a>String str = new String(&#x201C;aaa&#x201D;);</h3><pre><code>String str1 = &quot;abc&quot;;   
-String str2 = &quot;abc&quot;;   
-System.out.println(str1==str2); //true  
-</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;str1,str2&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;<br>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x201D;abc&#x201D;&#x5B58;&#x50A8;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x3002;&#x4E24;&#x4E2A;&#x5F15;&#x7528;str1&#x548C;str2&#xFF0C;&#x6307;&#x5411;&#x201D;abc&#x201D;&#x3002;</p>
-<h3 id="String-str1-&#x201C;aaa&#x201D;"><a href="#String-str1-&#x201C;aaa&#x201D;" class="headerlink" title="String str1 = &#x201C;aaa&#x201D;;"></a>String str1 = &#x201C;aaa&#x201D;;</h3><pre><code>String str1 =new String (&quot;abc&quot;);   
-String str2 =new String (&quot;abc&quot;);   
-System.out.println(str1==str2); // false  
-</code></pre><p>&#x7528;new&#x7684;&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;<br>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E09;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x2019;abc&#x2019;&#x5B58;&#x50A8;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#xFF0C;&#x4E24;&#x4E2A;new String()&#x5BF9;&#x8C61;&#x4F4D;&#x4E8E;&#x5806;&#x4E2D;&#xFF0C;&#x6808;&#x4E2D;&#x4E24;&#x4E2A;&#x6307;&#x5411;&#x5806;&#x7684;&#x5F15;&#x7528;str1,str2<br>&#x6240;&#x4EE5;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x6CD5;&#x6709;&#x5229;&#x4E8E;&#x8282;&#x7701;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x63D0;&#x9AD8;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#x3002;</p>
-<h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><p>StringBuffer&#xFF1A;&#x53EF;&#x53D8;&#x957F;&#x5EA6;<br>String&#xFF1A;&#x4E0D;&#x53EF;&#x53D8;&#x957F;&#x5EA6;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
       

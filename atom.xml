@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-03-03T03:59:55.228Z</updated>
+  <updated>2017-03-07T02:15:58.641Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shiro之roles实现or关系的角色过滤</title>
+    <link href="http://chen1218chen.github.io/2017/03/07/shiro%E4%B9%8Broles%E5%AE%9E%E7%8E%B0hasAnyRoles%E7%9A%84%E9%85%8D%E7%BD%AE%E9%AA%8C%E8%AF%81/"/>
+    <id>http://chen1218chen.github.io/2017/03/07/shiro之roles实现hasAnyRoles的配置验证/</id>
+    <published>2017-03-07T09:58:07.000Z</published>
+    <updated>2017-03-07T02:15:58.641Z</updated>
+    
+    <content type="html">&lt;p&gt;roles&amp;#x53C2;&amp;#x6570;&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x591A;&amp;#x4E2A;&amp;#xFF0C;&amp;#x591A;&amp;#x4E2A;&amp;#x65F6;&amp;#x5FC5;&amp;#x987B;&amp;#x52A0;&amp;#x4E0A;&amp;#x5F15;&amp;#x53F7;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E14;&amp;#x53C2;&amp;#x6570;&amp;#x4E4B;&amp;#x95F4;&amp;#x7528;&amp;#x9017;&amp;#x53F7;&amp;#x5206;&amp;#x5272;&amp;#xFF0C;&amp;#x5F53;&amp;#x6709;&amp;#x591A;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x65F6;&amp;#xFF0C;&amp;#x6BCF;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x901A;&amp;#x8FC7;&amp;#x624D;&amp;#x7B97;&amp;#x901A;&amp;#x8FC7;&amp;#xFF0C;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&lt;code&gt;hasAllRoles()&lt;/code&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;strong&gt;shiro&amp;#x7684;&amp;#x89D2;&amp;#x8272;&amp;#x8FC7;&amp;#x6EE4;&amp;#x662F;and&amp;#x7684;&amp;#x5173;&amp;#x7CFB;&lt;/strong&gt;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x800C;&amp;#x6700;&amp;#x8FD1;&amp;#x6839;&amp;#x636E;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x6C42;&amp;#xFF0C;&amp;#x8981;&amp;#x6C42;&amp;#x8BA2;&amp;#x9605;&amp;#x53F7;&amp;#x7BA1;&amp;#x7406;&amp;#x6A21;&amp;#x5757;&amp;#xFF0C;&amp;#x591A;&amp;#x4E2A;&amp;#x89D2;&amp;#x8272;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x8FDB;&amp;#x884C;&amp;#x7BA1;&amp;#x7406;&amp;#xFF0C;&amp;#x89D2;&amp;#x8272;&amp;#x7684;&amp;#x8FC7;&amp;#x6EE4;&amp;#x975E;and&amp;#x5173;&amp;#x7CFB;&amp;#x800C;&amp;#x662F;or&amp;#x7684;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&lt;code&gt;applicationContext.xml&lt;/code&gt;&amp;#x4E2D;roles[&amp;#x201C;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;#x201D;&amp;#xFF0C;&amp;#x201D;&amp;#x8BA2;&amp;#x9605;&amp;#x53F7;&amp;#x201D;]&amp;#x4E0D;&amp;#x80FD;&amp;#x5B9E;&amp;#x73B0;&amp;#x6216;&amp;#x8005;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x89D2;&amp;#x8272;&amp;#x8FC7;&amp;#x6EE4;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x7EE7;&amp;#x627F;&lt;code&gt;AuthorizationFilter&lt;/code&gt;&amp;#x7684;Filter&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;CustomRolesAuthorizationFilter&quot;&gt;&lt;a href=&quot;#CustomRolesAuthorizationFilter&quot; class=&quot;headerlink&quot; title=&quot;CustomRolesAuthorizationFilter&quot;&gt;&lt;/a&gt;CustomRolesAuthorizationFilter&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.filter.authz.AuthorizationFilter;
+
+public class CustomRolesAuthorizationFilter extends AuthorizationFilter
+{
+
+ @Override
+ protected boolean isAccessAllowed(ServletRequest request,
+   ServletResponse response, Object mappedValue) throws Exception
+ {
+  Subject subject = getSubject(request, response);  
+        String[] rolesArray = (String[]) mappedValue;  
+
+        if (rolesArray == null || rolesArray.length == 0) 
+        {  
+            return true;  
+        }  
+        for(int i=0;i&amp;lt;rolesArray.length;i++)
+        {
+            if(subject.hasRole(rolesArray[i]))
+            {  
+                return true;  
+            }  
+        }  
+        return false;  
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;applicationContext-xml&quot;&gt;&lt;a href=&quot;#applicationContext-xml&quot; class=&quot;headerlink&quot; title=&quot;applicationContext.xml&quot;&gt;&lt;/a&gt;applicationContext.xml&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!--&amp;#x81EA;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;filter--&amp;gt;
+&amp;lt;bean id=&amp;quot;roleOrFilter&amp;quot; class=&amp;quot;com.city.login.CustomRolesAuthorizationFilter&amp;quot;&amp;gt; 
+ &amp;lt;/bean&amp;gt;
+
+&amp;lt;bean id=&amp;quot;shiroFilter&amp;quot; class=&amp;quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&amp;quot; depends-on=&amp;quot;roleOrFilter&amp;quot;&amp;gt;
+    &amp;lt;!-- securityManager --&amp;gt;
+    &amp;lt;property name=&amp;quot;securityManager&amp;quot; ref=&amp;quot;securityManager&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;loginUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;&amp;#x540E;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;successUrl&amp;quot; value=&amp;quot;/index.jsp&amp;quot; /&amp;gt;
+    &amp;lt;!-- &amp;#x6388;&amp;#x6743;&amp;#x5931;&amp;#x8D25;&amp;#x8DF3;&amp;#x8F6C;&amp;#x8DEF;&amp;#x5F84; --&amp;gt;
+    &amp;lt;property name=&amp;quot;unauthorizedUrl&amp;quot; value=&amp;quot;/login.jsp&amp;quot; /&amp;gt;
+    &amp;lt;property name=&amp;quot;filters&amp;quot;&amp;gt;
+        &amp;lt;util:map&amp;gt;
+            &amp;lt;entry key=&amp;quot;authc&amp;quot; value-ref=&amp;quot;formAuthenticationFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;sysUser&amp;quot; value-ref=&amp;quot;sysUserFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;kickout&amp;quot; value-ref=&amp;quot;kickoutSessionControlFilter&amp;quot; /&amp;gt;
+            &amp;lt;entry key=&amp;quot;roleOrFilter&amp;quot; value-ref=&amp;quot;roleOrFilter&amp;quot;/&amp;gt;
+        &amp;lt;/util:map&amp;gt;
+    &amp;lt;/property&amp;gt;
+
+    &amp;lt;!-- &amp;#x8FC7;&amp;#x6EE4;&amp;#x94FE;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;
+    &amp;lt;property name=&amp;quot;filterChainDefinitions&amp;quot;&amp;gt;
+        &amp;lt;value&amp;gt;
+            /login.jsp = anon
+            /logout = logout 
+            &amp;lt;!-- authc&amp;#x8868;&amp;#x793A;&amp;#x9700;&amp;#x8981;&amp;#x8BA4;&amp;#x8BC1;&amp;#x7684;&amp;#x670D;&amp;#x52A1; --&amp;gt;
+            /rest/credit/** = authc 
+            /rest/Uploadinfo/** = authc
+            /userManager.jsp = kickout,roles[&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;quot;]
+            /subscribe.jsp = kickout,roleOrFilter[&amp;quot;&amp;#x8BA2;&amp;#x9605;&amp;#x53F7;&amp;quot;,&amp;quot;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;quot;]
+            /lost.jsp = kickout,authc,roles[&amp;quot;&amp;#x5931;&amp;#x7269;&amp;#x62DB;&amp;#x9886;&amp;quot;]
+            /*.jsp = kickout,authc
+        &amp;lt;/value&amp;gt;
+    &amp;lt;/property&amp;gt;
+&amp;lt;/bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#xFF0C;&lt;code&gt;roleOrFilter&lt;/code&gt;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x5B9E;&amp;#x73B0;or&amp;#x7684;&amp;#x5173;&amp;#x7CFB;&amp;#xFF0C;&amp;#x5373;&amp;#x8BA2;&amp;#x9605;&amp;#x53F7;&amp;#x89D2;&amp;#x8272;&amp;#x548C;&amp;#x7BA1;&amp;#x7406;&amp;#x5458;&amp;#x89D2;&amp;#x8272;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBF;&amp;#x95EE;&lt;code&gt;subscribe.jsp&lt;/code&gt;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;roles&amp;#x53C2;&amp;#x6570;&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x591A;&amp;#x4E2A;&amp;#xFF0C;&amp;#x591A;&amp;#x4E2A;&amp;#x65F6;&amp;#x5FC5;&amp;#x987B;&amp;#x52A0;&amp;#x4E0A;&amp;#x5F15;&amp;#x5
+    
+    </summary>
+    
+    
+      <category term="shiro" scheme="http://chen1218chen.github.io/tags/shiro/"/>
+    
+  </entry>
   
   <entry>
     <title>java实现文件下载</title>
@@ -1202,71 +1291,6 @@ var CommentBox = React.createClass({
     
     
       <category term="IntellJ IDAE" scheme="http://chen1218chen.github.io/tags/IntellJ-IDAE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMVC后台接受不到POST请求数据</title>
-    <link href="http://chen1218chen.github.io/2016/10/10/SpringMVC%E5%90%8E%E5%8F%B0%E6%8E%A5%E5%8F%97%E4%B8%8D%E5%88%B0POST%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE/"/>
-    <id>http://chen1218chen.github.io/2016/10/10/SpringMVC后台接受不到POST请求数据/</id>
-    <published>2016-10-10T10:45:42.000Z</published>
-    <updated>2016-10-12T02:47:56.991Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5E8F;&quot;&gt;&lt;a href=&quot;#&amp;#x5E8F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E8F;&quot;&gt;&lt;/a&gt;&amp;#x5E8F;&lt;/h2&gt;&lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4EE3;&amp;#x7801;&amp;#x5408;&amp;#x5E76;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x9047;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x8BA9;&amp;#x6211;&amp;#x8FD9;&amp;#x51E0;&amp;#x5929;&amp;#x53CA;&amp;#x5176;&amp;#x5D29;&amp;#x6E83;&amp;#x7684;&amp;#x4E8B;&amp;#x60C5;&amp;#xFF0C;Spring MVC&amp;#x7684;Controller&amp;#x91CC;&amp;#x9762;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;@RequestParam&amp;#x6CE8;&amp;#x89E3;&amp;#x6765;&amp;#x63A5;&amp;#x6536;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x53EA;&amp;#x5728;GET&amp;#x8BF7;&amp;#x6C42;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x624D;&amp;#x80FD;&amp;#x6B63;&amp;#x5E38;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;POST&amp;#x8BF7;&amp;#x6C42;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4F1A;&amp;#x4EA7;&amp;#x751F;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x5F02;&amp;#x5E38;&amp;#x3002;&amp;#x539F;&amp;#x672C;&amp;#x597D;&amp;#x597D;&amp;#x7684;POST&amp;#x8BF7;&amp;#x6C42;&amp;#x5F00;&amp;#x59CB;&amp;#x62A5;400&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;REST&amp;#x670D;&amp;#x52A1;&amp;#xFF0C;&amp;#x4E00;&amp;#x822C;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#x62A5;&amp;#x8FD9;&amp;#x79CD;&amp;#x9519;&amp;#x8BEF;&amp;#x591A;&amp;#x662F;&amp;#x7531;&amp;#x4E8E;POST&amp;#x8BF7;&amp;#x6C42;&amp;#x65F6;&amp;#x4F20;&amp;#x9012;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4E0D;&amp;#x4E00;&amp;#x81F4;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x8FD9;&amp;#x6B21;&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x8FD9;&amp;#x79CD;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x767E;&amp;#x601D;&amp;#x4E0D;&amp;#x5F97;&amp;#x5176;&amp;#x89E3;&amp;#x554A;&amp;#x3002;&amp;#x3002;&amp;#x3002;&amp;#x7F51;&amp;#x4E0A;&amp;#x5404;&amp;#x79CD;&amp;#x8D44;&amp;#x6599;&amp;#x663E;&amp;#x793A;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x95EE;&amp;#x9898;&amp;#x51FA;&amp;#x73B0;&amp;#x5728;jquery&amp;#x53D1;&amp;#x9001;&amp;#x7684;ajax&amp;#x8BF7;&amp;#x6C42;&amp;#x4E0A;&amp;#x3002;&amp;#x521A;&amp;#x597D;&amp;#x6076;&amp;#x8865;&amp;#x4E86;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;&amp;#x8FD9;&amp;#x65B9;&amp;#x9762;&amp;#x5185;&amp;#x5BB9;&amp;#x3002;&amp;#xFF08;PS&amp;#xFF1A;&amp;#x7ECF;&amp;#x8FC7;&amp;#x4E24;&amp;#x5929;&amp;#x7684;&amp;#x6298;&amp;#x817E;&amp;#xFF0C;&amp;#x5C1D;&amp;#x8BD5;&amp;#x6362;Tomcat&amp;#xFF0C;IDE&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x53D1;&amp;#x73B0;&amp;#x662F;&amp;#x73AF;&amp;#x5883;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x4E4B;&amp;#x524D;&amp;#x7528;&amp;#x7684;eclipse&amp;#x914D;&amp;#x7F6E;&amp;#x4E86;&amp;#x7834;&amp;#x89E3;&amp;#x7684;JRebel&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x5F71;&amp;#x54CD;&amp;#x5230;&amp;#x4E86;&amp;#xFF0C;&amp;#x5230;&amp;#x7B2C;&amp;#x4E09;&amp;#x5929;&amp;#x7EC8;&amp;#x4E8E;&amp;#x89E3;&amp;#x51B3;&amp;#xFF0C;&amp;#x795E;&amp;#x554A;&amp;#x3002;&amp;#x3002;&amp;#x3002;&amp;#xFF09;&lt;/p&gt;
-&lt;h2 id=&quot;ajax&amp;#x63D0;&amp;#x4EA4;&quot;&gt;&lt;a href=&quot;#ajax&amp;#x63D0;&amp;#x4EA4;&quot; class=&quot;headerlink&quot; title=&quot;ajax&amp;#x63D0;&amp;#x4EA4;&quot;&gt;&lt;/a&gt;ajax&amp;#x63D0;&amp;#x4EA4;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;jQuery&lt;/strong&gt;&amp;#xFF1A;&amp;#x53D1;&amp;#x9001;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x65F6;&amp;#x7528;&amp;amp;&amp;#x7B26;&amp;#x53F7;&amp;#x8FDE;&amp;#x63A5;&amp;#x8D77;&amp;#x6765;&amp;#x7684;&amp;#xFF0C;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/10/SpringMVC&amp;#x540E;&amp;#x53F0;&amp;#x63A5;&amp;#x53D7;&amp;#x4E0D;&amp;#x5230;POST&amp;#x8BF7;&amp;#x6C42;&amp;#x6570;&amp;#x636E;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;br&gt;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;Content-Type&amp;#x662F; application/x-www-form-urlencoded&amp;#x3002;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/10/SpringMVC&amp;#x540E;&amp;#x53F0;&amp;#x63A5;&amp;#x53D7;&amp;#x4E0D;&amp;#x5230;POST&amp;#x8BF7;&amp;#x6C42;&amp;#x6570;&amp;#x636E;/Image%202.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 2.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;AngularJS&lt;/strong&gt;&amp;#xFF1A;&amp;#x4F20;&amp;#x8F93;&amp;#x6570;&amp;#x636E;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;Content-Type&amp;#x662F;&amp;#xFF1A;application/json&amp;#x683C;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#x4E3A;{&amp;#x201C;pageNow&amp;#x201D;:1,&amp;#x201D;pageSize&amp;#x201D;:5,&amp;#x201D;type&amp;#x201D;:&amp;#x201D;&amp;#x201D;}&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#x4E00;&amp;#x5B9A;&amp;#x8981;&amp;#x548C;Content-Type&amp;#x4FDD;&amp;#x6301;&amp;#x4E00;&amp;#x81F4;&amp;#x3002;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;form&amp;#x63D0;&amp;#x4EA4;&quot;&gt;&lt;a href=&quot;#form&amp;#x63D0;&amp;#x4EA4;&quot; class=&quot;headerlink&quot; title=&quot;form&amp;#x63D0;&amp;#x4EA4;&quot;&gt;&lt;/a&gt;form&amp;#x63D0;&amp;#x4EA4;&lt;/h2&gt;&lt;p&gt;form&amp;#x7684;enctype&amp;#x5C5E;&amp;#x6027;&amp;#x4E3A;&amp;#x7F16;&amp;#x7801;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5E38;&amp;#x7528;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#xFF1A;application/x-www-form-urlencoded&amp;#x548C;multipart/form-data&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;application/x-www-form-urlencoded&amp;#x3002; &amp;#x5F53;action&amp;#x4E3A;get&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7528;x-www-form-urlencoded&amp;#x7684;&amp;#x7F16;&amp;#x7801;&amp;#x65B9;&amp;#x5F0F;&amp;#x628A;form&amp;#x6570;&amp;#x636E;&amp;#x8F6C;&amp;#x6362;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x4E32;&amp;#xFF08;name1=value1&amp;amp;name2=value2&amp;#x2026;&amp;#xFF09;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x628A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5B57;&amp;#x4E32;append&amp;#x5230;url&amp;#x540E;&amp;#x9762;&amp;#xFF0C;&amp;#x7528;?&amp;#x5206;&amp;#x5272;&amp;#xFF0C;&amp;#x52A0;&amp;#x8F7D;&amp;#x8FD9;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;url&amp;#x3002; &amp;#x5F53;action&amp;#x4E3A;post&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x628A;form&amp;#x6570;&amp;#x636E;&amp;#x5C01;&amp;#x88C5;&amp;#x5230;http body&amp;#x4E2D;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x53D1;&amp;#x9001;&amp;#x5230;server&amp;#x3002; &amp;#x5982;&amp;#x679C;&amp;#x6CA1;&amp;#x6709;type=file&amp;#x7684;&amp;#x63A7;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7528;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;application/x-www-form-urlencoded&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E86;&amp;#x3002; &amp;#x4F46;&amp;#x662F;&amp;#x5982;&amp;#x679C;&amp;#x6709;type=file&amp;#x7684;&amp;#x8BDD;&amp;#xFF0C;&amp;#x5C31;&amp;#x8981;&amp;#x7528;&amp;#x5230;multipart/form-data&amp;#x4E86;&amp;#x3002;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x4F1A;&amp;#x628A;&amp;#x6574;&amp;#x4E2A;&amp;#x8868;&amp;#x5355;&amp;#x4EE5;&amp;#x63A7;&amp;#x4EF6;&amp;#x4E3A;&amp;#x5355;&amp;#x4F4D;&amp;#x5206;&amp;#x5272;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E3A;&amp;#x6BCF;&amp;#x4E2A;&amp;#x90E8;&amp;#x5206;&amp;#x52A0;&amp;#x4E0A;Content-Disposition(form-data&amp;#x6216;&amp;#x8005;file),Content-Type(&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;text/plain),name(&amp;#x63A7;&amp;#x4EF6;name)&amp;#x7B49;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x5E76;&amp;#x52A0;&amp;#x4E0A;&amp;#x5206;&amp;#x5272;&amp;#x7B26;(boundary)&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;a href=&quot;#&amp;#x6CE8;&amp;#x89E3;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6CE8;&amp;#x89E3;&quot;&gt;&lt;/a&gt;&amp;#x6CE8;&amp;#x89E3;&lt;/h2&gt;&lt;h3 id=&quot;RequestBody&quot;&gt;&lt;a href=&quot;#RequestBody&quot; class=&quot;headerlink&quot; title=&quot;@RequestBody&quot;&gt;&lt;/a&gt;@RequestBody&lt;/h3&gt;&lt;p&gt;&amp;#x8BE5;&amp;#x6CE8;&amp;#x89E3;&amp;#x7528;&amp;#x4E8E;&amp;#x8BFB;&amp;#x53D6;Request&amp;#x8BF7;&amp;#x6C42;&amp;#x7684;body&amp;#x90E8;&amp;#x5206;&amp;#x6570;&amp;#x636E;&lt;/p&gt;
-&lt;h3 id=&quot;ResponseBody&quot;&gt;&lt;a href=&quot;#ResponseBody&quot; class=&quot;headerlink&quot; title=&quot;@ResponseBody&quot;&gt;&lt;/a&gt;@ResponseBody&lt;/h3&gt;&lt;p&gt;&amp;#x8BE5;&amp;#x6CE8;&amp;#x89E3;&amp;#x7528;&amp;#x4E8E;&amp;#x5C06;Controller&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x9002;&amp;#x5F53;&amp;#x7684;HttpMessageConverter&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x6307;&amp;#x5B9A;&amp;#x683C;&amp;#x5F0F;&amp;#x540E;&amp;#xFF0C;&amp;#x5199;&amp;#x5165;&amp;#x5230;Response&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;body&amp;#x6570;&amp;#x636E;&amp;#x533A;&amp;#x3002;&lt;br&gt;&amp;#x5F53;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x4E0D;&amp;#x662F;html&amp;#x7684;&amp;#x9875;&amp;#x9762;&amp;#xFF0C;&amp;#x800C;&amp;#x662F;&amp;#x5176;&amp;#x4ED6;&amp;#x67D0;&amp;#x79CD;&amp;#x683C;&amp;#x5F0F;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x65F6;&amp;#xFF08;&amp;#x5982;json&amp;#x3001;xml&amp;#x7B49;&amp;#xFF09;&amp;#x4F7F;&amp;#x7528;&amp;#xFF1B;&lt;/p&gt;
-&lt;h3 id=&quot;RequestMapping-produces&quot;&gt;&lt;a href=&quot;#RequestMapping-produces&quot; class=&quot;headerlink&quot; title=&quot;@RequestMapping produces&quot;&gt;&lt;/a&gt;@RequestMapping produces&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/upload&amp;quot;,produces=&amp;quot;application/json&amp;quot;)  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;produces&amp;#xFF1A;&amp;#x65B9;&amp;#x6CD5;&amp;#x4EC5;&amp;#x5904;&amp;#x7406;request&amp;#x8BF7;&amp;#x6C42;&amp;#x4E2D;Accept&amp;#x5934;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;&amp;#x4E86;&amp;#x201D;application/json&amp;#x201D;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#xFF0C;&amp;#x540C;&amp;#x65F6;&amp;#x6697;&amp;#x793A;&amp;#x4E86;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x7C7B;&amp;#x578B;&amp;#x4E3A;application/json;&lt;/p&gt;
-&lt;h2 id=&quot;springMVC&amp;#x53D6;&amp;#x503C;&amp;#x65B9;&amp;#x5F0F;&quot;&gt;&lt;a href=&quot;#springMVC&amp;#x53D6;&amp;#x503C;&amp;#x65B9;&amp;#x5F0F;&quot; class=&quot;headerlink&quot; title=&quot;springMVC&amp;#x53D6;&amp;#x503C;&amp;#x65B9;&amp;#x5F0F;&quot;&gt;&lt;/a&gt;springMVC&amp;#x53D6;&amp;#x503C;&amp;#x65B9;&amp;#x5F0F;&lt;/h2&gt;&lt;h3 id=&quot;PathVariable&quot;&gt;&lt;a href=&quot;#PathVariable&quot; class=&quot;headerlink&quot; title=&quot;@PathVariable&quot;&gt;&lt;/a&gt;@PathVariable&lt;/h3&gt;&lt;p&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x6CE8;&amp;#x89E3;@PathVariable&amp;#x83B7;&amp;#x53D6;url&amp;#x4E2D;&amp;#x7684;&amp;#x503C;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RequestMapping(value=&amp;quot;user/{id}/{name}&amp;quot;,method=RequestMethod.GET)
-public String myController(@PathVariable String id,@PathVariable String name, ModelMap model) {
-     &amp;#x2026;&amp;#x2026;
-      return &amp;quot;ok&amp;quot;;
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;RequestParam&quot;&gt;&lt;a href=&quot;#RequestParam&quot; class=&quot;headerlink&quot; title=&quot;@RequestParam&quot;&gt;&lt;/a&gt;@RequestParam&lt;/h3&gt;&lt;p&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x6CE8;&amp;#x89E3;RequestParam&amp;#x83B7;&amp;#x53D6;&amp;#x4F20;&amp;#x9012;&amp;#x8FC7;&amp;#x6765;&amp;#x7684;&amp;#x503C;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/test&amp;quot;, method = RequestMethod.POST) 
-public String myTest(@RequestParam(&amp;quot;name&amp;quot;) String name,@RequestParam(&amp;quot;phone&amp;quot;) String phone, ModelMap model) { 
-     &amp;#x2026;&amp;#x2026;
-     return &amp;quot;ok&amp;quot;;
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;HttpServletRequest&quot;&gt;&lt;a href=&quot;#HttpServletRequest&quot; class=&quot;headerlink&quot; title=&quot;HttpServletRequest&quot;&gt;&lt;/a&gt;HttpServletRequest&lt;/h3&gt;&lt;p&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x539F;&amp;#x751F;HttpServletRequest&amp;#x83B7;&amp;#x53D6;&amp;#x503C;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RequestMapping(value=&amp;quot;/test&amp;quot; method = RequestMethod.POST) 
-public String get(HttpServletRequest request, HttpServletResponse response) { 
-     String name = request.getParameter(&amp;quot;name&amp;quot;)); 
-     return &amp;quot;ok&amp;quot;; 
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;ModelAttribute&quot;&gt;&lt;a href=&quot;#ModelAttribute&quot; class=&quot;headerlink&quot; title=&quot;ModelAttribute&quot;&gt;&lt;/a&gt;ModelAttribute&lt;/h3&gt;&lt;p&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x6CE8;&amp;#x89E3;ModelAttribute&amp;#x76F4;&amp;#x63A5;&amp;#x6620;&amp;#x5C04;&amp;#x8868;&amp;#x5355;&amp;#x4E2D;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x5230;POJO&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x8865;&amp;#x5145;&quot;&gt;&lt;a href=&quot;#&amp;#x8865;&amp;#x5145;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8865;&amp;#x5145;&quot;&gt;&lt;/a&gt;&amp;#x8865;&amp;#x5145;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;application/x-www-form-urlencoded&lt;/strong&gt;&amp;#xFF1A; &amp;#x7A97;&amp;#x4F53;&amp;#x6570;&amp;#x636E;&amp;#x88AB;&amp;#x7F16;&amp;#x7801;&amp;#x4E3A;&amp;#x540D;&amp;#x79F0;/&amp;#x503C;&amp;#x5BF9;&amp;#x3002;&amp;#x8FD9;&amp;#x662F;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x7F16;&amp;#x7801;&amp;#x683C;&amp;#x5F0F;&amp;#x3002;&amp;#x7A7A;&amp;#x683C;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A; &amp;#x201C;+&amp;#x201D; &amp;#x52A0;&amp;#x53F7;&amp;#xFF0C;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A; ASCII HEX &amp;#x503C;&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;multipart/form-data&lt;/strong&gt;&amp;#xFF1A; &amp;#x7A97;&amp;#x4F53;&amp;#x6570;&amp;#x636E;&amp;#x88AB;&amp;#x7F16;&amp;#x7801;&amp;#x4E3A;&amp;#x4E00;&amp;#x6761;&amp;#x6D88;&amp;#x606F;&amp;#xFF0C;&amp;#x9875;&amp;#x4E0A;&amp;#x7684;&amp;#x6BCF;&amp;#x4E2A;&amp;#x63A7;&amp;#x4EF6;&amp;#x5BF9;&amp;#x5E94;&amp;#x6D88;&amp;#x606F;&amp;#x4E2D;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x90E8;&amp;#x5206;&amp;#x3002; &amp;#x4E0D;&amp;#x5BF9;&amp;#x5B57;&amp;#x7B26;&amp;#x8FDB;&amp;#x884C;&amp;#x7F16;&amp;#x7801;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x6570;&amp;#x636E;&amp;#x4F20;&amp;#x8F93;&amp;#xFF0C;&lt;strong&gt;&amp;#x4E00;&amp;#x822C;&amp;#x7528;&amp;#x4E8E;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&lt;/strong&gt;&amp;#xFF0C;&amp;#x975E;&amp;#x6587;&amp;#x672C;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x4F20;&amp;#x8F93;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Spring&amp;#x5982;&amp;#x679C;&amp;#x8981;&amp;#x63A5;&amp;#x53D7;&amp;#x8FD9;&amp;#x79CD;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0;&amp;#x4EE5;&amp;#x4E0B;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;multipartResolver&amp;quot;
-      class=&amp;quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&amp;quot;&amp;gt;       
-&amp;lt;/bean&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;text/plain&lt;/strong&gt;&amp;#xFF1A; &amp;#x7A97;&amp;#x4F53;&amp;#x6570;&amp;#x636E;&amp;#x4EE5;&amp;#x7EAF;&amp;#x6587;&amp;#x672C;&amp;#x5F62;&amp;#x5F0F;&amp;#x8FDB;&amp;#x884C;&amp;#x7F16;&amp;#x7801;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x4E0D;&amp;#x542B;&amp;#x4EFB;&amp;#x4F55;&amp;#x63A7;&amp;#x4EF6;&amp;#x6216;&amp;#x683C;&amp;#x5F0F;&amp;#x5B57;&amp;#x7B26;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5E8F;&quot;&gt;&lt;a href=&quot;#&amp;#x5E8F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E8F;&quot;&gt;&lt;/a&gt;&amp;#x5E8F;&lt;/h2&gt;&lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4EE3;&amp;#x7801;&amp;
-    
-    </summary>
-    
-    
-      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
-    
-      <category term="ajax" scheme="http://chen1218chen.github.io/tags/ajax/"/>
     
   </entry>
   
