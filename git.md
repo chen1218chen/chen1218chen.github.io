@@ -105,6 +105,23 @@ git 配置SSH即可提交免密码
     **--amend** 对刚刚的提交进行修补
     --allow-empty 空白被允许提交
     --reset-author 将author的ID同步修改
+    
+#### 最后一次commit信息写错了
+
+如果只是提交信息写错了信息，可以通过以下命令单独修改提交信息
+
+    git commit --amend
+>注意： 通过这样的过程修改提交信息后，相当于删除原来的提交，重新提交了一次。所有如果你在修改前已经将错误的那次提交push到服务端，那在修改后就需要通过 git pull 来合并代码（类似于两个分支了）。
+通过 git log --graph --oneline 查看就会发现两个分支合并的痕迹
+#### 最后一次commit少添加一个文件
+
+    git add file1
+    git commit --amend
+#### 最后一次commit多添加一个文件
+
+    git rm --cached file1
+    git commit --amend
+
 ### git clone
 
 
@@ -222,6 +239,26 @@ git config user.email
 设置路径
 
     git config --global mergetool.p4merge.path c:/Users/my-login/AppData/Local/Perforce/p4merge.exe
+## 案例
+### 回退单个文件的历史版本
+
+    #查看历史版本
+    git log 1.txt
+
+    #回退该文件到指定版本
+    git reset [commit_id] 1.txt
+    git checkout 1.txt
+
+    #提交
+    git commit -m "回退1.txt的历史版本"
+
+### 移除add过的文件
+
+    #方法一
+    git rm --cache [文件名]
+
+    #方法二
+    git reset head [文件/文件夹]
 ## 常见问题
 ### error:failed to push som refs to
 ```
