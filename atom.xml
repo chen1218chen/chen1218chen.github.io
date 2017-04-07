@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-03-07T02:15:58.641Z</updated>
+  <updated>2017-04-07T07:23:00.781Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6新知识get</title>
+    <link href="http://chen1218chen.github.io/2017/04/07/ES6%E6%96%B0%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://chen1218chen.github.io/2017/04/07/ES6新知识点/</id>
+    <published>2017-04-07T14:44:09.000Z</published>
+    <updated>2017-04-07T07:23:00.781Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;ECMAScript6 &amp;#x4F5C;&amp;#x4E3A;&amp;#x65B0;&amp;#x7684;Javascript&amp;#x6807;&amp;#x51C6;&amp;#xFF0C;&amp;#x4E0E;ECMAScript5&amp;#x6709;&amp;#x7740;&amp;#x5F88;&amp;#x5927;&amp;#x533A;&amp;#x522B;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x5B9E;&amp;#x8DF5;&amp;#x4E2D;&amp;#x79EF;&amp;#x7D2F;&amp;#x65B0;&amp;#x77E5;&amp;#x8BC6;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;const-var-le&amp;#x533A;&amp;#x522B;&quot;&gt;&lt;a href=&quot;#const-var-le&amp;#x533A;&amp;#x522B;&quot; class=&quot;headerlink&quot; title=&quot;const,var,le&amp;#x533A;&amp;#x522B;&quot;&gt;&lt;/a&gt;const,var,le&amp;#x533A;&amp;#x522B;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;const&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53D8;&amp;#x91CF;&amp;#x4E0D;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x5FC5;&amp;#x987B;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x3002;&amp;#x5E38;&amp;#x7528;&amp;#x6765;&amp;#x5B9A;&amp;#x4E49;&amp;#x5E38;&amp;#x91CF;&amp;#x3002;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E8E;java&amp;#x4E2D;&amp;#x5E38;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;Constants&amp;#x5E38;&amp;#x91CF;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;var&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53D8;&amp;#x91CF;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FEE;&amp;#x6539;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x4E0D;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x4F1A;&amp;#x8F93;&amp;#x51FA;undefined&amp;#xFF0C;&amp;#x4E0D;&amp;#x4F1A;&amp;#x62A5;&amp;#x9519;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;let&amp;#x662F;&amp;#x5757;&amp;#x7EA7;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF0C;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x90E8;&amp;#x4F7F;&amp;#x7528;let&amp;#x5B9A;&amp;#x4E49;&amp;#x540E;&amp;#xFF0C;&amp;#x5BF9;&amp;#x51FD;&amp;#x6570;&amp;#x5916;&amp;#x90E8;&amp;#x65E0;&amp;#x5F71;&amp;#x54CD;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;let c = 3;
+console.log(&amp;apos;&amp;#x51FD;&amp;#x6570;&amp;#x5916;let&amp;#x5B9A;&amp;#x4E49;c&amp;#xFF1A;&amp;apos; + c);//&amp;#x8F93;&amp;#x51FA;c=3
+function change(){
+let c = 6;
+console.log(&amp;apos;&amp;#x51FD;&amp;#x6570;&amp;#x5185;let&amp;#x5B9A;&amp;#x4E49;c&amp;#xFF1A;&amp;apos; + c);//&amp;#x8F93;&amp;#x51FA;c=6
+} 
+change();
+console.log(&amp;apos;&amp;#x51FD;&amp;#x6570;&amp;#x8C03;&amp;#x7528;&amp;#x540E;let&amp;#x5B9A;&amp;#x4E49;c&amp;#x4E0D;&amp;#x53D7;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x90E8;&amp;#x5B9A;&amp;#x4E49;&amp;#x5F71;&amp;#x54CD;&amp;#xFF1A;&amp;apos; + c);//&amp;#x8F93;&amp;#x51FA;c=3
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x7BAD;&amp;#x5934;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x7BAD;&amp;#x5934;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7BAD;&amp;#x5934;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x7BAD;&amp;#x5934;&amp;#x51FD;&amp;#x6570;&lt;/h2&gt;&lt;p&gt;ES6&amp;#x51FA;&amp;#x6765;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x7BAD;&amp;#x5934;&amp;#x51FD;&amp;#x6570;&amp;#x9891;&amp;#x7E41;&amp;#x51FA;&amp;#x73B0;&amp;#x554A;&amp;#xFF0C;&amp;#x7ECF;&amp;#x5E38;&amp;#x770B;&amp;#x7684;&amp;#x6211;&amp;#x4E91;&amp;#x91CC;&amp;#x96FE;&amp;#x91CC;&amp;#x7684;&amp;#xFF0C;&amp;#x72E0;&amp;#x4E0B;&amp;#x51B3;&amp;#x5FC3;&amp;#x597D;&amp;#x597D;&amp;#x5F04;&amp;#x6E05;&amp;#x695A;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5230;&amp;#x5E95;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x9B3C;&amp;#xFF0C;&amp;#x8BA4;&amp;#x771F;&amp;#x770B;&amp;#x770B;&amp;#x5176;&amp;#x5B9E;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x7B80;&amp;#x5316;&amp;#x8868;&amp;#x8FBE;&amp;#x800C;&amp;#x5DF2;&amp;#x3002;&amp;#x6BD4;&amp;#x5982;&amp;#xFF0C;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var str = a =&amp;gt;a + a;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var str = function(a) {
+    return a+a;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x867D;&amp;#x7136;&amp;#x7406;&amp;#x89E3;&amp;#x4E86;&amp;#xFF0C;&amp;#x8FD8;&amp;#x662F;&amp;#x5F88;&amp;#x4E0D;&amp;#x4E60;&amp;#x60EF;&amp;#x554A;&amp;#x3002;&amp;#x3002;&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;ECMAScript6 &amp;#x4F5C;&amp;#x4E3A;&amp;#x65B0;&amp;#x7684;Javascript&amp;#x6807;&amp;#x51C6;&amp;#xFF0C;&amp;#x4E0E;ECMAScript5&amp;#x6709;&amp;#x7740;&amp;#x5F88;&amp;#x
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://chen1218chen.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>shiro之roles实现or关系的角色过滤</title>
@@ -187,7 +230,7 @@ public class LawsRest {
     <link href="http://chen1218chen.github.io/2017/02/24/vue-js%E5%88%9D%E6%8E%A2/"/>
     <id>http://chen1218chen.github.io/2017/02/24/vue-js初探/</id>
     <published>2017-02-23T17:11:10.000Z</published>
-    <updated>2017-02-27T08:46:10.806Z</updated>
+    <updated>2017-04-07T07:58:02.796Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;ul&gt;
@@ -196,21 +239,42 @@ public class LawsRest {
 &lt;p&gt;vue&amp;#x521D;&amp;#x63A2;&amp;#xFF0C;&amp;#x5373;&amp;#x4F7F;&amp;#x7167;&amp;#x7740;&amp;#x5B98;&amp;#x65B9;&amp;#x6559;&amp;#x7A0B;&amp;#x4E00;&amp;#x6B65;&amp;#x6B65;&amp;#x6765;&amp;#xFF0C;&amp;#x4F9D;&amp;#x7136;&amp;#x662F;&amp;#x9519;&amp;#x8BEF;&amp;#x767E;&amp;#x51FA;&amp;#xFF0C;&amp;#x8BB0;&amp;#x5F97;&amp;#x6700;&amp;#x597D;&amp;#x662F;&amp;#x5C06;node.js&amp;#x66F4;&amp;#x65B0;&amp;#x5230;&amp;#x6700;&amp;#x65B0;&amp;#x7248;&amp;#x672C;&amp;#xFF0C;&amp;#x4E0D;&amp;#x7136;&amp;#x5404;&amp;#x79CD;&amp;#x62A5;&amp;#x9519;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x600E;&amp;#x4E48;&amp;#x89E3;&amp;#x51B3;&amp;#x3002;&lt;br&gt;&amp;#x679C;&amp;#x4E0D;&amp;#x5176;&amp;#x7136;&amp;#xFF0C;&amp;#x518D;&amp;#x7ECF;&amp;#x8FC7;&amp;#x5C06;&amp;#x73AF;&amp;#x5883;&amp;#x6574;&amp;#x4E2A;&amp;#x66F4;&amp;#x65B0;&amp;#x4E4B;&amp;#x540E;&amp;#x5728;&amp;#x6839;&amp;#x636E;&amp;#x4EE5;&amp;#x4E0B;&amp;#x5B98;&amp;#x7F51;&amp;#x4E0A;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&amp;#x4E00;&amp;#x6B65;&amp;#x6B65;&amp;#x6765;&amp;#x5C31;&amp;#x6728;&amp;#x6709;&amp;#x95EE;&amp;#x9898;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# &amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5; vue-cli
 $ npm install --global vue-cli
-# &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E; webpack &amp;#x6A21;&amp;#x677F;&amp;#x7684;&amp;#x65B0;&amp;#x9879;&amp;#x76EE;
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x56FD;&amp;#x5185;&amp;#x7684;npm&amp;#x7F51;&amp;#x901F;&amp;#x4E0D;&amp;#x7A33;&amp;#x5B9A;&amp;#xFF0C;&amp;#x63A8;&amp;#x8350;&amp;#x4F7F;&amp;#x7528;&amp;#x6DD8;&amp;#x5B9D;&amp;#x955C;&amp;#x50CF;&amp;#xFF0C;&lt;a href=&quot;http://npm.taobao.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x70B9;&amp;#x51FB;&amp;#x67E5;&amp;#x770B;&amp;#x8BE6;&amp;#x60C5;&lt;/a&gt;&amp;#x3002;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;# &amp;#x5982;&amp;#x679C;&amp;#x5B89;&amp;#x88C5;&amp;#x5931;&amp;#x8D25;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5148;clean&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x6E05;&amp;#x7406;&amp;#x7F13;&amp;#x5B58;&amp;#xFF0C;&amp;#x518D;&amp;#x91CD;&amp;#x65B0;&amp;#x5B89;&amp;#x88C5;
+$ npm cache clean 
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org  
+$ cnpm -v //&amp;#x67E5;&amp;#x770B;&amp;#x662F;&amp;#x5426;&amp;#x5B89;&amp;#x88C5;&amp;#x6210;&amp;#x529F;
+
+# &amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x57FA;&amp;#x4E8E;webpack &amp;#x6A21;&amp;#x677F;&amp;#x7684;&amp;#x65B0;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;webpack&amp;#x662F;&amp;#x6A21;&amp;#x677F;&amp;#x540D;&amp;#x79F0;
 $ vue init webpack first
 # &amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#xFF0C;&amp;#x8D70;&amp;#x4F60;
 $ cd first
-$ npm install
-$ npm run dev
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6210;&amp;#x529F;&amp;#x663E;&amp;#x793A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;/p&gt;
+$ cnpm install
+$ cnpm run dev
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6210;&amp;#x529F;&amp;#x663E;&amp;#x793A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;br&gt;&lt;strong&gt;vue-cli&lt;/strong&gt;&amp;#xFF1A;&amp;#x5B98;&amp;#x65B9;&amp;#x53D1;&amp;#x5E03;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;vue&amp;#x811A;&amp;#x624B;&amp;#x67B6;&amp;#x5E2E;&amp;#x52A9;&amp;#x6211;&amp;#x4EEC;&amp;#x5FEB;&amp;#x901F;&amp;#x642D;&amp;#x5EFA;vue&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x52A8;&amp;#x542F;&amp;#x7528;&amp;#x70ED;&amp;#x52A0;&amp;#x8F7D;&amp;#x529F;&amp;#x80FD;&amp;#x3002;&lt;br&gt;&lt;strong&gt;webpack&lt;/strong&gt;&amp;#xFF1A;&amp;#x662F;&amp;#x6A21;&amp;#x677F;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5230; vue.js &amp;#x7684; GitHub &amp;#x4E0A;&amp;#x67E5;&amp;#x770B;&amp;#x66F4;&amp;#x591A;&amp;#x7684;&amp;#x6A21;&amp;#x677F;&lt;a href=&quot;https://github.com/vuejs-templates&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/vuejs-templates&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223172730.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223172730.png&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223173009.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223173009.png&quot;&gt;&lt;br&gt;main.js:&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x4E3B;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x56FD;&amp;#x5185;&amp;#x7684;npm&amp;#x7F51;&amp;#x901F;&amp;#x4E0D;&amp;#x7A33;&amp;#x5B9A;&amp;#xFF0C;&amp;#x63A8;&amp;#x8350;&amp;#x4F7F;&amp;#x7528;&amp;#x6DD8;&amp;#x5B9D;&amp;#x955C;&amp;#x50CF;&amp;#xFF0C;&lt;a href=&quot;http://npm.taobao.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x70B9;&amp;#x51FB;&amp;#x67E5;&amp;#x770B;&amp;#x8BE6;&amp;#x60C5;&lt;/a&gt;&amp;#x3002;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170227101809.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170227101809.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x5B98;&amp;#x65B9;&amp;#x63A8;&amp;#x8350;&amp;#x7684;&amp;#x5F15;&amp;#x5165;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://unpkg.com/vue/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;a href=&quot;#&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;/a&gt;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&lt;/h2&gt;&lt;p&gt;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x653E;&amp;#x5230; src &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x5B8C;&amp;#x6210;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8F93;&amp;#x5165; npm run build &amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x6253;&amp;#x5305;&amp;#x5DE5;&amp;#x4F5C;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm run build
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6253;&amp;#x5305;&amp;#x5B8C;&amp;#x6210;&amp;#x540E;&amp;#xFF0C;&amp;#x4F1A;&amp;#x751F;&amp;#x6210;dist&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5DF2;&amp;#x7ECF;&amp;#x4FEE;&amp;#x6539;&amp;#x4E86;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x6253;&amp;#x5F00;&amp;#x672C;&amp;#x5730;&amp;#x6587;&amp;#x4EF6;&amp;#x67E5;&amp;#x770B;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x7EBF;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x5C06; dist &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x653E;&amp;#x5230;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x5C31;&amp;#x884C;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#app&amp;#x6302;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;app&amp;#x6302;&amp;#x8F7D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;new Vue({
+    el: &amp;apos;#app&amp;apos;,
+    components: {
+        app: App
+    },
+    router,
+}).$mount(&amp;apos;#app&amp;apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7B49;&amp;#x4EF7;&amp;#x4E8E;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;new Vue({
+    el: &amp;apos;#app&amp;apos;,    //&amp;#x8FD9;&amp;#x91CC;&amp;#x7ED1;&amp;#x5B9A;&amp;#x7684;&amp;#x662F;index.html&amp;#x4E2D;&amp;#x7684;id&amp;#x4E3A;app&amp;#x7684;div&amp;#x5143;&amp;#x7D20;
+    router,
+    render: h =&amp;gt; h(App)
+})
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
@@ -1264,33 +1328,6 @@ var CommentBox = React.createClass({
     
     
       <category term="tomcat" scheme="http://chen1218chen.github.io/tags/tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IntellJ IDEA生成war包</title>
-    <link href="http://chen1218chen.github.io/2016/10/12/IntellJ-IDEA%E7%94%9F%E6%88%90war%E5%8C%85/"/>
-    <id>http://chen1218chen.github.io/2016/10/12/IntellJ-IDEA生成war包/</id>
-    <published>2016-10-12T10:22:53.000Z</published>
-    <updated>2016-10-12T02:48:39.692Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x70B9;&amp;#x51FB;&amp;#x9879;&amp;#x76EE;&amp;#x540D;&amp;#xFF0C;&amp;#x6309;F4&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;br&gt;&amp;#x4E4B;&amp;#x540E;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x6240;&amp;#x793A;&amp;#x7684;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x6CE8;&amp;#x610F;&amp;#x7EA2;&amp;#x6846;&amp;#x4E2D;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&amp;#xFF0C;&amp;#x5373;&amp;#x5C31;&amp;#x662F;&amp;#x6700;&amp;#x540E;&amp;#x751F;&amp;#x6210;war&amp;#x5305;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161012103818.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161012103818.png&quot;&gt;&lt;br&gt;&amp;#x70B9;&amp;#x51FB;Build-&amp;gt;Build Artifacts&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161012103438.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161012103438.png&quot;&gt;&lt;br&gt;&amp;#x5F39;&amp;#x51FA;&amp;#x5982;&amp;#x4E0B;&amp;#x6846;&amp;#xFF0C;&amp;#x9009;&amp;#x62E9;&amp;#x521A;&amp;#x624D;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x70B9;&amp;#x51FB;build&amp;#xFF0C;&amp;#x4E4B;&amp;#x540E;&amp;#x5373;&amp;#x53EF;&amp;#x5728;tomcat&amp;#x7684;webapps&amp;#x4E0B;&amp;#x770B;&amp;#x5230;war&amp;#x5305;&amp;#x3002;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161012103533.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161012103533.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161012103717.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161012103717.png&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x70B9;&amp;#x51FB;&amp;#x9879;&amp;#x76EE;&amp;#x540D;&amp;#xFF0C;&amp;#x6309;F4&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/10/12/IntellJ-IDEA&amp;#x751F;&amp;#x6210;war&amp;#x5305;/Image%201
-    
-    </summary>
-    
-    
-      <category term="IntellJ IDAE" scheme="http://chen1218chen.github.io/tags/IntellJ-IDAE/"/>
     
   </entry>
   

@@ -286,6 +286,102 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-jQuery-confirm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/jQuery-confirm/" class="article-date">
+      <time datetime="2016-09-09T17:08:00.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/jQuery-confirm/">jQuery-confirm</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h1 id="Jquery-confirm"><a href="#Jquery-confirm" class="headerlink" title="Jquery-confirm"></a>Jquery-confirm</h1><h2 id="1-alert&#x4F7F;&#x7528;"><a href="#1-alert&#x4F7F;&#x7528;" class="headerlink" title="1. alert&#x4F7F;&#x7528;"></a>1. alert&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>function alertView(str){
+    $.alert({
+        animation : &apos;zoom&apos;,
+        animationBounce : 2,
+        keyboardEnabled : true,
+        title : false,
+        content : str,
+        theme : &apos;white&apos;,
+    });
+}
+</code></pre><h2 id="2-confirm&#x4F7F;&#x7528;"><a href="#2-confirm&#x4F7F;&#x7528;" class="headerlink" title="2. confirm&#x4F7F;&#x7528;"></a>2. confirm&#x4F7F;&#x7528;</h2><blockquote>
+<p>&#x4F7F;&#x7528; Jquery-confirm.js&#x63D2;&#x4EF6;</p>
+</blockquote>
+<pre><code>$.confirm({
+    title: &apos;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#x767B;&#x9646;&#x5417;&#xFF1F;&apos;, 
+    content : false,
+    // autoClose: &apos;confirm|10000&apos;,
+    confirmButtonClass : &apos;btn-info&apos;,
+    cancelButtonClass : &apos;btn-danger&apos;,
+    confirm : function() {
+        $.ajax({
+            type : &quot;post&quot;,
+            url : &quot;logoutAction.action&quot;,
+            async: false,
+            success :function(){
+                location.href = &quot;../login.jsp&quot;;
+            }
+        });
+    },
+    cancel : function() {
+        alert(&apos;canceled&apos;);
+    }
+});
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-bootstrap-dialog使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1181,86 +1277,9 @@ $(&quot;div&quot;).data(&quot;test&quot;);//this is test
 
 
   
-    <article id="post-MVC、MVVM模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/05/MVC、MVVM模式/" class="article-date">
-      <time datetime="2016-08-05T15:17:09.000Z" itemprop="datePublished">2016-08-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/05/MVC、MVVM模式/">MVC、MVVM模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h1 id="MVC&#x3001;MVVM&#x6A21;&#x5F0F;"><a href="#MVC&#x3001;MVVM&#x6A21;&#x5F0F;" class="headerlink" title="MVC&#x3001;MVVM&#x6A21;&#x5F0F;"></a>MVC&#x3001;MVVM&#x6A21;&#x5F0F;</h1><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><h3 id="&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;"><a href="#&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;" class="headerlink" title="&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;"></a>&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;</h3><p>&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;MVC&#x6846;&#x67B6;&#x4E2D;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4E3B;&#x52A8;&#x63A8;&#x9001;&#x6570;&#x636E;&#x7ED9;&#x89C6;&#x56FE;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#xFF08;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF09;&#xFF0C;&#x6216;&#x8005;&#x7531;&#x63A7;&#x5236;&#x5668;&#x6839;&#x636E;&#x6A21;&#x578B;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x89C6;&#x56FE;&#x6765;&#x5C55;&#x793A;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p><img src="/2016/08/05/MVC&#x3001;MVVM&#x6A21;&#x5F0F;/2.png" alt="enter description here" title="2.png"></p>
-<ul>
-<li>model: &#x5305;&#x62EC;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3001;&#x6570;&#x636E;&#x6A21;&#x578B;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4E5F;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x4FEE;&#x6539;&#x548C;&#x64CD;&#x4F5C;&#x7684;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x3002;</li>
-<li><p>view&#xFF1A; UI&#x7EC4;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982;CSS&#x3001;HTML&#x3001;JQuery&#x7B49;&#xFF0C;&#x8D1F;&#x8D23;&#x4ECE;Controller&#x63A5;&#x53D7;&#x6570;&#x636E;&#xFF0C;&#x628A;model&#x8F6C;&#x5316;&#x4E3A;UI&#x3002;</p>
-</li>
-<li><p>Controller&#xFF1A; &#x8D1F;&#x8D23;&#x5904;&#x7406;&#x6D41;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;View&#x63A5;&#x53D7;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF0C;&#x5229;&#x7528;model&#x5904;&#x7406;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x540E;&#x628A;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x3002;</p>
-</li>
-</ul>
-<p>Model&#x548C;View&#x4E4B;&#x95F4;&#x91C7;&#x7528;Observer&#x6A21;&#x5F0F;&#x3002;<br>Controller&#x548C;View&#x4E4B;&#x95F4;&#x91C7;&#x7528;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x3002;</p>
-<h3 id="WEB-MVC&#x6846;&#x67B6;"><a href="#WEB-MVC&#x6846;&#x67B6;" class="headerlink" title="WEB MVC&#x6846;&#x67B6;"></a>WEB MVC&#x6846;&#x67B6;</h3><p>&#x5728;WEB MVC&#x6846;&#x67B6;&#x4E2D;&#x6A21;&#x578B;&#x4E0D;&#x80FD;&#x4E3B;&#x52A8;&#x8DDF;&#x65B0;&#x7528;&#x6237;&#x754C;&#x9762;&#x3002;&#x4E00;&#x822C;&#x7684;web&#x5F00;&#x53D1;&#x662F;&#x8BF7;&#x6C42;-&#x54CD;&#x5E94;&#x6A21;&#x5F0F;&#x3002;&#x4F8B;&#x5982;&#xFF1A;SpringMVC&#xFF0C;&#x8BE6;&#x60C5;&#x8BF7;&#x67E5;&#x770B;<a href="http://chen1218chen.github.io/2016/04/20/SpringMVC/">SpringMVC</a></p>
-<p><img src="/2016/08/05/MVC&#x3001;MVVM&#x6A21;&#x5F0F;/3.png" alt="enter description here" title="3.png"></p>
-<h2 id="MVVM&#x6A21;&#x5F0F;"><a href="#MVVM&#x6A21;&#x5F0F;" class="headerlink" title="MVVM&#x6A21;&#x5F0F;"></a>MVVM&#x6A21;&#x5F0F;</h2><p><img src="/2016/08/05/MVC&#x3001;MVVM&#x6A21;&#x5F0F;/Image%202.png" alt="enter description here" title="Image 2.png"></p>
-<ul>
-<li>View&#x548C;ViewModel&#x6570;&#x636E;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F7F;&#x5F97;ViewModel&#x7684;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x4F20;&#x9012;&#x7ED9;View&#x3002;</li>
-<li>ViewModel&#x901A;&#x8FC7;observer&#x6A21;&#x5F0F;&#x6765;&#x8BB2;ViewModel&#x7684;&#x53D8;&#x5316;&#x901A;&#x77E5;&#x7ED9;Model&#x3002;<br>&#x5982;Angular&#xFF0C;avalon(&#x7F8E;&#x56E2;&#x524D;&#x7AEF;&#xFF0C;&#x53F8;&#x5F92;&#x6B63;&#x7F8E;&#x5F00;&#x53D1;)</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVC/">MVC</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </div>

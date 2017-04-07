@@ -286,6 +286,237 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-select2实现三级联动" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/29/select2实现三级联动/" class="article-date">
+      <time datetime="2016-04-28T16:07:49.000Z" itemprop="datePublished">2016-04-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/29/select2实现三级联动/">select2实现三级联动</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x6700;&#x8FD1;&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x6C42;&#x8981;&#x6C42;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x5206;&#x7C7B;&#xFF0C;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x5206;&#x4E3A;&#x4E09;&#x7EA7;&#xFF0C;&#x8003;&#x8651;&#x4F7F;&#x7528;select2&#x6765;&#x5B9E;&#x73B0;&#x4E09;&#x7EA7;&#x8054;&#x52A8;&#x6548;&#x679C;<br><img src="/2016/04/29/select2&#x5B9E;&#x73B0;&#x4E09;&#x7EA7;&#x8054;&#x52A8;/1.png" alt="enter description here" title="1.png"></p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><pre><code>private Integer cid;
+private String cname;
+private String level;//&#x6240;&#x5728;&#x5C42;&#x7EA7;
+private String parent;//&#x592B;&#x7C7B;ID
+</code></pre><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><p>&#x4E09;&#x4E2A;select&#x6807;&#x7B7E;&#xFF0C;&#x521D;&#x59CB;&#x5C06;&#x540E;&#x4E24;&#x4E2A;select&#x9690;&#x85CF;<br><strong>Tips&#x5C0F;&#x6280;&#x5DE7;:</strong> &#x82E5;&#x4F7F;&#x7528;$.show()&#xFF0C;$.hide()&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x5C06;select&#x9690;&#x85CF;&#xFF0C;&#x5219;&#x5C06;&#x5B83;&#x7684;&#x4E0A;&#x5C42;&#x6807;&#x7B7E;&#x9690;&#x85CF;&#xFF0C;&#x6216;&#x8005;&#x5305;&#x88F9;&#x5728;span&#x4E2D;&#xFF0C;&#x5C06;span&#x9690;&#x85CF;&#x3002;</p>
+<pre><code>&lt;span id=&quot;one&quot;&gt; &lt;select id=&quot;levelOne&quot; name=&quot;levelOne&quot; placeholder=&quot;&#x5206;&#x7C7B;&quot; style=&quot;width: 100px&quot;&gt;
+&lt;/select&gt;&lt;/span&gt; 
+&lt;span id=&quot;two&quot; &gt; &lt;select id=&quot;levelTwo&quot; name=&quot;levelTwo&quot;
+    placeholder=&quot;&#x5206;&#x7C7B;&quot; style=&quot;width: 100px; display: none;&quot;&gt;
+&lt;/select&gt;
+&lt;/span&gt; &lt;span id=&quot;three&quot;&gt; &lt;select id=&quot;levelThree&quot; name=&quot;levelThree&quot;
+    placeholder=&quot;&#x5206;&#x7C7B;&quot; style=&quot;width: 160px;  display: none;&quot;&gt;
+&lt;/select&gt;
+&lt;/span&gt;
+
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; id=&quot;save&quot;
+    style=&quot;margin-top: 5px; padding: 3px 12px&quot;&gt;
+    &lt;i class=&quot;&quot;&gt;&#x4FDD;&#x5B58;&lt;/i&gt;
+&lt;/button&gt;
+</code></pre><h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>&#x5206;&#x89E3;&#x529F;&#x80FD;&#xFF0C;&#x9996;&#x6B21;&#x52A0;&#x8F7D;&#x6709;&#x51E0;&#x7EA7;&#x6570;&#x636E;&#x663E;&#x793A;&#x51E0;&#x7EA7;&#x6570;&#x636E;&#xFF0C;&#x70B9;&#x51FB;&#x4E00;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x5C55;&#x793A;&#x4E8C;&#x7C7B;&#x6570;&#x636E;&#x53CA;&#x7B2C;&#x4E00;&#x4E2A;&#x4E8C;&#x7C7B;&#x6570;&#x636E;&#x5BF9;&#x5E94;&#x7684;&#x4E09;&#x7C7B;&#x6570;&#x636E;&#xFF0C;&#x6CA1;&#x6709;&#x7684;&#x8BA9;&#x5176;&#x9690;&#x85CF;  </p>
+<pre><code>$(function() {
+    var oneselect,twoselect,threeselect;
+    selectAll();
+    selectInit();
+})
+//&#x521D;&#x59CB;&#x5316;&#x52A0;&#x8F7D;
+function selectInit(){
+    selectOne();
+
+    $(&quot;#levelOne&quot;).on(&quot;select2:select&quot;, function (e) {
+        var levelOne = $(&quot;#levelOne&quot;).val();
+        selectTwo(levelOne);
+    });
+
+    $(&apos;#levelTwo&apos;).on(&quot;select2:select&quot;,function(){
+        var levelTwo = $(&quot;#levelTwo&quot;).val();
+        selectThree(levelTwo);
+    });
+}
+//&#x83B7;&#x53D6;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x7C7B;&#x4FDD;&#x5B58;&#x5230;&#x5168;&#x5C40;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x540E;&#x9762;&#x4F7F;&#x7528;
+function selectAll(){
+    $.ajax({
+        url : &quot;rest/category/queryAll&quot;,
+        type : &quot;get&quot;,
+        async: false,//&#x6CE8;&#x610F;&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x540C;&#x6B65;&#xFF0C;&#x4E0D;&#x7136;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x53D6;&#x4E0D;&#x5230;&#x503C;
+        dataType : &apos;json&apos;,
+        success : function(result) {
+            var oneLevel = [];
+            var twoLevel = [];
+            var threeLevel = [];
+            for (var i = 0; i &lt; result.length; i++) {
+                if (result[i].level == &quot;1&quot;) {
+                    oneLevel.push(result[i]);
+                } else if (result[i].level == &quot;2&quot;) {
+                    twoLevel.push(result[i]);
+                } else if (result[i].level == &quot;3&quot;) {
+                    threeLevel.push(result[i]);
+                }
+            }
+            oneselect = oneLevel;
+            twoselect = twoLevel;
+            threeselect = threeLevel;
+        }
+    });
+}
+
+//&#x53D6;&#x7B2C;&#x4E00;&#x7C7B;&#x6570;&#x636E;
+function selectOne(){
+
+    select2Show(&quot;#levelOne&quot;, oneselect);
+
+    selectTwo(oneselect[0].cid);
+}
+//&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x7B2C;&#x4E8C;&#x5C42;&#x6570;&#x636E;
+function selectTwo(parent){
+    var twoTmp = [];
+    for (var j = 0; j &lt; twoselect.length; j++) {
+        if (twoselect[j].parent == parent) {
+            twoTmp.push(twoselect[j])
+        }
+    };
+    if (twoTmp.length != 0) {
+        $(&quot;#two&quot;).show();
+        select2Show(&quot;#levelTwo&quot;, twoTmp);
+
+        selectThree(twoTmp[0].cid);
+
+    } else {
+        twoHide();
+        threeHide();
+    }
+}
+//&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x7B2C;&#x4E09;&#x5C42;&#x6570;&#x636E;
+function selectThree(parent){
+    var threeTmp = [];
+    for (var m = 0; m &lt; threeselect.length; m++) {
+        if (parent == threeselect[m].parent) {
+            threeTmp.push(threeselect[m]);
+        }
+    };
+    if (threeTmp.length != 0) {
+        $(&quot;#three&quot;).show();
+        select2Show(&quot;#levelThree&quot;, threeTmp);
+    } else {
+        threeHide();
+    }
+}
+
+function twoHide(){
+    $(&quot;#levelTwo&quot;).empty();
+    $(&quot;#two&quot;).hide();
+}
+function threeHide(){
+    $(&quot;#levelThree&quot;).empty();
+    $(&quot;#three&quot;).hide();
+}
+function select2Show(id,result){
+    if(result.length!=0){
+        var data=[];
+
+        for ( var i = 0; i &lt; result.length; i++) {
+            var tmp = {};
+            tmp[&quot;id&quot;] = result[i].cid;
+            tmp[&quot;text&quot;] = result[i].cname;
+            data.push(tmp);
+        }
+
+        $(id).empty();
+        $(id).select2({
+            data : data,
+        });
+    }
+}
+</code></pre><p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x67D0;&#x5C42;&#x7C7B;&#x522B;&#x9700;&#x8981;&#x9690;&#x85CF;&#x65F6;&#x6E05;&#x7A7A;select2&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5728;&#x4FDD;&#x5B58;&#x5206;&#x7C7B;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7C7B;&#x522B;id&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6240;&#x793A;<br><img src="/2016/04/29/select2&#x5B9E;&#x73B0;&#x4E09;&#x7EA7;&#x8054;&#x52A8;/Image%202.png" alt="enter description here" title="Image 2.png"></p>
+<pre><code>function save(){
+    var ids = $.map($table.bootstrapTable(&apos;getSelections&apos;), function(row) {
+        return row.id;
+    });
+
+    if (ids == &quot;&quot;) {
+        alertView(&quot;&#x8BF7;&#x9009;&#x62E9;&#x5F85;&#x5F52;&#x7C7B;&#x4FE1;&#x606F;&quot;);
+        return;
+    }
+    alert(ids);
+    if($(&quot;#levelThree&quot;).val()!=null){
+        saveData($(&quot;#levelThree&quot;).val(),ids);
+    }else {
+        if($(&quot;#levelTwo&quot;).val()!=null){
+            saveData($(&quot;#levelTwo&quot;).val(),ids);
+        }else {
+            saveData($(&quot;#levelOne&quot;).val(),ids);
+        }
+    }
+}
+
+function saveData(id,ids){
+    //&#x6570;&#x636E;&#x4FDD;&#x5B58;&#xFF0C;&#x5C06;&#x6570;&#x636E;&#x503C;&#x7528;ajax&#x4F20;&#x5230;&#x540E;&#x53F0;&#xFF0C;&#x8FDB;&#x884C;&#x4FDD;&#x5B58;
+    $.ajax({
+        url:&quot;rest/category/saveClassfi&quot;,
+        type:&quot;post&quot;,
+        data:{
+            &quot;id&quot;:id,
+            &quot;ids&quot;:ids
+        },
+        dataType:&quot;json&quot;,
+        success:function(result){
+
+        }
+    })
+}
+</code></pre><p>&#x4E0B;&#x56FE;&#x662F;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x5F85;&#x5F52;&#x7C7B;&#x6570;&#x636E;ID<br><img src="/2016/04/29/select2&#x5B9E;&#x73B0;&#x4E09;&#x7EA7;&#x8054;&#x52A8;/Image%201.png" alt="enter description here" title="Image 1.png"><br>&#x82E5;&#x672A;&#x9009;&#x62E9;&#x5219;&#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#xFF1A;<br><img src="/2016/04/29/select2&#x5B9E;&#x73B0;&#x4E09;&#x7EA7;&#x8054;&#x52A8;/Image%203.png" alt="enter description here" title="Image 3.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/select2/">select2</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ajax总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1764,92 +1995,9 @@ public class DataSourceInterceptor {
 
 
   
-    <article id="post-hibernate" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/hibernate/" class="article-date">
-      <time datetime="2016-03-02T17:17:05.000Z" itemprop="datePublished">2016-03-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/03/hibernate/">hibernate</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x66F4;&#x65B0;"><a href="#&#x66F4;&#x65B0;" class="headerlink" title="&#x66F4;&#x65B0;"></a>&#x66F4;&#x65B0;</h2><p>hibernate&#x4F7F;&#x7528;update&#x66F4;&#x65B0;&#x65F6;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x5BF9;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x66F4;&#x65B0;&#x4E2A;&#x522B;&#x5B57;&#x6BB5;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x7528;id&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x5C06;&#x5BF9;&#x8C61;&#x5148;&#x53D6;&#x51FA;&#x6765;&#x518D;&#x8FDB;&#x884C;&#x4E2A;&#x522B;&#x5B57;&#x6BB5;&#x7684;&#x66F4;&#x65B0;&#x3002;<br>&#x5BF9;&#x5E94;&#x5B57;&#x6BB5;&#x52A0;&#x4E0A;&#x5982;&#x4E0B;&#x6CE8;&#x91CA;&#x65F6;&#xFF0C;&#x5219;&#x4E0D;&#x8FDB;&#x884C;&#x66F4;&#x65B0;</p>
-<pre><code>@Column(updatable=false)
-</code></pre><p>&#x82E5;&#x4F7F;&#x7528;XML&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;dynamic-update&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#xFF0C;&#x4F46;&#x5728;Annotation&#x4E2D;&#x6CA1;&#x6709;&#x6B64;&#x7C7B;&#x65B9;&#x6CD5;</p>
-<pre><code>&lt;class name=&#x201D;com.sccin.entity.Student&#x201D; table=&#x201D;student&#x201D; dynamic-update=&#x201D;true&#x201D;&gt;
-</code></pre><h2 id="&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;"><a href="#&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;" class="headerlink" title="&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;"></a>&#x5B57;&#x6BB5;&#x5927;&#x5C0F;&#x5199;&#x95EE;&#x9898;</h2><blockquote>
-<p>&#x7531;&#x4E8E;column&#x4E2D;name&#x82E5;&#x6709;&#x5927;&#x5199;(&#x5982;goodNum),&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x90FD;&#x4F1A;&#x88AB;&#x8BD1;&#x6210;&gt;<br>good_num,&#x800C;&#x76F8;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6765;&#x8BF4;&#x5B57;&#x6BB5;&#x4E0D;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x82E5;&#x6570;&#x636E;&#x5E93;&#x521B;&#x5EFA;&#x8868;<br>&#x65F6;,&#x82E5;&#x5B57;&#x6BB5;&#x540D;&#x4E2D;&#x6709;&#x5927;&#x5199;,&#x4E9B;&#x65F6;&#x5728;column&#x7684;name&#x5C5E;&#x6027;&#x4E2D;&#x5E94;&#x5168;&#x90E8;&#x6539;&#x4E3A;&#x5C0F;&#x5199;.</p>
-</blockquote>
-<h2 id="&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x521B;&#x5EFA;&#x95EE;&#x9898;"><a href="#&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x521B;&#x5EFA;&#x95EE;&#x9898;" class="headerlink" title="&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x521B;&#x5EFA;&#x95EE;&#x9898;"></a>&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x521B;&#x5EFA;&#x95EE;&#x9898;</h2><blockquote>
-<p>&#x53C2;&#x8003;<a href="http://blog.knowsky.com/250382.htm" target="_blank" rel="external">http://blog.knowsky.com/250382.htm</a></p>
-</blockquote>
-<p>&#x5728;&#x4F7F;&#x7528;myeclipse&#x7684;hibernate&#x7684;&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x521B;&#x5EFA;&#x65F6;&#x51FA;&#x73B0;&#x70B9;&#x51FB;&#x6CA1;&#x6709;&#x53CD;&#x5E94;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x662F;&#x662F;&#x627E;&#x5230;&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;.myhibernatedata&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x627E;&#x5230;reSettingsFile=&#x2026;&#x90A3;&#x884C;&#xFF0C;&#x5220;&#x9664;&#x8FD9;&#x4E00;&#x884C;&#x5373;&#x53EF;&#xFF0C;&#x6216;&#x8005;&#x6362;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x5EFA;&#x7ACB;web&#x5DE5;&#x7A0B;&#xFF0C;&#x52A0;&#x5165;hibernate&#xFF0C;&#x5373;&#x53EF;&#x3002;<br>&#x53CD;&#x5411;&#x5DE5;&#x7A0B;&#x540E;&#x82E5;&#x51FA;&#x73B0;XXXId&#x7684;&#x7C7B;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x6570;&#x636E;&#x8868;&#x6CA1;&#x6709;&#x4E3B;&#x952E;</p>
-<h2 id="hibernate-update"><a href="#hibernate-update" class="headerlink" title="hibernate update"></a>hibernate update</h2><blockquote>
-<p>hibernate&#x7684;&#x4E3B;&#x952E;&#x4E5F;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7BA1;&#x7406;&#x3002;&#x7279;&#x522B;&#x662F;&#x5F53;&#x7528;update&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E3B;&#x952E;&#x4E3A;&#x81EA;&#x589E;&#xFF0C;&#x82E5;&#x4E0D;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x4E0D;&#x5BF9;&#x5176;&#x8D4B;&#x6240;&#x4FEE;&#x6539;&#x7684;&#x503C;&#x65F6;&#x4F1A;&#x62A5;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#x3002;</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.TransientObjectException: The given object has a null identifier:</span><br></pre></td></tr></table></figure>
-<h2 id="&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3B;&#x952E;&#x81EA;&#x52A8;&#x751F;&#x6210;"><a href="#&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3B;&#x952E;&#x81EA;&#x52A8;&#x751F;&#x6210;" class="headerlink" title="&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3B;&#x952E;&#x81EA;&#x52A8;&#x751F;&#x6210;"></a>&#x51FA;&#x73B0;&#x5982;&#x4E0B;&#x9519;&#x8BEF;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3B;&#x952E;&#x81EA;&#x52A8;&#x751F;&#x6210;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.hibernate.id.IdentifierGenerationException:ids for this class must be manually assigned before calling save():</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Id</span><br><span class="line">@Column(name = &quot;Id&quot;, unique = true, nullable = false)</span><br><span class="line">@GeneratedValue(strategy = GenerationType.AUTO)</span><br><span class="line">public Integer getId() {</span><br><span class="line">	return this.id;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><blockquote>
-<p>&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;&#xFF08; hibernate.cfg.xml&#x6587;&#x4EF6;&#x4E2D;&#xFF09;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">          &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</span><br><span class="line">          &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- Generated by MyEclipse Hibernate Tools.                   --&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line"></span><br><span class="line">&lt;session-factory&gt;</span><br><span class="line">	&lt;property name=&quot;dialect&quot;&gt;</span><br><span class="line">		org.hibernate.dialect.MySQLDialect</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.url&quot;&gt;</span><br><span class="line">		jdbc:mysql://localhost:3306/lbsimage</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.password&quot;&gt;123456&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;connection.driver_class&quot;&gt;</span><br><span class="line">		com.mysql.jdbc.Driver</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;myeclipse.connection.profile&quot;&gt;cc&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hbm2ddl.auto&quot;&gt;update&lt;/property&gt;</span><br><span class="line">	 &lt;!--&#x5982;&#x679C;&#x4F7F;&#x7528;JUnit&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF1A;&#x5C31;&#x8981;&#x52A0;&#x4E0A;&#x4E0B;&#x9762;&#x8FD9;&#x53E5;&#x8BDD;--&gt;  </span><br><span class="line">    &lt;property name=&quot;javax.persistence.validation.mode&quot;&gt;none&lt;/property&gt;</span><br><span class="line">	&lt;!--   &#x5B9E;&#x4F53;&#x914D;&#x7F6E;&#x7C7B; &#x6CE8;&#x89E3;&#x65B9;&#x5F0F;--&gt;</span><br><span class="line">	&lt;mapping class=&quot;com.ssh.model.Student&quot; /&gt;</span><br><span class="line">	&lt;!--&#x6216;&#x8005;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F; &#x5982;&#x4E0B; --&gt;</span><br><span class="line">	&lt;mapping resource=&quot;Teacher.hbm.xml&quot; /&gt;</span><br><span class="line">&lt;/session-factory&gt;</span><br><span class="line"></span><br><span class="line">&lt;/hibernate-configuration&gt;</span><br></pre></td></tr></table></figure></p>
-<p> &#x6216;&#x8005;&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65B9;&#x5F0F;(Teacher.hbm.xml)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;</span><br><span class="line">&quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;</span><br><span class="line">&lt;!-- </span><br><span class="line">    Mapping file autogenerated by MyEclipse Persistence Tools</span><br><span class="line">--&gt;</span><br><span class="line">&lt;hibernate-mapping&gt;</span><br><span class="line">    &lt;class name=&quot;Teacher&quot; table=&quot;teacher&quot; catalog=&quot;learnssh&quot;&gt;</span><br><span class="line">        &lt;id name=&quot;tid&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tid&quot; /&gt;</span><br><span class="line">            &lt;generator class=&quot;native&quot; /&gt;</span><br><span class="line">        &lt;/id&gt;</span><br><span class="line">        &lt;property name=&quot;tname&quot; type=&quot;java.lang.String&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tname&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;tage&quot; type=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">            &lt;column name=&quot;tage&quot; /&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/class&gt;</span><br><span class="line">&lt;/hibernate-mapping&gt;</span><br></pre></td></tr></table></figure></p>
-<p>&#x4E0E;Spring&#x7ED3;&#x5408;&#x65F6;&#xFF0C;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x7684;applicationContext.xml&#x6587;&#x4EF6;&#x7684;&#x4E3A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans</span><br><span class="line">	xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">	xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;&gt;</span><br><span class="line"></span><br><span class="line">	&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">		class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;configLocation&quot;</span><br><span class="line">			value=&quot;classpath:hibernate.cfg.xml&quot;&gt;</span><br><span class="line">		&lt;/property&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">		&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">	&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;</span><br><span class="line">	&lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Spring+hibernate&#x7ED3;&#x5408;&#x65B9;&#x5F0F;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- &#x7528;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165; --&gt;</span><br><span class="line">&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;</span><br><span class="line">&lt;!-- &#x7528;&#x6CE8;&#x89E3;&#x8BA9;spring&#x7BA1;&#x7406;bean --&gt;</span><br><span class="line">&lt;context:component-scan base-package=&quot;com.lbs&quot; /&gt;</span><br><span class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;</span><br><span class="line">	destroy-method=&quot;close&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;driverClass&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://192.168.1.106:3306/lbsimage&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;user&quot; value=&quot;root&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;password&quot; value=&quot;123456&quot; /&gt;</span><br><span class="line">	&lt;!--&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x4FDD;&#x7559;&#x7684;&#x6700;&#x5C0F;&#x8FDE;&#x63A5;&#x6570;&#x3002; --&gt;</span><br><span class="line">	&lt;property name=&quot;minPoolSize&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x4FDD;&#x7559;&#x7684;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;&#x3002;Default: 15 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxPoolSize&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--&#x521D;&#x59CB;&#x5316;&#x65F6;&#x83B7;&#x53D6;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#xFF0C;&#x53D6;&#x503C;&#x5E94;&#x5728;minPoolSize&#x4E0E;maxPoolSize&#x4E4B;&#x95F4;&#x3002;Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;initialPoolSize&quot; value=&quot;10&quot; /&gt;</span><br><span class="line">	&lt;!--&#x6700;&#x5927;&#x7A7A;&#x95F2;&#x65F6;&#x95F4;,60&#x79D2;&#x5185;&#x672A;&#x4F7F;&#x7528;&#x5219;&#x8FDE;&#x63A5;&#x88AB;&#x4E22;&#x5F03;&#x3002;&#x82E5;&#x4E3A;0&#x5219;&#x6C38;&#x4E0D;&#x4E22;&#x5F03;&#x3002;Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxIdleTime&quot; value=&quot;60&quot; /&gt;</span><br><span class="line">	&lt;!--&#x5F53;&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x7684;&#x8FDE;&#x63A5;&#x8017;&#x5C3D;&#x7684;&#x65F6;&#x5019;c3p0&#x4E00;&#x6B21;&#x540C;&#x65F6;&#x83B7;&#x53D6;&#x7684;&#x8FDE;&#x63A5;&#x6570;&#x3002;Default: 3 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireIncrement&quot; value=&quot;5&quot; /&gt;</span><br><span class="line">	&lt;!--JDBC&#x7684;&#x6807;&#x51C6;&#x53C2;&#x6570;&#xFF0C;&#x7528;&#x4EE5;&#x63A7;&#x5236;&#x6570;&#x636E;&#x6E90;&#x5185;&#x52A0;&#x8F7D;&#x7684;PreparedStatements&#x6570;&#x91CF;&#x3002; &#x4F46;&#x7531;&#x4E8E;&#x9884;&#x7F13;&#x5B58;&#x7684;statements &#x5C5E;&#x4E8E;&#x5355;&#x4E2A;connection&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x8FDE;&#x63A5;&#x6C60;&#x3002;&#x6240;&#x4EE5;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x9700;&#x8981;&#x8003;&#x8651;&#x5230;&#x591A;&#x65B9;&#x9762;&#x7684;&#x56E0;&#x7D20;&#x3002; </span><br><span class="line">		&#x5982;&#x679C;maxStatements&#x4E0E;maxStatementsPerConnection&#x5747;&#x4E3A;0&#xFF0C;&#x5219;&#x7F13;&#x5B58;&#x88AB;&#x5173;&#x95ED;&#x3002;Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxStatements&quot; value=&quot;20&quot; /&gt;</span><br><span class="line">	&lt;!--&#x6BCF;60&#x79D2;&#x68C0;&#x67E5;&#x6240;&#x6709;&#x8FDE;&#x63A5;&#x6C60;&#x4E2D;&#x7684;&#x7A7A;&#x95F2;&#x8FDE;&#x63A5;&#x3002;Default: 0 --&gt;</span><br><span class="line">	&lt;property name=&quot;idleConnectionTestPeriod&quot; value=&quot;30&quot; /&gt;</span><br><span class="line">	&lt;!--&#x5B9A;&#x4E49;&#x5728;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x83B7;&#x53D6;&#x65B0;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#x540E;&#x91CD;&#x590D;&#x5C1D;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x3002;Default: 30 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;10&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#x5C06;&#x4F1A;&#x5F15;&#x8D77;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x8FDE;&#x63A5;&#x6C60;&#x6765;&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x7684;&#x7EBF;&#x7A0B;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002; &#x4F46;&#x662F;&#x6570;&#x636E;&#x6E90;&#x4ECD;&#x6709;&#x6548; &#x4FDD;&#x7559;&#xFF0C;&#x5E76;&#x5728;&#x4E0B;&#x6B21;&#x8C03;&#x7528;getConnection()&#x7684;&#x65F6;&#x5019;&#x7EE7;&#x7EED;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x4E3A;true&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x5C1D;&#x8BD5; </span><br><span class="line">		&#x83B7;&#x53D6;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#x540E;&#x8BE5;&#x6570;&#x636E;&#x6E90;&#x5C06;&#x7533;&#x660E;&#x5DF2;&#x65AD;&#x5F00;&#x5E76;&#x6C38;&#x4E45;&#x5173;&#x95ED;&#x3002;Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;breakAfterAcquireFailure&quot; value=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!--&#x56E0;&#x6027;&#x80FD;&#x6D88;&#x8017;&#x5927;&#x8BF7;&#x53EA;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x4E3A;true&#x90A3;&#x4E48;&#x5728;&#x6BCF;&#x4E2A;connection&#x63D0;&#x4EA4;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x5C06;&#x6821;&#x9A8C;&#x5176;&#x6709;&#x6548;&#x6027;&#x3002; &#x5EFA;&#x8BAE;&#x4F7F;&#x7528;idleConnectionTestPeriod&#x6216;automaticTestTable </span><br><span class="line">		&#x7B49;&#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x5347;&#x8FDE;&#x63A5;&#x6D4B;&#x8BD5;&#x7684;&#x6027;&#x80FD;&#x3002;Default: false --&gt;</span><br><span class="line">	&lt;property name=&quot;testConnectionOnCheckout&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.LocalSessionFactoryBean&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot;&gt;</span><br><span class="line">		&lt;ref bean=&quot;dataSource&quot; /&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">		&lt;list&gt;</span><br><span class="line">			&lt;value&gt;com.lbs.model&lt;/value&gt;</span><br><span class="line">		&lt;/list&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;hibernateProperties&quot;&gt;</span><br><span class="line">		&lt;props&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/prop&gt;</span><br><span class="line">			&lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;validate&lt;/prop&gt;</span><br><span class="line">		&lt;/props&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot;</span><br><span class="line">	class=&quot;org.springframework.orm.hibernate4.HibernateTransactionManager&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 </div>
