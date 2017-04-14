@@ -286,6 +286,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bootstrap-validator" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/bootstrap-validator/" class="article-date">
+      <time datetime="2016-09-09T17:09:54.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/bootstrap-validator/">bootstrap-validator</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>reset&#x91CD;&#x7F6E;&#x8868;&#x5355;</p>
+</blockquote>
+<pre><code>$(&apos;#btn-reset&apos;).click(function() {
+    $(&apos;#changeForm&apos;).data(&apos;bootstrapValidator&apos;).resetForm(true);
+});
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-jQuery-confirm" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1115,149 +1180,6 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jquery类库" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/08/jquery类库/" class="article-date">
-      <time datetime="2016-08-08T15:44:28.000Z" itemprop="datePublished">2016-08-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/08/jquery类库/">jquery类库</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h1 id="jquery&#x7C7B;&#x5E93;"><a href="#jquery&#x7C7B;&#x5E93;" class="headerlink" title="jquery&#x7C7B;&#x5E93;"></a>jquery&#x7C7B;&#x5E93;</h1><h2 id="jQuery&#x7684;setter&#x548C;getter"><a href="#jQuery&#x7684;setter&#x548C;getter" class="headerlink" title="jQuery&#x7684;setter&#x548C;getter"></a>jQuery&#x7684;setter&#x548C;getter</h2><h3 id="&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr"><a href="#&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr" class="headerlink" title="&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr()"></a>&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;-attr()</h3><p>&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;html&#x5C5E;&#x6027;&#x3002;&#x4E0E;&#x4E4B;&#x76F8;&#x5173;&#x7684;&#x662F;removeAttr()&#x7528;&#x6765;&#x79FB;&#x9664;&#x9009;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
-<pre><code># &#x83B7;&#x53D6;a&#x6807;&#x7B7E;&#x7684;href&#x503C;
-$(&quot;a&quot;).attr(&quot;href&quot;);
-
-#&#x8BBE;&#x7F6E;src&#x503C;
-$(&quot;#img&quot;).attr(&quot;src&quot;,&quot;images/a.png&quot;);
-
-#&#x4E00;&#x6B21;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x503C;
-$(&quot;#banner&quot;).attr({src:&quot;banner.png&quot;,alt:&quot;&#x56FE;&#x7247;&quot;,width:&quot;200px&quot;,heigth:&quot;200px&quot;});
-
-#&#x8FDE;&#x63A5;&#x5728;&#x65B0;&#x7A97;&#x53E3;&#x6253;&#x5F00;
-$(&quot;a&quot;).attr(&quot;target&quot;,&quot;_blank&quot;);
-
-#&#x7AD9;&#x5185;&#x8FDE;&#x63A5;&#x5728;&#x672C;&#x7A97;&#x53E3;&#xFF0C;&#x7AD9;&#x5916;&#x8FDE;&#x63A5;&#x5728;&#x65B0;&#x7A97;&#x53E3;&#x6253;&#x5F00;
-$(&quot;a&quot;).attr(&quot;target&quot;,function(){
-    if(this.host==location.host)
-        return &quot;_slef&quot;;
-    else
-        return &quot;_blank&quot;
-})
-&#x6216;&#x8005;
-$(&quot;a&quot;).attr(target:function(){
-    ...//&#x50CF;&#x8FD9;&#x6837;&#x4F20;&#x5165;&#x51FD;&#x6570;
-})
-</code></pre><p>&#x7531;&#x4E0A;&#x4F8B;&#x5B50;&#x53EF;&#x770B;&#x51FA;&#xFF0C;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x51FD;&#x6570;&#x3002;</p>
-<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css()"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;-css()</h3><p>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;css&#x503C;&#xFF0C;&#x7528;&#x6CD5;&#x4E0E;attr()&#x7C7B;&#x4F3C;&#x3002;<br>&#x4E0D;&#x80FD;&#x83B7;&#x53D6;font,margin,padding&#x7B49;&#x590D;&#x5408;&#x6837;&#x5F0F;&#x7684;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x53D6;&#x5355;&#x4E2A;&#x503C;&#xFF0C;&#x6BD4;&#x5982;&#x201D;font-size&#x201D;,&#x201D;margin-left&#x201D;&#x7B49;&#x3002;</p>
-<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;CSS&#x7C7B;</h3><p>jQuery&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E0B;&#x56DB;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;CSS&#x7C7B;&#x3002;</p>
-<pre><code>addClass()
-removeClass()
-
-# &#x5F53;&#x5143;&#x7D20;&#x6CA1;&#x6709;&#x67D0;&#x7C7B;&#x65F6;&#x6DFB;&#x52A0;&#xFF0C;&#x53CD;&#x4E4B;&#x5220;&#x9664;
-toggleClass()
-
-# &#x7528;&#x6765;&#x5224;&#x65AD;&#x67D0;&#x7C7B;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x5B58;&#x5728;&#x8FD4;&#x56DE;true
-hasClass() 
-</code></pre><h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val()"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;HTML&#x8868;&#x5355;&#x503C;-val()</h3><p>val()&#x7528;&#x6765;&#x83B7;&#x53D6;HTML&#x8868;&#x5355;&#x5143;&#x7D20;&#x7684;value&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x53EF;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x590D;&#x9009;&#x6846;&#x3001;&#x5355;&#x9009;&#x6309;&#x94AE;&#x4EE5;&#x53CA;select&#x5143;&#x7D20;&#x7684;&#x9009;&#x4E2D;&#x72B6;&#x6001;&#x3002;</p>
-<pre><code>#&#x83B7;&#x53D6;input&#x503C;&#xFF0C;select&#x7684;&#x9009;&#x4E2D;&#x503C;
-$(&quot;id&quot;).val();
-
-#&#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x7684;&#x5355;&#x9009;&#x6309;&#x94AE;&#x7684;&#x503C;
-$(&quot;input:radio[name=ship]:checked&quot;).val();
-</code></pre><h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x5185;&#x5BB9;</h3><p>text(),html()&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x548C;html&#x5185;&#x5BB9;</p>
-<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x5927;&#x5C0F;</h3><p>offset():&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x5E26;&#x6709;left,top&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;X&#x548C;Y&#x5750;&#x6807;</p>
-<pre><code>var node = $(&quot;div&quot;);//&#x9700;&#x8981;&#x79FB;&#x52A8;&#x7684;&#x5143;&#x7D20;
-var position = node.offset();//&#x5143;&#x7D20;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;
-position.top +=100;//&#x6539;&#x53D8;Y&#x8F74;&#x4F4D;&#x7F6E;
-node.offset(position);//&#x8BBE;&#x7F6E;&#x65B0;&#x4F4D;&#x7F6E;
-</code></pre><p>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;&#xFF1A;</p>
-<pre><code>#&#x8FD4;&#x56DE;&#x57FA;&#x672C;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;,&#x4E0D;&#x542B;&#x5185;&#x5916;&#x8FB9;&#x8DDD;&#x548C;&#x8FB9;&#x6846;
-width(),heigth()
-
-#&#x8FD4;&#x56DE;&#x5305;&#x542B;&#x5185;&#x8FB9;&#x8DDD;&#x548C;&#x8FB9;&#x6846;&#x7684;&#x5C3A;&#x5BF8;
-innerWidth(),innerHeight()
-
-#&#x8FD4;&#x56DE;&#x8FB9;&#x6846;&#x4EE5;&#x5185;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5305;&#x62EC;&#x5185;&#x8FB9;&#x8DDD;&#xFF0C;&#x82E5;&#x5411;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x4F20;&#x5165;true&#x503C;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5305;&#x62EC;&#x5143;&#x7D20;&#x5916;&#x8FB9;&#x8DDD;&#x7684;&#x5C3A;&#x5BF8;&#x3002;
-outerWidth(),outerHeight()
-
-#&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x7684;&#x548C;
-var margin = body.outerWidth(true)-body.outerWidth();
-# &#x5DE6;&#x53F3;&#x8FB9;&#x6846;&#x7684;&#x548C;
-var border = body.outerWidth()-body.innerWidth();
-#&#x5DE6;&#x53F3;&#x5185;&#x8FB9;&#x8DDD;&#x7684;&#x548C;
-var padding = body.innerWidth()-body.width();
-</code></pre><h3 id="data"><a href="#data" class="headerlink" title="data()"></a>data()</h3><pre><code>&lt;div data-test=&quot;this is test&quot;&gt;&lt;/div&gt;
-$(&quot;div&quot;).data(&quot;test&quot;);//this is test
-</code></pre><h2 id="jQuery&#x9009;&#x62E9;&#x5668;"><a href="#jQuery&#x9009;&#x62E9;&#x5668;" class="headerlink" title="jQuery&#x9009;&#x62E9;&#x5668;"></a>jQuery&#x9009;&#x62E9;&#x5668;</h2><p>&#x9664;&#x4E86;&#x5E38;&#x89C1;&#x7684;id&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x7C7B;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5143;&#x7D20;&#x9009;&#x62E9;&#x5668;&#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x9009;&#x62E9;&#x5668;&#xFF1A;</p>
-<h3 id="&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;"><a href="#&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;" class="headerlink" title="&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;"></a>&#x8868;&#x5355;&#x9009;&#x62E9;&#x5668;</h3><ul>
-<li><strong>:input</strong></li>
-<li><strong>:radio</strong></li>
-<li><strong>:text</strong></li>
-<li><strong>:password</strong></li>
-<li><strong>:checkbox</strong></li>
-<li><strong>:submit</strong></li>
-<li><strong>:image</strong></li>
-<li><strong>:reset</strong></li>
-<li><strong>:button</strong></li>
-<li><strong>:file</strong><h3 id="&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;"><a href="#&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;" class="headerlink" title="&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;"></a>&#x8868;&#x5355;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;</h3></li>
-<li><strong>:enabled</strong></li>
-<li><strong>:disabled</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x4E0D;&#x53EF;&#x7528;&#x5143;&#x7D20;</li>
-<li><strong>:checked</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x9009;&#x4E2D;&#x7684;&#x88AB;&#x9009;&#x4E2D;&#x5143;&#x7D20;(&#x590D;&#x9009;&#x6846;&#x3001;&#x5355;&#x9009;&#x6846;&#x7B49;&#xFF0C;select&#x4E2D;&#x7684;option)&#xFF0C;&#x5BF9;&#x4E8E;select&#x5143;&#x7D20;&#x6765;&#x8BF4;&#xFF0C;&#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x63A8;&#x8350;&#x4F7F;&#x7528; :selected</li>
-<li><strong>:selected</strong> &#x5339;&#x914D;&#x6240;&#x6709;&#x9009;&#x4E2D;&#x7684;option&#x5143;&#x7D20;</li>
-</ul>
-<p>&#x3002;&#x3002;&#x3002;<br>&#x540E;&#x7EED;&#x5F85;&#x8865;&#x5145;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
     </div>
 
       

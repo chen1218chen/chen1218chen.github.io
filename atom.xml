@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-04-07T07:23:00.781Z</updated>
+  <updated>2017-04-14T03:18:59.621Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-router之钩子函数</title>
+    <link href="http://chen1218chen.github.io/2017/04/14/vue-router%E7%AC%94%E8%AE%B0/"/>
+    <id>http://chen1218chen.github.io/2017/04/14/vue-router笔记/</id>
+    <published>2017-04-14T10:21:02.000Z</published>
+    <updated>2017-04-14T03:18:59.621Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&lt;/h2&gt;&lt;p&gt;&amp;#x8DEF;&amp;#x7531;&amp;#x7684;&amp;#x5207;&amp;#x6362;&amp;#x8FC7;&amp;#x7A0B;&amp;#xFF0C;&amp;#x672C;&amp;#x8D28;&amp;#x4E0A;&amp;#x662F;&amp;#x6267;&amp;#x884C;&amp;#x4E00;&amp;#x7CFB;&amp;#x5217;&amp;#x8DEF;&amp;#x7531;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x603B;&amp;#x4F53;&amp;#x4E0A;&amp;#x5206;&amp;#x4E3A;&amp;#x4E24;&amp;#x5927;&amp;#x7C7B;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x5168;&amp;#x5C40;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&lt;/li&gt;
+&lt;li&gt;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x5168;&amp;#x5C40;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x5B9A;&amp;#x4E49;&amp;#x5728;&amp;#x5168;&amp;#x5C40;&amp;#x7684;&amp;#x8DEF;&amp;#x7531;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E2D;&amp;#xFF0C;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x5219;&amp;#x5B9A;&amp;#x4E49;&amp;#x5728;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;route&amp;#x9009;&amp;#x9879;&amp;#x4E2D;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x5168;&amp;#x5C40;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x5168;&amp;#x5C40;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5168;&amp;#x5C40;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x5168;&amp;#x5C40;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&lt;/h3&gt;&lt;p&gt;&amp;#x5168;&amp;#x5C40;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x6709;2&amp;#x4E2A;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;beforeEach&lt;/strong&gt;&amp;#xFF1A;&amp;#x5728;&amp;#x8DEF;&amp;#x7531;&amp;#x5207;&amp;#x6362;&amp;#x5F00;&amp;#x59CB;&amp;#x65F6;&amp;#x8C03;&amp;#x7528;&lt;br&gt;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x8DEF;&amp;#x7531;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x767B;&amp;#x9646;&amp;#x5224;&amp;#x65AD;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;router.beforeEach((to, from, next) =&amp;gt; {
+  //&amp;#x5982;&amp;#x679C;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x767B;&amp;#x9646;&amp;#x754C;&amp;#x9762;
+  if (to.path == &amp;apos;/login&amp;apos;) {
+    sessionStorage.removeItem(&amp;apos;user&amp;apos;);
+  }
+  let user = JSON.parse(sessionStorage.getItem(&amp;apos;user&amp;apos;));
+  if (!user &amp;amp;&amp;amp; to.path != &amp;apos;/login&amp;apos;) {
+    next({ path: &amp;apos;/login&amp;apos; })
+  } else {
+    next()
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;afterEach&lt;/strong&gt;&amp;#xFF1A;&amp;#x5728;&amp;#x6BCF;&amp;#x6B21;&amp;#x8DEF;&amp;#x7531;&amp;#x5207;&amp;#x6362;&amp;#x6210;&amp;#x529F;&amp;#x8FDB;&amp;#x5165;&amp;#x6FC0;&amp;#x6D3B;&amp;#x9636;&amp;#x6BB5;&amp;#x65F6;&amp;#x88AB;&amp;#x8C03;&amp;#x7528;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&lt;/h3&gt;&lt;p&gt;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x4E00;&amp;#x5171;6&amp;#x4E2A;&amp;#xFF1A;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;data&lt;/strong&gt;&amp;#xFF1A;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBE;&amp;#x7F6E;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;data&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;activate&lt;/strong&gt;&amp;#xFF1A;&amp;#x6FC0;&amp;#x6D3B;&amp;#x7EC4;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;deactivate&lt;/strong&gt;&amp;#xFF1A;&amp;#x7981;&amp;#x7528;&amp;#x7EC4;&amp;#x4EF6;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;canActivate&lt;/strong&gt;&amp;#xFF1A;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x53EF;&amp;#x4EE5;&amp;#x88AB;&amp;#x6FC0;&amp;#x6D3B;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;canDeactivate&lt;/strong&gt;&amp;#xFF1A;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x53EF;&amp;#x4EE5;&amp;#x88AB;&amp;#x7981;&amp;#x7528;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;canReuse&lt;/strong&gt;&amp;#xFF1A;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x53EF;&amp;#x4EE5;&amp;#x88AB;&amp;#x91CD;&amp;#x7528;&lt;/p&gt;
+&lt;h3 id=&quot;&amp;#x5207;&amp;#x6362;&amp;#x5BF9;&amp;#x8C61;&quot;&gt;&lt;a href=&quot;#&amp;#x5207;&amp;#x6362;&amp;#x5BF9;&amp;#x8C61;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5207;&amp;#x6362;&amp;#x5BF9;&amp;#x8C61;&quot;&gt;&lt;/a&gt;&amp;#x5207;&amp;#x6362;&amp;#x5BF9;&amp;#x8C61;&lt;/h3&gt;&lt;p&gt;&amp;#x6BCF;&amp;#x4E2A;&amp;#x5207;&amp;#x6362;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x90FD;&amp;#x4F1A;&amp;#x63A5;&amp;#x53D7;&amp;#x4E00;&amp;#x4E2A; transition &amp;#x5BF9;&amp;#x8C61;&amp;#x4F5C;&amp;#x4E3A;&amp;#x53C2;&amp;#x6570;&amp;#x3002;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5207;&amp;#x6362;&amp;#x5BF9;&amp;#x8C61;&amp;#x5305;&amp;#x542B;&amp;#x4EE5;&amp;#x4E0B;&amp;#x51FD;&amp;#x6570;&amp;#x548C;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;transition.to&lt;/strong&gt;&lt;br&gt;&amp;#x8868;&amp;#x793A;&amp;#x5C06;&amp;#x8981;&amp;#x5207;&amp;#x6362;&amp;#x5230;&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;&amp;#x7684;&amp;#x8DEF;&amp;#x7531;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transition.from&lt;/strong&gt;&lt;br&gt;&amp;#x4EE3;&amp;#x8868;&amp;#x5F53;&amp;#x524D;&amp;#x8DEF;&amp;#x5F84;&amp;#x7684;&amp;#x8DEF;&amp;#x7531;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transition.next()&lt;/strong&gt;&lt;br&gt;&amp;#x8C03;&amp;#x7528;&amp;#x6B64;&amp;#x51FD;&amp;#x6570;&amp;#x5904;&amp;#x7406;&amp;#x5207;&amp;#x6362;&amp;#x8FC7;&amp;#x7A0B;&amp;#x7684;&amp;#x4E0B;&amp;#x4E00;&amp;#x6B65;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transition.abort([reason])&lt;/strong&gt;&lt;br&gt;&amp;#x8C03;&amp;#x7528;&amp;#x6B64;&amp;#x51FD;&amp;#x6570;&amp;#x6765;&amp;#x7EC8;&amp;#x6B62;&amp;#x6216;&amp;#x8005;&amp;#x62D2;&amp;#x7EDD;&amp;#x6B64;&amp;#x6B21;&amp;#x5207;&amp;#x6362;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transition.redirect(path)&lt;/strong&gt;&lt;br&gt;&amp;#x53D6;&amp;#x6D88;&amp;#x5F53;&amp;#x524D;&amp;#x5207;&amp;#x6362;&amp;#x5E76;&amp;#x91CD;&amp;#x5B9A;&amp;#x5411;&amp;#x5230;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x8DEF;&amp;#x7531;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x987A;&amp;#x5E8F;&quot;&gt;&lt;a href=&quot;#&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x987A;&amp;#x5E8F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x987A;&amp;#x5E8F;&quot;&gt;&lt;/a&gt;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x987A;&amp;#x5E8F;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&amp;#x53EF;&amp;#x91CD;&amp;#x7528;&amp;#x9636;&amp;#x6BB5;&lt;br&gt;&amp;#x68C0;&amp;#x67E5;&amp;#x5F53;&amp;#x524D;&amp;#x7684;&amp;#x89C6;&amp;#x56FE;&amp;#x7ED3;&amp;#x6784;&amp;#x4E2D;&amp;#x662F;&amp;#x5426;&amp;#x5B58;&amp;#x5728;&amp;#x53EF;&amp;#x4EE5;&amp;#x91CD;&amp;#x7528;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6; ,&lt;code&gt;canReuse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&amp;#x9A8C;&amp;#x8BC1;&amp;#x9636;&amp;#x6BB5;&lt;br&gt;&amp;#x68C0;&amp;#x67E5;&amp;#x5F53;&amp;#x524D;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x80FD;&amp;#x591F;&amp;#x505C;&amp;#x7528;&amp;#x4EE5;&amp;#x53CA;&amp;#x65B0;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x5426;&amp;#x53EF;&amp;#x4EE5;&amp;#x88AB;&amp;#x6FC0;&amp;#x6D3B;, &lt;code&gt;canDeactivate&lt;/code&gt; &amp;#x548C;&lt;code&gt;canActivate&lt;/code&gt; &lt;/li&gt;
+&lt;li&gt;&amp;#x6FC0;&amp;#x6D3B;&amp;#x9636;&amp;#x6BB5;&lt;br&gt;&amp;#x4E00;&amp;#x65E6;&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x9A8C;&amp;#x8BC1;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x90FD;&amp;#x88AB;&amp;#x8C03;&amp;#x7528;&amp;#x800C;&amp;#x4E14;&amp;#x6CA1;&amp;#x6709;&amp;#x7EC8;&amp;#x6B62;&amp;#x5207;&amp;#x6362;&amp;#xFF0C;&amp;#x5207;&amp;#x6362;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BA4;&amp;#x5B9A;&amp;#x662F;&amp;#x5408;&amp;#x6CD5;&amp;#x7684;&amp;#x3002;&amp;#x8DEF;&amp;#x7531;&amp;#x5668;&amp;#x5219;&amp;#x5F00;&amp;#x59CB;&amp;#x7981;&amp;#x7528;&amp;#x5F53;&amp;#x524D;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5E76;&amp;#x542F;&amp;#x7528;&amp;#x65B0;&amp;#x7EC4;&amp;#x4EF6;&amp;#x3002;&lt;br&gt;&amp;#x6B64;&amp;#x9636;&amp;#x6BB5;&amp;#x5BF9;&amp;#x5E94;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x987A;&amp;#x5E8F;&amp;#x548C;&amp;#x9A8C;&amp;#x8BC1;&amp;#x9636;&amp;#x6BB5;&amp;#x76F8;&amp;#x540C;&amp;#xFF0C;&amp;#x5176;&amp;#x76EE;&amp;#x7684;&amp;#x662F;&amp;#x5728;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5207;&amp;#x6362;&amp;#x771F;&amp;#x6B63;&amp;#x6267;&amp;#x884C;&amp;#x4E4B;&amp;#x524D;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E00;&amp;#x4E2A;&amp;#x8FDB;&amp;#x884C;&amp;#x6E05;&amp;#x7406;&amp;#x548C;&amp;#x51C6;&amp;#x5907;&amp;#x7684;&amp;#x673A;&amp;#x4F1A;&amp;#x3002;&amp;#x754C;&amp;#x9762;&amp;#x7684;&amp;#x66F4;&amp;#x65B0;&amp;#x4F1A;&amp;#x7B49;&amp;#x5230;&amp;#x6240;&amp;#x6709;&amp;#x53D7;&amp;#x5F71;&amp;#x54CD;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&lt;code&gt;deactivate&lt;/code&gt; &amp;#x548C; &lt;code&gt;activate&lt;/code&gt;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&amp;#x6267;&amp;#x884C;&amp;#x4E4B;&amp;#x540E;&amp;#x624D;&amp;#x8FDB;&amp;#x884C;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;&amp;#x6267;&amp;#x884C;&lt;code&gt;data&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x94A9;&amp;#x5B50;&amp;#x51FD;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x94A9;&amp;#x5B50
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>ES6新知识get</title>
@@ -230,7 +300,7 @@ public class LawsRest {
     <link href="http://chen1218chen.github.io/2017/02/24/vue-js%E5%88%9D%E6%8E%A2/"/>
     <id>http://chen1218chen.github.io/2017/02/24/vue-js初探/</id>
     <published>2017-02-23T17:11:10.000Z</published>
-    <updated>2017-04-07T07:58:02.796Z</updated>
+    <updated>2017-04-14T02:55:13.299Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;ul&gt;
@@ -275,7 +345,9 @@ $ cnpm run dev
     router,
     render: h =&amp;gt; h(App)
 })
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;vue-resource&amp;#x4E0E;axios&quot;&gt;&lt;a href=&quot;#vue-resource&amp;#x4E0E;axios&quot; class=&quot;headerlink&quot; title=&quot;vue-resource&amp;#x4E0E;axios&quot;&gt;&lt;/a&gt;vue-resource&amp;#x4E0E;axios&lt;/h2&gt;&lt;p&gt;vue&amp;#x66F4;&amp;#x65B0;&amp;#x5230;2.0&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x4F5C;&amp;#x8005;&amp;#x5C31;&amp;#x5BA3;&amp;#x544A;&amp;#x4E0D;&amp;#x518D;&amp;#x5BF9;vue-resource&amp;#x66F4;&amp;#x65B0;&amp;#xFF0C;&amp;#x800C;&amp;#x662F;&amp;#x63A8;&amp;#x8350;&amp;#x7684;axios&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;axios&lt;/strong&gt;&amp;#xFF1A;&amp;#x57FA;&amp;#x4E8E; Promise &amp;#x7684; HTTP &amp;#x8BF7;&amp;#x6C42;&amp;#x5BA2;&amp;#x6237;&amp;#x7AEF;&amp;#xFF0C;&amp;#x53EF;&amp;#x540C;&amp;#x65F6;&amp;#x5728;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x548C; node.js &amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;&amp;#x8BE6;&amp;#x60C5;&amp;#x67E5;&amp;#x770B; &lt;a href=&quot;https://www.awesomes.cn/repo/mzabriskie/axios&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;axios&amp;#x6587;&amp;#x6863;&lt;/a&gt;&lt;br&gt;&amp;#x7C7B;&amp;#x4F3C;&amp;#x4E8E;jquery&amp;#x4E2D;&amp;#x7684;ajax&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;&amp;#x5C0F;&amp;#x7684;ajax&amp;#x7EC4;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
@@ -1287,47 +1359,6 @@ var CommentBox = React.createClass({
     
     
       <category term="ReactJS" scheme="http://chen1218chen.github.io/tags/ReactJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tomcat发布后访问路径问题</title>
-    <link href="http://chen1218chen.github.io/2016/10/27/tomcat%E5%8F%91%E5%B8%83%E5%90%8E%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://chen1218chen.github.io/2016/10/27/tomcat发布后访问路径问题/</id>
-    <published>2016-10-27T14:33:29.000Z</published>
-    <updated>2016-10-27T06:44:51.984Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x8FD1;&amp;#x6765;&amp;#x4E00;&amp;#x76F4;&amp;#x53D1;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;tomcat&amp;#x5DE5;&amp;#x7A0B;&amp;#x53D1;&amp;#x5E03;&amp;#x540E;&amp;#x8DEF;&amp;#x5F84;&amp;#x4E0D;&amp;#x5BF9;&amp;#xFF0C;&amp;#x7528;&lt;a href=&quot;http://localhost:8080/Urban/login.jsp&amp;#x62A5;404&amp;#xFF0C;&amp;#x65E0;&amp;#x6CD5;&amp;#x8BBF;&amp;#x95EE;&amp;#x3002;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080/Urban/login.jsp&amp;#x62A5;404&amp;#xFF0C;&amp;#x65E0;&amp;#x6CD5;&amp;#x8BBF;&amp;#x95EE;&amp;#x3002;&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x8FD9;&amp;#x662F;tomcat&amp;#x7684;server.xml&amp;#x6587;&amp;#x4EF6;&amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;Context docBase=&amp;quot;chengguanfuwuqi&amp;quot; path=&amp;quot;/Urban&amp;quot; reloadable=&amp;quot;false&amp;quot; source=&amp;quot;org.eclipse.jst.jee.server:chengguanfuwuqi&amp;quot;/&amp;gt;&amp;lt;/Host&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x67E5;&amp;#x9605;&amp;#x8D44;&amp;#x6599;&amp;#x90FD;&amp;#x8BF4;&amp;#xFF0C;docBase&amp;#x662F;&amp;#x5DE5;&amp;#x7A0B;&amp;#x7684;&amp;#x5B58;&amp;#x653E;&amp;#x8DEF;&amp;#x5F84;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x6210;&amp;#x7EDD;&amp;#x5BF9;&amp;#x8DEF;&amp;#x5F84;&amp;#xFF0C;&amp;#x76F8;&amp;#x5BF9;&amp;#x8DEF;&amp;#x5F84;&amp;#x662F;&amp;#x6307;%TOMCAT_HOME%/webapps/&amp;#x4E0B;&amp;#xFF0C;path&amp;#x662F;&amp;#x6307;&amp;#x865A;&amp;#x62DF;&amp;#x7684;&amp;#x8BBF;&amp;#x95EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x3002;&amp;#x8FD9;&amp;#x4E48;&amp;#x8BF4;&amp;#x6765;&lt;a href=&quot;http://localhost:8080/Urban/login.jsp&amp;#x662F;&amp;#x6CA1;&amp;#x6709;&amp;#x95EE;&amp;#x9898;&amp;#x7684;&amp;#x3002;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080/Urban/login.jsp&amp;#x662F;&amp;#x6CA1;&amp;#x6709;&amp;#x95EE;&amp;#x9898;&amp;#x7684;&amp;#x3002;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x8FD8;&amp;#x662F;&amp;#x51FA;&amp;#x73B0;404&amp;#x7684;&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x4E14;&amp;#x524D;&amp;#x9762;&amp;#x914D;&amp;#x7F6E;&amp;#x6CA1;&amp;#x6709;&amp;#x9519;&amp;#xFF0C;&amp;#x53EF;&amp;#x80FD;&amp;#x5C31;&amp;#x662F;&amp;#x5728;%TOMCAT_HOME%/conf/web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x628A;&amp;#x865A;&amp;#x62DF;&amp;#x8DEF;&amp;#x5F84;&amp;#x663E;&amp;#x793A;&amp;#x76EE;&amp;#x5F55;&amp;#x7ED9;&amp;#x7981;&amp;#x6B62;&amp;#x5566;&amp;#xFF0C;&amp;#x6B64;&amp;#x65F6;&amp;#x53EF;&amp;#x4EE5;&amp;#x5728;tomcat&amp;#x7684;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; &amp;lt;servlet&amp;gt;
-    &amp;lt;servlet-name&amp;gt;default&amp;lt;/servlet-name&amp;gt;
-    &amp;lt;servlet-class&amp;gt;org.apache.catalina.servlets.DefaultServlet&amp;lt;/servlet-class&amp;gt;
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;0&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-    &amp;lt;init-param&amp;gt;
-        &amp;lt;param-name&amp;gt;listings&amp;lt;/param-name&amp;gt;
-        &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt;
-    &amp;lt;/init-param&amp;gt;
-    &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt;
-&amp;lt;/servlet&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5C06;listings&amp;#x7684;value&amp;#x6539;&amp;#x4E3A;true,&amp;#x7136;&amp;#x540E;&amp;#x91CD;&amp;#x65B0;&amp;#x542F;&amp;#x52A8;tomcat&amp;#xFF0C;&amp;#x5728;&amp;#x8F93;&amp;#x5165;&lt;a href=&quot;http://localhost:8080/Urban/login.jsp&amp;#xFF0C;&amp;#x6D4B;&amp;#x8BD5;&amp;#x6210;&amp;#x529F;&amp;#xFF01;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080/Urban/login.jsp&amp;#xFF0C;&amp;#x6D4B;&amp;#x8BD5;&amp;#x6210;&amp;#x529F;&amp;#xFF01;&lt;/a&gt;&lt;br&gt;&amp;#x5982;&amp;#x679C;&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x5B8C;&amp;#x6210;&amp;#xFF0C;&amp;#x51C6;&amp;#x5907;&amp;#x90E8;&amp;#x7F72;&amp;#x5728;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x4E0A;&amp;#x65F6;&amp;#xFF0C;&amp;#x8BB0;&amp;#x4F4F;&amp;#x8981;&amp;#x628A;web.xml&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x53C2;&amp;#x6570;listings&amp;#x7684;&amp;#x503C;&amp;#x6539;&amp;#x4E3A;false&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;&amp;#x53EF;&amp;#x4EE5;&amp;#x907F;&amp;#x514D;&amp;#x628A;&amp;#x9879;&amp;#x76EE;&amp;#x7684;&amp;#x90E8;&amp;#x7F72;&amp;#x8DEF;&amp;#x5F84;&amp;#x5448;&amp;#x73B0;&amp;#x7ED9;&amp;#x4F7F;&amp;#x7528;&amp;#x8005;&amp;#xFF01;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x8FD1;&amp;#x6765;&amp;#x4E00;&amp;#x76F4;&amp;#x53D1;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;tomcat&amp;#x5DE5;&amp;#x7A0B;&amp;#x53D1;&amp;#x5E03;&amp;#x540E;&amp;#x
-    
-    </summary>
-    
-    
-      <category term="tomcat" scheme="http://chen1218chen.github.io/tags/tomcat/"/>
     
   </entry>
   

@@ -286,6 +286,114 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-vue-router笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/14/vue-router笔记/" class="article-date">
+      <time datetime="2017-04-14T10:21:02.000Z" itemprop="datePublished">2017-04-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/14/vue-router笔记/">vue-router之钩子函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x94A9;&#x5B50;&#x51FD;&#x6570;</h2><p>&#x8DEF;&#x7531;&#x7684;&#x5207;&#x6362;&#x8FC7;&#x7A0B;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x8DEF;&#x7531;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x4F53;&#x4E0A;&#x5206;&#x4E3A;&#x4E24;&#x5927;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li>&#x5168;&#x5C40;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</li>
+<li>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</li>
+</ul>
+<p>&#x5168;&#x5C40;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5728;&#x5168;&#x5C40;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x5219;&#x5B9A;&#x4E49;&#x5728;&#x7EC4;&#x4EF6;&#x7684;route&#x9009;&#x9879;&#x4E2D;&#x3002;</p>
+<h3 id="&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;</h3><p>&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6709;2&#x4E2A;&#xFF1A;</p>
+<ul>
+<li><strong>beforeEach</strong>&#xFF1A;&#x5728;&#x8DEF;&#x7531;&#x5207;&#x6362;&#x5F00;&#x59CB;&#x65F6;&#x8C03;&#x7528;<br>&#x9879;&#x76EE;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x8DEF;&#x7531;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6765;&#x8FDB;&#x884C;&#x767B;&#x9646;&#x5224;&#x65AD;</li>
+</ul>
+<pre><code>router.beforeEach((to, from, next) =&gt; {
+  //&#x5982;&#x679C;&#x8DF3;&#x8F6C;&#x5230;&#x767B;&#x9646;&#x754C;&#x9762;
+  if (to.path == &apos;/login&apos;) {
+    sessionStorage.removeItem(&apos;user&apos;);
+  }
+  let user = JSON.parse(sessionStorage.getItem(&apos;user&apos;));
+  if (!user &amp;&amp; to.path != &apos;/login&apos;) {
+    next({ path: &apos;/login&apos; })
+  } else {
+    next()
+  }
+})
+</code></pre><ul>
+<li><p><strong>afterEach</strong>&#xFF1A;&#x5728;&#x6BCF;&#x6B21;&#x8DEF;&#x7531;&#x5207;&#x6362;&#x6210;&#x529F;&#x8FDB;&#x5165;&#x6FC0;&#x6D3B;&#x9636;&#x6BB5;&#x65F6;&#x88AB;&#x8C03;&#x7528;</p>
+<h3 id="&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</h3><p>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E00;&#x5171;6&#x4E2A;&#xFF1A;</p>
+</li>
+<li><p><strong>data</strong>&#xFF1A;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;&#x7684;data</p>
+</li>
+<li><strong>activate</strong>&#xFF1A;&#x6FC0;&#x6D3B;&#x7EC4;&#x4EF6;</li>
+<li><strong>deactivate</strong>&#xFF1A;&#x7981;&#x7528;&#x7EC4;&#x4EF6;</li>
+<li><strong>canActivate</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x6FC0;&#x6D3B;</li>
+<li><strong>canDeactivate</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x7981;&#x7528;</li>
+<li><p><strong>canReuse</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x91CD;&#x7528;</p>
+<h3 id="&#x5207;&#x6362;&#x5BF9;&#x8C61;"><a href="#&#x5207;&#x6362;&#x5BF9;&#x8C61;" class="headerlink" title="&#x5207;&#x6362;&#x5BF9;&#x8C61;"></a>&#x5207;&#x6362;&#x5BF9;&#x8C61;</h3><p>&#x6BCF;&#x4E2A;&#x5207;&#x6362;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x63A5;&#x53D7;&#x4E00;&#x4E2A; transition &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x5207;&#x6362;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51FD;&#x6570;&#x548C;&#x65B9;&#x6CD5;&#xFF1A;</p>
+</li>
+<li><p><strong>transition.to</strong><br>&#x8868;&#x793A;&#x5C06;&#x8981;&#x5207;&#x6362;&#x5230;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x3002;</p>
+</li>
+<li><strong>transition.from</strong><br>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><strong>transition.next()</strong><br>&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x5904;&#x7406;&#x5207;&#x6362;&#x8FC7;&#x7A0B;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</li>
+<li><strong>transition.abort([reason])</strong><br>&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x6765;&#x7EC8;&#x6B62;&#x6216;&#x8005;&#x62D2;&#x7EDD;&#x6B64;&#x6B21;&#x5207;&#x6362;&#x3002;</li>
+<li><strong>transition.redirect(path)</strong><br>&#x53D6;&#x6D88;&#x5F53;&#x524D;&#x5207;&#x6362;&#x5E76;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x3002;</li>
+</ul>
+<h3 id="&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"><a href="#&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;" class="headerlink" title="&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"></a>&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</h3><ol>
+<li>&#x53EF;&#x91CD;&#x7528;&#x9636;&#x6BB5;<br>&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7684;&#x89C6;&#x56FE;&#x7ED3;&#x6784;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x53EF;&#x4EE5;&#x91CD;&#x7528;&#x7684;&#x7EC4;&#x4EF6; ,<code>canReuse</code></li>
+<li>&#x9A8C;&#x8BC1;&#x9636;&#x6BB5;<br>&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7684;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x80FD;&#x591F;&#x505C;&#x7528;&#x4EE5;&#x53CA;&#x65B0;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x6FC0;&#x6D3B;, <code>canDeactivate</code> &#x548C;<code>canActivate</code> </li>
+<li>&#x6FC0;&#x6D3B;&#x9636;&#x6BB5;<br>&#x4E00;&#x65E6;&#x6240;&#x6709;&#x7684;&#x9A8C;&#x8BC1;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x90FD;&#x88AB;&#x8C03;&#x7528;&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x7EC8;&#x6B62;&#x5207;&#x6362;&#xFF0C;&#x5207;&#x6362;&#x5C31;&#x53EF;&#x4EE5;&#x8BA4;&#x5B9A;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x3002;&#x8DEF;&#x7531;&#x5668;&#x5219;&#x5F00;&#x59CB;&#x7981;&#x7528;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5E76;&#x542F;&#x7528;&#x65B0;&#x7EC4;&#x4EF6;&#x3002;<br>&#x6B64;&#x9636;&#x6BB5;&#x5BF9;&#x5E94;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x548C;&#x9A8C;&#x8BC1;&#x9636;&#x6BB5;&#x76F8;&#x540C;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x662F;&#x5728;&#x7EC4;&#x4EF6;&#x5207;&#x6362;&#x771F;&#x6B63;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8FDB;&#x884C;&#x6E05;&#x7406;&#x548C;&#x51C6;&#x5907;&#x7684;&#x673A;&#x4F1A;&#x3002;&#x754C;&#x9762;&#x7684;&#x66F4;&#x65B0;&#x4F1A;&#x7B49;&#x5230;&#x6240;&#x6709;&#x53D7;&#x5F71;&#x54CD;&#x7EC4;&#x4EF6;&#x7684;<code>deactivate</code> &#x548C; <code>activate</code>&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E4B;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x3002;</li>
+<li>&#x6267;&#x884C;<code>data</code></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ES6新知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -684,7 +792,9 @@ $ cnpm run dev
     router,
     render: h =&gt; h(App)
 })
-</code></pre>
+</code></pre><h2 id="vue-resource&#x4E0E;axios"><a href="#vue-resource&#x4E0E;axios" class="headerlink" title="vue-resource&#x4E0E;axios"></a>vue-resource&#x4E0E;axios</h2><p>vue&#x66F4;&#x65B0;&#x5230;2.0&#x4E4B;&#x540E;&#xFF0C;&#x4F5C;&#x8005;&#x5C31;&#x5BA3;&#x544A;&#x4E0D;&#x518D;&#x5BF9;vue-resource&#x66F4;&#x65B0;&#xFF0C;&#x800C;&#x662F;&#x63A8;&#x8350;&#x7684;axios</p>
+<p><strong>axios</strong>&#xFF1A;&#x57FA;&#x4E8E; Promise &#x7684; HTTP &#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x53EF;&#x540C;&#x65F6;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x548C; node.js &#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x8BE6;&#x60C5;&#x67E5;&#x770B; <a href="https://www.awesomes.cn/repo/mzabriskie/axios" target="_blank" rel="external">axios&#x6587;&#x6863;</a><br>&#x7C7B;&#x4F3C;&#x4E8E;jquery&#x4E2D;&#x7684;ajax&#x529F;&#x80FD;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x5C0F;&#x7684;ajax&#x7EC4;&#x4EF6;&#x3002;</p>
+
       
     </div>
     
@@ -1154,107 +1264,6 @@ public JSONArray queryAllDepart(){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/">JSON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax传输Object" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/01/11/ajax传输Object/" class="article-date">
-      <time datetime="2017-01-11T14:27:19.000Z" itemprop="datePublished">2017-01-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/11/ajax传输Object/">ajax传输Object及@RequestBody的用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x901A;&#x8FC7;ajax&#x5411;&#x540E;&#x53F0;&#x4F20;&#x8F93;object&#x5BF9;&#x8C61;&#x3002;</p>
-<h2 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h2><pre><code>$.ajax({
-    url:&quot;rest/publicgarden/edit&quot;,
-    type:&quot;post&quot;,
-    cache:false,
-    dataType:&quot;json&quot;,
-    contentType:&quot;application/json; charset=utf-8&quot;,
-    data:JSON.stringify(oldValue),
-    success:function(result){
-        if (result)
-            alertConfirm(&quot;&#x4FEE;&#x6539;&#x6210;&#x529F;&quot;);
-        else
-            alertView(&quot;&#x4FEE;&#x6539;&#x5931;&#x8D25;&quot;);
-    }
-})
-</code></pre><p><img src="/2017/01/11/ajax&#x4F20;&#x8F93;Object/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170111143952.png" alt="oldValue" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170111143952.png"></p>
-<h3 id="JSON-stringify"><a href="#JSON-stringify" class="headerlink" title="JSON.stringify()"></a>JSON.stringify()</h3><p>&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x7684;JavaScript&#x503C;&#x5E8F;&#x5217;&#x5316;&#x6210;&#x7B26;&#x5408;JSON&#x8BED;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
-<pre><code>JSON.stringify({});                        // &apos;{}&apos;
-JSON.stringify(true);                      // &apos;true&apos;
-JSON.stringify(&quot;foo&quot;);                     // &apos;&quot;foo&quot;&apos;
-JSON.stringify([1, &quot;false&quot;, false]);       // &apos;[1,&quot;false&quot;,false]&apos;
-JSON.stringify({ x: 5 });                  // &apos;{&quot;x&quot;:5}&apos;
-
-JSON.stringify({x: 5, y: 6});              
-// &apos;{&quot;x&quot;:5,&quot;y&quot;:6}&apos; &#x6216;&#x8005; &apos;{&quot;y&quot;:6,&quot;x&quot;:5}&apos; &#x90FD;&#x53EF;&#x80FD;
-</code></pre><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><h3 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h3><p>@RequestBody&#x63A5;&#x6536;&#x7684;&#x662F;&#x4E00;&#x4E2A;Json&#x5BF9;&#x8C61;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;Json&#x5BF9;&#x8C61;&#x3002;&#x7136;&#x800C;&#x5728;ajax&#x8BF7;&#x6C42;&#x5F80;&#x5F80;&#x4F20;&#x7684;&#x90FD;&#x662F;Json&#x5BF9;&#x8C61;&#xFF0C;&#x540E;&#x6765;&#x53D1;&#x73B0;&#x7528; JSON.stringify(data)&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x80FD;&#x5C06;&#x5BF9;&#x8C61;&#x53D8;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x540C;&#x65F6;ajax&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x8981;&#x6307;&#x5B9A;dataType: &#x201C;json&#x201D;,contentType:&#x201D;application/json&#x201D; &#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x7684;&#x5C06;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6216;&#x8005;List&#x4F20;&#x5230;Java&#x7AEF;&#xFF0C;&#x4F7F;&#x7528;@RequestBody&#x5373;&#x53EF;&#x7ED1;&#x5B9A;&#x5BF9;&#x8C61;&#x6216;&#x8005;List.</p>
-<pre><code>@RequestMapping(value = &quot;/edit&quot;,method=RequestMethod.POST)
-@ResponseBody
-public boolean edit(@RequestBody Object value) {
-
-    JSONObject jsonObj = JSONObject.fromObject(value);//&#x5C06;json&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;json&#x5BF9;&#x8C61;
-    PublicGarden publicgarden = (PublicGarden) JSONObject.toBean(jsonObj,PublicGarden.class);//&#x5C06;&#x5EFA;json&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;PublicGarden&#x5BF9;&#x8C61;
-    ipGardenServiceImpl.update(publicgarden);
-    return true;
-}
-
-@RequestMapping(value = &quot;saveUser&quot;, method = {RequestMethod.POST }}) 
-@ResponseBody  
-public void saveUser(@RequestBody List&lt;User&gt; users) { 
-     userService.batchSave(users); 
-} 
-</code></pre><p><a href="http://chen1218chen.github.io/2017/01/11/java%E4%B8%8EJSON%E5%AF%B9%E8%B1%A1%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">java&#x4E0E;JSON&#x76F8;&#x4E92;&#x8F6C;&#x6362;</a>&#x8BE6;&#x60C5;&#x8BF7;&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#x67E5;&#x770B;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
     </div>
 
       

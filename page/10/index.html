@@ -286,6 +286,200 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-ARCGIS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/02/ARCGIS/" class="article-date">
+      <time datetime="2016-03-02T02:00:26.570Z" itemprop="datePublished">2016-03-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/02/ARCGIS/">ArcGIS入门</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="1-&#x521D;&#x59CB;&#x5316;"><a href="#1-&#x521D;&#x59CB;&#x5316;" class="headerlink" title="1. &#x521D;&#x59CB;&#x5316;"></a>1. &#x521D;&#x59CB;&#x5316;</h2><pre><code>function initMap(){
+    //&#x5730;&#x56FE;&#x521D;&#x59CB;&#x5316;&#x53C2;&#x6570;
+    map = new esri.Map(&quot;map&quot;, {
+        logo : false,//&#x7981;&#x7528;logo
+        center: [107.55, 24.22],//&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;&#x5750;&#x6807;
+        slider:false,
+        nav:false,
+        isZoomSlider:true,
+        autoResize : true,
+        smartNavigation : false,
+        force3DTransforms : true,
+        isKeyboardNavigation : false,
+        sliderStyle : &quot;large&quot;,
+        showInfoWindowOnClick : true,
+        isDoubleClickZoom : false,
+    });
+    //&#x6BD4;&#x4F8B;&#x5C3A;
+    var scalebar = new esri.dijit.Scalebar({
+        map : map,
+        scalebarStyle : &quot;ruler&quot;,
+        scalebarUnit : &quot;metric&quot;,
+        attachTo : &quot;top-left&quot;,
+    });
+    //&#x7F29;&#x7565;&#x56FE;
+    var overViewMap = new esri.dijit.OverviewMap({
+        map:map,
+        attachTo: &quot;bottom-left&quot;,
+        visible:true,
+        opacity: .40,
+        width : 300,
+        height : 150,
+    });
+    overViewMap.startup();
+}
+</code></pre><h2 id="2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"><a href="#2-&#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;" class="headerlink" title="2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;"></a>2. &#x6307;&#x5B9A;&#x5730;&#x56FE;&#x4E2D;&#x5FC3;&#x70B9;</h2><pre><code>//&#x521D;&#x59CB;&#x5316;&#x70B9;    
+    var point =  new Point(107.55, 24.22, new SpatialReference({ wkid: 4326 }));
+    //var point =  new Point(lon, lat, map.spatialReference);
+    map.centerAndZoom(point,2);
+    map.centerAt(point);
+</code></pre><h2 id="3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;"><a href="#3-&#x52A0;&#x8F7D;&#x5730;&#x56FE;" class="headerlink" title="3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;"></a>3. &#x52A0;&#x8F7D;&#x5730;&#x56FE;</h2><p>index.jsp&#x9875;&#x9762;&#x4E0A;&#x9700;&#x8981;&#x6DFB;&#x52A0;</p>
+<pre><code>String esriPath = request.getServerName() + &quot;:&quot; +
+request.getServerPort() + path + &quot;/&quot;;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var arcgis_js_api_home = &quot;&lt;%=esriPath%&gt;&quot;;
+    var dojoConfig = {
+        has : {
+            &quot;dojo-firebug&quot; : true
+        },
+        async : true,
+        paths : {
+            &quot;js&quot; : &quot;/../js&quot;
+        },
+    };
+&lt;/script&gt;
+</code></pre><p>&#x518D;&#x5F15;&#x5165;claro.css&#xFF0C;esri.css&#xFF0C;init.js&#xFF0C;index.js&#x3002;</p>
+<p>index.js&#x4E2D;&#x6DFB;&#x52A0;</p>
+<pre><code>require([&quot;esri/map&quot;
+     ,&quot;esri/layers/ArcGISDynamicMapServiceLayer&quot;
+     ,&quot;esri/SpatialReference&quot;
+     ],function(){
+var map = new esri.Map(&quot;arcgisDiv&quot;,{
+    logo : false,
+    center: [107.55, 24.22],
+    slider:true,
+});
+var baseUrl = &quot;http://192.168.1.139:6080/arcgis/rest/services/&quot;;
+var mapNames ={
+        &quot;dt&quot;:&quot;dt&quot; //&#x5E95;&#x56FE;
+        ,&quot;dw&quot;:&quot;dw&quot;//&#x7535;&#x7F51;
+    };
+var dtLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dt+&quot;/MapServer&quot;,{id:&quot;dt&quot;});
+//    var layer1 = new esri.layers.ArcGISDynamicMapServiceLayer(&quot;http://localhost:6080/arcgis/rest/services/WGS_84/MapServer&quot;);
+var dwLayer = new esri.layers.ArcGISDynamicMapServiceLayer(baseUrl+mapNames.dw+&quot;/MapServer&quot;,{id:&quot;dw&quot;});
+map.addLayers([dtLayer,dwLayer]);
+//    map.addLayer(layer);
+map.setZoom(8);
+});
+</code></pre><h2 id="4-infoWindow"><a href="#4-infoWindow" class="headerlink" title="4. infoWindow"></a>4. infoWindow</h2><pre><code>&lt;script&gt;
+require([
+  &quot;dojo/dom&quot;,
+  &quot;dojo/dom-construct&quot;,
+  &quot;esri/map&quot;, 
+  &quot;myModules/InfoWindow&quot;,
+  &quot;esri/layers/FeatureLayer&quot;,
+  &quot;esri/InfoTemplate&quot;,
+  &quot;dojo/string&quot;,
+  &quot;dojo/domReady!&quot;
+], function(
+   dom,
+   domConstruct,
+   Map,
+   InfoWindow,
+   FeatureLayer,
+   InfoTemplate,
+   string
+) {
+  //create the custom info window specifying any input options
+   var infoWindow = new  InfoWindow({
+      domNode: domConstruct.create(&quot;div&quot;, null, dom.byId(&quot;mapDiv&quot;))
+   });
+  var map = new Map(&quot;map&quot;, {
+      basemap: &quot;gray&quot;,
+      center: [-98.57, 39.82],
+      zoom: 4,
+      infoWindow: infoWindow
+    });
+
+  var template = new PopupTemplate({
+      title: &quot;Boston Marathon 2013&quot;,
+      description: &quot;{Percent_Fi} of starters from {STATE_NAME} finished&quot;,
+      fieldInfos: [{ //define field infos so we can specify an alias
+        fieldName: &quot;Number_Ent&quot;,
+        label: &quot;Entrants&quot;
+      },{
+        fieldName: &quot;Number_Sta&quot;,
+        label: &quot;Starters&quot;
+      },{
+        fieldName: &quot;Number_Fin&quot;,
+        label: &quot;Finishers&quot;
+      }]
+    });
+
+   var featureLayer = new FeatureLayer(&quot;http://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Boston_Marathon/FeatureServer/0&quot;,{
+      mode: FeatureLayer.MODE_ONDEMAND,
+      outFields: [&quot;*&quot;],
+      infoTemplate:template
+    });
+
+    map.addLayer(featureLayer);  
+  //resize the info window 
+  map.infoWindow.resize(400, 200);
+});
+&lt;/script&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
