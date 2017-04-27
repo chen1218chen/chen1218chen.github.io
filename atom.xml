@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-04-14T03:18:59.621Z</updated>
+  <updated>2017-04-24T03:27:11.214Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>content-type详解</title>
+    <link href="http://chen1218chen.github.io/2017/04/24/content-type%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://chen1218chen.github.io/2017/04/24/content-type详解/</id>
+    <published>2017-04-24T11:12:11.000Z</published>
+    <updated>2017-04-24T03:27:11.214Z</updated>
+    
+    <content type="html">&lt;p&gt;web&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x9047;&amp;#x5230;&lt;code&gt;content-type&lt;/code&gt;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5C24;&amp;#x5176;&amp;#x662F;&amp;#x5173;&amp;#x4E8E;&amp;#x4E00;&amp;#x4E9B;&amp;#x4E2D;&amp;#x6587;&amp;#x4E71;&amp;#x7801;&amp;#x548C;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x7AEF;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0B;&amp;#x8F7D;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#x4E2D;&amp;#xFF0C;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&amp;#x822C;&amp;#x90FD;&amp;#x4F1A;&amp;#x9700;&amp;#x8981;&amp;#x5728;html&amp;#x9875;&amp;#x9762;&amp;#x4E0A;&amp;#x6216;&amp;#x8005;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#x5BF9;content-type&amp;#x8FDB;&amp;#x884C;&amp;#x8BBE;&amp;#x7F6E;&amp;#x3002;&amp;#x67E5;&amp;#x9605;&amp;#x4E00;&amp;#x4E9B;&amp;#x8D44;&amp;#x6599;&amp;#x8BE6;&amp;#x7EC6;&amp;#x4E86;&amp;#x89E3;&amp;#x4E00;&amp;#x4E0B;&amp;#x8FD9;&amp;#x4E2A;&amp;#x770B;&amp;#x7740;&amp;#x719F;&amp;#x6089;&amp;#x5B9E;&amp;#x5219;&amp;#x4E0D;&amp;#x592A;&amp;#x7406;&amp;#x89E3;&amp;#x7684;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;MediaType&amp;#xFF0C;&amp;#x5373;&amp;#x662F;Internet Media Type&amp;#xFF0C;&amp;#x4E92;&amp;#x8054;&amp;#x7F51;&amp;#x5A92;&amp;#x4F53;&amp;#x7C7B;&amp;#x578B;&amp;#xFF1B;&amp;#x4E5F;&amp;#x53EB;&amp;#x505A;MIME&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&amp;#x5728;Http&amp;#x534F;&amp;#x8BAE;&amp;#x6D88;&amp;#x606F;&amp;#x5934;&amp;#x4E2D;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;Content-Type&amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x5177;&amp;#x4F53;&amp;#x8BF7;&amp;#x6C42;&amp;#x4E2D;&amp;#x7684;&amp;#x5A92;&amp;#x4F53;&amp;#x7C7B;&amp;#x578B;&amp;#x4FE1;&amp;#x606F;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x5A92;&amp;#x4F53;&amp;#x683C;&amp;#x5F0F;&amp;#x7C7B;&amp;#x578B;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;text/html &amp;#xFF1A; HTML&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;text/plain &amp;#xFF1A;&amp;#x7EAF;&amp;#x6587;&amp;#x672C;&amp;#x683C;&amp;#x5F0F;      &lt;/li&gt;
+&lt;li&gt;text/xml &amp;#xFF1A;  XML&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;image/gif &amp;#xFF1A;gif&amp;#x56FE;&amp;#x7247;&amp;#x683C;&amp;#x5F0F;    &lt;/li&gt;
+&lt;li&gt;image/jpeg &amp;#xFF1A;jpg&amp;#x56FE;&amp;#x7247;&amp;#x683C;&amp;#x5F0F; &lt;/li&gt;
+&lt;li&gt;image/png&amp;#xFF1A;png&amp;#x56FE;&amp;#x7247;&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x4EE5;application&amp;#x5F00;&amp;#x5934;&amp;#x7684;&amp;#x5A92;&amp;#x4F53;&amp;#x683C;&amp;#x5F0F;&amp;#x7C7B;&amp;#x578B;&amp;#xFF1A;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;application/xhtml+xml &amp;#xFF1A;XHTML&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;application/xml     &amp;#xFF1A; XML&amp;#x6570;&amp;#x636E;&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;application/atom+xml  &amp;#xFF1A;Atom XML&amp;#x805A;&amp;#x5408;&amp;#x683C;&amp;#x5F0F;    &lt;/li&gt;
+&lt;li&gt;application/json    &amp;#xFF1A; JSON&amp;#x6570;&amp;#x636E;&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;application/pdf       &amp;#xFF1A;pdf&amp;#x683C;&amp;#x5F0F;  &lt;/li&gt;
+&lt;li&gt;application/msword  &amp;#xFF1A; Word&amp;#x6587;&amp;#x6863;&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;application/octet-stream &amp;#xFF1A; &amp;#x4E8C;&amp;#x8FDB;&amp;#x5236;&amp;#x6D41;&amp;#x6570;&amp;#x636E;&amp;#xFF08;&amp;#x5982;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0B;&amp;#x8F7D;&amp;#xFF09;&lt;/li&gt;
+&lt;li&gt;application/x-www-form-urlencoded &amp;#xFF1A; &lt;form enctype=&quot;&amp;#x201D;&amp;#x201D;&quot;&gt;&amp;#x4E2D;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;encType&amp;#xFF0C;form&amp;#x8868;&amp;#x5355;&amp;#x6570;&amp;#x636E;&amp;#x88AB;&amp;#x7F16;&amp;#x7801;&amp;#x4E3A;key/value&amp;#x683C;&amp;#x5F0F;&amp;#x53D1;&amp;#x9001;&amp;#x5230;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#xFF08;&amp;#x8868;&amp;#x5355;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x63D0;&amp;#x4EA4;&amp;#x6570;&amp;#x636E;&amp;#x7684;&amp;#x683C;&amp;#x5F0F;&amp;#xFF09;&lt;/form&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x53E6;&amp;#x5916;&amp;#x4E00;&amp;#x79CD;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x5A92;&amp;#x4F53;&amp;#x683C;&amp;#x5F0F;&amp;#x662F;&amp;#x4E0A;&amp;#x4F20;&amp;#x6587;&amp;#x4EF6;&amp;#x4E4B;&amp;#x65F6;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#xFF1A;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;multipart/form-data &amp;#xFF1A; &amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x8868;&amp;#x5355;&amp;#x4E2D;&amp;#x8FDB;&amp;#x884C;&amp;#x6587;&amp;#x4EF6;&amp;#x4E0A;&amp;#x4F20;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C31;&amp;#x9700;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x8BE5;&amp;#x683C;&amp;#x5F0F;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x4EE5;&amp;#x4E0A;&amp;#x5C31;&amp;#x662F;&amp;#x6211;&amp;#x4EEC;&amp;#x5728;&amp;#x65E5;&amp;#x5E38;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x82E5;&amp;#x5E72;content-type&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x683C;&amp;#x5F0F;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://tool.oschina.net/commons&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http&amp;#x8BF7;&amp;#x6C42; content-type&amp;#x5BF9;&amp;#x7167;&amp;#x8868;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/blueheart20/article/details/45174399&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;springMVC rest&amp;#x8BF7;&amp;#x6C42;&amp;#x4E2D;content-type&amp;#x7684;&amp;#x5E94;&amp;#x7528;&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;web&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x7ECF;&amp;#x5E38;&amp;#x4F1A;&amp;#x9047;&amp;#x5230;&lt;code&gt;content-type&lt;/code&gt;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x95
+    
+    </summary>
+    
+    
+      <category term="html" scheme="http://chen1218chen.github.io/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>vue-router之钩子函数</title>
@@ -1093,272 +1147,6 @@ app.factory(&amp;apos;helloWorldFactory&amp;apos;, function(){
     
     
       <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React Demo</title>
-    <link href="http://chen1218chen.github.io/2016/10/28/react-Demo/"/>
-    <id>http://chen1218chen.github.io/2016/10/28/react-Demo/</id>
-    <published>2016-10-28T09:42:30.000Z</published>
-    <updated>2016-10-28T03:26:10.380Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;React-findDOMNode&quot;&gt;&lt;a href=&quot;#React-findDOMNode&quot; class=&quot;headerlink&quot; title=&quot;React.findDOMNode()&quot;&gt;&lt;/a&gt;React.findDOMNode()&lt;/h2&gt;&lt;p&gt;React.findDOMNode()&amp;#x4ECE;&amp;#x7EC4;&amp;#x4EF6;&amp;#x83B7;&amp;#x53D6;&amp;#x771F;&amp;#x5B9E;DOM&amp;#x7684;&amp;#x8282;&amp;#x70B9;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var MyComponent = React.createClass({
-        handleClick:function(){
-            React.findDOMNode(this.refs.myTextInput).focus();
-        },
-        render:function(){
-            return (
-                &amp;lt;div&amp;gt;
-                    &amp;lt;input type=&amp;quot;text&amp;quot; ref=&amp;quot;myTextInput&amp;quot; /&amp;gt;
-                    &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;Focus the text input&amp;quot; onClick={this.handleClick}/&amp;gt;
-                &amp;lt;/div&amp;gt;
-            );
-        }
-    });
-    React.render(
-        &amp;lt;MyComponent /&amp;gt;,
-        document.getElementById(&amp;apos;example&amp;apos;)
-    );
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;ref&quot;&gt;&lt;a href=&quot;#ref&quot; class=&quot;headerlink&quot; title=&quot;ref&quot;&gt;&lt;/a&gt;ref&lt;/h2&gt;&lt;p&gt;ref&amp;#x4E0E;React.findDOMNode()&amp;#x7ED3;&amp;#x5408;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x8BE5;&amp;#x529F;&amp;#x80FD;&amp;#x662F;&amp;#x4E3A;&amp;#x4E86;&amp;#x7ED3;&amp;#x5408;&amp;#x73B0;&amp;#x6709;&amp;#x975E;React&amp;#x7C7B;&amp;#x5E93;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;ref/refs&amp;#x53EF;&amp;#x4EE5;&amp;#x83B7;&amp;#x53D6;&amp;#x5F97;&amp;#x5230;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5B9E;&amp;#x4F8B;&amp;#xFF0C;&amp;#x8FDB;&amp;#x800C;&amp;#x53D6;&amp;#x5F97;&amp;#x539F;&amp;#x751F;&amp;#x8282;&amp;#x70B9;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var Test = React.createClass({
-    componentDidMount(){
-      alert(React.findDOMNode(this.refs.content).innerHTML);
-    },
-    render(){
-        return &amp;lt;div&amp;gt;
-            &amp;lt;h3&amp;gt;header&amp;lt;/h3&amp;gt;
-            &amp;lt;div ref=&amp;apos;content&amp;apos;&amp;gt;content&amp;lt;/div&amp;gt;
-        &amp;lt;/div&amp;gt;;
-    }
-});
-
-React.render(&amp;lt;Test /&amp;gt;,document.getElementById(&amp;apos;example&amp;apos;));
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;this-state&quot;&gt;&lt;a href=&quot;#this-state&quot; class=&quot;headerlink&quot; title=&quot;this.state&quot;&gt;&lt;/a&gt;this.state&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;var LikeButton = React.createClass({
-        getInitialState:function(){
-            return {liked:false};
-        },
-        handleClick:function(event){
-            this.setState({liked: !this.state.liked});
-        },
-        render:function(){
-            var text = this.state.liked ? &amp;apos;like&amp;apos; : &amp;apos;haven\&amp;apos;t liked&amp;apos;;
-            return (
-                &amp;lt;p onClick={this.handleClick}&amp;gt;
-                    You {text} this.Click to toggle.
-                &amp;lt;/p&amp;gt;
-            ); 
-        }
-    });
-    React.render(
-        &amp;lt;LikeButton /&amp;gt;,
-        document.getElementById(&amp;apos;example&amp;apos;)
-    );
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x83B7;&amp;#x53D6;&amp;#x8868;&amp;#x5355;&amp;#x503C;&quot;&gt;&lt;a href=&quot;#&amp;#x83B7;&amp;#x53D6;&amp;#x8868;&amp;#x5355;&amp;#x503C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x83B7;&amp;#x53D6;&amp;#x8868;&amp;#x5355;&amp;#x503C;&quot;&gt;&lt;/a&gt;&amp;#x83B7;&amp;#x53D6;&amp;#x8868;&amp;#x5355;&amp;#x503C;&lt;/h2&gt;&lt;p&gt;&amp;#x7528;&amp;#x6237;&amp;#x5728;&amp;#x8868;&amp;#x5355;&amp;#x586B;&amp;#x5165;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#xFF0C;&amp;#x5C5E;&amp;#x4E8E;&amp;#x7528;&amp;#x6237;&amp;#x8DDF;&amp;#x7EC4;&amp;#x4EF6;&amp;#x7684;&amp;#x4E92;&amp;#x52A8;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x4E0D;&amp;#x80FD;&amp;#x7528;this.props&amp;#x8BFB;&amp;#x53D6;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  var Input = React.createClass({
-    getInitialState:function(){
-        return {value:&amp;apos;Hello!&amp;apos;};
-    },
-    handleChange:function(event){
-        this.setState({value:event.target.value});
-    },
-    render:function(){
-        var value = this.state.value;
-        return (
-            &amp;lt;div&amp;gt;
-                &amp;lt;input type=&amp;quot;text&amp;quot; value={value} onChange={this.handleChange} /&amp;gt;
-                &amp;lt;p&amp;gt;{value}&amp;lt;/p&amp;gt;
-            &amp;lt;/div&amp;gt;
-        );
-    }
-});
-React.render(&amp;lt;Input /&amp;gt;,document.getElementById(&amp;apos;example&amp;apos;));
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x9762;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6587;&amp;#x672C;&amp;#x8F93;&amp;#x5165;&amp;#x6846;&amp;#x7684;&amp;#x503C;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x7528;this.props.value&amp;#x8BFB;&amp;#x53D6;&amp;#xFF0C;&amp;#x800C;&amp;#x8981;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E2A;onChange&amp;#x4E8B;&amp;#x4EF6;&amp;#x7684;&amp;#x56DE;&amp;#x8C03;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;event.target.value&amp;#x8BFB;&amp;#x53D6;&amp;#x7528;&amp;#x6237;&amp;#x8F93;&amp;#x5165;&amp;#x7684;&amp;#x503C;&amp;#x3002;textarea&amp;#x5143;&amp;#x7D20;&amp;#x3001;select&amp;#x5143;&amp;#x7D20;&amp;#x3001;radio&amp;#x5143;&amp;#x7D20;&amp;#x90FD;&amp;#x5C5E;&amp;#x4E8E;&amp;#x8FD9;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;&amp;#x3002;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;value/checked&amp;#x5C5E;&amp;#x6027;&amp;#x8BBE;&amp;#x7F6E;&amp;#x540E;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x8F93;&amp;#x5165;&amp;#x65E0;&amp;#x6548;&lt;/li&gt;
-&lt;li&gt;textarea&amp;#x7684;&amp;#x503C;&amp;#x8981;&amp;#x8BBE;&amp;#x7F6E;&amp;#x5728;value&amp;#x5C5E;&amp;#x6027;&amp;#x4E0A;&lt;/li&gt;
-&lt;li&gt;select&amp;#x7684;value&amp;#x5C5E;&amp;#x6027;&amp;#x53EF;&amp;#x4EE5;&amp;#x662F;&amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x4E0D;&amp;#x5EFA;&amp;#x8BAE;&amp;#x4F7F;&amp;#x7528;option&amp;#x7684;selected&amp;#x5C5E;&amp;#x6027;&lt;/li&gt;
-&lt;li&gt;input/textarea&amp;#x7684;onChange&amp;#x7528;&amp;#x6237;&amp;#x6BCF;&amp;#x6B21;&amp;#x8F93;&amp;#x5165;&amp;#x90FD;&amp;#x4F1A;&amp;#x89E6;&amp;#x53D1;&lt;/li&gt;
-&lt;li&gt;radio/checkbox&amp;#x70B9;&amp;#x51FB;&amp;#x540E;&amp;#x4E5F;&amp;#x4F1A;&amp;#x89E6;&amp;#x53D1;onChange&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x8BBE;&amp;#x7F6E;&amp;#x4E86;value&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x7EC4;&amp;#x4EF6;&amp;#x53D8;&amp;#x4E3A;&amp;#x53D7;&amp;#x63A7;&amp;#x7EC4;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7528;&amp;#x6237;&amp;#x65E0;&amp;#x6CD5;&amp;#x8F93;&amp;#x5165;&amp;#xFF0C;&amp;#x9664;&amp;#x975E;&amp;#x7A0B;&amp;#x5E8F;&amp;#x6539;&amp;#x53D8;value&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x53D7;&amp;#x63A7;&amp;#x7EC4;&amp;#x4EF6;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&amp;#x76D1;&amp;#x542C;handleChange&amp;#x4E8B;&amp;#x4EF6;&amp;#xFF0C;&amp;#x7ED3;&amp;#x5408;state&amp;#x6765;&amp;#x6539;&amp;#x53D8;input&amp;#x503C;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;ajax&quot;&gt;&lt;a href=&quot;#ajax&quot; class=&quot;headerlink&quot; title=&quot;ajax&quot;&gt;&lt;/a&gt;ajax&lt;/h2&gt;&lt;p&gt;&amp;#x5177;&amp;#x4F53;&amp;#x89C1;&lt;strong&gt;&amp;#x8BC4;&amp;#x8BBA;&amp;#x6846;&amp;#x793A;&amp;#x4F8B;&amp;#x4E2D;&lt;/strong&gt;&amp;#xFF0C;ajax&amp;#x4E5F;&amp;#x53EF;&amp;#x76F4;&amp;#x63A5;&amp;#x5199;&amp;#x5728;componentDidMount&amp;#x4E2D;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x8BC4;&amp;#x8BBA;&amp;#x6846;Demo&quot;&gt;&lt;a href=&quot;#&amp;#x8BC4;&amp;#x8BBA;&amp;#x6846;Demo&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8BC4;&amp;#x8BBA;&amp;#x6846;Demo&quot;&gt;&lt;/a&gt;&amp;#x8BC4;&amp;#x8BBA;&amp;#x6846;Demo&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;// &amp;#x4EE3;&amp;#x7801;&amp;#x6458;&amp;#x81EA;&amp;#x5B98;&amp;#x7F51;&amp;#x6559;&amp;#x7A0B;
-var CommentBox = React.createClass({
-    getInitialState: function() {
-        return {data: []};
-    },
-  loadCommentsFromServer: function() {
-      getInitialState: function() {
-        return {data: []};
-      },
-    $.ajax({
-      url: this.props.url,
-      dataType: &amp;apos;json&amp;apos;,
-      cache: false,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-
-  componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-  },
-  render: function() {
-    return (
-      &amp;lt;div className=&amp;quot;commentBox&amp;quot;&amp;gt;
-        &amp;lt;h1&amp;gt;Comments&amp;lt;/h1&amp;gt;
-        &amp;lt;CommentList data={this.state.data} /&amp;gt;
-        &amp;lt;CommentForm /&amp;gt;
-      &amp;lt;/div&amp;gt;
-    );
-  }
-});
-
-var CommentList = React.createClass({
-  render: function() {
-    var commentNodes = this.props.data.map(function(comment) {
-      return (
-        &amp;lt;Comment author={comment.author} key={comment.id}&amp;gt;
-          {comment.text}
-        &amp;lt;/Comment&amp;gt;
-      );
-    });
-    return (
-      &amp;lt;div className=&amp;quot;commentList&amp;quot;&amp;gt;
-        {commentNodes}
-      &amp;lt;/div&amp;gt;
-    );
-  }
-});
-
-var CommentForm = React.createClass({
-  render: function() {
-    return (
-      &amp;lt;form className=&amp;quot;commentForm&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;Your name&amp;quot; /&amp;gt;
-        &amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;Say something...&amp;quot; /&amp;gt;
-        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Post&amp;quot; /&amp;gt;
-      &amp;lt;/form&amp;gt;
-    );
-  }
-});
-
-ReactDOM.render(
-  &amp;lt;CommentBox url=&amp;quot;/api/comments&amp;quot; pollInterval={2000} /&amp;gt;,
-  document.getElementById(&amp;apos;content&amp;apos;)
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x82E5;child&amp;#x9700;&amp;#x8981;&amp;#x5411;parent&amp;#x4F20;&amp;#x9012;&amp;#x503C;&amp;#xFF0C;&amp;#x5219;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//&amp;#x4FEE;&amp;#x6539;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x4E2A;&amp;#x6A21;&amp;#x5757;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;
-var CommentForm = React.createClass({
-  getInitialState: function() {
-    return {author: &amp;apos;&amp;apos;, text: &amp;apos;&amp;apos;};
-  },
-  handleAuthorChange: function(e) {
-    this.setState({author: e.target.value});
-  },
-  handleTextChange: function(e) {
-    this.setState({text: e.target.value});
-  },
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var author = this.state.author.trim();
-    var text = this.state.text.trim();
-    if (!text || !author) {
-      return;
-    }
-    this.props.onCommentSubmit({author: author, text: text});
-    this.setState({author: &amp;apos;&amp;apos;, text: &amp;apos;&amp;apos;});
-  },
-  render: function() {
-    return (
-      &amp;lt;form className=&amp;quot;commentForm&amp;quot; onSubmit={this.handleSubmit}&amp;gt;
-        &amp;lt;input
-          type=&amp;quot;text&amp;quot;
-          placeholder=&amp;quot;Your name&amp;quot;
-          value={this.state.author}
-          onChange={this.handleAuthorChange}
-        /&amp;gt;
-        &amp;lt;input
-          type=&amp;quot;text&amp;quot;
-          placeholder=&amp;quot;Say something...&amp;quot;
-          value={this.state.text}
-          onChange={this.handleTextChange}
-        /&amp;gt;
-        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Post&amp;quot; /&amp;gt;
-      &amp;lt;/form&amp;gt;
-    );
-  }
-});
-var CommentBox = React.createClass({
-  loadCommentsFromServer: function() {
-    $.ajax({
-      url: this.props.url,
-      dataType: &amp;apos;json&amp;apos;,
-      cache: false,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  handleCommentSubmit: function(comment) {
-    var comments = this.state.data;
-    &amp;lt;!-- Optimistically set an id on the new comment. It will be replaced by an id generated by the server. In a production application you would likely not use Date.now() for this and would have a more robust system in place.--&amp;gt;
-    comment.id = Date.now();
-    var newComments = comments.concat([comment]);
-    this.setState({data: newComments});
-    $.ajax({
-      url: this.props.url,
-      dataType: &amp;apos;json&amp;apos;,
-      type: &amp;apos;POST&amp;apos;,
-      data: comment,
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        this.setState({data: comments});
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-  getInitialState: function() {
-    return {data: []};
-  },
-  componentDidMount: function() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-  },
-  render: function() {
-    return (
-      &amp;lt;div className=&amp;quot;commentBox&amp;quot;&amp;gt;
-        &amp;lt;h1&amp;gt;Comments&amp;lt;/h1&amp;gt;
-        &amp;lt;CommentList data={this.state.data} /&amp;gt;
-        &amp;lt;CommentForm onCommentSubmit={this.handleCommentSubmit} /&amp;gt;
-      &amp;lt;/div&amp;gt;
-    );
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;React-findDOMNode&quot;&gt;&lt;a href=&quot;#React-findDOMNode&quot; class=&quot;headerlink&quot; title=&quot;React.findDOMNode()&quot;&gt;&lt;/a&gt;React.findDOMNode()&lt;
-    
-    </summary>
-    
-    
-      <category term="ReactJS" scheme="http://chen1218chen.github.io/tags/ReactJS/"/>
     
   </entry>
   
