@@ -1,6 +1,6 @@
 ---
-title: node.js 
-tags: node.js
+title: Angularjs + Express3 + Bootstrap3 
+tags: [node.js, Angular.js, Express3, Bootstrap]
 grammar_cjkRuby: true
 ---
 
@@ -9,24 +9,36 @@ grammar_cjkRuby: true
 
 
 ## 环境搭建
-** Angularjs + Express3 + Bootstrap3**
+**Angularjs + Express3 + Bootstrap3**
 angularjs是由Google团队开发的一款非常优秀web前端框架。Bootstrap让界面美观大方，对于不懂UE的人，也能做出专业级的水准。再结合Nodejs的Express做后端，三剑合并，太无敌了，大有统一前端开发的趋势，前途不可估量！
 
 ### 1. 首先安装node.js
 ### 2.  webStorm(node.js最好的IDE开发工具)
 ### 3.  express 安装
-express 是轻量灵活的Nodejs Web应用框架
+Express 是一个简洁而灵活的 node.js Web应用框架, 提供了一系列强大特性帮助你创建各种 Web 应用，和丰富的 HTTP 工具。
 ```
-npm install express
+npm install express --save
 
 ```
+以上命令会将 Express 框架安装在当前目录的 node_modules 目录中， node_modules 目录下会自动创建 express 目录。以下几个重要的模块是需要与 express 框架一起安装的：
+- body-parser - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。
+- cookie-parser - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。
+- multer - node.js 中间件，用于处理enctype="multipart/form-data"（设置表单的MIME编码）的表单数据。
+
+
+    $ cnpm install body-parser --save
+    $ cnpm install cookie-parser --save
+    $ cnpm install multer --save
+
 安装成功后在node_modules下会找到express目录，同时也会找到.bin目录，它里面有express命令脚本，在终端下执行
 ```
 express project_name
 ```
 ### 4. Bower安装
 bower是一个客户端技术的软件包管理器，它可用于搜索、安装和卸载如JavaScript、HTML、CSS之类的网络资源。**安装依赖：NodeJS、NPM、Git**
+
 ![Alt text](./1444459191394.png)
+
 安装包是可使用
 ```
 bower install <package>

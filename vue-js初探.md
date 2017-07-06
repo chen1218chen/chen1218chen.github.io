@@ -1,5 +1,5 @@
 ---
-title: vue.js初探
+title: vue-cli搭建vue项目遇到的问题详解
 date: 2017-02-23 17:11:10
 tags: vue
 ---

@@ -1,7 +1,7 @@
 ---
-title: URL路径含中文
+title: URL路径含中文,requset.getParameter()乱码
 date: 2017-01-18 16:01:59
-tags:
+tags: 
 ---
 
 项目最近碰到了一个以前从来没有注意到的问题，就是URL路径包含中文的问题，虽说不建议路径名中包含中文，但有的时候也不可避免的出现这种问题，找到一个管用的方法，修改tomcat的server.xml文件，添加 `URIEncoding="UTF-8"`属性。如下所示：
