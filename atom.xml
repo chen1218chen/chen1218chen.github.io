@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-04-24T03:27:11.214Z</updated>
+  <updated>2017-07-06T01:28:17.454Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,345 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringMVC中集成Sigar</title>
+    <link href="http://chen1218chen.github.io/2017/07/06/SpringMVC%E4%B8%AD%E9%9B%86%E6%88%90Sigar/"/>
+    <id>http://chen1218chen.github.io/2017/07/06/SpringMVC中集成Sigar/</id>
+    <published>2017-07-06T09:15:10.000Z</published>
+    <updated>2017-07-06T01:28:17.454Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;code&gt;sigar:&lt;/code&gt;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4FE1;&amp;#x606F;&amp;#x6536;&amp;#x96C6;&amp;#x548C;&amp;#x62A5;&amp;#x8868;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x5F00;&amp;#x6E90;&amp;#x7684;&amp;#xFF0C;&amp;#x7528;&amp;#x6765;&amp;#x6536;&amp;#x96C6;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x7684;CPU&amp;#x3001;&amp;#x5185;&amp;#x5B58;&amp;#x3001;&amp;#x78C1;&amp;#x76D8;&amp;#x5B58;&amp;#x50A8;&amp;#x3001;&amp;#x7F51;&amp;#x7EDC;&amp;#x76D1;&amp;#x63A7;&amp;#x7B49;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x9664;&amp;#x4E86;&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x5F15;&amp;#x5165;&lt;code&gt;sigar.jar&lt;/code&gt;&amp;#x5305;&amp;#x5916;&amp;#xFF0C;&amp;#x8FD8;&amp;#x9700;&amp;#x8981;&amp;#x5728;jdk&amp;#x7684;bin&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x653E;&lt;code&gt;sigar-amd64-winnt.dll&lt;/code&gt;&amp;#x548C;&lt;code&gt;sigar-x86-winnt.dll&lt;/code&gt;&amp;#x52A8;&amp;#x6001;&amp;#x5E93;&amp;#x3002;&amp;#x5426;&amp;#x5219;&amp;#x4F1A;&amp;#x62A5;&amp;#x9519;&amp;#xFF0C;&amp;#x62FF;&amp;#x4E0D;&amp;#x5230;&amp;#x9700;&amp;#x8981;&amp;#x7684;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x6570;&amp;#x636E;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/07/06/SpringMVC&amp;#x4E2D;&amp;#x96C6;&amp;#x6210;Sigar/1499304165210.jpg&quot; alt=&quot;enter description here&quot; title=&quot;1499304165210.jpg&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;sigar:&lt;/code&gt;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4FE1;&amp;#x606F;&amp;#x6536;&amp;#x96C6;&amp;#x548C;&amp;#x62A5;&amp;#x8868;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x5F00;&amp;#x6E90;&amp;#x768
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
+    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
+    <published>2017-06-28T14:22:42.000Z</published>
+    <updated>2017-06-30T01:54:25.660Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
+Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
+Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
+Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
+Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
+Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
+Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
+Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
+Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
+    
+    </summary>
+    
+    
+      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
+    
+      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-cli多页面项目应用</title>
+    <link href="http://chen1218chen.github.io/2017/06/28/vue-cli%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"/>
+    <id>http://chen1218chen.github.io/2017/06/28/vue-cli多页面项目应用/</id>
+    <published>2017-06-28T14:22:42.000Z</published>
+    <updated>2017-07-06T02:48:41.199Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;vue-cli&amp;#x7528;&amp;#x6765;&amp;#x6784;&amp;#x5EFA;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x5F88;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;vue-cli&amp;#x6A21;&amp;#x677F;&amp;#x5373;&amp;#x53EF;&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x9879;&amp;#x76EE;&amp;#x521A;&amp;#x7ED3;&amp;#x675F;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x4E8C;&amp;#x671F;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x60F3;&amp;#x7740;&amp;#x7528;vue&amp;#x6765;&amp;#x91CD;&amp;#x65B0;&amp;#x642D;&amp;#x5EFA;&amp;#x9879;&amp;#x76EE;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;&amp;#x524D;&amp;#x540E;&amp;#x7AEF;&amp;#x5206;&amp;#x79BB;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x4E5F;&amp;#x7B97;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x63A2;&amp;#x7D22;&amp;#x5427;&amp;#x3002;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x624B;&amp;#x5165;&amp;#x95E8;&amp;#x65F6;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x56F0;&amp;#x60D1;&amp;#x4E0D;&amp;#x89E3;&amp;#xFF0C;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x5E2E;&amp;#x5230;&amp;#x6B63;&amp;#x5904;&amp;#x5728;&amp;#x8FF7;&amp;#x832B;&amp;#x671F;&amp;#x7684;&amp;#x4F60;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2017/06/28/vue-cli&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x9879;&amp;#x76EE;&amp;#x5E94;&amp;#x7528;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170706102216.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170706102216.png&quot;&gt;&lt;br&gt;modules&amp;#x4E0B;&amp;#x4E3A;&amp;#x591A;&amp;#x4E2A;&amp;#x9875;&amp;#x9762;&amp;#x5165;&amp;#x53E3;&amp;#xFF0C;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4FDD;&amp;#x6301;&amp;#x4E00;&amp;#x81F4;&amp;#xFF0C;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;modules
+|---index
+    |---index.html
+    |---index.js
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;.vue&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4EFB;&amp;#x610F;&amp;#x3002;&lt;br&gt;&amp;#x539F;&amp;#x5219;&amp;#x4E0A;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x968F;&amp;#x610F;&amp;#x5B9A;&amp;#xFF0C;&amp;#x4F46;&amp;#x7531;&amp;#x4E8E;&amp;#x4E0B;&amp;#x9762;entry&amp;#x5165;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x9650;&amp;#x5B9A;&amp;#xFF0C;&amp;#x6362;&amp;#x6210;&amp;#x5176;&amp;#x4ED6;&amp;#x540D;&amp;#x5B57;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F1A;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x8D77;&amp;#x5176;&amp;#x4ED6;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#xFF0C;&amp;#x8BF7;&amp;#x76F8;&amp;#x5E94;&amp;#x4FEE;&amp;#x6539;getMultiEntry()&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot;&gt;&lt;a href=&quot;#&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot;&gt;&lt;/a&gt;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&lt;/h2&gt;&lt;h3 id=&quot;until-js&quot;&gt;&lt;a href=&quot;#until-js&quot; class=&quot;headerlink&quot; title=&quot;until.js&quot;&gt;&lt;/a&gt;until.js&lt;/h3&gt;&lt;p&gt;until.js&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;getMultiEntry()&amp;#xFF0C;&amp;#x4F9D;&amp;#x8D56; glob&amp;#x63D2;&amp;#x4EF6;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x63D0;&amp;#x524D;&amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;&amp;#xFF0C;until.js&amp;#x5F00;&amp;#x59CB;&amp;#x5F15;&amp;#x5165;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//&amp;#x83B7;&amp;#x53D6;&amp;#x591A;&amp;#x7EA7;&amp;#x7684;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;
+exports.getMultiEntry = function (globPath) {
+  var entries = {},
+    basename, tmp, pathname;
+
+  glob.sync(globPath).forEach(function (entry) {
+    basename = path.basename(entry, path.extname(entry));
+    tmp = entry.split(&amp;apos;/&amp;apos;).splice(-4);
+
+  var pathsrc = tmp[0]+&amp;apos;/&amp;apos;+tmp[1];
+  if( tmp[0] == &amp;apos;src&amp;apos; ){
+    pathsrc = tmp[1];
+  }
+  //console.log(pathsrc)
+    pathname = pathsrc + &amp;apos;/&amp;apos; + basename; // &amp;#x6B63;&amp;#x786E;&amp;#x8F93;&amp;#x51FA;js&amp;#x548C;html&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;
+    entries[pathname] = entry;
+    //console.log(pathname+&amp;apos;-----------&amp;apos;+entry);
+  });
+
+  return entries;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;build-webpack-base-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-base-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.base.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.base.conf.js&lt;/h3&gt;&lt;p&gt;&amp;#x627E;&amp;#x5230;entry&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;entry:entries,
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x8FD0;&amp;#x884C;&amp;#x3001;&amp;#x7F16;&amp;#x8BD1;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x5165;&amp;#x53E3;&amp;#x90FD;&amp;#x4F1A;&amp;#x5BF9;&amp;#x5E94;&amp;#x4E00;&amp;#x4E2A;Chunk&amp;#x3002; PS&amp;#xFF1A;&amp;#x7EC8;&amp;#x4E8E;&amp;#x660E;&amp;#x767D;&amp;#x8FD9;&amp;#x4E2A;chunk&amp;#x7684;&amp;#x542B;&amp;#x4E49;&amp;#x4E86;/(&amp;#x3112;o&amp;#x3112;)/~~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;build-webpack-dev-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-dev-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.dev.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.dev.conf.js&lt;/h3&gt;&lt;p&gt;&amp;#x6587;&amp;#x672B;&amp;#x6DFB;&amp;#x52A0;&amp;#x4EE5;&amp;#x4E0B;&amp;#x914D;&amp;#x7F6E;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var pages =  utils.getMultiEntry(&amp;apos;./src/&amp;apos;+config.moduleName+&amp;apos;/**/*.html&amp;apos;);
+for (var pathname in pages) {
+  // &amp;#x914D;&amp;#x7F6E;&amp;#x751F;&amp;#x6210;&amp;#x7684;html&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5B9A;&amp;#x4E49;&amp;#x8DEF;&amp;#x5F84;&amp;#x7B49;
+  var conf = {
+    filename: pathname + &amp;apos;.html&amp;apos;,
+    template: pages[pathname], // &amp;#x6A21;&amp;#x677F;&amp;#x8DEF;&amp;#x5F84;
+    chunks: [pathname, &amp;apos;vendors&amp;apos;, &amp;apos;manifest&amp;apos;], // &amp;#x6BCF;&amp;#x4E2A;html&amp;#x5F15;&amp;#x7528;&amp;#x7684;js&amp;#x6A21;&amp;#x5757;
+    inject: true              // js&amp;#x63D2;&amp;#x5165;&amp;#x4F4D;&amp;#x7F6E;
+  };
+  // &amp;#x9700;&amp;#x8981;&amp;#x751F;&amp;#x6210;&amp;#x51E0;&amp;#x4E2A;html&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5C31;&amp;#x914D;&amp;#x7F6E;&amp;#x51E0;&amp;#x4E2A;HtmlWebpackPlugin&amp;#x5BF9;&amp;#x8C61;
+  module.exports.plugins.push(new HtmlWebpackPlugin(conf));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&lt;code&gt;config.moduleName = &amp;apos;modules&amp;apos;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;build-webpack-prod-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-prod-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.prod.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.prod.conf.js&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    ...
+
+//&amp;#x6784;&amp;#x5EFA;&amp;#x751F;&amp;#x6210;&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x7684;HtmlWebpackPlugin&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x5FAA;&amp;#x73AF;&amp;#x751F;&amp;#x6210;
+var pages =  utils.getMultiEntry(&amp;apos;./src/&amp;apos;+config.moduleName+&amp;apos;/**/*.html&amp;apos;);
+for (var pathname in pages) {
+  var conf = {
+    filename: pathname + &amp;apos;.html&amp;apos;,
+    template: pages[pathname], // &amp;#x6A21;&amp;#x677F;&amp;#x8DEF;&amp;#x5F84;
+    chunks: [&amp;apos;vendor&amp;apos;,pathname], // &amp;#x6BCF;&amp;#x4E2A;html&amp;#x5F15;&amp;#x7528;&amp;#x7684;js&amp;#x6A21;&amp;#x5757;
+    inject: true,              // js&amp;#x63D2;&amp;#x5165;&amp;#x4F4D;&amp;#x7F6E;
+  hash:true
+  };
+
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+}
+
+module.exports = webpackConfig
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&lt;code&gt;config.moduleName = &amp;apos;modules&amp;apos;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x81F3;&amp;#x6B64;&amp;#xFF0C;&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5B8C;&amp;#x6210;&amp;#x3002;&amp;#x8BBF;&amp;#x95EE;&amp;#x5730;&amp;#x5740;&amp;#x4E3A;&amp;#xFF1A;&lt;br&gt;index : &lt;a href=&quot;http://localhost:8088/modules/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8088/modules/index.html&lt;/a&gt;&lt;br&gt;phone : &lt;a href=&quot;http://localhost:8088/modules/phone.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8088/modules/phone.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cnpm run build&lt;/code&gt;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5728;nginx&amp;#x4E2D;&amp;#x5373;&amp;#x53EF;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C;&amp;#x8BBF;&amp;#x95EE;&amp;#x5730;&amp;#x5740;&amp;#x4E3A;&lt;br&gt;index : &lt;a href=&quot;http://localhost/modules/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/modules/index.html&lt;/a&gt;&lt;br&gt;phone : &lt;a href=&quot;http://localhost/modules/phone.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/modules/phone.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&lt;/h2&gt;&lt;h3 id=&quot;webpack&amp;#x522B;&amp;#x540D;-resolve-alias&quot;&gt;&lt;a href=&quot;#webpack&amp;#x522B;&amp;#x540D;-resolve-alias&quot; class=&quot;headerlink&quot; title=&quot;webpack&amp;#x522B;&amp;#x540D; resolve.alias&quot;&gt;&lt;/a&gt;webpack&amp;#x522B;&amp;#x540D; &lt;code&gt;resolve.alias&lt;/code&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;resolve: {
+   alias: {
+       moment: &amp;quot;moment/min/moment-with-locales.min.js&amp;quot;
+   }
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x5F85;&amp;#x6253;&amp;#x5305;&amp;#x7684;&amp;#x811A;&amp;#x672C;&amp;#x4E2D;&amp;#x7684;&lt;code&gt;require(&amp;apos;moment&amp;apos;);&lt;/code&gt;&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x7B49;&amp;#x4EF7;&amp;#x4E8E;&lt;code&gt;require(&amp;apos;moment/min/moment-with-locales.min.js&amp;apos;);&lt;/code&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x522B;&amp;#x540D;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x5728;&amp;#x672C;&amp;#x4F8B;&amp;#x4E2D;&amp;#x53EF;&amp;#x4EE5;&amp;#x51CF;&amp;#x5C11;&amp;#x51E0;&amp;#x4E4E;&amp;#x4E00;&amp;#x534A;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x3002;      &lt;/p&gt;
+&lt;h3 id=&quot;output-filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#output-filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;output.filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot;&gt;&lt;/a&gt;output.filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;filename: &amp;apos;[name].[hash].js&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x751F;&amp;#x6210; vendors.61714a310523a3df9869.js,&amp;#x6BCF;&amp;#x6B21;&amp;#x751F;&amp;#x6210;&amp;#x90FD;&amp;#x4E0D;&amp;#x4F1A;&amp;#x8986;&amp;#x76D6;&amp;#x4E4B;&amp;#x524D;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x67E5;BUG&amp;#x6216;&amp;#x8005;&amp;#x56DE;&amp;#x6EDA;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;#x7B2C;&amp;#x4E8C;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;filename: &amp;apos;[name].js&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x751F;&amp;#x6210;vendors.js?f3aaf25de220e214f84e,&amp;#x6BCF;&amp;#x6B21;&amp;#x90FD;&amp;#x4F1A;&amp;#x8986;&amp;#x76D6;&amp;#x4E4B;&amp;#x524D;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x5728;&amp;#x67D0;&amp;#x4E9B;&amp;#x7279;&amp;#x6B8A;&amp;#x9879;&amp;#x76EE;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&quot;process-env-NODE-ENV&quot;&gt;&lt;a href=&quot;#process-env-NODE-ENV&quot; class=&quot;headerlink&quot; title=&quot;process.env.NODE_ENV&quot;&gt;&lt;/a&gt;process.env.NODE_ENV&lt;/h3&gt;&lt;p&gt;&amp;#x6307;&amp;#x7684;&amp;#x662F;config/*&amp;#x4E0B;&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;vue-cli&amp;#x7528;&amp;#x6765;&amp;#x6784;&amp;#x5EFA;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x5F88;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x76F4;&amp;#x63
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
+    
+      <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-cli的webpack项目分析之build/dev-server.js</title>
+    <link href="http://chen1218chen.github.io/2017/06/09/vue-cli%E7%9A%84webpack%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90%E4%B9%8Bbuild-dev-server-js/"/>
+    <id>http://chen1218chen.github.io/2017/06/09/vue-cli的webpack项目分析之build-dev-server-js/</id>
+    <published>2017-06-09T10:00:29.000Z</published>
+    <updated>2017-06-20T01:47:42.961Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x6267;&amp;#x884C;&amp;#x201D;&lt;code&gt;npm run dev&lt;/code&gt;&amp;#x201C; &amp;#x547D;&amp;#x4EE4;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x5230;&amp;#x6700;&amp;#x5148;&amp;#x6267;&amp;#x884C;&amp;#x7684;&amp;#x662F;build/dev-server.js&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5C31;&amp;#x4ECE;&lt;code&gt;dev-server.js&lt;/code&gt;&amp;#x6587;&amp;#x4EF6;&amp;#x5F00;&amp;#x59CB;&amp;#x5206;&amp;#x6790;&amp;#x5427;&amp;#xFF0C;&amp;#x8FD9;&amp;#x5728;&amp;#x91CC;mark&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x7B97;&amp;#x662F;&amp;#x5B66;&amp;#x4E60;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF0C;&amp;#x4E5F;&amp;#x987A;&amp;#x4FBF;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;dev-server-js&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#dev-server-js&amp;#x5206;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;dev-server.js&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;/a&gt;dev-server.js&amp;#x5206;&amp;#x6790;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x68C0;&amp;#x67E5;node&amp;#x548C;npm&amp;#x7684;&amp;#x7248;&amp;#x672C;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;require(&amp;apos;./check-versions&amp;apos;)()
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x83B7;&amp;#x53D6;config&amp;#x76EE;&amp;#x5F55;&amp;#x7684;&amp;#x9ED8;&amp;#x8BA4;&amp;#x914D;&amp;#x7F6E;,&amp;#x5E76;&amp;#x4E14;&amp;#x4F1A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x6307;&amp;#x5B9A;index.js&amp;#x6587;&amp;#x4EF6;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var config = require(&amp;apos;../config&amp;apos;)
+if (!process.env.NODE_ENV) process.env.NODE_ENV = config.dev.env
+var path = require(&amp;apos;path&amp;apos;)
+var express = require(&amp;apos;express&amp;apos;)
+var webpack = require(&amp;apos;webpack&amp;apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F3A;&amp;#x5236;&amp;#x6253;&amp;#x5F00;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x6307;&amp;#x5B9A; url &amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var opn = require(&amp;apos;opn&amp;apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;http-proxy&amp;#x53EF;&amp;#x4EE5;&amp;#x5B9E;&amp;#x73B0;&amp;#x8F6C;&amp;#x53D1;&amp;#x6240;&amp;#x6709;&amp;#x8BF7;&amp;#x6C42;&amp;#x4EE3;&amp;#x7406;&amp;#x5230;&amp;#x540E;&amp;#x7AEF;&amp;#x771F;&amp;#x5B9E;API&amp;#x5730;&amp;#x5740;&amp;#xFF0C;&amp;#x4EE5;&amp;#x5B9E;&amp;#x73B0;&amp;#x524D;&amp;#x540E;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x5B8C;&amp;#x5168;&amp;#x5206;&amp;#x79BB;;&lt;br&gt;&amp;#x4F7F;&amp;#x7528; proxyTable&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var proxyMiddleware = require(&amp;apos;http-proxy-middleware&amp;apos;)
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&amp;#x6839;&amp;#x636E; Node &amp;#x73AF;&amp;#x5883;&amp;#x6765;&amp;#x5F15;&amp;#x5165;&amp;#x76F8;&amp;#x5E94;&amp;#x7684; webpack &amp;#x914D;&amp;#x7F6E;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var webpackConfig = process.env.NODE_ENV === &amp;apos;testing&amp;apos;
+  ? require(&amp;apos;./webpack.prod.conf&amp;apos;)
+  : require(&amp;apos;./webpack.dev.conf&amp;apos;)
+
+// default port where dev server listens for incoming traffic
+var port = process.env.PORT || config.dev.port
+// Define HTTP proxies to your custom API backend
+// https://github.com/chimurai/http-proxy-middleware
+var proxyTable = config.dev.proxyTable
+
+var app = express()
+var compiler = webpack(webpackConfig)
+
+var devMiddleware = require(&amp;apos;webpack-dev-middleware&amp;apos;)(compiler, {
+  publicPath: webpackConfig.output.publicPath,
+  stats: {
+    colors: true,
+    chunks: false
+  }
+})
+
+var hotMiddleware = require(&amp;apos;webpack-hot-middleware&amp;apos;)(compiler)
+// force page reload when html-webpack-plugin template changes
+compiler.plugin(&amp;apos;compilation&amp;apos;, function (compilation) {
+  compilation.plugin(&amp;apos;html-webpack-plugin-after-emit&amp;apos;, function (data, cb) {
+    hotMiddleware.publish({ action: &amp;apos;reload&amp;apos; })
+    cb()
+  })
+})
+
+// proxy api requests
+Object.keys(proxyTable).forEach(function (context) {
+  var options = proxyTable[context]
+  if (typeof options === &amp;apos;string&amp;apos;) {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(context, options))
+})
+
+// handle fallback for HTML5 history API
+app.use(require(&amp;apos;connect-history-api-fallback&amp;apos;)())
+
+// serve webpack bundle output
+app.use(devMiddleware)
+
+// enable hot-reload and state-preserving
+// compilation error display
+app.use(hotMiddleware)
+
+// serve pure static assets
+var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
+app.use(staticPath, express.static(&amp;apos;./static&amp;apos;))
+
+module.exports = app.listen(port, function (err) {
+  if (err) {
+    console.log(err)
+    return
+  }
+  var uri = &amp;apos;http://localhost:&amp;apos; + port
+  console.log(&amp;apos;Listening at &amp;apos; + uri + &amp;apos;\n&amp;apos;)
+  opn(uri)
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;process-env-NODE-ENV&quot;&gt;&lt;a href=&quot;#process-env-NODE-ENV&quot; class=&quot;headerlink&quot; title=&quot;process.env.NODE_ENV&quot;&gt;&lt;/a&gt;process.env.NODE_ENV&lt;/h2&gt;&lt;p&gt;&amp;#x83B7;&amp;#x53D6;&amp;#x7CFB;&amp;#x7EDF;&amp;#x73AF;&amp;#x5883;&amp;#x53D8;&amp;#x91CF;,&amp;#x5728;config/pro.env.js&amp;#x548C;config/dev.env.js&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49;&amp;#x597D;&amp;#x7684;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pro.env.js&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;module.exports = {
+  NODE_ENV: &amp;apos;&amp;quot;production&amp;quot;&amp;apos;,
+  API_ROOT: &amp;apos;&amp;quot;//127.0.0.1/api&amp;quot;&amp;apos;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;dev.env.js&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var merge = require(&amp;apos;webpack-merge&amp;apos;)
+var prodEnv = require(&amp;apos;./prod.env&amp;apos;)
+
+module.exports = merge(prodEnv, {
+  NODE_ENV: &amp;apos;&amp;quot;development&amp;quot;&amp;apos;,
+  API_ROOT: &amp;apos;&amp;quot;//127.0.0.1/api&amp;quot;&amp;apos;
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4ECE;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#x770B;&amp;#x5230;&amp;#xFF0C;dev-server&amp;#x4F7F;&amp;#x7528;&amp;#x7684;webpack&amp;#x914D;&amp;#x7F6E;&amp;#x6765;&amp;#x81EA;build/webpack.dev.conf.js&amp;#x6587;&amp;#x4EF6;&amp;#xFF08;&amp;#x6D4B;&amp;#x8BD5;&amp;#x73AF;&amp;#x5883;&amp;#x4E0B;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;build/webpack.prod.conf.js&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x6682;&amp;#x65F6;&amp;#x4E0D;&amp;#x8003;&amp;#x8651;&amp;#x6D4B;&amp;#x8BD5;&amp;#x73AF;&amp;#x5883;&amp;#xFF09;&amp;#x3002;&amp;#x800C;build/webpack.dev.conf.js&amp;#x4E2D;&amp;#x53C8;&amp;#x5F15;&amp;#x7528;&amp;#x4E86;webpack.base.conf.js&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x8FD9;&amp;#x91CC;&amp;#x6211;&amp;#x5148;&amp;#x5206;&amp;#x6790;webpack.base.conf.js&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;webpack-base-conf-js&quot;&gt;&lt;a href=&quot;#webpack-base-conf-js&quot; class=&quot;headerlink&quot; title=&quot;webpack.base.conf.js&quot;&gt;&lt;/a&gt;webpack.base.conf.js&lt;/h2&gt;&lt;p&gt;webpack.base.conf.js&amp;#x4E3B;&amp;#x8981;&amp;#x5B8C;&amp;#x6210;&amp;#x4E86;&amp;#x4E0B;&amp;#x9762;&amp;#x8FD9;&amp;#x4E9B;&amp;#x4E8B;&amp;#x60C5;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;webpack&amp;#x7F16;&amp;#x8BD1;&amp;#x5165;&amp;#x53E3;&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;webpack&amp;#x8F93;&amp;#x51FA;&amp;#x8DEF;&amp;#x5F84;&amp;#x548C;&amp;#x547D;&amp;#x540D;&amp;#x89C4;&amp;#x5219;&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x6A21;&amp;#x5757;resolve&amp;#x89C4;&amp;#x5219;&lt;/li&gt;
+&lt;li&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x4E0D;&amp;#x540C;&amp;#x7C7B;&amp;#x578B;&amp;#x6A21;&amp;#x5757;&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#x89C4;&amp;#x5219;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x6267;&amp;#x884C;&amp;#x201D;&lt;code&gt;npm run dev&lt;/code&gt;&amp;#x201C; &amp;#x547D;&amp;#x4EE4;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
+    
+      <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
+    
+      <category term="webpack" scheme="http://chen1218chen.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node.js的path模快</title>
+    <link href="http://chen1218chen.github.io/2017/06/06/node-js%E5%80%BCpath%E6%A8%A1%E5%BF%AB/"/>
+    <id>http://chen1218chen.github.io/2017/06/06/node-js值path模快/</id>
+    <published>2017-06-06T15:01:29.000Z</published>
+    <updated>2017-06-06T07:05:57.325Z</updated>
+    
+    <content type="html">&lt;p&gt;Node.js path &amp;#x6A21;&amp;#x5757;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x7528;&amp;#x4E8E;&amp;#x5904;&amp;#x7406;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#x7684;&amp;#x5C0F;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&amp;#x4EE5;&amp;#x4E0B;&amp;#x65B9;&amp;#x5F0F;&amp;#x5F15;&amp;#x5165;&amp;#x8BE5;&amp;#x6A21;&amp;#x5757;&amp;#xFF1A;&lt;br&gt;&amp;#x521B;&amp;#x5EFA; main.js &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var path = require(&amp;quot;path&amp;quot;)
+// &amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x8DEF;&amp;#x5F84;
+console.log(&amp;apos;normalization : &amp;apos; + path.normalize(&amp;apos;/test/test1//2slashes/1slash/tab/..&amp;apos;));
+
+// &amp;#x8FDE;&amp;#x63A5;&amp;#x8DEF;&amp;#x5F84;
+console.log(&amp;apos;joint path : &amp;apos; + path.join(&amp;apos;/test&amp;apos;, &amp;apos;test1&amp;apos;, &amp;apos;2slashes/1slash&amp;apos;, &amp;apos;tab&amp;apos;, &amp;apos;..&amp;apos;));
+
+// &amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7EDD;&amp;#x5BF9;&amp;#x8DEF;&amp;#x5F84;
+console.log(&amp;apos;resolve : &amp;apos; + path.resolve(&amp;apos;main.js&amp;apos;));
+
+// &amp;#x8DEF;&amp;#x5F84;&amp;#x4E2D;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x540E;&amp;#x7F00;&amp;#x540D;
+console.log(&amp;apos;ext name : &amp;apos; + path.extname(&amp;apos;main.js&amp;apos;));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x6267;&amp;#x884C;&amp;#x7ED3;&amp;#x679C;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ node main.js 
+normalization : /test/test1/2slashes/1slash
+joint path : /test/test1/2slashes/1slash
+resolve : /web/com/1427176256_27423/main.js
+ext name : .js
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Node.js path &amp;#x6A21;&amp;#x5757;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x7528;&amp;#x4E8E;&amp;#x5904;&amp;#x7406;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#x7
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="http://chen1218chen.github.io/tags/node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>content-type详解</title>
@@ -350,11 +689,11 @@ public class LawsRest {
   </entry>
   
   <entry>
-    <title>vue.js初探</title>
+    <title>vue-cli搭建vue项目遇到的问题详解</title>
     <link href="http://chen1218chen.github.io/2017/02/24/vue-js%E5%88%9D%E6%8E%A2/"/>
     <id>http://chen1218chen.github.io/2017/02/24/vue-js初探/</id>
     <published>2017-02-23T17:11:10.000Z</published>
-    <updated>2017-04-14T02:55:13.299Z</updated>
+    <updated>2017-06-28T06:19:39.141Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;ul&gt;
@@ -642,11 +981,11 @@ public JSONArray queryAllDepart(){
   </entry>
   
   <entry>
-    <title>URL路径含中文</title>
+    <title>URL路径含中文,requset.getParameter()乱码</title>
     <link href="http://chen1218chen.github.io/2017/01/19/URL%E8%B7%AF%E5%BE%84%E5%90%AB%E4%B8%AD%E6%96%87/"/>
     <id>http://chen1218chen.github.io/2017/01/19/URL路径含中文/</id>
     <published>2017-01-18T16:01:59.000Z</published>
-    <updated>2017-01-18T08:13:06.266Z</updated>
+    <updated>2017-07-06T02:18:23.418Z</updated>
     
     <content type="html">&lt;p&gt;&amp;#x9879;&amp;#x76EE;&amp;#x6700;&amp;#x8FD1;&amp;#x78B0;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x4EE5;&amp;#x524D;&amp;#x4ECE;&amp;#x6765;&amp;#x6CA1;&amp;#x6709;&amp;#x6CE8;&amp;#x610F;&amp;#x5230;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5C31;&amp;#x662F;URL&amp;#x8DEF;&amp;#x5F84;&amp;#x5305;&amp;#x542B;&amp;#x4E2D;&amp;#x6587;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x867D;&amp;#x8BF4;&amp;#x4E0D;&amp;#x5EFA;&amp;#x8BAE;&amp;#x8DEF;&amp;#x5F84;&amp;#x540D;&amp;#x4E2D;&amp;#x5305;&amp;#x542B;&amp;#x4E2D;&amp;#x6587;&amp;#xFF0C;&amp;#x4F46;&amp;#x6709;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4E5F;&amp;#x4E0D;&amp;#x53EF;&amp;#x907F;&amp;#x514D;&amp;#x7684;&amp;#x51FA;&amp;#x73B0;&amp;#x8FD9;&amp;#x79CD;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x627E;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x7BA1;&amp;#x7528;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x4FEE;&amp;#x6539;tomcat&amp;#x7684;server.xml&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0; &lt;code&gt;URIEncoding=&amp;quot;UTF-8&amp;quot;&lt;/code&gt;&amp;#x5C5E;&amp;#x6027;&amp;#x3002;&amp;#x5982;&amp;#x4E0B;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;Connector acceptCount=&amp;quot;500&amp;quot; connectionTimeout=&amp;quot;20000&amp;quot; enableLookups=&amp;quot;false&amp;quot; maxThreads=&amp;quot;400&amp;quot; port=&amp;quot;8080&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot; URIEncoding=&amp;quot;UTF-8&amp;quot; redirectPort=&amp;quot;8443&amp;quot;/&amp;gt;
@@ -894,259 +1233,6 @@ return &amp;quot;redirect:/index&amp;quot;;
     
     
       <category term="XML" scheme="http://chen1218chen.github.io/tags/XML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://chen1218chen.github.io/2016/12/19/rest/"/>
-    <id>http://chen1218chen.github.io/2016/12/19/rest/</id>
-    <published>2016-12-19T08:46:32.584Z</published>
-    <updated>2016-12-19T09:21:09.208Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;method&quot;&gt;&lt;a href=&quot;#method&quot; class=&quot;headerlink&quot; title=&quot;method&quot;&gt;&lt;/a&gt;method&lt;/h2&gt;&lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x5728; RequestMapping &amp;#x6CE8;&amp;#x89E3;&amp;#x7C7B;&amp;#x4E2D; method() &amp;#x65B9;&amp;#x6CD5;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x662F; RequestMethod &amp;#x6570;&amp;#x7EC4;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x53EF;&amp;#x4EE5;&amp;#x7ED9; method &amp;#x540C;&amp;#x65F6;&amp;#x6307;&amp;#x5B9A;&amp;#x591A;&amp;#x4E2A;&amp;#x8BF7;&amp;#x6C42;&amp;#x65B9;&amp;#x5F0F;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Controller
-@RequestMapping(path = &amp;quot;/user&amp;quot;)
-public class UserController {
-        // &amp;#x8BE5;&amp;#x65B9;&amp;#x6CD5;&amp;#x5C06;&amp;#x540C;&amp;#x65F6;&amp;#x63A5;&amp;#x6536;&amp;#x901A;&amp;#x8FC7;GET&amp;#x548C;POST&amp;#x65B9;&amp;#x5F0F;&amp;#x53D1;&amp;#x6765;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;
-    @RequestMapping(path = &amp;quot;/login&amp;quot;, method={RequestMethod.POST,RequestMethod.GET})
-    public String login() {
-        return &amp;quot;success&amp;quot;;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;params&quot;&gt;&lt;a href=&quot;#params&quot; class=&quot;headerlink&quot; title=&quot;params&quot;&gt;&lt;/a&gt;params&lt;/h2&gt;&lt;p&gt;@RequestMapping &amp;#x4E2D;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528; params &amp;#x6765;&amp;#x9650;&amp;#x5236;&amp;#x8BF7;&amp;#x6C42;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x8FDB;&amp;#x4E00;&amp;#x6B65;&amp;#x7684;&amp;#x8FC7;&amp;#x6EE4;&amp;#x8BF7;&amp;#x6C42;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Controller
-@RequestMapping(path = &amp;quot;/user&amp;quot;)
-public class UserController {
-
-        // &amp;#x8BE5;&amp;#x65B9;&amp;#x6CD5;&amp;#x5C06;&amp;#x63A5;&amp;#x6536; /user/login &amp;#x53D1;&amp;#x6765;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#xFF0C;&amp;#x4E14;&amp;#x8BF7;&amp;#x6C42;&amp;#x53C2;&amp;#x6570;&amp;#x5FC5;&amp;#x987B;&amp;#x4E3A; username=kolbe&amp;amp;password=123456
-    @RequestMapping(path = &amp;quot;/login&amp;quot;, params={&amp;quot;username=kolbe&amp;quot;,&amp;quot;password=123456&amp;quot;})
-    public String login() {
-        return &amp;quot;success&amp;quot;;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x5982;&amp;#xFF1A;&lt;a href=&quot;http://localhost/SpringMVC/user/login?username=kolbe&amp;amp;password=123456&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/SpringMVC/user/login?username=kolbe&amp;amp;password=123456&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;headers&quot;&gt;&lt;a href=&quot;#headers&quot; class=&quot;headerlink&quot; title=&quot;headers&quot;&gt;&lt;/a&gt;headers&lt;/h2&gt;&lt;p&gt; @RequestMapping &amp;#x7684; headers &amp;#x5C5E;&amp;#x6027;,&amp;#x8BE5;&amp;#x5C5E;&amp;#x6027;&amp;#x8868;&amp;#x793A;&amp;#x8BF7;&amp;#x6C42;&amp;#x5934;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Controller
-@RequestMapping(path = &amp;quot;/user&amp;quot;)
-public class UserController {
-        // &amp;#x8868;&amp;#x793A;&amp;#x53EA;&amp;#x63A5;&amp;#x6536;&amp;#x672C;&amp;#x673A;&amp;#x53D1;&amp;#x6765;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;
-    @RequestMapping(path = &amp;quot;/login&amp;quot;, headers=&amp;quot;Host=localhost:8080&amp;quot;)
-    public String login() {
-        return &amp;quot;success&amp;quot;;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;method&quot;&gt;&lt;a href=&quot;#method&quot; class=&quot;headerlink&quot; title=&quot;method&quot;&gt;&lt;/a&gt;method&lt;/h2&gt;&lt;p&gt;&amp;#x7531;&amp;#x4E8E;&amp;#x5728; RequestMapping &amp;#x6CE8;&amp;#x89E
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime Angular snippets安装</title>
-    <link href="http://chen1218chen.github.io/2016/11/08/Sublime-Angular-snippets%E5%AE%89%E8%A3%85/"/>
-    <id>http://chen1218chen.github.io/2016/11/08/Sublime-Angular-snippets安装/</id>
-    <published>2016-11-08T15:12:44.000Z</published>
-    <updated>2016-11-08T07:23:15.635Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x8FD9;&amp;#x662F;john papa&amp;#x5199;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;sublime&amp;#x63D2;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5B89;&amp;#x88C5;&amp;#x540E;&amp;#x53EF;&amp;#x5FEB;&amp;#x901F;&amp;#x751F;&amp;#x6210;angular&amp;#x7684;&amp;#x6A21;&amp;#x677F;&amp;#xFF0C;&amp;#x6307;&amp;#x4EE4;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ngcontroller // creates an Angular controller
-ngdirective  // creates an Angular directive
-ngfactory    // creates an Angular factory
-ngmodule     // creates an Angular module
-ngservice    // creates an Angular service
-ngfilter     // creates an Angular filter
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;js&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;ngfactory&amp;#xFF0C;&amp;#x6309;&amp;#x4E0B;Tab&amp;#x952E;&amp;#x4E4B;&amp;#x540E;&amp;#x2026;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;(function() {
-    &amp;apos;use strict&amp;apos;;
-
-    angular
-        .module(&amp;apos;module&amp;apos;)
-        .factory(&amp;apos;factory&amp;apos;, factory);
-
-    factory.$inject = [&amp;apos;dependencies&amp;apos;];
-
-    /* @ngInject */
-    function factory(dependencies) {
-        var service = {
-            func: func
-        };
-        return service;
-
-        function func() {
-        }
-    }
-})();
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5730;&amp;#x5740;&amp;#xFF1A;&lt;a href=&quot;https://github.com/johnpapa/angular-styleguide&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;johnpapa/angular-styleguide&lt;/a&gt;&lt;br&gt;&amp;#x4E0B;&amp;#x8F7D;&amp;#x4E0B;&amp;#x6765;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;copy &lt;code&gt;angular-styleguide/a1/assets/sublime-angular-snippets&lt;/code&gt;&amp;#xFF0C;&amp;#x653E;&amp;#x5728;sublime&amp;#x4E0B;&amp;#x7684;packages&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E2D;&amp;#xFF0C;&amp;#x91CD;&amp;#x542F;sublime&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;br&gt;&amp;#x51FA;&amp;#x73B0;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x653E;&amp;#x5165;&amp;#x540E;&amp;#x6CA1;&amp;#x6709;&amp;#x53CD;&amp;#x5E94;&amp;#xFF0C;&amp;#x540E;&amp;#x6765;&amp;#x624D;&amp;#x53D1;&amp;#x73B0;&amp;#x672A;&amp;#x77E5;&amp;#x4E0D;&amp;#x5BF9;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;sublime&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;&amp;#x5B89;&amp;#x88C5;&amp;#x5730;&amp;#x5740;&amp;#x662F;&lt;code&gt;C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages&lt;/code&gt;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5C06;&lt;code&gt;sublime-angular-snippets&lt;/code&gt;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x653E;&amp;#x5165;&amp;#x5176;&amp;#x4E2D;&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x8FD9;&amp;#x662F;john papa&amp;#x5199;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;sublime&amp;#x63D2;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5B89;&amp;#x88C5;&amp;#x540E;&amp;#x53EF;&amp;#x5FEB;&amp;#x901F;&amp;
-    
-    </summary>
-    
-    
-      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
-    
-      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular之Service vs Factory</title>
-    <link href="http://chen1218chen.github.io/2016/11/04/angular%E4%B9%8BService-vs-Factory/"/>
-    <id>http://chen1218chen.github.io/2016/11/04/angular之Service-vs-Factory/</id>
-    <published>2016-11-04T09:32:40.000Z</published>
-    <updated>2016-11-04T01:35:03.425Z</updated>
-    
-    <content type="html">&lt;p&gt;angular&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x521B;&amp;#x5EFA;&amp;#x670D;&amp;#x52A1;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x5DE5;&amp;#x5382; Factory&lt;br&gt;factory&amp;#x63D0;&amp;#x4F9B;&amp;#x4E00;&amp;#x4E9B;&amp;#x516C;&amp;#x5171;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x63A8;&amp;#x8350;&amp;#x62BD;&amp;#x8C61;&amp;#xFF0C;&amp;#x91CD;&amp;#x7528;factory&amp;#x3002;&lt;/li&gt;
-&lt;li&gt;&amp;#x670D;&amp;#x52A1; Service&lt;br&gt;service&amp;#x7C7B;&amp;#x4F3C;factory&amp;#xFF0C;&amp;#x4F1A;&amp;#x88AB;&amp;#x5B9E;&amp;#x4F8B;&amp;#x5316;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FDD;&amp;#x5B58;&amp;#x6570;&amp;#x636E;&amp;#xFF0C;&amp;#x4F5C;&amp;#x4E3A;controller&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x901A;&amp;#x8BAF;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x6BD4;&amp;#x597D;&amp;#x597D;&amp;#x7528;&amp;#x3002;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;#x5728;Angular&amp;#x6E90;&amp;#x7801;&amp;#x4E2D;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function factory(name, factoryFn) {
-    return provider(name, { $get: factoryFn });
-}
-function service(name, constructor) {
-    return factory(name, [&amp;apos;$injector&amp;apos;, function($injector) {
-      return $injector.instantiate(constructor);
-    }]);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#x5C55;&amp;#x793A;&amp;#x4E86;service&amp;#x548C;factory&amp;#x505A;&amp;#x4E86;&amp;#x540C;&amp;#x6837;&amp;#x4E00;&amp;#x4EF6;&amp;#x4E8B;&amp;#x60C5;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var app = angular.module(&amp;apos;app&amp;apos;,[]);
-app.service(&amp;apos;helloWorldService&amp;apos;, function(){
-    this.hello = function() {
-        return &amp;quot;Hello World&amp;quot;;
-    };
-});
-app.factory(&amp;apos;helloWorldFactory&amp;apos;, function(){
-    return {
-        hello: function() {
-            return &amp;quot;Hello World&amp;quot;;
-        }
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5F53;helloWorldService&amp;#x6216;helloWorldFactory&amp;#x88AB;&amp;#x6CE8;&amp;#x5165;&amp;#x5230;&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5B83;&amp;#x4EEC;&amp;#x90FD;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;hello&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x8FD4;&amp;#x56DE;&amp;#x201D;hello world&amp;#x201D;&amp;#x3002;service&amp;#x7684;&amp;#x6784;&amp;#x9020;&amp;#x51FD;&amp;#x6570;&amp;#x5728;&amp;#x58F0;&amp;#x660E;&amp;#x65F6;&amp;#x88AB;&amp;#x5B9E;&amp;#x4F8B;&amp;#x5316;&amp;#x4E86;&amp;#x4E00;&amp;#x6B21;&amp;#xFF0C;&amp;#x540C;&amp;#x65F6;factory&amp;#x5BF9;&amp;#x8C61;&amp;#x5728;&amp;#x6BCF;&amp;#x4E00;&amp;#x6B21;&amp;#x88AB;&amp;#x6CE8;&amp;#x5165;&amp;#x65F6;&amp;#x4F20;&amp;#x9012;&amp;#xFF0C;&amp;#x4F46;&amp;#x662F;&amp;#x4ECD;&amp;#x7136;&amp;#x53EA;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;factory&amp;#x5B9E;&amp;#x4F8B;&amp;#x3002;&lt;strong&gt;&amp;#x6240;&amp;#x6709;&amp;#x7684;providers&amp;#x90FD;&amp;#x662F;&amp;#x5355;&amp;#x4F8B;&amp;#x3002;&lt;/strong&gt;&lt;br&gt;&amp;#x65E2;&amp;#x7136;&amp;#x80FD;&amp;#x505A;&amp;#x76F8;&amp;#x540C;&amp;#x7684;&amp;#x4E8B;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x9700;&amp;#x8981;&amp;#x4E24;&amp;#x79CD;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x98CE;&amp;#x683C;&amp;#x5462;&amp;#xFF1F;&amp;#x76F8;&amp;#x5BF9;&amp;#x4E8E;service&amp;#xFF0C;factory&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x66F4;&amp;#x591A;&amp;#x7684;&amp;#x7075;&amp;#x6D3B;&amp;#x6027;&amp;#xFF0C;&amp;#x56E0;&amp;#x4E3A;&amp;#x5B83;&amp;#x53EF;&amp;#x4EE5;&amp;#x8FD4;&amp;#x56DE;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E9B;&amp;#x51FD;&amp;#x6570;&amp;#x4E4B;&amp;#x540E;&amp;#x53EF;&amp;#x4EE5;&amp;#x88AB;&amp;#x65B0;&amp;#x5EFA;&amp;#x51FA;&amp;#x6765;&amp;#x3002;&amp;#x8FD9;&amp;#x8FCE;&amp;#x5408;&amp;#x4E86;&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E2D;&amp;#x5DE5;&amp;#x5382;&amp;#x6A21;&amp;#x5F0F;&amp;#x7684;&amp;#x6982;&amp;#x5FF5;&amp;#xFF0C;&amp;#x5DE5;&amp;#x5382;&amp;#x53EF;&amp;#x4EE5;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x80FD;&amp;#x591F;&amp;#x521B;&amp;#x5EFA;&amp;#x5176;&amp;#x4ED6;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;app.factory(&amp;apos;helloFactory&amp;apos;, function() {
-    return function(name) {
-        this.name = name;
-        this.hello = function() {
-            return &amp;quot;Hello &amp;quot; + this.name;
-        };
-    };
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4EE5;&amp;#x4E0B;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x63A7;&amp;#x5236;&amp;#x5668;&amp;#x793A;&amp;#x4F8B;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;service&amp;#x548C;&amp;#x4E24;&amp;#x4E2A;factory&amp;#xFF0C;helloFactory&amp;#x8FD4;&amp;#x56DE;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5F53;&amp;#x65B0;&amp;#x5EFA;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#x4F1A;&amp;#x8BBE;&amp;#x7F6E;name&amp;#x7684;&amp;#x503C;&amp;#x3002;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;app.controller(&amp;apos;helloCtrl&amp;apos;, function($scope, helloWorldService, helloWorldFactory, helloFactory) {
-    init = function() {
-      helloWorldService.hello(); //&amp;apos;Hello World&amp;apos;
-      helloWorldFactory.hello(); //&amp;apos;Hello World&amp;apos;
-      new helloFactory(&amp;apos;Readers&amp;apos;).hello() //&amp;apos;Hello Readers&amp;apos;
-    }
-    init();
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5728;&amp;#x521D;&amp;#x5B66;&amp;#x65F6;&amp;#xFF0C;&amp;#x6700;&amp;#x597D;&amp;#x53EA;&amp;#x4F7F;&amp;#x7528;service&amp;#x3002;&lt;/p&gt;
-&lt;p&gt;Factory&amp;#x5728;&amp;#x8BBE;&amp;#x8BA1;&amp;#x4E00;&amp;#x4E2A;&amp;#x5305;&amp;#x542B;&amp;#x5F88;&amp;#x591A;&amp;#x79C1;&amp;#x6709;&amp;#x65B9;&amp;#x6CD5;&amp;#x7684;&amp;#x7C7B;&amp;#x65F6;&amp;#x4E5F;&amp;#x5F88;&amp;#x6709;&amp;#x7528;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;app.factory(&amp;apos;privateFactory&amp;apos;, function(){
-    var privateFunc = function(name) {
-        return name.split(&amp;quot;&amp;quot;).reverse().join(&amp;quot;&amp;quot;); //reverses the name
-    };
-    return {
-        hello: function(name){
-          return &amp;quot;Hello &amp;quot; + privateFunc(name);
-        }
-    };
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x53C2;&amp;#x8003;&amp;#xFF1A;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.yyyweb.com/3019.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AngularJS &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5E38;&amp;#x72AF;&amp;#x7684;10&amp;#x4E2A;&amp;#x9519;&amp;#x8BEF;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;angular&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x521B;&amp;#x5EFA;&amp;#x670D;&amp;#x52A1;&amp;#xFF1A;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;#x5DE5;&amp;#x5382; Factory&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular的ajax请求chrome跨域报错(XMLHttpRequest cannot loadfile:* Cross origin requests are only supported for protocol schemes)</title>
-    <link href="http://chen1218chen.github.io/2016/11/03/chrome%E8%B7%A8%E5%9F%9F%E6%8A%A5%E9%94%99/"/>
-    <id>http://chen1218chen.github.io/2016/11/03/chrome跨域报错/</id>
-    <published>2016-11-03T14:05:16.000Z</published>
-    <updated>2016-11-08T03:27:55.184Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#x201D;&amp;#x2013;allow-file-access-from-files&amp;#x201D;&quot;&gt;&lt;a href=&quot;#&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#x201D;&amp;#x2013;allow-file-access-from-files&amp;#x201D;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#x201D;&amp;#x2013;allow-file-access-from-files&amp;#x201D;&quot;&gt;&lt;/a&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#x201D;&amp;#x2013;allow-file-access-from-files&amp;#x201D;&lt;/h2&gt;&lt;p&gt;ajax&amp;#x8BF7;&amp;#x6C42;&amp;#x52A0;&amp;#x8F7D;&amp;#x672C;&amp;#x5730;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;chrome&amp;#x62A5;&amp;#x8DE8;&amp;#x57DF;&amp;#x9519;&amp;#x8BEF;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;XMLHttpRequest cannot loadfile:///C:/Users/Li/Desktop/images/alist.json.Cross origin requests are only supported for protocol schemes: http, data,chrome-extension, https, chrome-extension-resource.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/strong&gt;&lt;br&gt;&amp;#x7ED9;chrome&amp;#x6DFB;&amp;#x52A0;&amp;#x542F;&amp;#x52A8;&amp;#x53C2;&amp;#x6570;&amp;#xFF1A;&lt;code&gt;--allow-file-access-from-files&lt;/code&gt;&lt;br&gt;&lt;strong&gt;&amp;#x5177;&amp;#x4F53;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/strong&gt;&lt;br&gt;&amp;#x5728;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5FEB;&amp;#x6377;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E0A;&amp;#x53F3;&amp;#x952E;-&amp;#x5C5E;&amp;#x6027;-&amp;#x5FEB;&amp;#x6377;&amp;#x65B9;&amp;#x5F0F;-&amp;#x76EE;&amp;#x6807; &amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#xFF1A;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2016/11/03/chrome&amp;#x8DE8;&amp;#x57DF;&amp;#x62A5;&amp;#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161103140925.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161103140925.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;tomcat&quot;&gt;&lt;a href=&quot;#tomcat&quot; class=&quot;headerlink&quot; title=&quot;tomcat&quot;&gt;&lt;/a&gt;tomcat&lt;/h2&gt;&lt;p&gt;&amp;#x90E8;&amp;#x7F72;&amp;#x5230;tomcat&amp;#x4E2D;&amp;#x53BB;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;http://localhost:8080/XXX/#/index&lt;/code&gt;&amp;#x6765;&amp;#x8BBF;&amp;#x95EE;&lt;/p&gt;
-&lt;h2 id=&quot;http-server&quot;&gt;&lt;a href=&quot;#http-server&quot; class=&quot;headerlink&quot; title=&quot;http-server&quot;&gt;&lt;/a&gt;http-server&lt;/h2&gt;&lt;p&gt;&amp;#x5B89;&amp;#x88C5;http-server&amp;#xFF0C;&amp;#x8FD9;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x96F6;&amp;#x914D;&amp;#x7F6E;&amp;#x547D;&amp;#x4EE4;&amp;#x884C;HTTP&amp;#x670D;&amp;#x52A1;&amp;#x5668;, &amp;#x57FA;&amp;#x4E8E; nodeJs.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install http-server -g
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Windows &amp;#x4E0B;&amp;#x4F7F;&amp;#x7528;:&lt;br&gt;&amp;#x5728;&amp;#x7AD9;&amp;#x70B9;&amp;#x76EE;&amp;#x5F55;&amp;#x4E0B;&amp;#x5F00;&amp;#x542F;&amp;#x547D;&amp;#x4EE4;&amp;#x884C;&amp;#x8F93;&amp;#x5165;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http-server
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&quot;/2016/11/03/chrome&amp;#x8DE8;&amp;#x57DF;&amp;#x62A5;&amp;#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161108111223.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20161108111223.png&quot;&gt;&lt;br&gt;&amp;#x8BBF;&amp;#x95EE;: &lt;a href=&quot;http://localhost:8081&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8081&lt;/a&gt; or &lt;a href=&quot;http://127.0.0.1:8081&amp;#x5373;&amp;#x53EF;&amp;#x3002;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://127.0.0.1:8081&amp;#x5373;&amp;#x53EF;&amp;#x3002;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;firfox&quot;&gt;&lt;a href=&quot;#firfox&quot; class=&quot;headerlink&quot; title=&quot;firfox&quot;&gt;&lt;/a&gt;firfox&lt;/h2&gt;&lt;p&gt;&amp;#x518D;&amp;#x6216;&amp;#x8005;&amp;#x4F60;&amp;#x61D2;&amp;#x5F97;&amp;#x5012;&amp;#x817E;&amp;#x5404;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#x5C31;&amp;#x6362;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x5427;&amp;#xFF0C;&amp;#x7528;firfox&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x5566;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x52A0;&amp;#x53C2;&amp;#x6570;&amp;#x201D;&amp;#x2013;allow-file-access-from-files&amp;#x201D;&quot;&gt;&lt;a href=&quot;#&amp;#x6D4F
-    
-    </summary>
-    
-    
-      <category term="浏览器" scheme="http://chen1218chen.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular常见错误分析（新手篇）</title>
-    <link href="http://chen1218chen.github.io/2016/11/02/angular%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90%EF%BC%88%E6%96%B0%E6%89%8B%EF%BC%89/"/>
-    <id>http://chen1218chen.github.io/2016/11/02/angular常见错误分析（新手）/</id>
-    <published>2016-11-02T11:17:56.000Z</published>
-    <updated>2016-11-02T06:59:58.144Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x65B0;&amp;#x624B;&amp;#x5165;&amp;#x95E8;angular&amp;#x78B0;&amp;#x89C1;&amp;#x5404;&amp;#x79CD;&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x603B;&amp;#x7ED3;&amp;#x4E00;&amp;#x4E0B;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#xFF0C;&amp;#x5E0C;&amp;#x671B;&amp;#x6709;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[ng:areq] Argument &amp;#x2018;DemoCtrl&amp;#x2019; is not a function, got undefined&amp;#xFF01;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;#x8FD9;&amp;#x5F80;&amp;#x5F80;&amp;#x662F;&amp;#x56E0;&amp;#x4E3A;&amp;#x5FD8;&amp;#x8BB0;&amp;#x5B9A;&amp;#x4E49;controller&amp;#x6216;&amp;#x8005;&amp;#x662F;&amp;#x58F0;&amp;#x660E;&amp;#x4E86;&amp;#x591A;&amp;#x6B21;module&amp;#xFF0C;&amp;#x591A;&amp;#x6B21;&amp;#x58F0;&amp;#x660E;module&amp;#x4F1A;&amp;#x5BFC;&amp;#x81F4;&amp;#x524D;&amp;#x8FB9;&amp;#x7684;module&amp;#x5B9A;&amp;#x4E49;&amp;#x4FE1;&amp;#x606F;&amp;#x88AB;&amp;#x6E05;&amp;#x7A7A;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x7A0B;&amp;#x5E8F;&amp;#x5C31;&amp;#x4F1A;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x5DF2;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Error: [$injector:unpr] &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;unpr&amp;#x5168;&amp;#x79F0;&amp;#x662F;Unknown Provider&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;&amp;#x6CA1;&amp;#x6709;&amp;#x627E;&amp;#x5230;&amp;#x4F60;&amp;#x6CE8;&amp;#x5165;&amp;#x7684;&amp;#x4E1C;&amp;#x897F;&lt;/p&gt;
-&lt;h2 id=&quot;Module&quot;&gt;&lt;a href=&quot;#Module&quot; class=&quot;headerlink&quot; title=&quot;Module&quot;&gt;&lt;/a&gt;Module&lt;/h2&gt;&lt;p&gt;angular.module(&amp;#x2018;MyApp&amp;#x2019;,[&amp;#x2026;])&amp;#x4F1A;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;Angular&amp;#x6A21;&amp;#x5757;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x628A;&amp;#x65B9;&amp;#x62EC;&amp;#x53F7;&amp;#xFF08;[&amp;#x2026;]&amp;#xFF09;&amp;#x4E2D;&amp;#x7684;&amp;#x4F9D;&amp;#x8D56;&amp;#x5217;&amp;#x8868;&amp;#x52A0;&amp;#x8F7D;&amp;#x8FDB;&amp;#x6765;&amp;#xFF1B;&lt;br&gt;&amp;#x800C;angular.module(&amp;#x2018;MyApp&amp;#x2019;)&amp;#x4F1A;&amp;#x4F7F;&amp;#x7528;&amp;#x7531;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x8C03;&amp;#x7528;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x73B0;&amp;#x6709;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x3002;&lt;br&gt;&amp;#x6240;&amp;#x4EE5;&amp;#xFF0C;&amp;#x5BF9;&amp;#x4E8E;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0C;&amp;#x4F60;&amp;#x9700;&amp;#x8981;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5728;&amp;#x6574;&amp;#x4E2A;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;&amp;#x53EA;&amp;#x4F1A;&amp;#x4F7F;&amp;#x7528;&amp;#x4E00;&amp;#x6B21;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;angular.module(&amp;apos;MyApp&amp;apos;, [...]);
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x65B0;&amp;#x624B;&amp;#x5165;&amp;#x95E8;angular&amp;#x78B0;&amp;#x89C1;&amp;#x5404;&amp;#x79CD;&amp;#x9519;&amp;#x8BEF;&amp;#xFF0C;&amp;#x603B;&amp;#x7ED3;&amp;#x4E00;&amp;#x4E0B;&amp;#x8DDF;&amp;#
-    
-    </summary>
-    
-    
-      <category term="angular" scheme="http://chen1218chen.github.io/tags/angular/"/>
     
   </entry>
   
