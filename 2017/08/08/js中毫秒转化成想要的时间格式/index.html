@@ -16,28 +16,27 @@
 
 
 
-<meta name="description" content="[TOC]
-&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;npm install -g hexo;
-hexo init &amp;lt;folder&amp;gt;;
-npm stall;//&amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#x5305;
-hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;#x7">
+<meta name="description" content="&amp;#x4ECE;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x4E00;&amp;#x4E2A;Date()&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;
+
+&amp;#x5230;&amp;#x524D;&amp;#x53F0;&amp;#x8FDB;&amp;#x884C;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x5904;&amp;#x7406;
+var newTime = new Date(dateTime">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的使用">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/03/02/hexo/index.html">
+<meta property="og:title" content="js中毫秒转化成想要的时间格式">
+<meta property="og:url" content="http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="[TOC]
-&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;npm install -g hexo;
-hexo init &amp;lt;folder&amp;gt;;
-npm stall;//&amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#x5305;
-hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;#x7">
-<meta property="og:updated_time" content="2017-02-21T07:57:22.688Z">
+<meta property="og:description" content="&amp;#x4ECE;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x4E00;&amp;#x4E2A;Date()&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;
+
+&amp;#x5230;&amp;#x524D;&amp;#x53F0;&amp;#x8FDB;&amp;#x884C;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x5904;&amp;#x7406;
+var newTime = new Date(dateTime">
+<meta property="og:image" content="http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png">
+<meta property="og:updated_time" content="2017-08-08T03:23:57.602Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo的使用">
-<meta name="twitter:description" content="[TOC]
-&amp;#x5229;&amp;#x7528;npm&amp;#x5B89;&amp;#x88C5;npm install -g hexo;
-hexo init &amp;lt;folder&amp;gt;;
-npm stall;//&amp;#x5B89;&amp;#x88C5;&amp;#x4F9D;&amp;#x8D56;&amp;#x5305;
-hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;#x7">
+<meta name="twitter:title" content="js中毫秒转化成想要的时间格式">
+<meta name="twitter:description" content="&amp;#x4ECE;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x4E00;&amp;#x4E2A;Date()&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;
+
+&amp;#x5230;&amp;#x524D;&amp;#x53F0;&amp;#x8FDB;&amp;#x884C;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x5904;&amp;#x7406;
+var newTime = new Date(dateTime">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -69,7 +68,7 @@ hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>hexo的使用 | 一锅乱炖</title>
+<title>js中毫秒转化成想要的时间格式 | 一锅乱炖</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -290,11 +289,11 @@ hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js中毫秒转化成想要的时间格式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/02/hexo/" class="article-date">
-      <time datetime="2016-03-02T01:56:55.193Z" itemprop="datePublished">2016-03-02</time>
+      <a href="/2017/08/08/js中毫秒转化成想要的时间格式/" class="article-date">
+      <time datetime="2017-08-08T11:11:42.000Z" itemprop="datePublished">2017-08-08</time>
 </a>
 
 
@@ -309,7 +308,7 @@ hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;
         
   
     <h1 class="article-title" itemprop="name">
-      hexo的使用
+      js中毫秒转化成想要的时间格式
     </h1>
   
 
@@ -320,7 +319,7 @@ hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -330,51 +329,37 @@ hexo new &amp;quot;postName&amp;quot; #&amp;#x65B0;&amp;#x5EFA;&amp;#x6587;&amp;
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<h2 id="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"><a href="#&#x5229;&#x7528;npm&#x5B89;&#x88C5;" class="headerlink" title="&#x5229;&#x7528;npm&#x5B89;&#x88C5;"></a>&#x5229;&#x7528;npm&#x5B89;&#x88C5;</h2><pre><code>npm install -g hexo;
-hexo init &lt;folder&gt;;
-npm stall;//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5305;
-hexo new &quot;postName&quot; #&#x65B0;&#x5EFA;&#x6587;&#x7AE0;
-hexo new page &quot;pageName&quot; #&#x65B0;&#x5EFA;&#x9875;&#x9762;
-hexo generate;
-hexo server;
-</code></pre><p>   &#x81F3;&#x6B64;&#x672C;&#x5730;hexo&#x535A;&#x5BA2;&#x5DF2;&#x7ECF;&#x642D;&#x5EFA;&#x8D77;&#x6765;&#x4E86;&#xFF0C;Http://localhost:4000&#x67E5;&#x770B;</p>
-<pre><code>#&#x6E05;&#x9664;&#x7F13;&#x5B58;
-hexo clean
-</code></pre><h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><p>&#x7F16;&#x8F91;_config.yml</p>
-<pre><code>deploy:
- type: github
- repository: https://github.com/zippera/zippera.github.io.git
- branch: master
-</code></pre><p>&#x636E;&#x8BF4;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;hexo &#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; type &#x8981;&#x5199;&#x6210; git&#xFF0C;&#x800C;&#x4E0D;&#x662F; github&#x3002;<br>&#x6267;&#x884C;&#x4E0B;&#x5217;&#x6307;&#x4EE4;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x90E8;&#x7F72;&#x3002;</p>
-<pre><code>hexo generate
-hexo deploy //&#x540C;&#x6B65;&#x5230;github
+        <p>&#x4ECE;&#x540E;&#x53F0;&#x4F20;&#x4E00;&#x4E2A;Date()&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+<p><img src="/2017/08/08/js&#x4E2D;&#x6BEB;&#x79D2;&#x8F6C;&#x5316;&#x6210;&#x60F3;&#x8981;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png" alt="&#x524D;&#x53F0;&#x63A5;&#x53D7;&#x5230;&#x7684;Date()&#x7C7B;&#x578B;&#x6570;&#x636E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170808111517.png"></p>
+<p>&#x5230;&#x524D;&#x53F0;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x5904;&#x7406;</p>
+<pre><code>var newTime = new Date(dateTime.time);
 
-//&#x6307;&#x7684;&#x662F;&#x751F;&#x6210;&#x540E;&#x9A6C;&#x4E0A;&#x90E8;&#x7F72;&#x7AD9;&#x70B9;
-hexo g -d or 
-hexo d -g 
-</code></pre><p><strong>ERROR Deployer not found : github</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br>deploy&#x7684;type&#x6539;&#x6210;git&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x884C;&#x4E0B;</p>
-<pre><code>npm install hexo-deployer-git --save
-hexo g
-hexo d
-</code></pre><p><strong>ERROR&#xFF1A;failed to execute prompt script (exit code 1)</strong><br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>deploy:
-  type: git
-  repository: ssh://git@github.com/chen1218chen/chen1218chen.github.io.git
-  branch: master
-</code></pre><p>git&#x8FDE;&#x63A5;&#x6D4B;&#x8BD5;</p>
-<pre><code>ssh -T git@github.com
-</code></pre><h2 id="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"><a href="#&#x5F00;&#x542F;RSS&#x529F;&#x80FD;" class="headerlink" title="&#x5F00;&#x542F;RSS&#x529F;&#x80FD;"></a>&#x5F00;&#x542F;RSS&#x529F;&#x80FD;</h2><p>&#x5B89;&#x88C5;RSS,&#xFF0C;&#x5E76;&#x4E14;&#x7F16;&#x8F91;hexo/_config.yml&#xFF0C;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>npm install hexo-generator-feed --save
-rss: /atom.xml #rss&#x5730;&#x5740;  &#x9ED8;&#x8BA4;&#x5373;&#x53EF;
-</code></pre><h2 id="&#x547D;&#x4EE4;&#x7B80;&#x5316;"><a href="#&#x547D;&#x4EE4;&#x7B80;&#x5316;" class="headerlink" title="&#x547D;&#x4EE4;&#x7B80;&#x5316;"></a>&#x547D;&#x4EE4;&#x7B80;&#x5316;</h2><p>hexo&#x73B0;&#x5728;&#x652F;&#x6301;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x683C;&#x5F0F;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
-<pre><code>hexo g == hexo generate
-hexo d == hexo deploy
-hexo s == hexo server
-hexo n == hexo new
-</code></pre><h2 id="&#x7B80;&#x5355;"><a href="#&#x7B80;&#x5355;" class="headerlink" title="&#x7B80;&#x5355;"></a>&#x7B80;&#x5355;</h2><pre><code>hexo n #&#x5199;&#x6587;&#x7AE0;
-hexo g #&#x751F;&#x6210;
-hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d -g
+&gt; Mon Aug 07 2017 15:01:28 GMT+0800 (&#x4E2D;&#x56FD;&#x6807;&#x51C6;&#x65F6;&#x95F4;)
+</code></pre><p>&#x5728;&#x5BF9;<code>newTime</code>&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;</p>
+<pre><code>Date.prototype.format = function(fmt) { 
+ var o = { 
+    &quot;M+&quot; : this.getMonth()+1,                 //&#x6708;&#x4EFD; 
+    &quot;d+&quot; : this.getDate(),                    //&#x65E5; 
+    &quot;h+&quot; : this.getHours(),                   //&#x5C0F;&#x65F6; 
+    &quot;m+&quot; : this.getMinutes(),                 //&#x5206; 
+    &quot;s+&quot; : this.getSeconds(),                 //&#x79D2; 
+    &quot;q+&quot; : Math.floor((this.getMonth()+3)/3), //&#x5B63;&#x5EA6; 
+    &quot;S&quot;  : this.getMilliseconds()             //&#x6BEB;&#x79D2; 
+}; 
+if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+&quot;&quot;).substr(4 - RegExp.$1.length)); 
+}
+ for(var k in o) {
+    if(new RegExp(&quot;(&quot;+ k +&quot;)&quot;).test(fmt)){
+         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&quot;00&quot;+ o[k]).substr((&quot;&quot;+ o[k]).length)));
+     }
+ }
+return fmt; 
+}
+
+var time1 = newTime.format(&quot;yyyy-MM-dd hh:mm:ss&quot;);
+</code></pre><p>&#x5F97;&#x5230;</p>
+<pre><code>&gt; 2017-08-07 15:01:28
 </code></pre>
       
     </div>
@@ -383,13 +368,13 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/02/hexo/">hexo的使用</a></p>
+        <p><span>本文标题:</span><a href="/2017/08/08/js中毫秒转化成想要的时间格式/">js中毫秒转化成想要的时间格式</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-02, 01:56:55</p>
-        <p><span>最后更新:</span>2017-02-21, 15:57:22</p>
+        <p><span>发布时间:</span>2017-08-08, 11:11:42</p>
+        <p><span>最后更新:</span>2017-08-08, 11:23:57</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/02/hexo/" title="hexo的使用">http://chen1218chen.github.io/2016/03/02/hexo/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/02/hexo/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/08/js中毫秒转化成想要的时间格式/" title="js中毫秒转化成想要的时间格式">http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -401,12 +386,12 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/02/ARCGIS/">
-                    ArcGIS入门
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/07/06/SpringMVC中集成Sigar/">
+                    SpringMVC中集成Sigar
                 </a>
             </div>
-        
         
     </nav>
 
@@ -416,7 +401,7 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用npm安装"><span class="toc-number">1.</span> <span class="toc-text">利用npm安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github"><span class="toc-number">2.</span> <span class="toc-text">github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启RSS功能"><span class="toc-number">3.</span> <span class="toc-text">开启RSS功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令简化"><span class="toc-number">4.</span> <span class="toc-text">命令简化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单"><span class="toc-number">5.</span> <span class="toc-text">简单</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -452,7 +437,7 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"hexo的使用　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js中毫秒转化成想要的时间格式　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -472,15 +457,15 @@ hexo d #&#x90E8;&#x7F72; # &#x53EF;&#x4E0E;hexo g&#x5408;&#x5E76;&#x4E3A; hexo d
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/02/ARCGIS/" title="上一篇: ArcGIS入门">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/07/06/SpringMVC中集成Sigar/" title="下一篇: SpringMVC中集成Sigar">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 

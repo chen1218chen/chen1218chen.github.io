@@ -286,6 +286,96 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js中毫秒转化成想要的时间格式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/08/js中毫秒转化成想要的时间格式/" class="article-date">
+      <time datetime="2017-08-08T11:11:42.000Z" itemprop="datePublished">2017-08-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/08/js中毫秒转化成想要的时间格式/">js中毫秒转化成想要的时间格式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x4ECE;&#x540E;&#x53F0;&#x4F20;&#x4E00;&#x4E2A;Date()&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+<p><img src="/2017/08/08/js&#x4E2D;&#x6BEB;&#x79D2;&#x8F6C;&#x5316;&#x6210;&#x60F3;&#x8981;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png" alt="&#x524D;&#x53F0;&#x63A5;&#x53D7;&#x5230;&#x7684;Date()&#x7C7B;&#x578B;&#x6570;&#x636E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170808111517.png"></p>
+<p>&#x5230;&#x524D;&#x53F0;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x5904;&#x7406;</p>
+<pre><code>var newTime = new Date(dateTime.time);
+
+&gt; Mon Aug 07 2017 15:01:28 GMT+0800 (&#x4E2D;&#x56FD;&#x6807;&#x51C6;&#x65F6;&#x95F4;)
+</code></pre><p>&#x5728;&#x5BF9;<code>newTime</code>&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;</p>
+<pre><code>Date.prototype.format = function(fmt) { 
+ var o = { 
+    &quot;M+&quot; : this.getMonth()+1,                 //&#x6708;&#x4EFD; 
+    &quot;d+&quot; : this.getDate(),                    //&#x65E5; 
+    &quot;h+&quot; : this.getHours(),                   //&#x5C0F;&#x65F6; 
+    &quot;m+&quot; : this.getMinutes(),                 //&#x5206; 
+    &quot;s+&quot; : this.getSeconds(),                 //&#x79D2; 
+    &quot;q+&quot; : Math.floor((this.getMonth()+3)/3), //&#x5B63;&#x5EA6; 
+    &quot;S&quot;  : this.getMilliseconds()             //&#x6BEB;&#x79D2; 
+}; 
+if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+&quot;&quot;).substr(4 - RegExp.$1.length)); 
+}
+ for(var k in o) {
+    if(new RegExp(&quot;(&quot;+ k +&quot;)&quot;).test(fmt)){
+         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&quot;00&quot;+ o[k]).substr((&quot;&quot;+ o[k]).length)));
+     }
+ }
+return fmt; 
+}
+
+var time1 = newTime.format(&quot;yyyy-MM-dd hh:mm:ss&quot;);
+</code></pre><p>&#x5F97;&#x5230;</p>
+<pre><code>&gt; 2017-08-07 15:01:28
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-SpringMVC中集成Sigar" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -343,79 +433,6 @@
 
 
   
-    <article id="post-Sublime之MarkdownEditing插件快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/" class="article-date">
-      <time datetime="2017-06-28T14:22:42.000Z" itemprop="datePublished">2017-06-28</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/">Sublime text 3 之MarkdownEditing插件快捷键</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
-Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
-Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
-Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
-Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
-Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
-Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
-Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
-Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-vue-cli多页面项目应用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -449,7 +466,7 @@ Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
 <p>vue-cli&#x7528;&#x6765;&#x6784;&#x5EFA;&#x5355;&#x9875;&#x9762;&#x5E94;&#x7528;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x76F4;&#x63A5;&#x751F;&#x6210;&#x4E00;&#x4E2A;vue-cli&#x6A21;&#x677F;&#x5373;&#x53EF;&#xFF0C;&#x6700;&#x8FD1;&#x4E00;&#x9879;&#x76EE;&#x521A;&#x7ED3;&#x675F;&#xFF0C;&#x4E3A;&#x4E86;&#x540E;&#x9762;&#x7684;&#x4E8C;&#x671F;&#x9879;&#x76EE;&#xFF0C;&#x60F3;&#x7740;&#x7528;vue&#x6765;&#x91CD;&#x65B0;&#x642D;&#x5EFA;&#x9879;&#x76EE;&#x6846;&#x67B6;&#xFF0C;&#x5B9E;&#x73B0;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x5F00;&#x53D1;&#xFF0C;&#x4E5F;&#x7B97;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x63A2;&#x7D22;&#x5427;&#x3002;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#x4E00;&#x4E2A;&#x65B0;&#x624B;&#x5165;&#x95E8;&#x65F6;&#x9047;&#x5230;&#x7684;&#x56F0;&#x60D1;&#x4E0D;&#x89E3;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x5E2E;&#x5230;&#x6B63;&#x5904;&#x5728;&#x8FF7;&#x832B;&#x671F;&#x7684;&#x4F60;&#x3002;</p>
 <h2 id="&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;"><a href="#&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;" class="headerlink" title="&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;"></a>&#x5DE5;&#x7A0B;&#x76EE;&#x5F55;</h2><p><img src="/2017/06/28/vue-cli&#x591A;&#x9875;&#x9762;&#x9879;&#x76EE;&#x5E94;&#x7528;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170706102216.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170706102216.png"><br>modules&#x4E0B;&#x4E3A;&#x591A;&#x4E2A;&#x9875;&#x9762;&#x5165;&#x53E3;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#xFF0C;&#x5982;&#xFF1A;</p>
 <pre><code>modules
-|---index
+  |---index
     |---index.html
     |---index.js
 </code></pre><p>.vue&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x4EFB;&#x610F;&#x3002;<br>&#x539F;&#x5219;&#x4E0A;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#x90FD;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x5B9A;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x4E0B;&#x9762;entry&#x5165;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x9650;&#x5B9A;&#xFF0C;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x540D;&#x5B57;&#x53EF;&#x4EE5;&#x4F1A;&#x627E;&#x4E0D;&#x5230;&#x3002;&#x5982;&#x679C;&#x60F3;&#x8981;&#x8D77;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x8BF7;&#x76F8;&#x5E94;&#x4FEE;&#x6539;getMultiEntry()&#x51FD;&#x6570;&#x3002;</p>
@@ -539,6 +556,79 @@ module.exports = webpackConfig
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Sublime之MarkdownEditing插件快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/" class="article-date">
+      <time datetime="2017-06-28T14:22:42.000Z" itemprop="datePublished">2017-06-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/">Sublime text 3 之MarkdownEditing插件快捷键</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
+Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
+Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
+Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
+Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
+Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
+Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
+Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
+Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
+Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
     </div>
 
       
@@ -772,12 +862,15 @@ console.log(&apos;resolve : &apos; + path.resolve(&apos;main.js&apos;));
 
 // &#x8DEF;&#x5F84;&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;
 console.log(&apos;ext name : &apos; + path.extname(&apos;main.js&apos;));
+//&#x83B7;&#x53D6;&#x7528;&quot;/&quot;&#x9694;&#x5F00;&#x7684;path&#x6700;&#x540E;&#x7684;&#x4E00;&#x90E8;&#x5206;
+console.log(&apos;basename: &apos;+ path.basename(&apos;./src/views/nav1/table.js&apos;));
 </code></pre><p>&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code>$ node main.js 
 normalization : /test/test1/2slashes/1slash
 joint path : /test/test1/2slashes/1slash
 resolve : /web/com/1427176256_27423/main.js
 ext name : .js
+basename : table.js
 </code></pre>
       
     </div>
@@ -1199,123 +1292,6 @@ public class CustomRolesAuthorizationFilter extends AuthorizationFilter
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java实现文件下载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/03/java实现文件下载/" class="article-date">
-      <time datetime="2017-03-03T11:56:48.000Z" itemprop="datePublished">2017-03-03</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/03/java实现文件下载/">java实现文件下载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x6C42;&#x5B9E;&#x73B0;word&#x6587;&#x6863;&#x4E0B;&#x8F7D;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x662F;java&#x7684;&#x540E;&#x53F0;&#x5B9E;&#x73B0;&#xFF0C;&#x524D;&#x53F0;&#x8C03;&#x7528;&#x91C7;&#x7528;ajax&#x65B9;&#x5F0F;&#xFF0C;&#x53C2;&#x6570;&#x662F;&#x6587;&#x4EF6;&#x540D;</p>
-<pre><code>import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URLEncoder;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-@Controller
-@RequestMapping(&quot;laws&quot;)
-public class LawsRest {
-    private static Logger logger = LoggerFactory.getLogger(LawsRest.class);
-
-    @RequestMapping(value = &quot;/downloadFile/{value}&quot;,method=RequestMethod.GET)
-    @ResponseBody
-    public void downloadFile(@PathVariable(&quot;value&quot;) String value, HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-
-        String directory = request.getSession().getServletContext().getRealPath(&quot;/&quot;);
-        String fileName = value+&quot;.doc&quot;;
-        String filePath = directory + &quot;laws\\&quot; + fileName;
-
-        //&#x8BBE;&#x7F6E;&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x4F20;&#x9001;&#x7684;&#x6587;&#x4EF6;&#x683C;&#x5F0F;
-        //&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;
-        File file=new File(filePath);
-        if(!file.exists()){
-            fileName = value+&quot;.docx&quot;;
-            filePath = directory + &quot;laws\\&quot; + fileName;
-        }
-        logger.info(value);
-        logger.info(filePath);
-        response.setContentType(&quot;application/msword&quot;);  
-        response.setHeader(&quot;content-disposition&quot;, &quot;attachment;filename=&quot; + URLEncoder.encode(fileName, &quot;UTF-8&quot;));
-        FileInputStream in = new FileInputStream(filePath);
-        // &#x521B;&#x5EFA;&#x8F93;&#x51FA;&#x6D41;
-        OutputStream out = response.getOutputStream();
-        // &#x521B;&#x5EFA;&#x7F13;&#x51B2;&#x533A;
-        byte buffer[] = new byte[1024];
-        int len = 0;
-        // &#x5FAA;&#x73AF;&#x5C06;&#x8F93;&#x5165;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8BFB;&#x53D6;&#x5230;&#x7F13;&#x51B2;&#x533A;&#x5F53;&#x4E2D;
-        while ((len = in.read(buffer)) &gt; 0) {
-            // &#x8F93;&#x51FA;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5185;&#x5BB9;&#x5230;&#x6D4F;&#x89C8;&#x5668;,&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;
-            out.write(buffer, 0, len);
-        }
-        out.flush();
-
-        in.close();
-        out.close();
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
       

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-07-06T01:28:17.454Z</updated>
+  <updated>2017-08-08T03:23:57.602Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js中毫秒转化成想要的时间格式</title>
+    <link href="http://chen1218chen.github.io/2017/08/08/js%E4%B8%AD%E6%AF%AB%E7%A7%92%E8%BD%AC%E5%8C%96%E6%88%90%E6%83%B3%E8%A6%81%E7%9A%84%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://chen1218chen.github.io/2017/08/08/js中毫秒转化成想要的时间格式/</id>
+    <published>2017-08-08T11:11:42.000Z</published>
+    <updated>2017-08-08T03:23:57.602Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x4ECE;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x4E00;&amp;#x4E2A;Date()&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/08/js&amp;#x4E2D;&amp;#x6BEB;&amp;#x79D2;&amp;#x8F6C;&amp;#x5316;&amp;#x6210;&amp;#x60F3;&amp;#x8981;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x683C;&amp;#x5F0F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png&quot; alt=&quot;&amp;#x524D;&amp;#x53F0;&amp;#x63A5;&amp;#x53D7;&amp;#x5230;&amp;#x7684;Date()&amp;#x7C7B;&amp;#x578B;&amp;#x6570;&amp;#x636E;&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170808111517.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x5230;&amp;#x524D;&amp;#x53F0;&amp;#x8FDB;&amp;#x884C;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x5904;&amp;#x7406;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var newTime = new Date(dateTime.time);
+
+&amp;gt; Mon Aug 07 2017 15:01:28 GMT+0800 (&amp;#x4E2D;&amp;#x56FD;&amp;#x6807;&amp;#x51C6;&amp;#x65F6;&amp;#x95F4;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5728;&amp;#x5BF9;&lt;code&gt;newTime&lt;/code&gt;&amp;#x8FDB;&amp;#x884C;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Date.prototype.format = function(fmt) { 
+ var o = { 
+    &amp;quot;M+&amp;quot; : this.getMonth()+1,                 //&amp;#x6708;&amp;#x4EFD; 
+    &amp;quot;d+&amp;quot; : this.getDate(),                    //&amp;#x65E5; 
+    &amp;quot;h+&amp;quot; : this.getHours(),                   //&amp;#x5C0F;&amp;#x65F6; 
+    &amp;quot;m+&amp;quot; : this.getMinutes(),                 //&amp;#x5206; 
+    &amp;quot;s+&amp;quot; : this.getSeconds(),                 //&amp;#x79D2; 
+    &amp;quot;q+&amp;quot; : Math.floor((this.getMonth()+3)/3), //&amp;#x5B63;&amp;#x5EA6; 
+    &amp;quot;S&amp;quot;  : this.getMilliseconds()             //&amp;#x6BEB;&amp;#x79D2; 
+}; 
+if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+&amp;quot;&amp;quot;).substr(4 - RegExp.$1.length)); 
+}
+ for(var k in o) {
+    if(new RegExp(&amp;quot;(&amp;quot;+ k +&amp;quot;)&amp;quot;).test(fmt)){
+         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&amp;quot;00&amp;quot;+ o[k]).substr((&amp;quot;&amp;quot;+ o[k]).length)));
+     }
+ }
+return fmt; 
+}
+
+var time1 = newTime.format(&amp;quot;yyyy-MM-dd hh:mm:ss&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5F97;&amp;#x5230;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 2017-08-07 15:01:28
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x4ECE;&amp;#x540E;&amp;#x53F0;&amp;#x4F20;&amp;#x4E00;&amp;#x4E2A;Date()&amp;#x6570;&amp;#x636E;&amp;#x7C7B;&amp;#x578B;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/08/js&amp;#x4E2D;&amp;#x6BEB;&amp;#x
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://chen1218chen.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringMVC中集成Sigar</title>
@@ -36,53 +88,17 @@
   </entry>
   
   <entry>
-    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
-    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
-    <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-06-30T01:54:25.660Z</updated>
-    
-    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
-Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
-Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
-Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
-Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
-Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
-Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
-Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
-Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
-    
-    </summary>
-    
-    
-      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
-    
-      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
     <title>vue-cli多页面项目应用</title>
     <link href="http://chen1218chen.github.io/2017/06/28/vue-cli%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"/>
     <id>http://chen1218chen.github.io/2017/06/28/vue-cli多页面项目应用/</id>
     <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-07-06T02:48:41.199Z</updated>
+    <updated>2017-07-06T05:45:36.685Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;p&gt;vue-cli&amp;#x7528;&amp;#x6765;&amp;#x6784;&amp;#x5EFA;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x5F88;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;vue-cli&amp;#x6A21;&amp;#x677F;&amp;#x5373;&amp;#x53EF;&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x9879;&amp;#x76EE;&amp;#x521A;&amp;#x7ED3;&amp;#x675F;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x4E8C;&amp;#x671F;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x60F3;&amp;#x7740;&amp;#x7528;vue&amp;#x6765;&amp;#x91CD;&amp;#x65B0;&amp;#x642D;&amp;#x5EFA;&amp;#x9879;&amp;#x76EE;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;&amp;#x524D;&amp;#x540E;&amp;#x7AEF;&amp;#x5206;&amp;#x79BB;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x4E5F;&amp;#x7B97;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x63A2;&amp;#x7D22;&amp;#x5427;&amp;#x3002;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x624B;&amp;#x5165;&amp;#x95E8;&amp;#x65F6;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x56F0;&amp;#x60D1;&amp;#x4E0D;&amp;#x89E3;&amp;#xFF0C;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x5E2E;&amp;#x5230;&amp;#x6B63;&amp;#x5904;&amp;#x5728;&amp;#x8FF7;&amp;#x832B;&amp;#x671F;&amp;#x7684;&amp;#x4F60;&amp;#x3002;&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2017/06/28/vue-cli&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x9879;&amp;#x76EE;&amp;#x5E94;&amp;#x7528;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170706102216.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170706102216.png&quot;&gt;&lt;br&gt;modules&amp;#x4E0B;&amp;#x4E3A;&amp;#x591A;&amp;#x4E2A;&amp;#x9875;&amp;#x9762;&amp;#x5165;&amp;#x53E3;&amp;#xFF0C;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4FDD;&amp;#x6301;&amp;#x4E00;&amp;#x81F4;&amp;#xFF0C;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;modules
-|---index
+  |---index
     |---index.html
     |---index.js
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;.vue&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4EFB;&amp;#x610F;&amp;#x3002;&lt;br&gt;&amp;#x539F;&amp;#x5219;&amp;#x4E0A;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x968F;&amp;#x610F;&amp;#x5B9A;&amp;#xFF0C;&amp;#x4F46;&amp;#x7531;&amp;#x4E8E;&amp;#x4E0B;&amp;#x9762;entry&amp;#x5165;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x9650;&amp;#x5B9A;&amp;#xFF0C;&amp;#x6362;&amp;#x6210;&amp;#x5176;&amp;#x4ED6;&amp;#x540D;&amp;#x5B57;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F1A;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x8D77;&amp;#x5176;&amp;#x4ED6;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#xFF0C;&amp;#x8BF7;&amp;#x76F8;&amp;#x5E94;&amp;#x4FEE;&amp;#x6539;getMultiEntry()&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;/p&gt;
@@ -174,6 +190,42 @@ module.exports = webpackConfig
       <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
     
       <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
+    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
+    <published>2017-06-28T14:22:42.000Z</published>
+    <updated>2017-06-30T01:54:25.660Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
+Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
+Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
+Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
+Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
+Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
+Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
+Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
+Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
+    
+    </summary>
+    
+    
+      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
+    
+      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -309,9 +361,9 @@ module.exports = merge(prodEnv, {
     
       <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
     
-      <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
-    
       <category term="webpack" scheme="http://chen1218chen.github.io/tags/webpack/"/>
+    
+      <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
     
   </entry>
   
@@ -320,7 +372,7 @@ module.exports = merge(prodEnv, {
     <link href="http://chen1218chen.github.io/2017/06/06/node-js%E5%80%BCpath%E6%A8%A1%E5%BF%AB/"/>
     <id>http://chen1218chen.github.io/2017/06/06/node-js值path模快/</id>
     <published>2017-06-06T15:01:29.000Z</published>
-    <updated>2017-06-06T07:05:57.325Z</updated>
+    <updated>2017-07-06T06:32:22.566Z</updated>
     
     <content type="html">&lt;p&gt;Node.js path &amp;#x6A21;&amp;#x5757;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x7528;&amp;#x4E8E;&amp;#x5904;&amp;#x7406;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#x7684;&amp;#x5C0F;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&amp;#x4EE5;&amp;#x4E0B;&amp;#x65B9;&amp;#x5F0F;&amp;#x5F15;&amp;#x5165;&amp;#x8BE5;&amp;#x6A21;&amp;#x5757;&amp;#xFF1A;&lt;br&gt;&amp;#x521B;&amp;#x5EFA; main.js &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;var path = require(&amp;quot;path&amp;quot;)
@@ -335,12 +387,15 @@ console.log(&amp;apos;resolve : &amp;apos; + path.resolve(&amp;apos;main.js&amp;
 
 // &amp;#x8DEF;&amp;#x5F84;&amp;#x4E2D;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x540E;&amp;#x7F00;&amp;#x540D;
 console.log(&amp;apos;ext name : &amp;apos; + path.extname(&amp;apos;main.js&amp;apos;));
+//&amp;#x83B7;&amp;#x53D6;&amp;#x7528;&amp;quot;/&amp;quot;&amp;#x9694;&amp;#x5F00;&amp;#x7684;path&amp;#x6700;&amp;#x540E;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;
+console.log(&amp;apos;basename: &amp;apos;+ path.basename(&amp;apos;./src/views/nav1/table.js&amp;apos;));
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x6267;&amp;#x884C;&amp;#x7ED3;&amp;#x679C;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ node main.js 
 normalization : /test/test1/2slashes/1slash
 joint path : /test/test1/2slashes/1slash
 resolve : /web/com/1427176256_27423/main.js
 ext name : .js
+basename : table.js
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
@@ -693,7 +748,7 @@ public class LawsRest {
     <link href="http://chen1218chen.github.io/2017/02/24/vue-js%E5%88%9D%E6%8E%A2/"/>
     <id>http://chen1218chen.github.io/2017/02/24/vue-js初探/</id>
     <published>2017-02-23T17:11:10.000Z</published>
-    <updated>2017-06-28T06:19:39.141Z</updated>
+    <updated>2017-07-31T07:24:42.870Z</updated>
     
     <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h2 id=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;a href=&quot;#&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&quot;&gt;&lt;/a&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x4F7F;&amp;#x7528;&lt;/h2&gt;&lt;ul&gt;
@@ -718,14 +773,22 @@ $ cnpm install
 $ cnpm run dev
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6D4F;&amp;#x89C8;&amp;#x5668;&amp;#x6210;&amp;#x529F;&amp;#x663E;&amp;#x793A;&amp;#x4EE5;&amp;#x4E0B;&amp;#x9875;&amp;#x9762;&amp;#x3002;&lt;br&gt;&lt;strong&gt;vue-cli&lt;/strong&gt;&amp;#xFF1A;&amp;#x5B98;&amp;#x65B9;&amp;#x53D1;&amp;#x5E03;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;vue&amp;#x811A;&amp;#x624B;&amp;#x67B6;&amp;#x5E2E;&amp;#x52A9;&amp;#x6211;&amp;#x4EEC;&amp;#x5FEB;&amp;#x901F;&amp;#x642D;&amp;#x5EFA;vue&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x52A8;&amp;#x542F;&amp;#x7528;&amp;#x70ED;&amp;#x52A0;&amp;#x8F7D;&amp;#x529F;&amp;#x80FD;&amp;#x3002;&lt;br&gt;&lt;strong&gt;webpack&lt;/strong&gt;&amp;#xFF1A;&amp;#x662F;&amp;#x6A21;&amp;#x677F;&amp;#x540D;&amp;#x79F0;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5230; vue.js &amp;#x7684; GitHub &amp;#x4E0A;&amp;#x67E5;&amp;#x770B;&amp;#x66F4;&amp;#x591A;&amp;#x7684;&amp;#x6A21;&amp;#x677F;&lt;a href=&quot;https://github.com/vuejs-templates&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/vuejs-templates&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223172730.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223172730.png&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223173009.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223173009.png&quot;&gt;&lt;br&gt;main.js:&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x4E3B;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
+&lt;h3 id=&quot;vue-cli&quot;&gt;&lt;a href=&quot;#vue-cli&quot; class=&quot;headerlink&quot; title=&quot;vue-cli&quot;&gt;&lt;/a&gt;vue-cli&lt;/h3&gt;&lt;p&gt;Vue.js&amp;#x5B98;&amp;#x65B9;&amp;#x7684;&amp;#x811A;&amp;#x624B;&amp;#x67B6;&amp;#x751F;&amp;#x6210;&amp;#x5DE5;&amp;#x5177;&amp;#x3002;&lt;br&gt;vue-cli&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;5&amp;#x4E2D;&amp;#x811A;&amp;#x624B;&amp;#x67B6;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;webpack: &amp;#x57FA;&amp;#x4E8E;webpack&amp;#x548C;vue-loader&amp;#x7684;&amp;#x76EE;&amp;#x5F55;&amp;#x7ED3;&amp;#x6784;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x652F;&amp;#x6301;&amp;#x70ED;&amp;#x90E8;&amp;#x7F72;&amp;#x3001;&amp;#x4EE3;&amp;#x7801;&amp;#x68C0;&amp;#x67E5;&amp;#x3001;&amp;#x6D4B;&amp;#x8BD5;&amp;#x53CA;css&amp;#x62BD;&amp;#x53D6;&amp;#x3002;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x7ED3;&amp;#x6784;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x7ED3;&amp;#x6784;&amp;#x6240;&amp;#x793A;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;webpack-simple&lt;/li&gt;
+&lt;li&gt;browerify&lt;/li&gt;
+&lt;li&gt;browerify-simple&lt;/li&gt;
+&lt;li&gt;simple&lt;h2 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x5206;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x5206;&amp;#x6790;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x5206;&amp;#x6790;&lt;/h2&gt;&lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x7ED3;&amp;#x6784;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x7ED3;&amp;#x6784;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x7ED3;&amp;#x6784;&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223173009.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170223173009.png&quot;&gt;&lt;br&gt;main.js:&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x4E3B;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;&amp;#x3002;&lt;/p&gt;
 &lt;h3 id=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;a href=&quot;#&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&quot;&gt;&lt;/a&gt;&amp;#x9879;&amp;#x76EE;&amp;#x8DEF;&amp;#x5F84;&amp;#x8BF4;&amp;#x660E;&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2017/02/24/vue-js&amp;#x521D;&amp;#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170227101809.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170227101809.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x5B98;&amp;#x65B9;&amp;#x63A8;&amp;#x8350;&amp;#x7684;&amp;#x5F15;&amp;#x5165;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://unpkg.com/vue/dist/vue.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;a href=&quot;#&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;/a&gt;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&lt;/h2&gt;&lt;p&gt;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x653E;&amp;#x5230; src &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x5B8C;&amp;#x6210;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8F93;&amp;#x5165; npm run build &amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x6253;&amp;#x5305;&amp;#x5DE5;&amp;#x4F5C;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;a href=&quot;#&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&quot;&gt;&lt;/a&gt;&amp;#x6253;&amp;#x5305;&amp;#x4E0A;&amp;#x7EBF;&lt;/h3&gt;&lt;p&gt;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6587;&amp;#x4EF6;&amp;#x90FD;&amp;#x9700;&amp;#x8981;&amp;#x653E;&amp;#x5230; src &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x5F00;&amp;#x53D1;&amp;#x5B8C;&amp;#x6210;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x8F93;&amp;#x5165; npm run build &amp;#x6765;&amp;#x8FDB;&amp;#x884C;&amp;#x6253;&amp;#x5305;&amp;#x5DE5;&amp;#x4F5C;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;npm run build
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6253;&amp;#x5305;&amp;#x5B8C;&amp;#x6210;&amp;#x540E;&amp;#xFF0C;&amp;#x4F1A;&amp;#x751F;&amp;#x6210;dist&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5DF2;&amp;#x7ECF;&amp;#x4FEE;&amp;#x6539;&amp;#x4E86;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x6253;&amp;#x5F00;&amp;#x672C;&amp;#x5730;&amp;#x6587;&amp;#x4EF6;&amp;#x67E5;&amp;#x770B;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#x7EBF;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x5C06; dist &amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x653E;&amp;#x5230;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x5C31;&amp;#x884C;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#app&amp;#x6302;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;app&amp;#x6302;&amp;#x8F7D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;new Vue({
+&lt;h3 id=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;a href=&quot;#app&amp;#x6302;&amp;#x8F7D;&quot; class=&quot;headerlink&quot; title=&quot;app&amp;#x6302;&amp;#x8F7D;&quot;&gt;&lt;/a&gt;app&amp;#x6302;&amp;#x8F7D;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;new Vue({
     el: &amp;apos;#app&amp;apos;,
     components: {
         app: App
@@ -1153,86 +1216,6 @@ return &amp;quot;redirect:/index&amp;quot;;
     
     
       <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XML文档解读</title>
-    <link href="http://chen1218chen.github.io/2016/12/27/XML%E6%96%87%E6%A1%A3%E8%A7%A3%E8%AF%BB/"/>
-    <id>http://chen1218chen.github.io/2016/12/27/XML文档解读/</id>
-    <published>2016-12-27T10:34:19.000Z</published>
-    <updated>2016-12-27T03:01:34.663Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x5173;&amp;#x4E8E;XML&amp;#x6587;&amp;#x6863;&amp;#x7684;xmlns&amp;#x3001;xmlns:xsi&amp;#x548C;xsi:schemaLocation&lt;br&gt;&lt;strong&gt;&amp;#x53C2;&amp;#x89C1;Spring&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;xmlns&quot;&gt;&lt;a href=&quot;#xmlns&quot; class=&quot;headerlink&quot; title=&quot;xmlns&quot;&gt;&lt;/a&gt;xmlns&lt;/h2&gt;&lt;p&gt;xmlns&amp;#x5176;&amp;#x5B9E;&amp;#x662F;XML Namespace&amp;#x7684;&amp;#x7F29;&amp;#x5199;, XML&amp;#x547D;&amp;#x540D;&amp;#x7A7A;&amp;#x95F4;&amp;#x3002;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x9700;&amp;#x8981;xmlns&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;#x8003;&amp;#x8651;&amp;#x8FD9;&amp;#x6837;&amp;#x4E24;&amp;#x4E2A;XML&amp;#x6587;&amp;#x6863;&amp;#xFF1A;&amp;#x8868;&amp;#x793A;HTML&amp;#x8868;&amp;#x683C;&amp;#x5143;&amp;#x7D20;&amp;#x7684;table&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;table&amp;gt;
-  &amp;lt;tr&amp;gt;
-    &amp;lt;td&amp;gt;Apples&amp;lt;/td&amp;gt;
-    &amp;lt;td&amp;gt;Bananas&amp;lt;/td&amp;gt;
-  &amp;lt;/tr&amp;gt;
-&amp;lt;/table&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x548C;&amp;#x63CF;&amp;#x8FF0;&amp;#x4E00;&amp;#x5F20;&amp;#x684C;&amp;#x5B50;&amp;#x7684;table&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;table&amp;gt;
-  &amp;lt;name&amp;gt;African Coffee Table&amp;lt;/name&amp;gt;
-  &amp;lt;width&amp;gt;80&amp;lt;/width&amp;gt;
-  &amp;lt;length&amp;gt;120&amp;lt;/length&amp;gt;
-&amp;lt;/table&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5047;&amp;#x5982;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A; XML &amp;#x6587;&amp;#x6863;&amp;#x88AB;&amp;#x4E00;&amp;#x8D77;&amp;#x4F7F;&amp;#x7528;&amp;#xFF0C;&amp;#x7531;&amp;#x4E8E;&amp;#x4E24;&amp;#x4E2A;&amp;#x6587;&amp;#x6863;&amp;#x90FD;&amp;#x5305;&amp;#x542B;&amp;#x5E26;&amp;#x6709;&amp;#x4E0D;&amp;#x540C;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684; &lt;table&gt; &amp;#x5143;&amp;#x7D20;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x53D1;&amp;#x751F;&amp;#x547D;&amp;#x540D;&amp;#x51B2;&amp;#x7A81;&amp;#x3002;XML &amp;#x89E3;&amp;#x6790;&amp;#x5668;&amp;#x662F;&amp;#x65E0;&amp;#x6CD5;&amp;#x786E;&amp;#x5B9A;&amp;#x5982;&amp;#x4F55;&amp;#x5904;&amp;#x7406;&amp;#x8FD9;&amp;#x7C7B;&amp;#x51B2;&amp;#x7A81;&amp;#x3002;&amp;#x4E3A;&amp;#x4E86;&amp;#x89E3;&amp;#x51B3;&amp;#x4E0A;&amp;#x8FF0;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;xmlns&amp;#x5C31;&amp;#x4EA7;&amp;#x751F;&amp;#x4E86;&amp;#x3002;&lt;/table&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x5982;&amp;#x4F55;&amp;#x4F7F;&amp;#x7528;xmlns&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;#x8BED;&amp;#x6CD5;&amp;#xFF1A;xmlns:namespace-prefix=&amp;#x201D;namespaceURI&amp;#x201D;&lt;br&gt;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;xmlns:context=&amp;quot;http://www.springframework.org/schema/context&amp;quot;
-
-&amp;lt;context:component-scan base-package=&amp;quot;xxx.xxx.controller&amp;quot; /&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5219;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x4E24;&amp;#x4E2A;table&amp;#x53EF;&amp;#x5199;&amp;#x6210;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;!-- &amp;#x8FD9;&amp;#x91CC;xmlns:h=&amp;quot;url1&amp;quot;&amp;#x8868;&amp;#x793A;&amp;#x8FD9;&amp;#x4E2A;table&amp;#x662F;&amp;#x7528;h&amp;#x4F5C;&amp;#x4E3A;&amp;#x6807;&amp;#x8BB0;&amp;#xFF0C;table&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x5728;url1&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;
-
-&amp;lt;h:table xmlns:h=&amp;quot;url1&amp;quot;&amp;gt;
-  &amp;lt;h:tr&amp;gt;
-    &amp;lt;h:td&amp;gt;Apples&amp;lt;/h:td&amp;gt;
-    &amp;lt;h:td&amp;gt;Bananas&amp;lt;/h:td&amp;gt;
-  &amp;lt;/h:tr&amp;gt;
-&amp;lt;/h:table&amp;gt;
-
-
-&amp;lt;!-- &amp;#x8FD9;&amp;#x91CC;xmlns:f=&amp;quot;url2&amp;quot;&amp;#x8868;&amp;#x793A;&amp;#x8FD9;&amp;#x4E2A;table&amp;#x662F;&amp;#x7528;f&amp;#x4F5C;&amp;#x4E3A;&amp;#x6807;&amp;#x8BB0;&amp;#xFF0C;table&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x5728;url2&amp;#x4E2D;&amp;#x5B9A;&amp;#x4E49; --&amp;gt;
-
-&amp;lt;f:table xmlns:f=&amp;quot;url2&amp;quot;&amp;gt;
-  &amp;lt;f:name&amp;gt;African Coffee Table&amp;lt;/f:name&amp;gt;
-  &amp;lt;f:width&amp;gt;80&amp;lt;/f:width&amp;gt;
-  &amp;lt;f:length&amp;gt;120&amp;lt;/f:length&amp;gt;
-&amp;lt;/f:table&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;xmlns&amp;#x548C;xmlns-xsi&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E0D;&amp;#x540C;&amp;#xFF1F;&quot;&gt;&lt;a href=&quot;#xmlns&amp;#x548C;xmlns-xsi&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E0D;&amp;#x540C;&amp;#xFF1F;&quot; class=&quot;headerlink&quot; title=&quot;xmlns&amp;#x548C;xmlns:xsi&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E0D;&amp;#x540C;&amp;#xFF1F;&quot;&gt;&lt;/a&gt;xmlns&amp;#x548C;xmlns:xsi&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E0D;&amp;#x540C;&amp;#xFF1F;&lt;/h2&gt;&lt;p&gt;xmlns&amp;#x8868;&amp;#x793A;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;Namespace&amp;#x3002;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x4E00;&amp;#x53E5;&amp;#x8868;&amp;#x793A;&amp;#x8BE5;&amp;#x6587;&amp;#x6863;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;XML Namespace&amp;#x4E3A;&lt;a href=&quot;http://www.springframwork.org/schema/beans&amp;#x3002;&amp;#x5BF9;&amp;#x4E8E;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;Namespace&amp;#x4E2D;&amp;#x7684;&amp;#x5143;&amp;#x7D20;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x4F7F;&amp;#x7528;&amp;#x524D;&amp;#x7F00;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;Spring&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.springframwork.org/schema/beans&amp;#x3002;&amp;#x5BF9;&amp;#x4E8E;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;Namespace&amp;#x4E2D;&amp;#x7684;&amp;#x5143;&amp;#x7D20;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x4F7F;&amp;#x7528;&amp;#x524D;&amp;#x7F00;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;Spring&lt;/a&gt; XML&amp;#x6587;&amp;#x6863;&amp;#x4E2D;&amp;#x7684;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;bean id=&amp;quot;xxx&amp;quot; class=&amp;quot;xxx.xxx.xxx.Xxx&amp;quot;&amp;gt;
-  &amp;lt;property name=&amp;quot;xxx&amp;quot; value=&amp;quot;xxxx&amp;quot;/&amp;gt;
-&amp;lt;/bean&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;xmlns:xsi&amp;#x8868;&amp;#x793A;&amp;#x4F7F;&amp;#x7528;xsi&amp;#x4F5C;&amp;#x4E3A;&amp;#x524D;&amp;#x7F00;&amp;#x7684;Namespace&amp;#xFF0C;&amp;#x5F53;&amp;#x7136;&amp;#x524D;&amp;#x7F00;xsi&amp;#x9700;&amp;#x8981;&amp;#x5728;&amp;#x6587;&amp;#x6863;&amp;#x4E2D;&amp;#x58F0;&amp;#x660E;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;xsi-schemaLocation&quot;&gt;&lt;a href=&quot;#xsi-schemaLocation&quot; class=&quot;headerlink&quot; title=&quot;xsi:schemaLocation&quot;&gt;&lt;/a&gt;xsi:schemaLocation&lt;/h2&gt;&lt;p&gt;xsi:schemaLocation&amp;#x5C5E;&amp;#x6027;&amp;#x5176;&amp;#x5B9E;&amp;#x662F;Namespace&amp;#x4E3A;&lt;a href=&quot;http://www.w3.org/2001/XMLSchema-instance&amp;#x91CC;&amp;#x7684;schemaLocation&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x6B63;&amp;#x662F;&amp;#x56E0;&amp;#x4E3A;&amp;#x6211;&amp;#x4EEC;&amp;#x4E00;&amp;#x5F00;&amp;#x59CB;&amp;#x58F0;&amp;#x660E;&amp;#x4E86;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3.org/2001/XMLSchema-instance&amp;#x91CC;&amp;#x7684;schemaLocation&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x6B63;&amp;#x662F;&amp;#x56E0;&amp;#x4E3A;&amp;#x6211;&amp;#x4EEC;&amp;#x4E00;&amp;#x5F00;&amp;#x59CB;&amp;#x58F0;&amp;#x660E;&amp;#x4E86;&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5B83;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E86;XML Namespace&amp;#x548C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;XSD&amp;#xFF08;Xml Schema Definition&amp;#xFF09;&amp;#x6587;&amp;#x6863;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x7684;&amp;#x5173;&amp;#x7CFB;&amp;#x3002;&amp;#x5B83;&amp;#x7684;&amp;#x503C;&amp;#x7531;&amp;#x4E00;&amp;#x4E2A;&amp;#x6216;&amp;#x591A;&amp;#x4E2A;URI&amp;#x5F15;&amp;#x7528;&amp;#x5BF9;&amp;#x7EC4;&amp;#x6210;&amp;#xFF0C;&amp;#x4E24;&amp;#x4E2A;URI&amp;#x4E4B;&amp;#x95F4;&amp;#x4EE5;&amp;#x7A7A;&amp;#x767D;&amp;#x7B26;&amp;#x5206;&amp;#x9694;&amp;#xFF08;&amp;#x7A7A;&amp;#x683C;&amp;#x548C;&amp;#x6362;&amp;#x884C;&amp;#x5747;&amp;#x53EF;&amp;#xFF09;&amp;#x3002;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;URI&amp;#x662F;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;XML Namespace&amp;#x7684;&amp;#x503C;&amp;#xFF0C;&amp;#x7B2C;&amp;#x4E8C;&amp;#x4E2A;URI&amp;#x7ED9;&amp;#x51FA;Schema&amp;#x6587;&amp;#x6863;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#xFF0C;Schema&amp;#x5904;&amp;#x7406;&amp;#x5668;&amp;#x5C06;&amp;#x4ECE;&amp;#x8FD9;&amp;#x4E2A;&amp;#x4F4D;&amp;#x7F6E;&amp;#x8BFB;&amp;#x53D6;Schema&amp;#x6587;&amp;#x6863;&amp;#xFF0C;&amp;#x8BE5;&amp;#x6587;&amp;#x6863;&amp;#x7684;targetNamespace&amp;#x5FC5;&amp;#x987B;&amp;#x4E0E;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;URI&amp;#x76F8;&amp;#x5339;&amp;#x914D;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/context 
-                    http://www.springframework.org/schema/context/spring-context.xsd&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x91CC;&amp;#x8868;&amp;#x793A;Namespace&amp;#x4E3A;&lt;a href=&quot;http://www.springframework.org/schema/context&amp;#x7684;Schema&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x4E3A;http://www.springframework.org/schema/context/spring-context.xsd&amp;#x3002;&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.springframework.org/schema/context&amp;#x7684;Schema&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x4E3A;http://www.springframework.org/schema/context/spring-context.xsd&amp;#x3002;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x539F;&amp;#x6587;&amp;#x8BF7;&amp;#x53C2;&amp;#x8003;&amp;#xFF1A;&lt;br&gt;&lt;a href=&quot;https://yq.aliyun.com/articles/40353&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x5173;&amp;#x4E8E;XML&amp;#x6587;&amp;#x6863;&amp;#x7684;xmlns&amp;#x3001;xmlns:xsi&amp;#x548C;xsi:schemaLocation&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;&amp;#x5173;&amp;#x4E8E;XML&amp;#x6587;&amp;#x6863;&amp;#x7684;xmlns&amp;#x3001;xmlns:xsi&amp;#x548C;xsi:schemaLocation&lt;br&gt;&lt;strong&gt;&amp;#x53C2;&amp;#x89C1;Sprin
-    
-    </summary>
-    
-    
-      <category term="XML" scheme="http://chen1218chen.github.io/tags/XML/"/>
     
   </entry>
   
