@@ -1,5 +1,5 @@
 ---
-title: JS基础概念之大杂烩
+title: JS基础之大杂烩
 tags: JavaScript
 ---
 
@@ -24,7 +24,30 @@ tags: JavaScript
 创建构造对象，基于类的编程中构造对象在类的内部定义；在js中对象的构造函数和原型是分开设置的，需要用表2-3中的红框部分`Prisoner.prototype = proto;`将它们连接在一起。
 
 最后，实例化对象。
-## 匿名函数
+## 函数
+一个函数如果没有return语句，那它就只执行函数体中的每条语句，并返回undefined值给调用者。
+### 函数定义
+```
+	var func = function(name){
+		console.log("终端输出"+name);
+	}
+```
+### 嵌套函数
+嵌套函数定义，test2只能在test中调用。不能再其他函数中调用
+
+    function test(){
+        var a=1;
+        function test2(){
+            a++;
+            console.log(a);
+        }
+        test2();
+    }
+    test();//2
+
+`console.log();` 终端打印输出，最早是火狐在fiebug中用来调试
+**作用域规则**：嵌套函数可以访问嵌套他们的外部函数的参数和变量。
+### 匿名函数
 1. 用一个局部变量来保存匿名函数
 
 
@@ -165,33 +188,14 @@ call和apply都是Function对象的方法
     var obj = {a:2,fn:test4};
     obj.fn();
 
-## 函数定义
-```
-	var func = function(name){
-		console.log("终端输出"+name);
-	}
-```
-### 嵌套函数
-嵌套函数定义，test2只能在test中调用。不能再其他函数中调用
 
-    function test(){
-        var a=1;
-        function test2(){
-            a++;
-            console.log(a);
-        }
-        test2();
-    }
-    test();//2
-
-**console.log();**终端打印输出，最早是火狐在fiebug中用来调试
 ##  prompt
 ```
 var  username = prompt("what is your name?");
 //username则可以获取到输入的参数
 ```
 ## js中引用jsp代码
-在**' '**中直接写JSP代码
+在`''`中直接写JSP代码
 ```
 function getCId(){
 	return '<%=session.getAttribute("cId")%>';

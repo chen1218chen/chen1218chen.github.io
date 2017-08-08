@@ -18,6 +18,8 @@ Node.js path 模块提供了一些用于处理文件路径的小工具，我们�
 
     // 路径中文件的后缀名
     console.log('ext name : ' + path.extname('main.js'));
+    //获取用"/"隔开的path最后的一部分
+    console.log('basename: '+ path.basename('./src/views/nav1/table.js'));
 代码执行结果如下：
 
     $ node main.js 
@@ -25,3 +27,6 @@ Node.js path 模块提供了一些用于处理文件路径的小工具，我们�
     joint path : /test/test1/2slashes/1slash
     resolve : /web/com/1427176256_27423/main.js
     ext name : .js
+    basename : table.js
+    
+    

@@ -33,8 +33,16 @@ vue初探，即使照着官方教程一步步来，依然是错误百出，记�
 **webpack**：是模板名称，可以到 vue.js 的 GitHub 上查看更多的模板https://github.com/vuejs-templates
 
 ![enter description here][3]
-
-### 项目结构
+### vue-cli
+Vue.js官方的脚手架生成工具。
+vue-cli提供了5中脚手架：
+- webpack: 基于webpack和vue-loader的目录结构，而且支持热部署、代码检查、测试及css抽取。生成的项目结构如下图项目文件结构所示。
+- webpack-simple
+- browerify
+- browerify-simple
+- simple
+## 项目分析
+### 项目文件结构
 
 ![enter description here][4]
 main.js:默认的主入口文件。
@@ -46,14 +54,14 @@ main.js:默认的主入口文件。
 使用官方推荐的引入方法：
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-## 打包上线
+### 打包上线
 自己的项目文件都需要放到 src 文件夹下，项目开发完成之后，可以输入 npm run build 来进行打包工作
 
     npm run build
 
 打包完成后，会生成dist文件夹，如果已经修改了文件路径，可以直接打开本地文件查看项目上线时，只需要将 dist 文件夹放到服务器就行了。
 
-## app挂载
+### app挂载
 
 
     new Vue({
