@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-08-08T03:23:57.602Z</updated>
+  <updated>2017-08-10T07:48:16.446Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,111 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gradle构建SpringBoot集成Swagger2</title>
+    <link href="http://chen1218chen.github.io/2017/08/10/Gradle%E6%9E%84%E5%BB%BASpringBoot%E9%9B%86%E6%88%90Swagger2/"/>
+    <id>http://chen1218chen.github.io/2017/08/10/Gradle构建SpringBoot集成Swagger2/</id>
+    <published>2017-08-10T15:11:38.000Z</published>
+    <updated>2017-08-10T07:48:16.446Z</updated>
+    
+    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x6700;&amp;#x8FD1;SpringMVC&amp;#x8F6C;Spring Boot&amp;#xFF0C;&amp;#x642D;&amp;#x5EFA;&amp;#x5168;&amp;#x65B0;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5B66;&amp;#x5230;&amp;#x4E0D;&amp;#x5C11;&amp;#x7684;&amp;#x65B0;&amp;#x4E1C;&amp;#x897F;&amp;#x3002;&amp;#x9274;&amp;#x4E8E;&amp;#x73B0;&amp;#x5728;&amp;#x7684;&amp;#x5FD8;&amp;#x5F62;&amp;#x6BD4;&amp;#x8BB0;&amp;#x6027;&amp;#x597D;&amp;#xFF0C;&amp;#x8FD8;&amp;#x662F;&amp;#x5199;&amp;#x4E0B;&amp;#x6765;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E0B;&amp;#xFF0C;&amp;#x5206;&amp;#x4EAB;&amp;#x8FDB;&amp;#x6B65;&amp;#x3002;&amp;#xFF08;PS&amp;#xFF1A;&amp;#x9002;&amp;#x5408;&amp;#x8DDF;&amp;#x6211;&amp;#x4E00;&amp;#x6837;&amp;#x521A;&amp;#x5165;&amp;#x624B;&amp;#x7684;&amp;#x65B0;&amp;#x4EBA;&amp;#x54E6;&amp;#xFF0C;&amp;#x5927;&amp;#x725B;&amp;#x4EEC;&amp;#x8BF7;&amp;#x7ED5;&amp;#x9053;(&amp;#xE51;&amp;#x2579;&amp;#x25E1;&amp;#x2579;)&amp;#xFF89;&amp;#x201D;&amp;#x201D;&amp;#x201D;&amp;#xFF09;&lt;/p&gt;
+&lt;h2 id=&quot;build-gradle&quot;&gt;&lt;a href=&quot;#build-gradle&quot; class=&quot;headerlink&quot; title=&quot;build.gradle&quot;&gt;&lt;/a&gt;build.gradle&lt;/h2&gt;&lt;p&gt; build.gradle&amp;#x4E2D;&amp;#x914D;&amp;#x7F6E;&amp;#x4F9D;&amp;#x8D56;&amp;#x7684;jar&amp;#x5305;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dependencies {
+    compile group: &amp;apos;io.springfox&amp;apos;, name: &amp;apos;springfox-swagger2&amp;apos;, version:&amp;apos;2.2.2&amp;apos;
+    compile group: &amp;apos;io.springfox&amp;apos;, name: &amp;apos;springfox-swagger-ui&amp;apos;, version:&amp;apos;2.2.2&amp;apos;
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Swagger2&amp;#x914D;&amp;#x7F6E;&amp;#x7C7B;&quot;&gt;&lt;a href=&quot;#Swagger2&amp;#x914D;&amp;#x7F6E;&amp;#x7C7B;&quot; class=&quot;headerlink&quot; title=&quot;Swagger2&amp;#x914D;&amp;#x7F6E;&amp;#x7C7B;&quot;&gt;&lt;/a&gt;Swagger2&amp;#x914D;&amp;#x7F6E;&amp;#x7C7B;&lt;/h2&gt;&lt;p&gt;&amp;#x5728;Application.java&amp;#x540C;&amp;#x7EA7;&amp;#x521B;&amp;#x5EFA;Swagger2&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x7C7B;Swagger2&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;package com.cc.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class Swagger2 {
+
+  @Bean
+  public Docket createRestApi() {
+    return new Docket(DocumentationType.SWAGGER_2)
+            .apiInfo(apiInfo())
+            .select()
+            .apis(RequestHandlerSelectors.basePackage(&amp;quot;com.cc.controller&amp;quot;))
+            .paths(PathSelectors.any())
+            .build();
+  }
+
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder()
+            .title(&amp;quot;Gradle&amp;#x6784;&amp;#x5EFA;Spring boot&amp;#x9879;&amp;#x76EE;&amp;quot;)
+            .description(&amp;quot;Gradle&amp;#x6784;&amp;#x5EFA;Spring boot&amp;#x9879;&amp;#x76EE; &amp;#x96C6;&amp;#x6210;mybatis&amp;#x4F7F;&amp;#x7528;pagehelper&amp;#x63D2;&amp;#x4EF6; &amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;&amp;#x70ED;&amp;#x90E8;&amp;#x7F72; by &amp;#x9648;&amp;#x6668;&amp;quot;)
+            .termsOfServiceUrl(&amp;quot;http://blog.csdn.net/chen1218chen&amp;quot;)
+            .contact(&amp;quot;chenchen&amp;quot;)
+            .version(&amp;quot;1.0&amp;quot;)
+            .build();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8BB0;&amp;#x5F97;&lt;code&gt;@Configuration&lt;/code&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;@Configuration&lt;/code&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#xFF0C;&amp;#x8BA9;Spring&amp;#x6765;&amp;#x52A0;&amp;#x8F7D;&amp;#x8BE5;&amp;#x7C7B;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&amp;#x518D;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;@EnableSwagger2&lt;/code&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x6765;&amp;#x542F;&amp;#x7528;Swagger2&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;com.cc.controller&lt;/code&gt;&amp;#x5F85;&amp;#x626B;&amp;#x63CF;&amp;#x7684;&amp;#x63A5;&amp;#x53E3;&amp;#x5305;&amp;#xFF0C;Swagger&amp;#x4F1A;&amp;#x626B;&amp;#x63CF;&amp;#x8BE5;&amp;#x5305;&amp;#x4E0B;&amp;#x6240;&amp;#x6709;Controller&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;API   &amp;#xFF0C;&amp;#x5E76;&amp;#x751F;&amp;#x6210;API&amp;#x6587;&amp;#x6863;&amp;#xFF08;&amp;#x9664;&amp;#x4E86;&amp;#x88AB;&lt;code&gt;@ApiIgnore&lt;/code&gt;&amp;#x6307;&amp;#x5B9A;&amp;#x7684;&amp;#x8BF7;&amp;#x6C42;&amp;#xFF09;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;Swagger2&amp;#x9ED8;&amp;#x8BA4;&amp;#x5C06;&amp;#x6240;&amp;#x6709;&amp;#x7684;Controller&amp;#x4E2D;&amp;#x7684;RequestMapping&amp;#x65B9;&amp;#x6CD5;&amp;#x90FD;&amp;#x4F1A;&amp;#x66B4;&amp;#x9732;&amp;#xFF0C;&amp;#x7136;&amp;#x800C;&amp;#x5728;&amp;#x5B9E;&amp;#x9645;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5E76;&amp;#x4E0D;&amp;#x4E00;&amp;#x5B9A;&amp;#x9700;&amp;#x8981;&amp;#x628A;&amp;#x6240;&amp;#x6709;API&amp;#x90FD;&amp;#x63D0;&amp;#x73B0;&amp;#x5728;&amp;#x6587;&amp;#x6863;&amp;#x4E2D;&amp;#x67E5;&amp;#x770B;&amp;#xFF0C;&amp;#x8FD9;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x6CE8;&amp;#x89E3;&lt;code&gt;@ApiIgnore&lt;/code&gt;&amp;#x6765;&amp;#x89E3;&amp;#x51B3;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5E94;&amp;#x7528;&amp;#x5728;Controller&amp;#x8303;&amp;#x56F4;&amp;#x4E0A;&amp;#xFF0C;&amp;#x5219;&amp;#x5F53;&amp;#x524D;Controller&amp;#x4E2D;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x65B9;&amp;#x6CD5;&amp;#x90FD;&amp;#x4F1A;&amp;#x88AB;&amp;#x5FFD;&amp;#x7565;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x5E94;&amp;#x7528;&amp;#x5728;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E0A;&amp;#xFF0C;&amp;#x5219;&amp;#x5BF9;&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x5FFD;&amp;#x7565;&amp;#x66B4;&amp;#x9732;API&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x6587;&amp;#x6863;&amp;#x5185;&amp;#x5BB9;&quot;&gt;&lt;a href=&quot;#&amp;#x6DFB;&amp;#x52A0;&amp;#x6587;&amp;#x6863;&amp;#x5185;&amp;#x5BB9;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x6587;&amp;#x6863;&amp;#x5185;&amp;#x5BB9;&quot;&gt;&lt;/a&gt;&amp;#x6DFB;&amp;#x52A0;&amp;#x6587;&amp;#x6863;&amp;#x5185;&amp;#x5BB9;&lt;/h2&gt;&lt;p&gt;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;@ApiOperation&lt;/code&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x6765;&amp;#x7ED9;API&amp;#x589E;&amp;#x52A0;&amp;#x8BF4;&amp;#x660E;&amp;#x3001;&amp;#x901A;&amp;#x8FC7;&lt;code&gt;@ApiImplicitParams&lt;/code&gt;&amp;#x3001;&lt;code&gt;@ApiImplicitParam&lt;/code&gt;&amp;#x6CE8;&amp;#x89E3;&amp;#x6765;&amp;#x7ED9;&amp;#x53C2;&amp;#x6570;&amp;#x589E;&amp;#x52A0;&amp;#x8BF4;&amp;#x660E;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = &amp;quot;/&amp;quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public String hello() {
+        return &amp;quot;hello&amp;quot;;
+    }
+
+    @ApiOperation(value=&amp;quot;&amp;#x67E5;&amp;#x627E;&amp;#x7528;&amp;#x6237;&amp;quot;, notes=&amp;quot;&amp;#x6839;&amp;#x636E;age&amp;#x6765;&amp;#x67E5;&amp;#x627E;&amp;quot;)
+    @ApiImplicitParam(name = &amp;quot;age&amp;quot;, value = &amp;quot;&amp;#x7528;&amp;#x6237;age&amp;quot;, required = true, dataType = &amp;quot;Integer&amp;quot;)
+    @RequestMapping(&amp;quot;/index&amp;quot;)  
+    public List&amp;lt;User&amp;gt; selectAge(@RequestParam(&amp;quot;age&amp;quot;) int age){  
+
+        return userService.showDao(age);  
+    }  
+
+    @ApiOperation(value=&amp;quot;&amp;#x83B7;&amp;#x53D6;&amp;#x7528;&amp;#x6237;&amp;#x5217;&amp;#x8868;&amp;quot;, notes=&amp;quot;&amp;quot;)
+    @RequestMapping(value = &amp;quot;/queryAll&amp;quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public List&amp;lt;User&amp;gt; queryAll() {
+        return userService.findAll();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x8BBF;&amp;#x95EE;&quot;&gt;&lt;a href=&quot;#&amp;#x8BBF;&amp;#x95EE;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8BBF;&amp;#x95EE;&quot;&gt;&lt;/a&gt;&amp;#x8BBF;&amp;#x95EE;&lt;/h2&gt;&lt;p&gt;&amp;#x5B8C;&amp;#x6210;&amp;#x4E0A;&amp;#x8FF0;&amp;#x4EE3;&amp;#x7801;&amp;#x6DFB;&amp;#x52A0;&amp;#x4E0A;&amp;#xFF0C;&amp;#x542F;&amp;#x52A8;SpringBoot&amp;#x7A0B;&amp;#x5E8F;&amp;#xFF0C;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF1A;&lt;code&gt;http://localhost:8080/swagger-ui.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/10/Gradle&amp;#x6784;&amp;#x5EFA;SpringBoot&amp;#x96C6;&amp;#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154254.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170810154254.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/10/Gradle&amp;#x6784;&amp;#x5EFA;SpringBoot&amp;#x96C6;&amp;#x6210;Swagger2/Image%201.png&quot; alt=&quot;enter description here&quot; title=&quot;Image 1.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2017/08/10/Gradle&amp;#x6784;&amp;#x5EFA;SpringBoot&amp;#x96C6;&amp;#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154334.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170810154334.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;p&gt;&amp;#x6700;&amp;#x8FD1;SpringMVC&amp;#x8F6C;Spring Boot&amp;#xFF0C;&amp;#x642D;&amp;#x5EFA;&amp;#x5168;&amp;#x65B0;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x6846;&amp;#x67B6;
+    
+    </summary>
+    
+    
+      <category term="Spring Boot" scheme="http://chen1218chen.github.io/tags/Spring-Boot/"/>
+    
+      <category term="Gradle" scheme="http://chen1218chen.github.io/tags/Gradle/"/>
+    
+      <category term="Swagger2" scheme="http://chen1218chen.github.io/tags/Swagger2/"/>
+    
+  </entry>
   
   <entry>
     <title>js中毫秒转化成想要的时间格式</title>
@@ -84,6 +189,42 @@ var time1 = newTime.format(&amp;quot;yyyy-MM-dd hh:mm:ss&amp;quot;);
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
+    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
+    <published>2017-06-28T14:22:42.000Z</published>
+    <updated>2017-06-30T01:54:25.660Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
+Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
+Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
+Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
+Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
+Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
+Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
+Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
+Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
+    
+    </summary>
+    
+    
+      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
+    
+      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -190,42 +331,6 @@ module.exports = webpackConfig
       <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
     
       <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
-    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
-    <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-06-30T01:54:25.660Z</updated>
-    
-    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
-Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
-Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
-Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
-Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
-Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
-Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
-Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
-Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
-    
-    </summary>
-    
-    
-      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
-    
-      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -1180,42 +1285,6 @@ public void saveUser(@RequestBody List&amp;lt;User&amp;gt; users) {
     
     
       <category term="bootstrap table" scheme="http://chen1218chen.github.io/tags/bootstrap-table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMVC之转发请求和重定向</title>
-    <link href="http://chen1218chen.github.io/2017/01/03/SpringMVC%E4%B9%8B%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/"/>
-    <id>http://chen1218chen.github.io/2017/01/03/SpringMVC之转发请求和重定向/</id>
-    <published>2017-01-03T10:27:55.000Z</published>
-    <updated>2017-01-03T02:57:28.606Z</updated>
-    
-    <content type="html">&lt;p&gt;spring MVC&amp;#x6846;&amp;#x67B6;controller&amp;#x95F4;&amp;#x8DF3;&amp;#x8F6C;&amp;#x548C;&amp;#x91CD;&amp;#x5B9A;&amp;#x5411;&lt;/p&gt;
-&lt;h2 id=&quot;ModelAndView&quot;&gt;&lt;a href=&quot;#ModelAndView&quot; class=&quot;headerlink&quot; title=&quot;ModelAndView&quot;&gt;&lt;/a&gt;ModelAndView&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;return new ModelAndView(&amp;quot;redirect:/user/toList&amp;quot;);//redirect&amp;#x6A21;&amp;#x5F0F;
-return new ModelAndView(&amp;quot;/user/toList&amp;quot;);//&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;forward&amp;#x6A21;&amp;#x5F0F;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x82E5;&amp;#x5E26;&amp;#x53C2;&amp;#x6570;&amp;#x8BF7;&amp;#x4F7F;&amp;#x7528;RedirectAttributes&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;RedirectAttributes&quot;&gt;&lt;a href=&quot;#RedirectAttributes&quot; class=&quot;headerlink&quot; title=&quot;RedirectAttributes&quot;&gt;&lt;/a&gt;RedirectAttributes&lt;/h2&gt;&lt;p&gt;RedirectAttributes&amp;#x662F;Spring mvc 3.1&amp;#x7248;&amp;#x672C;&amp;#x4E4B;&amp;#x540E;&amp;#x51FA;&amp;#x6765;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x4E13;&amp;#x95E8;&amp;#x7528;&amp;#x4E8E;&amp;#x91CD;&amp;#x5B9A;&amp;#x5411;&amp;#x4E4B;&amp;#x540E;&amp;#x8FD8;&amp;#x80FD;&amp;#x5E26;&amp;#x53C2;&amp;#x6570;&amp;#x8DF3;&amp;#x8F6C;&amp;#x7684;&lt;br&gt;&amp;#x4ED6;&amp;#x6709;&amp;#x4E24;&amp;#x79CD;&amp;#x5E26;&amp;#x53C2;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF1A;&lt;/p&gt;
-&lt;h3 id=&quot;addAttribute&quot;&gt;&lt;a href=&quot;#addAttribute&quot; class=&quot;headerlink&quot; title=&quot;addAttribute&quot;&gt;&lt;/a&gt;addAttribute&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;RedirectAttributes attr = null;
-attr.addAttribute(&amp;quot;name&amp;quot;,&amp;quot;123&amp;quot;);
-attr.addAttribute(&amp;quot;message&amp;quot;, &amp;quot;error&amp;quot;);
-return &amp;quot;redirect:/index&amp;quot;;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;return &amp;#x201C;redirect:/index?name=123&amp;amp;message=error&amp;#x201D;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;addFlashAttribute&quot;&gt;&lt;a href=&quot;#addFlashAttribute&quot; class=&quot;headerlink&quot; title=&quot;addFlashAttribute&quot;&gt;&lt;/a&gt;addFlashAttribute&lt;/h3&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E5F;&amp;#x80FD;&amp;#x8FBE;&amp;#x5230;&amp;#x91CD;&amp;#x65B0;&amp;#x5411;&amp;#x5E26;&amp;#x53C2;&amp;#xFF0C;&amp;#x800C;&amp;#x4E14;&amp;#x80FD;&amp;#x9690;&amp;#x85CF;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x5176;&amp;#x539F;&amp;#x7406;&amp;#x5C31;&amp;#x662F;&amp;#x653E;&amp;#x5230;session&amp;#x4E2D;&amp;#xFF0C;session&amp;#x5728;&amp;#x8DF3;&amp;#x5230;&amp;#x9875;&amp;#x9762;&amp;#x540E;&amp;#x9A6C;&amp;#x4E0A;&amp;#x79FB;&amp;#x9664;&amp;#x5BF9;&amp;#x8C61;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#x4F60;&amp;#x5237;&amp;#x65B0;&amp;#x4E00;&amp;#x4E0B;&amp;#x540E;&amp;#x8FD9;&amp;#x4E2A;&amp;#x503C;&amp;#x5C31;&amp;#x4F1A;&amp;#x4E22;&amp;#x6389;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;attr.addFlashAttribute(&amp;quot;message&amp;quot;, &amp;quot;success&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;spring MVC&amp;#x6846;&amp;#x67B6;controller&amp;#x95F4;&amp;#x8DF3;&amp;#x8F6C;&amp;#x548C;&amp;#x91CD;&amp;#x5B9A;&amp;#x5411;&lt;/p&gt;
-&lt;h2 id=&quot;ModelAndView&quot;&gt;&lt;a href=&quot;#ModelAnd
-    
-    </summary>
-    
-    
-      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
     
   </entry>
   

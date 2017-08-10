@@ -4,6 +4,92 @@
   
     
     <entry>
+      <title><![CDATA[Gradle构建SpringBoot集成Swagger2]]></title>
+      <url>http://chen1218chen.github.io/2017/08/10/Gradle%E6%9E%84%E5%BB%BASpringBoot%E9%9B%86%E6%88%90Swagger2/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<p>&#x6700;&#x8FD1;SpringMVC&#x8F6C;Spring Boot&#xFF0C;&#x642D;&#x5EFA;&#x5168;&#x65B0;&#x7684;&#x9879;&#x76EE;&#x6846;&#x67B6;&#xFF0C;&#x4E5F;&#x5B66;&#x5230;&#x4E0D;&#x5C11;&#x7684;&#x65B0;&#x4E1C;&#x897F;&#x3002;&#x9274;&#x4E8E;&#x73B0;&#x5728;&#x7684;&#x5FD8;&#x5F62;&#x6BD4;&#x8BB0;&#x6027;&#x597D;&#xFF0C;&#x8FD8;&#x662F;&#x5199;&#x4E0B;&#x6765;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#xFF0C;&#x5206;&#x4EAB;&#x8FDB;&#x6B65;&#x3002;&#xFF08;PS&#xFF1A;&#x9002;&#x5408;&#x8DDF;&#x6211;&#x4E00;&#x6837;&#x521A;&#x5165;&#x624B;&#x7684;&#x65B0;&#x4EBA;&#x54E6;&#xFF0C;&#x5927;&#x725B;&#x4EEC;&#x8BF7;&#x7ED5;&#x9053;(&#xE51;&#x2579;&#x25E1;&#x2579;)&#xFF89;&#x201D;&#x201D;&#x201D;&#xFF09;</p>
+<h2 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h2><p> build.gradle&#x4E2D;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x7684;jar&#x5305;</p>
+<pre><code>dependencies {
+    compile group: &apos;io.springfox&apos;, name: &apos;springfox-swagger2&apos;, version:&apos;2.2.2&apos;
+    compile group: &apos;io.springfox&apos;, name: &apos;springfox-swagger-ui&apos;, version:&apos;2.2.2&apos;
+
+}
+</code></pre><h2 id="Swagger2&#x914D;&#x7F6E;&#x7C7B;"><a href="#Swagger2&#x914D;&#x7F6E;&#x7C7B;" class="headerlink" title="Swagger2&#x914D;&#x7F6E;&#x7C7B;"></a>Swagger2&#x914D;&#x7F6E;&#x7C7B;</h2><p>&#x5728;Application.java&#x540C;&#x7EA7;&#x521B;&#x5EFA;Swagger2&#x7684;&#x914D;&#x7F6E;&#x7C7B;Swagger2&#x3002;</p>
+<pre><code>package com.cc.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class Swagger2 {
+
+  @Bean
+  public Docket createRestApi() {
+    return new Docket(DocumentationType.SWAGGER_2)
+            .apiInfo(apiInfo())
+            .select()
+            .apis(RequestHandlerSelectors.basePackage(&quot;com.cc.controller&quot;))
+            .paths(PathSelectors.any())
+            .build();
+  }
+
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder()
+            .title(&quot;Gradle&#x6784;&#x5EFA;Spring boot&#x9879;&#x76EE;&quot;)
+            .description(&quot;Gradle&#x6784;&#x5EFA;Spring boot&#x9879;&#x76EE; &#x96C6;&#x6210;mybatis&#x4F7F;&#x7528;pagehelper&#x63D2;&#x4EF6; &#xFF0C;&#x5B9E;&#x73B0;&#x70ED;&#x90E8;&#x7F72; by &#x9648;&#x6668;&quot;)
+            .termsOfServiceUrl(&quot;http://blog.csdn.net/chen1218chen&quot;)
+            .contact(&quot;chenchen&quot;)
+            .version(&quot;1.0&quot;)
+            .build();
+  }
+}
+</code></pre><p>&#x8BB0;&#x5F97;<code>@Configuration</code>&#x6CE8;&#x89E3;&#xFF0C;&#x901A;&#x8FC7;<code>@Configuration</code>&#x6CE8;&#x89E3;&#xFF0C;&#x8BA9;Spring&#x6765;&#x52A0;&#x8F7D;&#x8BE5;&#x7C7B;&#x914D;&#x7F6E;&#x3002;&#x518D;&#x901A;&#x8FC7;<code>@EnableSwagger2</code>&#x6CE8;&#x89E3;&#x6765;&#x542F;&#x7528;Swagger2&#x3002;</p>
+<p><code>com.cc.controller</code>&#x5F85;&#x626B;&#x63CF;&#x7684;&#x63A5;&#x53E3;&#x5305;&#xFF0C;Swagger&#x4F1A;&#x626B;&#x63CF;&#x8BE5;&#x5305;&#x4E0B;&#x6240;&#x6709;Controller&#x5B9A;&#x4E49;&#x7684;API   &#xFF0C;&#x5E76;&#x751F;&#x6210;API&#x6587;&#x6863;&#xFF08;&#x9664;&#x4E86;&#x88AB;<code>@ApiIgnore</code>&#x6307;&#x5B9A;&#x7684;&#x8BF7;&#x6C42;&#xFF09;&#x3002;</p>
+<p>Swagger2&#x9ED8;&#x8BA4;&#x5C06;&#x6240;&#x6709;&#x7684;Controller&#x4E2D;&#x7684;RequestMapping&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x66B4;&#x9732;&#xFF0C;&#x7136;&#x800C;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x9700;&#x8981;&#x628A;&#x6240;&#x6709;API&#x90FD;&#x63D0;&#x73B0;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x67E5;&#x770B;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;<code>@ApiIgnore</code>&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x5982;&#x679C;&#x5E94;&#x7528;&#x5728;Controller&#x8303;&#x56F4;&#x4E0A;&#xFF0C;&#x5219;&#x5F53;&#x524D;Controller&#x4E2D;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x5982;&#x679C;&#x5E94;&#x7528;&#x5728;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x5219;&#x5BF9;&#x5E94;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5FFD;&#x7565;&#x66B4;&#x9732;API</p>
+<h2 id="&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;"><a href="#&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;" class="headerlink" title="&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;"></a>&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;</h2><p>&#x901A;&#x8FC7;<code>@ApiOperation</code>&#x6CE8;&#x89E3;&#x6765;&#x7ED9;API&#x589E;&#x52A0;&#x8BF4;&#x660E;&#x3001;&#x901A;&#x8FC7;<code>@ApiImplicitParams</code>&#x3001;<code>@ApiImplicitParam</code>&#x6CE8;&#x89E3;&#x6765;&#x7ED9;&#x53C2;&#x6570;&#x589E;&#x52A0;&#x8BF4;&#x660E;</p>
+<pre><code>@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = &quot;/&quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public String hello() {
+        return &quot;hello&quot;;
+    }
+
+    @ApiOperation(value=&quot;&#x67E5;&#x627E;&#x7528;&#x6237;&quot;, notes=&quot;&#x6839;&#x636E;age&#x6765;&#x67E5;&#x627E;&quot;)
+    @ApiImplicitParam(name = &quot;age&quot;, value = &quot;&#x7528;&#x6237;age&quot;, required = true, dataType = &quot;Integer&quot;)
+    @RequestMapping(&quot;/index&quot;)  
+    public List&lt;User&gt; selectAge(@RequestParam(&quot;age&quot;) int age){  
+
+        return userService.showDao(age);  
+    }  
+
+    @ApiOperation(value=&quot;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x5217;&#x8868;&quot;, notes=&quot;&quot;)
+    @RequestMapping(value = &quot;/queryAll&quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public List&lt;User&gt; queryAll() {
+        return userService.findAll();
+    }
+}
+</code></pre><h2 id="&#x8BBF;&#x95EE;"><a href="#&#x8BBF;&#x95EE;" class="headerlink" title="&#x8BBF;&#x95EE;"></a>&#x8BBF;&#x95EE;</h2><p>&#x5B8C;&#x6210;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x4E0A;&#xFF0C;&#x542F;&#x52A8;SpringBoot&#x7A0B;&#x5E8F;&#xFF0C;&#x8BBF;&#x95EE;&#xFF1A;<code>http://localhost:8080/swagger-ui.html</code></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154254.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170810154254.png"></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154334.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170810154334.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[js中毫秒转化成想要的时间格式]]></title>
       <url>http://chen1218chen.github.io/2017/08/08/js%E4%B8%AD%E6%AF%AB%E7%A7%92%E8%BD%AC%E5%8C%96%E6%88%90%E6%83%B3%E8%A6%81%E7%9A%84%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>&#x4ECE;&#x540E;&#x53F0;&#x4F20;&#x4E00;&#x4E2A;Date()&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
@@ -46,6 +132,26 @@ var time1 = newTime.format(&quot;yyyy-MM-dd hh:mm:ss&quot;);
       <content type="html"><![CDATA[<p><code>sigar:</code>&#x7CFB;&#x7EDF;&#x4FE1;&#x606F;&#x6536;&#x96C6;&#x548C;&#x62A5;&#x8868;&#x5DE5;&#x5177;&#xFF0C;&#x5F00;&#x6E90;&#x7684;&#xFF0C;&#x7528;&#x6765;&#x6536;&#x96C6;&#x670D;&#x52A1;&#x5668;&#x7684;CPU&#x3001;&#x5185;&#x5B58;&#x3001;&#x78C1;&#x76D8;&#x5B58;&#x50A8;&#x3001;&#x7F51;&#x7EDC;&#x76D1;&#x63A7;&#x7B49;&#x6570;&#x636E;&#xFF0C;&#x9664;&#x4E86;&#x9700;&#x8981;&#x5728;&#x5DE5;&#x7A0B;&#x4E2D;&#x5F15;&#x5165;<code>sigar.jar</code>&#x5305;&#x5916;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728;jdk&#x7684;bin&#x76EE;&#x5F55;&#x4E0B;&#x653E;<code>sigar-amd64-winnt.dll</code>&#x548C;<code>sigar-x86-winnt.dll</code>&#x52A8;&#x6001;&#x5E93;&#x3002;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x62FF;&#x4E0D;&#x5230;&#x9700;&#x8981;&#x7684;&#x670D;&#x52A1;&#x5668;&#x6570;&#x636E;&#x3002;</p>
 <p><img src="/2017/07/06/SpringMVC&#x4E2D;&#x96C6;&#x6210;Sigar/1499304165210.jpg" alt="enter description here" title="1499304165210.jpg"></p>
 ]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Sublime text 3 之MarkdownEditing插件快捷键]]></title>
+      <url>http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
+Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
+Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
+Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
+Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
+Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
+Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
+Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
+Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
+Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
+</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -135,26 +241,6 @@ module.exports = webpackConfig
 </code></pre><p>&#x751F;&#x6210;vendors.js?f3aaf25de220e214f84e,&#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x8986;&#x76D6;&#x4E4B;&#x524D;&#x751F;&#x6210;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x65B9;&#x4FBF;&#x5728;&#x67D0;&#x4E9B;&#x7279;&#x6B8A;&#x9879;&#x76EE;&#x4F7F;&#x7528;&#x3002;</p>
 <h3 id="process-env-NODE-ENV"><a href="#process-env-NODE-ENV" class="headerlink" title="process.env.NODE_ENV"></a>process.env.NODE_ENV</h3><p>&#x6307;&#x7684;&#x662F;config/*&#x4E0B;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Sublime text 3 之MarkdownEditing插件快捷键]]></title>
-      <url>http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-      <content type="html"><![CDATA[<pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
-Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
-Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
-Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
-Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
-Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
-Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
-Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
-Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-</code></pre>]]></content>
     </entry>
     
     <entry>
@@ -3281,6 +3367,76 @@ grunt bower
     </entry>
     
     <entry>
+      <title><![CDATA[Express.js]]></title>
+      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
+      <content type="html"><![CDATA[<p>[TOC]</p>
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
+});
+
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
+});
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[bower]]></title>
       <url>http://chen1218chen.github.io/2016/06/08/bower/</url>
       <content type="html"><![CDATA[<p>[TOC]</p>
@@ -3447,76 +3603,6 @@ bower uninstall jquery
   }
 grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
 </code></pre><p>&#x4E4B;&#x540E;&#xFF0C;&#x8FD0;&#x884C;<code>grunt bower</code>&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x590D;&#x5236;<br><img src="/2016/06/08/bower/Image%203.png" alt="enter description here" title="Image 3.png"></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Express.js]]></title>
-      <url>http://chen1218chen.github.io/2016/06/08/Express.js/</url>
-      <content type="html"><![CDATA[<p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
 ]]></content>
     </entry>
     
