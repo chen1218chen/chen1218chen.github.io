@@ -5,6 +5,8 @@ tags: [Spring Boot, Gradle, Swagger2]
 ---
 [TOC]
 
+可点击此处下载完整项目哦：[Springboot-Mybatis-Gradle][1]
+
 最近SpringMVC转Spring Boot，搭建全新的项目框架，也学到不少的新东西。鉴于现在的忘形比记性好，还是写下来记录一下，分享进步。（PS：适合跟我一样刚入手的新人哦，大牛们请绕道(๑╹◡╹)ﾉ"""）
 
 ## build.gradle
@@ -95,13 +97,14 @@ Swagger2默认将所有的Controller中的RequestMapping方法都会暴露，然
 ## 访问
 完成上述代码添加上，启动SpringBoot程序，访问：`http://localhost:8080/swagger-ui.html`
 
-![enter description here][1]
-
 ![enter description here][2]
 
 ![enter description here][3]
 
+![enter description here][4]
 
-  [1]: ./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154254.png "微信截图_20170810154254.png"
-  [2]: ./images/Image%201.png "Image 1.png"
-  [3]: ./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154334.png "微信截图_20170810154334.png"
+
+  [1]: https://github.com/chen1218chen/Springboot-Mybatis-Gradle
+  [2]: ./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154254.png "微信截图_20170810154254.png"
+  [3]: ./images/Image%201.png "Image 1.png"
+  [4]: ./images/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154334.png "微信截图_20170810154334.png"
