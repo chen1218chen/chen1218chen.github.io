@@ -286,6 +286,214 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Angular" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/08/Angular/" class="article-date">
+      <time datetime="2016-06-07T16:07:01.000Z" itemprop="datePublished">2016-06-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/08/Angular/">Angular</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h1 id="&#x521D;&#x8BC6;Angular"><a href="#&#x521D;&#x8BC6;Angular" class="headerlink" title="&#x521D;&#x8BC6;Angular"></a>&#x521D;&#x8BC6;Angular</h1><p>angular&#x662F;&#x4E00;&#x79CD;MVVM&#x524D;&#x7AEF;&#x6846;&#x67B6;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x524D;&#x540E;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x5F00;&#x5F00;&#x53D1;&#x90E8;&#x7F72;&#xFF1B;&#x8FD9;&#x6837;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x6A21;&#x5757;&#x5316;&#x9AD8;&#xFF0C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x9AD8;&#xFF0C;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#xFF1B;&#x53EF;&#x6D4B;&#x8BD5;&#x6027;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x65B9;&#x4FBF;</p>
+<h2 id="&#x6A21;&#x5757;&#x5316;"><a href="#&#x6A21;&#x5757;&#x5316;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;"></a>&#x6A21;&#x5757;&#x5316;</h2><p>AngularJS &#x4E5F;&#x662F;&#x9075;&#x5FAA; AMD &#x7684;&#x3002;</p>
+<pre><code>var app = angular.module(&apos;app&apos;, [
+    &apos;moduleA&apos;,
+    &apos;moduleB&apos;,
+]);
+app.controller(&apos;MainCtrl&apos;, [
+    &apos;$scope&apos;,
+     function ($scope) {
+}]);
+</code></pre><p>&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x5F52;&#x7C7B;&#xFF1A;</p>
+<pre><code>var services = angular.module(&apos;services&apos;,[]);
+services.service(&apos;MyService&apos;, function(){
+  //service code
+});
+
+var controllers = angular.module(&apos;controllers&apos;,[&apos;services&apos;]);
+controllers.controller(&apos;MyCtrl&apos;, function($scope, MyService){
+    //controller code
+});
+
+var app = angular.module(&apos;app&apos;,[&apos;controllers&apos;, &apos;services&apos;]);
+</code></pre><h1 id="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"><a href="#&#x6838;&#x5FC3;&#x6982;&#x5FF5;" class="headerlink" title="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"></a>&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h1><ul>
+<li>&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF1A;MVVM&#x6A21;&#x578B;&#xFF0C;view&#x548C;model&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E00;&#x65B9;&#x6539;&#x53D8;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#x3002;</li>
+<li>scope&#xFF1A;view&#x548C;controller&#x4E4B;&#x95F4;&#x7684;&#x7EBD;&#x5E26;&#xFF0C;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x6A21;&#x578B;model&#xFF0C;&#x76D1;&#x542C;model&#x7684;&#x53D8;&#x5316;&#x3002;&#x6BCF;&#x4E2A;angular-app&#x53EA;&#x6709;&#x4E00;&#x4E2A;rootScope&#xFF0C;&#x4E5F;&#x5B58;&#x5728;childScope,&#x6BCF;&#x4E2A;childScope&#x90FD;&#x4F1A;&#x6709;parentScope&#x548C;childScope&#xFF0C;&#x539F;&#x578B;&#x65B9;&#x5F0F;&#x7EE7;&#x627F;&#x3002;</li>
+<li>controller&#xFF1A;&#x89C4;&#x8303;&#x7684;angular&#x4E2D;&#xFF0C;controller&#x4E2D;&#x4E0D;&#x51FA;&#x73B0;&#x4EFB;&#x4F55;DOM&#x64CD;&#x4F5C;&#xFF0C;controller&#x4EC5;&#x4EC5;&#x662F;&#x6539;&#x53D8;scope&#x4E0A;&#x7684;&#x6570;&#x636E;&#x5373;&#x53EF;&#x3002;</li>
+<li>view: angular&#x4F1A;&#x5229;&#x7528;DOM&#x6811;&#xFF0C;&#x7ECF;&#x8FC7;complie&#x518D;&#x548C;scope&#x6570;&#x636E;&#x7ED3;&#x5408;&#xFF0C;&#x5448;&#x73B0;&#x7ED9;&#x7528;&#x6237;&#x3002;</li>
+</ul>
+<h1 id="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"><a href="#angular&#x5E94;&#x7528;&#x5165;&#x53E3;" class="headerlink" title="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"></a>angular&#x5E94;&#x7528;&#x5165;&#x53E3;</h1><p>&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#x6216;&#x8005;angular.bootstrap(element,[&#x2018;&#x6A21;&#x5757;&#x540D;&#x2019;])&#x542F;&#x52A8;&#x3002;ng-app&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6CA1;&#x6709;&#x503C;&#xFF0C;angular&#x4F1A;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;<br>ng-model&#x6307;&#x4EE4;&#x7684;&#x503C;&#x6302;&#x5728;$scope&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
+<h1 id="angular-requirejs"><a href="#angular-requirejs" class="headerlink" title="angular + requirejs"></a>angular + requirejs</h1><pre><code>&lt;div ng-controller=&quot;myCtrl&quot;&gt;
+    &lt;span&gt;{{title}}&lt;/span&gt;
+&lt;/div&gt;
+
+requirejs.config({
+    paths : {
+        angular : &apos;angular/angular&apos;
+    },
+    shim : {
+        angular : {
+            exports : &apos;angular&apos;
+        },
+    }
+})
+define([ &apos;angular&apos; ], function( angular) {
+    var title = angular.module(&quot;myApp&quot;, []);
+    title.controller(&apos;myCtrl&apos;, function($scope) {
+        $scope.title = &quot;&#x4E3B;&#x9875;&quot;;
+    });
+    //&#x624B;&#x52A8;&#x542F;&#x7528;angular
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, [ &apos;myApp&apos; ]);
+    });
+});
+</code></pre><blockquote>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#xFF0C;&#x91C7;&#x7528;&#x624B;&#x52A8;&#x542F;&#x52A8;angularjs&#x5E94;&#x7528;</p>
+</blockquote>
+<h2 id="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"><a href="#&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service" class="headerlink" title="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"></a>&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x9879;&#x76EE;&#x6240;&#x7528;&#x5230;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x9884;&#x5148;&#x52A0;&#x8F7D;&#x5B8C;&#x518D;&#x521D;&#x59CB;&#x5316;AngularJS&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x9879;&#x76EE;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x6253;&#x5F00;&#x5BF9;&#x5E94;&#x7684;&#x754C;&#x9762;&#x624D;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;controller&#x7B49;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x662F;AngularJS&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E4B;&#x540E;&#x52A0;&#x8F7D;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x662F;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5230;&#x6A21;&#x5757;&#x4E0A;&#x7684;&#x3002;&#x7528;AngularJS + ui-router + RequireJS&#x6765;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x662F;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5C31;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x6765;&#x770B;&#x770B;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;<br>&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.tuicool.com/articles/IJNFNnf" target="_blank" rel="external">AngularJS + ui-router + RequireJS&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</a></p>
+<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><h3 id="Service-vs-Factory"><a href="#Service-vs-Factory" class="headerlink" title="Service vs Factory"></a>Service vs Factory</h3><p>&#x89C1;<strong>angular&#x4E4B;Service vs Factory</strong>&#x4E00;&#x6587;&#x3002;</p>
+<h3 id="http&#x670D;&#x52A1;"><a href="#http&#x670D;&#x52A1;" class="headerlink" title="$http&#x670D;&#x52A1;"></a>$http&#x670D;&#x52A1;</h3><p>$http &#x662F; AngularJS &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x670D;&#x52A1;&#xFF0C;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;siteCtrl&apos;, function($scope, $http) {
+  $http.get(&quot;http://www.runoob.com/try/angularjs/data/sites.php&quot;)
+  .success(function (response) {$scope.names = response.sites;});
+});
+</code></pre><h3 id="timeout-&#x670D;&#x52A1;"><a href="#timeout-&#x670D;&#x52A1;" class="headerlink" title="$timeout &#x670D;&#x52A1;"></a>$timeout &#x670D;&#x52A1;</h3><p>AngularJS $timeout &#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x4E86; JS window.setTimeout &#x51FD;&#x6570;&#x3002;</p>
+<blockquote>
+<p>&#x4E24;&#x79D2;&#x540E;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
+</blockquote>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $timeout) {
+    $scope.myHeader = &quot;Hello World!&quot;;
+    $timeout(function () {
+        $scope.myHeader = &quot;How are you today?&quot;;
+    }, 2000);
+});
+</code></pre><h3 id="interval-&#x670D;&#x52A1;"><a href="#interval-&#x670D;&#x52A1;" class="headerlink" title="$interval &#x670D;&#x52A1;"></a>$interval &#x670D;&#x52A1;</h3><blockquote>
+<p>&#x6BCF;&#x4E24;&#x79D2;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
+</blockquote>
+<pre><code>var app = angular.module(&apos;myApp&apos;, []);
+app.controller(&apos;myCtrl&apos;, function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+        $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+});
+</code></pre><h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;</h3><blockquote>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;test&#x7684;&#x670D;&#x52A1;</p>
+</blockquote>
+<pre><code>app.service(&apos;test&apos;, function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+</code></pre><blockquote>
+<p>&#x63A7;&#x5236;&#x5668;myCtrl&#x4E2D;&#x8C03;&#x7528;</p>
+</blockquote>
+<pre><code>app.controller(&apos;myCtrl&apos;, function($scope, test) {
+    $scope.hex = test.myFunc(255);
+});
+</code></pre><blockquote>
+<p>&#x8FC7;&#x6EE4;&#x5668;myFormat&#x4E2D;&#x7684;&#x4F7F;&#x7528;</p>
+</blockquote>
+<pre><code>app.filter(&apos;myFormat&apos;,[&apos;hexafy&apos;, function(hexafy) {
+    return function(x) {
+        return hexafy.myFunc(x);
+    };
+}]);
+</code></pre><h2 id="Directive&#x6307;&#x4EE4;"><a href="#Directive&#x6307;&#x4EE4;" class="headerlink" title="Directive&#x6307;&#x4EE4;"></a>Directive&#x6307;&#x4EE4;</h2><p>&#x6269;&#x5C55;html&#x8BED;&#x8A00;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;React&#x7684;&#x7EC4;&#x4EF6;</p>
+<pre><code>var app = angular.module(&quot;myApp&quot;, []);
+app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+});
+//&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x90FD;&#x53EF;&#x4EE5;
+&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
+&lt;div runoob-directive&gt;&lt;/div&gt;
+</code></pre><p>&#x7C7B;&#x540D;&#x8C03;&#x7528;</p>
+<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        restrict : &quot;C&quot;,
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+});
+&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;
+</code></pre><p>&#x6CE8;&#x91CA;&#x8C03;&#x7528;</p>
+<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
+    return {
+        restrict : &quot;M&quot;,
+        replace : true,
+        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
+    };
+})
+</code></pre><blockquote>
+<p>&#x6CE8;&#x610F;: &#x9700;&#x8981;&#x5728;&#x8BE5;&#x5B9E;&#x4F8B;&#x6DFB;&#x52A0; replace &#x5C5E;&#x6027;&#xFF0C; &#x5426;&#x5219;&#x8BC4;&#x8BBA;&#x662F;&#x4E0D;&#x53EF;&#x89C1;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;: &#x5FC5;&#x987B;&#x8BBE;&#x7F6E; restrict &#x7684;&#x503C;&#x4E3A; &#x201C;M&#x201D; &#x624D;&#x80FD;&#x901A;&#x8FC7;&#x6CE8;&#x91CA;&#x6765;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x3002;</p>
+</blockquote>
+<h3 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h3><p>restrict &#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;:</p>
+<ul>
+<li>E &#x4F5C;&#x4E3A;&#x5143;&#x7D20;&#x540D;&#x4F7F;&#x7528; </li>
+<li>A &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x4F7F;&#x7528; </li>
+<li>C &#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#x4F7F;&#x7528; </li>
+<li>M &#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;&#x4F7F;&#x7528;</li>
+</ul>
+<h2 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h2><h3 id="1-angularAMD"><a href="#1-angularAMD" class="headerlink" title="1. angularAMD"></a>1. angularAMD</h3><p> RequireJS+AngularJS<br>angularAMD is an utility that facilitates the use of RequireJS in AngularJS applications supporting on-demand loading of 3rd party modules such as angular-ui.<br>angularAMD&#x662F;&#x4F5C;&#x8005;@ marcoslin&#x4F7F;&#x7528; RequireJS &#xFF0B; AngularJS&#x5F00;&#x53D1;&#x7684;&#x524D;&#x7AEF;mvvm&#x6846;&#x67B6;,&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x6B3E;Web App.&#x5B83;&#x7279;&#x522B;&#x9002;&#x5408;&#x5FEB;&#x901F;&#x5F00;&#x53D1;SPA&#x5E94;&#x7528;&#x3002;</p>
+<h3 id="2-angularUI"><a href="#2-angularUI" class="headerlink" title="2. angularUI"></a>2. angularUI</h3><p> AngularJS &#x7684;UI&#x589E;&#x5F3A;&#x6307;&#x4EE4;&#x96C6;&#x3002;&#x5305;&#x542B;&#x7684;&#x6A21;&#x5757;&#x6709;&#xFF1A;<br>    UI-Utils<br>    UI-Modules<br>    UI-Alias<br>    UI-Bootstrap<br>    NG-Grid<br>    UI-Router<br>    IDE Plugins<br>    GSoC</p>
+<h4 id="UI-Router&#x4E0E;ngRoute"><a href="#UI-Router&#x4E0E;ngRoute" class="headerlink" title="UI-Router&#x4E0E;ngRoute"></a><strong>UI-Router&#x4E0E;ngRoute</strong></h4><p>ngRoute&#x662F;&#x7528;AngularJS&#x6846;&#x67B6;&#x7684;&#x6838;&#x5FC3;&#x90E8;&#x5206;<br>ui-router&#x662F;&#x4E00;&#x4E2A;&#x793E;&#x533A;&#x5E93;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6765;&#x63D0;&#x9AD8;&#x5B8C;&#x5584;ngroute&#x8DEF;&#x7531;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x3002;&#x5B83;&#x652F;&#x6301;&#x4E00;&#x5207;&#x6B63;&#x5E38;ngroute&#x4E5F;&#x53EF;&#x4EE5;&#x505A;&#x8BB8;&#x591A;&#x989D;&#x5916;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<h3 id="3-Angular-UI-Bootstrap"><a href="#3-Angular-UI-Bootstrap" class="headerlink" title="3. Angular UI Bootstrap"></a>3. Angular UI Bootstrap</h3><p> UI Bootstrap &#x662F;&#x7531; AngularJS UI &#x56E2;&#x961F;&#x7F16;&#x5199;&#x7684;&#x7EAF; AngularJS &#x5B9E;&#x73B0;&#x7684; Bootstrap &#x7EC4;&#x4EF6;&#x3002;</p>
+<h3 id="4-Mobile-Angular-UI"><a href="#4-Mobile-Angular-UI" class="headerlink" title="4. Mobile Angular UI"></a>4. Mobile Angular UI</h3><p>Mobile Angular UI&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;jQuery Mobile&#x7684;&#x79FB;&#x52A8;UI&#x6846;&#x67B6;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-前端模块化管理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1259,101 +1467,6 @@ var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spring的框架报错问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/spring的框架报错问题/" class="article-date">
-      <time datetime="2016-05-05T10:37:37.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="org-springframework-beans-factory-BeanDefinitionStoreException"><a href="#org-springframework-beans-factory-BeanDefinitionStoreException" class="headerlink" title="org.springframework.beans.factory.BeanDefinitionStoreException"></a>org.springframework.beans.factory.BeanDefinitionStoreException</h2><pre><code>[ERROR] [10:30:28] org.springframework.web.context.ContextLoader - Context initialization failed
-org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [applicationContext.xml]; nested exception is java.io.FileNotFoundException: class path resource [applicationContext.xml] cannot be opened because it does not exist
-at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
-at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
-at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
-at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
-at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
-at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
-at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
-at org.springframework.context.support.AbstractRefreshableApplicationContext.__refreshBeanFactory(AbstractRefreshableApplicationContext.java:131)
-at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java)
-at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:522)
-at org.springframework.context.support.AbstractApplicationContext.__refresh(AbstractApplicationContext.java:436)
-at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java)
-at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
-at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
-at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
-at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:5017)
-at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5531)
-at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
-at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1574)
-at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1564)
-at java.util.concurrent.FutureTask.run(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-at java.lang.Thread.run(Unknown Source)
-Caused by: java.io.FileNotFoundException: class path resource [applicationContext.xml] cannot be opened because it does not exist
-at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
-at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
-... 23 more
-</code></pre><p>applicationContext.xml&#x6587;&#x4EF6;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#xFF0C;&#x5728;web.xml&#x4E2D;&#x914D;&#x7F6E;</p>
-<pre><code>&lt;context-param&gt;
-    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
-&lt;/context-param&gt;    
-</code></pre><p>&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;tomcat&#x53D1;&#x5E03;&#x540E;&#x7684;classes&#x4E0B;&#x6709;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;<br>eclipse&#x53D1;&#x5E03;&#x540E;&#x7684;&#x5DE5;&#x7A0B;&#x9ED8;&#x8BA4;&#x4E0D;&#x5728;tomcat&#x7684;webapps&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x3002;<br><img src="/2016/05/05/spring&#x7684;&#x6846;&#x67B6;&#x62A5;&#x9519;&#x95EE;&#x9898;/Image%201.png" alt="enter description here" title="Image 1.png"><br>&#x5C06;Deploy path&#x4FEE;&#x6539;&#x4E3A;webapps&#xFF08;&#x6700;&#x597D;&#x662F;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#xFF1A;D:\apache-tomcat-7.0.63\webapps&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;wtpwebapps&#x3002;<br>&#x82E5;server Location&#x65E0;&#x6CD5;&#x70B9;&#x51FB;&#x9009;&#x62E9;&#xFF0C;&#x5219;&#x53F3;&#x51FB;add and remove&#x2026;&#x628A;&#x9879;&#x76EE;&#x79FB;&#x9664;&#xFF0C;&#x5728;&#x53F3;&#x51FB;clean&#x5373;&#x53EF;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
     </div>
 
       

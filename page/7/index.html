@@ -286,6 +286,159 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-RequireJS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/RequireJS/" class="article-date">
+      <time datetime="2016-07-13T16:02:31.000Z" itemprop="datePublished">2016-07-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/RequireJS/">RequireJS</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h1 id="RequireJS"><a href="#RequireJS" class="headerlink" title="RequireJS"></a>RequireJS</h1><h2 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h2><ol>
+<li>RequireJS&#x5B98;&#x65B9;&#x9ED8;&#x8BA4;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x63D2;&#x4EF6;&#xFF0C;&#x5982;&#xFF1A;text&#xFF0C;domReady&#xFF0C;i18n&#x3002;<br>&#x5176;&#x4ED6;&#x8BE6;&#x60C5;&#x8BF7;&#x67E5;&#x770B;<a href="https://github.com/requirejs/requirejs/wiki/Plugins" target="_blank" rel="external">RequireJS&#x7684;&#x63D2;&#x4EF6;&#x5217;&#x8868;</a></li>
+<li><a href="https://github.com/millermedeiros/requirejs-plugins" target="_blank" rel="external">requirejs-plugins&#x63D2;&#x4EF6;</a></li>
+</ol>
+<p>&#x53EF;&#x901A;&#x8FC7;bower&#x5B89;&#x88C5;</p>
+<pre><code>bower install requirejs-plugins --save
+</code></pre><h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><p>requireJS&#x7684;&#x914D;&#x7F6E;&#x5E38;&#x7528;&#x6587;&#x4EF6;config.js:</p>
+<pre><code>requirejs.config({
+    baseUrl : &apos;lib/&apos;,
+    paths : {
+        app : &apos;../js/app&apos;,
+        css : &apos;../js/css.min&apos;,
+        custom: &apos;../js/custom&apos;,
+        common: &apos;../js/common&apos;,
+        domReady: &apos;domReady/domReady&apos;,
+        jquery : &apos;jquery/jquery.min&apos;,
+        async: &apos;requirejs-plugins/async&apos;,
+        react : &apos;react/react.min&apos;,
+        angular : &apos;angular/angular&apos;,
+        bootstrap : &apos;bootstrap/js/bootstrap.min&apos;,
+        bootstrapTable : &apos;bootstrap-table/js/bootstrap-table.min&apos;,
+        tableLanguage : &apos;bootstrap-table/locale/bootstrap-table-zh-CN.min&apos;,
+        tableExport:&apos;bootstrap-table/extensions/tableExport&apos;,
+        bootstrapTableExport:&apos;bootstrap-table/extensions/bootstrap-table-export.min&apos;,
+        confirm : &apos;jquery-confirm2/jquery-confirm.min&apos;,
+        &apos;bootstrap-dialog&apos; : &apos;bootstrap3-dialog/js/bootstrap-dialog.min&apos;,
+        BMap : &apos;http://api.map.baidu.com/api?v=2.0&amp;ak=Ua9wlu6LbqmNKVbMEGtkgSxvljqZC5fc&apos;
+    },
+    shim : {
+        jquery : {
+            init : function() {
+                return jquery.noConflict(true);
+            },
+            exports : &apos;jquery&apos;
+        },
+        custom : {
+            deps: [&apos;jquery&apos;]
+        },
+        common : {
+            deps: [&apos;confirm&apos;, &apos;bootstrap-dialog&apos;]
+        },
+        index : {
+            deps: [&apos;jquery&apos;]
+        },
+        angular : {
+            exports : &apos;angular&apos;
+        },
+
+        bootstrap : {
+            deps : [ &apos;jquery&apos;, &apos;css!../lib/bootstrap/css/bootstrap.min.css&apos; ],
+            exports : &quot;$.fn.popover&quot;
+        },
+        tableLanguage : {
+            deps : [ &apos;bootstrapTable&apos; ],
+            exports : &apos;$.fn.bootstrapTable.defaults&apos;
+        },
+        bootstrapTable : {
+            deps : [&apos;bootstrap&apos;,
+            exports : &apos;$.fn.bootstrapTable&apos;
+        },
+        tableExport : {
+            deps: [&apos;jquery&apos;],
+            exports : &apos;$.fn.extend&apos;
+        },
+        bootstrapTableExport:{
+            deps:[&apos;bootstrapTable&apos;],
+            exports : &apos;$.fn.bootstrapTable.defaults&apos;
+        },
+        confirm : {
+            deps : [ &apos;jquery&apos;,&apos;css!./jquery-confirm2/jquery-confirm.min.css&apos; ]
+        },
+        &apos;bootstrap-dialog&apos; : {
+            deps : [&apos;bootstrap&apos;, &apos;css!./bootstrap3-dialog/css/bootstrap-dialog.min.css&apos; ]
+        },
+        &apos;BMap&apos;: {
+            deps: [&apos;jquery&apos;],
+            exports: &apos;BMap&apos;
+        }
+
+    },
+    //&#x9996;&#x5148;&#x52A0;&#x8F7D;bootstrap
+    deps: [&apos;bootstrap&apos;],
+    //&#x5F00;&#x53D1;&#x4E13;&#x7528;&#xFF0C;&#x963B;&#x6B62;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;
+    urlArgs: &quot;bust=&quot; +  (new Date()).getTime(),
+    //&#x5728;&#x653E;&#x5F03;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x4E4B;&#x524D;&#x7B49;&#x5F85;&#x7684;&#x79D2;&#x6570;&#x3002;
+    waitSeconds: 0
+});
+</code></pre><p>&#x5E38;&#x7528;&#x53C2;&#x6570;&#x89E3;&#x6790;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h3 id="deps"><a href="#deps" class="headerlink" title="deps"></a>deps</h3><p>&#x914D;&#x7F6E;&#x9996;&#x5148;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<pre><code>deps: [&apos;bootstrap&apos;],
+</code></pre><h3 id="urlArgs"><a href="#urlArgs" class="headerlink" title="urlArgs"></a>urlArgs</h3><p>&#x5F00;&#x53D1;&#x4E2D;&#x7528;&#x6765;&#x7EC4;&#x7EC7;&#x6D4F;&#x89C8;&#x5668;&#x7F13;&#x5B58;</p>
+<pre><code>urlArgs: &quot;bust=&quot; +  (new Date()).getTime(),
+</code></pre><h3 id="waitSeconds"><a href="#waitSeconds" class="headerlink" title="waitSeconds"></a>waitSeconds</h3><p>&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x7684;&#x6700;&#x957F;&#x7B49;&#x5F85;&#x65F6;&#x95F4;,&#x8BBE;&#x4E3A;0&#x7981;&#x7528;&#x7B49;&#x5F85;&#x8D85;&#x65F6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;7&#x79D2;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RequireJS/">RequireJS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ReactJS初识" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1104,129 +1257,6 @@ grunt bower
 
 
   
-    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/Express.js/" class="article-date">
-      <time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/Express.js/">Express.js</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-bower" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1450,11 +1480,11 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
 
 
   
-    <article id="post-Angular" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/08/Angular/" class="article-date">
-      <time datetime="2016-06-07T16:07:01.000Z" itemprop="datePublished">2016-06-07</time>
+      <a href="/2016/06/08/Express.js/" class="article-date">
+      <time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
 </a>
 
 
@@ -1469,7 +1499,7 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/Angular/">Angular</a>
+      <a class="article-title" href="/2016/06/08/Express.js/">Express.js</a>
     </h1>
   
 
@@ -1480,154 +1510,69 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
       
           
         <p>[TOC]</p>
-<h1 id="&#x521D;&#x8BC6;Angular"><a href="#&#x521D;&#x8BC6;Angular" class="headerlink" title="&#x521D;&#x8BC6;Angular"></a>&#x521D;&#x8BC6;Angular</h1><p>angular&#x662F;&#x4E00;&#x79CD;MVVM&#x524D;&#x7AEF;&#x6846;&#x67B6;&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x524D;&#x540E;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x8026;&#x5408;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x5F00;&#x5F00;&#x53D1;&#x90E8;&#x7F72;&#xFF1B;&#x8FD9;&#x6837;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x6A21;&#x5757;&#x5316;&#x9AD8;&#xFF0C;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x9AD8;&#xFF0C;&#x7075;&#x6D3B;&#x6027;&#x9AD8;&#xFF1B;&#x53EF;&#x6D4B;&#x8BD5;&#x6027;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x65B9;&#x4FBF;</p>
-<h2 id="&#x6A21;&#x5757;&#x5316;"><a href="#&#x6A21;&#x5757;&#x5316;" class="headerlink" title="&#x6A21;&#x5757;&#x5316;"></a>&#x6A21;&#x5757;&#x5316;</h2><p>AngularJS &#x4E5F;&#x662F;&#x9075;&#x5FAA; AMD &#x7684;&#x3002;</p>
-<pre><code>var app = angular.module(&apos;app&apos;, [
-    &apos;moduleA&apos;,
-    &apos;moduleB&apos;,
-]);
-app.controller(&apos;MainCtrl&apos;, [
-    &apos;$scope&apos;,
-     function ($scope) {
-}]);
-</code></pre><p>&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x5F52;&#x7C7B;&#xFF1A;</p>
-<pre><code>var services = angular.module(&apos;services&apos;,[]);
-services.service(&apos;MyService&apos;, function(){
-  //service code
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
 });
 
-var controllers = angular.module(&apos;controllers&apos;,[&apos;services&apos;]);
-controllers.controller(&apos;MyCtrl&apos;, function($scope, MyService){
-    //controller code
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
 });
-
-var app = angular.module(&apos;app&apos;,[&apos;controllers&apos;, &apos;services&apos;]);
-</code></pre><h1 id="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"><a href="#&#x6838;&#x5FC3;&#x6982;&#x5FF5;" class="headerlink" title="&#x6838;&#x5FC3;&#x6982;&#x5FF5;"></a>&#x6838;&#x5FC3;&#x6982;&#x5FF5;</h1><ul>
-<li>&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF1A;MVVM&#x6A21;&#x578B;&#xFF0C;view&#x548C;model&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E00;&#x65B9;&#x6539;&#x53D8;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x4E5F;&#x4F1A;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#x3002;</li>
-<li>scope&#xFF1A;view&#x548C;controller&#x4E4B;&#x95F4;&#x7684;&#x7EBD;&#x5E26;&#xFF0C;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x6A21;&#x578B;model&#xFF0C;&#x76D1;&#x542C;model&#x7684;&#x53D8;&#x5316;&#x3002;&#x6BCF;&#x4E2A;angular-app&#x53EA;&#x6709;&#x4E00;&#x4E2A;rootScope&#xFF0C;&#x4E5F;&#x5B58;&#x5728;childScope,&#x6BCF;&#x4E2A;childScope&#x90FD;&#x4F1A;&#x6709;parentScope&#x548C;childScope&#xFF0C;&#x539F;&#x578B;&#x65B9;&#x5F0F;&#x7EE7;&#x627F;&#x3002;</li>
-<li>controller&#xFF1A;&#x89C4;&#x8303;&#x7684;angular&#x4E2D;&#xFF0C;controller&#x4E2D;&#x4E0D;&#x51FA;&#x73B0;&#x4EFB;&#x4F55;DOM&#x64CD;&#x4F5C;&#xFF0C;controller&#x4EC5;&#x4EC5;&#x662F;&#x6539;&#x53D8;scope&#x4E0A;&#x7684;&#x6570;&#x636E;&#x5373;&#x53EF;&#x3002;</li>
-<li>view: angular&#x4F1A;&#x5229;&#x7528;DOM&#x6811;&#xFF0C;&#x7ECF;&#x8FC7;complie&#x518D;&#x548C;scope&#x6570;&#x636E;&#x7ED3;&#x5408;&#xFF0C;&#x5448;&#x73B0;&#x7ED9;&#x7528;&#x6237;&#x3002;</li>
-</ul>
-<h1 id="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"><a href="#angular&#x5E94;&#x7528;&#x5165;&#x53E3;" class="headerlink" title="angular&#x5E94;&#x7528;&#x5165;&#x53E3;"></a>angular&#x5E94;&#x7528;&#x5165;&#x53E3;</h1><p>&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#x6216;&#x8005;angular.bootstrap(element,[&#x2018;&#x6A21;&#x5757;&#x540D;&#x2019;])&#x542F;&#x52A8;&#x3002;ng-app&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6CA1;&#x6709;&#x503C;&#xFF0C;angular&#x4F1A;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x3002;<br>ng-model&#x6307;&#x4EE4;&#x7684;&#x503C;&#x6302;&#x5728;$scope&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
-<h1 id="angular-requirejs"><a href="#angular-requirejs" class="headerlink" title="angular + requirejs"></a>angular + requirejs</h1><pre><code>&lt;div ng-controller=&quot;myCtrl&quot;&gt;
-    &lt;span&gt;{{title}}&lt;/span&gt;
-&lt;/div&gt;
-
-requirejs.config({
-    paths : {
-        angular : &apos;angular/angular&apos;
-    },
-    shim : {
-        angular : {
-            exports : &apos;angular&apos;
-        },
-    }
-})
-define([ &apos;angular&apos; ], function( angular) {
-    var title = angular.module(&quot;myApp&quot;, []);
-    title.controller(&apos;myCtrl&apos;, function($scope) {
-        $scope.title = &quot;&#x4E3B;&#x9875;&quot;;
-    });
-    //&#x624B;&#x52A8;&#x542F;&#x7528;angular
-    angular.element(document).ready(function() {
-        angular.bootstrap(document, [ &apos;myApp&apos; ]);
-    });
-});
-</code></pre><blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x80FD;&#x6DFB;&#x52A0;ng-app&#x5C5E;&#x6027;&#xFF0C;&#x91C7;&#x7528;&#x624B;&#x52A8;&#x542F;&#x52A8;angularjs&#x5E94;&#x7528;</p>
-</blockquote>
-<h2 id="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"><a href="#&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service" class="headerlink" title="&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service"></a>&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</h2><p>&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;&#x9879;&#x76EE;&#x6240;&#x7528;&#x5230;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x9884;&#x5148;&#x52A0;&#x8F7D;&#x5B8C;&#x518D;&#x521D;&#x59CB;&#x5316;AngularJS&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x9879;&#x76EE;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x6253;&#x5F00;&#x5BF9;&#x5E94;&#x7684;&#x754C;&#x9762;&#x624D;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;controller&#x7B49;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x662F;AngularJS&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E4B;&#x540E;&#x52A0;&#x8F7D;&#x7684;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;sercive&#x662F;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5230;&#x6A21;&#x5757;&#x4E0A;&#x7684;&#x3002;&#x7528;AngularJS + ui-router + RequireJS&#x6765;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x662F;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5C31;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x6761;&#x4EF6;&#x6765;&#x770B;&#x770B;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;<br>&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.tuicool.com/articles/IJNFNnf" target="_blank" rel="external">AngularJS + ui-router + RequireJS&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6CE8;&#x518C;controller&#xFF0F;directive&#xFF0F;filter&#xFF0F;service</a></p>
-<h2 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h2><h3 id="Service-vs-Factory"><a href="#Service-vs-Factory" class="headerlink" title="Service vs Factory"></a>Service vs Factory</h3><p>&#x89C1;<strong>angular&#x4E4B;Service vs Factory</strong>&#x4E00;&#x6587;&#x3002;</p>
-<h3 id="http&#x670D;&#x52A1;"><a href="#http&#x670D;&#x52A1;" class="headerlink" title="$http&#x670D;&#x52A1;"></a>$http&#x670D;&#x52A1;</h3><p>$http &#x662F; AngularJS &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x670D;&#x52A1;&#xFF0C;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<pre><code>var app = angular.module(&apos;myApp&apos;, []);
-app.controller(&apos;siteCtrl&apos;, function($scope, $http) {
-  $http.get(&quot;http://www.runoob.com/try/angularjs/data/sites.php&quot;)
-  .success(function (response) {$scope.names = response.sites;});
-});
-</code></pre><h3 id="timeout-&#x670D;&#x52A1;"><a href="#timeout-&#x670D;&#x52A1;" class="headerlink" title="$timeout &#x670D;&#x52A1;"></a>$timeout &#x670D;&#x52A1;</h3><p>AngularJS $timeout &#x670D;&#x52A1;&#x5BF9;&#x5E94;&#x4E86; JS window.setTimeout &#x51FD;&#x6570;&#x3002;</p>
-<blockquote>
-<p>&#x4E24;&#x79D2;&#x540E;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
-</blockquote>
-<pre><code>var app = angular.module(&apos;myApp&apos;, []);
-app.controller(&apos;myCtrl&apos;, function($scope, $timeout) {
-    $scope.myHeader = &quot;Hello World!&quot;;
-    $timeout(function () {
-        $scope.myHeader = &quot;How are you today?&quot;;
-    }, 2000);
-});
-</code></pre><h3 id="interval-&#x670D;&#x52A1;"><a href="#interval-&#x670D;&#x52A1;" class="headerlink" title="$interval &#x670D;&#x52A1;"></a>$interval &#x670D;&#x52A1;</h3><blockquote>
-<p>&#x6BCF;&#x4E24;&#x79D2;&#x663E;&#x793A;&#x4FE1;&#x606F;:</p>
-</blockquote>
-<pre><code>var app = angular.module(&apos;myApp&apos;, []);
-app.controller(&apos;myCtrl&apos;, function($scope, $interval) {
-    $scope.theTime = new Date().toLocaleTimeString();
-    $interval(function () {
-        $scope.theTime = new Date().toLocaleTimeString();
-    }, 1000);
-});
-</code></pre><h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x670D;&#x52A1;</h3><blockquote>
-<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;test&#x7684;&#x670D;&#x52A1;</p>
-</blockquote>
-<pre><code>app.service(&apos;test&apos;, function() {
-    this.myFunc = function (x) {
-        return x.toString(16);
-    }
-});
-</code></pre><blockquote>
-<p>&#x63A7;&#x5236;&#x5668;myCtrl&#x4E2D;&#x8C03;&#x7528;</p>
-</blockquote>
-<pre><code>app.controller(&apos;myCtrl&apos;, function($scope, test) {
-    $scope.hex = test.myFunc(255);
-});
-</code></pre><blockquote>
-<p>&#x8FC7;&#x6EE4;&#x5668;myFormat&#x4E2D;&#x7684;&#x4F7F;&#x7528;</p>
-</blockquote>
-<pre><code>app.filter(&apos;myFormat&apos;,[&apos;hexafy&apos;, function(hexafy) {
-    return function(x) {
-        return hexafy.myFunc(x);
-    };
-}]);
-</code></pre><h2 id="Directive&#x6307;&#x4EE4;"><a href="#Directive&#x6307;&#x4EE4;" class="headerlink" title="Directive&#x6307;&#x4EE4;"></a>Directive&#x6307;&#x4EE4;</h2><p>&#x6269;&#x5C55;html&#x8BED;&#x8A00;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;React&#x7684;&#x7EC4;&#x4EF6;</p>
-<pre><code>var app = angular.module(&quot;myApp&quot;, []);
-app.directive(&quot;runoobDirective&quot;, function() {
-    return {
-        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
-    };
-});
-//&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8C03;&#x7528;&#x90FD;&#x53EF;&#x4EE5;
-&lt;runoob-directive&gt;&lt;/runoob-directive&gt;
-&lt;div runoob-directive&gt;&lt;/div&gt;
-</code></pre><p>&#x7C7B;&#x540D;&#x8C03;&#x7528;</p>
-<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
-    return {
-        restrict : &quot;C&quot;,
-        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
-    };
-});
-&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;
-</code></pre><p>&#x6CE8;&#x91CA;&#x8C03;&#x7528;</p>
-<pre><code>app.directive(&quot;runoobDirective&quot;, function() {
-    return {
-        restrict : &quot;M&quot;,
-        replace : true,
-        template : &quot;&lt;h1&gt;&#x81EA;&#x5B9A;&#x4E49;&#x6307;&#x4EE4;!&lt;/h1&gt;&quot;
-    };
-})
-</code></pre><blockquote>
-<p>&#x6CE8;&#x610F;: &#x9700;&#x8981;&#x5728;&#x8BE5;&#x5B9E;&#x4F8B;&#x6DFB;&#x52A0; replace &#x5C5E;&#x6027;&#xFF0C; &#x5426;&#x5219;&#x8BC4;&#x8BBA;&#x662F;&#x4E0D;&#x53EF;&#x89C1;&#x7684;&#x3002;<br>&#x6CE8;&#x610F;: &#x5FC5;&#x987B;&#x8BBE;&#x7F6E; restrict &#x7684;&#x503C;&#x4E3A; &#x201C;M&#x201D; &#x624D;&#x80FD;&#x901A;&#x8FC7;&#x6CE8;&#x91CA;&#x6765;&#x8C03;&#x7528;&#x6307;&#x4EE4;&#x3002;</p>
-</blockquote>
-<h3 id="restrict"><a href="#restrict" class="headerlink" title="restrict"></a>restrict</h3><p>restrict &#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;:</p>
-<ul>
-<li>E &#x4F5C;&#x4E3A;&#x5143;&#x7D20;&#x540D;&#x4F7F;&#x7528; </li>
-<li>A &#x4F5C;&#x4E3A;&#x5C5E;&#x6027;&#x4F7F;&#x7528; </li>
-<li>C &#x4F5C;&#x4E3A;&#x7C7B;&#x540D;&#x4F7F;&#x7528; </li>
-<li>M &#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;&#x4F7F;&#x7528;</li>
-</ul>
-<h2 id="&#x63D2;&#x4EF6;"><a href="#&#x63D2;&#x4EF6;" class="headerlink" title="&#x63D2;&#x4EF6;"></a>&#x63D2;&#x4EF6;</h2><h3 id="1-angularAMD"><a href="#1-angularAMD" class="headerlink" title="1. angularAMD"></a>1. angularAMD</h3><p> RequireJS+AngularJS<br>angularAMD is an utility that facilitates the use of RequireJS in AngularJS applications supporting on-demand loading of 3rd party modules such as angular-ui.<br>angularAMD&#x662F;&#x4F5C;&#x8005;@ marcoslin&#x4F7F;&#x7528; RequireJS &#xFF0B; AngularJS&#x5F00;&#x53D1;&#x7684;&#x524D;&#x7AEF;mvvm&#x6846;&#x67B6;,&#x56E0;&#x6B64;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x6B3E;Web App.&#x5B83;&#x7279;&#x522B;&#x9002;&#x5408;&#x5FEB;&#x901F;&#x5F00;&#x53D1;SPA&#x5E94;&#x7528;&#x3002;</p>
-<h3 id="2-angularUI"><a href="#2-angularUI" class="headerlink" title="2. angularUI"></a>2. angularUI</h3><p> AngularJS &#x7684;UI&#x589E;&#x5F3A;&#x6307;&#x4EE4;&#x96C6;&#x3002;&#x5305;&#x542B;&#x7684;&#x6A21;&#x5757;&#x6709;&#xFF1A;<br>    UI-Utils<br>    UI-Modules<br>    UI-Alias<br>    UI-Bootstrap<br>    NG-Grid<br>    UI-Router<br>    IDE Plugins<br>    GSoC</p>
-<h4 id="UI-Router&#x4E0E;ngRoute"><a href="#UI-Router&#x4E0E;ngRoute" class="headerlink" title="UI-Router&#x4E0E;ngRoute"></a><strong>UI-Router&#x4E0E;ngRoute</strong></h4><p>ngRoute&#x662F;&#x7528;AngularJS&#x6846;&#x67B6;&#x7684;&#x6838;&#x5FC3;&#x90E8;&#x5206;<br>ui-router&#x662F;&#x4E00;&#x4E2A;&#x793E;&#x533A;&#x5E93;&#x3001;&#x7B2C;&#x4E09;&#x65B9;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6765;&#x63D0;&#x9AD8;&#x5B8C;&#x5584;ngroute&#x8DEF;&#x7531;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x5F3A;&#x5927;&#x3002;&#x5B83;&#x652F;&#x6301;&#x4E00;&#x5207;&#x6B63;&#x5E38;ngroute&#x4E5F;&#x53EF;&#x4EE5;&#x505A;&#x8BB8;&#x591A;&#x989D;&#x5916;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
-<h3 id="3-Angular-UI-Bootstrap"><a href="#3-Angular-UI-Bootstrap" class="headerlink" title="3. Angular UI Bootstrap"></a>3. Angular UI Bootstrap</h3><p> UI Bootstrap &#x662F;&#x7531; AngularJS UI &#x56E2;&#x961F;&#x7F16;&#x5199;&#x7684;&#x7EAF; AngularJS &#x5B9E;&#x73B0;&#x7684; Bootstrap &#x7EC4;&#x4EF6;&#x3002;</p>
-<h3 id="4-Mobile-Angular-UI"><a href="#4-Mobile-Angular-UI" class="headerlink" title="4. Mobile Angular UI"></a>4. Mobile Angular UI</h3><p>Mobile Angular UI&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;jQuery Mobile&#x7684;&#x79FB;&#x52A8;UI&#x6846;&#x67B6;</p>
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
 
       
     </div>
@@ -1638,7 +1583,7 @@ app.directive(&quot;runoobDirective&quot;, function() {
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
     </div>
 
       

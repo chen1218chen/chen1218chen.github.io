@@ -286,6 +286,101 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-spring的框架报错问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/spring的框架报错问题/" class="article-date">
+      <time datetime="2016-05-05T10:37:37.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/spring的框架报错问题/">org.springframework.beans.factory.BeanDefinitionStoreException</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="org-springframework-beans-factory-BeanDefinitionStoreException"><a href="#org-springframework-beans-factory-BeanDefinitionStoreException" class="headerlink" title="org.springframework.beans.factory.BeanDefinitionStoreException"></a>org.springframework.beans.factory.BeanDefinitionStoreException</h2><pre><code>[ERROR] [10:30:28] org.springframework.web.context.ContextLoader - Context initialization failed
+org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [applicationContext.xml]; nested exception is java.io.FileNotFoundException: class path resource [applicationContext.xml] cannot be opened because it does not exist
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:125)
+at org.springframework.web.context.support.XmlWebApplicationContext.loadBeanDefinitions(XmlWebApplicationContext.java:94)
+at org.springframework.context.support.AbstractRefreshableApplicationContext.__refreshBeanFactory(AbstractRefreshableApplicationContext.java:131)
+at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java)
+at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:522)
+at org.springframework.context.support.AbstractApplicationContext.__refresh(AbstractApplicationContext.java:436)
+at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java)
+at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:5017)
+at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5531)
+at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1574)
+at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1564)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.FileNotFoundException: class path resource [applicationContext.xml] cannot be opened because it does not exist
+at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
+at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
+... 23 more
+</code></pre><p>applicationContext.xml&#x6587;&#x4EF6;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#xFF0C;&#x5728;web.xml&#x4E2D;&#x914D;&#x7F6E;</p>
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;
+&lt;/context-param&gt;    
+</code></pre><p>&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF0C;tomcat&#x53D1;&#x5E03;&#x540E;&#x7684;classes&#x4E0B;&#x6709;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;<br>eclipse&#x53D1;&#x5E03;&#x540E;&#x7684;&#x5DE5;&#x7A0B;&#x9ED8;&#x8BA4;&#x4E0D;&#x5728;tomcat&#x7684;webapps&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x3002;<br><img src="/2016/05/05/spring&#x7684;&#x6846;&#x67B6;&#x62A5;&#x9519;&#x95EE;&#x9898;/Image%201.png" alt="enter description here" title="Image 1.png"><br>&#x5C06;Deploy path&#x4FEE;&#x6539;&#x4E3A;webapps&#xFF08;&#x6700;&#x597D;&#x662F;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#xFF1A;D:\apache-tomcat-7.0.63\webapps&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;wtpwebapps&#x3002;<br>&#x82E5;server Location&#x65E0;&#x6CD5;&#x70B9;&#x51FB;&#x9009;&#x62E9;&#xFF0C;&#x5219;&#x53F3;&#x51FB;add and remove&#x2026;&#x628A;&#x9879;&#x76EE;&#x79FB;&#x9664;&#xFF0C;&#x5728;&#x53F3;&#x51FB;clean&#x5373;&#x53EF;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hibernate时间段查询" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -2072,323 +2167,6 @@ public class UserServiceImpl implements IUserService {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-shiro角色配置" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/06/shiro角色配置/" class="article-date">
-      <time datetime="2016-04-06T14:50:46.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/06/shiro角色配置/">shiro角色配置</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h1 id="&#x89D2;&#x8272;&#x9A8C;&#x8BC1;"><a href="#&#x89D2;&#x8272;&#x9A8C;&#x8BC1;" class="headerlink" title="&#x89D2;&#x8272;&#x9A8C;&#x8BC1;"></a>&#x89D2;&#x8272;&#x9A8C;&#x8BC1;</h1><h2 id="&#x6570;&#x636E;&#x5E93;&#x8868;"><a href="#&#x6570;&#x636E;&#x5E93;&#x8868;" class="headerlink" title="&#x6570;&#x636E;&#x5E93;&#x8868;"></a>&#x6570;&#x636E;&#x5E93;&#x8868;</h2><ul>
-<li>tuser:&#x7528;&#x6237;&#x8868;<br>  uid + uname + upassword </li>
-<li>roles:&#x89D2;&#x8272;&#x8868;<br>  rid + rname</li>
-<li>user_to_role&#xFF1A;&#x7528;&#x6237;&#x89D2;&#x8272;&#x8868;&#xFF0C;hibernate&#x4F1A;&#x81EA;&#x52A8;&#x5EFA;&#x7ACB;<br>  user_id  +  role_id</li>
-</ul>
-<h3 id="roles"><a href="#roles" class="headerlink" title="roles"></a>roles</h3><pre><code>@Entity
-@Table(name = &quot;roles&quot;, schema = &quot;public&quot;)
-public class Roles implements java.io.Serializable {
-    private Integer rid;
-    private String rname;
-//    private Set&lt;User&gt; user;
-
-    public Roles() {
-    }
-    /** full constructor */
-    public Roles(String rname) {
-        this.rname = rname;
-    }
-
-    @Id
-    @GeneratedValue
-    @Column(name = &quot;rid&quot;, unique = true, nullable = false)
-    public Integer getRid() {
-        return rid;
-    }
-
-    public void setRid(Integer rid) {
-        this.rid = rid;
-    }
-
-    @Column(name = &quot;rname&quot;, length = 20)
-    public String getRname() {
-        return rname;
-    }
-
-    public void setRname(String rname) {
-        this.rname = rname;
-    }
-
-    /*    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = &quot;user_to_role&quot;,   
-        joinColumns ={@JoinColumn(name = &quot;role_id&quot;) },   
-        inverseJoinColumns = { @JoinColumn(name = &quot;user_id&quot;)
-    })
-        public Set&lt;User&gt; getUser() {
-        return user;
-    }
-
-    public void setUser(Set&lt;User&gt; user) {
-        this.user = user;
-    }*/
-
-    }
-</code></pre><p>&#x4E3A;&#x9632;&#x6B62;&#x8F6C;&#x5316;&#x6210;json&#x65F6;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#xFF0C;ManyToMany&#x914D;&#x7F6E;&#x662F;&#x53EA;&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#x914D;&#x7F6E;&#xFF0C;&#x5373;&#x53EA;&#x5728;user&#x7AEF;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;</p>
-<h3 id="user"><a href="#user" class="headerlink" title="user"></a>user</h3><pre><code>@Entity
-@Table(name = &quot;tuser&quot;)
-public class User implements java.io.Serializable {
-
-    private Integer uid;
-    private String uname;
-    private String upassword;
-    //&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5177;&#x6709;&#x591A;&#x4E2A;&#x89D2;&#x8272; 
-    private Set&lt;Roles&gt; roles = new HashSet&lt;Roles&gt;();
-
-    public User() {
-    }
-
-    // Property accessors
-    @Id
-    @GeneratedValue
-    @Column(name = &quot;uid&quot;, unique = true, nullable = false)
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    @Column(name = &quot;uname&quot;, length = 20)
-    public String getUname() {
-        return this.uname;
-    }
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    @Column(name = &quot;upassword&quot;, length = 20)
-    public String getUpassword() {
-        return this.upassword;
-    }
-
-    public void setUpassword(String upassword) {
-        this.upassword = upassword;
-    }
-
-    @ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-    @JoinTable(name = &quot;user_to_role&quot;,   
-        joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
-        inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
-    })
-    public Set&lt;Roles&gt; getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set&lt;Roles&gt; roles) {
-        this.roles = roles;
-    }
-}
-</code></pre><p>&#x6B64;&#x4F8B;&#x5B50;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x6CA1;&#x6709;&#x6D89;&#x53CA;&#x5230;&#x6743;&#x9650;permission<br>&#x5982;&#x679C;&#x6D89;&#x53CA;&#x5230;&#x6743;&#x9650;&#x5219;&#x9700;&#x8981;&#x5EFA;&#x7ACB;&#x6743;&#x9650;&#x8868;&#x53CA;&#x5BF9;&#x5E94;&#x7684;POJO</p>
-<ul>
-<li>permission&#xFF1A;&#x6743;&#x9650;&#x8868;<br>  id  +  permissionname  +  role_id<br>&#x5728;role&#x4E2D;&#x6DFB;&#x52A0;&#xFF1A;</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private List&lt;Permission&gt; permissionList;//&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x6743;&#x9650;</span><br><span class="line">...</span><br><span class="line">@OneToMany(mappedBy=&quot;role&quot;)  </span><br><span class="line">public List&lt;Permission&gt; getPermissionList() {  </span><br><span class="line">    return permissionList;  </span><br><span class="line">}  </span><br><span class="line">public void setPermissionList(List&lt;Permission&gt; permissionList) {  </span><br><span class="line">    this.permissionList = permissionList;  </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>Permission pojo</p>
-<pre><code>@Entity  
-@Table(name=&quot;t_permission&quot;)  
-public class Permission {  
-
-    private Integer id;  
-    private String permissionname;  
-    private Role role;//&#x4E00;&#x4E2A;&#x6743;&#x9650;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x89D2;&#x8272;  
-
-    @Id  
-    @GeneratedValue(strategy=GenerationType.IDENTITY)  
-    public Integer getId() {  
-        return id;  
-    }  
-    public void setId(Integer id) {  
-        this.id = id;  
-    }  
-    public String getPermissionname() {  
-        return permissionname;  
-    }  
-    public void setPermissionname(String permissionname) {  
-        this.permissionname = permissionname;  
-    }  
-    @ManyToOne  
-    @JoinColumn(name=&quot;role_id&quot;)  
-    public Role getRole() {  
-        return role;  
-    }  
-    public void setRole(Role role) {  
-        this.role = role;  
-    }  
-
-} 
-</code></pre><h2 id="index-jsp"><a href="#index-jsp" class="headerlink" title="index.jsp"></a>index.jsp</h2><pre><code>&lt;%@ taglib prefix=&quot;shiro&quot; uri=&quot;http://shiro.apache.org/tags&quot;%&gt;
-...
-&lt;ul class=&quot;nav navbar-nav navbar-right&quot;&gt;
-&lt;li&gt;&lt;a&gt;
-    &lt;shiro:user&gt;
-        &#x6B22;&#x8FCE;&#x4F60;:&lt;shiro:principal /&gt;
-    &lt;/shiro:user&gt;
-    &lt;!-- &#x6CA1;&#x6709;&#x767B;&#x5F55;&#xFF0C;&#x5C31;&#x8BA4;&#x4E3A;&#x662F;Guest&#xFF0C;&#x663E;&#x793A;&#x6CE8;&#x518C;&#x94FE;&#x63A5; --&gt; 
-    &lt;shiro:guest&gt;
-        &lt;a href=&quot;register.jsp&quot;&gt;&#x6CE8;&#x518C;&lt;/a&gt;
-    &lt;/shiro:guest&gt;&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;
-    &lt;shiro:hasRole name=&quot;&#x7BA1;&#x7406;&#x5458;&quot;&gt;  
-        &lt;a href=&quot;manager/index.jsp&quot;&gt;&#x540E;&#x53F0;&#x7BA1;&#x7406;&lt;/a&gt;  
-    &lt;/shiro:hasRole&gt;
-
-    //&#x793A;&#x4F8B;&#xFF0C;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x4E2D;&#x4EFB;&#x4E00;&#x4E2A;&#x6743;&#x9650;&#x65F6;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;
-     &lt;shiro:hasAnyRoles name=&quot;&#x7BA1;&#x7406;&#x5458;,&#x666E;&#x901A;&#x7528;&#x6237;&quot;&gt;
-         &#x64CD;&#x4F5C;
-     &lt;/shiro:hasAnyRoles&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;javascript:void(0)&quot; id=&quot;exitBtn&quot; type=&quot;button&quot;&gt;&#x9000;&#x51FA;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</code></pre><h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><pre><code>&lt;!-- Shiro Filter &#x62E6;&#x622A;&#x5668;&#x76F8;&#x5173;&#x914D;&#x7F6E; --&gt;
-&lt;!--shiro&#x8FC7;&#x6EE4;&#x5668;&#x914D;&#x7F6E;&#xFF0C;bean&#x7684;id&#x503C;&#x987B;&#x4E0E;web&#x4E2D;&#x7684;filter-name&#x7684;&#x503C;&#x76F8;&#x540C; --&gt;
-&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
-    &lt;!-- securityManager --&gt;
-    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot; /&gt;
-    &lt;!-- &#x767B;&#x5F55;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot; /&gt;
-    &lt;!-- &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;successUrl&quot; value=&quot;/manager/index.jsp&quot; /&gt;
-    &lt;!-- &#x6388;&#x6743;&#x5931;&#x8D25;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/login.jsp&quot; /&gt;
-    &lt;!-- &#x8FC7;&#x6EE4;&#x94FE;&#x5B9A;&#x4E49; --&gt;
-    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
-        &lt;value&gt;
-            /login.jsp* = anon
-            /logout* = anon
-            /*.js = anon
-            /*.css = anon
-            &lt;!-- &#x8868;&#x793A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x94FE;&#x63A5; --&gt;
-            /manager/** = authc,roles[&quot;&#x7BA1;&#x7406;&#x5458;&quot;]
-            /index.jsp = authc
-        &lt;/value&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><h2 id="myRealm"><a href="#myRealm" class="headerlink" title="myRealm"></a>myRealm</h2><p>&#x6743;&#x9650;&#x9A8C;&#x8BC1;&#x548C;&#x767B;&#x9646;&#x9A8C;&#x8BC1;</p>
-<pre><code>public class myRealm extends AuthorizingRealm {
-    @Resource
-    private IUserService userManagerImpl;
-    /**
-     * &#x6743;&#x9650;&#x9A8C;&#x8BC1;
-     */
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(
-            PrincipalCollection principals) {
-        // TODO Auto-generated method stub
-        String userName = (String) principals.fromRealm(getName()).iterator().next();
-        //&#x6839;&#x636E;&#x7528;&#x6237;&#x540D;&#x67E5;&#x627E;&#x62E5;&#x6709;&#x7684;&#x89D2;&#x8272;
-        User user = userManagerImpl.queryByName(userName).get(0);
-        Set&lt;Roles&gt; roles = user.getRoles();
-        if (roles != null) {
-            SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
-            for (Roles role : roles) {
-                info.addRole(role.getRname());
-            }
-
-            return info;
-        } else {
-            return null;
-        }
-
-    }
-
-    /**
-     * &#x767B;&#x5F55;&#x9A8C;&#x8BC1;
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(
-            AuthenticationToken authcToken) throws AuthenticationException {
-
-        // &#x4EE4;&#x724C;&#x2014;&#x2014;&#x57FA;&#x4E8E;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x7684;&#x4EE4;&#x724C;
-        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        // &#x4EE4;&#x724C;&#x4E2D;&#x53EF;&#x4EE5;&#x53D6;&#x51FA;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;
-        String userName = token.getUsername();
-        String passWord = new String(token.getPassword());
-        User user = userManagerImpl.queryByName(userName).get(0);
-        String passwd = user.getUpassword();
-        String approval = user.getIsapproval();
-        if(user.getUid() == null){
-            System.out.println(&quot;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7528;&#x6237; &quot;);
-            throw new UnknownAccountException(&quot;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x7528;&#x6237; [&quot; + userName + &quot;]&quot;);
-        }
-        if(!passwd.equals(passWord)){
-            System.out.println(&quot;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&#xFF01;&#xFF01;&quot;);
-            throw new IncorrectCredentialsException(&quot;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&#xFF01;&#xFF01;&quot;);
-        }
-        if(approval.equals(&quot;0&quot;)){
-            System.out.println(&quot;&#x5BA1;&#x6279;&#x672A;&#x901A;&#x8FC7;&quot;);
-            throw new IncorrectCredentialsException(&quot;&#x5BA1;&#x6279;&#x672A;&#x901A;&#x8FC7;&#xFF01;&#xFF01;&quot;);
-        }
-        //&#x5C06;&#x6B63;&#x786E;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x6C42;&#x767B;&#x5F55;&#x7528;&#x6237;&#x7684;&#x7528;&#x6237;&#x540D;&#x548C;&#x6B63;&#x786E;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x521B;&#x5EFA;AuthenticationInfo&#x5BF9;&#x8C61;&#x5E76;&#x8FD4;&#x56DE;  
-        AuthenticationInfo authinfo = new SimpleAuthenticationInfo(userName,
-                passWord, getName());
-        return authinfo;
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
     </div>
 
       

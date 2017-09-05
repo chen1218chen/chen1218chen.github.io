@@ -16,16 +16,18 @@
 
 
 
-<meta name="description" content="&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&amp;#x521D;&amp;#x5B66;&amp;#x4E60;angular&amp;#xFF0C;&amp;#x7528;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x6CE8;&amp;#x518C;&amp;#x9875;&amp;#x9762;&amp;#x6765;&amp;#x7EC3;&amp;#x7EC3;&amp;#x624B;&amp;">
+<meta name="description" content="html5&amp;#x51FA;&amp;#x6765;&amp;#x540E;&amp;#xFF0C;&amp;#x524D;&amp;#x7AEF;&amp;#x64AD;&amp;#x653E;&amp;#x89C6;&amp;#x9891;&amp;#x77AC;&amp;#x95F4;&amp;#x53D8;&amp;#x5F97;&amp;#x65B9;&amp;#x4FBF;&amp;#x5BB9;&amp;#x6613;&amp;#x591A;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E00;&amp;#x4E2A;&amp;lt;video&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular用户注册及密码一致性验证">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/09/12/angular用户注册与密码确认验证/index.html">
+<meta property="og:title" content="前端获取视频流并播放">
+<meta property="og:url" content="http://chen1218chen.github.io/2017/09/05/前端获取视频流并播放/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&amp;#x521D;&amp;#x5B66;&amp;#x4E60;angular&amp;#xFF0C;&amp;#x7528;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x6CE8;&amp;#x518C;&amp;#x9875;&amp;#x9762;&amp;#x6765;&amp;#x7EC3;&amp;#x7EC3;&amp;#x624B;&amp;">
-<meta property="og:updated_time" content="2016-09-12T08:11:20.881Z">
+<meta property="og:description" content="html5&amp;#x51FA;&amp;#x6765;&amp;#x540E;&amp;#xFF0C;&amp;#x524D;&amp;#x7AEF;&amp;#x64AD;&amp;#x653E;&amp;#x89C6;&amp;#x9891;&amp;#x77AC;&amp;#x95F4;&amp;#x53D8;&amp;#x5F97;&amp;#x65B9;&amp;#x4FBF;&amp;#x5BB9;&amp;#x6613;&amp;#x591A;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E00;&amp;#x4E2A;&amp;lt;video&amp;g">
+<meta property="og:image" content="http://chen1218chen.github.io/2017/09/05/前端获取视频流并播放/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170905144418.png">
+<meta property="og:updated_time" content="2017-09-05T06:45:29.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular用户注册及密码一致性验证">
-<meta name="twitter:description" content="&amp;#x6CE8;&amp;#x518C;&amp;#x8868;&amp;#x5355;&amp;#x521D;&amp;#x5B66;&amp;#x4E60;angular&amp;#xFF0C;&amp;#x7528;&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x7528;&amp;#x6237;&amp;#x6CE8;&amp;#x518C;&amp;#x9875;&amp;#x9762;&amp;#x6765;&amp;#x7EC3;&amp;#x7EC3;&amp;#x624B;&amp;">
+<meta name="twitter:title" content="前端获取视频流并播放">
+<meta name="twitter:description" content="html5&amp;#x51FA;&amp;#x6765;&amp;#x540E;&amp;#xFF0C;&amp;#x524D;&amp;#x7AEF;&amp;#x64AD;&amp;#x653E;&amp;#x89C6;&amp;#x9891;&amp;#x77AC;&amp;#x95F4;&amp;#x53D8;&amp;#x5F97;&amp;#x65B9;&amp;#x4FBF;&amp;#x5BB9;&amp;#x6613;&amp;#x591A;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E00;&amp;#x4E2A;&amp;lt;video&amp;g">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2017/09/05/前端获取视频流并播放/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170905144418.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>angular用户注册及密码一致性验证 | 一锅乱炖</title>
+<title>前端获取视频流并播放 | 一锅乱炖</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -278,11 +280,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-angular用户注册与密码确认验证" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-前端获取视频流并播放" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/12/angular用户注册与密码确认验证/" class="article-date">
-      <time datetime="2016-09-12T15:52:30.000Z" itemprop="datePublished">2016-09-12</time>
+      <a href="/2017/09/05/前端获取视频流并播放/" class="article-date">
+      <time datetime="2017-09-05T14:32:49.000Z" itemprop="datePublished">2017-09-05</time>
 </a>
 
 
@@ -297,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      angular用户注册及密码一致性验证
+      前端获取视频流并播放
     </h1>
   
 
@@ -308,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -318,75 +320,40 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="&#x6CE8;&#x518C;&#x8868;&#x5355;"><a href="#&#x6CE8;&#x518C;&#x8868;&#x5355;" class="headerlink" title="&#x6CE8;&#x518C;&#x8868;&#x5355;"></a>&#x6CE8;&#x518C;&#x8868;&#x5355;</h1><p>&#x521D;&#x5B66;&#x4E60;angular&#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x9875;&#x9762;&#x6765;&#x7EC3;&#x7EC3;&#x624B;&#xFF0C;mark&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x540E;&#x9700;&#x8981;&#x5C31;&#x76F4;&#x63A5;Ctrl+c&#x4E86;&#x3002;</p>
-<pre><code>&lt;form action=&quot;&quot; class=&quot;form-horizontal&quot; name=&quot;regForm&quot;     ng-controller=&quot;regController&quot; 
- ng-submit=&quot;submitForm()&quot; novalidate&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.username.$valid&amp;&amp;regForm.username.$touched,&apos;has-error&apos;:regForm.username.$invalid&amp;&amp;regForm.username.$touched }&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x7528;&#x6237;&#x540D;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;text&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.username&quot; 
-            name=&quot;username&quot; 
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            placeholder=&quot;&#x7528;&#x6237;&#x540D;&quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.username.$error.required&amp;&amp;regForm.username.$touched&quot;&gt;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.username.$error.minlength||regForm.username.$error.maxlength&quot;&gt;&#x957F;&#x5EA6;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.password.$valid&amp;&amp;regForm.password.$touched,&apos;has-error&apos;:regForm.password.$invalid&amp;&amp;regForm.password.$touched}&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x5BC6;&#x7801;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;password&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.password&quot; 
-            name=&quot;password&quot; 
-            ng-pattern=&quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&quot;
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            placeholder=&quot;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF; &quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.password.$error.required
-            &amp;&amp;regForm.password.$touched&quot;&gt;&#x5BC6;&#x7801;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;!--&#x6B63;&#x5219;&#x9A8C;&#x8BC1;--&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.password.$error.pattern&amp;&amp;regForm.password.$touched&quot;&gt;
-            &#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; 
-            ng-show=&quot;regForm.password.$error.minlength||regForm.password.$error.maxlength&quot;&gt;&#x5BC6;&#x7801;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.confirmPassword.$valid&amp;&amp;regForm.confirmPassword.$touched,&apos;has-error&apos;:(regForm.confirmPassword.$invalid&amp;&amp;regForm.confirmPassword.$touched)||(user.password!=user.confirmPassword&amp;&amp;regForm.confirmPassword.$touched)}&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x786E;&#x8BA4;&#x5BC6;&#x7801;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;password&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.confirmPassword&quot; 
-            name=&quot;confirmPassword&quot; 
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            ng-pattern=&quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&quot;
-            placeholder=&quot;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.required&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x786E;&#x8BA4;&#x5BC6;&#x7801;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;!--&#x6B63;&#x5219;&#x9A8C;&#x8BC1;--&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.pattern&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.minlength||regForm.confirmPassword.$error.maxlength&quot;&gt;&#x786E;&#x8BA4;&#x5BC6;&#x7801;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; 
-            ng-show=&quot;user.password!=user.confirmPassword&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x4E24;&#x6B21;&#x5BC6;&#x7801;&#x4E0D;&#x4E00;&#x81F4;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-        &lt;div class=&quot;col-md-offset-2 col-md-9&quot;&gt;
-            &lt;button class=&quot;btn btn-primary&quot; ng-disabled=&quot;regForm.$invalid&quot;&gt;&#x767B;&#x9646;&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
+        <p>html5&#x51FA;&#x6765;&#x540E;&#xFF0C;&#x524D;&#x7AEF;&#x64AD;&#x653E;&#x89C6;&#x9891;&#x77AC;&#x95F4;&#x53D8;&#x5F97;&#x65B9;&#x4FBF;&#x5BB9;&#x6613;&#x591A;&#x4E86;&#xFF0C;&#x4E00;&#x4E2A;<code>&lt;video&gt;</code>&#x6807;&#x7B7E;&#x5C31;&#x53EF;&#x4EE5;&#x641E;&#x5B9A;,&#x53EA;&#x8981;&#x7ED9;src&#x5C5E;&#x6027;&#x6B63;&#x786E;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code>&lt;video src=&quot;images/xxx.mov&quot; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;
+</code></pre><p>&#x4F46;&#x662F;&#x5F53;&#x89C6;&#x9891;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4ECE;&#x540E;&#x53F0;&#x5411;&#x524D;&#x53F0;&#x4F20;&#x8F93;&#x89C6;&#x9891;&#x6D41;&#x624D;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x3002;</p>
+<blockquote>
+<p>JAVA</p>
+</blockquote>
+<pre><code>@RequestMapping(value =&quot;/getFileSrc&quot; ,method = RequestMethod.GET)
+@ResponseBody
+public void getFileSrc(HttpServletRequest request ,HttpServletResponse response,@RequestParam(value=&quot;path&quot;) String path) throws IOException{
+    File file = new File(path);
+    FileInputStream input = new FileInputStream(file);
+    int i = input.available();
+    byte[] bytes = new byte[i];
+    input.read(bytes);
+    response.setContentType(&quot;application/video&quot;);
+    OutputStream output = response.getOutputStream();
+    output.write(bytes);
+    output.flush();
+    output.close();
+    input.close();        
+}
+</code></pre><blockquote>
+<p>JS</p>
+</blockquote>
+<pre><code>var path1= &quot;http://localhost:8080/HBDK/rest/resource/getFileSrc?path=&quot;+path;
+
+&lt;!--&#x5F39;&#x51FA;&#x6846;&#x4E2D;&#x64AD;&#x653E;--&gt;
+back.view.popup.open({
+          title: &quot;&#x89C6;&#x5C4F;&#x64AD;&#x653E;&quot;,
+          content:&apos;&lt;video src=&apos;+path1+&apos; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;&apos;,
+          location: point // Set the location of the popup to the clicked location
+    });
+</code></pre><p><img src="/2017/09/05/&#x524D;&#x7AEF;&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x5E76;&#x64AD;&#x653E;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170905144418.png" alt="&#x89C6;&#x5C4F;&#x64AD;&#x653E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170905144418.png"></p>
+
       
     </div>
     
@@ -394,13 +361,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/12/angular用户注册与密码确认验证/">angular用户注册及密码一致性验证</a></p>
+        <p><span>本文标题:</span><a href="/2017/09/05/前端获取视频流并播放/">前端获取视频流并播放</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-09-12, 15:52:30</p>
-        <p><span>最后更新:</span>2016-09-12, 16:11:20</p>
+        <p><span>发布时间:</span>2017-09-05, 14:32:49</p>
+        <p><span>最后更新:</span>2017-09-05, 14:45:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/12/angular用户注册与密码确认验证/" title="angular用户注册及密码一致性验证">http://chen1218chen.github.io/2016/09/12/angular用户注册与密码确认验证/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/09/12/angular用户注册与密码确认验证/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/09/05/前端获取视频流并播放/" title="前端获取视频流并播放">http://chen1218chen.github.io/2017/09/05/前端获取视频流并播放/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2017/09/05/前端获取视频流并播放/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -412,16 +379,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/14/Spring-Restful-web-services/">
-                    Spring Restful web services
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/10/bootstrap的使用/">
-                    bootstrap的使用
+                <a href="/2017/09/03/input框按Enter键刷新问题/">
+                    input框按Enter键刷新问题
                 </a>
             </div>
         
@@ -433,7 +394,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#注册表单"><span class="toc-number">1.</span> <span class="toc-text">注册表单</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -469,7 +430,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"angular用户注册及密码一致性验证　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"前端获取视频流并播放　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -489,15 +450,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/14/Spring-Restful-web-services/" title="上一篇: Spring Restful web services">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/10/bootstrap的使用/" title="下一篇: bootstrap的使用">
+            <a href="/2017/09/03/input框按Enter键刷新问题/" title="下一篇: input框按Enter键刷新问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
