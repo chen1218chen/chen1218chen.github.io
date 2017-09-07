@@ -286,6 +286,86 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-深入了解HTML" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/深入了解HTML/" class="article-date">
+      <time datetime="2016-05-09T10:17:46.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/09/深入了解HTML/">深入了解HTML之meta</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="lt-DOCTYPE-gt-&#x6587;&#x6863;&#x7C7B;&#x578B;&#x58F0;&#x660E;"><a href="#lt-DOCTYPE-gt-&#x6587;&#x6863;&#x7C7B;&#x578B;&#x58F0;&#x660E;" class="headerlink" title="&lt;!DOCTYPE&gt;&#x6587;&#x6863;&#x7C7B;&#x578B;&#x58F0;&#x660E;"></a>&lt;!DOCTYPE&gt;&#x6587;&#x6863;&#x7C7B;&#x578B;&#x58F0;&#x660E;</h2><p>&lt;!DOCTYPE html&gt;&#x6307;&#x793A;&#x6587;&#x6863;&#x7C7B;&#x578B;&#x4E3A;html5&#x7C7B;&#x578B;&#xFF0C;&#x5C5E;&#x4E8E;html&#x6807;&#x7B7E;&#x3002;&#x5B83;&#x662F;&#x6307;&#x793A; web &#x6D4F;&#x89C8;&#x5668;&#x5173;&#x4E8E;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x54EA;&#x4E2A; HTML &#x7248;&#x672C;&#x8FDB;&#x884C;&#x7F16;&#x5199;&#x7684;&#x6307;&#x4EE4;&#x3002;&#x5BF9;&#x5927;&#x5C0F;&#x5199;&#x4E0D;&#x654F;&#x611F;&#x3002;<br><a href="http://www.w3school.com.cn/tags/html_ref_dtd.asp" target="_blank" rel="external">HTML &#x5143;&#x7D20;&#x548C;&#x6709;&#x6548;&#x7684; DTD</a>&#x67E5;&#x770B;&#x6807;&#x7B7E;&#x7684;&#x9002;&#x7528;&#x7C7B;&#x578B;</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><meta></h2><p>&#x5B9A;&#x4E49;&#x5173;&#x4E8E; HTML &#x6587;&#x6863;&#x7684;&#x5143;&#x4FE1;&#x606F;&#x3002;&#x6807;&#x7B7E;&#x5C5E;&#x6027;&#x662F;key-value&#x5BF9;,key&#x6307;http-equiv/name&#x5C5E;&#x6027;,value&#x6307;content&#x5C5E;&#x6027;</p>
+<pre><code>//&#x9875;&#x9762;&#x91CD;&#x5B9A;&#x5411;
+&lt;meta http-equiv=&quot;Refresh&quot; content=&quot;5;url=XX&quot; /&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;origin&quot; /&gt;
+</code></pre><p>referer&#x662F;&#x7531;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x4E14;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;document.referrer&#x6765;&#x83B7;&#x53D6;&#x4E0A;&#x5C42;&#x9875;&#x9762;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;referer&#x7684;&#x53D1;&#x9001;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x884C;&#x4E3A;&#xFF0C;&#x53D1;&#x9001;&#x4E0E;&#x5426;&#x7684;&#x51B3;&#x5B9A;&#x6743;&#x662F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x624B;&#x91CC;&#x3002;<br>origin &#x662F;&#x5305;&#x542B;&#x4E86;schema&#x548C;hostname&#x7684;&#x90E8;&#x5206;url&#x4E0D;&#x5305;&#x542B;path&#x7B49;&#x540E;&#x9762;&#x7684;&#x5176;&#x4ED6;url&#x90E8;&#x5206;<br>&#x9879;&#x76EE;&#x4E2D;&#x5728;login.html&#x9875;&#x9762;&#x91CC;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#xFF0C;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x7684;index.jsp&#x9875;&#x9762;&#x4E2D;&#x901A;&#x8FC7;document.referrer&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x4E0A;&#x5C42;&#x9875;&#x9762;&#x3002;<br><img src="/2016/05/09/&#x6DF1;&#x5165;&#x4E86;&#x89E3;HTML/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<h2 id="&#x79FB;&#x52A8;&#x7F51;&#x7AD9;"><a href="#&#x79FB;&#x52A8;&#x7F51;&#x7AD9;" class="headerlink" title="&#x79FB;&#x52A8;&#x7F51;&#x7AD9;"></a>&#x79FB;&#x52A8;&#x7F51;&#x7AD9;</h2><p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x79FB;&#x52A8;&#x7F51;&#x7AD9;meta&#x6807;&#x7B7E;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;&#x5982;&#x4E0B;&#xFF1A;&#x8868;&#x793A;&#x5F3A;&#x5236;&#x8BA9;&#x6587;&#x6863;&#x7684;&#x5BBD;&#x5EA6;&#x4E0E;&#x8BBE;&#x5907;&#x7684;&#x5BBD;&#x5EA6;&#x4FDD;&#x6301;1:1&#xFF0C;&#x5E76;&#x4E14;&#x6587;&#x6863;&#x6700;&#x5927;&#x7684;&#x5BBD;&#x5EA6;&#x6BD4;&#x4F8B;&#x662F;1.0&#xFF0C;&#x4E14;&#x4E0D;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x5C4F;&#x5E55;&#x653E;&#x5927;&#x6D4F;&#x89C8;</p>
+<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;&quot;name=&quot;viewport&quot;/&gt;
+</code></pre><h2 id="IE-&#x517C;&#x5BB9;&#x6027;"><a href="#IE-&#x517C;&#x5BB9;&#x6027;" class="headerlink" title="IE &#x517C;&#x5BB9;&#x6027;"></a>IE &#x517C;&#x5BB9;&#x6027;</h2><p>X-UA-Compatible&#x662F;IE8&#x7279;&#x6709;&#x7684;&#xFF0C;&#x5B83;&#x544A;&#x8BC9;IE8&#x91C7;&#x7528;&#x4F55;&#x79CD;IE&#x7248;&#x672C;&#x53BB;&#x6E32;&#x67D3;&#x9875;&#x9762;&#xFF0C;&#x5BF9;&#x4E8E;ie8&#x4E4B;&#x5916;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x4E0D;&#x8BC6;&#x522B;&#x7684;&#x3002;</p>
+<pre><code>//&#x91C7;&#x7528;IE5
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=5&quot; /&gt;
+</code></pre><p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5236;&#x4F5C;&#x51FA;&#x7684;&#x9875;&#x9762;&#x5728;IE8&#x4E0B;&#x9762;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x5EFA;&#x8BAE;&#x76F4;&#x63A5;&#x5C06;IE8&#x4F7F;&#x7528;IE7&#x8FDB;&#x884C;&#x6E32;&#x67D3;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x5728;&#x9875;&#x9762;&#x7684;header&#x7684;meta&#x6807;&#x7B7E;&#x4E2D;&#x52A0;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>//&#x91C7;&#x7528;IE7
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=7&quot; /&gt;
+//&#x4EFF;&#x771F;IE7
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EmulateIE7&quot; /&gt; 
+</code></pre><p>IE=edge&#x544A;&#x8BC9;IE&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7684;&#x5F15;&#x64CE;&#x6E32;&#x67D3;&#x7F51;&#x9875;&#xFF0C;chrome=1&#x5219;&#x53EF;&#x4EE5;&#x6FC0;&#x6D3B;Chrome Frame</p>
+<pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt; 
+</code></pre><p>&#x6D4F;&#x89C8;&#x5668;&#x5728;https&#x9875;&#x9762;&#x70B9;&#x51FB;http&#x8FDE;&#x63A5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x4F1A;&#x5728;header&#x52A0;&#x4E0A;referer&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-spring的框架报错问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -2079,94 +2159,6 @@ $.ajax({
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap-Paginator/">Bootstrap Paginator</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="hibernate-annotation" class="article article-type-hibernate" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/annotation/" class="article-date">
-      <time datetime="2016-04-06T16:05:54.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/annotation/">Spring注解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="model&#x5C42;"><a href="#model&#x5C42;" class="headerlink" title="model&#x5C42;"></a>model&#x5C42;</h2><ol>
-<li>catalog: &#x6570;&#x636E;&#x5E93;&#x540D;</li>
-<li>schema: postgreSQL&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6A21;&#x5F0F;</li>
-</ol>
-<pre><code>@Table(name = &quot;category&quot;, catalog = &quot;users&quot;)
-@Table(name = &quot;roles&quot;, schema = &quot;public&quot;)
-</code></pre><h2 id="dao&#x5C42;&#xFF08;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5C42;&#xFF0C;&#x6301;&#x4E45;&#x5C42;&#xFF09;"><a href="#dao&#x5C42;&#xFF08;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5C42;&#xFF0C;&#x6301;&#x4E45;&#x5C42;&#xFF09;" class="headerlink" title="dao&#x5C42;&#xFF08;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5C42;&#xFF0C;&#x6301;&#x4E45;&#x5C42;&#xFF09;"></a>dao&#x5C42;&#xFF08;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5C42;&#xFF0C;&#x6301;&#x4E45;&#x5C42;&#xFF09;</h2><p><strong>@Repository</strong><br>Spring2.0&#x5F15;&#x5165;&#xFF0C;&#x4E3A;&#x7B80;&#x5316;spring&#x5F00;&#x53D1;&#x3002;&#x7528;&#x4E8E;&#x5C06;dao&#x5C42;&#x7684;&#x7C7B;&#x6807;&#x8BC6;&#x4E3A;Spring Bean&#xFF0C;&#x540C;&#x65F6;&#x4E3A;&#x4E86;Spring &#x626B;&#x63CF;<context:component-scan>&#x65F6;&#xFF0C;&#x8BC6;&#x522B;&#x51FA;@Repository&#x6CE8;&#x89E3;&#x3002;&#x6240;&#x6709;&#x6807;&#x6CE8;&#x4E86; @Repository &#x7684;&#x7C7B;&#x90FD;&#x5C06;&#x88AB;&#x6CE8;&#x518C;&#x4E3A; Spring Bean&#x3002;<br><strong>&#x4E3A;&#x4EC0;&#x4E48; @Repository &#x53EA;&#x80FD;&#x6807;&#x6CE8;&#x5728; DAO &#x7C7B;&#x4E0A;&#x5462;&#xFF1F;</strong><br>&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x8BE5;&#x6CE8;&#x89E3;&#x7684;&#x4F5C;&#x7528;&#x4E0D;&#x53EA;&#x662F;&#x5C06;&#x7C7B;&#x8BC6;&#x522B;&#x4E3A;Bean&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x8FD8;&#x80FD;&#x5C06;&#x6240;&#x6807;&#x6CE8;&#x7684;&#x7C7B;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5F02;&#x5E38;&#x5C01;&#x88C5;&#x4E3A; Spring &#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x3002; Spring&#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4E30;&#x5BCC;&#x7684;&#x5E76;&#x4E14;&#x662F;&#x4E0E;&#x5177;&#x4F53;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x6280;&#x672F;&#x65E0;&#x5173;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x5F02;&#x5E38;&#x7ED3;&#x6784;&#xFF0C;&#x7528;&#x4E8E;&#x5C01;&#x88C5;&#x4E0D;&#x540C;&#x7684;&#x6301;&#x4E45;&#x5C42;&#x6846;&#x67B6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x4F7F;&#x5F97;&#x5F02;&#x5E38;&#x72EC;&#x7ACB;&#x4E8E;&#x5E95;&#x5C42;&#x7684;&#x6846;&#x67B6;&#x3002;</context:component-scan></p>
-<h2 id="service&#x5C42;&#x548C;&#x63A7;&#x5236;&#x5C42;"><a href="#service&#x5C42;&#x548C;&#x63A7;&#x5236;&#x5C42;" class="headerlink" title="service&#x5C42;&#x548C;&#x63A7;&#x5236;&#x5C42;"></a>service&#x5C42;&#x548C;&#x63A7;&#x5236;&#x5C42;</h2><p>Spring2.5&#x5F00;&#x59CB;&#x5F15;&#x5165;@Component&#x3001;@Service&#x3001;@Constroller&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#xFF1A;</p>
-<p>@Service&#x7528;&#x4E8E;&#x6807;&#x6CE8;<strong>&#x4E1A;&#x52A1;&#x5C42;</strong>&#x7EC4;&#x4EF6;&#xFF08;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x5B9A;&#x4E49;&#x7684;service&#x5C42;&#x5C31;&#x7528;&#x8FD9;&#x4E2A;&#xFF09;<br>@Controller&#x7528;&#x4E8E;&#x6807;&#x6CE8;<strong>&#x63A7;&#x5236;&#x5C42;</strong>&#x7EC4;&#x4EF6;&#xFF08;&#x5982;struts&#x4E2D;&#x7684;action&#xFF09;<br>@Repository&#x7528;&#x4E8E;&#x6807;&#x6CE8;<strong>&#x6301;&#x4E45;&#x5C42;</strong>&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x7EC4;&#x4EF6;&#xFF0C;&#x5373;DAO&#x7EC4;&#x4EF6;<br>@Component <strong>&#x6CDB;&#x6307;&#x7EC4;&#x4EF6;</strong>&#xFF0C;&#x5F53;&#x7EC4;&#x4EF6;&#x4E0D;&#x597D;&#x5F52;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x6807;&#x6CE8;&#x3002;</p>
-<h2 id="Resource&#x4E0E;-service"><a href="#Resource&#x4E0E;-service" class="headerlink" title="@Resource&#x4E0E;@service"></a>@Resource&#x4E0E;@service</h2><p>&#x5F53;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x67D0;&#x4E2A;&#x7C7B;&#x4E3A;&#x4E00;&#x4E2A;bean&#xFF0C;&#x5219;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x7C7B;&#x540D;&#x524D;&#x4E00;&#x884C;&#x4F7F;&#x7528;@Service(&#x201C;XXX&#x201D;),&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x5C06;&#x8FD9;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4E3A;&#x4E00;&#x4E2A;bean&#xFF0C;bean&#x540D;&#x79F0;&#x4E3A;XXX;<br>&#x5F53;&#x67D0;&#x7C7B;&#x4E2D;&#x9700;&#x8981;&#x5F15;&#x5165;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x5219;&#x8BE5;&#x5BF9;&#x8C61;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x4E0A;&#x9762;&#x52A0;@Resource&#x3002;</p>
-<pre><code>@Service
-public class UserServiceImpl implements IUserService {
-    @Resource
-    private IUserDao userDaoImpl;
-    @Resource
-    private IRolesDao rolesImpl;
-
-    ...
-}
-</code></pre><p>&#x3000;&#x3000;@Resource&#x7684;&#x4F5C;&#x7528;&#x76F8;&#x5F53;&#x4E8E;@Autowired&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;@Autowired&#x6309;byType&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#xFF0C;&#x800C;@Resource&#x9ED8;&#x8BA4;&#x6309; byName&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7F62;&#x4E86;&#x3002;@Resource&#x6709;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5206;&#x662F;name&#x548C;type&#xFF0C;Spring&#x5C06;@Resource&#x6CE8;&#x89E3;&#x7684;name&#x5C5E;&#x6027;&#x89E3;&#x6790;&#x4E3A;bean&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x800C;type&#x5C5E;&#x6027;&#x5219;&#x89E3;&#x6790;&#x4E3A;bean&#x7684;&#x7C7B;&#x578B;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F7F;&#x7528;name&#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F7F;&#x7528;byName&#x7684;&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#xFF0C;&#x800C;&#x4F7F;&#x7528;type&#x5C5E;&#x6027;&#x65F6;&#x5219;&#x4F7F;&#x7528;byType&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#x3002;&#x5982;&#x679C;&#x65E2;&#x4E0D;&#x6307;&#x5B9A;name&#x4E5F;&#x4E0D;&#x6307;&#x5B9A;type&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x65F6;&#x5C06;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x4F7F;&#x7528;byName&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#x7B56;&#x7565;&#x3002;<br>&#x3000;&#x3000;@Resource&#x88C5;&#x914D;&#x987A;&#x5E8F;<br>&#x3000;&#x3000;1. &#x5982;&#x679C;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x4E86;name&#x548C;type&#xFF0C;&#x5219;&#x4ECE;Spring&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x627E;&#x5230;&#x552F;&#x4E00;&#x5339;&#x914D;&#x7684;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;2. &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;name&#xFF0C;&#x5219;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x67E5;&#x627E;&#x540D;&#x79F0;&#xFF08;id&#xFF09;&#x5339;&#x914D;&#x7684;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;3. &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;type&#xFF0C;&#x5219;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x627E;&#x5230;&#x7C7B;&#x578B;&#x5339;&#x914D;&#x7684;&#x552F;&#x4E00;bean&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF0C;&#x627E;&#x4E0D;&#x5230;&#x6216;&#x8005;&#x627E;&#x5230;&#x591A;&#x4E2A;&#xFF0C;&#x90FD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;<br>&#x3000;&#x3000;4. &#x5982;&#x679C;&#x65E2;&#x6CA1;&#x6709;&#x6307;&#x5B9A;name&#xFF0C;&#x53C8;&#x6CA1;&#x6709;&#x6307;&#x5B9A;type&#xFF0C;&#x5219;&#x81EA;&#x52A8;&#x6309;&#x7167;byName&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x88C5;&#x914D;&#xFF1B;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x4E3A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x5339;&#x914D;&#xFF0C;&#x5982;&#x679C;&#x5339;&#x914D;&#x5219;&#x81EA;&#x52A8;&#x88C5;&#x914D;&#x3002;
-&#x3000;</p>
-<h3 id="spring-bean"><a href="#spring-bean" class="headerlink" title="spring bean"></a>spring bean</h3><p>spring&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;bean&#x7684;&#x5DE5;&#x5382;&#xFF0C;&#x5B8C;&#x6210;bean&#x7684;&#x521B;&#x5EFA;&#x3001;&#x914D;&#x7F6E;&#x3002;Spring&#x5BB9;&#x5668;&#x96C6;&#x4E2D;&#x7BA1;&#x7406;bean&#x3002;<br>bean&#x7684;5&#x79CD;&#x4F5C;&#x7528;&#x57DF;&#xFF1A;</p>
-<ol>
-<li>Singleton&#xFF1A;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x3002;&#x5728;&#x6574;&#x4E2A;SpringIoC&#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;singleton&#x5B9A;&#x4E49;&#x7684;Bean&#x5C06;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;</li>
-<li>Prototype&#xFF1A;&#x539F;&#x578B;&#x6A21;&#x5F0F;&#x3002;&#x6BCF;&#x6B21;&#x901A;&#x8FC7;&#x5BB9;&#x5668;&#x7684;getBean&#x65B9;&#x6CD5;&#x83B7;&#x53D6;prototype&#x5B9A;&#x4E49;&#x7684;Bean&#x65F6;&#xFF0C;&#x90FD;&#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Bean&#x5B9E;&#x4F8B;&#x3002;</li>
-<li>request&#xFF1A;&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x4F7F;&#x7528;request&#x5B9A;&#x4E49;&#x7684;Bean&#x90FD;&#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;HTTP&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;Bean&#x5B9E;&#x4F8B;&#x3002;&#x5F53;&#x7136;&#x53EA;&#x6709;&#x5728;WEB&#x5E94;&#x7528;&#x4E2D;&#x4F7F;&#x7528;Spring&#x65F6;&#xFF0C;&#x8BE5;&#x4F5C;&#x7528;&#x57DF;&#x624D;&#x771F;&#x6B63;&#x6709;&#x6548;&#x3002;</li>
-<li>session&#xFF1A;&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;HTTPSession&#xFF0C;&#x4F7F;&#x7528;session&#x5B9A;&#x4E49;&#x7684;Bean&#x90FD;&#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;HTTP 5.Session&#x90FD;&#x5C06;&#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;Bean&#x5B9E;&#x4F8B;&#x3002;&#x540C;HTTP&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x6709;&#x5728;WEB&#x5E94;&#x7528;&#x624D;&#x4F1A;&#x6709;&#x6548;&#x3002;<br>global session&#xFF1A;&#x6BCF;&#x4E2A;&#x5168;&#x5C40;&#x7684;HTTPSession&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;Bean&#x5B9E;&#x4F8B;&#x3002;&#x4EC5;&#x5728;portlet Context&#x7684;&#x65F6;&#x5019;&#x624D;&#x6709;&#x6548;&#x3002;<br>&#x5E38;&#x7528;singleton&#x3001;prototype&#x4F5C;&#x7528;&#x57DF;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;Bean&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x5219;Spring&#x4F1A;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;singleton&#x4F5C;&#x7528;&#x57DF;&#x3002;</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
     </div>
 
       

@@ -286,6 +286,150 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Spring集成Log4j" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/18/Spring集成Log4j/" class="article-date">
+      <time datetime="2016-09-18T15:50:43.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/18/Spring集成Log4j/">Spring集成Log4j和Slf4j</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[toc]</p>
+<h2 id="Log4j&#x7684;&#x96C6;&#x6210;"><a href="#Log4j&#x7684;&#x96C6;&#x6210;" class="headerlink" title="Log4j&#x7684;&#x96C6;&#x6210;"></a>Log4j&#x7684;&#x96C6;&#x6210;</h2><p>Spring&#x9879;&#x76EE;&#x4E2D;&#x96C6;&#x6210;Log4j</p>
+<ol>
+<li>&#x4E0B;&#x8F7D;&#x597D;log4j&#x7684;jar&#x5305;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;log4j-1.2.11.jar&#xFF09;</li>
+<li>web.xml</li>
+</ol>
+<pre><code>&lt;!--log4j&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;--&gt;  
+&lt;context-param&gt;      
+   &lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;      
+   &lt;param-value&gt;/WEB-INF/log4j.properties&lt;/param-value&gt;      
+&lt;/context-param&gt;  
+&lt;!--&#x542F;&#x52A8;&#x4E00;&#x4E2A;watchdog&#x7EBF;&#x7A0B;&#x6BCF;1800&#x79D2;&#x626B;&#x63CF;&#x4E00;&#x4E0B;log4j&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;--&gt; 
+&lt;!-- log4j &#x914D;&#x7F6E;&#x626B;&#x63CF;&#x5237;&#x65B0;&#x95F4;&#x9694; &#x53EF;&#x4EE5;&#x4E0D;&#x7528; --&gt; 
+&lt;context-param&gt;      
+   &lt;param-name&gt;log4jRefreshInterval&lt;/param-name&gt;      
+   &lt;param-value&gt;1800000&lt;/param-value&gt;      
+&lt;/context-param&gt;   
+
+&lt;!--spring log4j&#x76D1;&#x542C;&#x5668;--&gt;  
+&lt;listener&gt;      
+   &lt;listener-class&gt;org.springframework.web.util.Log4jConfigListener&lt;/listener-class&gt;      
+&lt;/listener&gt; 
+</code></pre><p>&#x53EA;&#x914D;&#x7F6E;listener&#x4E5F;&#x53EF;&#x4EE5;</p>
+<ol>
+<li>log4j.properties<br>&#x65E5;&#x5FD7;&#x7684;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+</ol>
+<pre><code>log4j.rootLogger=info,stdout,debug,error    
+log4j.logger.org.springframework=info
+#log4j.logger.org.springframework.web=debug
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender    
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout    
+log4j.appender.stdout.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
+
+log4j.logger.info=info    
+log4j.appender.info=org.apache.log4j.DailyRollingFileAppender    
+log4j.appender.info.layout=org.apache.log4j.PatternLayout    
+log4j.appender.info.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
+log4j.appender.info.datePattern=&apos;.&apos;yyyy-MM-dd    
+log4j.appender.info.Threshold = INFO    
+log4j.appender.info.append=true    
+log4j.appender.info.File=${catalina.home}/logs/log4j/info.log
+log4j.appender.warn.File=${catalina.home}/logs/log4j/warn.log    
+
+log4j.logger.debug=debug    
+log4j.appender.debug=org.apache.log4j.DailyRollingFileAppender    
+log4j.appender.debug.layout=org.apache.log4j.PatternLayout    
+log4j.appender.debug.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
+log4j.appender.debug.datePattern=&apos;.&apos;yyyy-MM-dd    
+log4j.appender.debug.Threshold = DEBUG    
+log4j.appender.debug.append=true    
+log4j.appender.debug.File=${catalina.home}/logs/log4j/debug.log
+
+log4j.logger.warn=warn    
+log4j.appender.warn=org.apache.log4j.DailyRollingFileAppender    
+log4j.appender.warn.layout=org.apache.log4j.PatternLayout    
+log4j.appender.warn.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
+log4j.appender.warn.datePattern=&apos;.&apos;yyyy-MM-dd    
+log4j.appender.warn.Threshold = DEBUG    
+log4j.appender.warn.append=true    
+
+log4j.logger.error=error    
+log4j.appender.error=org.apache.log4j.DailyRollingFileAppender    
+log4j.appender.error.layout=org.apache.log4j.PatternLayout    
+log4j.appender.error.layout.ConversionPattern=[%-5p] [%d{HH\:mm\:ss}] %c - %m%n    
+log4j.appender.error.datePattern=&apos;.&apos;yyyy-MM-dd    
+log4j.appender.error.Threshold = ERROR    
+log4j.appender.error.append=true    
+log4j.appender.error.File=${catalina.home}/logs/log4j/error.log
+</code></pre><ol>
+<li>&#x4EE3;&#x7801;&#x4E2D;&#x5199;&#x5165;&#x65E5;</li>
+</ol>
+<pre><code>private static final Logger logger = LoggerFactory.getLogger(XXX.class);
+logger.info(&quot;XXXX&quot;);
+logger.warn(&quot;XXXX&quot;);
+logger.error(&quot;XXXX&quot;);
+</code></pre><h2 id="Slf4j&#x7684;&#x96C6;&#x6210;"><a href="#Slf4j&#x7684;&#x96C6;&#x6210;" class="headerlink" title="Slf4j&#x7684;&#x96C6;&#x6210;"></a>Slf4j&#x7684;&#x96C6;&#x6210;</h2><p>Slf4j&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x65E5;&#x5FD7;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5C42;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728;&#x540E;&#x53F0;&#x4F7F;&#x7528;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x7C7B;&#x5E93;&#x3002;&#x6240;&#x4EE5;<strong>&#x4EE5;&#x540E;&#x66F4;&#x6362;&#x4E3A;&#x5176;&#x5B83;&#x65E5;&#x5FD7;&#x5DE5;&#x5177;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x7528;&#x4FEE;&#x6539;&#x4EE3;&#x7801;</strong>&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x6E90;&#x6846;&#x67B6;&#x5E38;&#x7528;&#x5230;Slf4j&#x3002;<br>spring 4&#x9ED8;&#x8BA4;&#x662F;&#x4E0D;&#x4F9D;&#x8D56;slf4j&#x7684;&#xFF0C;&#x53EA;&#x4F9D;&#x8D56;common logging.<br>&#x96C6;&#x6210;&#x597D;Log4j&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Slf4j&#x4E86;</p>
+<ol>
+<li>&#x52A0;&#x5165;slf4j&#x7684;jar&#x5305;</li>
+<li>&#x914D;&#x7F6E;&#x540C;&#x4E0A;Log4j&#x7684;&#x914D;&#x7F6E;</li>
+</ol>
+<p>&#x5373;&#x96C6;&#x6210;&#x597D;Log4j&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Slf4j&#x4E86;&#x3002;<br>&#x4F7F;&#x7528;:</p>
+<pre><code>import org.slf4j.Logger;  
+import org.slf4j.LoggerFactory;
+...
+private static final Logger logger = LoggerFactory.getLogger(User.class);  
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Log4j/">Log4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slf4j/">Slf4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Spring-Restful-web-services" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1236,87 +1380,6 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Sublime初识" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/Sublime初识/" class="article-date">
-      <time datetime="2016-09-05T10:24:45.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/Sublime初识/">Sublime初识</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<p>&#x8FD9;&#x6B3E;&#x7F16;&#x8F91;&#x5668;&#x5DF2;&#x7ECF;&#x88AB;&#x5B89;&#x5229;&#x5F88;&#x4E45;&#x4E86;&#xFF0C;&#x603B;&#x7B97;&#x662F;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x4E86;&#xFF0C;&#x679C;&#x7136;&#x5F00;&#x5C40;&#x603B;&#x662F;&#x5F88;&#x4E0D;&#x987A;&#x5229;&#x7684;&#xFF0C;&#x5404;&#x79CD;&#x95EE;&#x9898;&#x554A;&#x3002;&#x3002;&#x3002;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5427;&#x3002;</p>
-<h2 id="emmet&#x7684;&#x5B89;&#x88C5;"><a href="#emmet&#x7684;&#x5B89;&#x88C5;" class="headerlink" title="emmet&#x7684;&#x5B89;&#x88C5;"></a>emmet&#x7684;&#x5B89;&#x88C5;</h2><blockquote>
-<p>&#x9996;&#x5148;&#x5B89;&#x88C5;Package Control&#xFF1A;</p>
-<ol>
-<li>Ctrl+~&#x6253;&#x5F00;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x7684;Python&#x547D;&#x4EE4;</li>
-</ol>
-</blockquote>
-<pre><code>import  urllib.request,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib.request.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())
-</code></pre><ol>
-<li>&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x5728;Preferences-&gt;package settings&#x4E2D;&#x6709;&#x770B;&#x5230;package control&#x8FD9;&#x4E00;&#x9879;&#xFF0C;&#x5219;&#x5B89;&#x88C5;&#x6210;&#x529F;&#x3002;<blockquote>
-<p>&#x5B89;&#x88C5;emmet</p>
-</blockquote>
-</li>
-<li>Ctrl+Shift+P&#xFF1A;&#x8C03;&#x51FA;&#x63A7;&#x5236;&#x9762;&#x677F;</li>
-<li>&#x8F93;&#x5165;Install Package&#xFF0C;&#x5E76;&#x56DE;&#x8F66;</li>
-<li>emmet&#x5B89;&#x88C5;</li>
-</ol>
-<h3 id="PyV8&#x7684;&#x95EE;&#x9898;"><a href="#PyV8&#x7684;&#x95EE;&#x9898;" class="headerlink" title="PyV8&#x7684;&#x95EE;&#x9898;"></a>PyV8&#x7684;&#x95EE;&#x9898;</h3><p>&#x5982;&#x679C;&#x63D0;&#x793A;&#x9700;&#x5B89;&#x88C5;PyV8&#xFF0C;&#x5219;&#x9700;&#x8981;&#x628A;PyV8&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x89E3;&#x538B;&#x5230;</p>
-<p><img src="/2016/09/05/Sublime&#x521D;&#x8BC6;/Image%206.png" alt="enter description here" title="Image 6.png"><br>&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Preferences-&gt;Browse Packages&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x4EE5;&#x514D;&#x4E0D;&#x597D;&#x627E;&#x5566;<br>&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p><img src="/2016/09/05/Sublime&#x521D;&#x8BC6;/Image%207.png" alt="enter description here" title="Image 7.png"></p>
-<p>&#x518D;&#x6B21;&#x91CD;&#x542F;&#x4E00;&#x4E0B;&#x5C31;ok&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;&#xFF0C;&#x521D;&#x6B21;&#x4F53;&#x9A8C;&#x611F;&#x89C9;&#x5F88;&#x597D;&#xFF0C;&#x679C;&#x7136;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x63D0;&#x9AD8;&#x7F16;&#x7801;&#x901F;&#x5EA6;&#xFF0C;&#x719F;&#x6089;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x5927;&#x5E45;&#x5EA6;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#x554A;&#xFF0C;nice&#xFF01;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
     </div>
 
       

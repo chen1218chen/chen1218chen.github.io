@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-09-05T06:45:29.841Z</updated>
+  <updated>2017-09-07T05:46:32.762Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js中引用jsp的变量</title>
+    <link href="http://chen1218chen.github.io/2017/09/07/js%E4%B8%AD%E5%BC%95%E7%94%A8jsp%E7%9A%84%E5%8F%98%E9%87%8F/"/>
+    <id>http://chen1218chen.github.io/2017/09/07/js中引用jsp的变量/</id>
+    <published>2017-09-07T13:44:07.000Z</published>
+    <updated>2017-09-07T05:46:32.762Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;&amp;lt;%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + &amp;quot;://&amp;quot;
+            + request.getServerName() + &amp;quot;:&amp;quot; + request.getServerPort()
+            + path + &amp;quot;/&amp;quot;;
+%&amp;gt;
+
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    var arcgis_js_api_home = &amp;quot;&amp;lt;%=arcgis_js_api_home%&amp;gt;&amp;quot;;
+    var basePath = &amp;quot;&amp;lt;%=basePath%&amp;gt;&amp;quot;; 
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;&amp;lt;%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + &amp;quot;://&amp;quot;
+            + reque
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://chen1218chen.github.io/tags/JavaScript/"/>
+    
+      <category term="JSP" scheme="http://chen1218chen.github.io/tags/JSP/"/>
+    
+  </entry>
   
   <entry>
     <title>前端获取视频流并播放</title>
@@ -1258,55 +1294,6 @@ HttpSession session = ServletActionContext.getRequest().getSession();
       <category term="struts2" scheme="http://chen1218chen.github.io/tags/struts2/"/>
     
       <category term="servlet" scheme="http://chen1218chen.github.io/tags/servlet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>list&lt;Object&gt;的排序</title>
-    <link href="http://chen1218chen.github.io/2017/02/14/list-Object-%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
-    <id>http://chen1218chen.github.io/2017/02/14/list-Object-的排序/</id>
-    <published>2017-02-14T11:40:24.000Z</published>
-    <updated>2017-02-14T03:46:05.033Z</updated>
-    
-    <content type="html">&lt;p&gt;list&amp;#x96C6;&amp;#x5408;&amp;#x7684;&amp;#x6392;&amp;#x5E8F;&lt;br&gt;&amp;#x5F53;&amp;#x96C6;&amp;#x5408;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7684;&amp;#x662F;Object&amp;#x590D;&amp;#x6742;&amp;#x5BF9;&amp;#x8C61;&amp;#x65F6;&amp;#xFF0C;&amp;#x96C6;&amp;#x6210;Comparable&amp;#x63A5;&amp;#x53E3;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x6392;&amp;#x5E8F;&amp;#x3002;&lt;br&gt;&amp;#x4F8B;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@Entity
-@Table(name = &amp;quot;guide&amp;quot;)
-public class Guide implements java.io.Serializable,Comparable&amp;lt;Guide&amp;gt; {
-
-    private Integer id;
-    private Integer number;//&amp;#x6392;&amp;#x5E8F;&amp;#x5E8F;&amp;#x53F7;
-    ...(&amp;#x6B64;&amp;#x5904;&amp;#x7701;&amp;#x7565;set&amp;#xFF0C;get&amp;#x65B9;&amp;#x6CD5;)
-
-    @Override
-    public int compareTo(Guide o) {
-        int i = this.getNumber() - o.getNumber();// &amp;#x5148;&amp;#x6309;&amp;#x7167;number&amp;#x6392;&amp;#x5E8F;
-        if (i == 0) {
-            return this.getId() - o.getId();// &amp;#x5982;&amp;#x679C;number&amp;#x76F8;&amp;#x7B49;&amp;#x4E86;&amp;#x518D;&amp;#x7528;id&amp;#x8FDB;&amp;#x884C;&amp;#x6392;&amp;#x5E8F;
-        }
-        return i;
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7528;&lt;code&gt;Collections.sort(list);&lt;/code&gt;&amp;#x76F4;&amp;#x63A5;&amp;#x6392;&amp;#x5E8F;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;@RequestMapping(value = &amp;quot;/queryAllDepart&amp;quot;,method=RequestMethod.GET)
-@ResponseBody
-public JSONArray queryAllDepart(){
-
-    List&amp;lt;Department&amp;gt; list = departServiceImpl.queryAll();
-    Collections.sort(list);
-    JSONArray lostJSONList = JSONArray.fromObject(list, Common.getJsonConfig());
-    return lostJSONList;
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;list&amp;#x96C6;&amp;#x5408;&amp;#x7684;&amp;#x6392;&amp;#x5E8F;&lt;br&gt;&amp;#x5F53;&amp;#x96C6;&amp;#x5408;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7684;&amp;#x662F;Object&amp;#x590D;&amp;#x6742;&amp;#x
-    
-    </summary>
-    
-    
-      <category term="java" scheme="http://chen1218chen.github.io/tags/java/"/>
     
   </entry>
   
