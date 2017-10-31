@@ -4,6 +4,52 @@
   
     
     <entry>
+      <title><![CDATA[ajax表单提交]]></title>
+      <url>http://chen1218chen.github.io/2017/10/31/ajax%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4/</url>
+      <content type="html"><![CDATA[<pre><code>$.ajax({
+    url : &quot;rest/lost/saveLost&quot;,
+    type : &quot;post&quot;,
+    cache : false,
+    dataType : &apos;json&apos;,
+    data : $(form).serializeArray(),
+    success : function(result) {
+        if (result)
+            alertConfirm(&quot;&#x6DFB;&#x52A0;&#x6210;&#x529F;&quot;);
+        else
+            alertView(&quot;&#x6DFB;&#x52A0;&#x5931;&#x8D25;&quot;);
+    },
+});
+</code></pre><h2 id="&#x540E;&#x53F0;java&#x4EE3;&#x7801;"><a href="#&#x540E;&#x53F0;java&#x4EE3;&#x7801;" class="headerlink" title="&#x540E;&#x53F0;java&#x4EE3;&#x7801;"></a>&#x540E;&#x53F0;java&#x4EE3;&#x7801;</h2><pre><code>@RequestMapping(value=&quot;/saveLost&quot;,method = RequestMethod.POST)
+@ResponseBody
+public boolean saveLost(@RequestParam(&quot;goodName&quot;) String goodName,
+        @RequestParam(&quot;lostTime&quot;) String lostTime,
+        @RequestParam(value = &quot;place&quot;, required = false) String place,
+        @RequestParam(&quot;descption&quot;) String descption,
+        @RequestParam(value = &quot;telephone&quot;, required = true) String telephone) throws ParseException{
+
+    Lost lost = new Lost();
+    lost.setDescption(descption);
+    lost.setGoodName(goodName);
+    Date time = (Date) Common.toDateStandard(lostTime);
+    lost.setLostTime(time);
+    lost.setTelephone(telephone);
+    lost.setPeople(telephone);
+    lost.setPlace(place);
+    lost.setStates(&quot;0&quot;);
+    try {
+        lostServiceImpl.insert(lost);
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+        return false;
+    }
+    return true;
+}
+</code></pre><p>&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#x7B80;&#x5355;&#x660E;&#x4E86;&#x5F97;&#x610F;<img src="/2017/10/31/ajax&#x8868;&#x5355;&#x63D0;&#x4EA4;/1509432811706.jpg" alt="enter description here" title="1509432811706.jpg"></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[百度地图支持https]]></title>
       <url>http://chen1218chen.github.io/2017/10/23/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E6%94%AF%E6%8C%81https/</url>
       <content type="html"><![CDATA[<p>&#x767E;&#x5EA6;&#x5730;&#x5740;&#x652F;&#x6301;https&#x534F;&#x8BAE;&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</p>
