@@ -40,6 +40,8 @@ $("#excelFile").fileinput({
 					browseClass: "btn btn-primary", //按钮样式 
 					allowedFileExtensions: ["xls", "xlsx"], //接收的文件后缀
 					maxFileCount: 10,//最大上传文件数限制
+					maxFileSize : 1024 * 200, // 限制大小为200MB，单位为kb，如果为0表示不限制文件大小
+			        msgSizeTooLarge : "文件太大,不能超过200M",
 					uploadAsync: true,
 					previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
 					allowedPreviewTypes: null, 

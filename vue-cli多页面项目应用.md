@@ -100,6 +100,26 @@ index : http://localhost/modules/index.html
 phone : http://localhost/modules/phone.html
 
 ## 其他相关配置
+### 示例
+
+    module.exports = {
+        entry: {
+            index: './src/pages/index/index.js',
+            list: './src/pages/list/index.js',
+            common: [
+                './src/base/base.js',
+                './src/base/base.css'
+            ]
+        },
+        output: {
+            path: './asset/build/', // 文件编译输出路径改成 build
+            publicpath: 'http://yourweb.com/asset/build/', // 这里替换成线上实际地址，可以修改 css 中对图片资源的引用路径。
+            filename: '[name]_[hash:5].js' // 生成的文件名字，加上了5位的 hash值。当然了，位数和加hash的位置，你可以自己定义，比如 '[name].js?[hash]'.
+        },
+        // 其它配置...
+    };
+entry配置入口文件，多入口会独立打包3个实体。分别是 index.js, list.js, common.js。
+
 ### webpack别名 `resolve.alias`
 
 
@@ -119,6 +139,8 @@ phone : http://localhost/modules/phone.html
 生成vendors.js?f3aaf25de220e214f84e,每次都会覆盖之前生成的资源，方便在某些特殊项目使用。
 ### process.env.NODE_ENV
 指的是config/*下文件中的配置。
+
+
 
 
 

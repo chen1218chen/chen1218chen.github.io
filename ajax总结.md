@@ -1,11 +1,27 @@
 ---
-title: ajax总结
+title: ajax请求
 date: 2016-04-22 09:27:06
 tags: [ajax, JavaScript]
 ---
 [TOC]
+## 一次发送多个ajax请求
 
-# ajax总结
+    $.when($.ajax("../rest/Uploadinfo/queryAgencyCount"),
+        $.ajax("../rest/Uploadinfo/queryBackCount"),
+        $.ajax("../rest/Uploadinfo/queryHandlingCount"),
+        $.ajax("../rest/Uploadinfo/queryNoUseCount"),
+        $.ajax("../rest/Uploadinfo/querySpvCount"),
+        $.ajax("../rest/Uploadinfo/queryUrgetCount"),
+        $.ajax("../rest/Uploadinfo/queryEndCount")).done(
+        function(a1, a2, a3, a4, a5, a6, a7) {
+        	$("#agencyCaseCount").html(" (" + a1[0] + ")");
+        	$("#backCount").html(" (" + a2[0] + ")");
+        	$("#handlingCount").html(" (" + a3[0] + ")");
+        	$("#noUseCount").html(" (" + a4[0] + ")");
+        	$("#spvCount").html(" (" + a5[0] + ")");
+        	$("#urgetCount").html(" (" + a6[0] + ")");
+        	$("#endCount").html(" (" + a7[0] + ")");
+        })
 ## 参数
 
     $.ajax({
