@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2017-10-31T06:53:32.293Z</updated>
+  <updated>2017-11-10T07:46:31.319Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -16,13 +16,119 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>arcgis3标记标绘</title>
+    <link href="http://chen1218chen.github.io/2017/11/10/arcgis3%E6%A0%87%E8%AE%B0%E6%A0%87%E7%BB%98/"/>
+    <id>http://chen1218chen.github.io/2017/11/10/arcgis3标记标绘/</id>
+    <published>2017-11-10T15:31:45.000Z</published>
+    <updated>2017-11-10T07:46:31.319Z</updated>
+    
+    <content type="html">&lt;p&gt;arcgis3.22&amp;#x7B97;&amp;#x65F6;&amp;#x5F53;&amp;#x524D;&amp;#x6700;&amp;#x65B0;&amp;#x7684;3&amp;#x7248;&amp;#x672C;&amp;#x7684;API&amp;#x4E86;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x8981;&amp;#xFF0C;&amp;#x6574;&amp;#x7406;&amp;#x4E00;&amp;#x4E0B;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x6807;&amp;#x8BB0;&amp;#x6807;&amp;#x7ED8;&amp;#x529F;&amp;#x80FD;&amp;#xFF0C;&amp;#x4EE5;&amp;#x540E;&amp;#x5C31;&amp;#x76F4;&amp;#x63A5;&lt;code&gt;crtl+C,ctrl+V&lt;/code&gt;&amp;#x4E86;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x7B26;&amp;#x5408;AMD&amp;#x89C4;&amp;#x8303;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x8C03;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
+&lt;h2 id=&quot;polygon&amp;#x591A;&amp;#x8FB9;&amp;#x5F62;&quot;&gt;&lt;a href=&quot;#polygon&amp;#x591A;&amp;#x8FB9;&amp;#x5F62;&quot; class=&quot;headerlink&quot; title=&quot;polygon&amp;#x591A;&amp;#x8FB9;&amp;#x5F62;&quot;&gt;&lt;/a&gt;polygon&amp;#x591A;&amp;#x8FB9;&amp;#x5F62;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;back.drawPolygon = function(){
+      toolbar = new Draw(ArcGIS.mainMap);
+      toolbar.on(&amp;quot;draw-end&amp;quot;, addPolygon);
+      toolbar.activate(&amp;quot;polygon&amp;quot;);
+}
+
+function addPolygon(evt){
+     toolbar.deactivate();
+     var symbol = new SimpleFillSymbol(  
+                SimpleFillSymbol.STYLE_SOLID,  
+                new SimpleLineSymbol(  
+                  SimpleLineSymbol.STYLE_SOLID,  
+                  new Color([255,0,0,0.65]), 2  
+                ),  
+                new Color([0,0,0,0.35])  
+              ); 
+     ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, symbol));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;polygon&amp;#x56FE;&amp;#x7247;&amp;#x586B;&amp;#x5145;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var fillSymbol = new PictureFillSymbol(
+      &amp;quot;images/mangrove.png&amp;quot;, new SimpleLineSymbol(
+        SimpleLineSymbol.STYLE_SOLID,
+        new Color(&amp;apos;#000&amp;apos;), 1), 42,42);
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;polygon&amp;#x534A;&amp;#x900F;&amp;#x660E;&amp;#xFF0C;&amp;#x7B80;&amp;#x5355;&amp;#x989C;&amp;#x8272;&amp;#x586B;&amp;#x5145;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;var symbol = new SimpleFillSymbol(  
+       SimpleFillSymbol.STYLE_SOLID,  
+       new SimpleLineSymbol(  
+         SimpleLineSymbol.STYLE_SOLID,  
+         new Color([255,0,0,0.65]), 2  
+       ),  
+       new Color([0,0,0,0.35])  
+     );
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Circle&quot;&gt;&lt;a href=&quot;#Circle&quot; class=&quot;headerlink&quot; title=&quot;Circle&quot;&gt;&lt;/a&gt;Circle&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;back.drawArea = function() {
+      toolbar = new Draw(ArcGIS.mainMap);
+      toolbar.on(&amp;quot;draw-end&amp;quot;, addCircle);
+      toolbar.activate(&amp;quot;circle&amp;quot;);
+}
+
+function addCircle(evt){
+  toolbar.deactivate();
+ var symbol = new SimpleFillSymbol(  
+        SimpleFillSymbol.STYLE_SOLID,  
+        new SimpleLineSymbol(  
+          SimpleLineSymbol.STYLE_SOLID,  
+          new Color([255,0,0,0.65]), 2  
+        ),  
+        new Color([0,0,0,0.35])  
+      );
+  ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, symbol));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;polyline&amp;#x6298;&amp;#x7EBF;&quot;&gt;&lt;a href=&quot;#polyline&amp;#x6298;&amp;#x7EBF;&quot; class=&quot;headerlink&quot; title=&quot;polyline&amp;#x6298;&amp;#x7EBF;&quot;&gt;&lt;/a&gt;polyline&amp;#x6298;&amp;#x7EBF;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;back.drawDistance = function() {
+    tb = new Draw(ArcGIS.mainMap);
+    tb.on(&amp;quot;draw-end&amp;quot;, addPolyline);
+    ArcGIS.mainMap.disableMapNavigation();
+    tb.activate(&amp;quot;polyline&amp;quot;);
+}
+
+function addPolyline(evt) {
+    tb.deactivate();
+    ArcGIS.mainMap.enableMapNavigation();
+    var lineSymbol = new CartographicLineSymbol(
+            CartographicLineSymbol.STYLE_SOLID, new Color([ 255, 0, 0 ]),
+            3, CartographicLineSymbol.CAP_ROUND,
+            CartographicLineSymbol.JOIN_MITER, 2);
+    ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, lineSymbol));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;point&amp;#x70B9;&quot;&gt;&lt;a href=&quot;#point&amp;#x70B9;&quot; class=&quot;headerlink&quot; title=&quot;point&amp;#x70B9;&quot;&gt;&lt;/a&gt;point&amp;#x70B9;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;back.drawPoint = function(url) {
+    var events = ArcGIS.mainMap.on(&amp;quot;click&amp;quot;, function(e) {
+        var pt = new esri.geometry.Point(e.mapPoint.x, e.mapPoint.y,
+                ArcGIS.mainMap.spatialReference);
+        var pictureMarkerSymbol = new PictureMarkerSymbol(url, 31, 31);
+        var attr = {
+            &amp;quot;name&amp;quot; : &amp;quot;1&amp;quot;,
+            &amp;quot;remark&amp;quot; : &amp;quot;1&amp;quot;
+        };
+        graphic = new esri.Graphic(pt, pictureMarkerSymbol, attr, null);
+        ArcGIS.mainMap.graphics.add(graphic);
+        events.remove();
+    });
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;arcgis3.22&amp;#x7B97;&amp;#x65F6;&amp;#x5F53;&amp;#x524D;&amp;#x6700;&amp;#x65B0;&amp;#x7684;3&amp;#x7248;&amp;#x672C;&amp;#x7684;API&amp;#x4E86;&amp;#xFF0C;&amp;#x9879;&amp;#x76EE;&amp;#x9700;&amp;#x
+    
+    </summary>
+    
+    
+      <category term="arcgis" scheme="http://chen1218chen.github.io/tags/arcgis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ajax表单提交</title>
     <link href="http://chen1218chen.github.io/2017/10/31/ajax%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4/"/>
     <id>http://chen1218chen.github.io/2017/10/31/ajax表单提交/</id>
     <published>2017-10-31T14:51:24.000Z</published>
-    <updated>2017-10-31T06:53:32.293Z</updated>
+    <updated>2017-11-03T03:03:12.234Z</updated>
     
-    <content type="html">&lt;pre&gt;&lt;code&gt;$.ajax({
+    <content type="html">&lt;h2 id=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot;&gt;&lt;a href=&quot;#&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot;&gt;&lt;/a&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;$.ajax({
     url : &amp;quot;rest/lost/saveLost&amp;quot;,
     type : &amp;quot;post&amp;quot;,
     cache : false,
@@ -35,7 +141,7 @@
             alertView(&amp;quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x5931;&amp;#x8D25;&amp;quot;);
     },
 });
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;a href=&quot;#&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;/a&gt;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value=&amp;quot;/saveLost&amp;quot;,method = RequestMethod.POST)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;a href=&quot;#&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&quot;&gt;&lt;/a&gt;&amp;#x540E;&amp;#x53F0;java&amp;#x4EE3;&amp;#x7801;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;@RequestMapping(value=&amp;quot;/saveLost&amp;quot;,method = RequestMethod.POST)
 @ResponseBody
 public boolean saveLost(@RequestParam(&amp;quot;goodName&amp;quot;) String goodName,
         @RequestParam(&amp;quot;lostTime&amp;quot;) String lostTime,
@@ -61,16 +167,40 @@ public boolean saveLost(@RequestParam(&amp;quot;goodName&amp;quot;) String goodN
     }
     return true;
 }
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&quot;&gt;&lt;a href=&quot;#&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&quot;&gt;&lt;/a&gt;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E8C;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;function edit(oldValue){
+    $.ajax({
+        url:&amp;quot;rest/depart/edit&amp;quot;,
+        type:&amp;quot;post&amp;quot;,
+        cache:false,
+        dataType:&amp;quot;json&amp;quot;,
+        contentType:&amp;quot;application/json; charset=utf-8&amp;quot;,
+        data:JSON.stringify(oldValue),
+        success:function(result){
+            if (result){
+                alertView(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x6210;&amp;#x529F;&amp;quot;);
+                query(oldValue.descption);
+            }            
+            else
+                alertView(&amp;quot;&amp;#x4FEE;&amp;#x6539;&amp;#x5931;&amp;#x8D25;&amp;quot;);
+        }
+    })
+}
+
+@RequestMapping(value = &amp;quot;/edit&amp;quot;,method=RequestMethod.POST)
+@ResponseBody
+public boolean edit(@RequestBody Object value) {
+
+    JSONObject jsonObj = JSONObject.fromObject(value);//&amp;#x5C06;json&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;json&amp;#x5BF9;&amp;#x8C61;
+    Department depart = (Department) JSONObject.toBean(jsonObj,Department.class);//&amp;#x5C06;&amp;#x5EFA;json&amp;#x5BF9;&amp;#x8C61;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;PublicGarden&amp;#x5BF9;&amp;#x8C61;
+    departServiceImpl.update(depart);
+    return true;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x76F4;&amp;#x63A5;&amp;#x4E0A;&amp;#x4EE3;&amp;#x7801;&amp;#x7B80;&amp;#x5355;&amp;#x660E;&amp;#x4E86;&amp;#x5F97;&amp;#x610F;&lt;img src=&quot;/2017/10/31/ajax&amp;#x8868;&amp;#x5355;&amp;#x63D0;&amp;#x4EA4;/1509432811706.jpg&quot; alt=&quot;enter description here&quot; title=&quot;1509432811706.jpg&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;pre&gt;&lt;code&gt;$.ajax({
-    url : &amp;quot;rest/lost/saveLost&amp;quot;,
-    type : &amp;quot;post&amp;quot;,
-    cache : false,
-    dataType : &amp;apos;json&amp;apos
+      &lt;h2 id=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot;&gt;&lt;a href=&quot;#&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x65B9;&amp;#x6CD5;&amp;#x4E00;&quot;&gt;&lt;/a&gt;&amp;#x65B9;&amp;#x6CD
     
     </summary>
     
@@ -917,6 +1047,42 @@ var time1 = newTime.format(&amp;quot;yyyy-MM-dd hh:mm:ss&amp;quot;);
   </entry>
   
   <entry>
+    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
+    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
+    <published>2017-06-28T14:22:42.000Z</published>
+    <updated>2017-06-30T01:54:25.660Z</updated>
+    
+    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
+Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
+Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
+Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
+Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
+Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
+Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
+Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
+Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
+Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
+    
+    </summary>
+    
+    
+      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
+    
+      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue-cli多页面项目应用</title>
     <link href="http://chen1218chen.github.io/2017/06/28/vue-cli%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"/>
     <id>http://chen1218chen.github.io/2017/06/28/vue-cli多页面项目应用/</id>
@@ -1036,42 +1202,6 @@ module.exports = webpackConfig
       <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
     
       <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
-    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
-    <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-06-30T01:54:25.660Z</updated>
-    
-    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
-Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
-Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
-Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
-Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
-Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
-Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
-Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
-Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
-    
-    </summary>
-    
-    
-      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
-    
-      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -1210,48 +1340,6 @@ module.exports = merge(prodEnv, {
       <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
     
       <category term="webpack" scheme="http://chen1218chen.github.io/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>node.js的path模快</title>
-    <link href="http://chen1218chen.github.io/2017/06/06/node-js%E5%80%BCpath%E6%A8%A1%E5%BF%AB/"/>
-    <id>http://chen1218chen.github.io/2017/06/06/node-js值path模快/</id>
-    <published>2017-06-06T15:01:29.000Z</published>
-    <updated>2017-07-06T06:32:22.566Z</updated>
-    
-    <content type="html">&lt;p&gt;Node.js path &amp;#x6A21;&amp;#x5757;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x7528;&amp;#x4E8E;&amp;#x5904;&amp;#x7406;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#x7684;&amp;#x5C0F;&amp;#x5DE5;&amp;#x5177;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&amp;#x4EE5;&amp;#x4E0B;&amp;#x65B9;&amp;#x5F0F;&amp;#x5F15;&amp;#x5165;&amp;#x8BE5;&amp;#x6A21;&amp;#x5757;&amp;#xFF1A;&lt;br&gt;&amp;#x521B;&amp;#x5EFA; main.js &amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x4EE3;&amp;#x7801;&amp;#x5982;&amp;#x4E0B;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var path = require(&amp;quot;path&amp;quot;)
-// &amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x8DEF;&amp;#x5F84;
-console.log(&amp;apos;normalization : &amp;apos; + path.normalize(&amp;apos;/test/test1//2slashes/1slash/tab/..&amp;apos;));
-
-// &amp;#x8FDE;&amp;#x63A5;&amp;#x8DEF;&amp;#x5F84;
-console.log(&amp;apos;joint path : &amp;apos; + path.join(&amp;apos;/test&amp;apos;, &amp;apos;test1&amp;apos;, &amp;apos;2slashes/1slash&amp;apos;, &amp;apos;tab&amp;apos;, &amp;apos;..&amp;apos;));
-
-// &amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7EDD;&amp;#x5BF9;&amp;#x8DEF;&amp;#x5F84;
-console.log(&amp;apos;resolve : &amp;apos; + path.resolve(&amp;apos;main.js&amp;apos;));
-
-// &amp;#x8DEF;&amp;#x5F84;&amp;#x4E2D;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x540E;&amp;#x7F00;&amp;#x540D;
-console.log(&amp;apos;ext name : &amp;apos; + path.extname(&amp;apos;main.js&amp;apos;));
-//&amp;#x83B7;&amp;#x53D6;&amp;#x7528;&amp;quot;/&amp;quot;&amp;#x9694;&amp;#x5F00;&amp;#x7684;path&amp;#x6700;&amp;#x540E;&amp;#x7684;&amp;#x4E00;&amp;#x90E8;&amp;#x5206;
-console.log(&amp;apos;basename: &amp;apos;+ path.basename(&amp;apos;./src/views/nav1/table.js&amp;apos;));
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4EE3;&amp;#x7801;&amp;#x6267;&amp;#x884C;&amp;#x7ED3;&amp;#x679C;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ node main.js 
-normalization : /test/test1/2slashes/1slash
-joint path : /test/test1/2slashes/1slash
-resolve : /web/com/1427176256_27423/main.js
-ext name : .js
-basename : table.js
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Node.js path &amp;#x6A21;&amp;#x5757;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x7528;&amp;#x4E8E;&amp;#x5904;&amp;#x7406;&amp;#x6587;&amp;#x4EF6;&amp;#x8DEF;&amp;#x5F84;&amp;#x7
-    
-    </summary>
-    
-    
-      <category term="node.js" scheme="http://chen1218chen.github.io/tags/node-js/"/>
     
   </entry>
   

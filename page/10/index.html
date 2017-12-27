@@ -286,6 +286,175 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hibernate时间段查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/04/hibernate时间段查询/" class="article-date">
+      <time datetime="2016-05-04T15:55:02.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/04/hibernate时间段查询/">hibernate时间段查询</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><pre><code>@RequestMapping(value = &quot;/searchDate&quot;, method = RequestMethod.POST)
+@ResponseBody
+public List&lt;Uploadinfo&gt; searchDate(@RequestParam(&quot;start&quot;) String start,@RequestParam(&quot;end&quot;) String end) {
+
+    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.dateRange(start,end);
+    return itemList;
+}
+//&#x4F7F;&#x7528;HQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#xFF0C;&#x9884;&#x8BBE;&#x5B57;&#x6BB5;
+public List&lt;Uploadinfo&gt; dateRange(String start, String end) {
+    // TODO Auto-generated method stub
+
+    Date beginDate = java.sql.Date.valueOf(start);
+    Date endDate = java.sql.Date.valueOf(end);
+    String hql = &quot;from Uploadinfo info where info.dataTime &lt;:endDate and info.dataTime &gt;=:beginDate&quot;;  
+    Query query = itemDaoImpl.getQuery(hql);
+    query.setDate(&quot;beginDate&quot;,beginDate);   
+    query.setDate(&quot;endDate&quot;,endDate);
+    List&lt;Uploadinfo&gt; infolist = query.list();
+    return infolist;
+}
+</code></pre><p>&#x91CD;&#x70B9;&#x5728;hql&#x8BED;&#x53E5;&#x5BF9;&#x65F6;&#x95F4;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x5B9A;&#x4E49;&#x7684;&#x662F;date&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x5C06;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x8F6C;&#x5316;&#x4E3A;date&#x7C7B;&#x578B;<br><code>:&#x53C2;&#x6570;&#x540D;</code>&#x6839;&#x636E;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x6765;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;<br><code>?</code>&#x6839;&#x636E;&#x53C2;&#x6570;&#x4F4D;&#x7F6E;&#x6765;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;</p>
+<pre><code>String hql = &quot;from Uploadinfo info where info.dataTime &lt;? and info.dataTime &gt;=?&quot;;
+Query query= session.createQuery(hql);
+query.setString(0,&quot;20160606&quot;);
+query.setString(1,&quot;20160706&quot;);
+List user = query.list();
+</code></pre><h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>&#x524D;&#x53F0;&#x4F7F;&#x7528;<a href="http://www.daterangepicker.com/#examples" target="_blank" rel="external">datarangepicker&#x63D2;&#x4EF6;</a></p>
+<pre><code>function dateInit(){
+    $(&apos;#dateRange&apos;).daterangepicker({
+        &quot;ranges&quot;: {
+            &quot;Today&quot;: [
+                &quot;2016-05-04T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;Yesterday&quot;: [
+                &quot;2016-05-03T05:40:05.879Z&quot;,
+                &quot;2016-05-03T05:40:05.879Z&quot;
+            ],
+            &quot;Last 7 Days&quot;: [
+                &quot;2016-04-28T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;Last 30 Days&quot;: [
+                &quot;2016-04-05T05:40:05.879Z&quot;,
+                &quot;2016-05-04T05:40:05.879Z&quot;
+            ],
+            &quot;This Month&quot;: [
+                &quot;2016-04-30T16:00:00.000Z&quot;,
+                &quot;2016-05-31T15:59:59.999Z&quot;
+            ],
+            &quot;Last Month&quot;: [
+                &quot;2016-03-31T16:00:00.000Z&quot;,
+                &quot;2016-04-30T15:59:59.999Z&quot;
+            ]
+        },
+        &quot;locale&quot;: {
+            &quot;format&quot;: &quot;YYYY-MM-DD&quot;,
+            &quot;separator&quot;: &quot;   &quot;,
+            &quot;applyLabel&quot;: &quot;&#x786E;&#x5B9A;&quot;,
+            &quot;cancelLabel&quot;: &quot;&#x53D6;&#x6D88;&quot;,
+            &quot;fromLabel&quot;: &quot;From&quot;,
+            &quot;toLabel&quot;: &quot;To&quot;,
+            &quot;customRangeLabel&quot;: &quot;Custom&quot;,
+            &quot;daysOfWeek&quot;: [
+                &quot;&#x65E5;&quot;,
+                &quot;&#x4E00;&quot;,
+                &quot;&#x4E8C;&quot;,
+                &quot;&#x4E09;&quot;,
+                &quot;&#x56DB;&quot;,
+                &quot;&#x4E94;&quot;,
+                &quot;&#x516D;&quot;
+            ],
+            &quot;monthNames&quot;: [
+                &quot;&#x4E00;&#x6708;&quot;,
+                &quot;&#x4E8C;&#x6708;&quot;,
+                &quot;&#x4E09;&#x6708;&quot;,
+                &quot;&#x56DB;&#x6708;&quot;,
+                &quot;&#x4E94;&#x6708;&quot;,
+                &quot;&#x516D;&#x6708;&quot;,
+                &quot;&#x4E03;&#x6708;&quot;,
+                &quot;&#x516B;&#x6708;&quot;,
+                &quot;&#x4E5D;&#x6708;&quot;,
+                &quot;&#x5341;&#x6708;&quot;,
+                &quot;&#x5341;&#x4E00;&#x6708;&quot;,
+                &quot;&#x5341;&#x4E8C;&#x6708;&quot;
+            ],
+            &quot;firstDay&quot;: 1
+        },
+        &quot;alwaysShowCalendars&quot;: true,
+        &quot;startDate&quot;: &quot;2016-05-04&quot;,
+        &quot;endDate&quot;: &quot;2016-06-03&quot;
+    }, function(start, end, label) {
+        searchDate(start.format(&apos;YYYY-MM-DD&apos;),end.format(&apos;YYYY-MM-DD&apos;));
+    });
+}
+
+function searchDate(start,end){
+    $.ajax({
+        url : &quot;rest/Uploadinfo/searchDate&quot;,
+        type : &quot;post&quot;,
+        dataType : &apos;json&apos;,
+        data:{
+            &quot;start&quot;:start,
+            &quot;end&quot;:end
+        },
+        success : function(data) {
+            tableShow(data);
+        }
+    });
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hibernate/">hibernate</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-bootstrapTable总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -2236,128 +2405,6 @@ public class Permission {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/31/ManyToOne/" class="article-date">
-      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/ManyToOne/">ManyToOne, ManyToMany注解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h1 id="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"><a href="#&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"></a>&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;</h1><h2 id="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"><a href="#hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;" class="headerlink" title="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"></a><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></h2><ul>
-<li>&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#xFF08;many&#x65B9;&#xFF09;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</li>
-<li><p>one&#x662F;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x65B9;&#xFF0C;many&#x662F;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x3002;&#x5728;&#x5173;&#x7CFB;&#x88AB;&#x7EF4;&#x62A4;&#x7AEF;&#xFF0C;&#x5373;many&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;@JoinColumn&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#x5217;&#x6307;&#x5411;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x7AEF;&#x7684;&#x4E3B;&#x952E;&#x5217;&#x3002;</p>
-<ul>
-<li>manyTomany&#x4E2D;@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-</ul>
-</li>
-<li><p>mappedBy</p>
-<ul>
-<li>&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x53CC;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5355;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5219;&#x4E0D;&#x7528;&#x5B9A;&#x4E49;&#x3002;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x4E3B;&#x63A7;&#x65B9;&#x3002;</li>
-</ul>
-</li>
-<li>optional<ul>
-<li>&#x5C5E;&#x6027;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5173;&#x8054;&#x7C7B;&#x662F;&#x5426;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;&#x9ED8;&#x8BA4;true&#xFF0C;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x53EF;&#x4EE5;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x82E5;&#x4E3A;false&#x5219;&#x53CC;&#x65B9;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;null&#x3002;</li>
-</ul>
-</li>
-<li>&#x65E0;&#x8BBA;&#x662F;&#x4E00;&#x5BF9;&#x591A;&#x8FD8;&#x662F;&#x591A;&#x5BF9;&#x4E00;&#x5173;&#x7CFB;&#xFF0C;&#x90FD;&#x662F;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;&#x7EF4;&#x62A4;&#x5173;&#x7CFB;&#x3002; </li>
-</ul>
-<h2 id="manyToMany"><a href="#manyToMany" class="headerlink" title="manyToMany"></a>manyToMany</h2><p>user-role&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
-<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-@JoinTable(name = &quot;user_to_role&quot;,   
-    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
-    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
-})
-</code></pre><h2 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="ManyToOne"></a>ManyToOne</h2><p>user-onganization&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
-<pre><code>@ManyToOne(targetEntity = Organization.class, cascade = { CascadeType.MERGE })
-@JoinColumn(name = &quot;oid&quot;)
-</code></pre><h2 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h2><blockquote>
-<p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
-</blockquote>
-<pre><code>JsonConfig config = new JsonConfig();
-config.setExcludes(new String[]{&quot;roles&quot;});//&#x9664;&#x53BB;roles&#x5C5E;&#x6027;
-JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
-</code></pre><p>&#x6216;&#x8005;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x89E3;&#x9664;&#x5FAA;&#x73AF;</p>
-<pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
-@ResponseBody
-public JSONArray queryAllOrgan() {
-    JSONArray userJSONList;
-    JsonConfig jsonConfig = new JsonConfig();
-    jsonConfig.setIgnoreDefaultExcludes(false);
-    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
-    jsonConfig.setExcludes(new String[] { &quot;handler&quot;,&quot;hibernateLazyInitializer&quot; });
-    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
-        public boolean apply(Object obj, String name, Object value) {
-        //if(value instanceof Organization &amp;&amp; name.equals(&quot;organ&quot;)){
-        if(name.equals(&quot;user&quot;)){
-                return true;
-            } else {
-                return false;
-            }
-        }
-    });
-    List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
-    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
-    return userJSONList;
-    }
-</code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
-<pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
-//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
-//    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
     </div>
 
       
