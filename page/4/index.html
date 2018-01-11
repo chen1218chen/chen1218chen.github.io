@@ -286,6 +286,110 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-shiro实现SSL登陆" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/19/shiro实现SSL登陆/" class="article-date">
+      <time datetime="2017-01-18T16:14:50.000Z" itemprop="datePublished">2017-01-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/shiro实现SSL登陆/">shiro实现SSL登陆</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x8003;&#x8651;&#x9879;&#x76EE;&#x5B89;&#x5168;&#x9700;&#x6C42;&#xFF0C;&#x5C06;http&#x8BF7;&#x6C42;&#x8F6C;&#x4E3A;https&#xFF0C;&#x9879;&#x76EE;&#x4E2D;&#x5DF2;&#x96C6;&#x6210;&#x7684;shiro&#x6846;&#x67B6;&#x5DF2;&#x5B9E;&#x73B0;SSL&#x767B;&#x9646;&#xFF0C;&#x6765;&#x770B;&#x4E0B;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5427;&#x3002;</p>
+<p>tomcat&#x7684;server.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x3002;&#x5C06;http&#x7684;8080&#x7AEF;&#x53E3;&#x8C03;&#x8F6C;&#x5230;https&#x7684;8443&#x7AEF;&#x53E3;</p>
+<pre><code>&lt;Connector acceptCount=&quot;500&quot; connectionTimeout=&quot;20000&quot; enableLookups=&quot;false&quot; maxThreads=&quot;400&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; URIEncoding=&quot;UTF-8&quot; redirectPort=&quot;8443&quot;/&gt;
+
+&lt;Connector SSLEnabled=&quot;true&quot; acceptCount=&quot;500&quot; clientAuth=&quot;false&quot; keystoreFile=&quot;D:\localhost.keystore&quot; keystorePass=&quot;aerors123&quot; maxThreads=&quot;400&quot; port=&quot;8443&quot; protocol=&quot;HTTP/1.1&quot; scheme=&quot;https&quot; secure=&quot;true&quot; sslProtocol=&quot;TLS&quot;/&gt;
+</code></pre><p>applicationContext.xml&#x4E2D;&#x6DFB;&#x52A0;shiro&#x76F8;&#x5173;&#x914D;&#x7F6E;</p>
+<pre><code>&lt;bean id=&quot;sslFilter&quot; class=&quot;org.apache.shiro.web.filter.authz.SslFilter&quot;&gt;
+        &lt;property name=&quot;port&quot; value=&quot;8443&quot; /&gt;
+    &lt;/bean&gt;
+
+&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot;&gt;
+    &lt;!-- securityManager --&gt;
+    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot; /&gt;
+    &lt;!-- &#x767B;&#x5F55;&#x8DEF;&#x5F84; --&gt;
+    &lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot; /&gt;
+    &lt;!-- &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
+    &lt;property name=&quot;successUrl&quot; value=&quot;/index.jsp&quot; /&gt;
+    &lt;!-- &#x6388;&#x6743;&#x5931;&#x8D25;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
+    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/login.jsp&quot; /&gt;
+    &lt;property name=&quot;filters&quot;&gt;
+        &lt;util:map&gt;
+            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot; /&gt;
+            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot; /&gt;
+            &lt;entry key=&quot;kickout&quot; value-ref=&quot;kickoutSessionControlFilter&quot; /&gt;
+            &lt;entry key=&quot;ssl&quot; value-ref=&quot;sslFilter&quot; /&gt;
+        &lt;/util:map&gt;
+    &lt;/property&gt;
+    &lt;!-- &#x8FC7;&#x6EE4;&#x94FE;&#x5B9A;&#x4E49; --&gt;
+    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
+        &lt;value&gt;
+            /login.jsp = ssl,anon
+            /logout = logout
+            /*.js = anon
+            /*.css = anon
+            /error.jsp= anon
+            /mapdaohang.jsp= anon
+            /unauthor.jsp= anon
+            &lt;!-- authc&#x8868;&#x793A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x94FE;&#x63A5; --&gt;
+            /lost.jsp = kickout,authc,roles[&quot;lost&quot;]
+            /*.jsp = kickout,authc
+        &lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>&#x5728;filters&#x4E2D;&#x6DFB;&#x52A0;<code>&lt;entry key=&quot;ssl&quot; value-ref=&quot;sslFilter&quot; /&gt;</code>&#x5373;&#x53EF;&#x5728;<code>filterChainDefinitions</code>&#x4E2D;&#x76F4;&#x63A5;&#x5F15;&#x7528;.</p>
+<p>&#x63A8;&#x8350;&#x4E2A;&#x8BE6;&#x7EC6;&#x6559;&#x7A0B;&#xFF1A;<a href="http://jinnianshilongnian.iteye.com/blog/2036420" target="_blank" rel="external">&#x7B2C;&#x5341;&#x56DB;&#x7AE0; SSL&#x2014;&#x2014;&#x300A;&#x8DDF;&#x6211;&#x5B66;Shiro&#x300B;</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-URL路径含中文" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1058,77 +1162,6 @@ app.factory(&apos;helloWorldFactory&apos;, function(){
 
 
   
-    <article id="post-chrome跨域报错" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/11/03/chrome跨域报错/" class="article-date">
-      <time datetime="2016-11-03T14:05:16.000Z" itemprop="datePublished">2016-11-03</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/03/chrome跨域报错/">angular的ajax请求chrome跨域报错(XMLHttpRequest cannot loadfile:* Cross origin requests are only supported for protocol schemes)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;"></a>&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;</h2><p>ajax&#x8BF7;&#x6C42;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x6587;&#x4EF6;&#xFF0C;chrome&#x62A5;&#x8DE8;&#x57DF;&#x9519;&#x8BEF;</p>
-<pre><code>XMLHttpRequest cannot loadfile:///C:/Users/Li/Desktop/images/alist.json.Cross origin requests are only supported for protocol schemes: http, data,chrome-extension, https, chrome-extension-resource.
-</code></pre><p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x7ED9;chrome&#x6DFB;&#x52A0;&#x542F;&#x52A8;&#x53C2;&#x6570;&#xFF1A;<code>--allow-file-access-from-files</code><br><strong>&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x4E0A;&#x53F3;&#x952E;-&#x5C5E;&#x6027;-&#x5FEB;&#x6377;&#x65B9;&#x5F0F;-&#x76EE;&#x6807; &#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
-<p><img src="/2016/11/03/chrome&#x8DE8;&#x57DF;&#x62A5;&#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161103140925.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20161103140925.png"></p>
-<h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><p>&#x90E8;&#x7F72;&#x5230;tomcat&#x4E2D;&#x53BB;&#xFF0C;&#x901A;&#x8FC7;<code>http://localhost:8080/XXX/#/index</code>&#x6765;&#x8BBF;&#x95EE;</p>
-<h2 id="http-server"><a href="#http-server" class="headerlink" title="http-server"></a>http-server</h2><p>&#x5B89;&#x88C5;http-server&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x96F6;&#x914D;&#x7F6E;&#x547D;&#x4EE4;&#x884C;HTTP&#x670D;&#x52A1;&#x5668;, &#x57FA;&#x4E8E; nodeJs.</p>
-<pre><code>npm install http-server -g
-</code></pre><p>Windows &#x4E0B;&#x4F7F;&#x7528;:<br>&#x5728;&#x7AD9;&#x70B9;&#x76EE;&#x5F55;&#x4E0B;&#x5F00;&#x542F;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;</p>
-<pre><code>http-server
-</code></pre><p><img src="/2016/11/03/chrome&#x8DE8;&#x57DF;&#x62A5;&#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161108111223.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20161108111223.png"><br>&#x8BBF;&#x95EE;: <a href="http://localhost:8081" target="_blank" rel="external">http://localhost:8081</a> or <a href="http://127.0.0.1:8081&#x5373;&#x53EF;&#x3002;" target="_blank" rel="external">http://127.0.0.1:8081&#x5373;&#x53EF;&#x3002;</a></p>
-<h2 id="firfox"><a href="#firfox" class="headerlink" title="firfox"></a>firfox</h2><p>&#x518D;&#x6216;&#x8005;&#x4F60;&#x61D2;&#x5F97;&#x5012;&#x817E;&#x5404;&#x79CD;&#x65B9;&#x6CD5;&#x5C31;&#x6362;&#x6D4F;&#x89C8;&#x5668;&#x5427;&#xFF0C;&#x7528;firfox&#x5C31;&#x53EF;&#x4EE5;&#x5566;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1140,7 +1173,7 @@ app.factory(&apos;helloWorldFactory&apos;, function(){
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 chen
+                2016-2018 chen
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>

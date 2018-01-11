@@ -286,6 +286,161 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Spring-Restful-web-services" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/14/Spring-Restful-web-services/" class="article-date">
+      <time datetime="2016-09-14T10:42:30.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/14/Spring-Restful-web-services/">Spring Restful web services</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Spring &#x662F;&#x6D41;&#x884C;&#x7684; Java EE &#x5E94;&#x7528;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x73B0;&#x5728;&#x5B83;&#x7684; MVC &#x5C42;&#x4E5F;&#x652F;&#x6301; REST &#x4E86;,<br>&#x5728;Spring&#x6846;&#x67B6;&#x652F;&#x6301;REST&#x4E4B;&#x524D;&#xFF0C;&#x4EBA;&#x4EEC;&#x4F1A;&#x9009;&#x7528;&#x5176;&#x4ED6;&#x51E0;&#x79CD;&#x6280;&#x672F;&#x6765;&#x5B9E;&#x73B0;java&#x7684;RESTful Web Services,&#x5982;REStlet,Jersey&#x548C;RESTEasy&#x3002;<br><strong>Spring3.0</strong>&#x4E4B;&#x540E;&#x589E;&#x52A0;&#x4E86;&#x5BF9;RESTful Web Services&#x7684;&#x652F;&#x6301;&#x3002;REST &#x652F;&#x6301;&#x88AB;&#x65E0;&#x7F1D;&#x6574;&#x5408;&#x5230; Spring &#x7684; MVC &#x5C42;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5E94;&#x7528;&#x5230;&#x4F7F;&#x7528; Spring &#x6784;&#x5EFA;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x3002;<br>Spring REST &#x652F;&#x6301;&#x7684;&#x4E3B;&#x8981;&#x7279;&#x6027;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li>&#x6CE8;&#x91CA;&#xFF0C;&#x5982; @RequestMapping &#x548C; @PathVariable&#xFF0C;&#x652F;&#x6301;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x548C; URL &#x6620;&#x5C04;</li>
+<li>ContentNegotiatingViewResolver &#x652F;&#x6301;&#x4E3A;&#x4E0D;&#x540C;&#x7684; MIME/&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;</li>
+<li>&#x4F7F;&#x7528;&#x76F8;&#x4F3C;&#x7684;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x65E0;&#x7F1D;&#x5730;&#x6574;&#x5408;&#x5230;&#x539F;&#x59CB;&#x7684; MVC &#x5C42;<h2 id="&#x5B9E;&#x73B0;"><a href="#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</h2>web.xml&#x4E2D;&#x6FC0;&#x6D3B;Spring,&#x914D;&#x7F6E;&#xFF1A;</li>
+</ul>
+<pre><code>listener-ContextLoadListener
+servlet-DispatcherServlet
+</code></pre><p>Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>&lt;!--&#x6307;&#x660E; controller &#x6240;&#x5728;&#x5305;&#xFF0C;&#x5E76;&#x626B;&#x63CF;&#x5176;&#x4E2D;&#x7684;&#x6CE8;&#x89E3;--&gt;
+&lt;context:component-scan base-package=&quot;com.aerors.th.gis&quot;/&gt;
+&lt;!-- &#x5F00;&#x542F;&#x6CE8;&#x89E3; --&gt;
+&lt;mvc:annotation-driven/&gt;
+&lt;!-- &#x7528;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165; --&gt;
+&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;
+</code></pre><p><strong>component-scan:</strong> &#x542F;&#x7528;&#x5BF9;&#x5E26;&#x6709; Spring &#x6CE8;&#x91CA;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x626B;&#x63CF;<br>&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x5B83;&#x5C06;&#x68C0;&#x67E5;&#x63A7;&#x5236;&#x5668;&#x7C7B;&#x4E2D;&#x6240;&#x5B9A;&#x4E49;&#x7684; @Controller &#x6CE8;&#x91CA;</p>
+<h2 id="Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;"><a href="#Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;" class="headerlink" title="Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;"></a>Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;</h2><pre><code>@Controller
+@RequestMapping(&quot;/user&quot;)
+public class UserRest {
+    @Resource
+    private IUserService userManagerImpl;
+
+    @RequestMapping(value = &quot;/queryAllUser&quot;, method = RequestMethod.GET)
+    @ResponseBody
+    public JSONArray queryAllUser() {
+
+        List&lt;User&gt; dataList = userManagerImpl.queryAll();
+        JSONArray userJSONList2 = JSONArray.fromObject(dataList);
+        return userJSONList2;
+    }
+</code></pre><blockquote>
+<p>@PathVariable&#x4E0E;@RequestParam</p>
+</blockquote>
+<pre><code>@Controller
+public class EmployeeController {
+    @RequestMapping(method=RequestMethod.GET, value=&quot;/employee/{id}&quot;)
+    public ModelAndView getEmployee(@PathVariable String id) {
+        Employee e = employeeDS.get(Long.parseLong(id));
+        returnnew ModelAndView(XML_VIEW_NAME, &quot;object&quot;, e);
+    }
+    ...
+}
+
+
+@Controller
+@RequestMapping(&quot;employees&quot;)
+public class EmployeeController {
+
+    Employee employee = new Employee();
+
+    @RequestMapping(value = &quot;/{name}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public @ResponseBody Employee getEmployeeInJSON(@PathVariable String name) {
+
+        employee.setName(name);
+        employee.setEmail(&quot;employee1@genuitec.com&quot;);
+
+        return employee;
+
+    }
+
+    @RequestMapping(value = &quot;/queryByName&quot;, method = RequestMethod.POST)
+    @ResponseBody
+    public User queryByName(@RequestParam(&quot;uname&quot;) String uname) {
+
+        User user;
+        try {
+            user = userManagerImpl.queryByName(uname).get(0);
+        } catch (Exception e) {
+            // TODO &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684; catch &#x5757;
+            e.printStackTrace();
+            return null;
+        }
+
+        return user;
+    }
+}
+</code></pre><blockquote>
+<p>@RestController</p>
+</blockquote>
+<p>Spring 4.0&#x4E2D;&#x5F15;&#x5165; @RestController&#x7B80;&#x5316;&#x4E86;@Controller&#xFF0C;@ResponseBody&#x6CE8;&#x91CA;<br>@RestController&#x6CE8;&#x89E3;&#x76F8;&#x5F53;&#x4E8E;@ResponseBody &#xFF0B; @Controller&#x5408;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<pre><code>@RestController
+@RequestMapping(&quot;employees&quot;)
+public class EmployeeController {
+
+    Employee employee = new Employee();
+
+    @RequestMapping(value = &quot;/{name}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public Employee getEmployeeInJSON(@PathVariable String name) {
+
+        employee.setName(name);
+        employee.setEmail(&quot;employee1@genuitec.com&quot;);
+
+        return employee;
+
+    }
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular用户注册与密码确认验证" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1181,69 +1336,6 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
 
 
   
-    <article id="post-IDEA" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/02/IDEA/" class="article-date">
-      <time datetime="2016-09-02T10:04:42.000Z" itemprop="datePublished">2016-09-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/02/IDEA/">Intellij IDEA</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6839;&#x636E;&#x8FD1;&#x671F;&#x7684;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x629B;&#x5F03;&#x6211;&#x4EEC;&#x6240;&#x719F;&#x6089;&#x7684;eclipse&#x8F6C;&#x5411;IntelliJ IDEA,&#x8FD9;&#x6B3E;&#x636E;&#x8BF4;&#x6700;&#x597D;&#x7528;&#x7684;java&#x96C6;&#x6210;&#x73AF;&#x5883;&#xFF0C;&#x4E60;&#x60EF;&#x6027;&#x7684;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;<br>&#x652F;&#x6301;Sublime&#x98CE;&#x683C;<br>Intellij IDEA&#x6CA1;&#x6709;eclipse&#x3001;Myeclipse&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#xFF08;workspace&#xFF09;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x662F;&#x4EE5;project&#x4E3A;&#x5355;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x591A;&#x4E2A;&#x9879;&#x76EE;&#x4F1A;&#x6709;&#x591A;&#x4E2A;&#x7A97;&#x53E3;</p>
-<h2 id="bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x6587;&#x4EF6;"><a href="#bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x6587;&#x4EF6;" class="headerlink" title="bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x6587;&#x4EF6;"></a>bin&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x6587;&#x4EF6;</h2><p><img src="/2016/09/02/IDEA/Image%201.png" alt="enter description here" title="Image 1.png"></p>
-<h3 id="idea-properties"><a href="#idea-properties" class="headerlink" title="idea.properties"></a>idea.properties</h3><p>&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</p>
-<p>&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E2A;&#x6027;&#x5316;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#x7684;&#x5730;&#x5740;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/">IDE</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -1255,7 +1347,7 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 chen
+                2016-2018 chen
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>

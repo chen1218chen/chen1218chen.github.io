@@ -286,6 +286,87 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SpringMVC中rest请求返回前台数据中含null报错" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/11/SpringMVC中rest请求返回前台数据中含null报错/" class="article-date">
+      <time datetime="2018-01-11T14:33:03.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/SpringMVC中rest请求返回前台数据中含null报错/">SpringMVC中rest请求返回前台数据中含null报错</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x6700;&#x8FD1;SpringMVC&#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x9891;&#x7E41;&#x4F7F;&#x7528;hibernate&#x7EA7;&#x8054;&#x5173;&#x7CFB;&#xFF0C;&#x5982;@OneToOne&#xFF0C;@ManyToOne&#x7B49;&#xFF0C;&#x6BCF;&#x6B21;&#x524D;&#x53F0;ajax&#x53D1;&#x9001;rest&#x8BF7;&#x6C42;&#x603B;&#x662F;&#x540E;&#x53F0;&#x62A5;&#x9519;&#xFF0C;&#x540E;&#x53F0;&#x6253;&#x5370;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>org.springframework.http.converter.HttpMessageNotWritableException Could not write JSON: Object is null (through reference chain: net.sf.json.JSONObject[&quot;rows&quot;]-&gt;net.sf.json.JSONArray[1]-&gt;net.sf.json.JSONObject[&quot;taskId&quot;]-&gt;net.sf.json.JSONNull[&quot;empty&quot;]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Object is null (through reference chain: net.sf.json.JSONObject[&quot;rows&quot;]-&gt;net.sf.json.JSONArray[1]-&gt;net.sf.json.JSONObject[&quot;taskId&quot;]-&gt;net.sf.json.JSONNull[&quot;empty&quot;])] with root cause net.sf.json.JSONException: Object is null
+</code></pre><p>&#x5E94;&#x8BE5;&#x662F;&#x5728;Hibernate&#x67E5;&#x8BE2;&#x51FA;&#x6570;&#x636E;&#x5B9E;&#x4F53;&#x7C7B;&#x4F7F;&#x7528;jackson&#x5E8F;&#x5217;&#x5316;&#x4E3A;json&#x65F6;&#x62A5;&#x7684;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x4F53;&#x6570;&#x636E;&#x7684;&#x5916;&#x952E;taskID&#x4E3A;&#x7A7A;</p>
+<h2 id="JsonInclude-Include-NON-NULL"><a href="#JsonInclude-Include-NON-NULL" class="headerlink" title="@JsonInclude(Include.NON_NULL)"></a>@JsonInclude(Include.NON_NULL)</h2><ol>
+<li>&#x5728;&#x5B9E;&#x4F53;&#x4E0A;&#x8BBE;&#x7F6E; <code>@JsonInclude(Include.NON_NULL)</code> </li>
+</ol>
+<p>&#x5C06;&#x8BE5;&#x6807;&#x8BB0;&#x653E;&#x5728;&#x5C5E;&#x6027;&#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x5C5E;&#x6027;&#x4E3A;NULL&#x5219;&#x4E0D;&#x53C2;&#x4E0E;&#x5E8F;&#x5217;&#x5316;<br>&#x5982;&#x679C;&#x653E;&#x5728;&#x7C7B;&#x4E0A;&#x8FB9;,&#x90A3;&#x5BF9;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5168;&#x90E8;&#x5C5E;&#x6027;&#x8D77;&#x4F5C;&#x7528; </p>
+<pre><code>Include.Include.ALWAYS &#x9ED8;&#x8BA4; 
+Include.NON_DEFAULT &#x5C5E;&#x6027;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x5E8F;&#x5217;&#x5316; 
+Include.NON_EMPTY &#x5C5E;&#x6027;&#x4E3A; &#x7A7A;&#xFF08;&#x201C;&#x201D;&#xFF09; &#x6216;&#x8005;&#x4E3A; NULL &#x90FD;&#x4E0D;&#x5E8F;&#x5217;&#x5316; 
+Include.NON_NULL &#x5C5E;&#x6027;&#x4E3A;NULL &#x4E0D;&#x5E8F;&#x5217;&#x5316; 
+</code></pre><ol>
+<li>&#x4EE3;&#x7801;&#x4E0A;</li>
+</ol>
+<pre><code>ObjectMapper mapper = new ObjectMapper();
+mapper.setSerializationInclusion(Include.NON_NULL);  
+</code></pre><p>&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x5BF9;mapper&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x6240;&#x6709;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5C06;&#x6309;&#x6539;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x7CFB;&#x5217;&#x5316; </p>
+<pre><code>User user = new User(1,&quot;&quot;,null); 
+String outJson = mapper.writeValueAsString(user); 
+System.out.println(outJson);
+</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x5BF9;&#x5B9E;&#x4F53;VO&#x8D77;&#x4F5C;&#x7528;&#xFF0C;Map List&#x4E0D;&#x8D77;&#x4F5C;&#x7528;</p>
+<p>&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.cnblogs.com/yangy608/p/3936848.html" target="_blank" rel="external">jackson &#x5B9E;&#x4F53;&#x8F6C;json &#x4E3A;NULL&#x6216;&#x8005;&#x4E3A;&#x7A7A;&#x4E0D;&#x53C2;&#x52A0;&#x5E8F;&#x5217;&#x5316;</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-arcgis3标记标绘" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1251,98 +1332,6 @@ $ npm install --save-dev babel-preset-stage-3
 
 
   
-    <article id="post-前端获取视频流并播放" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/05/前端获取视频流并播放/" class="article-date">
-      <time datetime="2017-09-05T14:32:49.000Z" itemprop="datePublished">2017-09-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/05/前端获取视频流并播放/">前端获取视频流并播放</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>html5&#x51FA;&#x6765;&#x540E;&#xFF0C;&#x524D;&#x7AEF;&#x64AD;&#x653E;&#x89C6;&#x9891;&#x77AC;&#x95F4;&#x53D8;&#x5F97;&#x65B9;&#x4FBF;&#x5BB9;&#x6613;&#x591A;&#x4E86;&#xFF0C;&#x4E00;&#x4E2A;<code>&lt;video&gt;</code>&#x6807;&#x7B7E;&#x5C31;&#x53EF;&#x4EE5;&#x641E;&#x5B9A;,&#x53EA;&#x8981;&#x7ED9;src&#x5C5E;&#x6027;&#x6B63;&#x786E;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#x3002;</p>
-<pre><code>&lt;video src=&quot;images/xxx.mov&quot; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;
-</code></pre><p>&#x4F46;&#x662F;&#x5F53;&#x89C6;&#x9891;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4ECE;&#x540E;&#x53F0;&#x5411;&#x524D;&#x53F0;&#x4F20;&#x8F93;&#x89C6;&#x9891;&#x6D41;&#x624D;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x3002;</p>
-<blockquote>
-<p>JAVA</p>
-</blockquote>
-<pre><code>@RequestMapping(value =&quot;/getFileSrc&quot; ,method = RequestMethod.GET)
-@ResponseBody
-public void getFileSrc(HttpServletRequest request ,HttpServletResponse response,@RequestParam(value=&quot;path&quot;) String path) throws IOException{
-    File file = new File(path);
-    FileInputStream input = new FileInputStream(file);
-    int i = input.available();
-    byte[] bytes = new byte[i];
-    input.read(bytes);
-    response.setContentType(&quot;application/video&quot;);
-    OutputStream output = response.getOutputStream();
-    output.write(bytes);
-    output.flush();
-    output.close();
-    input.close();        
-}
-</code></pre><blockquote>
-<p>JS</p>
-</blockquote>
-<pre><code>var path1= &quot;http://localhost:8080/HBDK/rest/resource/getFileSrc?path=&quot;+path;
-
-&lt;!--&#x5F39;&#x51FA;&#x6846;&#x4E2D;&#x64AD;&#x653E;--&gt;
-back.view.popup.open({
-          title: &quot;&#x89C6;&#x5C4F;&#x64AD;&#x653E;&quot;,
-          content:&apos;&lt;video src=&apos;+path1+&apos; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;&apos;,
-          location: point // Set the location of the popup to the clicked location
-    });
-</code></pre><p><img src="/2017/09/05/&#x524D;&#x7AEF;&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x5E76;&#x64AD;&#x653E;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170905144418.png" alt="&#x89C6;&#x5C4F;&#x64AD;&#x653E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170905144418.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1354,7 +1343,7 @@ back.view.popup.open({
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2017 chen
+                2016-2018 chen
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
