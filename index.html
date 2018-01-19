@@ -286,6 +286,81 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Resource与-Autowired的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/19/Resource与-Autowired的区别/" class="article-date">
+      <time datetime="2018-01-19T13:55:58.000Z" itemprop="datePublished">2018-01-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/19/Resource与-Autowired的区别/">@Resource与@Autowired的区别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>@Resource&#x4E0E;@Autowired&#x90FD;&#x662F;&#x7528;&#x6765;&#x6CE8;&#x5165;Bean&#x7684;&#xFF0C;&#x533A;&#x522B;&#x5728;&#x4E8E;@Resource&#x9ED8;&#x8BA4;&#x6309;&#x7167;ByName&#x81EA;&#x52A8;&#x6CE8;&#x5165;&#xFF0C;&#x7531;J2EE&#x63D0;&#x4F9B;&#x652F;&#x6301;&#xFF1B;@Autowired&#x9ED8;&#x8BA4;&#x6309;&#x7167;ByType&#x6CE8;&#x5165;&#xFF0C;&#x7531;spring&#x63D0;&#x4F9B;&#x652F;&#x6301;&#x3002;<br>&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public class BaseServiceImpl implements IBaseService {
+
+    @Autowired
+    @Qualifier(&quot;IbaseDao&quot;)
+    private IBaseDao baseDao;
+    ...
+}
+</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;@Resource&#x65B9;&#x5F0F;&#x6CE8;&#x5165;&#xFF0C;&#x5199;&#x6CD5;&#x5982;&#x4E0B;</p>
+<pre><code>public class BaseServiceImpl implements IBaseService {
+
+    @Resource(name=&quot;IbaseDao&quot;)
+    private IBaseDao baseDao;
+    ...
+}
+</code></pre><p>&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x6548;&#x679C;&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;@Autowired&#x52A0;&#x4E0A;@Qualifier(&#x201C;IbaseDao&#x201D;)&#x6807;&#x7B7E;&#x76F8;&#x5F53;&#x4E8E;@Resource&#x6309;&#x7167;ByName&#x6CE8;&#x5165;&#x3002;<br>&#x63A8;&#x8350;&#x4F7F;&#x7528;@Resource</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-SpringMVC中rest请求返回前台数据中含null报错" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1245,76 +1320,6 @@ $ npm install --save-dev babel-preset-stage-3
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中引用jsp的变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/07/js中引用jsp的变量/" class="article-date">
-      <time datetime="2017-09-07T13:44:07.000Z" itemprop="datePublished">2017-09-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/07/js中引用jsp的变量/">js中引用jsp的变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>&lt;%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + &quot;://&quot;
-            + request.getServerName() + &quot;:&quot; + request.getServerPort()
-            + path + &quot;/&quot;;
-%&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-    var arcgis_js_api_home = &quot;&lt;%=arcgis_js_api_home%&gt;&quot;;
-    var basePath = &quot;&lt;%=basePath%&gt;&quot;; 
-&lt;/script&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>

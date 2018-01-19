@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2018-01-11T07:35:24.196Z</updated>
+  <updated>2018-01-19T06:07:06.341Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>@Resource与@Autowired的区别</title>
+    <link href="http://chen1218chen.github.io/2018/01/19/Resource%E4%B8%8E-Autowired%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://chen1218chen.github.io/2018/01/19/Resource与-Autowired的区别/</id>
+    <published>2018-01-19T13:55:58.000Z</published>
+    <updated>2018-01-19T06:07:06.341Z</updated>
+    
+    <content type="html">&lt;p&gt;@Resource&amp;#x4E0E;@Autowired&amp;#x90FD;&amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x6CE8;&amp;#x5165;Bean&amp;#x7684;&amp;#xFF0C;&amp;#x533A;&amp;#x522B;&amp;#x5728;&amp;#x4E8E;@Resource&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309;&amp;#x7167;ByName&amp;#x81EA;&amp;#x52A8;&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x7531;J2EE&amp;#x63D0;&amp;#x4F9B;&amp;#x652F;&amp;#x6301;&amp;#xFF1B;@Autowired&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309;&amp;#x7167;ByType&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x7531;spring&amp;#x63D0;&amp;#x4F9B;&amp;#x652F;&amp;#x6301;&amp;#x3002;&lt;br&gt;&amp;#x5177;&amp;#x4F53;&amp;#x7528;&amp;#x6CD5;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class BaseServiceImpl implements IBaseService {
+
+    @Autowired
+    @Qualifier(&amp;quot;IbaseDao&amp;quot;)
+    private IBaseDao baseDao;
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;@Resource&amp;#x65B9;&amp;#x5F0F;&amp;#x6CE8;&amp;#x5165;&amp;#xFF0C;&amp;#x5199;&amp;#x6CD5;&amp;#x5982;&amp;#x4E0B;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class BaseServiceImpl implements IBaseService {
+
+    @Resource(name=&amp;quot;IbaseDao&amp;quot;)
+    private IBaseDao baseDao;
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E24;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#x6548;&amp;#x679C;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x51FA;@Autowired&amp;#x52A0;&amp;#x4E0A;@Qualifier(&amp;#x201C;IbaseDao&amp;#x201D;)&amp;#x6807;&amp;#x7B7E;&amp;#x76F8;&amp;#x5F53;&amp;#x4E8E;@Resource&amp;#x6309;&amp;#x7167;ByName&amp;#x6CE8;&amp;#x5165;&amp;#x3002;&lt;br&gt;&amp;#x63A8;&amp;#x8350;&amp;#x4F7F;&amp;#x7528;@Resource&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;@Resource&amp;#x4E0E;@Autowired&amp;#x90FD;&amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x6CE8;&amp;#x5165;Bean&amp;#x7684;&amp;#xFF0C;&amp;#x533A;&amp;#x522B;&amp;#x5728;&amp;#x4E8E;@Resource&amp;
+    
+    </summary>
+    
+    
+      <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
+    
+  </entry>
   
   <entry>
     <title>SpringMVC中rest请求返回前台数据中含null报错</title>
@@ -1087,129 +1123,6 @@ var time1 = newTime.format(&amp;quot;yyyy-MM-dd hh:mm:ss&amp;quot;);
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>vue-cli多页面项目应用</title>
-    <link href="http://chen1218chen.github.io/2017/06/28/vue-cli%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"/>
-    <id>http://chen1218chen.github.io/2017/06/28/vue-cli多页面项目应用/</id>
-    <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-09-13T07:23:49.350Z</updated>
-    
-    <content type="html">&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;vue-cli&amp;#x7528;&amp;#x6765;&amp;#x6784;&amp;#x5EFA;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x5F88;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;vue-cli&amp;#x6A21;&amp;#x677F;&amp;#x5373;&amp;#x53EF;&amp;#xFF0C;&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x9879;&amp;#x76EE;&amp;#x521A;&amp;#x7ED3;&amp;#x675F;&amp;#xFF0C;&amp;#x4E3A;&amp;#x4E86;&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x4E8C;&amp;#x671F;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x60F3;&amp;#x7740;&amp;#x7528;vue&amp;#x6765;&amp;#x91CD;&amp;#x65B0;&amp;#x642D;&amp;#x5EFA;&amp;#x9879;&amp;#x76EE;&amp;#x6846;&amp;#x67B6;&amp;#xFF0C;&amp;#x5B9E;&amp;#x73B0;&amp;#x524D;&amp;#x540E;&amp;#x7AEF;&amp;#x5206;&amp;#x79BB;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;&amp;#x4E5F;&amp;#x7B97;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x63A2;&amp;#x7D22;&amp;#x5427;&amp;#x3002;&amp;#x8DDF;&amp;#x5927;&amp;#x5BB6;&amp;#x5206;&amp;#x4EAB;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x624B;&amp;#x5165;&amp;#x95E8;&amp;#x65F6;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x56F0;&amp;#x60D1;&amp;#x4E0D;&amp;#x89E3;&amp;#xFF0C;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x5E2E;&amp;#x5230;&amp;#x6B63;&amp;#x5904;&amp;#x5728;&amp;#x8FF7;&amp;#x832B;&amp;#x671F;&amp;#x7684;&amp;#x4F60;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;a href=&quot;#&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&quot;&gt;&lt;/a&gt;&amp;#x5DE5;&amp;#x7A0B;&amp;#x76EE;&amp;#x5F55;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2017/06/28/vue-cli&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x9879;&amp;#x76EE;&amp;#x5E94;&amp;#x7528;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170706102216.png&quot; alt=&quot;enter description here&quot; title=&quot;&amp;#x5FAE;&amp;#x4FE1;&amp;#x622A;&amp;#x56FE;_20170706102216.png&quot;&gt;&lt;br&gt;modules&amp;#x4E0B;&amp;#x4E3A;&amp;#x591A;&amp;#x4E2A;&amp;#x9875;&amp;#x9762;&amp;#x5165;&amp;#x53E3;&amp;#xFF0C;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4FDD;&amp;#x6301;&amp;#x4E00;&amp;#x81F4;&amp;#xFF0C;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;modules
-  |---index
-    |---index.html
-    |---index.js
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;.vue&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x4EFB;&amp;#x610F;&amp;#x3002;&lt;br&gt;&amp;#x539F;&amp;#x5219;&amp;#x4E0A;&amp;#x8FD9;&amp;#x4E9B;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x79F0;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x968F;&amp;#x610F;&amp;#x5B9A;&amp;#xFF0C;&amp;#x4F46;&amp;#x7531;&amp;#x4E8E;&amp;#x4E0B;&amp;#x9762;entry&amp;#x5165;&amp;#x53E3;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x9650;&amp;#x5B9A;&amp;#xFF0C;&amp;#x6362;&amp;#x6210;&amp;#x5176;&amp;#x4ED6;&amp;#x540D;&amp;#x5B57;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F1A;&amp;#x627E;&amp;#x4E0D;&amp;#x5230;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x8981;&amp;#x8D77;&amp;#x5176;&amp;#x4ED6;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#xFF0C;&amp;#x8BF7;&amp;#x76F8;&amp;#x5E94;&amp;#x4FEE;&amp;#x6539;getMultiEntry()&amp;#x51FD;&amp;#x6570;&amp;#x3002;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot;&gt;&lt;a href=&quot;#&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&quot;&gt;&lt;/a&gt;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&lt;/h2&gt;&lt;h3 id=&quot;until-js&quot;&gt;&lt;a href=&quot;#until-js&quot; class=&quot;headerlink&quot; title=&quot;until.js&quot;&gt;&lt;/a&gt;until.js&lt;/h3&gt;&lt;p&gt;until.js&amp;#x4E2D;&amp;#x6DFB;&amp;#x52A0;getMultiEntry()&amp;#xFF0C;&amp;#x4F9D;&amp;#x8D56; glob&amp;#x63D2;&amp;#x4EF6;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x63D0;&amp;#x524D;&amp;#x4E0B;&amp;#x8F7D;&amp;#x597D;&amp;#xFF0C;until.js&amp;#x5F00;&amp;#x59CB;&amp;#x5F15;&amp;#x5165;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//&amp;#x83B7;&amp;#x53D6;&amp;#x591A;&amp;#x7EA7;&amp;#x7684;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;
-exports.getMultiEntry = function (globPath) {
-  var entries = {},
-    basename, tmp, pathname;
-
-  glob.sync(globPath).forEach(function (entry) {
-    basename = path.basename(entry, path.extname(entry));
-    tmp = entry.split(&amp;apos;/&amp;apos;).splice(-4);
-
-  var pathsrc = tmp[0]+&amp;apos;/&amp;apos;+tmp[1];
-  if( tmp[0] == &amp;apos;src&amp;apos; ){
-    pathsrc = tmp[1];
-  }
-  //console.log(pathsrc)
-    pathname = pathsrc + &amp;apos;/&amp;apos; + basename; // &amp;#x6B63;&amp;#x786E;&amp;#x8F93;&amp;#x51FA;js&amp;#x548C;html&amp;#x7684;&amp;#x8DEF;&amp;#x5F84;
-    entries[pathname] = entry;
-    //console.log(pathname+&amp;apos;-----------&amp;apos;+entry);
-  });
-
-  return entries;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;build-webpack-base-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-base-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.base.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.base.conf.js&lt;/h3&gt;&lt;p&gt;&amp;#x627E;&amp;#x5230;entry&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;entry:entries,
-&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
-&lt;p&gt;&amp;#x8FD0;&amp;#x884C;&amp;#x3001;&amp;#x7F16;&amp;#x8BD1;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x5165;&amp;#x53E3;&amp;#x90FD;&amp;#x4F1A;&amp;#x5BF9;&amp;#x5E94;&amp;#x4E00;&amp;#x4E2A;Chunk&amp;#x3002; PS&amp;#xFF1A;&amp;#x7EC8;&amp;#x4E8E;&amp;#x660E;&amp;#x767D;&amp;#x8FD9;&amp;#x4E2A;chunk&amp;#x7684;&amp;#x542B;&amp;#x4E49;&amp;#x4E86;/(&amp;#x3112;o&amp;#x3112;)/~~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;build-webpack-dev-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-dev-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.dev.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.dev.conf.js&lt;/h3&gt;&lt;p&gt;&amp;#x6587;&amp;#x672B;&amp;#x6DFB;&amp;#x52A0;&amp;#x4EE5;&amp;#x4E0B;&amp;#x914D;&amp;#x7F6E;&amp;#xFF1A;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var pages =  utils.getMultiEntry(&amp;apos;./src/&amp;apos;+config.moduleName+&amp;apos;/**/*.html&amp;apos;);
-for (var pathname in pages) {
-  // &amp;#x914D;&amp;#x7F6E;&amp;#x751F;&amp;#x6210;&amp;#x7684;html&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5B9A;&amp;#x4E49;&amp;#x8DEF;&amp;#x5F84;&amp;#x7B49;
-  var conf = {
-    filename: pathname + &amp;apos;.html&amp;apos;,
-    template: pages[pathname], // &amp;#x6A21;&amp;#x677F;&amp;#x8DEF;&amp;#x5F84;
-    chunks: [pathname, &amp;apos;vendors&amp;apos;, &amp;apos;manifest&amp;apos;], // &amp;#x6BCF;&amp;#x4E2A;html&amp;#x5F15;&amp;#x7528;&amp;#x7684;js&amp;#x6A21;&amp;#x5757;
-    inject: true              // js&amp;#x63D2;&amp;#x5165;&amp;#x4F4D;&amp;#x7F6E;
-  };
-  // &amp;#x9700;&amp;#x8981;&amp;#x751F;&amp;#x6210;&amp;#x51E0;&amp;#x4E2A;html&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x5C31;&amp;#x914D;&amp;#x7F6E;&amp;#x51E0;&amp;#x4E2A;HtmlWebpackPlugin&amp;#x5BF9;&amp;#x8C61;
-  module.exports.plugins.push(new HtmlWebpackPlugin(conf));
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&lt;code&gt;config.moduleName = &amp;apos;modules&amp;apos;&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&quot;build-webpack-prod-conf-js&quot;&gt;&lt;a href=&quot;#build-webpack-prod-conf-js&quot; class=&quot;headerlink&quot; title=&quot;~\build\webpack.prod.conf.js&quot;&gt;&lt;/a&gt;~\build\webpack.prod.conf.js&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    ...
-
-//&amp;#x6784;&amp;#x5EFA;&amp;#x751F;&amp;#x6210;&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x7684;HtmlWebpackPlugin&amp;#x914D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x5FAA;&amp;#x73AF;&amp;#x751F;&amp;#x6210;
-var pages =  utils.getMultiEntry(&amp;apos;./src/&amp;apos;+config.moduleName+&amp;apos;/**/*.html&amp;apos;);
-for (var pathname in pages) {
-  var conf = {
-    filename: pathname + &amp;apos;.html&amp;apos;,
-    template: pages[pathname], // &amp;#x6A21;&amp;#x677F;&amp;#x8DEF;&amp;#x5F84;
-    chunks: [&amp;apos;vendor&amp;apos;,pathname], // &amp;#x6BCF;&amp;#x4E2A;html&amp;#x5F15;&amp;#x7528;&amp;#x7684;js&amp;#x6A21;&amp;#x5757;
-    inject: true,              // js&amp;#x63D2;&amp;#x5165;&amp;#x4F4D;&amp;#x7F6E;
-  hash:true
-  };
-
-  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
-}
-
-module.exports = webpackConfig
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5176;&amp;#x4E2D;&lt;code&gt;config.moduleName = &amp;apos;modules&amp;apos;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x81F3;&amp;#x6B64;&amp;#xFF0C;&amp;#x591A;&amp;#x9875;&amp;#x9762;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5B8C;&amp;#x6210;&amp;#x3002;&amp;#x8BBF;&amp;#x95EE;&amp;#x5730;&amp;#x5740;&amp;#x4E3A;&amp;#xFF1A;&lt;br&gt;index : &lt;a href=&quot;http://localhost:8088/modules/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8088/modules/index.html&lt;/a&gt;&lt;br&gt;phone : &lt;a href=&quot;http://localhost:8088/modules/phone.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8088/modules/phone.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cnpm run build&lt;/code&gt;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x5728;nginx&amp;#x4E2D;&amp;#x5373;&amp;#x53EF;&amp;#x8BBF;&amp;#x95EE;&amp;#xFF0C;&amp;#x8BBF;&amp;#x95EE;&amp;#x5730;&amp;#x5740;&amp;#x4E3A;&lt;br&gt;index : &lt;a href=&quot;http://localhost/modules/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/modules/index.html&lt;/a&gt;&lt;br&gt;phone : &lt;a href=&quot;http://localhost/modules/phone.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost/modules/phone.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x5176;&amp;#x4ED6;&amp;#x76F8;&amp;#x5173;&amp;#x914D;&amp;#x7F6E;&lt;/h2&gt;&lt;h3 id=&quot;&amp;#x793A;&amp;#x4F8B;&quot;&gt;&lt;a href=&quot;#&amp;#x793A;&amp;#x4F8B;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x793A;&amp;#x4F8B;&quot;&gt;&lt;/a&gt;&amp;#x793A;&amp;#x4F8B;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;module.exports = {
-    entry: {
-        index: &amp;apos;./src/pages/index/index.js&amp;apos;,
-        list: &amp;apos;./src/pages/list/index.js&amp;apos;,
-        common: [
-            &amp;apos;./src/base/base.js&amp;apos;,
-            &amp;apos;./src/base/base.css&amp;apos;
-        ]
-    },
-    output: {
-        path: &amp;apos;./asset/build/&amp;apos;, // &amp;#x6587;&amp;#x4EF6;&amp;#x7F16;&amp;#x8BD1;&amp;#x8F93;&amp;#x51FA;&amp;#x8DEF;&amp;#x5F84;&amp;#x6539;&amp;#x6210; build
-        publicpath: &amp;apos;http://yourweb.com/asset/build/&amp;apos;, // &amp;#x8FD9;&amp;#x91CC;&amp;#x66FF;&amp;#x6362;&amp;#x6210;&amp;#x7EBF;&amp;#x4E0A;&amp;#x5B9E;&amp;#x9645;&amp;#x5730;&amp;#x5740;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4FEE;&amp;#x6539; css &amp;#x4E2D;&amp;#x5BF9;&amp;#x56FE;&amp;#x7247;&amp;#x8D44;&amp;#x6E90;&amp;#x7684;&amp;#x5F15;&amp;#x7528;&amp;#x8DEF;&amp;#x5F84;&amp;#x3002;
-        filename: &amp;apos;[name]_[hash:5].js&amp;apos; // &amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x5B57;&amp;#xFF0C;&amp;#x52A0;&amp;#x4E0A;&amp;#x4E86;5&amp;#x4F4D;&amp;#x7684; hash&amp;#x503C;&amp;#x3002;&amp;#x5F53;&amp;#x7136;&amp;#x4E86;&amp;#xFF0C;&amp;#x4F4D;&amp;#x6570;&amp;#x548C;&amp;#x52A0;hash&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#xFF0C;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x81EA;&amp;#x5DF1;&amp;#x5B9A;&amp;#x4E49;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982; &amp;apos;[name].js?[hash]&amp;apos;.
-    },
-    // &amp;#x5176;&amp;#x5B83;&amp;#x914D;&amp;#x7F6E;...
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;entry&amp;#x914D;&amp;#x7F6E;&amp;#x5165;&amp;#x53E3;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x591A;&amp;#x5165;&amp;#x53E3;&amp;#x4F1A;&amp;#x72EC;&amp;#x7ACB;&amp;#x6253;&amp;#x5305;3&amp;#x4E2A;&amp;#x5B9E;&amp;#x4F53;&amp;#x3002;&amp;#x5206;&amp;#x522B;&amp;#x662F; index.js, list.js, common.js&amp;#x3002;&lt;/p&gt;
-&lt;h3 id=&quot;webpack&amp;#x522B;&amp;#x540D;-resolve-alias&quot;&gt;&lt;a href=&quot;#webpack&amp;#x522B;&amp;#x540D;-resolve-alias&quot; class=&quot;headerlink&quot; title=&quot;webpack&amp;#x522B;&amp;#x540D; resolve.alias&quot;&gt;&lt;/a&gt;webpack&amp;#x522B;&amp;#x540D; &lt;code&gt;resolve.alias&lt;/code&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;resolve: {
-   alias: {
-       moment: &amp;quot;moment/min/moment-with-locales.min.js&amp;quot;
-   }
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x5F85;&amp;#x6253;&amp;#x5305;&amp;#x7684;&amp;#x811A;&amp;#x672C;&amp;#x4E2D;&amp;#x7684;&lt;code&gt;require(&amp;apos;moment&amp;apos;);&lt;/code&gt;&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x7B49;&amp;#x4EF7;&amp;#x4E8E;&lt;code&gt;require(&amp;apos;moment/min/moment-with-locales.min.js&amp;apos;);&lt;/code&gt;&amp;#x901A;&amp;#x8FC7;&amp;#x522B;&amp;#x540D;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x5728;&amp;#x672C;&amp;#x4F8B;&amp;#x4E2D;&amp;#x53EF;&amp;#x4EE5;&amp;#x51CF;&amp;#x5C11;&amp;#x51E0;&amp;#x4E4E;&amp;#x4E00;&amp;#x534A;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x3002;      &lt;/p&gt;
-&lt;h3 id=&quot;output-filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#output-filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;output.filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&quot;&gt;&lt;/a&gt;output.filename&amp;#x7F13;&amp;#x5B58;&amp;#x53C2;&amp;#x6570;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;filename: &amp;apos;[name].[hash].js&amp;apos;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x751F;&amp;#x6210; vendors.61714a310523a3df9869.js,&amp;#x6BCF;&amp;#x6B21;&amp;#x751F;&amp;#x6210;&amp;#x90FD;&amp;#x4E0D;&amp;#x4F1A;&amp;#x8986;&amp;#x76D6;&amp;#x4E4B;&amp;#x524D;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x67E5;BUG&amp;#x6216;&amp;#x8005;&amp;#x56DE;&amp;#x6EDA;&amp;#x3002;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x7B2C;&amp;#x4E8C;&amp;#x79CD;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;filename: &amp;apos;[name].js&amp;apos;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x751F;&amp;#x6210;vendors.js?f3aaf25de220e214f84e,&amp;#x6BCF;&amp;#x6B21;&amp;#x90FD;&amp;#x4F1A;&amp;#x8986;&amp;#x76D6;&amp;#x4E4B;&amp;#x524D;&amp;#x751F;&amp;#x6210;&amp;#x7684;&amp;#x8D44;&amp;#x6E90;&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x5728;&amp;#x67D0;&amp;#x4E9B;&amp;#x7279;&amp;#x6B8A;&amp;#x9879;&amp;#x76EE;&amp;#x4F7F;&amp;#x7528;&amp;#x3002;&lt;/p&gt;
-&lt;h3 id=&quot;process-env-NODE-ENV&quot;&gt;&lt;a href=&quot;#process-env-NODE-ENV&quot; class=&quot;headerlink&quot; title=&quot;process.env.NODE_ENV&quot;&gt;&lt;/a&gt;process.env.NODE_ENV&lt;/h3&gt;&lt;p&gt;&amp;#x6307;&amp;#x7684;&amp;#x662F;config/*&amp;#x4E0B;&amp;#x6587;&amp;#x4EF6;&amp;#x4E2D;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;&amp;#x3002;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;[TOC]&lt;/p&gt;
-&lt;p&gt;vue-cli&amp;#x7528;&amp;#x6765;&amp;#x6784;&amp;#x5EFA;&amp;#x5355;&amp;#x9875;&amp;#x9762;&amp;#x5E94;&amp;#x7528;&amp;#x5F88;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x76F4;&amp;#x63
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="http://chen1218chen.github.io/tags/vue/"/>
-    
-      <category term="vue-cli" scheme="http://chen1218chen.github.io/tags/vue-cli/"/>
     
   </entry>
   
