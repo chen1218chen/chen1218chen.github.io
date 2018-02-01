@@ -286,6 +286,109 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-js中this的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/23/js中this的用法/" class="article-date">
+      <time datetime="2016-09-23T10:18:23.000Z" itemprop="datePublished">2016-09-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/23/js中this的用法/">js中this的用法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<p>&#x5373;&#x4F7F;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x5173;&#x4E8E;js&#x4E2D;this&#x7684;&#x7528;&#x6CD5;&#x8BE6;&#x89E3;&#xFF0C;&#x6211;&#x8FD8;&#x662F;&#x60F3;&#x5199;&#x4E00;&#x7BC7;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x81EA;&#x5DF1;&#x65E5;&#x540E;&#x56DE;&#x987E;&#x3002;<br>&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#xFF1A;</p>
+<h2 id="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"><a href="#&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;" class="headerlink" title="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"></a>&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;</h2><pre><code>var x = 0;
+function test(){
+    this.x = 1;
+}
+
+test();
+alert(x); // 1
+</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;</h2><p>&#x8FD9;&#x91CC;&#x6240;&#x8BF4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x6307;&#x7528;&#x51FD;&#x6570;new&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;,&#x5373;&#xFF1A;</p>
+<pre><code>var t = new test();
+</code></pre><p>&#x8FD9;&#x65F6;&#xFF0C;this&#x6307;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;</p>
+<pre><code>var x = 2;
+function test(){
+    this.x = 1;
+}
+
+var t = new test();
+alert(t.x); // 1
+alert(x);   // 2
+</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"><a href="#&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"></a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</h2><p>&#x8FD9;&#x65F6;this&#x503C;&#x4E0A;&#x7EA7;&#x5BF9;&#x8C61;</p>
+<pre><code>function test(){
+    alert(this.x); // 2
+    this.x = 1;
+    alert(this.x); // 1
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o();
+</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
+<pre><code>var x = 3
+function test(){
+    alert(this.x);
+}
+
+var t = {};
+t.x = 2;
+t.o = test;
+t.o(); //2
+t.o.apply(); //3
+t.o.apply(t); //2 &#x76F8;&#x5F53;&#x4E8E;t.o();
+</code></pre><p>apply&#x7684;&#x8BE6;&#x89E3;&#x67E5;&#x770B;<a href="http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/">js&#x7684;&#x539F;&#x578B;&#x53CA;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;</a>&#x4E00;&#x6587;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Spring集成Log4j" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1315,71 +1418,6 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-关于HTML5的一些零碎" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/05/关于HTML5的一些零碎/" class="article-date">
-      <time datetime="2016-09-05T14:25:19.000Z" itemprop="datePublished">2016-09-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/关于HTML5的一些零碎/">关于HTML5的一些零碎</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x5C5E;&#x6027;"><a href="#&#x5C5E;&#x6027;" class="headerlink" title="&#x5C5E;&#x6027;"></a>&#x5C5E;&#x6027;</h2><h3 id="tabindex"><a href="#tabindex" class="headerlink" title="tabindex"></a>tabindex</h3><p>tabindex &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5143;&#x7D20;&#x7684; tab &#x952E;&#x63A7;&#x5236;&#x6B21;&#x5E8F;</p>
-<pre><code>&lt;input type=&quot;text&quot; tabindex=&quot;1&quot;&gt;
-</code></pre><h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><p>&#x73B0;&#x5728;html5&#x7684;&#x51FA;&#x73B0;&#x5F00;&#x59CB;&#x5168;&#x9762;&#x652F;&#x6301;defer&#x3002;defer &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x5F53;&#x9875;&#x9762;&#x5DF2;&#x5B8C;&#x6210;&#x52A0;&#x8F7D;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x811A;&#x672C;&#x3002;defer &#x5C5E;&#x6027;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF08;&#x53EA;&#x6709;&#x5728;&#x4F7F;&#x7528; src &#x5C5E;&#x6027;&#x65F6;&#xFF09;</p>
-<h3 id="async"><a href="#async" class="headerlink" title="async"></a>async</h3><p>async &#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x4E00;&#x65E6;&#x811A;&#x672C;&#x53EF;&#x7528;&#xFF0C;&#x5219;&#x4F1A;&#x5F02;&#x6B65;&#x6267;&#x884C;</p>
-<h3 id="novalidate"><a href="#novalidate" class="headerlink" title="novalidate"></a>novalidate</h3><p>&#x901A;&#x8FC7;&#x5C06;novalidate&#x5C5E;&#x6027;&#x653E;&#x7F6E;&#x5230;form&#x5143;&#x7D20;&#x4E0A;&#xFF0C;form&#x5143;&#x7D20;&#x7684;&#x539F;&#x751F;&#x6821;&#x9A8C;&#x7279;&#x5F81;&#x5C31;&#x4F1A;&#x5FFD;&#x7565;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x5B83;&#x540C;&#x4F60;&#x7684;&#x81EA;&#x5DF1;&#x5199;&#x7684;JavaScript&#x7684;&#x6821;&#x9A8C;&#x65B9;&#x6CD5;&#x8D77;&#x51B2;&#x7A81;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
     </div>
 
       

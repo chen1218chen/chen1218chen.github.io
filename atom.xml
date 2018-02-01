@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2018-01-19T06:07:06.341Z</updated>
+  <updated>2018-02-01T03:19:26.474Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hibernate中Criteria实现复合条件查询</title>
+    <link href="http://chen1218chen.github.io/2018/02/01/hibernate%E4%B8%ADCriteria%E5%AE%9E%E7%8E%B0%E5%A4%8D%E5%90%88%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://chen1218chen.github.io/2018/02/01/hibernate中Criteria实现复合条件查询/</id>
+    <published>2018-02-01T10:27:37.000Z</published>
+    <updated>2018-02-01T03:19:26.474Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;-&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&quot;&gt;&lt;a href=&quot;#&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;-&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&quot;&gt;&lt;/a&gt;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&lt;/h2&gt;&lt;p&gt;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;Criteria&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x903B;&amp;#x8F91;&amp;#x6E05;&amp;#x695A;&amp;#x800C;&amp;#x4E14;&amp;#x65B9;&amp;#x4FBF;&amp;#xFF0C;&amp;#x907F;&amp;#x514D;&amp;#x4E86;&amp;#x8FC7;&amp;#x591A;&amp;#x7684;if else &amp;#x8BED;&amp;#x53E5;&amp;#x3002;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#x4E2D;&amp;#x56E0;&amp;#x4E3A;&amp;#x67E5;&amp;#x8BE2;&amp;#x7ED3;&amp;#x679C;&amp;#x8981;&amp;#x8FDB;&amp;#x884C;&amp;#x5206;&amp;#x9875;&amp;#xFF0C;&amp;#x591A;&amp;#x4EE5;&amp;#x5C06;&amp;#x6BCF;&amp;#x9875;&amp;#x6570;&amp;#x636E;&amp;#x548C;&amp;#x67E5;&amp;#x8BE2;&amp;#x603B;&amp;#x6570;&amp;#x5C01;&amp;#x88C5;&amp;#x5230;map&amp;#x4E2D;&amp;#x4F20;&amp;#x5230;&amp;#x524D;&amp;#x53F0;&amp;#xFF0C;&amp;#x4EE5;&amp;#x4F9B;&amp;#x524D;&amp;#x53F0;bootstrap-table&amp;#x63D2;&amp;#x4EF6;&amp;#x4F7F;&amp;#x7528;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public Map&amp;lt;String, List&amp;gt; dataByPageItem(int pageNow, int pageSize, String searchText, String flag,String jurisdiction, String severity) {
+        // TODO Auto-generated method stub
+        Map myMap = new HashMap&amp;lt;String, List&amp;gt;();
+        Integer total;
+        // &amp;#x6240;&amp;#x6709;item&amp;#x6570;&amp;#x636E;&amp;#x5206;&amp;#x9875;
+        Session session = this.getSessionSelf();
+        Criteria crit = session.createCriteria(Item.class);
+        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//&amp;#x89E3;&amp;#x51B3;&amp;#x67E5;&amp;#x8BE2;&amp;#x5904;&amp;#x7406;&amp;#x7684;&amp;#x6570;&amp;#x636E;&amp;#x91CD;&amp;#x590D;&amp;#x7684;&amp;#x95EE;&amp;#x9898;
+        Conjunction conjunction = Restrictions.conjunction(); //and&amp;#x5173;&amp;#x7CFB;
+        Disjunction disjunction = Restrictions.disjunction(); //or&amp;#x5173;&amp;#x7CFB;
+
+        if(!&amp;quot;9&amp;quot;.equals(flag) &amp;amp;&amp;amp; flag != &amp;quot;&amp;quot;){            
+            int flagInt = Integer.parseInt(flag);
+            Criterion flagCriterion = Restrictions.eq(&amp;quot;flag&amp;quot;,flagInt);
+            conjunction.add(flagCriterion);
+        }
+        if(jurisdiction!=&amp;quot;&amp;quot;){
+            Criterion jurisdictionCrt = Restrictions.like(&amp;quot;jurisdiction&amp;quot;, jurisdiction);
+            conjunction.add(jurisdictionCrt);
+        }
+        if(severity!=&amp;quot;&amp;quot;){
+            Criterion severityCrt = Restrictions.like(&amp;quot;severity&amp;quot;, severity);
+            conjunction.add(severityCrt);
+        }
+        if(searchText != &amp;quot;&amp;quot;){
+            Criterion address = Restrictions.like(&amp;quot;address&amp;quot;, searchText);
+            Criterion description = Restrictions.like(&amp;quot;description&amp;quot;, searchText);
+            Criterion dealName = Restrictions.like(&amp;quot;dealName&amp;quot;, searchText);
+            Criterion dataTime = Restrictions.like(&amp;quot;dataTime&amp;quot;, searchText);
+            disjunction.add(address);
+            disjunction.add(description);
+            disjunction.add(dealName);
+            disjunction.add(dataTime);
+            conjunction.add(disjunction);
+        }
+
+        //&amp;#x6392;&amp;#x5E8F;
+        crit.add(conjunction).addOrder(Order.desc(&amp;quot;dataTime&amp;quot;));  
+        // &amp;#x589E;&amp;#x52A0;&amp;#x67E5;&amp;#x8BE2;&amp;#x6761;&amp;#x4EF6; 
+        Criteria critCount = crit;
+        total = critCount.list().size();
+        //&amp;#x5206;&amp;#x9875;
+        crit.setFirstResult((pageNow - 1) * pageSize);
+        crit.setMaxResults(pageSize);
+        List&amp;lt;Item&amp;gt; list = crit.list(); 
+        List&amp;lt;Integer&amp;gt; listTotal = new ArrayList&amp;lt;Integer&amp;gt;();
+        listTotal.add(total);
+        myMap.put(&amp;quot;total&amp;quot;, listTotal);//&amp;#x603B;&amp;#x6570;
+        myMap.put(&amp;quot;rows&amp;quot;, list);//&amp;#x6BCF;&amp;#x9875;&amp;#x6570;&amp;#x636E;
+        return myMap;
+    }
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;-&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&quot;&gt;&lt;a href=&quot;#&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;-&amp;#x591A;&amp;#x676
+    
+    </summary>
+    
+    
+      <category term="Hibernate" scheme="http://chen1218chen.github.io/tags/Hibernate/"/>
+    
+      <category term="bootstrap table" scheme="http://chen1218chen.github.io/tags/bootstrap-table/"/>
+    
+  </entry>
   
   <entry>
     <title>@Resource与@Autowired的区别</title>
@@ -1123,42 +1197,6 @@ var time1 = newTime.format(&amp;quot;yyyy-MM-dd hh:mm:ss&amp;quot;);
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime text 3 之MarkdownEditing插件快捷键</title>
-    <link href="http://chen1218chen.github.io/2017/06/28/Sublime%E4%B9%8BMarkdownEditing%E6%8F%92%E4%BB%B6%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://chen1218chen.github.io/2017/06/28/Sublime之MarkdownEditing插件快捷键/</id>
-    <published>2017-06-28T14:22:42.000Z</published>
-    <updated>2017-06-30T01:54:25.660Z</updated>
-    
-    <content type="html">&lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Win+R &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x94FE;&amp;#x63A5;&amp;#x5230;&amp;#x526A;&amp;#x8D34;&amp;#x677F;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Alt+R &amp;#x5F39;&amp;#x51FA;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x5728;&amp;#x63D0;&amp;#x793A;&amp;#x6846;&amp;#x4E2D;&amp;#x8F93;&amp;#x5165;&amp;#x94FE;&amp;#x63A5;&amp;#x5185;&amp;#x5BB9;&amp;#x548C;&amp;#x5B9A;&amp;#x4E49;&amp;#x53C2;&amp;#x8003;ID[^3]
-Ctrl+Win+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;
-Win+Shift+K &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x6807;&amp;#x51C6;&amp;#x7684;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x56FE;&amp;#x7247;&amp;#xFF08;&amp;#x6B64;&amp;#x5FEB;&amp;#x6377;&amp;#x952E;&amp;#x53EF;&amp;#x80FD;&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;&amp;#x6CD5;&amp;#x6709;&amp;#x51B2;&amp;#x7A81;&amp;#xFF09;
-Ctrl+1 &amp;#x81F3; Ctrl+6 &amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x7EA7;&amp;#x81F3;&amp;#x516D;&amp;#x7EA7;&amp;#x6807;&amp;#x9898;
-Win+Alt+i &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x659C;&amp;#x4F53;
-Win+Alt+b &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x7C97;&amp;#x4F53;[^1]
-Ctrl+Shift+6 &amp;#x81EA;&amp;#x52A8;&amp;#x63D2;&amp;#x5165;&amp;#x4E00;&amp;#x4E2A;&amp;#x811A;&amp;#x6CE8;&amp;#xFF0C;&amp;#x5E76;&amp;#x8DF3;&amp;#x8F6C;&amp;#x5230;&amp;#x8BE5;&amp;#x811A;&amp;#x6CE8;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E2D;&amp;#x3002;
-Alt+Shift+F &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x811A;&amp;#x6CE8;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Alt+Shift+G &amp;#x67E5;&amp;#x627E;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x53C2;&amp;#x8003;&amp;#x5F0F;&amp;#x8D85;&amp;#x94FE;&amp;#x63A5;&amp;#x5E76;&amp;#x81EA;&amp;#x52A8;&amp;#x6DFB;&amp;#x52A0;&amp;#x5176;&amp;#x5B9A;&amp;#x4E49;&amp;#x94FE;&amp;#x63A5;
-Ctrl+Alt+S &amp;#x811A;&amp;#x6CE8;&amp;#x6392;&amp;#x5E8F;
-Ctrl+Shift+. &amp;#x7F29;&amp;#x8FDB;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-Ctrl+Shift+, &amp;#x63D0;&amp;#x524D;&amp;#x5F53;&amp;#x524D;&amp;#x5185;&amp;#x5BB9;
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;pre&gt;&lt;code&gt;Ctrl+Win+V &amp;#x9009;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x5C06;&amp;#x81EA;&amp;#x52A8;&amp;#x8F6C;&amp;#x6362;&amp;#x4E3A;&amp;#x884C;&amp;#x5185;&amp;#x5F0F;&amp;#x8D8
-    
-    </summary>
-    
-    
-      <category term="Sublime" scheme="http://chen1218chen.github.io/tags/Sublime/"/>
-    
-      <category term="Markdown" scheme="http://chen1218chen.github.io/tags/Markdown/"/>
     
   </entry>
   

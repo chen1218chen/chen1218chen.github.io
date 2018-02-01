@@ -16,27 +16,16 @@
 
 
 
-<meta name="description" content="[TOC]
-Express&amp;#x5B89;&amp;#x88C5;
-&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;express&amp;#xFF0C;express&amp;#x4F5C;&amp;#x4E3A;&amp;#x547D;&amp;#x4EE4;&amp;#x88AB;&amp;#x5B89;&amp;#x88C5;&amp;#x5230;&amp;#x4E86;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;
-1npm install -g exp">
+<meta name="description" content="&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;Criteria&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Express.js">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/06/08/Express.js/index.html">
+<meta property="og:title" content="hibernate中Criteria实现复合条件查询">
+<meta property="og:url" content="http://chen1218chen.github.io/2018/02/01/hibernate中Criteria实现复合条件查询/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="[TOC]
-Express&amp;#x5B89;&amp;#x88C5;
-&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;express&amp;#xFF0C;express&amp;#x4F5C;&amp;#x4E3A;&amp;#x547D;&amp;#x4EE4;&amp;#x88AB;&amp;#x5B89;&amp;#x88C5;&amp;#x5230;&amp;#x4E86;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;
-1npm install -g exp">
-<meta property="og:image" content="http://chen1218chen.github.io/2016/06/08/Express.js/1445320217363.png">
-<meta property="og:updated_time" content="2016-07-08T08:51:39.725Z">
+<meta property="og:description" content="&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;Criteria&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0">
+<meta property="og:updated_time" content="2018-02-01T03:19:26.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Express.js">
-<meta name="twitter:description" content="[TOC]
-Express&amp;#x5B89;&amp;#x88C5;
-&amp;#x5168;&amp;#x5C40;&amp;#x5B89;&amp;#x88C5;express&amp;#xFF0C;express&amp;#x4F5C;&amp;#x4E3A;&amp;#x547D;&amp;#x4EE4;&amp;#x88AB;&amp;#x5B89;&amp;#x88C5;&amp;#x5230;&amp;#x4E86;&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;
-1npm install -g exp">
-<meta name="twitter:image" content="http://chen1218chen.github.io/2016/06/08/Express.js/1445320217363.png">
+<meta name="twitter:title" content="hibernate中Criteria实现复合条件查询">
+<meta name="twitter:description" content="&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#x5206;&amp;#x9875;&amp;#x67E5;&amp;#x8BE2;+&amp;#x591A;&amp;#x6761;&amp;#x4EF6;&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;Criteria&amp;#x67E5;&amp;#x8BE2;&amp;#xFF0">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -68,7 +57,7 @@ Express&amp;#x5B89;&amp;#x88C5;
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Express.js | 一锅乱炖</title>
+<title>hibernate中Criteria实现复合条件查询 | 一锅乱炖</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,11 +278,11 @@ Express&amp;#x5B89;&amp;#x88C5;
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hibernate中Criteria实现复合条件查询" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/08/Express.js/" class="article-date">
-      <time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
+      <a href="/2018/02/01/hibernate中Criteria实现复合条件查询/" class="article-date">
+      <time datetime="2018-02-01T10:27:37.000Z" itemprop="datePublished">2018-02-01</time>
 </a>
 
 
@@ -308,7 +297,7 @@ Express&amp;#x5B89;&amp;#x88C5;
         
   
     <h1 class="article-title" itemprop="name">
-      Express.js
+      hibernate中Criteria实现复合条件查询
     </h1>
   
 
@@ -319,7 +308,7 @@ Express&amp;#x5B89;&amp;#x88C5;
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap-table/">bootstrap table</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -329,71 +318,59 @@ Express&amp;#x5B89;&amp;#x88C5;
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
+        <h2 id="&#x5206;&#x9875;&#x67E5;&#x8BE2;-&#x591A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"><a href="#&#x5206;&#x9875;&#x67E5;&#x8BE2;-&#x591A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;" class="headerlink" title="&#x5206;&#x9875;&#x67E5;&#x8BE2;+&#x591A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;"></a>&#x5206;&#x9875;&#x67E5;&#x8BE2;+&#x591A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;</h2><p>&#x5206;&#x9875;&#x67E5;&#x8BE2;+&#x591A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;&#xFF0C;&#x4F7F;&#x7528;Criteria&#x67E5;&#x8BE2;&#xFF0C;&#x903B;&#x8F91;&#x6E05;&#x695A;&#x800C;&#x4E14;&#x65B9;&#x4FBF;&#xFF0C;&#x907F;&#x514D;&#x4E86;&#x8FC7;&#x591A;&#x7684;if else &#x8BED;&#x53E5;&#x3002;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x4E2D;&#x56E0;&#x4E3A;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x8981;&#x8FDB;&#x884C;&#x5206;&#x9875;&#xFF0C;&#x591A;&#x4EE5;&#x5C06;&#x6BCF;&#x9875;&#x6570;&#x636E;&#x548C;&#x67E5;&#x8BE2;&#x603B;&#x6570;&#x5C01;&#x88C5;&#x5230;map&#x4E2D;&#x4F20;&#x5230;&#x524D;&#x53F0;&#xFF0C;&#x4EE5;&#x4F9B;&#x524D;&#x53F0;bootstrap-table&#x63D2;&#x4EF6;&#x4F7F;&#x7528;</p>
+<pre><code>public Map&lt;String, List&gt; dataByPageItem(int pageNow, int pageSize, String searchText, String flag,String jurisdiction, String severity) {
+        // TODO Auto-generated method stub
+        Map myMap = new HashMap&lt;String, List&gt;();
+        Integer total;
+        // &#x6240;&#x6709;item&#x6570;&#x636E;&#x5206;&#x9875;
+        Session session = this.getSessionSelf();
+        Criteria crit = session.createCriteria(Item.class);
+        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//&#x89E3;&#x51B3;&#x67E5;&#x8BE2;&#x5904;&#x7406;&#x7684;&#x6570;&#x636E;&#x91CD;&#x590D;&#x7684;&#x95EE;&#x9898;
+        Conjunction conjunction = Restrictions.conjunction(); //and&#x5173;&#x7CFB;
+        Disjunction disjunction = Restrictions.disjunction(); //or&#x5173;&#x7CFB;
 
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+        if(!&quot;9&quot;.equals(flag) &amp;&amp; flag != &quot;&quot;){            
+            int flagInt = Integer.parseInt(flag);
+            Criterion flagCriterion = Restrictions.eq(&quot;flag&quot;,flagInt);
+            conjunction.add(flagCriterion);
+        }
+        if(jurisdiction!=&quot;&quot;){
+            Criterion jurisdictionCrt = Restrictions.like(&quot;jurisdiction&quot;, jurisdiction);
+            conjunction.add(jurisdictionCrt);
+        }
+        if(severity!=&quot;&quot;){
+            Criterion severityCrt = Restrictions.like(&quot;severity&quot;, severity);
+            conjunction.add(severityCrt);
+        }
+        if(searchText != &quot;&quot;){
+            Criterion address = Restrictions.like(&quot;address&quot;, searchText);
+            Criterion description = Restrictions.like(&quot;description&quot;, searchText);
+            Criterion dealName = Restrictions.like(&quot;dealName&quot;, searchText);
+            Criterion dataTime = Restrictions.like(&quot;dataTime&quot;, searchText);
+            disjunction.add(address);
+            disjunction.add(description);
+            disjunction.add(dealName);
+            disjunction.add(dataTime);
+            conjunction.add(disjunction);
+        }
 
+        //&#x6392;&#x5E8F;
+        crit.add(conjunction).addOrder(Order.desc(&quot;dataTime&quot;));  
+        // &#x589E;&#x52A0;&#x67E5;&#x8BE2;&#x6761;&#x4EF6; 
+        Criteria critCount = crit;
+        total = critCount.list().size();
+        //&#x5206;&#x9875;
+        crit.setFirstResult((pageNow - 1) * pageSize);
+        crit.setMaxResults(pageSize);
+        List&lt;Item&gt; list = crit.list(); 
+        List&lt;Integer&gt; listTotal = new ArrayList&lt;Integer&gt;();
+        listTotal.add(total);
+        myMap.put(&quot;total&quot;, listTotal);//&#x603B;&#x6570;
+        myMap.put(&quot;rows&quot;, list);//&#x6BCF;&#x9875;&#x6570;&#x636E;
+        return myMap;
+    }
+</code></pre>
       
     </div>
     
@@ -401,13 +378,13 @@ npm install -g supervisor
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/08/Express.js/">Express.js</a></p>
+        <p><span>本文标题:</span><a href="/2018/02/01/hibernate中Criteria实现复合条件查询/">hibernate中Criteria实现复合条件查询</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-06-07, 16:11:25</p>
-        <p><span>最后更新:</span>2016-07-08, 16:51:39</p>
+        <p><span>发布时间:</span>2018-02-01, 10:27:37</p>
+        <p><span>最后更新:</span>2018-02-01, 11:19:26</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/08/Express.js/" title="Express.js">http://chen1218chen.github.io/2016/06/08/Express.js/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/06/08/Express.js/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/02/01/hibernate中Criteria实现复合条件查询/" title="hibernate中Criteria实现复合条件查询">http://chen1218chen.github.io/2018/02/01/hibernate中Criteria实现复合条件查询/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2018/02/01/hibernate中Criteria实现复合条件查询/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -419,16 +396,10 @@ npm install -g supervisor
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/08/bower/">
-                    bower
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/08/Angular/">
-                    Angular
+                <a href="/2018/01/19/Resource与-Autowired的区别/">
+                    @Resource与@Autowired的区别
                 </a>
             </div>
         
@@ -440,7 +411,7 @@ npm install -g supervisor
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Express安装"><span class="toc-number">1.</span> <span class="toc-text">Express安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置静态文件目录"><span class="toc-number">2.</span> <span class="toc-text">设置静态文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件访问"><span class="toc-number">3.</span> <span class="toc-text">文件访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置html引擎"><span class="toc-number">4.</span> <span class="toc-text">设置html引擎</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分页查询-多条件查询"><span class="toc-number">1.</span> <span class="toc-text">分页查询+多条件查询</span></a></li></ol>
         
     </div>
     <style>
@@ -476,7 +447,7 @@ npm install -g supervisor
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Express.js　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"hibernate中Criteria实现复合条件查询　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -496,15 +467,13 @@ npm install -g supervisor
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/08/bower/" title="上一篇: bower">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/08/Angular/" title="下一篇: Angular">
+            <a href="/2018/01/19/Resource与-Autowired的区别/" title="下一篇: @Resource与@Autowired的区别">
                 <i class="fa fa-angle-right"></i>
             </a>
         

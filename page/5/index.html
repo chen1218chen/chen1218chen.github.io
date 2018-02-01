@@ -286,6 +286,96 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Sublime-Angular-snippets安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/08/Sublime-Angular-snippets安装/" class="article-date">
+      <time datetime="2016-11-08T15:12:44.000Z" itemprop="datePublished">2016-11-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/Sublime-Angular-snippets安装/">Sublime Angular snippets安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x8FD9;&#x662F;john papa&#x5199;&#x7684;&#x4E00;&#x4E2A;sublime&#x63D2;&#x4EF6;&#xFF0C;&#x5B89;&#x88C5;&#x540E;&#x53EF;&#x5FEB;&#x901F;&#x751F;&#x6210;angular&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x6307;&#x4EE4;</p>
+<pre><code>ngcontroller // creates an Angular controller
+ngdirective  // creates an Angular directive
+ngfactory    // creates an Angular factory
+ngmodule     // creates an Angular module
+ngservice    // creates an Angular service
+ngfilter     // creates an Angular filter
+</code></pre><blockquote>
+<p>js&#x6587;&#x4EF6;&#x4E2D;&#x8F93;&#x5165;ngfactory&#xFF0C;&#x6309;&#x4E0B;Tab&#x952E;&#x4E4B;&#x540E;&#x2026;</p>
+</blockquote>
+<pre><code>(function() {
+    &apos;use strict&apos;;
+
+    angular
+        .module(&apos;module&apos;)
+        .factory(&apos;factory&apos;, factory);
+
+    factory.$inject = [&apos;dependencies&apos;];
+
+    /* @ngInject */
+    function factory(dependencies) {
+        var service = {
+            func: func
+        };
+        return service;
+
+        function func() {
+        }
+    }
+})();
+</code></pre><p>&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/johnpapa/angular-styleguide" target="_blank" rel="external">johnpapa/angular-styleguide</a><br>&#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x4E4B;&#x540E;&#xFF0C;copy <code>angular-styleguide/a1/assets/sublime-angular-snippets</code>&#xFF0C;&#x653E;&#x5728;sublime&#x4E0B;&#x7684;packages&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x91CD;&#x542F;sublime&#x5373;&#x53EF;&#x3002;<br>&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x653E;&#x5165;&#x540E;&#x6CA1;&#x6709;&#x53CD;&#x5E94;&#xFF0C;&#x540E;&#x6765;&#x624D;&#x53D1;&#x73B0;&#x672A;&#x77E5;&#x4E0D;&#x5BF9;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;sublime&#x7684;&#x63D2;&#x4EF6;&#x5B89;&#x88C5;&#x5730;&#x5740;&#x662F;<code>C:\Users\Administrator\AppData\Roaming\Sublime Text 3\Packages</code>&#xFF0C;&#x6240;&#x4EE5;&#x5C06;<code>sublime-angular-snippets</code>&#x6587;&#x4EF6;&#x5939;&#x653E;&#x5165;&#x5176;&#x4E2D;&#x5373;&#x53EF;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-angular之Service-vs-Factory" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1432,109 +1522,6 @@ public boolean importfile(HttpServletRequest request, HttpServletResponse respon
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MultipartFile/">MultipartFile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fileInput/">fileInput</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中this的用法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/23/js中this的用法/" class="article-date">
-      <time datetime="2016-09-23T10:18:23.000Z" itemprop="datePublished">2016-09-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/23/js中this的用法/">js中this的用法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<p>&#x5373;&#x4F7F;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x5173;&#x4E8E;js&#x4E2D;this&#x7684;&#x7528;&#x6CD5;&#x8BE6;&#x89E3;&#xFF0C;&#x6211;&#x8FD8;&#x662F;&#x60F3;&#x5199;&#x4E00;&#x7BC7;&#x5C5E;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x81EA;&#x5DF1;&#x65E5;&#x540E;&#x56DE;&#x987E;&#x3002;<br>&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#xFF1A;</p>
-<h2 id="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"><a href="#&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;" class="headerlink" title="&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;"></a>&#x4EE3;&#x8868;&#x5168;&#x5C40;&#x53D8;&#x91CF;</h2><pre><code>var x = 0;
-function test(){
-    this.x = 1;
-}
-
-test();
-alert(x); // 1
-</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"><a href="#&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;"></a>&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;</h2><p>&#x8FD9;&#x91CC;&#x6240;&#x8BF4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x662F;&#x6307;&#x7528;&#x51FD;&#x6570;new&#x4E00;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;,&#x5373;&#xFF1A;</p>
-<pre><code>var t = new test();
-</code></pre><p>&#x8FD9;&#x65F6;&#xFF0C;this&#x6307;&#x8FD9;&#x4E2A;&#x65B0;&#x5BF9;&#x8C61;</p>
-<pre><code>var x = 2;
-function test(){
-    this.x = 1;
-}
-
-var t = new test();
-alert(t.x); // 1
-alert(x);   // 2
-</code></pre><h2 id="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"><a href="#&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;" class="headerlink" title="&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;"></a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;</h2><p>&#x8FD9;&#x65F6;this&#x503C;&#x4E0A;&#x7EA7;&#x5BF9;&#x8C61;</p>
-<pre><code>function test(){
-    alert(this.x); // 2
-    this.x = 1;
-    alert(this.x); // 1
-}
-
-var t = {};
-t.x = 2;
-t.o = test;
-t.o();
-</code></pre><h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply&#x662F;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x6539;&#x53D8;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6539;&#x53D8;&#x540E;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;this&#x5C31;&#x6307;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x53C2;&#x6570;&#x4E3A;&#x7A7A;&#xFF0C;&#x9ED8;&#x8BA4;&#x8C03;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x8C61;</p>
-<pre><code>var x = 3
-function test(){
-    alert(this.x);
-}
-
-var t = {};
-t.x = 2;
-t.o = test;
-t.o(); //2
-t.o.apply(); //3
-t.o.apply(t); //2 &#x76F8;&#x5F53;&#x4E8E;t.o();
-</code></pre><p>apply&#x7684;&#x8BE6;&#x89E3;&#x67E5;&#x770B;<a href="http://chen1218chen.github.io/2016/05/10/js%E7%9A%84%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0/">js&#x7684;&#x539F;&#x578B;&#x53CA;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;</a>&#x4E00;&#x6587;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
       

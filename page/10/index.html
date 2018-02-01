@@ -286,6 +286,89 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="js-Date格式化" class="article article-type-js" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/10/Date格式化/" class="article-date">
+      <time datetime="2016-05-09T17:02:52.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/10/Date格式化/">js Date格式化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>Date.prototype.Format = function(fmt) { // author: meizz
+var o = {
+    &quot;M+&quot; : this.getMonth() + 1, // &#x6708;&#x4EFD;
+    &quot;d+&quot; : this.getDate(), // &#x65E5;
+    &quot;h+&quot; : this.getHours(), // &#x5C0F;&#x65F6;
+    &quot;m+&quot; : this.getMinutes(), // &#x5206;
+    &quot;s+&quot; : this.getSeconds(), // &#x79D2;
+    &quot;q+&quot; : Math.floor((this.getMonth() + 3) / 3), // &#x5B63;&#x5EA6;
+    &quot;S&quot; : this.getMilliseconds()
+// &#x6BEB;&#x79D2;
+};
+if (/(y+)/.test(fmt))
+    fmt = fmt.replace(RegExp.$1, (this.getFullYear() + &quot;&quot;)
+            .substr(4 - RegExp.$1.length));
+for ( var k in o)
+    if (new RegExp(&quot;(&quot; + k + &quot;)&quot;).test(fmt))
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k])
+                : ((&quot;00&quot; + o[k]).substr((&quot;&quot; + o[k]).length)));
+return fmt;
+}
+var time1 = new Date().format(&quot;yyyy-MM-dd HH:mm:ss&quot;);   
+
+var time2 = new Date().format(&quot;yyyy-MM-dd&quot;);  
+</code></pre><p>js&#x65F6;&#x95F4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#x5927;&#x5C0F;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-深入了解HTML" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1891,290 +1974,6 @@ public class UserDaoImpl_BAK extends HibernateTemplate {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-BootstrapPaginator" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/14/BootstrapPaginator/" class="article-date">
-      <time datetime="2016-04-14T14:38:49.000Z" itemprop="datePublished">2016-04-14</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/14/BootstrapPaginator/">使用BootstrapPaginator插件数据分页</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x8981;&#x5728;&#x4FE1;&#x606F;&#x5C55;&#x793A;&#x5217;&#x8868;&#x9875;&#x9762;&#x8FDB;&#x884C;&#x5206;&#x9875;&#x663E;&#x793A;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x65F6;&#x4E00;&#x6B21;&#x6027;&#x53D6;&#x51FA;&#x5206;&#x9875;&#x5C55;&#x793A;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x91CF;&#x5927;&#x7684;&#x65F6;&#x5019;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x65F6;&#x901F;&#x5EA6;&#x6162;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x540E;&#x7EED;&#x6539;&#x8FDB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6BCF;&#x6B21;&#x53EA;&#x53D6;&#x4E00;&#x9875;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<h1 id="&#x5C45;&#x4E2D;&#x663E;&#x793A;"><a href="#&#x5C45;&#x4E2D;&#x663E;&#x793A;" class="headerlink" title="&#x5C45;&#x4E2D;&#x663E;&#x793A;"></a>&#x5C45;&#x4E2D;&#x663E;&#x793A;</h1><p>&#x9996;&#x5148;&#xFF0C;&#x5728;&#x4FE1;&#x606F;&#x5C55;&#x793A;&#x7684;&#x5217;&#x8868;&#x9875;&#x9762;&#x4E0A;&#x6DFB;&#x52A0;&#x5206;&#x9875;&#x6309;&#x94AE;</p>
-<pre><code>&lt;nav style=&quot;text-align: center&quot;&gt;
-    &lt;ul class=&quot;pagination&quot; id=&quot;pageUl&quot;&gt;&lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre><h1 id="&#x524D;&#x53F0;&#x63A7;&#x5236;&#x5206;&#x9875;"><a href="#&#x524D;&#x53F0;&#x63A7;&#x5236;&#x5206;&#x9875;" class="headerlink" title="&#x524D;&#x53F0;&#x63A7;&#x5236;&#x5206;&#x9875;"></a>&#x524D;&#x53F0;&#x63A7;&#x5236;&#x5206;&#x9875;</h1><p>js&#x4E2D;&#x914D;&#x7F6E;&#x5206;&#x9875;&#x6309;&#x94AE;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x542F;&#x7528;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x6570;&#x636E;&#x62FF;&#x5230;&#x524D;&#x53F0;&#xFF0C;&#x5728;&#x524D;&#x53F0;&#x63A7;&#x5236;&#x5206;&#x9875;</p>
-<pre><code>var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
-var options = { 
-    size:&quot;normal&quot;,
-    alignment:&quot;center&quot;,
-    bootstrapMajorVersion:3,  
-    currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
-    numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
-    totalPages:22, //&#x603B;&#x9875;&#x6570;  
-    itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
-        switch (type) {
-        case &quot;first&quot;:
-            return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
-        case &quot;prev&quot;:
-            return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
-        case &quot;next&quot;:
-            return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
-        case &quot;last&quot;:
-            return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
-        case &quot;page&quot;:
-            return page;
-        }
-    }, 
-    onPageClicked: function (event, originalEvent, type, page) { //&#x6362;&#x9875;
-        paginator(msg,page);
-        $(&apos;#infolist&apos;).html(&apos;&apos;);
-        $(&apos;#infolist&apos;).append(str);
-    },
-}  
-//&#x5206;&#x9875;&#x542F;&#x52A8;
-element.bootstrapPaginator(options); 
-paginator(msg,1);
-//&#x5206;&#x9875;
-function paginator(arrData, page) {
-    var str=&quot;&quot;;
-    var name;
-    for (i = (page - 1) * 5; i &lt; page * 5; i++) {
-        if(i&lt;arrData.length){
-            var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
-            var content = arrData[i].content;
-            var s = content.substr(0, 7);
-            if(arrData[i].telephone==&quot;&quot;){
-                name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
-            }
-            else{
-                name=arrData[i].telephone;
-            }
-         str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3&gt;&lt;a href=&quot;&apos;
-                + param
-                + &apos;&quot; title=&quot;&apos;
-                + arrData[i].title
-                + &quot;&quot;
-                + &apos;&quot;&gt;&apos;
-                + s
-                + &quot;...&quot;
-                + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
-                + &apos;&lt;a href=&quot;&apos;
-                + param
-                + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
-                + &apos;picture/&apos;+arrData[i].picturepath1
-                + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
-                + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
-                + arrData[i].content
-                + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
-                + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
-                + name
-                + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
-                + arrData[i].dataTime
-                + &apos;&lt;/span&gt;&apos;
-                + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
-                + param
-                + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
-                + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
-
-            $(&apos;#infolist&apos;).html(&apos;&apos;); 
-            $(&apos;#infolist&apos;).append(str);
-        }
-        else {
-            break;
-        }
-    }
-}
-</code></pre><h1 id="&#x540E;&#x53F0;&#x5206;&#x9875;&#x63A7;&#x5236;"><a href="#&#x540E;&#x53F0;&#x5206;&#x9875;&#x63A7;&#x5236;" class="headerlink" title="&#x540E;&#x53F0;&#x5206;&#x9875;&#x63A7;&#x5236;"></a>&#x540E;&#x53F0;&#x5206;&#x9875;&#x63A7;&#x5236;</h1><ol>
-<li><p>MySQL&#x5206;&#x9875;&#x8BED;&#x53E5;</p>
-<pre><code>&quot;select * from test.uploadinfo order by id desc limit &quot;+ ((pageNow-1)*pageSize)+&quot;,&quot;+pageSize;
-</code></pre></li>
-<li><p>rest&#x670D;&#x52A1;      </p>
-<pre><code>@RequestMapping(value = &quot;/onePageData&quot;, method = RequestMethod.POST)
-@ResponseBody
-public JSONArray onePageData(@RequestParam(&quot;pageNow&quot;) String pageNow, @RequestParam(&quot;pageSize&quot;) int pageSize) {
-    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.onePage(Integer.parseInt(pageNow), pageSize);
-    JSONArray itemJSONList = JSONArray.fromObject(itemList, Common.getJsonConfig());
-    return itemJSONList;
-}
-</code></pre></li>
-<li><p>service </p>
-</li>
-</ol>
-<p>sql&#x8BED;&#x53E5;</p>
-<pre><code>@Override
-public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize) {
-    // TODO Auto-generated method stub
-    String sql = &quot;select * from test.uploadinfo order by id desc limit &quot;+ ((pageNow-1)*pageSize)+&quot;,&quot;+pageSize*pageNow;
-    List&lt;Uploadinfo&gt; infolist = itemDaoImpl.getSQLQuery(sql).list();
-    return infolist;
-}
-</code></pre><p>hibernate&#x4E2D;&#x8C03;&#x7528;&#x539F;&#x751F;SQL&#x8BED;&#x53E5;&#xFF0C;ajax&#x6570;&#x636E;&#x56DE;&#x8C03;&#x62A5;500&#x9519;&#x8BEF;&#xFF0C;&#x8F6C;&#x6210;JSONArray&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x524D;&#x53F0;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x6570;&#x636E;&#xFF0C;&#x5BFC;&#x81F4;&#x4E0D;&#x77E5;&#x9053;rest&#x670D;&#x52A1;&#x662F;&#x5426;&#x8C03;&#x7528;&#x6210;&#x529F;&#xFF0C;&#x4ECE;&#x800C;&#x62A5;500&#x3002;&#x8F6C;&#x800C;&#x4F7F;&#x7528;&#xFF28;&#xFF31;&#xFF2C;&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x5373;&#x53EF;&#x89E3;&#x51B3;&#x3002;<br>HQL&#x8BED;&#x53E5;&#x4E2D;limit&#x65E0;&#x6548;&#x8FD8;&#x662F;&#x4F1A;&#x628A;&#x6240;&#x6709;&#x6570;&#x636E;&#x67E5;&#x51FA;&#x6765;&#xFF0C;&#x4E0D;&#x652F;&#x6301;limit&#xFF0C;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x5982;&#x4E0B; </p>
-<pre><code>@Override
-public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize) {
-    // TODO Auto-generated method stub
-    String sql = &quot;from Uploadinfo&quot;;
-    Query query = itemDaoImpl.getQuery(sql);
-    query.setFirstResult((pageNow-1)*pageSize);
-    query.setMaxResults(pageSize*pageNow);
-    List&lt;Uploadinfo&gt; infolist = query.list(); 
-    return infolist;
-}
-</code></pre><p>js&#x8C03;&#x7528;</p>
-<pre><code>$(function(){
-    queryAll(&quot;rest/Uploadinfo/totlePages&quot;);
-})
-function queryAll(url){
-$.ajax({
-    type : &quot;GET&quot;,
-    url :  url,
-    dataType : &quot;text&quot;,
-    success : function(msg) {
-        var pages = Math.ceil(msg/5); 
-        var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
-        var options = { 
-            size:&quot;normal&quot;,
-            alignment:&quot;center&quot;,
-            bootstrapMajorVersion:3,  
-            currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
-            numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
-            totalPages: pages, //&#x603B;&#x9875;&#x6570;  
-            itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
-                switch (type) {
-                case &quot;first&quot;:
-                    return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
-                case &quot;prev&quot;:
-                    return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
-                case &quot;next&quot;:
-                    return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
-                case &quot;last&quot;:
-                    return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
-                case &quot;page&quot;:
-                    return page;
-                }
-            }, 
-            onPageClicked: function (event, originalEvent, type, page) { //&#x6362;&#x9875;
-                paginator(page);
-            },
-        }  
-        //&#x5206;&#x9875;&#x542F;&#x52A8;
-       element.bootstrapPaginator(options); 
-       paginator(1);
-    }
-});
-}
-
-//&#x5206;&#x9875;
-function paginator(pageNow) {
-$.ajax({
-    type : &quot;post&quot;,
-    url :  &quot;rest/Uploadinfo/onePageData&quot;,
-    dataType : &quot;json&quot;,
-    data:{
-        &quot;pageNow&quot;:pageNow,
-        &quot;pageSize&quot;:5
-    },
-    success : function(arrData) {
-        console.dir(arrData)
-        var str=&quot;&quot;;
-        var name;
-        for(var i=0; i&lt;5; i++){
-            if(i&lt;arrData.length){
-                var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
-                var content = arrData[i].content;
-                var s = content.substr(0, 7);
-                if(arrData[i].telephone==&quot;&quot;){
-                    name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
-                }
-                else{
-                    name=arrData[i].telephone;
-                }
-                str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3&gt;&lt;a href=&quot;&apos;
-                    + param
-                    + &apos;&quot; title=&quot;&apos;
-                    + arrData[i].title
-                    + &quot;&quot;
-                    + &apos;&quot;&gt;&apos;
-                    + s
-                    + &quot;...&quot;
-                    + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
-                    + &apos;&lt;a href=&quot;&apos;
-                    + param
-                    + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
-                    + &apos;picture/&apos;+arrData[i].picturepath1
-                    + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
-                    + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
-                    + arrData[i].content
-                    + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
-                    + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
-                    + name
-                    + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
-                    + arrData[i].dataTime
-                    + &apos;&lt;/span&gt;&apos;
-                    + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
-                    + param
-                    + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
-                    + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
-
-                $(&apos;#infolist&apos;).html(&apos;&apos;); 
-                $(&apos;#infolist&apos;).append(str);
-            }
-        }
-    }
-});
-</code></pre><p>}</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap-Paginator/">Bootstrap Paginator</a></li></ul>
     </div>
 
       
