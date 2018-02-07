@@ -16,22 +16,18 @@
 
 
 
-<meta name="description" content="[TOC]
-&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
+<meta name="description" content="&amp;#x5728;&amp;#x539F;&amp;#x6709;SpringBoot+gradle&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#xFF08;&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;chen1218chen/Springboot-Mybatis-Gradle&amp;#xFF09;&amp;#x7EE7;&amp;#x7EED;&amp;#x96C6;&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ManyToOne, ManyToMany注解">
-<meta property="og:url" content="http://chen1218chen.github.io/2016/03/31/ManyToOne/index.html">
+<meta property="og:title" content="SpringBoot集成MyBatis Generator代码生成器">
+<meta property="og:url" content="http://chen1218chen.github.io/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/index.html">
 <meta property="og:site_name" content="一锅乱炖">
-<meta property="og:description" content="[TOC]
-&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
-<meta property="og:updated_time" content="2016-07-21T07:55:26.535Z">
+<meta property="og:description" content="&amp;#x5728;&amp;#x539F;&amp;#x6709;SpringBoot+gradle&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#xFF08;&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;chen1218chen/Springboot-Mybatis-Gradle&amp;#xFF09;&amp;#x7EE7;&amp;#x7EED;&amp;#x96C6;&amp;">
+<meta property="og:image" content="http://chen1218chen.github.io/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180207165700.png">
+<meta property="og:updated_time" content="2018-02-07T08:57:55.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ManyToOne, ManyToMany注解">
-<meta name="twitter:description" content="[TOC]
-&amp;#x5173;&amp;#x7CFB;&amp;#x6CE8;&amp;#x89E3;&amp;#x7684;&amp;#x914D;&amp;#x7F6E;hibernate&amp;#x914D;&amp;#x7F6E;&amp;#x76F8;&amp;#x4E92;&amp;#x5173;&amp;#x7CFB;&amp;#x7684;&amp;#x539F;&amp;#x5219;&amp;#xFF1A;
-&amp;#x5728;&amp;#x4F9D;&amp;#x8D56;&amp;#x65B9;&amp;#xFF08;many&amp;#x6">
+<meta name="twitter:title" content="SpringBoot集成MyBatis Generator代码生成器">
+<meta name="twitter:description" content="&amp;#x5728;&amp;#x539F;&amp;#x6709;SpringBoot+gradle&amp;#x6784;&amp;#x5EFA;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E0A;&amp;#xFF08;&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;chen1218chen/Springboot-Mybatis-Gradle&amp;#xFF09;&amp;#x7EE7;&amp;#x7EED;&amp;#x96C6;&amp;">
+<meta name="twitter:image" content="http://chen1218chen.github.io/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180207165700.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -63,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>ManyToOne, ManyToMany注解 | 一锅乱炖</title>
+<title>SpringBoot集成MyBatis Generator代码生成器 | 一锅乱炖</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -284,11 +280,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ManyToOne" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SpringBoot中集成MyBatisGenerator代码生成器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/31/ManyToOne/" class="article-date">
-      <time datetime="2016-03-31T15:02:55.000Z" itemprop="datePublished">2016-03-31</time>
+      <a href="/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/" class="article-date">
+      <time datetime="2018-02-07T16:44:43.000Z" itemprop="datePublished">2018-02-07</time>
 </a>
 
 
@@ -303,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ManyToOne, ManyToMany注解
+      SpringBoot集成MyBatis Generator代码生成器
     </h1>
   
 
@@ -314,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -324,70 +320,79 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<h1 id="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"><a href="#&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;"></a>&#x5173;&#x7CFB;&#x6CE8;&#x89E3;&#x7684;&#x914D;&#x7F6E;</h1><h2 id="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"><a href="#hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;" class="headerlink" title="hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;"></a><strong>hibernate&#x914D;&#x7F6E;&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x7684;&#x539F;&#x5219;&#xFF1A;</strong></h2><ul>
-<li>&#x5728;&#x4F9D;&#x8D56;&#x65B9;&#xFF08;many&#x65B9;&#xFF09;&#x914D;&#x7F6E;&#xFF0C;&#x5355;&#x5411;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x3002;</li>
-<li><p>one&#x662F;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x65B9;&#xFF0C;many&#x662F;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x3002;&#x5728;&#x5173;&#x7CFB;&#x88AB;&#x7EF4;&#x62A4;&#x7AEF;&#xFF0C;&#x5373;many&#x7AEF;&#x9700;&#x8981;&#x901A;&#x8FC7;@JoinColumn&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#x5217;&#x6307;&#x5411;&#x5173;&#x7CFB;&#x7EF4;&#x62A4;&#x7AEF;&#x7684;&#x4E3B;&#x952E;&#x5217;&#x3002;</p>
-<ul>
-<li>manyTomany&#x4E2D;@JoinColumn&#x6CE8;&#x89E3;&#x7684;&#x90FD;&#x662F;&#x5728;&#x201C;&#x4E3B;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x90FD;&#x662F;&#x672C;&#x8868;&#x6307;&#x5411;&#x5916;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x4E00;&#x5BF9;&#x591A;&#x7684;@JoinColumn&#x6CE8;&#x89E3;&#x5728;&#x201C;&#x88AB;&#x63A7;&#x65B9;&#x201D;&#xFF0C;&#x5373;&#x4E00;&#x7684;&#x4E00;&#x65B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x5916;&#x8868;&#x4E2D;&#x6307;&#x5411;&#x672C;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-<li>&#x591A;&#x5BF9;&#x591A;&#x4E2D;&#xFF0C;joinColumns&#x5199;&#x7684;&#x90FD;&#x662F;&#x672C;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#xFF0C;<br>inverseJoinColumns&#x5199;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8868;&#x5728;&#x4E2D;&#x95F4;&#x8868;&#x7684;&#x5916;&#x952E;&#x540D;&#x79F0;&#x3002;</li>
-</ul>
-</li>
-<li><p>mappedBy</p>
-<ul>
-<li>&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x53CC;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5355;&#x5411;&#x5173;&#x7CFB;&#xFF0C;&#x5219;&#x4E0D;&#x7528;&#x5B9A;&#x4E49;&#x3002;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x4E3B;&#x63A7;&#x65B9;&#x3002;</li>
-</ul>
-</li>
-<li>optional<ul>
-<li>&#x5C5E;&#x6027;&#x662F;&#x5B9A;&#x4E49;&#x8BE5;&#x5173;&#x8054;&#x7C7B;&#x662F;&#x5426;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#x3002;&#x9ED8;&#x8BA4;true&#xFF0C;&#x88AB;&#x7EF4;&#x62A4;&#x65B9;&#x53EF;&#x4EE5;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x82E5;&#x4E3A;false&#x5219;&#x53CC;&#x65B9;&#x90FD;&#x5FC5;&#x987B;&#x5B58;&#x5728;&#xFF0C;&#x5426;&#x5219;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;null&#x3002;</li>
-</ul>
-</li>
-<li>&#x65E0;&#x8BBA;&#x662F;&#x4E00;&#x5BF9;&#x591A;&#x8FD8;&#x662F;&#x591A;&#x5BF9;&#x4E00;&#x5173;&#x7CFB;&#xFF0C;&#x90FD;&#x662F;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;&#x7EF4;&#x62A4;&#x5173;&#x7CFB;&#x3002; </li>
-</ul>
-<h2 id="manyToMany"><a href="#manyToMany" class="headerlink" title="manyToMany"></a>manyToMany</h2><p>user-role&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
-<pre><code>@ManyToMany(cascade={CascadeType.MERGE}, fetch=FetchType.EAGER)
-@JoinTable(name = &quot;user_to_role&quot;,   
-    joinColumns= { @JoinColumn(name = &quot;user_id&quot;)},
-    inverseJoinColumns ={@JoinColumn(name = &quot;role_id&quot;)  
-})
-</code></pre><h2 id="ManyToOne"><a href="#ManyToOne" class="headerlink" title="ManyToOne"></a>ManyToOne</h2><p>user-onganization&#x5173;&#x7CFB;&#xFF0C;&#x5355;&#x5411;&#x53EA;&#x5728;user&#xFF08;&#x4F9D;&#x8D56;&#x65B9;&#xFF09;&#x65B9;&#x914D;&#x7F6E;</p>
-<pre><code>@ManyToOne(targetEntity = Organization.class, cascade = { CascadeType.MERGE })
-@JoinColumn(name = &quot;oid&quot;)
-</code></pre><h2 id="json&#x6B7B;&#x5FAA;&#x73AF;"><a href="#json&#x6B7B;&#x5FAA;&#x73AF;" class="headerlink" title="json&#x6B7B;&#x5FAA;&#x73AF;"></a>json&#x6B7B;&#x5FAA;&#x73AF;</h2><blockquote>
-<p>net.sf.json.JSONException: There is a cycle in the hierarchy!&#x9519;&#x8BEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
+        <p>&#x5728;&#x539F;&#x6709;SpringBoot+gradle&#x6784;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x4E0A;&#xFF08;&#x9879;&#x76EE;&#x5730;&#x5740;<a href="https://github.com/chen1218chen/Springboot-Mybatis-Gradle" target="_blank" rel="external">chen1218chen/Springboot-Mybatis-Gradle</a>&#xFF09;&#x7EE7;&#x7EED;&#x96C6;&#x6210;MyBatis Generator&#x6765;&#x81EA;&#x52A8;&#x751F;&#x6210;model&#x5C42;&#x3001;dao&#x5C42;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;build-gradle&#x6587;&#x4EF6;"><a href="#&#x4FEE;&#x6539;build-gradle&#x6587;&#x4EF6;" class="headerlink" title="&#x4FEE;&#x6539;build.gradle&#x6587;&#x4EF6;"></a>&#x4FEE;&#x6539;build.gradle&#x6587;&#x4EF6;</h2><p>&#x9996;&#x5148;&#xFF0C;&#x5728;gradle&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code>compile group: &apos;org.mybatis.generator&apos;, name: &apos;mybatis-generator-core&apos;, version:&apos;1.3.2&apos;
+</code></pre><h2 id="generator-xml"><a href="#generator-xml" class="headerlink" title="generator.xml"></a>generator.xml</h2><p>&#x5728;src/main/resource&#x4E0B;&#x6DFB;&#x52A0;generator.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6839;&#x636E;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x9700;&#x8981;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+&lt;generatorConfiguration&gt;
+
+    &lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+
+        &lt;!--&#x81EA;&#x52A8;&#x5B9E;&#x73B0;Serializable&#x63A5;&#x53E3;--&gt;
+        &lt;plugin type=&quot;org.mybatis.generator.plugins.SerializablePlugin&quot;&gt;&lt;/plugin&gt;
+
+        &lt;!-- &#x53BB;&#x9664;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA; --&gt;
+        &lt;commentGenerator&gt;
+            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;
+        &lt;/commentGenerator&gt;
+
+        &lt;!--&#x6570;&#x636E;&#x5E93;&#x57FA;&#x672C;&#x4FE1;&#x606F;--&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://127.0.0.1:3306/boot?characterEncoding=UTF-8&quot;
+                        userId=&quot;myuser&quot;
+                        password=&quot;123456&quot;&gt;
+        &lt;/jdbcConnection&gt;
+
+        &lt;!--&#x751F;&#x6210;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x4F4D;&#x7F6E;&#x4EE5;&#x53CA;&#x5305;&#x7684;&#x540D;&#x5B57;--&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.cc.entity&quot;
+                            targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot; /&gt;
+            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
+        &lt;/javaModelGenerator&gt;
+
+         &lt;!--&#x751F;&#x6210;&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;--&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;com.cc.dao&quot; targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/sqlMapGenerator&gt;
+        &lt;!--&#x751F;&#x6210;Dao&#x7C7B;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;,mapper&#x63A5;&#x53E3;&#x751F;&#x6210;&#x7684;&#x4F4D;&#x7F6E;--&gt;
+        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.cc.dao&quot; targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaClientGenerator&gt;
+        &lt;!--&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x8868;&#x53CA;&#x7C7B;&#x540D;--&gt;
+        &lt;table tableName=&quot;item&quot;  domainObjectName=&quot;Item&quot;&gt;&lt;/table&gt;
+         &lt;table tableName=&quot;image&quot;  domainObjectName=&quot;Image&quot;&gt;&lt;/table&gt;
+
+        &lt;!--&#x5BF9;&#x5E94;&#x7684;&#x8868;&#x540D;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x4F53;&#x540D;--&gt;
+        &lt;!-- &lt;table tableName=&quot;t_emp&quot; domainObjectName=&quot;EMP&quot; &gt;&lt;/table&gt; --&gt;
+
+    &lt;/context&gt;
+
+&lt;/generatorConfiguration&gt;
+</code></pre><blockquote>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x9700;&#x63D0;&#x524D;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5EFA;&#x597D;&#x5BF9;&#x5E94;&#x7684;&#x8868;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;<code>Table configuration with catalog null, schema null</code></p>
 </blockquote>
-<pre><code>JsonConfig config = new JsonConfig();
-config.setExcludes(new String[]{&quot;roles&quot;});//&#x9664;&#x53BB;roles&#x5C5E;&#x6027;
-JSONArray userJSONList2 = JSONArray.fromObject(dataList,config);
-</code></pre><p>&#x6216;&#x8005;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x89E3;&#x9664;&#x5FAA;&#x73AF;</p>
-<pre><code>@RequestMapping(value = &quot;/queryAllOrgan&quot;, method = RequestMethod.GET)
-@ResponseBody
-public JSONArray queryAllOrgan() {
-    JSONArray userJSONList;
-    JsonConfig jsonConfig = new JsonConfig();
-    jsonConfig.setIgnoreDefaultExcludes(false);
-    jsonConfig.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT);
-    jsonConfig.setExcludes(new String[] { &quot;handler&quot;,&quot;hibernateLazyInitializer&quot; });
-    jsonConfig.setJsonPropertyFilter(new PropertyFilter() {
-        public boolean apply(Object obj, String name, Object value) {
-        //if(value instanceof Organization &amp;&amp; name.equals(&quot;organ&quot;)){
-        if(name.equals(&quot;user&quot;)){
-                return true;
-            } else {
-                return false;
-            }
-        }
-    });
-    List&lt;Organization&gt; dataList = organServiceImpl.queryAll();
-    userJSONList = JSONArray.fromObject(dataList,jsonConfig) ;
-    return userJSONList;
+<h2 id="&#x6267;&#x884C;&#x7C7B;"><a href="#&#x6267;&#x884C;&#x7C7B;" class="headerlink" title="&#x6267;&#x884C;&#x7C7B;"></a>&#x6267;&#x884C;&#x7C7B;</h2><p>&#x6700;&#x540E;&#xFF0C;&#x5728;&#x5199;&#x4E00;&#x4E2A;main&#x51FD;&#x6570;&#x6765;&#x542F;&#x52A8;&#x8FD0;&#x884C;&#x3002;</p>
+<pre><code>package com.cc.main;
+
+import org.mybatis.generator.api.ShellRunner;
+
+/**
+ * &#x6267;&#x884C;&#x7C7B;
+ */
+public class MybatisGeneratorApp
+{
+    public static void main( String[] args )
+    {
+        args = new String[] { &quot;-configfile&quot;, &quot;src\\main\\resources\\generator.xml&quot;, &quot;-overwrite&quot; };
+        ShellRunner.main(args);
     }
-</code></pre><p>&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;@ManyToOne &#x4E0E;@OneToMany&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6B63;&#x786E;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x914D;&#x53CD;</p>
-<pre><code>//mappedBy&#xFF1A;&#x8FD9;&#x4E2A;&#x4E3A;manytoone&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x540D;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E0D;&#x8981;&#x53D8;&#x54E6;
-//    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy=&quot;user&quot;)
-//    @OneToMany(targetEntity = Roles.class, mappedBy = &quot;user&quot;, cascade = { CascadeType.MERGE })
-</code></pre>
+}
+</code></pre><p>&#x8FD9;&#x6837;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x5DE5;&#x7A0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x65B0;&#x751F;&#x6210;&#x7684;java&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/02/08/SpringBoot&#x4E2D;&#x96C6;&#x6210;MyBatisGenerator&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180207165700.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180207165700.png"></p>
+
       
     </div>
     
@@ -395,13 +400,13 @@ public JSONArray queryAllOrgan() {
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/31/ManyToOne/">ManyToOne, ManyToMany注解</a></p>
+        <p><span>本文标题:</span><a href="/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/">SpringBoot集成MyBatis Generator代码生成器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">chen</a></p>
-        <p><span>发布时间:</span>2016-03-31, 15:02:55</p>
-        <p><span>最后更新:</span>2016-07-21, 15:55:26</p>
+        <p><span>发布时间:</span>2018-02-07, 16:44:43</p>
+        <p><span>最后更新:</span>2018-02-07, 16:57:55</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/31/ManyToOne/" title="ManyToOne, ManyToMany注解">http://chen1218chen.github.io/2016/03/31/ManyToOne/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2016/03/31/ManyToOne/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/" title="SpringBoot集成MyBatis Generator代码生成器">http://chen1218chen.github.io/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://chen1218chen.github.io/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/　　作者: chen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -413,16 +418,10 @@ public JSONArray queryAllOrgan() {
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/04/06/shiro角色配置/">
-                    shiro角色配置
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/30/shiro入门/">
-                    shiro入门配置
+                <a href="/2018/02/01/hibernate中Criteria实现复合条件查询/">
+                    hibernate中Criteria实现复合条件查询
                 </a>
             </div>
         
@@ -434,7 +433,7 @@ public JSONArray queryAllOrgan() {
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关系注解的配置"><span class="toc-number">1.</span> <span class="toc-text">关系注解的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hibernate配置相互关系的原则："><span class="toc-number">1.1.</span> <span class="toc-text">hibernate配置相互关系的原则：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#manyToMany"><span class="toc-number">1.2.</span> <span class="toc-text">manyToMany</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ManyToOne"><span class="toc-number">1.3.</span> <span class="toc-text">ManyToOne</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#json死循环"><span class="toc-number">1.4.</span> <span class="toc-text">json死循环</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改build-gradle文件"><span class="toc-number">1.</span> <span class="toc-text">修改build.gradle文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generator-xml"><span class="toc-number">2.</span> <span class="toc-text">generator.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行类"><span class="toc-number">3.</span> <span class="toc-text">执行类</span></a></li></ol>
         
     </div>
     <style>
@@ -470,7 +469,7 @@ public JSONArray queryAllOrgan() {
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"ManyToOne, ManyToMany注解　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"SpringBoot集成MyBatis Generator代码生成器　| 一锅乱炖　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -490,15 +489,13 @@ public JSONArray queryAllOrgan() {
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/04/06/shiro角色配置/" title="上一篇: shiro角色配置">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/30/shiro入门/" title="下一篇: shiro入门配置">
+            <a href="/2018/02/01/hibernate中Criteria实现复合条件查询/" title="下一篇: hibernate中Criteria实现复合条件查询">
                 <i class="fa fa-angle-right"></i>
             </a>
         

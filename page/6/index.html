@@ -286,6 +286,297 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SpringMVC之多文件上传" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/28/SpringMVC之多文件上传/" class="article-date">
+      <time datetime="2016-09-28T11:02:45.000Z" itemprop="datePublished">2016-09-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/28/SpringMVC之多文件上传/">bootstrap-fileinput之文件上传</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<p>&#x6B64;&#x529F;&#x80FD;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;bootstrap-fileinput(fileinput.min.js)&#x63D2;&#x4EF6;,&#x4E3B;&#x9875;&#x5730;&#x5740;&#xFF1A;</p>
+<ol>
+<li><a href="https://github.com/kartik-v/bootstrap-fileinput" target="_blank" rel="external">bootstrap-fileinput Github</a></li>
+<li><p><a href="http://plugins.krajee.com/file-input" target="_blank" rel="external">&#x4E3B;&#x9875;</a></p>
+<h2 id="MultipartFile"><a href="#MultipartFile" class="headerlink" title="MultipartFile"></a>MultipartFile</h2><p>Spring&#x4F7F;&#x7528;MultipartFile&#x6765;&#x8FDB;&#x884C;&#x591A;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#xFF0C;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;multipartResolver&#x7684;bean</p>
+ <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+<p> @RequestMapping(value=&#x201D;/parseAttr.json&#x201D;, method = RequestMethod.POST)<br> public ModelMap parseAttr(@RequestParam(&#x201C;file&#x201D;) MultipartFile uFile) {</p>
+<pre><code>ModelMap result = new ModelMap();
+...
+result.put(&quot;keys&quot;,set);
+return result;
+</code></pre><p> }</p>
+<h2 id="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"><a href="#&#x5E38;&#x7528;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5E38;&#x7528;&#x65B9;&#x6CD5;"></a>&#x5E38;&#x7528;&#x65B9;&#x6CD5;</h2><p> MultipartFile file = new MultipartFile();<br> file.getOriginalFilename():&#x83B7;&#x53D6;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x540D;<br> file.getInputStream():&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x6D41;</p>
+</bean></li>
+</ol>
+<h2 id="form&#x8868;&#x5355;"><a href="#form&#x8868;&#x5355;" class="headerlink" title="form&#x8868;&#x5355;"></a>form&#x8868;&#x5355;</h2><p>&#x5206;&#x4E24;&#x7C7B;&#x4E0A;&#x4F20;&#xFF1A;&#x529E;&#x4E8B;&#x6307;&#x5357;&#x3001;&#x5178;&#x578B;&#x6848;&#x4F8B;&#x3002;</p>
+<pre><code>&lt;form role=&quot;form&quot; class=&quot;form-horizontal&quot; id=&quot;importFile&quot; method=&quot;post&quot; accept-charset=&quot;utf-8&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label class=&quot;col-lg-2 control-label&quot; for=&quot;descption&quot;&gt;&#x6587;&#x7AE0;&#x7C7B;&#x578B;&lt;/label&gt;
+        &lt;div class=&quot;col-lg-9&quot;&gt;
+            &lt;select name=&quot;descption&quot; id=&quot;descption&quot; style=&quot;padding: 6px 12px;line-height: 1.42857143;    border: 1px solid #ccc;    border-radius: 4px;&quot;&gt;
+                &lt;option value=&quot;1&quot;&gt;&#x529E;&#x4E8B;&#x6307;&#x5357;&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;&#x5178;&#x578B;&#x6848;&#x4F8B;&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label class=&quot;col-lg-2 control-label&quot; for=&quot;fileInput&quot;&gt;&#x6587;&#x7AE0;&#x4E0A;&#x4F20;&lt;/label&gt;
+        &lt;div class=&quot;col-md-9&quot;&gt;
+
+            &lt;input id=&quot;fileInput&quot; name=&quot;fileInput&quot; type=&quot;file&quot; multiple
+                class=&quot;file-loading&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;hr /&gt;
+    &lt;div class=&quot;btn-group&quot; style=&quot;margin-left: 160px;margin-right:5px&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot; id=&quot;submitOK&quot;&gt;
+            &lt;i class=&quot;glyphicon glyphicon-check&quot;&gt;&#x63D0;&#x4EA4;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; data-dismiss=&quot;modal&quot;
+            id=&quot;btn-close&quot;&gt;
+            &lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&#x5173;&#x95ED;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt; 
+</code></pre><h2 id="js&#x4EE3;&#x7801;"><a href="#js&#x4EE3;&#x7801;" class="headerlink" title="js&#x4EE3;&#x7801;"></a>js&#x4EE3;&#x7801;</h2><pre><code>$(&quot;#fileInput&quot;).fileinput({
+    uploadUrl:&quot;#&quot;,//&#x4E0A;&#x4F20;&#x7684;&#x5730;&#x5740;
+    uploadAsync: false,
+    language : &quot;zh&quot;,//&#x8BBE;&#x7F6E;&#x8BED;&#x8A00;
+    showCaption: true,//&#x662F;&#x5426;&#x663E;&#x793A;&#x6807;&#x9898;
+    showUpload: false, //&#x662F;&#x5426;&#x663E;&#x793A;&#x4E0A;&#x4F20;&#x6309;&#x94AE;
+    browseClass: &quot;btn btn-primary&quot;, //&#x6309;&#x94AE;&#x6837;&#x5F0F; 
+    allowedFileExtensions: [&quot;html&quot;,&quot;htm&quot;], //&#x63A5;&#x6536;&#x7684;&#x6587;&#x4EF6;&#x540E;&#x7F00;
+    maxFileCount: 1,//&#x6700;&#x5927;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x6570;&#x9650;&#x5236;
+    maxFileSize: 1000,//&#x6700;&#x5927;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x5927;&#x5C0F;
+    uploadAsync: true,
+    previewFileIcon: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,
+    allowedPreviewTypes: null, 
+    previewFileIconSettings: {
+        &apos;doc&apos;: &apos;&lt;i class=&quot;fa fa-file-word-o text-primary&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;xls&apos;: &apos;&lt;i class=&quot;fa fa-file-excel-o text-success&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;ppt&apos;: &apos;&lt;i class=&quot;fa fa-file-powerpoint-o text-danger&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;jpg&apos;: &apos;&lt;i class=&quot;fa fa-file-photo-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;pdf&apos;: &apos;&lt;i class=&quot;fa fa-file-pdf-o text-danger&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;zip&apos;: &apos;&lt;i class=&quot;fa fa-file-archive-o text-muted&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;htm&apos;: &apos;&lt;i class=&quot;fa fa-file-code-o text-info&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;txt&apos;: &apos;&lt;i class=&quot;fa fa-file-text-o text-info&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;mov&apos;: &apos;&lt;i class=&quot;fa fa-file-movie-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+        &apos;mp3&apos;: &apos;&lt;i class=&quot;fa fa-file-audio-o text-warning&quot;&gt;&lt;/i&gt;&apos;,
+    },
+    previewFileExtSettings: {
+        &apos;doc&apos;: function(ext) {
+            return ext.match(/(doc|docx)$/i);
+        },
+        &apos;xls&apos;: function(ext) {
+            return ext.match(/(xls|xlsx)$/i);
+        },
+        &apos;ppt&apos;: function(ext) {
+            return ext.match(/(ppt|pptx)$/i);
+        },
+        &apos;zip&apos;: function(ext) {
+            return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+        },
+        &apos;htm&apos;: function(ext) {
+            return ext.match(/(php|js|css|htm|html)$/i);
+        },
+        &apos;txt&apos;: function(ext) {
+            return ext.match(/(txt|ini|md)$/i);
+        },
+        &apos;mov&apos;: function(ext) {
+            return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+        },
+        &apos;mp3&apos;: function(ext) {
+            return ext.match(/(mp3|wav)$/i);
+        },
+    }
+});
+</code></pre><p>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x53EF;&#x9644;&#x52A0;&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x8FC7;uploadExtraData&#x53C2;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code>uploadExtraData: function() {
+    var extraValue = null;
+    var radios = document.getElementsByName(&apos;excelType&apos;);
+    for(var i=0;i&lt;radios.length;i++){
+        if(radios[i].checked){
+            extraValue = radios[i].value;
+        }
+    }
+    return {&quot;excelType&quot;: extraValue};
+}
+</code></pre><p>&#x4E0A;&#x4F20;&#x6210;&#x529F;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code> $(&quot;#fileInput&quot;).on(&quot;fileuploaded&quot;, function(event, data, previewId, index) {
+    alertView(&quot;&#x4E0A;&#x4F20;&#x6210;&#x529F;!&quot;);
+}); 
+</code></pre><p>&#x4E0A;&#x4F20;&#x5931;&#x8D25;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>$(&apos;#excelFile&apos;).on(&apos;fileuploaderror&apos;, function(event, data, previewId, index) {
+    alertView(&quot;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x4E0D;&#x6B63;&#x786E;!&quot;);
+});
+</code></pre><p>js&#x63D0;&#x4EA4;&#x5E26;&#x6587;&#x4EF6;&#x8868;&#x5355;</p>
+<pre><code> $(&quot;#submitOK&quot;).click(function() {
+    $.ajax({
+        cache: true,
+        type: &quot;POST&quot;,
+        url: &quot;rest/guide/importfile&quot;,
+        data: new FormData($(&apos;#importFile&apos;)[0]),// &#x4F60;&#x7684;formid
+        processData: false,
+        contentType: false,
+        error: function(request) {
+            alert(&quot;&#x4E0A;&#x4F20;&#x5931;&#x8D25;&quot;);
+        },
+        success: function(data) {
+            if(data){                    
+                alert(&quot;&#x4E0A;&#x4F20;&#x6210;&#x529F;&quot;);
+            }
+            else {
+                alert(&quot;&#x4E0A;&#x4F20;&#x5931;&#x8D25;&quot;);
+            }
+        }
+    });
+}); 
+</code></pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>processData&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;&#x56E0;&#x4E3A;data&#x503C;&#x662F;FormData&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x6570;&#x636E;&#x505A;&#x5904;&#x7406;&#x3002;</li>
+<li><form>&#x6807;&#x7B7E;&#x6DFB;&#x52A0;enctype=&#x201D;multipart/form-data&#x201D;&#x5C5E;&#x6027;&#x3002;</form></li>
+<li>cache&#x8BBE;&#x7F6E;&#x4E3A;false&#xFF0C;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x4E0D;&#x9700;&#x8981;&#x7F13;&#x5B58;&#x3002;</li>
+<li>contentType&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x7531;<form>&#x8868;&#x5355;&#x6784;&#x9020;&#x7684;FormData&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x4E86;&#x5C5E;&#x6027;enctype=&#x201D;multipart/form-data&#x201D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;&#x4E3A;false&#x3002;</form></li>
+<li>&#x4E0A;&#x4F20;&#x540E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4ECE;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x540D;&#x4E3A;file&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x8F93;&#x5165;&#x6D41;&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x4E3A;input&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x662F;name=&#x201D;file&#x201D;&#x3002;</li>
+</ul>
+<h2 id="&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;"><a href="#&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;" class="headerlink" title="&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;"></a>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x540E;&#x53F0;</h2><pre><code>@RequestMapping(value = &quot;/importfile&quot;, method = RequestMethod.POST)
+@ResponseBody
+public boolean importfile(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    request.setCharacterEncoding(&quot;utf-8&quot;);
+    final String allowFileSuffix = &quot;html,htm&quot;;
+    String basePath = request.getSession().getServletContext().getRealPath(&quot;/&quot;);
+    String realpath = null;
+
+    // &#x68C0;&#x67E5;&#x8F93;&#x5165;&#x8BF7;&#x6C42;&#x662F;&#x5426;&#x4E3A;multipart&#x8868;&#x5355;&#x6570;&#x636E;&#x3002;
+    if (ServletFileUpload.isMultipartContent(request)) {
+        DiskFileItemFactory dff = new DiskFileItemFactory();//&#x83B7;&#x5F97;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x6761;&#x76EE;&#x5DE5;&#x5382;  
+        dff.setSizeThreshold(1024000);// &#x6307;&#x5B9A;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x5927;&#x5C0F;,&#x5355;&#x4F4D;&#x4E3A;byte
+        ServletFileUpload upload = new ServletFileUpload(dff);// &#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;
+        upload.setFileSizeMax(5000000);//&#x6307;&#x5B9A;&#x5355;&#x4E2A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;
+        upload.setSizeMax(10000000);// &#x6307;&#x5B9A;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x603B;&#x5C3A;&#x5BF8;
+        upload.setHeaderEncoding(&quot;utf-8&quot;);
+        List&lt;FileItem&gt; fileItems = new ArrayList&lt;FileItem&gt;();
+        try {
+            fileItems = upload.parseRequest(request);
+        } catch (FileUploadException e1) {
+            logger.error(&quot;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x53D1;&#x751F;&#x9519;&#x8BEF;&quot; + e1.getMessage());
+            return false;
+        }
+        String fullPath = null;
+        String fileName = null;
+        String fullName=null;
+        String type=&quot;&quot;;
+        for (FileItem fileItem : fileItems) {
+
+            // &#x5224;&#x65AD;&#x8BE5;&#x8868;&#x5355;&#x9879;&#x662F;&#x5426;&#x662F;&#x666E;&#x901A;&#x7C7B;&#x578B;
+            if (fileItem.isFormField()) {
+                String name = fileItem.getFieldName();// &#x63A7;&#x4EF6;&#x540D;
+                String value = fileItem.getString(); //&#x63A7;&#x4EF6;&#x503C;        
+                if (name.equals(&quot;descption&quot;)) {
+                    if(value.equals(&quot;1&quot;)){
+                        type=&quot;guide&quot;;//&#x529E;&#x4E8B;&#x6307;&#x5357;
+                    }
+                    else if(value.equals(&quot;2&quot;)){
+                        type=&quot;case&quot;;//&#x5178;&#x578B;&#x6848;&#x4F8B;
+                    }
+                    realpath=basePath+type;
+                    File tmpDir = new File(realpath);// &#x521D;&#x59CB;&#x5316;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x5B58;&#x653E;&#x76EE;&#x5F55;
+                    if (!tmpDir.exists()) {
+                        tmpDir.mkdirs();
+                    }
+                    dff.setRepository(tmpDir);// &#x6307;&#x5B9A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;
+
+                }
+            } else {
+                String filePath = fileItem.getName();
+                if (filePath == null || filePath.trim().length() == 0)
+                    continue;
+                fullName = filePath.substring(filePath.lastIndexOf(File.separator) + 1);
+                fileName = filePath.substring(0,filePath.lastIndexOf(&quot;.&quot;));
+
+                String extName = filePath.substring(filePath.lastIndexOf(&quot;.&quot;) + 1);
+                fullPath = realpath + File.separator + fullName;
+                if (allowFileSuffix.indexOf(extName) != -1) {
+                    try {
+                        fileItem.write(new File(fullPath));
+                        //&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x5730;&#x5740;&#x5B58;&#x5165;&#x6570;&#x636E;&#x5E93;
+                        Guide guide = new Guide();
+                        guide.setName(fileName);
+                        guide.setUrl(&quot;../&quot;+type +&quot;/&quot; + fullName);
+                        if(type.equals(&quot;guide&quot;)){                                
+                            guide.setType(1);
+                        }
+                        else if(type.equals(&quot;case&quot;)){
+                            guide.setType(2);
+                        } 
+                        guideServiceImpl.insert(guide);
+                    } catch (Exception e) {
+                        logger.error(&quot;&#x6587;&#x4EF6;&#x5199;&#x5165;Guide&#x8868;&#x51FA;&#x9519;&quot;);
+                        return false;
+                    }
+                } else {
+                    throw new FileUploadException(&quot;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x4E0D;&#x6B63;&#x786E;&quot;);
+                }
+            }
+        }
+    }
+    return true;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MultipartFile/">MultipartFile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fileInput/">fileInput</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-js中this的用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1341,83 +1632,6 @@ myApp.controller(&apos;loginCtrl&apos;,[&apos;$scope&apos;, function($scope){
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bootstrap fileinput 文件上传" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/07/bootstrap fileinput 文件上传/" class="article-date">
-      <time datetime="2016-09-07T08:03:49.597Z" itemprop="datePublished">2016-09-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/07/bootstrap fileinput 文件上传/">bootstrap file文件上传</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6700;&#x8FD1;&#x56E0;&#x4E3A;&#x9879;&#x76EE;&#x9700;&#x8981;&#x7814;&#x7A76;&#x4E86;&#x4E0B;bootstrap fileinput&#x7684;&#x4F7F;&#x7528;&#xFF0C;&#x6765;&#x8BB0;&#x5F55;&#x4E0B;&#x8FD9;&#x51E0;&#x5929;&#x7684;&#x4F7F;&#x7528;&#x5FC3;&#x5F97;&#x5427;&#x3002;</p>
-<blockquote>
-<p>&#x524D;&#x53F0;html&#x9875;&#x9762;&#x7684;&#x4EE3;&#x7801;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;form role=&quot;form&quot; id=&quot;importFile&quot; method=&quot;post&quot;</span><br><span class="line">					enctype=&quot;multipart/form-data&quot;&gt;</span><br><span class="line">					&lt;div class=&quot;row&quot;&gt;</span><br><span class="line">						&lt;div class=&quot;col-md-3&quot; &gt;</span><br><span class="line">							&lt;input type=&quot;radio&quot; name=&quot;excelType&quot; class=&quot;radio&quot; id=&quot;station&quot; value=&quot;station&quot;&gt;&lt;label for=&quot;station&quot;&gt;&amp;nbsp;&#x53C2;&#x6570;1&lt;/label&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">						&lt;div class=&quot;col-md-3  &quot;&gt;</span><br><span class="line">							&lt;input type=&quot;radio&quot; name=&quot;excelType&quot; class=&quot;radio&quot; id=&quot;line&quot; value=&quot;line&quot;&gt;&lt;label for=&quot;line&quot;&gt;&amp;nbsp;&#x53C2;&#x6570;2&lt;/label&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">						&lt;div class=&quot;col-md-3 &quot;&gt;</span><br><span class="line">							&lt;input type=&quot;radio&quot; name=&quot;excelType&quot; class=&quot;radio&quot; id=&quot;pipeline&quot; value=&quot;pipeline&quot;&gt;&lt;label for=&quot;pipeline&quot;&gt;&amp;nbsp;&#x53C2;&#x6570;3&lt;/label&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">						&lt;div class=&quot;col-md-3 &quot;&gt;</span><br><span class="line">							&lt;input type=&quot;radio&quot; name=&quot;excelType&quot; class=&quot;radio&quot; id=&quot;jdj&quot; value=&quot;jdj&quot;&gt;&lt;label for=&quot;jdj&quot;&gt;&amp;nbsp;&#x53C2;&#x6570;4&lt;/label&gt;</span><br><span class="line">						&lt;/div&gt;</span><br><span class="line">					&lt;/div&gt;</span><br><span class="line">					&lt;input id=&quot;excelFile&quot; name=&quot;excelFile&quot; class=&quot;file-loading&quot;</span><br><span class="line">						type=&quot;file&quot; multiple accept=&quot;.xls,.xlsx&quot; data-min-file-count=&quot;1&quot;</span><br><span class="line">						data-show-preview=&quot;true&quot;&gt; &lt;br&gt;</span><br><span class="line">				&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
-<p>js&#x8FDB;&#x884C;&#x63D2;&#x4EF6;&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x8BBE;&#x7F6E;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#excelFile&quot;).fileinput({</span><br><span class="line">					uploadUrl:&quot;rest/import/importExcel&quot;,//&#x4E0A;&#x4F20;&#x7684;&#x5730;&#x5740;</span><br><span class="line">					uploadAsync: true,</span><br><span class="line">					language : &quot;zh&quot;,//&#x8BBE;&#x7F6E;&#x8BED;&#x8A00;</span><br><span class="line">					showCaption: true,//&#x662F;&#x5426;&#x663E;&#x793A;&#x6807;&#x9898;</span><br><span class="line">					showUpload: true, //&#x662F;&#x5426;&#x663E;&#x793A;&#x4E0A;&#x4F20;&#x6309;&#x94AE;</span><br><span class="line">					browseClass: &quot;btn btn-primary&quot;, //&#x6309;&#x94AE;&#x6837;&#x5F0F; </span><br><span class="line">					allowedFileExtensions: [&quot;xls&quot;, &quot;xlsx&quot;], //&#x63A5;&#x6536;&#x7684;&#x6587;&#x4EF6;&#x540E;&#x7F00;</span><br><span class="line">					maxFileCount: 10,//&#x6700;&#x5927;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x6570;&#x9650;&#x5236;</span><br><span class="line">					maxFileSize : 1024 * 200, // &#x9650;&#x5236;&#x5927;&#x5C0F;&#x4E3A;200MB&#xFF0C;&#x5355;&#x4F4D;&#x4E3A;kb&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#x8868;&#x793A;&#x4E0D;&#x9650;&#x5236;&#x6587;&#x4EF6;&#x5927;&#x5C0F;</span><br><span class="line">			        msgSizeTooLarge : &quot;&#x6587;&#x4EF6;&#x592A;&#x5927;,&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;200M&quot;,</span><br><span class="line">					uploadAsync: true,</span><br><span class="line">					previewFileIcon: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">					allowedPreviewTypes: null, </span><br><span class="line">					previewFileIconSettings: {</span><br><span class="line">						&apos;docx&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">						&apos;xlsx&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">						&apos;pptx&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">						&apos;jpg&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-picture&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">						&apos;pdf&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">						&apos;zip&apos;: &apos;&lt;i class=&quot;glyphicon glyphicon-file&quot;&gt;&lt;/i&gt;&apos;,</span><br><span class="line">					},</span><br><span class="line">					uploadExtraData: function() {</span><br><span class="line">						var extraValue = null;</span><br><span class="line">						var radios = document.getElementsByName(&apos;excelType&apos;);</span><br><span class="line">						for(var i=0;i&lt;radios.length;i++){</span><br><span class="line">							if(radios[i].checked){</span><br><span class="line">								extraValue = radios[i].value;</span><br><span class="line">							}</span><br><span class="line">						}</span><br><span class="line">						return {&quot;excelType&quot;: extraValue};</span><br><span class="line">					}</span><br><span class="line">				});</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A; uploadExtraData&#x51FD;&#x6570;&#x4E2D;&#x53EA;&#x80FD;&#x7528;&#x539F;&#x751F;JS&#x6765;&#x53D6;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;JQuery&#x6765;&#x83B7;&#x53D6;&#x503C;&#xFF0C;&#x6B64;&#x53C2;&#x6570;&#x7528;&#x6765;&#x5411;&#x540E;&#x53F0;&#x4F20;&#x9012;&#x9644;&#x52A0;&#x53C2;&#x6570;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x5904;&#x7406;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5199;&#x6CD5;&#x662F;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uploadExtraData: {</span><br><span class="line">						&quot;excelType&quot;: document.getElementByID(&apos;id&apos;)</span><br><span class="line">					}</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x6210;&#x529F;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(&quot;#excelFile&quot;).on(&quot;fileuploaded&quot;, function(event, data, previewId, index) {</span><br><span class="line">	alert(&quot;&#x4E0A;&#x4F20;&#x6210;&#x529F;!&quot;);</span><br><span class="line">	$(&quot;#excelImport&quot;).modal(&quot;hide&quot;);</span><br><span class="line">	//&#x540E;&#x53F0;&#x5904;&#x7406;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x7ECF;&#x7EAC;&#x5EA6;&#x5750;&#x6807;json&#x6570;&#x7EC4;&#xFF0C;</span><br><span class="line">	var array = data.response;</span><br><span class="line">	console.dir(array);</span><br><span class="line">	//jquery&#x5FAA;&#x73AF;&#x53D6;&#x7ECF;&#x7EAC;&#x5EA6;&#x5750;&#x6807;</span><br><span class="line">	$.each(array,function(index,latAndLon){</span><br><span class="line">		var lon = latAndLon.lon;</span><br><span class="line">		var lat = latAndLon.lat;</span><br><span class="line">		var point =  new Point(lon, lat, map.spatialReference);</span><br><span class="line">		var symbol = new esri.symbol.SimpleMarkerSymbol().setStyle(</span><br><span class="line">			    SimpleMarkerSymbol.STYLE_CIRCLE).setColor(</span><br><span class="line">			    new Color([255,255,0,0.5]));</span><br><span class="line">		var attr = {&quot;address&quot;: &quot;addressName&quot; };</span><br><span class="line">		var infoTemplate = new esri.InfoTemplate(&quot;&#x6807;&#x9898;&quot;, &quot;&#x5730;&#x5740; :${address}&quot;);</span><br><span class="line">		var graphic = new Graphic(point,symbol,attr,infoTemplate);</span><br><span class="line">		map.graphics.add(graphic);</span><br><span class="line">	});</span><br><span class="line">	</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
-<p>arcgis&#x4E2D;&#x70B9;&#x7684;&#x5B9A;&#x4E49;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var point =  new Point(lon, lat, new SpatialReference({ wkid: 4326 }));</span><br><span class="line">var point =  new Point(lon, lat, map.spatialReference);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>&#x540E;&#x53F0;Java&#x5904;&#x7406;&#xFF0C;&#x4F7F;&#x7528;common fileupload&#x63D2;&#x4EF6;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x6B64;&#x5904;&#x9650;&#x5236;&#x53EA;&#x80FD;&#x4E0A;&#x4F20;excel &#x6587;&#x4EF6;</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">public JSONArray importExcel(HttpServletRequest request,</span><br><span class="line">		HttpServletResponse response) throws Exception {</span><br><span class="line"></span><br><span class="line">	final String allowFileSuffix = &quot;xls,xlsx&quot;;</span><br><span class="line">	Subject subject = SecurityUtils.getSubject();</span><br><span class="line">	String uname = (String) subject.getPrincipal();</span><br><span class="line">	String basePath = &quot;D:&quot; + File.separator + uname;</span><br><span class="line">	File tmpDir = new File(basePath);// &#x521D;&#x59CB;&#x5316;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x5B58;&#x653E;&#x76EE;&#x5F55;</span><br><span class="line">	JSONArray jsonArry = new JSONArray();</span><br><span class="line"></span><br><span class="line">	if (!tmpDir.exists()) {</span><br><span class="line">		tmpDir.mkdirs();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	// &#x68C0;&#x67E5;&#x8F93;&#x5165;&#x8BF7;&#x6C42;&#x662F;&#x5426;&#x4E3A;multipart&#x8868;&#x5355;&#x6570;&#x636E;&#x3002;</span><br><span class="line">	if (ServletFileUpload.isMultipartContent(request)) {</span><br><span class="line">		DiskFileItemFactory dff = new DiskFileItemFactory();// &#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;</span><br><span class="line">		dff.setRepository(tmpDir);// &#x6307;&#x5B9A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;</span><br><span class="line">		dff.setSizeThreshold(1024000);// &#x6307;&#x5B9A;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x5927;&#x5C0F;,&#x5355;&#x4F4D;&#x4E3A;byte</span><br><span class="line">		ServletFileUpload sfu = new ServletFileUpload(dff);// &#x521B;&#x5EFA;&#x8BE5;&#x5BF9;&#x8C61;</span><br><span class="line">		// sfu.setFileSizeMax(5000000);//&#x6307;&#x5B9A;&#x5355;&#x4E2A;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;</span><br><span class="line">		sfu.setSizeMax(10000000);// &#x6307;&#x5B9A;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x603B;&#x5C3A;&#x5BF8;</span><br><span class="line">		sfu.setHeaderEncoding(&quot;utf-8&quot;);</span><br><span class="line">		String type = null;</span><br><span class="line"></span><br><span class="line">		List&lt;FileItem&gt; fileItems = new ArrayList&lt;FileItem&gt;();</span><br><span class="line">		try {</span><br><span class="line">			fileItems = sfu.parseRequest(request);</span><br><span class="line">		} catch (FileUploadException e1) {</span><br><span class="line">			System.out.println(&quot;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x53D1;&#x751F;&#x9519;&#x8BEF;&quot; + e1.getMessage());</span><br><span class="line">		}</span><br><span class="line">		String fullPath = null;</span><br><span class="line">		String fileName = null;</span><br><span class="line">		for (FileItem fileItem : fileItems) {</span><br><span class="line"></span><br><span class="line">			// &#x5224;&#x65AD;&#x8BE5;&#x8868;&#x5355;&#x9879;&#x662F;&#x5426;&#x662F;&#x666E;&#x901A;&#x7C7B;&#x578B;</span><br><span class="line">			if (fileItem.isFormField()) {</span><br><span class="line">				String name = fileItem.getFieldName();// &#x63A7;&#x4EF6;&#x540D;</span><br><span class="line">				String value = fileItem.getString();</span><br><span class="line">				if (name.equals(&quot;excelType&quot;)) {</span><br><span class="line">					type = value;</span><br><span class="line">				}</span><br><span class="line">			} else {</span><br><span class="line">				String filePath = fileItem.getName();</span><br><span class="line">				if (filePath == null || filePath.trim().length() == 0)</span><br><span class="line">					continue;</span><br><span class="line">				fileName = filePath.substring(filePath</span><br><span class="line">						.lastIndexOf(File.separator) + 1);</span><br><span class="line">				String extName = filePath.substring(filePath</span><br><span class="line">						.lastIndexOf(&quot;.&quot;) + 1);</span><br><span class="line">				fullPath = basePath + File.separator + fileName;</span><br><span class="line">				if (allowFileSuffix.indexOf(extName) != -1) {</span><br><span class="line">					try {</span><br><span class="line">						fileItem.write(new File(fullPath));</span><br><span class="line">					} catch (Exception e) {</span><br><span class="line">						e.printStackTrace();</span><br><span class="line">					}</span><br><span class="line"></span><br><span class="line">				} else {</span><br><span class="line">					throw new FileUploadException(&quot;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x4E0D;&#x6B63;&#x786E;&quot;);</span><br><span class="line">				}</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">		if (type.equals(&quot;station&quot;)) {</span><br><span class="line">			jsonArry = readExcel(fullPath, fileName);</span><br><span class="line">		} else if (type.equals(&quot;line&quot;)) {</span><br><span class="line">			System.out.println(&quot;===============:line&quot;);</span><br><span class="line">		} else if (type.equals(&quot;pipeline&quot;)) {</span><br><span class="line">			System.out.println(&quot;===============:pipeline&quot;);</span><br><span class="line">		} else if (type.equals(&quot;jdj&quot;)) {</span><br><span class="line">			System.out.println(&quot;===============:jdj&quot;);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	return jsonArry;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">// &#x5224;&#x65AD;&#x6587;&#x4EF6;&#x7C7B;&#x578B;</span><br><span class="line">public Workbook createWorkBook(InputStream is, String excelFileName)</span><br><span class="line">		throws IOException {</span><br><span class="line">	if (excelFileName.toLowerCase().endsWith(&quot;xls&quot;)) {</span><br><span class="line">		return new HSSFWorkbook(is);</span><br><span class="line">	}</span><br><span class="line">	if (excelFileName.toLowerCase().endsWith(&quot;xlsx&quot;)) {</span><br><span class="line">		return new XSSFWorkbook(is);</span><br><span class="line">	}</span><br><span class="line">	return null;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">public JSONArray readExcel(String basePath, String fileName)</span><br><span class="line">		throws FileNotFoundException, IOException {</span><br><span class="line">	File file = new File(basePath);</span><br><span class="line">	Workbook book = createWorkBook(new FileInputStream(file), fileName);</span><br><span class="line">	JSONObject jsonObj = new JSONObject();</span><br><span class="line">	JSONArray jsonArry = new JSONArray();</span><br><span class="line">	Sheet sheet = book.getSheetAt(0);</span><br><span class="line">	for (int i = 3; i &lt; sheet.getLastRowNum(); i++) {</span><br><span class="line">		Row row = sheet.getRow(i);</span><br><span class="line">		String lon = row.getCell(2).getNumericCellValue() + &quot;&quot;;</span><br><span class="line">		String lat = row.getCell(3).getNumericCellValue() + &quot;&quot;;</span><br><span class="line">		jsonObj.put(&quot;lat&quot;, lat);// &#x7EAC;&#x5EA6;</span><br><span class="line">		jsonObj.put(&quot;lon&quot;, lon);// &#x7ECF;&#x5EA6;</span><br><span class="line">		jsonArry.add(jsonObj);</span><br><span class="line">	}</span><br><span class="line">	System.out.println(jsonArry.toString());</span><br><span class="line">	return jsonArry;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>&#x57FA;&#x672C;&#x6D41;&#x7A0B;&#x7EC8;&#x4E8E;&#x8D70;&#x901A;&#x5566;&#xFF0C;&#x4FEE;&#x6539;&#x540E;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#xFF0C;&#x6B22;&#x8FCE;&#x62CD;&#x7816;~~~</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
     </div>
 
       

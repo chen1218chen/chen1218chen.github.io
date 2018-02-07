@@ -286,6 +286,63 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SpringMVC中集成Sigar" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/06/SpringMVC中集成Sigar/" class="article-date">
+      <time datetime="2017-07-06T09:15:10.000Z" itemprop="datePublished">2017-07-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/06/SpringMVC中集成Sigar/">SpringMVC中集成Sigar</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><code>sigar:</code>&#x7CFB;&#x7EDF;&#x4FE1;&#x606F;&#x6536;&#x96C6;&#x548C;&#x62A5;&#x8868;&#x5DE5;&#x5177;&#xFF0C;&#x5F00;&#x6E90;&#x7684;&#xFF0C;&#x7528;&#x6765;&#x6536;&#x96C6;&#x670D;&#x52A1;&#x5668;&#x7684;CPU&#x3001;&#x5185;&#x5B58;&#x3001;&#x78C1;&#x76D8;&#x5B58;&#x50A8;&#x3001;&#x7F51;&#x7EDC;&#x76D1;&#x63A7;&#x7B49;&#x6570;&#x636E;&#xFF0C;&#x9664;&#x4E86;&#x9700;&#x8981;&#x5728;&#x5DE5;&#x7A0B;&#x4E2D;&#x5F15;&#x5165;<code>sigar.jar</code>&#x5305;&#x5916;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728;jdk&#x7684;bin&#x76EE;&#x5F55;(<code>D:\Program Files\Java1.7\jdk1.7.0_80\bin</code>)&#x4E0B;&#x653E;<code>sigar-amd64-winnt.dll</code>&#x548C;<code>sigar-x86-winnt.dll</code>&#x52A8;&#x6001;&#x5E93;&#x3002;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x62FF;&#x4E0D;&#x5230;&#x9700;&#x8981;&#x7684;&#x670D;&#x52A1;&#x5668;&#x6570;&#x636E;&#x3002;</p>
+<p><img src="/2017/07/06/SpringMVC&#x4E2D;&#x96C6;&#x6210;Sigar/1499304165210.jpg" alt="enter description here" title="1499304165210.jpg"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-vue-cli多页面项目应用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1279,118 +1336,6 @@ public class LawsRest {
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue-js初探" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/02/24/vue-js初探/" class="article-date">
-      <time datetime="2017-02-23T17:11:10.000Z" itemprop="datePublished">2017-02-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/vue-js初探/">vue-cli搭建vue项目遇到的问题详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x5B89;&#x88C5;&#x4F7F;&#x7528;"><a href="#&#x5B89;&#x88C5;&#x4F7F;&#x7528;" class="headerlink" title="&#x5B89;&#x88C5;&#x4F7F;&#x7528;"></a>&#x5B89;&#x88C5;&#x4F7F;&#x7528;</h2><ul>
-<li><a href="https://cn.vuejs.org/" target="_blank" rel="external">Vue&#x4E2D;&#x6587;&#x5B98;&#x7F51;</a></li>
-</ul>
-<p>vue&#x521D;&#x63A2;&#xFF0C;&#x5373;&#x4F7F;&#x7167;&#x7740;&#x5B98;&#x65B9;&#x6559;&#x7A0B;&#x4E00;&#x6B65;&#x6B65;&#x6765;&#xFF0C;&#x4F9D;&#x7136;&#x662F;&#x9519;&#x8BEF;&#x767E;&#x51FA;&#xFF0C;&#x8BB0;&#x5F97;&#x6700;&#x597D;&#x662F;&#x5C06;node.js&#x66F4;&#x65B0;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x4E0D;&#x7136;&#x5404;&#x79CD;&#x62A5;&#x9519;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x3002;<br>&#x679C;&#x4E0D;&#x5176;&#x7136;&#xFF0C;&#x518D;&#x7ECF;&#x8FC7;&#x5C06;&#x73AF;&#x5883;&#x6574;&#x4E2A;&#x66F4;&#x65B0;&#x4E4B;&#x540E;&#x5728;&#x6839;&#x636E;&#x4EE5;&#x4E0B;&#x5B98;&#x7F51;&#x4E0A;&#x7684;&#x6B65;&#x9AA4;&#x4E00;&#x6B65;&#x6B65;&#x6765;&#x5C31;&#x6728;&#x6709;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
-<pre><code># &#x5168;&#x5C40;&#x5B89;&#x88C5; vue-cli
-$ npm install --global vue-cli
-</code></pre><blockquote>
-<p>&#x56FD;&#x5185;&#x7684;npm&#x7F51;&#x901F;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x6DD8;&#x5B9D;&#x955C;&#x50CF;&#xFF0C;<a href="http://npm.taobao.org/" target="_blank" rel="external">&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x8BE6;&#x60C5;</a>&#x3002;</p>
-</blockquote>
-<pre><code># &#x5982;&#x679C;&#x5B89;&#x88C5;&#x5931;&#x8D25;&#xFF0C;&#x53EF;&#x4EE5;&#x5148;clean&#x4E00;&#x4E0B;&#xFF0C;&#x6E05;&#x7406;&#x7F13;&#x5B58;&#xFF0C;&#x518D;&#x91CD;&#x65B0;&#x5B89;&#x88C5;
-$ npm cache clean 
-$ npm install -g cnpm --registry=https://registry.npm.taobao.org  
-$ cnpm -v //&#x67E5;&#x770B;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;
-
-# &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;webpack &#x6A21;&#x677F;&#x7684;&#x65B0;&#x9879;&#x76EE;&#xFF0C;&#x5176;&#x4E2D;webpack&#x662F;&#x6A21;&#x677F;&#x540D;&#x79F0;
-$ vue init webpack first
-# &#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#xFF0C;&#x8D70;&#x4F60;
-$ cd first
-$ cnpm install
-$ cnpm run dev
-</code></pre><p>&#x6D4F;&#x89C8;&#x5668;&#x6210;&#x529F;&#x663E;&#x793A;&#x4EE5;&#x4E0B;&#x9875;&#x9762;&#x3002;<br><strong>vue-cli</strong>&#xFF1A;&#x5B98;&#x65B9;&#x53D1;&#x5E03;&#x7684;&#x4E00;&#x4E2A;vue&#x811A;&#x624B;&#x67B6;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5FEB;&#x901F;&#x642D;&#x5EFA;vue&#x9879;&#x76EE;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x542F;&#x7528;&#x70ED;&#x52A0;&#x8F7D;&#x529F;&#x80FD;&#x3002;<br><strong>webpack</strong>&#xFF1A;&#x662F;&#x6A21;&#x677F;&#x540D;&#x79F0;&#xFF0C;&#x53EF;&#x4EE5;&#x5230; vue.js &#x7684; GitHub &#x4E0A;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x7684;&#x6A21;&#x677F;<a href="https://github.com/vuejs-templates" target="_blank" rel="external">https://github.com/vuejs-templates</a></p>
-<p><img src="/2017/02/24/vue-js&#x521D;&#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223172730.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170223172730.png"></p>
-<h3 id="vue-cli"><a href="#vue-cli" class="headerlink" title="vue-cli"></a>vue-cli</h3><p>Vue.js&#x5B98;&#x65B9;&#x7684;&#x811A;&#x624B;&#x67B6;&#x751F;&#x6210;&#x5DE5;&#x5177;&#x3002;<br>vue-cli&#x63D0;&#x4F9B;&#x4E86;5&#x4E2D;&#x811A;&#x624B;&#x67B6;&#xFF1A;</p>
-<ul>
-<li>webpack: &#x57FA;&#x4E8E;webpack&#x548C;vue-loader&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#xFF0C;&#x800C;&#x4E14;&#x652F;&#x6301;&#x70ED;&#x90E8;&#x7F72;&#x3001;&#x4EE3;&#x7801;&#x68C0;&#x67E5;&#x3001;&#x6D4B;&#x8BD5;&#x53CA;css&#x62BD;&#x53D6;&#x3002;&#x751F;&#x6210;&#x7684;&#x9879;&#x76EE;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;&#x6240;&#x793A;&#x3002;</li>
-<li>webpack-simple</li>
-<li>browerify</li>
-<li>browerify-simple</li>
-<li>simple<h2 id="&#x9879;&#x76EE;&#x5206;&#x6790;"><a href="#&#x9879;&#x76EE;&#x5206;&#x6790;" class="headerlink" title="&#x9879;&#x76EE;&#x5206;&#x6790;"></a>&#x9879;&#x76EE;&#x5206;&#x6790;</h2><h3 id="&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;"><a href="#&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;" class="headerlink" title="&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;"></a>&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x7ED3;&#x6784;</h3></li>
-</ul>
-<p><img src="/2017/02/24/vue-js&#x521D;&#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170223173009.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170223173009.png"><br>main.js:&#x9ED8;&#x8BA4;&#x7684;&#x4E3B;&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x3002;</p>
-<h3 id="&#x9879;&#x76EE;&#x8DEF;&#x5F84;&#x8BF4;&#x660E;"><a href="#&#x9879;&#x76EE;&#x8DEF;&#x5F84;&#x8BF4;&#x660E;" class="headerlink" title="&#x9879;&#x76EE;&#x8DEF;&#x5F84;&#x8BF4;&#x660E;"></a>&#x9879;&#x76EE;&#x8DEF;&#x5F84;&#x8BF4;&#x660E;</h3><p><img src="/2017/02/24/vue-js&#x521D;&#x63A2;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170227101809.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170227101809.png"></p>
-<p>&#x4F7F;&#x7528;&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x7684;&#x5F15;&#x5165;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code>&lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
-</code></pre><h3 id="&#x6253;&#x5305;&#x4E0A;&#x7EBF;"><a href="#&#x6253;&#x5305;&#x4E0A;&#x7EBF;" class="headerlink" title="&#x6253;&#x5305;&#x4E0A;&#x7EBF;"></a>&#x6253;&#x5305;&#x4E0A;&#x7EBF;</h3><p>&#x81EA;&#x5DF1;&#x7684;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x90FD;&#x9700;&#x8981;&#x653E;&#x5230; src &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165; npm run build &#x6765;&#x8FDB;&#x884C;&#x6253;&#x5305;&#x5DE5;&#x4F5C;</p>
-<pre><code>npm run build
-</code></pre><p>&#x6253;&#x5305;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4F1A;&#x751F;&#x6210;dist&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x4FEE;&#x6539;&#x4E86;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6253;&#x5F00;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x67E5;&#x770B;&#x9879;&#x76EE;&#x4E0A;&#x7EBF;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5C06; dist &#x6587;&#x4EF6;&#x5939;&#x653E;&#x5230;&#x670D;&#x52A1;&#x5668;&#x5C31;&#x884C;&#x4E86;&#x3002;</p>
-<h3 id="app&#x6302;&#x8F7D;"><a href="#app&#x6302;&#x8F7D;" class="headerlink" title="app&#x6302;&#x8F7D;"></a>app&#x6302;&#x8F7D;</h3><pre><code>new Vue({
-    el: &apos;#app&apos;,
-    components: {
-        app: App
-    },
-    router,
-}).$mount(&apos;#app&apos;)
-</code></pre><p>&#x7B49;&#x4EF7;&#x4E8E;</p>
-<pre><code>new Vue({
-    el: &apos;#app&apos;,    //&#x8FD9;&#x91CC;&#x7ED1;&#x5B9A;&#x7684;&#x662F;index.html&#x4E2D;&#x7684;id&#x4E3A;app&#x7684;div&#x5143;&#x7D20;
-    router,
-    render: h =&gt; h(App)
-})
-</code></pre><h2 id="vue-resource&#x4E0E;axios"><a href="#vue-resource&#x4E0E;axios" class="headerlink" title="vue-resource&#x4E0E;axios"></a>vue-resource&#x4E0E;axios</h2><p>vue&#x66F4;&#x65B0;&#x5230;2.0&#x4E4B;&#x540E;&#xFF0C;&#x4F5C;&#x8005;&#x5C31;&#x5BA3;&#x544A;&#x4E0D;&#x518D;&#x5BF9;vue-resource&#x66F4;&#x65B0;&#xFF0C;&#x800C;&#x662F;&#x63A8;&#x8350;&#x7684;axios</p>
-<p><strong>axios</strong>&#xFF1A;&#x57FA;&#x4E8E; Promise &#x7684; HTTP &#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x53EF;&#x540C;&#x65F6;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x548C; node.js &#x4E2D;&#x4F7F;&#x7528;&#x3002;&#x8BE6;&#x60C5;&#x67E5;&#x770B; <a href="https://www.awesomes.cn/repo/mzabriskie/axios" target="_blank" rel="external">axios&#x6587;&#x6863;</a><br>&#x7C7B;&#x4F3C;&#x4E8E;jquery&#x4E2D;&#x7684;ajax&#x529F;&#x80FD;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x5C0F;&#x7684;ajax&#x7EC4;&#x4EF6;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
     </div>
 
       

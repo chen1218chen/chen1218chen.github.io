@@ -286,6 +286,132 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-spring" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/18/spring/" class="article-date">
+      <time datetime="2016-04-18T10:13:55.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/18/spring/">spring浅析及配置实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x4E3B;&#x9875;&#xFF1A;<a href="http://spring.io/&#xFF0C;&#x8FDB;&#x5165;projects&#xFF0C;&#x627E;&#x5230;spring" target="_blank" rel="external">http://spring.io/&#xFF0C;&#x8FDB;&#x5165;projects&#xFF0C;&#x627E;&#x5230;spring</a> framework,&#x8FDB;&#x5165;&#x7684;spring framework&#x9875;&#xFF0C;&#x5373;&#x53EF;&#x627E;&#x5230;spring&#x5305;&#x53CA;&#x4E0B;&#x8F7D;spring&#x6846;&#x67B6;&#x7248;&#x672C;&#x5BF9;jdk&#x7684;&#x8981;&#x6C42;</p>
+<h2 id="&#x7B80;&#x5355;&#x7406;&#x89E3;"><a href="#&#x7B80;&#x5355;&#x7406;&#x89E3;" class="headerlink" title="&#x7B80;&#x5355;&#x7406;&#x89E3;"></a>&#x7B80;&#x5355;&#x7406;&#x89E3;</h2><p>Spring&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x7406;&#x6846;&#x67B6;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x4F60;&#x4E0D;&#x7528;&#x518D;&#x8003;&#x8651;&#x4F60;new&#x5BF9;&#x8C61;&#x4E86;&#xFF0C;&#x5B83;&#x4F1A;&#x5E2E;&#x4F60;&#x505A;&#xFF0C;&#x964D;&#x4F4E;&#x4E86;&#x5C42;&#x4E0E;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;Spring&#x91CC;&#x9762;&#x6709;&#x5F88;&#x591A;&#x7684;&#x601D;&#x60F3;&#xFF0C;IOC&#x5C31;&#x662F;&#x63A7;&#x5236;&#x53CD;&#x8F6C;&#xFF0C;&#x6CE8;&#x5165;&#x3002;AOP&#x662F;&#x9762;&#x5411;&#x5207;&#x9762;&#x7684;&#xFF0C;&#x6709;&#x70B9;&#x50CF;&#x62E6;&#x622A;&#x5668;&#x3002;</p>
+<h2 id="spring&#x7684;jar&#x5305;"><a href="#spring&#x7684;jar&#x5305;" class="headerlink" title="spring&#x7684;jar&#x5305;"></a>spring&#x7684;jar&#x5305;</h2><p>Spring&#x6846;&#x67B6;&#x7684;jar&#x5305;&#x4F9D;&#x8D56;&#x4E8E;commons-logging.jar<br>&#x5982;&#x679C;&#x662F;web&#x9879;&#x76EE;&#x5C31;&#x9700;&#x8981;spring-web&#xFF0C;&#x5728;web.xml&#x4E2D;&#x914D;&#x7F6E;&#x7684;ContextLoaderListener&#x76D1;&#x542C;&#x5668;&#xFF08;listen&#xFF09;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;spring-web&#x3002;<br>&#x5982;&#x679C;&#x662F;web&#x9879;&#x76EE;&#x5E76;&#x4E14;&#x8981;&#x4F7F;&#x7528;spring mvc&#x6280;&#x672F;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230;spring-webmvc</p>
+<h2 id="spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;"><a href="#spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;" class="headerlink" title="spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;"></a>spring&#x6280;&#x672F;&#x4ECB;&#x7ECD;</h2><p>Ioc: &#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#xFF0C;&#x89E3;&#x8026;service&#x5C42;&#x548C;DAO&#x5C42;<br>AOP: &#x5207;&#x9762;&#x5F00;&#x53D1;</p>
+<h2 id="&#x4E8B;&#x52A1;"><a href="#&#x4E8B;&#x52A1;" class="headerlink" title="&#x4E8B;&#x52A1;"></a>&#x4E8B;&#x52A1;</h2><p>&#x4E8B;&#x52A1;&#x662F;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x7684;&#x4E00;&#x81F4;&#x548C;&#x5B8C;&#x6574;&#x3002;&#x662F;&#x6307;&#x5355;&#x4E2A;&#x903B;&#x8F91;&#x529F;&#x80FD;&#x5355;&#x5143;&#x6267;&#x884C;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF0C;&#x8981;&#x4E48;&#x5B8C;&#x6574;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#x3002;</p>
+<p> <strong>&#x56DB;&#x5927;&#x7279;&#x6027;</strong>&#xFF1A;  </p>
+<ul>
+<li>&#x539F;&#x5B50;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5FC5;&#x987B;&#x662F;&#x539F;&#x5B50;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#xFF1B;&#x5BF9;&#x4E8E;&#x5176;&#x6570;&#x636E;&#x4FEE;&#x6539;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x6267;&#x884C;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90FD;&#x4E0D;&#x6267;&#x884C;&#xFF1B;  </li>
+<li>&#x4E00;&#x81F4;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x72B6;&#x6001;&#xFF1B;  </li>
+<li>&#x9694;&#x79BB;&#x6027;&#xFF1A;&#x7531;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x5FC5;&#x987B;&#x4E0E;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x9694;&#x79BB;&#xFF1B;  </li>
+<li>&#x6301;&#x4E45;&#x6027;&#xFF1A;&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5B83;&#x5BF9;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x5F71;&#x54CD;&#x662F;&#x6C38;&#x4E45;&#x6027;&#x7684;&#x3002;</li>
+</ul>
+<h2 id="Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;"><a href="#Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;" class="headerlink" title="Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;"></a>Spring&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;</h2><p>Spring&#x7684;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5206;&#x4E3A;&#x58F0;&#x660E;&#x5F0F;&#x8DDF;&#x7F16;&#x7A0B;&#x5F0F;&#x3002;&#x58F0;&#x660E;&#x5F0F;&#x5C31;&#x662F;&#x5728;Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#xFF1B;&#x7F16;&#x7A0B;&#x5F0F;&#x5C31;&#x662F;&#x7528;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x5199;&#x5230;&#x4EE3;&#x7801;&#x91CC;&#x3002;</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--&#x5F00;&#x542F;&#x6CE8;&#x89E3;&#x65B9;&#x5F0F;--&gt;</span><br><span class="line">&lt;context:annotation-config /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;sessionFactory --&gt;</span><br><span class="line">&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;configLocation&quot;&gt;</span><br><span class="line">        &lt;value&gt;classpath:config/hibernate.cfg.xml&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property name=&quot;packagesToScan&quot;&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;value&gt;com.entity&lt;/value&gt;</span><br><span class="line">        &lt;/list&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668; --&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;</span><br><span class="line">    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- &#x7B2C;&#x56DB;&#x79CD;&#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x89E3; --&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="&#x6CE8;&#x89E3;&#x914D;&#x7F6E;"><a href="#&#x6CE8;&#x89E3;&#x914D;&#x7F6E;" class="headerlink" title="&#x6CE8;&#x89E3;&#x914D;&#x7F6E;"></a>&#x6CE8;&#x89E3;&#x914D;&#x7F6E;</h2><ul>
+<li><strong><context:annotation-config></context:annotation-config></strong> &#x662F;spring&#x63D0;&#x4F9B;&#x7684;&#x6CE8;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x5165;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x5BFC;&#x5165;spring&#x76EE;&#x5F55;common-annotations.jar&#x8FD9;&#x4E2A;&#x5305;&#x3002;   </li>
+<li><strong><mvc:annotation-driven></mvc:annotation-driven></strong> 3.1&#x7248;&#x672C;&#x5F00;&#x59CB;&#x6709;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E; ,&#x4F1A;&#x81EA;&#x52A8;&#x6CE8;&#x518C;DefaultAnnotationHandlerMapping&#x4E0E;AnnotationMethodHandlerAdapter &#x4E24;&#x4E2A;bean,&#x662F;spring MVC&#x4E3A;@Controllers&#x5206;&#x53D1;&#x8BF7;&#x6C42;&#x6240;&#x5FC5;&#x987B;&#x7684;&#x3002;  </li>
+</ul>
+<p><context:annotation-config> declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.  </context:annotation-config></p>
+<p><mvc:annotation-driven> is actually rather pointless. It declares explicit support for annotation-driven MVC controllers (i.e.@RequestMapping, @Controller, etc), even though support for those is the default behaviour.</mvc:annotation-driven></p>
+<p>My advice is to always declare <context:annotation-config>, but don&#x2019;t bother with &lt;mvc:annotation-driven /unless you want JSON support via Jackson.  </context:annotation-config></p>
+<h2 id="&#x4E8B;&#x52A1;&#x914D;&#x7F6E;"><a href="#&#x4E8B;&#x52A1;&#x914D;&#x7F6E;" class="headerlink" title="&#x4E8B;&#x52A1;&#x914D;&#x7F6E;"></a>&#x4E8B;&#x52A1;&#x914D;&#x7F6E;</h2><p>&#x5728;dao&#x5C42;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x4E0A;&#x9762;&#x6DFB;&#x52A0;@Transactional&#x6CE8;&#x89E3;&#xFF0C;&#x4E3A;&#x9ED8;&#x8BA4;&#x4E8B;&#x52A1;&#x914D;&#x7F6E;</p>
+<pre><code>package com.dao;
+
+@Transactional
+public class UserDaoImpl_BAK extends HibernateTemplate {
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void addUser(User user) throws Exception {
+        this.save(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void modifyUser(User user) {
+        this.update(user);
+    }
+
+    @Transactional(propagation=Propagation.REQUIRED,rollbackForClassName=&quot;Exception&quot;)
+    public void delUser(String username) {
+        this.delete(this.load(User.class, username));
+    }
+
+    @Transactional(readOnly=true)
+    public void selectUser() {
+    }
+}    
+</code></pre><h2 id="applicationContext-xml-&#x516C;&#x5171;&#x914D;&#x7F6E;"><a href="#applicationContext-xml-&#x516C;&#x5171;&#x914D;&#x7F6E;" class="headerlink" title="applicationContext.xml &#x516C;&#x5171;&#x914D;&#x7F6E;"></a><strong>applicationContext.xml</strong> &#x516C;&#x5171;&#x914D;&#x7F6E;</h2><pre><code>&lt;!-- &#x914D;&#x7F6E;sessionFactory --&gt;
+&lt;bean id=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;configLocation&quot;&gt;
+        &lt;value&gt;classpath:hibernate.cfg.xml&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;packagesToScan&quot;&gt;
+        &lt;list&gt;
+            &lt;value&gt;com.entity&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- &#x914D;&#x7F6E;&#x4E8B;&#x52A1;&#x7BA1;&#x7406;&#x5668;&#xFF08;&#x58F0;&#x660E;&#x5F0F;&#x7684;&#x4E8B;&#x52A1;&#xFF09; --&gt;
+&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- &#x914D;&#x7F6E;DAO --&gt; 
+&lt;bean id=&quot;userDao&quot; class=&quot;com.dao.UserDaoImpl&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-BootstrapPaginator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1701,217 +1827,6 @@ exports.user = mongoose.model(&apos;users&apos;, userScheMa); //  &#x4E0E;users&
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/02/git/" class="article-date">
-      <time datetime="2016-03-02T02:01:47.684Z" itemprop="datePublished">2016-03-02</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/02/git/">新手常用的git命令及问题分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x4E13;&#x6709;&#x540D;&#x8BCD;"><a href="#&#x4E13;&#x6709;&#x540D;&#x8BCD;" class="headerlink" title="&#x4E13;&#x6709;&#x540D;&#x8BCD;"></a>&#x4E13;&#x6709;&#x540D;&#x8BCD;</h2><ul>
-<li>Workspace&#xFF1A;&#x5DE5;&#x4F5C;&#x533A;</li>
-<li>Index / Stage&#xFF1A;&#x6682;&#x5B58;&#x533A;</li>
-<li>Repository&#xFF1A;&#x4ED3;&#x5E93;&#x533A;&#xFF08;&#x6216;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#xFF09;</li>
-<li>Remote&#xFF1A;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#xFF0C;&#x6307;&#x6258;&#x7BA1;&#x5728;&#x7F51;&#x7EDC;&#x4E0A;&#x7684;&#x9879;&#x76EE;&#x4ED3;&#x5E93;</li>
-</ul>
-<p>.gitignore&#x6587;&#x4EF6;&#x4E2D;&#x5217;&#x51FA;&#x8981;&#x5FFD;&#x7565;&#x7684;&#x6587;&#x4EF6;&#x6A21;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;.class&#xFF0C;&#x5FFD;&#x7565;.class&#x6587;&#x4EF6;</p>
-<p><img src="/2016/03/02/git/1450160316466.png" alt="image1"></p>
-<h2 id="&#x672C;&#x5730;&#x9879;&#x76EE;&#x4E0A;&#x4F20;github"><a href="#&#x672C;&#x5730;&#x9879;&#x76EE;&#x4E0A;&#x4F20;github" class="headerlink" title="&#x672C;&#x5730;&#x9879;&#x76EE;&#x4E0A;&#x4F20;github"></a>&#x672C;&#x5730;&#x9879;&#x76EE;&#x4E0A;&#x4F20;github</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"> //&#x8BBE;&#x7F6E;&#x7528;&#x6237;</span><br><span class="line"> git config --global user.name</span><br><span class="line"> git config --global user.email</span><br><span class="line"> cd d:</span><br><span class="line"> mkdir bootstrap</span><br><span class="line"> cd bootstrap </span><br><span class="line"> </span><br><span class="line"> git init   //&#x521D;&#x59CB;&#x5316;&#x7248;&#x672C;&#x4ED3;&#x5E93;</span><br><span class="line"> touch READM   //&#x65B0;&#x5EFA;readme&#x6587;&#x4EF6;</span><br><span class="line"> echo &quot;hello world!&quot; &gt;&gt;README</span><br><span class="line"> </span><br><span class="line"> git add . //&#x5C06;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x6682;&#x5B58;&#x533A;&#x57DF;</span><br><span class="line"> git reset file //&#x53D6;&#x6D88;&#x5DF2;&#x6682;&#x5B58;&#x6587;&#x4EF6;</span><br><span class="line"> git commit -m &apos;first commit&apos;  //&#x63D0;&#x4EA4;&#x7F13;&#x5B58;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x63CF;&#x8FF0;&#x2018;first commit&#x2019;</span><br><span class="line"> // &#x6DFB;&#x52A0;&#x540D;&#x5B57;&#x4E3A;origin&#x7684;&#x8FDC;&#x7A0B;&#x5E93;&#xFF0C;&#x6CE8;&#x610F;&#x9700;&#x63D0;&#x524D;&#x5EFA;&#x7ACB;&#x597D;&#x7248;&#x672C;&#x4ED3;&#x5E93;,&#x518D;&#x6B21;&#x4FEE;&#x6539;&#x540E;&#x63D0;&#x4EA4;&#x8DF3;&#x8FC7;&#x6B64;&#x547D;&#x4EE4;</span><br><span class="line"> git remote add origin https://github.com/chen1218chen/bootstrap.git</span><br><span class="line"></span><br><span class="line"> git push origin master   //&#x63D0;&#x4EA4;&#x5230;github&#x4ED3;&#x5E93;</span><br><span class="line"> git push //&#x63D0;&#x4EA4;&#x5230;local</span><br><span class="line"> git pull //&#x6293;&#x53D6;&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#x5E76;&#x81EA;&#x52A8;&#x5408;&#x5E76;</span><br><span class="line"> git fetch //&#x6293;&#x53D6;&#x8FDC;&#x7A0B;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5408;&#x5E76;</span><br><span class="line"> </span><br><span class="line"> git clone &lt;url&gt; //&#x81EA;&#x52A8;&#x5C06;&#x8FDC;&#x7A0B;&#x5E93;&#x5F52;&#x4E8E;origin&#x4E0B;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"> git status  //&#x67E5;&#x770B;&#x63D0;&#x4EA4;&#x72B6;&#x6001;</span><br><span class="line"> git status -s   //&#x66F4;&#x4E3A;&#x7D27;&#x51D1;&#x7684;&#x683C;&#x5F0F;&#x8F93;&#x51FA;</span><br><span class="line"> git status --short</span><br><span class="line"> git log -p -2//-p&#x663E;&#x793A;&#x6BCF;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x5185;&#x5BB9;&#x5DEE;&#x5F02;,-2&#x6700;&#x8FD1;&#x4E24;&#x6B21;&#x66F4;&#x65B0;</span><br><span class="line"></span><br><span class="line"> git tag  //&#x5217;&#x51FA;&#x6240;&#x6709;tag</span><br><span class="line"> //&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;tag&#x5728;&#x5F53;&#x524D;commit</span><br><span class="line"> git tag [tag]</span><br><span class="line"> //&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;tag&#x5728;&#x6307;&#x5B9A;commit</span><br><span class="line"> git tag [tag] [commit]</span><br><span class="line"> //&#x67E5;&#x770B;tag&#x4FE1;&#x606F;</span><br><span class="line"> git show [tag]</span><br><span class="line"> //&#x63D0;&#x4EA4;&#x6240;&#x6709;tag</span><br><span class="line">$ git push [remote] --tags</span><br><span class="line"></span><br><span class="line"> // &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x6307;&#x5411;&#x67D0;&#x4E2A;tag</span><br><span class="line">$ git checkout -b [branch] [tag]</span><br></pre></td></tr></table></figure>
-<h2 id="&#x514D;&#x5BC6;&#x7801;"><a href="#&#x514D;&#x5BC6;&#x7801;" class="headerlink" title="&#x514D;&#x5BC6;&#x7801;"></a>&#x514D;&#x5BC6;&#x7801;</h2><p>git &#x914D;&#x7F6E;SSH&#x5373;&#x53EF;&#x63D0;&#x4EA4;&#x514D;&#x5BC6;&#x7801;</p>
-<ol>
-<li>&#x751F;&#x6210;&#x79D8;&#x94A5;</li>
-</ol>
-<pre><code>ssh-keygen -t rsa -C &quot;cc.2008.com@163.com&quot;
-</code></pre><p>&#x6309;3&#x4E2A;&#x56DE;&#x8F66;&#xFF0C;&#x5BC6;&#x7801;&#x4E3A;&#x7A7A;&#x3002;(&#x4E0D;&#x8981;&#x8F93;&#x5BC6;&#x7801;)&#x3002;&#x7136;&#x540E;&#x5230;.ssh&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x9762;&#x5C06;id_rsa.pub&#x91CC;&#x7684;&#x5185;&#x5BB9;&#x590D;&#x5236;&#x51FA;&#x6765;&#x7C98;&#x8D34;&#x5230;github&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;&#x7684;&#x8D26;&#x6237;&#x8BBE;&#x7F6E;&#x7684;ssh key&#x91CC;&#x9762;</p>
-<ol>
-<li>&#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;</li>
-</ol>
-<pre><code>$ git config --global user.name &quot;chen1218chen&quot;
-$ git config --global user.email &quot;cc.2008.com@163.com&quot;
-
-# &#x67E5;&#x770B;
-git config --list
-</code></pre><ol>
-<li>&#x6D4B;&#x8BD5;</li>
-</ol>
-<pre><code>ssh -T git@github.com 
-</code></pre><p>&#x6210;&#x529F;&#x63D0;&#x793A;&#xFF1A;</p>
-<pre><code>Hi chen1218chen! You&apos;ve successfully authenticated, but GitHub does not provide shell access.  
-</code></pre><h2 id="&#x547D;&#x4EE4;&#x5206;&#x6790;"><a href="#&#x547D;&#x4EE4;&#x5206;&#x6790;" class="headerlink" title="&#x547D;&#x4EE4;&#x5206;&#x6790;"></a>&#x547D;&#x4EE4;&#x5206;&#x6790;</h2><h3 id="git-help"><a href="#git-help" class="headerlink" title="git help "></a>git help <verb></verb></h3><h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><p>&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;&#x8FC7;&#x957F;&#xFF0C;&#x6309;q&#x952E;&#x9000;&#x51FA;</p>
-<h3 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h3><p>&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x540D;&#xFF1A;</p>
-<pre><code>git mv file_from file_to
-</code></pre><h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>&#x5220;&#x9664;&#x6587;&#x4EF6;</p>
-<pre><code>rm &lt;file&gt;
-git rm &lt;file&gt;
-</code></pre><h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p> git commit &#x63D0;&#x4EA4;&#x65F6;&#x5F3A;&#x5236;&#x8981;&#x6C42;&#x8F93;&#x5165;&#x63D0;&#x4EA4;&#x8BF4;&#x660E;&#xFF0C;&#x4E0D;&#x80FD;&#x7701;&#x7565;&#xFF0C;&#x4F7F;&#x7528;-m&#x53C2;&#x6570;&#x8F93;&#x5165;&#x63D0;&#x4EA4;&#x8BF4;&#x660E;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;git&#x4F1A;&#x81EA;&#x52A8;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x7F16;&#x8F91;&#x5668;&#xFF0C;&#x8981;&#x6C42;&#x5728;&#x5176;&#x4E2D;&#x8F93;&#x5165;&#x63D0;&#x4EA4;&#x8BF4;&#x660E;&#x3002;<br><strong>&#x53C2;&#x6570;&#x8BF4;&#x660E;&#xFF1A;</strong><br>    -m &#x8F93;&#x5165;&#x63D0;&#x4EA4;&#x8BF4;&#x660E;<br>    <strong>&#x2013;amend</strong> &#x5BF9;&#x521A;&#x521A;&#x7684;&#x63D0;&#x4EA4;&#x8FDB;&#x884C;&#x4FEE;&#x8865;<br>    &#x2013;allow-empty &#x7A7A;&#x767D;&#x88AB;&#x5141;&#x8BB8;&#x63D0;&#x4EA4;<br>    &#x2013;reset-author &#x5C06;author&#x7684;ID&#x540C;&#x6B65;&#x4FEE;&#x6539;</p>
-<h4 id="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x4FE1;&#x606F;&#x5199;&#x9519;&#x4E86;"><a href="#&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x4FE1;&#x606F;&#x5199;&#x9519;&#x4E86;" class="headerlink" title="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x4FE1;&#x606F;&#x5199;&#x9519;&#x4E86;"></a>&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x4FE1;&#x606F;&#x5199;&#x9519;&#x4E86;</h4><p>&#x5982;&#x679C;&#x53EA;&#x662F;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#x5199;&#x9519;&#x4E86;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x5355;&#x72EC;&#x4FEE;&#x6539;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;</p>
-<pre><code>git commit --amend
-</code></pre><blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A; &#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x8FC7;&#x7A0B;&#x4FEE;&#x6539;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#x540E;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x5220;&#x9664;&#x539F;&#x6765;&#x7684;&#x63D0;&#x4EA4;&#xFF0C;&#x91CD;&#x65B0;&#x63D0;&#x4EA4;&#x4E86;&#x4E00;&#x6B21;&#x3002;&#x6240;&#x6709;&#x5982;&#x679C;&#x4F60;&#x5728;&#x4FEE;&#x6539;&#x524D;&#x5DF2;&#x7ECF;&#x5C06;&#x9519;&#x8BEF;&#x7684;&#x90A3;&#x6B21;&#x63D0;&#x4EA4;push&#x5230;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x90A3;&#x5728;&#x4FEE;&#x6539;&#x540E;&#x5C31;&#x9700;&#x8981;&#x901A;&#x8FC7; git pull &#x6765;&#x5408;&#x5E76;&#x4EE3;&#x7801;&#xFF08;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x4E86;&#xFF09;&#x3002;<br>&#x901A;&#x8FC7; git log &#x2013;graph &#x2013;oneline &#x67E5;&#x770B;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x5408;&#x5E76;&#x7684;&#x75D5;&#x8FF9;</p>
-<h4 id="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x5C11;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;"><a href="#&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x5C11;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;" class="headerlink" title="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x5C11;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;"></a>&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x5C11;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</h4></blockquote>
-<pre><code>git add file1
-git commit --amend
-</code></pre><h4 id="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x591A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;"><a href="#&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x591A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;" class="headerlink" title="&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x591A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;"></a>&#x6700;&#x540E;&#x4E00;&#x6B21;commit&#x591A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</h4><pre><code>git rm --cached file1
-git commit --amend
-</code></pre><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><pre><code># &#x6700;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;
-git clone xxx.git
-
-# clone&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;
-git clone xxx.git &quot;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&quot;
-
-# clone&#x65F6;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5206;&#x652F;&#x66FF;&#x4EE3;&#x9ED8;&#x8BA4;Origin HEAD&#xFF08;master&#xFF09;
-git clone -b [new_branch_name]  xxx.git
-</code></pre><h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><h4 id="&#x4E0B;&#x8F7D;&#x5386;&#x53F2;&#x7248;&#x672C;"><a href="#&#x4E0B;&#x8F7D;&#x5386;&#x53F2;&#x7248;&#x672C;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x5386;&#x53F2;&#x7248;&#x672C;"></a>&#x4E0B;&#x8F7D;&#x5386;&#x53F2;&#x7248;&#x672C;</h4><pre><code># &#x67E5;&#x770B;&#x5386;&#x53F2;&#x7248;&#x672C;&#x7684;sha-1(&#x4E5F;&#x662F;commit&#x7248;&#x672C;&#x53F7;)
-git log
-# &#x83B7;&#x53D6;
-git checkout 75adcf5d3a33bb7266adfa7ae3d20ee6e841c68b
-</code></pre><h4 id="&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6062;&#x590D;&#x5230;&#x5386;&#x53F2;&#x7248;&#x672C;"><a href="#&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6062;&#x590D;&#x5230;&#x5386;&#x53F2;&#x7248;&#x672C;" class="headerlink" title="&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6062;&#x590D;&#x5230;&#x5386;&#x53F2;&#x7248;&#x672C;"></a>&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x6062;&#x590D;&#x5230;&#x5386;&#x53F2;&#x7248;&#x672C;</h4><pre><code>git reset commit_id &#x6587;&#x4EF6;&#x8DEF;&#x5F84;
-git checkout &#x6587;&#x4EF6;&#x8DEF;&#x5F84;
-</code></pre><h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>&#x63A8;&#x9001;&#x6570;&#x636E;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
-<pre><code>git push [remote-name] [branch-name]
-</code></pre><h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h3><p>git&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;origin&#x4F5C;&#x4E3A;&#x8FDC;&#x7A0B;&#x5E93;&#x540D;&#x3002;master&#x4E3A;&#x9ED8;&#x8BA4;&#x4E3B;&#x5206;&#x652F;&#x540D;&#xFF0C;&#x81EA;&#x52A8;&#x5EFA;&#x7ACB;&#x7684;&#xFF0C;&#x7248;&#x672C;&#x5E93;&#x521D;&#x59CB;&#x5316;&#x4EE5;&#x540E;&#xFF0C;&#x9ED8;&#x8BA4;&#x5728;master&#x4E3B;&#x5206;&#x652F;&#x8FDB;&#x884C;&#x4FDD;&#x5B58;&#x3002;</p>
-<pre><code>git remote //&#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5E93;&#x540D;
-git remote -v //&#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x5E93;&#x5730;&#x5740;
-git remte show [remote-name] //&#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;
-git remote rename aa cc //&#x4FEE;&#x6539;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;aa&#x7684;&#x540D;&#x79F0;
-git remote rm cc  //&#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;cc
-</code></pre><p>&#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x62A5;&#x9519;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p> <img src="/2016/03/02/git/Image%201.png" alt="enter description here" title="Image 1.png"> </p>
-<p>&#x539F;&#x56E0;&#x662F;&#x7528;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;<code>git remote rm &lt;&#x4E3B;&#x673A;&#x540D;&gt;</code>&#x7528;&#x6765;&#x5220;&#x9664;&#x6DFB;&#x52A0;&#x7684;remote&#x8DEF;&#x5F84;&#xFF0C;&#x6B63;&#x786E;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p><img src="/2016/03/02/git/Image%202.png" alt="enter description here" title="Image 2.png"></p>
-<p>&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF1A;<br><img src="/2016/03/02/git/1450160519441.png" alt="enter description here" title="1450160519441.png"></p>
-<h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><pre><code>git config --list //&#x67E5;&#x770B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;
-git config -e  //&#x7248;&#x672C;&#x5E93;&#x7EA7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
-git config -e --global   //&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
-git config -e --system  //&#x7CFB;&#x7EDF;&#x7EA7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
-git config --global core.editor
-git config --global core.ui true //&#x4E3A;&#x7EC8;&#x7AEF;&#x7684;&#x5185;&#x5BB9;&#x7740;&#x8272;
-</code></pre><h4 id="user-name&#x3001;user-email"><a href="#user-name&#x3001;user-email" class="headerlink" title="user.name&#x3001;user.email"></a>user.name&#x3001;user.email</h4><p>&#x5220;&#x9664;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x4E2D;&#x7684;user.name&#x548C;user.email<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --unset --global user.name</span><br><span class="line">git config --unset --global user.email</span><br></pre></td></tr></table></figure></p>
-<p>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x67E5;&#x770B;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure></p>
-<p>&#x5C06;&#x770B;&#x4E0D;&#x5230;&#x8F93;&#x51FA;&#x3002;</p>
-<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p><img src="/2016/03/02/git/1450160447699.png" alt="enter description here" title="1450160447699.png"></p>
-<h3 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h3><pre><code># &#x67E5;&#x770B;&#x6807;&#x7B7E;
-git tag
-# &#x6253;&#x6807;&#x7B7E;
-git tag -a &apos;V1.1&apos; -m &apos;first version&apos;
-# &#x8F7B;&#x91CF;&#x7EA7;&#x6807;&#x7B7E;
-git tag V1.1
-</code></pre><p>-a: &#x521B;&#x5EFA;&#x6807;&#x7B7E;<br>-m: &#x5B58;&#x50A8;&#x6807;&#x7B7E;&#x4FE1;&#x606F;</p>
-<pre><code># &#x67E5;&#x770B;&#x6807;&#x7B7E;&#x4FE1;&#x606F;
-git show V1.1
-# &#x63A8;&#x9001;&#x6807;&#x7B7E;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;
-git push origin V1.1
-# &#x628A;&#x6240;&#x6709;&#x4E0D;&#x5728;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E0A;&#x7684;&#x6807;&#x7B7E;&#x63A8;&#x9001;&#x4E0A;&#x53BB;
-git push origin --tags
-
-# &#x8865;&#x6253;&#x6807;&#x7B7E;
-git log --pretty=oneline //&#x67E5;&#x770B;&#x7248;&#x672C;&#x53F7;
-git tag -a v1.2 9fceb02...&#xFF08;commit&#x63D0;&#x4EA4;&#x7248;&#x672C;&#x53F7;&#xFF09;
-git push origin v1.2 //&#x63D0;&#x4EA4;tag
-</code></pre><h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><p><img src="/2016/03/02/git/1450160697037.png" alt="enter description here" title="1450160697037.png"></p>
-<pre><code>git reset HEAD &lt;file&gt; //HEAD&#x6307;&#x9488;&#x6307;&#x5411;&#x5F53;&#x524D;&#x5206;&#x652F;&#x7684;&#x6700;&#x65B0;&#x7684;&#x63D0;&#x4EA4;
-git reflog  //&#x67E5;&#x770B;&#x6240;&#x6709;&#x65E5;&#x5FD7;&#x5305;&#x62EC;&#x64A4;&#x9500;&#x7684;&#x64CD;&#x4F5C;
-git reset --hard 2d87c9b  //&#x56DE;&#x590D;&#x5230;2d87c9b&#x8FD9;&#x4E2A;&#x7248;&#x672C;
-git reset HEAD^ 
-git reset HEAD^^
-git reset HEAD~1
-git reset HEAD~n
-</code></pre><h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>&#x67E5;&#x770B;&#x652F;&#x6301;&#x7684;&#x5DE5;&#x5177;</p>
-<pre><code>git mergetool --tool-help
-</code></pre><p><img src="/2016/03/02/git/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20160530161258.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20160530161258.png"><br>&#x5982;&#x679C;&#x5DE5;&#x5177;&#x6709;&#x6548;&#xFF0C;&#x8BBE;&#x7F6E;merge.tool</p>
-<pre><code>git config --global merge.tool p4merge
-</code></pre><p>&#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;</p>
-<pre><code>git config --global mergetool.p4merge.path c:/Users/my-login/AppData/Local/Perforce/p4merge.exe
-</code></pre><h2 id="&#x6848;&#x4F8B;"><a href="#&#x6848;&#x4F8B;" class="headerlink" title="&#x6848;&#x4F8B;"></a>&#x6848;&#x4F8B;</h2><h3 id="&#x56DE;&#x9000;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;"><a href="#&#x56DE;&#x9000;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;" class="headerlink" title="&#x56DE;&#x9000;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;"></a>&#x56DE;&#x9000;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;</h3><pre><code>#&#x67E5;&#x770B;&#x5386;&#x53F2;&#x7248;&#x672C;
-git log 1.txt
-
-#&#x56DE;&#x9000;&#x8BE5;&#x6587;&#x4EF6;&#x5230;&#x6307;&#x5B9A;&#x7248;&#x672C;
-git reset [commit_id] 1.txt
-git checkout 1.txt
-
-#&#x63D0;&#x4EA4;
-git commit -m &quot;&#x56DE;&#x9000;1.txt&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;&quot;
-</code></pre><h3 id="&#x79FB;&#x9664;add&#x8FC7;&#x7684;&#x6587;&#x4EF6;"><a href="#&#x79FB;&#x9664;add&#x8FC7;&#x7684;&#x6587;&#x4EF6;" class="headerlink" title="&#x79FB;&#x9664;add&#x8FC7;&#x7684;&#x6587;&#x4EF6;"></a>&#x79FB;&#x9664;add&#x8FC7;&#x7684;&#x6587;&#x4EF6;</h3><pre><code>#&#x65B9;&#x6CD5;&#x4E00;
-git rm --cache [&#x6587;&#x4EF6;&#x540D;]
-
-#&#x65B9;&#x6CD5;&#x4E8C;
-git reset head [&#x6587;&#x4EF6;/&#x6587;&#x4EF6;&#x5939;]
-</code></pre><h2 id="&#x5E38;&#x89C1;&#x95EE;&#x9898;"><a href="#&#x5E38;&#x89C1;&#x95EE;&#x9898;" class="headerlink" title="&#x5E38;&#x89C1;&#x95EE;&#x9898;"></a>&#x5E38;&#x89C1;&#x95EE;&#x9898;</h2><h3 id="error-failed-to-push-som-refs-to"><a href="#error-failed-to-push-som-refs-to" class="headerlink" title="error:failed to push som refs to"></a>error:failed to push som refs to</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error:failed to push som refs to ......</span><br></pre></td></tr></table></figure>
-<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;<br> 1&#x3001;&#x5148;&#x8F93;&#x5165; git pull origin master &#xFF0C;&#x5148;&#x628A;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;github&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x62C9;&#x4E0B;&#x6765;<br> 2&#x3001;&#x518D;&#x8F93;&#x5165;git push origin master</p>
-<h3 id="fatal-remote-origin-already-exists"><a href="#fatal-remote-origin-already-exists" class="headerlink" title="fatal: remote origin already exists."></a>fatal: remote origin already exists.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: remote origin already exists.</span><br></pre></td></tr></table></figure>
-<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;<br>   1&#x3001;&#x5148;&#x8F93;&#x5165; git remote rm origin<br>    2&#x3001;&#x518D;&#x8F93;&#x5165;git remote add origin <a href="https://github.com/chen1218chen/bootstrap.git" target="_blank" rel="external">https://github.com/chen1218chen/bootstrap.git</a> &#x5C31;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#x4E86;&#xFF01;</p>
-<h3 id="fatal-The-remote-end-hung-up-unexpectedly"><a href="#fatal-The-remote-end-hung-up-unexpectedly" class="headerlink" title="fatal: The remote end hung up unexpectedly"></a>fatal: The remote end hung up unexpectedly</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: The remote end hung up unexpectedly</span><br></pre></td></tr></table></figure>
-<p>The problem is due to git/https buffer settings.<br>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config http.postBuffer 524288000</span><br></pre></td></tr></table></figure></p>
-<p>&#x83B7;&#x53D6;&#x9879;&#x76EE;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/chne1218chen/bootstrap.git</span><br></pre></td></tr></table></figure></p>
-<h3 id="&#x66F4;&#x65B0;&#x65F6;&#x4E0E;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x51B2;&#x7A81;"><a href="#&#x66F4;&#x65B0;&#x65F6;&#x4E0E;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x51B2;&#x7A81;" class="headerlink" title="&#x66F4;&#x65B0;&#x65F6;&#x4E0E;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x51B2;&#x7A81;"></a>&#x66F4;&#x65B0;&#x65F6;&#x4E0E;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x51B2;&#x7A81;</h3><p>&#x62A5;&#x9519;&#xFF1A;</p>
-<pre><code>error: Your local changes to the following files would be overwritten by merge:
-        _config.yml
-        layout/_partial/footer.ejs
-Please, commit your changes or stash them before you can merge.
-Aborting
-</code></pre><p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code># &#x6682;&#x5B58;
-git stash
-git pull
-# &#x6062;&#x590D;
-git stash pop
-# &#x67E5;&#x770B;&#x6682;&#x5B58;
-git stash list
-# &#x6E05;&#x7A7A;&#x6682;&#x5B58;
-git stash clear
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
     </div>
 
       

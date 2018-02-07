@@ -286,6 +286,137 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SpringBoot中集成MyBatisGenerator代码生成器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/" class="article-date">
+      <time datetime="2018-02-07T16:44:43.000Z" itemprop="datePublished">2018-02-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/08/SpringBoot中集成MyBatisGenerator代码生成器/">SpringBoot集成MyBatis Generator代码生成器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x5728;&#x539F;&#x6709;SpringBoot+gradle&#x6784;&#x5EFA;&#x7684;&#x9879;&#x76EE;&#x4E0A;&#xFF08;&#x9879;&#x76EE;&#x5730;&#x5740;<a href="https://github.com/chen1218chen/Springboot-Mybatis-Gradle" target="_blank" rel="external">chen1218chen/Springboot-Mybatis-Gradle</a>&#xFF09;&#x7EE7;&#x7EED;&#x96C6;&#x6210;MyBatis Generator&#x6765;&#x81EA;&#x52A8;&#x751F;&#x6210;model&#x5C42;&#x3001;dao&#x5C42;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;build-gradle&#x6587;&#x4EF6;"><a href="#&#x4FEE;&#x6539;build-gradle&#x6587;&#x4EF6;" class="headerlink" title="&#x4FEE;&#x6539;build.gradle&#x6587;&#x4EF6;"></a>&#x4FEE;&#x6539;build.gradle&#x6587;&#x4EF6;</h2><p>&#x9996;&#x5148;&#xFF0C;&#x5728;gradle&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<pre><code>compile group: &apos;org.mybatis.generator&apos;, name: &apos;mybatis-generator-core&apos;, version:&apos;1.3.2&apos;
+</code></pre><h2 id="generator-xml"><a href="#generator-xml" class="headerlink" title="generator.xml"></a>generator.xml</h2><p>&#x5728;src/main/resource&#x4E0B;&#x6DFB;&#x52A0;generator.xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6839;&#x636E;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x914D;&#x7F6E;&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x9700;&#x8981;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE generatorConfiguration PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;
+&lt;generatorConfiguration&gt;
+
+    &lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+
+        &lt;!--&#x81EA;&#x52A8;&#x5B9E;&#x73B0;Serializable&#x63A5;&#x53E3;--&gt;
+        &lt;plugin type=&quot;org.mybatis.generator.plugins.SerializablePlugin&quot;&gt;&lt;/plugin&gt;
+
+        &lt;!-- &#x53BB;&#x9664;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA; --&gt;
+        &lt;commentGenerator&gt;
+            &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;
+        &lt;/commentGenerator&gt;
+
+        &lt;!--&#x6570;&#x636E;&#x5E93;&#x57FA;&#x672C;&#x4FE1;&#x606F;--&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://127.0.0.1:3306/boot?characterEncoding=UTF-8&quot;
+                        userId=&quot;myuser&quot;
+                        password=&quot;123456&quot;&gt;
+        &lt;/jdbcConnection&gt;
+
+        &lt;!--&#x751F;&#x6210;&#x5B9E;&#x4F53;&#x7C7B;&#x7684;&#x4F4D;&#x7F6E;&#x4EE5;&#x53CA;&#x5305;&#x7684;&#x540D;&#x5B57;--&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.cc.entity&quot;
+                            targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot; /&gt;
+            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;
+        &lt;/javaModelGenerator&gt;
+
+         &lt;!--&#x751F;&#x6210;&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;--&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;com.cc.dao&quot; targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/sqlMapGenerator&gt;
+        &lt;!--&#x751F;&#x6210;Dao&#x7C7B;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;,mapper&#x63A5;&#x53E3;&#x751F;&#x6210;&#x7684;&#x4F4D;&#x7F6E;--&gt;
+        &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.cc.dao&quot; targetProject=&quot;src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaClientGenerator&gt;
+        &lt;!--&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x8868;&#x53CA;&#x7C7B;&#x540D;--&gt;
+        &lt;table tableName=&quot;item&quot;  domainObjectName=&quot;Item&quot;&gt;&lt;/table&gt;
+         &lt;table tableName=&quot;image&quot;  domainObjectName=&quot;Image&quot;&gt;&lt;/table&gt;
+
+        &lt;!--&#x5BF9;&#x5E94;&#x7684;&#x8868;&#x540D;&#xFF0C;&#x4EE5;&#x53CA;&#x5B9E;&#x4F53;&#x540D;--&gt;
+        &lt;!-- &lt;table tableName=&quot;t_emp&quot; domainObjectName=&quot;EMP&quot; &gt;&lt;/table&gt; --&gt;
+
+    &lt;/context&gt;
+
+&lt;/generatorConfiguration&gt;
+</code></pre><blockquote>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x9700;&#x63D0;&#x524D;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5EFA;&#x597D;&#x5BF9;&#x5E94;&#x7684;&#x8868;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;<code>Table configuration with catalog null, schema null</code></p>
+</blockquote>
+<h2 id="&#x6267;&#x884C;&#x7C7B;"><a href="#&#x6267;&#x884C;&#x7C7B;" class="headerlink" title="&#x6267;&#x884C;&#x7C7B;"></a>&#x6267;&#x884C;&#x7C7B;</h2><p>&#x6700;&#x540E;&#xFF0C;&#x5728;&#x5199;&#x4E00;&#x4E2A;main&#x51FD;&#x6570;&#x6765;&#x542F;&#x52A8;&#x8FD0;&#x884C;&#x3002;</p>
+<pre><code>package com.cc.main;
+
+import org.mybatis.generator.api.ShellRunner;
+
+/**
+ * &#x6267;&#x884C;&#x7C7B;
+ */
+public class MybatisGeneratorApp
+{
+    public static void main( String[] args )
+    {
+        args = new String[] { &quot;-configfile&quot;, &quot;src\\main\\resources\\generator.xml&quot;, &quot;-overwrite&quot; };
+        ShellRunner.main(args);
+    }
+}
+</code></pre><p>&#x8FD9;&#x6837;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x5DE5;&#x7A0B;&#x5373;&#x53EF;&#x770B;&#x5230;&#x65B0;&#x751F;&#x6210;&#x7684;java&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/02/08/SpringBoot&#x4E2D;&#x96C6;&#x6210;MyBatisGenerator&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180207165700.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180207165700.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hibernate中Criteria实现复合条件查询" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1275,80 +1406,6 @@ public List&lt;Uploadinfo&gt; searchInfos(String value) {
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-腾讯-qlv格式视频转-mp4" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/09/15/腾讯-qlv格式视频转-mp4/" class="article-date">
-      <time datetime="2017-09-15T14:33:30.000Z" itemprop="datePublished">2017-09-15</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/腾讯-qlv格式视频转-mp4/">腾讯.qlv格式视频转.mp4</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6240;&#x8C13;&#x77E5;&#x8BC6;&#x7684;&#x79EF;&#x7D2F;&#x771F;&#x7684;&#x90FD;&#x662F;&#x903C;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x8FD9;&#x4E0D;&#xFF0C;&#x9879;&#x76EE;&#x7D27;&#x6025;&#x9700;&#x8981;&#xFF0C;&#x7ADF;&#x7136;&#x8BA9;&#x6211;&#x53D1;&#x73B0;&#x627E;&#x5230;&#x89E3;&#x51B3;&#x817E;&#x8BAF;&#x89C6;&#x5C4F;.qlv&#x683C;&#x5F0F;&#x8F6C;.mp4&#x89C6;&#x5C4F;&#x683C;&#x5F0F;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5229;&#x7528;&#x817E;&#x8BAF;&#x89C6;&#x9891;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x6765;&#x5408;&#x6210;.mp4&#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4EE5;&#x540E;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x4E0B;&#x8F7D;&#x4E00;&#x4E9B;&#x4E0D;&#x5141;&#x8BB8;&#x4E0B;&#x8F7D;&#x7684;&#x89C6;&#x9891;&#x4E86;&#xFF1F;&#xFF1F;&#xFF1F;</p>
-<blockquote>
-<p>&#x9996;&#x5148;&#x627E;&#x5230;&#x7F13;&#x5B58;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</p>
-</blockquote>
-<p><img src="/2017/09/15/&#x817E;&#x8BAF;-qlv&#x683C;&#x5F0F;&#x89C6;&#x9891;&#x8F6C;-mp4/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170915143914.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170915143914.png"></p>
-<blockquote>
-<p>&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x6253;&#x5F00;&#x7F13;&#x5B58;&#x6587;&#x4EF6;</p>
-</blockquote>
-<p><img src="/2017/09/15/&#x817E;&#x8BAF;-qlv&#x683C;&#x5F0F;&#x89C6;&#x9891;&#x8F6C;-mp4/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170915144209.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170915144209.png"></p>
-<p>&#x5373;&#x53EF;&#x770B;&#x5230;&#x7F13;&#x5B58;&#x7684;&#x89C6;&#x9891;&#x5217;&#x8868;&#xFF0C;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5373;&#x89C6;&#x9891;&#x7684;&#x7F13;&#x5B58;&#x6587;&#x4EF6;</p>
-<p><img src="/2017/09/15/&#x817E;&#x8BAF;-qlv&#x683C;&#x5F0F;&#x89C6;&#x9891;&#x8F6C;-mp4/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170915144404.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170915144404.png"></p>
-<blockquote>
-<p>&#x62F7;&#x8D1D;&#x6240;&#x6709;&#x7684;.tdl&#x3001;.tdi&#x3001;.tii&#x6587;&#x4EF6;&#x5230;E&#x76D8;&#x76EE;&#x5F55;&#x4E0B;</p>
-</blockquote>
-<p><img src="/2017/09/15/&#x817E;&#x8BAF;-qlv&#x683C;&#x5F0F;&#x89C6;&#x9891;&#x8F6C;-mp4/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170915144551.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170915144551.png"></p>
-<blockquote>
-<p>&#x6253;&#x5F00;&#x547D;&#x4EE4;&#x63D0;&#x793A;&#x7B26;&#x7A97;&#x53E3;,&#x8FDB;&#x5165;E&#x76D8;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x8FD0;&#x884C; <code>copy/b *.tdl 2.mp4</code>&#x547D;&#x4EE4;&#xFF0C;&#x5373;&#x53EF;&#x5728;E&#x76D8;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x770B;&#x89C1;&#x751F;&#x6210;&#x7684;2.MP4&#x89C6;&#x9891;&#x3002;</p>
-</blockquote>
-<p><img src="/2017/09/15/&#x817E;&#x8BAF;-qlv&#x683C;&#x5F0F;&#x89C6;&#x9891;&#x8F6C;-mp4/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170915144803.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170915144803.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
       
       <div class="clearfix"></div>
     </div>
