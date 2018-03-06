@@ -286,6 +286,236 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Gradle构建SpringBoot集成Swagger2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/10/Gradle构建SpringBoot集成Swagger2/" class="article-date">
+      <time datetime="2017-08-10T15:11:38.000Z" itemprop="datePublished">2017-08-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/10/Gradle构建SpringBoot集成Swagger2/">Gradle构建SpringBoot集成Swagger2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<p>&#x53EF;&#x70B9;&#x51FB;&#x6B64;&#x5904;&#x4E0B;&#x8F7D;&#x5B8C;&#x6574;&#x9879;&#x76EE;&#x54E6;&#xFF1A;<a href="https://github.com/chen1218chen/Springboot-Mybatis-Gradle" target="_blank" rel="external">Springboot-Mybatis-Gradle</a></p>
+<p>&#x6700;&#x8FD1;SpringMVC&#x8F6C;Spring Boot&#xFF0C;&#x642D;&#x5EFA;&#x5168;&#x65B0;&#x7684;&#x9879;&#x76EE;&#x6846;&#x67B6;&#xFF0C;&#x4E5F;&#x5B66;&#x5230;&#x4E0D;&#x5C11;&#x7684;&#x65B0;&#x4E1C;&#x897F;&#x3002;&#x9274;&#x4E8E;&#x73B0;&#x5728;&#x7684;&#x5FD8;&#x5F62;&#x6BD4;&#x8BB0;&#x6027;&#x597D;&#xFF0C;&#x8FD8;&#x662F;&#x5199;&#x4E0B;&#x6765;&#x8BB0;&#x5F55;&#x4E00;&#x4E0B;&#xFF0C;&#x5206;&#x4EAB;&#x8FDB;&#x6B65;&#x3002;&#xFF08;PS&#xFF1A;&#x9002;&#x5408;&#x8DDF;&#x6211;&#x4E00;&#x6837;&#x521A;&#x5165;&#x624B;&#x7684;&#x65B0;&#x4EBA;&#x54E6;&#xFF0C;&#x5927;&#x725B;&#x4EEC;&#x8BF7;&#x7ED5;&#x9053;(&#xE51;&#x2579;&#x25E1;&#x2579;)&#xFF89;&#x201D;&#x201D;&#x201D;&#xFF09;</p>
+<h2 id="build-gradle"><a href="#build-gradle" class="headerlink" title="build.gradle"></a>build.gradle</h2><p> build.gradle&#x4E2D;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x7684;jar&#x5305;</p>
+<pre><code>dependencies {
+    compile group: &apos;io.springfox&apos;, name: &apos;springfox-swagger2&apos;, version:&apos;2.2.2&apos;
+    compile group: &apos;io.springfox&apos;, name: &apos;springfox-swagger-ui&apos;, version:&apos;2.2.2&apos;
+
+}
+</code></pre><h2 id="Swagger2&#x914D;&#x7F6E;&#x7C7B;"><a href="#Swagger2&#x914D;&#x7F6E;&#x7C7B;" class="headerlink" title="Swagger2&#x914D;&#x7F6E;&#x7C7B;"></a>Swagger2&#x914D;&#x7F6E;&#x7C7B;</h2><p>&#x5728;Application.java&#x540C;&#x7EA7;&#x521B;&#x5EFA;Swagger2&#x7684;&#x914D;&#x7F6E;&#x7C7B;Swagger2&#x3002;</p>
+<pre><code>package com.cc.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class Swagger2 {
+
+  @Bean
+  public Docket createRestApi() {
+    return new Docket(DocumentationType.SWAGGER_2)
+            .apiInfo(apiInfo())
+            .select()
+            .apis(RequestHandlerSelectors.basePackage(&quot;com.cc.controller&quot;))
+            .paths(PathSelectors.any())
+            .build();
+  }
+
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder()
+            .title(&quot;Gradle&#x6784;&#x5EFA;Spring boot&#x9879;&#x76EE;&quot;)
+            .description(&quot;Gradle&#x6784;&#x5EFA;Spring boot&#x9879;&#x76EE; &#x96C6;&#x6210;mybatis&#x4F7F;&#x7528;pagehelper&#x63D2;&#x4EF6; &#xFF0C;&#x5B9E;&#x73B0;&#x70ED;&#x90E8;&#x7F72; by &#x9648;&#x6668;&quot;)
+            .termsOfServiceUrl(&quot;http://blog.csdn.net/chen1218chen&quot;)
+            .contact(&quot;chenchen&quot;)
+            .version(&quot;1.0&quot;)
+            .build();
+  }
+}
+</code></pre><p>&#x8BB0;&#x5F97;<code>@Configuration</code>&#x6CE8;&#x89E3;&#xFF0C;&#x901A;&#x8FC7;<code>@Configuration</code>&#x6CE8;&#x89E3;&#xFF0C;&#x8BA9;Spring&#x6765;&#x52A0;&#x8F7D;&#x8BE5;&#x7C7B;&#x914D;&#x7F6E;&#x3002;&#x518D;&#x901A;&#x8FC7;<code>@EnableSwagger2</code>&#x6CE8;&#x89E3;&#x6765;&#x542F;&#x7528;Swagger2&#x3002;</p>
+<p><code>com.cc.controller</code>&#x5F85;&#x626B;&#x63CF;&#x7684;&#x63A5;&#x53E3;&#x5305;&#xFF0C;Swagger&#x4F1A;&#x626B;&#x63CF;&#x8BE5;&#x5305;&#x4E0B;&#x6240;&#x6709;Controller&#x5B9A;&#x4E49;&#x7684;API   &#xFF0C;&#x5E76;&#x751F;&#x6210;API&#x6587;&#x6863;&#xFF08;&#x9664;&#x4E86;&#x88AB;<code>@ApiIgnore</code>&#x6307;&#x5B9A;&#x7684;&#x8BF7;&#x6C42;&#xFF09;&#x3002;</p>
+<p>Swagger2&#x9ED8;&#x8BA4;&#x5C06;&#x6240;&#x6709;&#x7684;Controller&#x4E2D;&#x7684;RequestMapping&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x66B4;&#x9732;&#xFF0C;&#x7136;&#x800C;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x9700;&#x8981;&#x628A;&#x6240;&#x6709;API&#x90FD;&#x63D0;&#x73B0;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x67E5;&#x770B;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;<code>@ApiIgnore</code>&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x5982;&#x679C;&#x5E94;&#x7528;&#x5728;Controller&#x8303;&#x56F4;&#x4E0A;&#xFF0C;&#x5219;&#x5F53;&#x524D;Controller&#x4E2D;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x5982;&#x679C;&#x5E94;&#x7528;&#x5728;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x5219;&#x5BF9;&#x5E94;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5FFD;&#x7565;&#x66B4;&#x9732;API</p>
+<h2 id="&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;"><a href="#&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;" class="headerlink" title="&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;"></a>&#x6DFB;&#x52A0;&#x6587;&#x6863;&#x5185;&#x5BB9;</h2><p>&#x901A;&#x8FC7;<code>@ApiOperation</code>&#x6CE8;&#x89E3;&#x6765;&#x7ED9;API&#x589E;&#x52A0;&#x8BF4;&#x660E;&#x3001;&#x901A;&#x8FC7;<code>@ApiImplicitParams</code>&#x3001;<code>@ApiImplicitParam</code>&#x6CE8;&#x89E3;&#x6765;&#x7ED9;&#x53C2;&#x6570;&#x589E;&#x52A0;&#x8BF4;&#x660E;</p>
+<pre><code>@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = &quot;/&quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public String hello() {
+        return &quot;hello&quot;;
+    }
+
+    @ApiOperation(value=&quot;&#x67E5;&#x627E;&#x7528;&#x6237;&quot;, notes=&quot;&#x6839;&#x636E;age&#x6765;&#x67E5;&#x627E;&quot;)
+    @ApiImplicitParam(name = &quot;age&quot;, value = &quot;&#x7528;&#x6237;age&quot;, required = true, dataType = &quot;Integer&quot;)
+    @RequestMapping(&quot;/index&quot;)  
+    public List&lt;User&gt; selectAge(@RequestParam(&quot;age&quot;) int age){  
+
+        return userService.showDao(age);  
+    }  
+
+    @ApiOperation(value=&quot;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x5217;&#x8868;&quot;, notes=&quot;&quot;)
+    @RequestMapping(value = &quot;/queryAll&quot;, method=RequestMethod.GET)
+    @ResponseBody
+    public List&lt;User&gt; queryAll() {
+        return userService.findAll();
+    }
+}
+</code></pre><h2 id="&#x8BBF;&#x95EE;"><a href="#&#x8BBF;&#x95EE;" class="headerlink" title="&#x8BBF;&#x95EE;"></a>&#x8BBF;&#x95EE;</h2><p>&#x5B8C;&#x6210;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x4E0A;&#xFF0C;&#x542F;&#x52A8;SpringBoot&#x7A0B;&#x5E8F;&#xFF0C;&#x8BBF;&#x95EE;&#xFF1A;<code>http://localhost:8080/swagger-ui.html</code></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154254.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170810154254.png"></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/Image%201.png" alt="enter description here" title="Image 1.png"></p>
+<p><img src="/2017/08/10/Gradle&#x6784;&#x5EFA;SpringBoot&#x96C6;&#x6210;Swagger2/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170810154334.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170810154334.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swagger2/">Swagger2</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-js中毫秒转化成想要的时间格式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/08/js中毫秒转化成想要的时间格式/" class="article-date">
+      <time datetime="2017-08-08T11:11:42.000Z" itemprop="datePublished">2017-08-08</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/08/js中毫秒转化成想要的时间格式/">js中毫秒转化成想要的时间格式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x4ECE;&#x540E;&#x53F0;&#x4F20;&#x4E00;&#x4E2A;Date()&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+<p><img src="/2017/08/08/js&#x4E2D;&#x6BEB;&#x79D2;&#x8F6C;&#x5316;&#x6210;&#x60F3;&#x8981;&#x7684;&#x65F6;&#x95F4;&#x683C;&#x5F0F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170808111517.png" alt="&#x524D;&#x53F0;&#x63A5;&#x53D7;&#x5230;&#x7684;Date()&#x7C7B;&#x578B;&#x6570;&#x636E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170808111517.png"></p>
+<p>&#x5230;&#x524D;&#x53F0;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x5904;&#x7406;</p>
+<pre><code>var newTime = new Date(dateTime.time);
+
+&gt; Mon Aug 07 2017 15:01:28 GMT+0800 (&#x4E2D;&#x56FD;&#x6807;&#x51C6;&#x65F6;&#x95F4;)
+</code></pre><p>&#x5728;&#x5BF9;<code>newTime</code>&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;</p>
+<pre><code>Date.prototype.format = function(fmt) { 
+ var o = { 
+    &quot;M+&quot; : this.getMonth()+1,                 //&#x6708;&#x4EFD; 
+    &quot;d+&quot; : this.getDate(),                    //&#x65E5; 
+    &quot;h+&quot; : this.getHours(),                   //&#x5C0F;&#x65F6; 
+    &quot;m+&quot; : this.getMinutes(),                 //&#x5206; 
+    &quot;s+&quot; : this.getSeconds(),                 //&#x79D2; 
+    &quot;q+&quot; : Math.floor((this.getMonth()+3)/3), //&#x5B63;&#x5EA6; 
+    &quot;S&quot;  : this.getMilliseconds()             //&#x6BEB;&#x79D2; 
+}; 
+if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+&quot;&quot;).substr(4 - RegExp.$1.length)); 
+}
+ for(var k in o) {
+    if(new RegExp(&quot;(&quot;+ k +&quot;)&quot;).test(fmt)){
+         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : ((&quot;00&quot;+ o[k]).substr((&quot;&quot;+ o[k]).length)));
+     }
+ }
+return fmt; 
+}
+
+var time1 = newTime.format(&quot;yyyy-MM-dd hh:mm:ss&quot;);
+</code></pre><p>&#x5F97;&#x5230;</p>
+<pre><code>&gt; 2017-08-07 15:01:28
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-SpringMVC中集成Sigar" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1091,251 +1321,6 @@ console.log(&apos;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x540E;let&#x5B9A;&#x4E49;c&#
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-shiro之roles实现hasAnyRoles的配置验证" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/07/shiro之roles实现hasAnyRoles的配置验证/" class="article-date">
-      <time datetime="2017-03-07T09:58:07.000Z" itemprop="datePublished">2017-03-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/shiro之roles实现hasAnyRoles的配置验证/">shiro之roles实现or关系的角色过滤</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>roles&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x4E2A;&#xFF0C;&#x591A;&#x4E2A;&#x65F6;&#x5FC5;&#x987B;&#x52A0;&#x4E0A;&#x5F15;&#x53F7;&#xFF0C;&#x5E76;&#x4E14;&#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7528;&#x9017;&#x53F7;&#x5206;&#x5272;&#xFF0C;&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x901A;&#x8FC7;&#x624D;&#x7B97;&#x901A;&#x8FC7;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;<code>hasAllRoles()</code>&#x65B9;&#x6CD5;&#x3002;<strong>shiro&#x7684;&#x89D2;&#x8272;&#x8FC7;&#x6EE4;&#x662F;and&#x7684;&#x5173;&#x7CFB;</strong>&#x3002;</p>
-<p>&#x800C;&#x6700;&#x8FD1;&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x8981;&#x6C42;&#x8BA2;&#x9605;&#x53F7;&#x7BA1;&#x7406;&#x6A21;&#x5757;&#xFF0C;&#x591A;&#x4E2A;&#x89D2;&#x8272;&#x90FD;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x89D2;&#x8272;&#x7684;&#x8FC7;&#x6EE4;&#x975E;and&#x5173;&#x7CFB;&#x800C;&#x662F;or&#x7684;&#x5173;&#x7CFB;&#xFF0C;<code>applicationContext.xml</code>&#x4E2D;roles[&#x201C;&#x7BA1;&#x7406;&#x5458;&#x201D;&#xFF0C;&#x201D;&#x8BA2;&#x9605;&#x53F7;&#x201D;]&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#x6216;&#x8005;&#x5173;&#x7CFB;&#x7684;&#x89D2;&#x8272;&#x8FC7;&#x6EE4;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x7EE7;&#x627F;<code>AuthorizationFilter</code>&#x7684;Filter&#x3002;</p>
-<h2 id="CustomRolesAuthorizationFilter"><a href="#CustomRolesAuthorizationFilter" class="headerlink" title="CustomRolesAuthorizationFilter"></a>CustomRolesAuthorizationFilter</h2><pre><code>import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.filter.authz.AuthorizationFilter;
-
-public class CustomRolesAuthorizationFilter extends AuthorizationFilter
-{
-
- @Override
- protected boolean isAccessAllowed(ServletRequest request,
-   ServletResponse response, Object mappedValue) throws Exception
- {
-  Subject subject = getSubject(request, response);  
-        String[] rolesArray = (String[]) mappedValue;  
-
-        if (rolesArray == null || rolesArray.length == 0) 
-        {  
-            return true;  
-        }  
-        for(int i=0;i&lt;rolesArray.length;i++)
-        {
-            if(subject.hasRole(rolesArray[i]))
-            {  
-                return true;  
-            }  
-        }  
-        return false;  
- }
-}
-</code></pre><h2 id="applicationContext-xml"><a href="#applicationContext-xml" class="headerlink" title="applicationContext.xml"></a>applicationContext.xml</h2><pre><code>&lt;!--&#x81EA;&#x5B9A;&#x4E49;&#x7684;filter--&gt;
-&lt;bean id=&quot;roleOrFilter&quot; class=&quot;com.city.login.CustomRolesAuthorizationFilter&quot;&gt; 
- &lt;/bean&gt;
-
-&lt;bean id=&quot;shiroFilter&quot; class=&quot;org.apache.shiro.spring.web.ShiroFilterFactoryBean&quot; depends-on=&quot;roleOrFilter&quot;&gt;
-    &lt;!-- securityManager --&gt;
-    &lt;property name=&quot;securityManager&quot; ref=&quot;securityManager&quot; /&gt;
-    &lt;!-- &#x767B;&#x5F55;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;loginUrl&quot; value=&quot;/login.jsp&quot; /&gt;
-    &lt;!-- &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;successUrl&quot; value=&quot;/index.jsp&quot; /&gt;
-    &lt;!-- &#x6388;&#x6743;&#x5931;&#x8D25;&#x8DF3;&#x8F6C;&#x8DEF;&#x5F84; --&gt;
-    &lt;property name=&quot;unauthorizedUrl&quot; value=&quot;/login.jsp&quot; /&gt;
-    &lt;property name=&quot;filters&quot;&gt;
-        &lt;util:map&gt;
-            &lt;entry key=&quot;authc&quot; value-ref=&quot;formAuthenticationFilter&quot; /&gt;
-            &lt;entry key=&quot;sysUser&quot; value-ref=&quot;sysUserFilter&quot; /&gt;
-            &lt;entry key=&quot;kickout&quot; value-ref=&quot;kickoutSessionControlFilter&quot; /&gt;
-            &lt;entry key=&quot;roleOrFilter&quot; value-ref=&quot;roleOrFilter&quot;/&gt;
-        &lt;/util:map&gt;
-    &lt;/property&gt;
-
-    &lt;!-- &#x8FC7;&#x6EE4;&#x94FE;&#x5B9A;&#x4E49; --&gt;
-    &lt;property name=&quot;filterChainDefinitions&quot;&gt;
-        &lt;value&gt;
-            /login.jsp = anon
-            /logout = logout 
-            &lt;!-- authc&#x8868;&#x793A;&#x9700;&#x8981;&#x8BA4;&#x8BC1;&#x7684;&#x670D;&#x52A1; --&gt;
-            /rest/credit/** = authc 
-            /rest/Uploadinfo/** = authc
-            /userManager.jsp = kickout,roles[&quot;&#x7BA1;&#x7406;&#x5458;&quot;]
-            /subscribe.jsp = kickout,roleOrFilter[&quot;&#x8BA2;&#x9605;&#x53F7;&quot;,&quot;&#x7BA1;&#x7406;&#x5458;&quot;]
-            /lost.jsp = kickout,authc,roles[&quot;&#x5931;&#x7269;&#x62DB;&#x9886;&quot;]
-            /*.jsp = kickout,authc
-        &lt;/value&gt;
-    &lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p>&#x8FD9;&#x6837;&#xFF0C;<code>roleOrFilter</code>&#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;or&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5373;&#x8BA2;&#x9605;&#x53F7;&#x89D2;&#x8272;&#x548C;&#x7BA1;&#x7406;&#x5458;&#x89D2;&#x8272;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;<code>subscribe.jsp</code>&#x9875;&#x9762;&#x3002;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-java实现文件下载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/03/java实现文件下载/" class="article-date">
-      <time datetime="2017-03-03T11:56:48.000Z" itemprop="datePublished">2017-03-03</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/03/java实现文件下载/">java实现文件下载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6839;&#x636E;&#x9879;&#x76EE;&#x9700;&#x6C42;&#x5B9E;&#x73B0;word&#x6587;&#x6863;&#x4E0B;&#x8F7D;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x662F;java&#x7684;&#x540E;&#x53F0;&#x5B9E;&#x73B0;&#xFF0C;&#x524D;&#x53F0;&#x8C03;&#x7528;&#x91C7;&#x7528;ajax&#x65B9;&#x5F0F;&#xFF0C;&#x53C2;&#x6570;&#x662F;&#x6587;&#x4EF6;&#x540D;</p>
-<pre><code>import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URLEncoder;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-@Controller
-@RequestMapping(&quot;laws&quot;)
-public class LawsRest {
-    private static Logger logger = LoggerFactory.getLogger(LawsRest.class);
-
-    @RequestMapping(value = &quot;/downloadFile/{value}&quot;,method=RequestMethod.GET)
-    @ResponseBody
-    public void downloadFile(@PathVariable(&quot;value&quot;) String value, HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-
-        String directory = request.getSession().getServletContext().getRealPath(&quot;/&quot;);
-        String fileName = value+&quot;.doc&quot;;
-        String filePath = directory + &quot;laws\\&quot; + fileName;
-
-        //&#x8BBE;&#x7F6E;&#x5411;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x4F20;&#x9001;&#x7684;&#x6587;&#x4EF6;&#x683C;&#x5F0F;
-        //&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;
-        File file=new File(filePath);
-        if(!file.exists()){
-            fileName = value+&quot;.docx&quot;;
-            filePath = directory + &quot;laws\\&quot; + fileName;
-        }
-        logger.info(value);
-        logger.info(filePath);
-        response.setContentType(&quot;application/msword&quot;);  
-        response.setHeader(&quot;content-disposition&quot;, &quot;attachment;filename=&quot; + URLEncoder.encode(fileName, &quot;UTF-8&quot;));
-        FileInputStream in = new FileInputStream(filePath);
-        // &#x521B;&#x5EFA;&#x8F93;&#x51FA;&#x6D41;
-        OutputStream out = response.getOutputStream();
-        // &#x521B;&#x5EFA;&#x7F13;&#x51B2;&#x533A;
-        byte buffer[] = new byte[1024];
-        int len = 0;
-        // &#x5FAA;&#x73AF;&#x5C06;&#x8F93;&#x5165;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8BFB;&#x53D6;&#x5230;&#x7F13;&#x51B2;&#x533A;&#x5F53;&#x4E2D;
-        while ((len = in.read(buffer)) &gt; 0) {
-            // &#x8F93;&#x51FA;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5185;&#x5BB9;&#x5230;&#x6D4F;&#x89C8;&#x5668;,&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;
-            out.write(buffer, 0, len);
-        }
-        out.flush();
-
-        in.close();
-        out.close();
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
       

@@ -286,6 +286,392 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-hibernate之翻页的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/hibernate之翻页的实现/" class="article-date">
+      <time datetime="2016-06-13T10:46:36.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/13/hibernate之翻页的实现/">hibernate之翻页的实现</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>pageSize:&#x6BCF;&#x9875;&#x8BB0;&#x5F55;&#x6570;<br>pageNow&#xFF1A;&#x5F53;&#x524D;&#x9875;&#x7801;</p>
+<pre><code>@Override
+public List&lt;Uploadinfo&gt; onePage(int pageNow, int pageSize,String type) {
+    // TODO Auto-generated method stub
+    String sql;
+    if(&quot;picture&quot;.equals(type)){
+         sql = &quot;from Uploadinfo where picturepath1 &lt;&gt; &apos;&apos; and picturepath1 &lt;&gt; &apos;picture/meizhaopian.png&apos; order by dataTime desc&quot;;
+
+    }else{
+        sql=&quot;from Uploadinfo order by dataTime desc&quot;;
+    }
+    Query query = itemDaoImpl.getQuery(sql);
+    //&#x8BBE;&#x7F6E;&#x8D77;&#x59CB;&#x9875;
+    query.setFirstResult((pageNow - 1) * pageSize);
+    //&#x8BBE;&#x7F6E;&#x6BCF;&#x9875;&#x6700;&#x5927;&#x8BB0;&#x5F55;&#x6570;
+    query.setMaxResults(pageSize);
+    List&lt;Uploadinfo&gt; infolist = query.list();
+    return infolist;
+}
+</code></pre><p>index.jsp<br>bootstrap&#x4E2D;&#x7684;&#x5206;&#x9875;&#x7EC4;&#x4EF6;</p>
+<pre><code>&lt;nav style=&quot;text-align: center&quot;&gt;
+    &lt;ul class=&quot;pagination&quot; id=&quot;pageUl&quot;&gt;&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre><p>index.js</p>
+<pre><code>$(window).load(function() {
+    ////&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+    queryAll(&quot;rest/Uploadinfo/totlePages&quot;);
+});
+function queryAll(url){
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  url,
+        dataType : &quot;text&quot;,
+        data:{
+             &quot;type&quot;:&quot;&quot;
+        },
+        success : function(msg) {
+            var pages = Math.ceil(msg/5); 
+            var element = $(&apos;#pageUl&apos;);//&#x5BF9;&#x5E94;&#x4E0B;&#x9762;ul&#x7684;ID  
+            var options = { 
+                size:&quot;normal&quot;,
+                alignment:&quot;center&quot;,
+                bootstrapMajorVersion:3,  
+                currentPage: 1,//&#x5F53;&#x524D;&#x9875;&#x9762;  
+                numberOfPages: 5,//&#x4E00;&#x9875;&#x663E;&#x793A;&#x51E0;&#x4E2A;&#x6309;&#x94AE;&#xFF08;&#x5728;ul&#x91CC;&#x9762;&#x751F;&#x6210;5&#x4E2A;li&#xFF09;  
+                totalPages: pages, //&#x603B;&#x9875;&#x6570;  
+                itemTexts: function(type, page, current) { //&#x4FEE;&#x6539;&#x663E;&#x793A;&#x6587;&#x5B57;
+                    switch (type) {
+                    case &quot;first&quot;:
+                        return &quot;&#x7B2C;&#x4E00;&#x9875;&quot;;
+                    case &quot;prev&quot;:
+                        return &quot;&#x4E0A;&#x4E00;&#x9875;&quot;;
+                    case &quot;next&quot;:
+                        return &quot;&#x4E0B;&#x4E00;&#x9875;&quot;;
+                    case &quot;last&quot;:
+                        return &quot;&#x6700;&#x540E;&#x4E00;&#x9875;&quot;;
+                    case &quot;page&quot;:
+                        return page;
+                    }
+                }, 
+                onPageClicked: function (event, originalEvent, type, page) { 
+                    //&#x6362;&#x9875;,&#x4E0B;&#x4E00;&#x9875;
+                    paginator(page);
+                },
+            }  
+            //&#x5206;&#x9875;&#x542F;&#x52A8;
+           element.bootstrapPaginator(options); 
+           paginator(1);
+        }
+    });
+}
+function paginator(pageNow) {
+    $.ajax({
+        type : &quot;post&quot;,
+        url :  &quot;rest/Uploadinfo/onePageData&quot;,
+        dataType : &quot;json&quot;,
+        data:{
+            &quot;pageNow&quot;:pageNow,
+            &quot;pageSize&quot;:5,
+            &quot;type&quot;:&quot;&quot;
+        },
+        success : function(arrData) {
+            console.dir(arrData)
+            var str=&quot;&quot;;
+            var name;
+//            for (i = (page - 1) * 5; i &lt; page * 5; i++) {
+            for(var i=0; i&lt;arrData.length; i++){
+                    var pictureUrl = arrData[i].picturepath1;
+                    var param = &quot;content.jsp?id=&quot;+ arrData[i].id;
+                    var content = arrData[i].content;
+                    var s = content.substr(0, 7);        
+                    if(arrData[i].telephone==&quot;&quot;){
+                        name=&quot;&#x533F;&#x540D;&#x7528;&#x6237;&quot;
+                    }
+                    else{
+                        name=arrData[i].telephone;
+                    }
+                    str += &apos;&lt;div class=&quot;wz&quot;&gt;&lt;h3 style=&quot;width:95%;&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot; title=&quot;&apos;
+                        + arrData[i].telephone
+                        + &quot;&quot;
+                        + &apos;&quot;&gt;&apos;
+                        + s
+                        + &quot;...&quot;
+                        + &apos;&lt;/a&gt;&lt;/h3&gt;&lt;dl&gt;&lt;dt&gt;&apos;
+                        + &apos;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  style=&quot;margin-top: 0px;&quot; title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot;&gt;&lt;img src=&quot;&apos;
+                        + pictureUrl
+                        + &apos;&quot; width=&quot;200&quot; height=&quot;123&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;/dt&gt;&lt;dd&gt;&apos;
+                        + &apos;&lt;p class=&quot;dd_text_1&quot;&gt;&apos;
+                        + arrData[i].content
+                        + &apos;&lt;/p&gt;&lt;p class=&quot;dd_text_2&quot;&gt;&apos;
+                        + &apos;    &lt;span class=&quot;left author&quot; &gt;&apos;
+                        + name
+                        + &apos;&lt;/span&gt;&lt;span class=&quot;left sj&quot; style=&quot;padding-left:80px;&quot;&gt;&apos;
+                        + arrData[i].dataTime
+                        + &apos;&lt;/span&gt;&apos;
+                        + &apos;&lt;span class=&quot;left yd&quot;&gt;&lt;a href=&quot;&apos;
+                        + param
+                        + &apos;&quot;  title=&quot;&#x9605;&#x8BFB;&#x5168;&#x6587;&quot; style=&quot;margin-left: auto&quot;;&gt;&#x9605;&#x8BFB;&#x5168;&#x6587;&lt;/a&gt;&lt;/span&gt;&apos;
+                        + &apos;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/p&gt;&lt;/dd&gt;&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;&lt;/dl&gt;&lt;/div&gt;&apos;;
+
+                    $(&apos;#infolist&apos;).html(&apos;&apos;); 
+                    $(&apos;#infolist&apos;).append(str);
+                }
+            }
+    });
+}
+</code></pre><p>onePageData&#x4E2D;&#x8C03;&#x7528;onePage&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x5206;&#x9875;&#x3002;</p>
+<p>java </p>
+<pre><code>//&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x6761;&#x6570;
+@RequestMapping(value = &quot;/totlePages&quot;, method = RequestMethod.POST)
+@ResponseBody
+public int totlePages(@RequestParam(&quot;type&quot;) String type) {
+    List&lt;Uploadinfo&gt; itemList = itemServiceImpl.totalPage(type);
+    int size = itemList.size();
+    return size;
+}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Struts2之ModelDriven接口实现登陆" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/12/Struts2之ModelDriven接口实现登陆/" class="article-date">
+      <time datetime="2016-06-12T14:05:01.000Z" itemprop="datePublished">2016-06-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/12/Struts2之ModelDriven接口实现登陆/">Struts2之ModelDriven接口实现登陆及退出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x5F53;&#x7528;POST&#x65B9;&#x5F0F;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#xFF0C;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5927;&#x65F6;&#xFF0C;action&#x4E2D;&#x5B9A;&#x4E49;&#x5404;&#x79CD;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;get/set&#x8BF7;&#x6C42;&#x5C31;&#x663E;&#x5F97;&#x8FC7;&#x4E8E;&#x81C3;&#x80BF;&#xFF0C;&#x6539;&#x7528;Struts2&#x7684;ModelDriven&#x63A5;&#x53E3;&#x6765;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x8BF7;&#x6C42;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x76F8;&#x5E94;&#x7684;Model&#xFF0C;Struts2&#x6846;&#x67B6;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x7528;&#x6237;&#x63D0;&#x4EA4;&#x7684;HTTP&#x4FE1;&#x606F;&#x8D4B;&#x7ED9;&#x76F8;&#x5E94;&#x7684;Model&#x3002;<br>&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x7684;LoginAction&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x91C7;&#x7528;ModelDriven&#x65B9;&#x5F0F;&#x3002;</p>
+<h2 id="LoginModel"><a href="#LoginModel" class="headerlink" title="LoginModel"></a>LoginModel</h2><p>&#x9996;&#x5148;&#xFF0C;&#x7CFB;&#x7EDF;&#x91C7;&#x7528;&#x7535;&#x8BDD;+&#x5BC6;&#x7801;&#x7684;&#x767B;&#x9646;&#x65B9;&#x5F0F;&#xFF0C;&#x5EFA;&#x7ACB;&#x5BF9;&#x5E94;&#x7684;LoginModel.java&#x3002;</p>
+<pre><code>public class LoginModel {
+    private String telephone;
+    private String password;
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+</code></pre><h2 id="LoginAction"><a href="#LoginAction" class="headerlink" title="LoginAction"></a>LoginAction</h2><p>&#x8868;&#x5355;&#x63D0;&#x4EA4;&#x7684;action&#x7EE7;&#x627F;ModelDriven<loginmodel>&#x63A5;&#x53E3;&#xFF0C;&#x5B9E;&#x73B0;getter&#x65B9;&#x6CD5;&#xFF0C;&#x91CD;&#x8F7D;execute&#x65B9;&#x6CD5;&#x3002;</loginmodel></p>
+<pre><code>@ParentPackage(value = &quot;json-default&quot;)
+@Controller
+@Action(value = &quot;/loginAction2&quot;, results = { @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;),
+        @Result(name = &quot;input&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;),
+        @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/login.html&quot;) }, exceptionMappings = {
+                @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
+public class LoginAction2 extends BaseAction implements ModelDriven&lt;LoginModel&gt; {
+
+    private static final long serialVersionUID = 1L;
+
+    @Resource
+    private IUserService userManagerImpl;
+    private LoginModel login = new LoginModel();
+
+    @Override
+    public LoginModel getModel() {
+        // TODO Auto-generated method stub
+        return login;
+    }
+
+    // &#x91CD;&#x8F7D;
+    public String execute() throws Exception {
+        String password = login.getPassword();
+        String telephone = login.getTelephone();
+        if (password != null &amp;&amp; !&quot;&quot;.equals(password)) {
+            // password = MD5.MD5Encode(password);
+        }
+        if (telephone == null || telephone == &quot;&quot; || password == null || password == &quot;&quot;)
+            return INPUT;
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(telephone, password);
+        token.setRememberMe(true);// &#x8BB0;&#x4F4F;&#x6211;
+
+        try {
+            // &#x767B;&#x5F55;&#xFF0C;&#x5373;&#x8FDB;&#x884C;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x64CD;&#x4F5C;
+            subject.login(token);// &#x8C03;&#x7528; myRealm&#x7684; doGetAuthenticationInfo&#x65B9;&#x6CD5;
+            String telephone2 = (String) subject.getPrincipal();// &#x767B;&#x9646;&#x6210;&#x529F;&#x5C31;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5B50;&#x62FF;&#x5230;&#x7528;&#x6237;&#x540D;&#x4E86;
+            User user = userManagerImpl.queryByTel(telephone2);
+            subject.getSession().setAttribute(&quot;uname&quot;, user.getName());
+        } catch (UnknownSessionException uae) {
+            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
+            return ERROR;
+        } catch (UnknownAccountException ex) {
+            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x5B58;&#x5728;!&quot;);
+            return INPUT;
+        } catch (IncorrectCredentialsException ice) {
+            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x5BC6;&#x7801;&#x9519;&#x8BEF;!&quot;);
+            return INPUT;
+        } catch (LockedAccountException lae) {
+            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x767B;&#x5F55;&#x5F02;&#x5E38;!&quot;);
+            return INPUT;
+        } catch (AuthenticationException e) {
+            subject.getSession().setAttribute(&quot;myerror&quot;, &quot;&#x7528;&#x6237;&#x767B;&#x5F55;&#x5931;&#x8D25;!&quot;);
+            return INPUT;
+        }
+        return SUCCESS;
+    }
+
+    public String logout() throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        if (subject.isAuthenticated()) {
+            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
+        }
+        return INPUT;
+    }
+}
+</code></pre><p>&#x6CE8;&#x610F;<code>subject.getSession().setAttribute(arg0, arg1);</code>shiro&#x7684;seeion&#xFF0C;&#x53EF;&#x4EE5;&#x5728;login.jsp&#x9875;&#x9762;&#x83B7;&#x53D6;&#x5230;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code>&lt;%
+    Object error = session.getAttribute(&quot;myerror&quot;); 
+    if(error==null)
+        error=&quot; &quot;;
+ %&gt;
+ &lt;form action=&quot;login.action&quot;&gt;
+    ...
+    &lt;label style=&quot;color:red&quot;&gt;&lt;%=error%&gt;&lt;/label&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;telephone&quot; class=&quot;email&quot;
+            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x7535;&#x8BDD;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group &quot;&gt;
+        &lt;input type=&quot;password&quot; name=&quot;password&quot; class=&quot;password&quot;
+            placeholder=&quot;&#x8BF7;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x81;&quot; autocomplete=&quot;off&quot; required=&quot;required&quot; /&gt;
+    &lt;/div&gt;
+    ...
+&lt;/form&gt;
+</code></pre><h2 id="LogoutAction"><a href="#LogoutAction" class="headerlink" title="LogoutAction"></a>LogoutAction</h2><p>&#x6CE8;&#x9500;&#x8D26;&#x53F7;&#x9000;&#x51FA;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;LoginAction&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;logout&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>loginAction!logout.action</code>&#xFF0C;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x5199;&#x4E00;&#x4E2A;Action</p>
+<pre><code>@ParentPackage(value = &quot;json-default&quot;)
+@Controller
+public class LogoutAction extends BaseAction {
+
+    private static final long serialVersionUID = 1L;
+
+    @Action(value = &quot;/logoutAction&quot;, results = { 
+            @Result(name = &quot;success&quot;, type = &quot;redirect&quot;, location = &quot;/login.jsp&quot;),
+            @Result(name = &quot;error&quot;, type = &quot;redirect&quot;, location = &quot;/index.jsp&quot;) }, exceptionMappings = {
+                    @ExceptionMapping(exception = &quot;java.lang.Exception&quot;, result = &quot;error&quot;) })
+    public String logout() throws Exception {
+        Subject subject = SecurityUtils.getSubject();
+        if (subject.isAuthenticated()) {
+            subject.logout(); // session &#x4F1A;&#x9500;&#x6BC1;&#xFF0C;&#x5728;SessionListener&#x76D1;&#x542C;session&#x9500;&#x6BC1;&#xFF0C;&#x6E05;&#x7406;&#x6743;&#x9650;&#x7F13;&#x5B58;
+        }
+        return SUCCESS;
+    }
+}
+</code></pre><p>&#x8C03;&#x7528;<code>logoutAction.action</code>&#x5373;&#x53EF;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/struts2/">struts2</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-grunt" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -378,6 +764,129 @@ grunt bower
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grunt/">grunt</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/08/Express.js/" class="article-date">
+      <time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/08/Express.js/">Express.js</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
+<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
+<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
+<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
+<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
+<ol>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code>app.get(&apos;/&apos;, function(req, res) {
+   res.sendfile(&apos;./views/index.html&apos;);
+});
+
+//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
+app.get(&apos;/:name&apos;, function(req, res) {
+    var fileName = req.params.name;
+    //console.log(&apos;./views/&apos;+fileName);
+    res.sendFile(fileName);
+});
+</code></pre><ol>
+<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
+</ol>
+<pre><code>//&#x5B89;&#x88C5;
+npm install -g supervisor
+</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
+<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
     </div>
 
       
@@ -601,129 +1110,6 @@ grunt.loadNpmTasks(&apos;grunt-bower-task&apos;);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Express.js" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/08/Express.js/" class="article-date">
-      <time datetime="2016-06-07T16:11:25.000Z" itemprop="datePublished">2016-06-07</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/08/Express.js/">Express.js</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="Express&#x5B89;&#x88C5;"><a href="#Express&#x5B89;&#x88C5;" class="headerlink" title="Express&#x5B89;&#x88C5;"></a>Express&#x5B89;&#x88C5;</h2><ol>
-<li><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;express&#xFF0C;express&#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x88AB;&#x5B89;&#x88C5;&#x5230;&#x4E86;&#x7CFB;&#x7EDF;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x67E5;&#x770B;express&#x7248;&#x672C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express -V</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x4F7F;&#x7528;express&#x547D;&#x4EE4;&#x521B;&#x5EFA;&#x5DE5;&#x7A0B;&#xFF0C;&#x5E76;&#x652F;&#x6301;ejs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; express -e nodejsDemo</span><br><span class="line">&gt;  cd nodejs-demo &amp;&amp; npm install//&#x5B89;&#x88C5;&#x4F9D;&#x8D56;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x6A21;&#x677F;&#x9879;&#x76EE;&#x5EFA;&#x7ACB;&#x6210;&#x529F;&#xFF0C;&#x542F;&#x52A8;&#x6A21;&#x677F;&#x9879;&#x76EE;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x901A;&#x8FC7;node&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x6BCF;&#x6B21;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x3002; &#x6709;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;supervisor&#xFF0C;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF0C;&#x4F1A;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x7701;&#x5F88;&#x591A;&#x7684;&#x65F6;&#x95F4;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g supervisor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x518D;&#x6B21;&#x542F;&#x52A8;&#x670D;&#x52A1;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor app.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"><a href="#&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;"></a>&#x8BBE;&#x7F6E;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;</h2><p>&#x9879;&#x76EE;&#x4F7F;&#x7528;bower&#x6765;&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x5305;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5C06;<strong>bower_components</strong>&#x8BBE;&#x7F6E;&#x4E3A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x3002;express&#x9ED8;&#x8BA4;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E3A;public&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x5B9A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</span><br><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;)));</span><br><span class="line">app.use(&apos;/bower_components&apos;, express.static(path.join(__dirname,&apos;/bower_components&apos;)));</span><br></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;<strong>path.join()</strong>&#x65B9;&#x6CD5;&#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x52A0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/bower_components&apos;, express.static(__dirname+&apos;/bower_components&apos;));</span><br></pre></td></tr></table></figure></p>
-<h2 id="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"><a href="#&#x6587;&#x4EF6;&#x8BBF;&#x95EE;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BBF;&#x95EE;"></a>&#x6587;&#x4EF6;&#x8BBF;&#x95EE;</h2><ol>
-<li><p>&#x9996;&#x5148;&#xFF0C;require&#x52A0;&#x8F7D;&#x8DEF;&#x7531;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var routes = require(&apos;./routes/index&apos;);</span><br><span class="line">var users = require(&apos;./routes/users&apos;);</span><br><span class="line">var table = require(&apos;./routes/table&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBE;&#x7F6E;&#x8BBF;&#x95EE;URI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/&apos;, routes);</span><br><span class="line">app.use(&apos;/index&apos;, routes);</span><br><span class="line">app.use(&apos;/users&apos;, users);</span><br><span class="line">app.use(&apos;/table&apos;, table);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>&#x8BBF;&#x95EE;&#x5730;&#x5740;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000</span><br><span class="line">http://localhost:3000/index</span><br><span class="line">http://localhost:3000/users</span><br><span class="line">http://localhost:3000/table</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>routes&#x8DEF;&#x7531;&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;index&apos;, { title: &apos;aa&apos; });</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line"> res.render(&apos;table&apos;, { title: &apos;&#x90E8;&#x95E8;111&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x4E0A;&#x9762;&#x7B2C;&#x4E00;&#x5757;&#x4EE3;&#x7801;&#x610F;&#x601D;&#x662F;&#xFF0C;get&#x8BF7;&#x6C42;&#x6839;&#x76EE;&#x5F55;&#x5219;&#x8C03;&#x7528;views&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;index&#x6A21;&#x677F;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x53C2;&#x6570;title&#x4E3A;&#x201C;aa&#x201D;&#xFF0C;&#x8FD9;&#x4E2A;title&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
-<h2 id="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"><a href="#&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;" class="headerlink" title="&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;"></a>&#x8BBE;&#x7F6E;html&#x5F15;&#x64CE;</h2><ol>
-<li>&#x5148;&#x5BF9;app.js&#x505A;&#x5982;&#x4E0B;&#x4FEE;&#x6539;&#xFF0C;&#x518D;&#x5C06;view&#x4E2D;&#x9875;&#x9762;&#x6539;&#x4E3A;.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var ejs = require(&apos;ejs&apos;);</span><br><span class="line">&#x518D;&#x5C06;app.set(&apos;view engine&apos;, &apos;ejs&apos;); &#x53D8;&#x6210; </span><br><span class="line">app.engine(&apos;.html&apos;, ejs.__express);</span><br><span class="line">app.set(&apos;view engine&apos;, &apos;html&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>&#x82E5;&#x4E0D;&#x4FEE;&#x6539;view&#x4E2D;&#x9875;&#x9762;&#xFF0C;&#x5F53;&#x5F15;&#x64CE;&#x6539;&#x4E3A;<strong>html</strong>&#x5F15;&#x64CE;&#x65F6;&#xFF0C;&#x5219;&#x5C06;routes&#x8DEF;&#x7531;&#x4E2D;&#x7684;.ejs&#x6E32;&#x67D3;&#x5199;&#x5168;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.get(&apos;/&apos;, function(req, res, next) {</span><br><span class="line">  res.render(&apos;users.ejs&apos;, { title: &apos;users&apos; });</span><br><span class="line">})</span><br></pre></td></tr></table></figure></p>
-<p>&#x82E5;&#x6E32;&#x67D3;&#x6587;&#x4EF6;&#x539F;&#x672C;&#x5C31;&#x662F;.html&#x6587;&#x4EF6;&#x5219;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x540E;&#x7F00;&#x540D;&#x3002;&#x5E76;&#x4E14;.html&#x6587;&#x4EF6;&#x4E2D;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x5199;<code>&lt;%=title%&gt;</code>&#x8FD9;&#x79CD;&#x7C7B;&#x4F3C;&#x7684;&#x8BED;&#x6CD5;</p>
-<ol>
-<li>&#x9759;&#x6001;&#x8DEF;&#x7531;<br>&#x6DFB;&#x52A0;&#x4E3B;&#x9875;&#x8DEF;&#x7531;</li>
-</ol>
-<pre><code>app.get(&apos;/&apos;, function(req, res) {
-   res.sendfile(&apos;./views/index.html&apos;);
-});
-
-//&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x83B7;&#x53D6;
-app.get(&apos;/:name&apos;, function(req, res) {
-    var fileName = req.params.name;
-    //console.log(&apos;./views/&apos;+fileName);
-    res.sendFile(fileName);
-});
-</code></pre><ol>
-<li>&#x914D;&#x7F6E;supervisor&#x70ED;&#x90E8;&#x7F72;NodeJS</li>
-</ol>
-<pre><code>//&#x5B89;&#x88C5;
-npm install -g supervisor
-</code></pre><p>&#x914D;&#x7F6E;&#xFF0C;&#x5728;WebStorm&#x4E2D;&#x9009;&#x62E9;&#x8981;Run&#x2013;Edit Configurations </p>
-<p>Working directory&#x9009;&#x62E9;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#xFF08;supervisor&#x4F1A;&#x76D1;&#x63A7;&#x6B64;&#x76EE;&#x5F55;&#x5185;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6539;&#x53D8;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#xFF09;<br><img src="/2016/06/08/Express.js/1445320217363.png" alt="enter description here" title="1445320217363.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-js/">express.js</a></li></ul>
     </div>
 
       
@@ -1356,252 +1742,6 @@ $j(&apos;#msg&apos;).hide();//&#x6B64;&#x5904;$j&#x5C31;&#x4EE3;&#x8868;JQuery
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-css3技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/css3技巧/" class="article-date">
-      <time datetime="2016-05-13T14:26:59.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/css3技巧/">css3 filter滤镜属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;"><a href="#&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;" class="headerlink" title="&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;"></a>&#x7F51;&#x9875;&#x53D8;&#x7070;&#x539F;&#x7406;</h2><p>&#x4F7F;&#x7528;css3&#x7684;&#x7070;&#x5EA6;&#x8FC7;&#x6EE4;&#x529F;&#x80FD;</p>
-<pre><code>.icon_f{
-      -webkit-filter: grayscale(100%);
-      -moz-filter: grayscale(100%);
-      -ms-filter: grayscale(100%);
-      -o-filter: grayscale(100%);    
-      filter: grayscale(100%);
-      filter: gray;
-  }
-</code></pre><h2 id="&#x6A21;&#x7CCA;&#x56FE;&#x7247;"><a href="#&#x6A21;&#x7CCA;&#x56FE;&#x7247;" class="headerlink" title="&#x6A21;&#x7CCA;&#x56FE;&#x7247;"></a>&#x6A21;&#x7CCA;&#x56FE;&#x7247;</h2><pre><code>img{
-    -webkit-filter: blur(5px); /* Chrome, Safari, Opera */
-    filter: blur(5px);
-}
-</code></pre><h2 id="&#x56FE;&#x7247;&#x53D8;&#x4EAE;"><a href="#&#x56FE;&#x7247;&#x53D8;&#x4EAE;" class="headerlink" title="&#x56FE;&#x7247;&#x53D8;&#x4EAE;"></a>&#x56FE;&#x7247;&#x53D8;&#x4EAE;</h2><pre><code>img {
-    -webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
-    filter: brightness(200%);
-}
-</code></pre><h2 id="&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;"><a href="#&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;" class="headerlink" title="&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;"></a>&#x5BF9;&#x6BD4;&#x5EA6;&#x8C03;&#x6574;</h2><pre><code>img {
-    -webkit-filter: contrast(200%); /* Chrome, Safari, Opera */
-    filter: contrast(200%);
-}
-</code></pre><h2 id="&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;"><a href="#&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;" class="headerlink" title="&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;"></a>&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;</h2><pre><code>img {
-    -webkit-filter: drop-shadow(8px 8px 10px red); /* Chrome, Safari, Opera */
-    filter: drop-shadow(8px 8px 10px red);
-}
-</code></pre><p>&#x9664;&#x6B64;&#x4E4B;&#x5916;</p>
-<pre><code>.contrast {
-    -webkit-filter: contrast(180%);
-    filter: contrast(180%);
-}
-//&#x7ED9;&#x56FE;&#x50CF;&#x5E94;&#x7528;&#x8272;&#x76F8;&#x65CB;&#x8F6C;
-.huerotate {
-    -webkit-filter: hue-rotate(180deg);
-    filter: hue-rotate(180deg);
-}
-//&#x53CD;&#x8F6C;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#x3002;
-.invert {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-}
-//&#x8F6C;&#x5316;&#x56FE;&#x50CF;&#x7684;&#x900F;&#x660E;&#x7A0B;&#x5EA6;&#x3002;
-.opacity {
-    -webkit-filter: opacity(50%);
-    filter: opacity(50%);
-}
-//&#x8F6C;&#x6362;&#x56FE;&#x50CF;&#x9971;&#x548C;&#x5EA6;
-.saturate {
-    -webkit-filter: saturate(7);
-    filter: saturate(7);
-}
-//&#x5C06;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x4E3A;&#x6DF1;&#x8910;&#x8272;&#x3002;
-.sepia {
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js实现回到顶部功能" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/13/js实现回到顶部功能/" class="article-date">
-      <time datetime="2016-05-13T10:56:03.000Z" itemprop="datePublished">2016-05-13</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/13/js实现回到顶部功能/">js实现回到顶部功能及页面定位</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="&#x56DE;&#x5230;&#x9876;&#x90E8;"><a href="#&#x56DE;&#x5230;&#x9876;&#x90E8;" class="headerlink" title="&#x56DE;&#x5230;&#x9876;&#x90E8;"></a>&#x56DE;&#x5230;&#x9876;&#x90E8;</h2><pre><code>$(function(){
-    $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;none&quot;);
-
-    $(window).scroll(function() {
-        var client_height = $(window).height();
-        //&#x5B9E;&#x73B0;&#x517C;&#x5BB9;&#x6027;
-        var scroll_height = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop;
-        if(scroll_height &gt; client_height) {
-            $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;block&quot;);
-        } else {
-            $(&quot;#toTop&quot;).css(&quot;display&quot;,&quot;none&quot;);
-        }
-    });
-
-    $(&quot;#toTop&quot;).click(function(){
-        $(document.documentElement).animate({
-            scrollTop: 0
-        },200);
-        $(document.body).animate({
-            scrollTop: 0
-        },200);
-    });
-
-    //&#x6B63;&#x5219;&#x9A8C;&#x8BC1;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x603B;&#x662F;&#x5426;&#x542B;&#x6709;iphone|ipod|Android|SymbianOS|Windows Phone&#x5B57;&#x6837;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;
-    if (/iphone|ipod|Android|SymbianOS|Windows Phone/i.test(navigator.userAgent)) {
-        location.href = &apos;/jdwsjb/sy_phoneweb/ipadpdxxy/index.shtml&apos;;
-     }
-});  
-&lt;a id=&quot;toTop&quot;&gt;&#x56DE;&#x5230;&#x9876;&#x90E8;&lt;/a&gt;
-</code></pre><p>$(window)&#xFF1A;jQuery&#x4E2D;&#x83B7;&#x53D6;&#x6D4F;&#x89C8;&#x5668;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</p>
-<pre><code>$(window).resize(function(){
-});
-</code></pre><p>$(document) &#xFF1A;jQuery&#x4E2D;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6587;&#x6863;&#xFF0C;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x770B;&#x5230;&#x7684;&#x6574;&#x4E2A;&#x7F51;&#x9875;</p>
-<pre><code>$(document).ready(function(){
-});
-</code></pre><h2 id="&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;"></a>&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;&#x5224;&#x65AD;</h2><p><strong>navigator.userAgent</strong><br>&#x6B63;&#x5219;&#x9A8C;&#x8BC1;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x603B;&#x662F;&#x5426;&#x542B;&#x6709;iphone|ipod|Android|SymbianOS|Windows Phone&#x5B57;&#x6837;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x7C7B;&#x578B;</p>
-<pre><code>if (/iphone|ipod|Android|SymbianOS|Windows Phone/i.test(navigator.userAgent)) {
-    location.href = &apos;/jdwsjb/sy_phoneweb/ipadpdxxy/index.shtml&apos;;
- }
-
- function userBrowser(){
-    var browserName=navigator.userAgent.toLowerCase();
-    if(/msie/i.test(browserName) &amp;&amp; !/opera/.test(browserName)){
-        alert(&quot;IE&quot;);
-        return ;
-    }else if(/firefox/i.test(browserName)){
-        alert(&quot;Firefox&quot;);
-        return ;
-    }else if(/chrome/i.test(browserName) &amp;&amp; /webkit/i.test(browserName) &amp;&amp; /mozilla/i.test(browserName)){
-        alert(&quot;Chrome&quot;);
-        return ;
-    }else if(/opera/i.test(browserName)){
-        alert(&quot;Opera&quot;);
-        return ;
-    }else if(/webkit/i.test(browserName) &amp;&amp;!(/chrome/i.test(browserName) &amp;&amp; /webkit/i.test(browserName) &amp;&amp; /mozilla/i.test(browserName))){
-        alert(&quot;Safari&quot;);
-        return ;
-    }else{
-        alert(&quot;unKnow&quot;);
-    }
-}
-</code></pre><h2 id="&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;"><a href="#&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;" class="headerlink" title="&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;"></a>&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;</h2><p>html5&#x4E2D;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x7EB5;&#x5750;&#x6807;&#x4F4D;&#x7F6E;:<strong>document.documentElement.scrollTop</strong><br>&#x5728;w3c&#x6807;&#x51C6;&#x4E0B;document.body.scrollTop&#x6052;&#x4E3A;0&#xFF0C;&#x4E14;IE5.5&#x4E4B;&#x540E;&#x4E0D;&#x518D;&#x652F;&#x6301;document.body.scrollX&#x5C5E;&#x6027;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x4EE5;&#x4E0B;&#x5224;&#x65AD;</p>
-<pre><code>if (document.body &amp;&amp; document.body.scrollTop &amp;&amp; document.body.scrollLeft)
-{
-   top  = document.body.scrollTop;
-   left = document.body.scrollleft; 
-}
-if (document.documentElement &amp;&amp; document.documentElement.scrollTop &amp;&amp; document.documentElement.scrollLeft)
-{
-   top  =  document.documentElement.scrollTop;
-   left =  document.documentElement.scrollLeft; 
-}
-</code></pre><h2 id="&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;"><a href="#&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;" class="headerlink" title="&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;"></a>&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x7EDD;&#x5BF9;&#x5B9A;&#x4F4D;</h2><p><img src="/2016/05/13/js&#x5B9E;&#x73B0;&#x56DE;&#x5230;&#x9876;&#x90E8;&#x529F;&#x80FD;/Image%202.png" alt="enter description here" title="Image 2.png"><br><img src="/2016/05/13/js&#x5B9E;&#x73B0;&#x56DE;&#x5230;&#x9876;&#x90E8;&#x529F;&#x80FD;/Image%203.png" alt="enter description here" title="Image 3.png"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
     </div>
 
       
