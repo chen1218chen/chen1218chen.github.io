@@ -20,6 +20,7 @@ The table options are defined in **jQuery.fn.bootstrapTable.defaults**.
     }
 
 ![enter description here][1]
+
 ## table手动启动
 如果bootstrapTable没有启用，选择手动触发。
 
