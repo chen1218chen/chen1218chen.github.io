@@ -286,6 +286,350 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-前端获取视频流并播放" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/05/前端获取视频流并播放/" class="article-date">
+      <time datetime="2017-09-05T14:32:49.000Z" itemprop="datePublished">2017-09-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/05/前端获取视频流并播放/">前端获取视频流并播放</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>html5&#x51FA;&#x6765;&#x540E;&#xFF0C;&#x524D;&#x7AEF;&#x64AD;&#x653E;&#x89C6;&#x9891;&#x77AC;&#x95F4;&#x53D8;&#x5F97;&#x65B9;&#x4FBF;&#x5BB9;&#x6613;&#x591A;&#x4E86;&#xFF0C;&#x4E00;&#x4E2A;<code>&lt;video&gt;</code>&#x6807;&#x7B7E;&#x5C31;&#x53EF;&#x4EE5;&#x641E;&#x5B9A;,&#x53EA;&#x8981;&#x7ED9;src&#x5C5E;&#x6027;&#x6B63;&#x786E;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#x3002;</p>
+<pre><code>&lt;video src=&quot;images/xxx.mov&quot; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;
+</code></pre><p>&#x4F46;&#x662F;&#x5F53;&#x89C6;&#x9891;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4ECE;&#x540E;&#x53F0;&#x5411;&#x524D;&#x53F0;&#x4F20;&#x8F93;&#x89C6;&#x9891;&#x6D41;&#x624D;&#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x3002;</p>
+<blockquote>
+<p>JAVA</p>
+</blockquote>
+<pre><code>@RequestMapping(value =&quot;/getFileSrc&quot; ,method = RequestMethod.GET)
+@ResponseBody
+public void getFileSrc(HttpServletRequest request ,HttpServletResponse response,@RequestParam(value=&quot;path&quot;) String path) throws IOException{
+    File file = new File(path);
+    FileInputStream input = new FileInputStream(file);
+    int i = input.available();
+    byte[] bytes = new byte[i];
+    input.read(bytes);
+    response.setContentType(&quot;application/video&quot;);
+    OutputStream output = response.getOutputStream();
+    output.write(bytes);
+    output.flush();
+    output.close();
+    input.close();        
+}
+</code></pre><blockquote>
+<p>JS</p>
+</blockquote>
+<pre><code>var path1= &quot;http://localhost:8080/HBDK/rest/resource/getFileSrc?path=&quot;+path;
+
+&lt;!--&#x5F39;&#x51FA;&#x6846;&#x4E2D;&#x64AD;&#x653E;--&gt;
+back.view.popup.open({
+          title: &quot;&#x89C6;&#x5C4F;&#x64AD;&#x653E;&quot;,
+          content:&apos;&lt;video src=&apos;+path1+&apos; width=&quot;300px&quot; heigth=&quot;300px&quot; controls=&quot;controls&quot; autoplay&gt;&lt;/video&gt;&apos;,
+          location: point // Set the location of the popup to the clicked location
+    });
+</code></pre><p><img src="/2017/09/05/&#x524D;&#x7AEF;&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x6D41;&#x5E76;&#x64AD;&#x653E;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170905144418.png" alt="&#x89C6;&#x5C4F;&#x64AD;&#x653E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20170905144418.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-input框按Enter键刷新问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/03/input框按Enter键刷新问题/" class="article-date">
+      <time datetime="2017-09-03T12:55:18.000Z" itemprop="datePublished">2017-09-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/03/input框按Enter键刷新问题/">input框按Enter键刷新问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x6700;&#x8FD1;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x5947;&#x602A;&#x7684;&#x95EE;&#x9898;&#xFF0C;input text&#x6846;&#x5B9E;&#x73B0;&#x7684;&#x641C;&#x7D22;&#x529F;&#x80FD;&#xFF0C;&#x5728;&#x8F93;&#x5165;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x540E;&#xFF0C;&#x4E00;&#x70B9;&#x51FB;enter&#x952E;&#x9875;&#x9762;&#x5C31;&#x88AB;&#x5237;&#x65B0;&#x4E86;&#xFF0C;&#x5230;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x7EC4;&#x7EC7;&#x9875;&#x9762;&#x5237;&#x65B0;&#x7684;&#x597D;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;input&#x6807;&#x7B7E;&#x4E2D;&#x52A0;&#x5165;<code>onkeydown=&quot;if(event.keyCode==13){return false;}&quot;</code>&#x5373;&#x53EF;&#xFF0C;&#x8FDB;&#x4E00;&#x6B65;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;enter&#x952E;&#x6539;&#x4E3A;&#x641C;&#x7D22;&#x7684;&#x63D0;&#x4EA4;&#xFF0C;&#x5C06;<code>return false&#x4EE3;&#x7801;&#x6362;&#x6210;&#x641C;&#x7D22;&#x63D0;&#x4EA4;&#x5373;&#x53EF;</code></p>
+<pre><code>&lt;input id=&quot;searchName&quot; type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;&#x8F93;&#x5165;&#x4FE1;&#x606F;&quot; onkeydown=&quot;if(event.keyCode==13){return false;}&quot;&gt;
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ArcGIS地图上绘制点时解除click监听" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/28/ArcGIS地图上绘制点时解除click监听/" class="article-date">
+      <time datetime="2017-08-28T10:55:46.000Z" itemprop="datePublished">2017-08-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/28/ArcGIS地图上绘制点时解除click监听/">ArcGIS地图上绘制点时解除click监听</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x8FD1;&#x65E5;&#x9879;&#x76EE;&#x9700;&#x6C42;&#xFF0C;&#x5F00;&#x59CB;&#x7740;&#x624B;&#x5B66;&#x4E60;&#x57FA;&#x4E8E;arcgis&#x5730;&#x56FE;&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x4E00;&#x4E9B;&#x5730;&#x56FE;&#x4E0A;&#x7684;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x5219;&#x662F;&#x7B2C;&#x4E00;&#x6B65;&#x3002;<br>&#x5730;&#x56FE;&#x4E0A;&#x7ED8;&#x5236;&#x70B9;&#x65F6;&#x78B0;&#x89C1;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x5C0F;bug&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x6837;&#x89E3;&#x9664;click&#x7684;&#x76D1;&#x542C;&#xFF0C;&#x5BFC;&#x81F4;&#x6BCF;&#x70B9;&#x51FB;&#x4E00;&#x4E2A;&#x5730;&#x56FE;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x5706;&#x70B9;&#xFF0C;&#x7F51;&#x4E0A;&#x8D44;&#x6599;&#x4E0D;&#x597D;&#x627E;&#xFF0C;&#x4E0D;&#x8FC7;&#x6700;&#x7EC8;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;Mark&#x4E00;&#x4E0B;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x3002;(<em>^&#x25BD;^</em>)</p>
+<pre><code>back.drawPoint = function(){
+    var events = back.view.on(&quot;click&quot;,function(event){
+        console.log(event.mapPoint);
+        var lat =  event.mapPoint.latitude;
+        var lon =  event.mapPoint.longitude;
+        var point = new Point({
+            longitude: lon,
+            latitude: lat
+        });
+        // Create a symbol for drawing the point
+        var markerSymbol = new SimpleMarkerSymbol({
+        color: [255, 0, 0],
+        outline: { // autocasts as new SimpleLineSymbol()
+          color: [0, 0, 0],
+          width: 1
+        }
+      });
+
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+
+      back.view.graphics.addMany([pointGraphic]);   
+      events.remove();
+    })
+}
+</code></pre><p>&#x7528;&#x7684;arcgis 4.4&#x7248;&#x672C;&#xFF0C;back.view&#x5373;mapview&#x5BF9;&#x8C61;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Gradle构建SpringBoot-Mybatis集成分页插件PageHelper" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/11/Gradle构建SpringBoot-Mybatis集成分页插件PageHelper/" class="article-date">
+      <time datetime="2017-08-11T13:38:52.000Z" itemprop="datePublished">2017-08-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/11/Gradle构建SpringBoot-Mybatis集成分页插件PageHelper/">Gradle构建SpringBoot+Mybatis集成分页插件PageHelper</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x53EF;&#x70B9;&#x51FB;&#x6B64;&#x5904;&#x4E0B;&#x8F7D;&#x5B8C;&#x6574;&#x9879;&#x76EE;&#x54E6;&#xFF1A;<a href="https://github.com/chen1218chen/Springboot-Mybatis-Gradle" target="_blank" rel="external">Springboot-Mybatis-Gradle</a></p>
+<p>&#x4F7F;&#x7528;Gradle&#x6784;&#x5EFA;SpringBoot&#x9879;&#x76EE;&#xFF0C;&#x4F7F;&#x7528;Mybatis&#x6765;&#x6301;&#x4E45;&#x5316;&#xFF0C;&#x5C1D;&#x8BD5;&#x96C6;&#x6210;PageHelper&#x5206;&#x9875;&#x63D2;&#x4EF6;&#xFF0C;&#x4F9D;&#x7136;&#x987A;&#x5229;&#x90FD;&#x4EE4;&#x5230;&#x6211;&#x5403;&#x60CA;&#xFF0C;so easy!<br>&#x9996;&#x5148;&#xFF0C;build.gradle&#x4E2D;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;</p>
+<pre><code>dependencies {
+    compile group: &apos;com.github.pagehelper&apos;, name: &apos;pagehelper&apos;, version: &apos;4.1.0&apos;
+}
+</code></pre><p>&#x5176;&#x6B21;&#xFF0C;&#x5199;&#x4E00;&#x4E2A;&#x6CE8;&#x518C;&#x7C7B;</p>
+<pre><code>package com.cc.config;
+
+import java.util.Properties;  
+import org.springframework.context.annotation.Bean;  
+import org.springframework.context.annotation.Configuration;  
+import com.github.pagehelper.PageHelper;  
+
+/*  
+* &#x6CE8;&#x518C;MyBatis&#x5206;&#x9875;&#x63D2;&#x4EF6;PageHelper  
+*/  
+
+@Configuration  
+public class MybatisConf {  
+      @Bean  
+      public PageHelper pageHelper() {  
+         System.out.println(&quot;=========MyBatisConfiguration.pageHelper()&quot;);  
+          PageHelper pageHelper = new PageHelper();  
+          Properties p = new Properties();  
+          p.setProperty(&quot;offsetAsPageNum&quot;, &quot;true&quot;);  
+          p.setProperty(&quot;rowBoundsWithCount&quot;, &quot;true&quot;);  
+          p.setProperty(&quot;reasonable&quot;, &quot;true&quot;);  
+          pageHelper.setProperties(p);  
+          return pageHelper;  
+      }  
+} 
+</code></pre><p>&#x6700;&#x540E;&#xFF0C;&#x5728;controller&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5373;&#x53EF;&#xFF1A;  </p>
+<pre><code>  @ApiOperation(value=&quot;&#x6839;&#x636E;&#x59D3;&#x540D;&#x67E5;&#x627E;&#x7528;&#x6237;&quot;, notes=&quot;&#x6839;&#x636E;name&#x6765;&#x67E5;&#x627E;&quot;)
+@ApiImplicitParam(paramType=&quot;query&quot;, name = &quot;name&quot;, value = &quot;&#x7528;&#x6237;&#x59D3;&#x540D;&quot;, required = true, dataType = &quot;String&quot;)
+@RequestMapping(value=&quot;/findByName&quot;,method=RequestMethod.POST) 
+@ResponseBody
+public List&lt;User&gt; findByName(@RequestParam(value=&quot;name&quot;, required=true) String name){  
+    /*  
+     * &#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7B2C;&#x51E0;&#x9875;&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x6BCF;&#x9875;&#x663E;&#x793A;&#x6761;&#x6570;&#x3002;  
+     */  
+    PageHelper.startPage(1,2);  
+    return userService.fingByName(name);  
+}
+</code></pre><p>&#x6DF1;&#x5165;&#x4F7F;&#x7528;&#x8FD8;&#x5F85;&#x6211;&#x7EE7;&#x7EED;&#x7814;&#x7A76;<img src="/2017/08/11/Gradle&#x6784;&#x5EFA;SpringBoot-Mybatis&#x96C6;&#x6210;&#x5206;&#x9875;&#x63D2;&#x4EF6;PageHelper/1502430421592.jpg" alt="enter description here" title="1502430421592.jpg"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mybatis/">Mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PageHelper/">PageHelper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ecplise之SpringBoot热部署" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -640,79 +984,6 @@ var time1 = newTime.format(&quot;yyyy-MM-dd hh:mm:ss&quot;);
 
 
   
-    <article id="post-Sublime之MarkdownEditing插件快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/" class="article-date">
-      <time datetime="2017-06-28T14:22:42.000Z" itemprop="datePublished">2017-06-28</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/">Sublime text 3 之MarkdownEditing插件快捷键</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
-Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
-Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
-Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
-Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
-Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
-Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
-Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
-Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
-Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
-Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-vue-cli多页面项目应用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -872,11 +1143,11 @@ module.exports = webpackConfig
 
 
   
-    <article id="post-vue-cli的webpack项目分析之build-dev-server-js" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Sublime之MarkdownEditing插件快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/09/vue-cli的webpack项目分析之build-dev-server-js/" class="article-date">
-      <time datetime="2017-06-09T10:00:29.000Z" itemprop="datePublished">2017-06-09</time>
+      <a href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/" class="article-date">
+      <time datetime="2017-06-28T14:22:42.000Z" itemprop="datePublished">2017-06-28</time>
 </a>
 
 
@@ -891,7 +1162,7 @@ module.exports = webpackConfig
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/09/vue-cli的webpack项目分析之build-dev-server-js/">vue-cli的webpack项目分析之build/dev-server.js</a>
+      <a class="article-title" href="/2017/06/28/Sublime之MarkdownEditing插件快捷键/">Sublime text 3 之MarkdownEditing插件快捷键</a>
     </h1>
   
 
@@ -901,200 +1172,20 @@ module.exports = webpackConfig
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>[TOC]</p>
-<p>&#x6267;&#x884C;&#x201D;<code>npm run dev</code>&#x201C; &#x547D;&#x4EE4;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6700;&#x5148;&#x6267;&#x884C;&#x7684;&#x662F;build/dev-server.js&#x6587;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x4ECE;<code>dev-server.js</code>&#x6587;&#x4EF6;&#x5F00;&#x59CB;&#x5206;&#x6790;&#x5427;&#xFF0C;&#x8FD9;&#x5728;&#x91CC;mark&#x4E00;&#x4E0B;&#xFF0C;&#x7B97;&#x662F;&#x5B66;&#x4E60;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x987A;&#x4FBF;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#x4E00;&#x4E0B;&#x3002;</p>
-<h2 id="dev-server-js&#x5206;&#x6790;"><a href="#dev-server-js&#x5206;&#x6790;" class="headerlink" title="dev-server.js&#x5206;&#x6790;"></a>dev-server.js&#x5206;&#x6790;</h2><blockquote>
-<p>&#x68C0;&#x67E5;node&#x548C;npm&#x7684;&#x7248;&#x672C;</p>
-</blockquote>
-<pre><code>require(&apos;./check-versions&apos;)()
-</code></pre><blockquote>
-<p>&#x83B7;&#x53D6;config&#x76EE;&#x5F55;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;,&#x5E76;&#x4E14;&#x4F1A;&#x9ED8;&#x8BA4;&#x6307;&#x5B9A;index.js&#x6587;&#x4EF6;</p>
-</blockquote>
-<pre><code>var config = require(&apos;../config&apos;)
-if (!process.env.NODE_ENV) process.env.NODE_ENV = config.dev.env
-var path = require(&apos;path&apos;)
-var express = require(&apos;express&apos;)
-var webpack = require(&apos;webpack&apos;)
-</code></pre><blockquote>
-<p>&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5F3A;&#x5236;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x6307;&#x5B9A; url &#x7684;&#x63D2;&#x4EF6;</p>
-</blockquote>
-<pre><code>var opn = require(&apos;opn&apos;)
-</code></pre><blockquote>
-<p>http-proxy&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8F6C;&#x53D1;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;&#x5230;&#x540E;&#x7AEF;&#x771F;&#x5B9E;API&#x5730;&#x5740;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x524D;&#x540E;&#x7AEF;&#x5F00;&#x53D1;&#x5B8C;&#x5168;&#x5206;&#x79BB;;<br>&#x4F7F;&#x7528; proxyTable</p>
-</blockquote>
-<pre><code>var proxyMiddleware = require(&apos;http-proxy-middleware&apos;)
-</code></pre><blockquote>
-<p>&#x6839;&#x636E; Node &#x73AF;&#x5883;&#x6765;&#x5F15;&#x5165;&#x76F8;&#x5E94;&#x7684; webpack &#x914D;&#x7F6E;</p>
-</blockquote>
-<pre><code>var webpackConfig = process.env.NODE_ENV === &apos;testing&apos;
-  ? require(&apos;./webpack.prod.conf&apos;)
-  : require(&apos;./webpack.dev.conf&apos;)
-
-// default port where dev server listens for incoming traffic
-var port = process.env.PORT || config.dev.port
-// Define HTTP proxies to your custom API backend
-// https://github.com/chimurai/http-proxy-middleware
-var proxyTable = config.dev.proxyTable
-
-var app = express()
-var compiler = webpack(webpackConfig)
-
-var devMiddleware = require(&apos;webpack-dev-middleware&apos;)(compiler, {
-  publicPath: webpackConfig.output.publicPath,
-  stats: {
-    colors: true,
-    chunks: false
-  }
-})
-
-var hotMiddleware = require(&apos;webpack-hot-middleware&apos;)(compiler)
-// force page reload when html-webpack-plugin template changes
-compiler.plugin(&apos;compilation&apos;, function (compilation) {
-  compilation.plugin(&apos;html-webpack-plugin-after-emit&apos;, function (data, cb) {
-    hotMiddleware.publish({ action: &apos;reload&apos; })
-    cb()
-  })
-})
-
-// proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
-  var options = proxyTable[context]
-  if (typeof options === &apos;string&apos;) {
-    options = { target: options }
-  }
-  app.use(proxyMiddleware(context, options))
-})
-
-// handle fallback for HTML5 history API
-app.use(require(&apos;connect-history-api-fallback&apos;)())
-
-// serve webpack bundle output
-app.use(devMiddleware)
-
-// enable hot-reload and state-preserving
-// compilation error display
-app.use(hotMiddleware)
-
-// serve pure static assets
-var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static(&apos;./static&apos;))
-
-module.exports = app.listen(port, function (err) {
-  if (err) {
-    console.log(err)
-    return
-  }
-  var uri = &apos;http://localhost:&apos; + port
-  console.log(&apos;Listening at &apos; + uri + &apos;\n&apos;)
-  opn(uri)
-})
-</code></pre><h2 id="process-env-NODE-ENV"><a href="#process-env-NODE-ENV" class="headerlink" title="process.env.NODE_ENV"></a>process.env.NODE_ENV</h2><p>&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;,&#x5728;config/pro.env.js&#x548C;config/dev.env.js&#x4E2D;&#x5B9A;&#x4E49;&#x597D;&#x7684;&#x3002;</p>
-<blockquote>
-<p>pro.env.js</p>
-</blockquote>
-<pre><code>module.exports = {
-  NODE_ENV: &apos;&quot;production&quot;&apos;,
-  API_ROOT: &apos;&quot;//127.0.0.1/api&quot;&apos;
-}
-</code></pre><blockquote>
-<p>dev.env.js</p>
-</blockquote>
-<pre><code>var merge = require(&apos;webpack-merge&apos;)
-var prodEnv = require(&apos;./prod.env&apos;)
-
-module.exports = merge(prodEnv, {
-  NODE_ENV: &apos;&quot;development&quot;&apos;,
-  API_ROOT: &apos;&quot;//127.0.0.1/api&quot;&apos;
-})
-</code></pre><p>&#x4ECE;&#x4EE3;&#x7801;&#x4E2D;&#x770B;&#x5230;&#xFF0C;dev-server&#x4F7F;&#x7528;&#x7684;webpack&#x914D;&#x7F6E;&#x6765;&#x81EA;build/webpack.dev.conf.js&#x6587;&#x4EF6;&#xFF08;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x4E0B;&#x4F7F;&#x7528;&#x7684;&#x662F;build/webpack.prod.conf.js&#xFF0C;&#x8FD9;&#x91CC;&#x6682;&#x65F6;&#x4E0D;&#x8003;&#x8651;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#xFF09;&#x3002;&#x800C;build/webpack.dev.conf.js&#x4E2D;&#x53C8;&#x5F15;&#x7528;&#x4E86;webpack.base.conf.js&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x6211;&#x5148;&#x5206;&#x6790;webpack.base.conf.js&#x3002;</p>
-<h2 id="webpack-base-conf-js"><a href="#webpack-base-conf-js" class="headerlink" title="webpack.base.conf.js"></a>webpack.base.conf.js</h2><p>webpack.base.conf.js&#x4E3B;&#x8981;&#x5B8C;&#x6210;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x4E8B;&#x60C5;&#xFF1A;</p>
-<ul>
-<li>&#x914D;&#x7F6E;webpack&#x7F16;&#x8BD1;&#x5165;&#x53E3;</li>
-<li>&#x914D;&#x7F6E;webpack&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#x548C;&#x547D;&#x540D;&#x89C4;&#x5219;</li>
-<li>&#x914D;&#x7F6E;&#x6A21;&#x5757;resolve&#x89C4;&#x5219;</li>
-<li>&#x914D;&#x7F6E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x6A21;&#x5757;&#x7684;&#x5904;&#x7406;&#x89C4;&#x5219;</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue-cli/">vue-cli</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-node-js值path模快" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/06/06/node-js值path模快/" class="article-date">
-      <time datetime="2017-06-06T15:01:29.000Z" itemprop="datePublished">2017-06-06</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/06/node-js值path模快/">node.js的path模快</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Node.js path &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x7684;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x8BE5;&#x6A21;&#x5757;&#xFF1A;<br>&#x521B;&#x5EFA; main.js &#x6587;&#x4EF6;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
-<pre><code>var path = require(&quot;path&quot;)
-// &#x683C;&#x5F0F;&#x5316;&#x8DEF;&#x5F84;
-console.log(&apos;normalization : &apos; + path.normalize(&apos;/test/test1//2slashes/1slash/tab/..&apos;));
-
-// &#x8FDE;&#x63A5;&#x8DEF;&#x5F84;
-console.log(&apos;joint path : &apos; + path.join(&apos;/test&apos;, &apos;test1&apos;, &apos;2slashes/1slash&apos;, &apos;tab&apos;, &apos;..&apos;));
-
-// &#x8F6C;&#x6362;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;
-console.log(&apos;resolve : &apos; + path.resolve(&apos;main.js&apos;));
-
-// &#x8DEF;&#x5F84;&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x540D;
-console.log(&apos;ext name : &apos; + path.extname(&apos;main.js&apos;));
-//&#x83B7;&#x53D6;&#x7528;&quot;/&quot;&#x9694;&#x5F00;&#x7684;path&#x6700;&#x540E;&#x7684;&#x4E00;&#x90E8;&#x5206;
-console.log(&apos;basename: &apos;+ path.basename(&apos;./src/views/nav1/table.js&apos;));
-</code></pre><p>&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>$ node main.js 
-normalization : /test/test1/2slashes/1slash
-joint path : /test/test1/2slashes/1slash
-resolve : /web/com/1427176256_27423/main.js
-ext name : .js
-basename : table.js
+        <pre><code>Ctrl+Win+V &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Win+R &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x94FE;&#x63A5;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;
+Ctrl+Alt+R &#x5F39;&#x51FA;&#x63D0;&#x793A;&#x6846;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x63D0;&#x793A;&#x6846;&#x4E2D;&#x8F93;&#x5165;&#x94FE;&#x63A5;&#x5185;&#x5BB9;&#x548C;&#x5B9A;&#x4E49;&#x53C2;&#x8003;ID[^3]
+Ctrl+Win+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;
+Win+Shift+K &#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x884C;&#x5185;&#x5F0F;&#x56FE;&#x7247;&#xFF08;&#x6B64;&#x5FEB;&#x6377;&#x952E;&#x53EF;&#x80FD;&#x4E0E;&#x8F93;&#x5165;&#x6CD5;&#x6709;&#x51B2;&#x7A81;&#xFF09;
+Ctrl+1 &#x81F3; Ctrl+6 &#x63D2;&#x5165;&#x4E00;&#x7EA7;&#x81F3;&#x516D;&#x7EA7;&#x6807;&#x9898;
+Win+Alt+i &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x659C;&#x4F53;
+Win+Alt+b &#x9009;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x8F6C;&#x6362;&#x4E3A;&#x7C97;&#x4F53;[^1]
+Ctrl+Shift+6 &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x811A;&#x6CE8;&#xFF0C;&#x5E76;&#x8DF3;&#x8F6C;&#x5230;&#x8BE5;&#x811A;&#x6CE8;&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#x3002;
+Alt+Shift+F &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x811A;&#x6CE8;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Alt+Shift+G &#x67E5;&#x627E;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x8003;&#x5F0F;&#x8D85;&#x94FE;&#x63A5;&#x5E76;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5176;&#x5B9A;&#x4E49;&#x94FE;&#x63A5;
+Ctrl+Alt+S &#x811A;&#x6CE8;&#x6392;&#x5E8F;
+Ctrl+Shift+. &#x7F29;&#x8FDB;&#x5F53;&#x524D;&#x5185;&#x5BB9;
+Ctrl+Shift+, &#x63D0;&#x524D;&#x5F53;&#x524D;&#x5185;&#x5BB9;
 </code></pre>
       
     </div>
@@ -1105,208 +1196,7 @@ basename : table.js
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-content-type详解" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/24/content-type详解/" class="article-date">
-      <time datetime="2017-04-24T11:12:11.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/24/content-type详解/">content-type详解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>web&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;<code>content-type</code>&#x5C5E;&#x6027;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5173;&#x4E8E;&#x4E00;&#x4E9B;&#x4E2D;&#x6587;&#x4E71;&#x7801;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;&#x7684;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x90FD;&#x4F1A;&#x9700;&#x8981;&#x5728;html&#x9875;&#x9762;&#x4E0A;&#x6216;&#x8005;&#x540E;&#x53F0;java&#x4EE3;&#x7801;&#x4E2D;&#x5BF9;content-type&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;&#x67E5;&#x9605;&#x4E00;&#x4E9B;&#x8D44;&#x6599;&#x8BE6;&#x7EC6;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x770B;&#x7740;&#x719F;&#x6089;&#x5B9E;&#x5219;&#x4E0D;&#x592A;&#x7406;&#x89E3;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
-<p>MediaType&#xFF0C;&#x5373;&#x662F;Internet Media Type&#xFF0C;&#x4E92;&#x8054;&#x7F51;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#xFF1B;&#x4E5F;&#x53EB;&#x505A;MIME&#x7C7B;&#x578B;&#xFF0C;&#x5728;Http&#x534F;&#x8BAE;&#x6D88;&#x606F;&#x5934;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;Content-Type&#x6765;&#x8868;&#x793A;&#x5177;&#x4F53;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#x3002;</p>
-<blockquote>
-<p>&#x5E38;&#x89C1;&#x7684;&#x5A92;&#x4F53;&#x683C;&#x5F0F;&#x7C7B;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
-</blockquote>
-<ul>
-<li>text/html &#xFF1A; HTML&#x683C;&#x5F0F;</li>
-<li>text/plain &#xFF1A;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;      </li>
-<li>text/xml &#xFF1A;  XML&#x683C;&#x5F0F;</li>
-<li>image/gif &#xFF1A;gif&#x56FE;&#x7247;&#x683C;&#x5F0F;    </li>
-<li>image/jpeg &#xFF1A;jpg&#x56FE;&#x7247;&#x683C;&#x5F0F; </li>
-<li>image/png&#xFF1A;png&#x56FE;&#x7247;&#x683C;&#x5F0F;</li>
-</ul>
-<blockquote>
-<p>&#x4EE5;application&#x5F00;&#x5934;&#x7684;&#x5A92;&#x4F53;&#x683C;&#x5F0F;&#x7C7B;&#x578B;&#xFF1A;</p>
-</blockquote>
-<ul>
-<li>application/xhtml+xml &#xFF1A;XHTML&#x683C;&#x5F0F;</li>
-<li>application/xml     &#xFF1A; XML&#x6570;&#x636E;&#x683C;&#x5F0F;</li>
-<li>application/atom+xml  &#xFF1A;Atom XML&#x805A;&#x5408;&#x683C;&#x5F0F;    </li>
-<li>application/json    &#xFF1A; JSON&#x6570;&#x636E;&#x683C;&#x5F0F;</li>
-<li>application/pdf       &#xFF1A;pdf&#x683C;&#x5F0F;  </li>
-<li>application/msword  &#xFF1A; Word&#x6587;&#x6863;&#x683C;&#x5F0F;</li>
-<li>application/octet-stream &#xFF1A; &#x4E8C;&#x8FDB;&#x5236;&#x6D41;&#x6570;&#x636E;&#xFF08;&#x5982;&#x5E38;&#x89C1;&#x7684;&#x6587;&#x4EF6;&#x4E0B;&#x8F7D;&#xFF09;</li>
-<li>application/x-www-form-urlencoded &#xFF1A; <form enctype="&#x201D;&#x201D;">&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;encType&#xFF0C;form&#x8868;&#x5355;&#x6570;&#x636E;&#x88AB;&#x7F16;&#x7801;&#x4E3A;key/value&#x683C;&#x5F0F;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#xFF08;&#x8868;&#x5355;&#x9ED8;&#x8BA4;&#x7684;&#x63D0;&#x4EA4;&#x6570;&#x636E;&#x7684;&#x683C;&#x5F0F;&#xFF09;</form></li>
-</ul>
-<blockquote>
-<p>&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x5A92;&#x4F53;&#x683C;&#x5F0F;&#x662F;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x4E4B;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#xFF1A;</p>
-</blockquote>
-<ul>
-<li>multipart/form-data &#xFF1A; &#x9700;&#x8981;&#x5728;&#x8868;&#x5355;&#x4E2D;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x65F6;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8BE5;&#x683C;&#x5F0F;</li>
-</ul>
-<p>&#x4EE5;&#x4E0A;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x65E5;&#x5E38;&#x7684;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x7ECF;&#x5E38;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x82E5;&#x5E72;content-type&#x7684;&#x5185;&#x5BB9;&#x683C;&#x5F0F;&#x3002;</p>
-<p><a href="http://tool.oschina.net/commons" target="_blank" rel="external">http&#x8BF7;&#x6C42; content-type&#x5BF9;&#x7167;&#x8868;</a><br><a href="http://blog.csdn.net/blueheart20/article/details/45174399" target="_blank" rel="external">springMVC rest&#x8BF7;&#x6C42;&#x4E2D;content-type&#x7684;&#x5E94;&#x7528;</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-vue-router笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/14/vue-router笔记/" class="article-date">
-      <time datetime="2017-04-14T10:21:02.000Z" itemprop="datePublished">2017-04-14</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/vue-router笔记/">vue-router之钩子函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[TOC]</p>
-<h2 id="&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x94A9;&#x5B50;&#x51FD;&#x6570;</h2><p>&#x8DEF;&#x7531;&#x7684;&#x5207;&#x6362;&#x8FC7;&#x7A0B;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x8DEF;&#x7531;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#xFF0C;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x603B;&#x4F53;&#x4E0A;&#x5206;&#x4E3A;&#x4E24;&#x5927;&#x7C7B;&#xFF1A;</p>
-<ul>
-<li>&#x5168;&#x5C40;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</li>
-<li>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</li>
-</ul>
-<p>&#x5168;&#x5C40;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5728;&#x5168;&#x5C40;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x5219;&#x5B9A;&#x4E49;&#x5728;&#x7EC4;&#x4EF6;&#x7684;route&#x9009;&#x9879;&#x4E2D;&#x3002;</p>
-<h3 id="&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;</h3><p>&#x5168;&#x5C40;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6709;2&#x4E2A;&#xFF1A;</p>
-<ul>
-<li><strong>beforeEach</strong>&#xFF1A;&#x5728;&#x8DEF;&#x7531;&#x5207;&#x6362;&#x5F00;&#x59CB;&#x65F6;&#x8C03;&#x7528;<br>&#x9879;&#x76EE;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x8DEF;&#x7531;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6765;&#x8FDB;&#x884C;&#x767B;&#x9646;&#x5224;&#x65AD;</li>
-</ul>
-<pre><code>router.beforeEach((to, from, next) =&gt; {
-  //&#x5982;&#x679C;&#x8DF3;&#x8F6C;&#x5230;&#x767B;&#x9646;&#x754C;&#x9762;
-  if (to.path == &apos;/login&apos;) {
-    sessionStorage.removeItem(&apos;user&apos;);
-  }
-  let user = JSON.parse(sessionStorage.getItem(&apos;user&apos;));
-  if (!user &amp;&amp; to.path != &apos;/login&apos;) {
-    next({ path: &apos;/login&apos; })
-  } else {
-    next()
-  }
-})
-</code></pre><ul>
-<li><p><strong>afterEach</strong>&#xFF1A;&#x5728;&#x6BCF;&#x6B21;&#x8DEF;&#x7531;&#x5207;&#x6362;&#x6210;&#x529F;&#x8FDB;&#x5165;&#x6FC0;&#x6D3B;&#x9636;&#x6BB5;&#x65F6;&#x88AB;&#x8C03;&#x7528;</p>
-<h3 id="&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;"><a href="#&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;"></a>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;</h3><p>&#x7EC4;&#x4EF6;&#x7684;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E00;&#x5171;6&#x4E2A;&#xFF1A;</p>
-</li>
-<li><p><strong>data</strong>&#xFF1A;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x7EC4;&#x4EF6;&#x7684;data</p>
-</li>
-<li><strong>activate</strong>&#xFF1A;&#x6FC0;&#x6D3B;&#x7EC4;&#x4EF6;</li>
-<li><strong>deactivate</strong>&#xFF1A;&#x7981;&#x7528;&#x7EC4;&#x4EF6;</li>
-<li><strong>canActivate</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x6FC0;&#x6D3B;</li>
-<li><strong>canDeactivate</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x7981;&#x7528;</li>
-<li><p><strong>canReuse</strong>&#xFF1A;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x91CD;&#x7528;</p>
-<h3 id="&#x5207;&#x6362;&#x5BF9;&#x8C61;"><a href="#&#x5207;&#x6362;&#x5BF9;&#x8C61;" class="headerlink" title="&#x5207;&#x6362;&#x5BF9;&#x8C61;"></a>&#x5207;&#x6362;&#x5BF9;&#x8C61;</h3><p>&#x6BCF;&#x4E2A;&#x5207;&#x6362;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x90FD;&#x4F1A;&#x63A5;&#x53D7;&#x4E00;&#x4E2A; transition &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x5207;&#x6362;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51FD;&#x6570;&#x548C;&#x65B9;&#x6CD5;&#xFF1A;</p>
-</li>
-<li><p><strong>transition.to</strong><br>&#x8868;&#x793A;&#x5C06;&#x8981;&#x5207;&#x6362;&#x5230;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x3002;</p>
-</li>
-<li><strong>transition.from</strong><br>&#x4EE3;&#x8868;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x3002;</li>
-<li><strong>transition.next()</strong><br>&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x5904;&#x7406;&#x5207;&#x6362;&#x8FC7;&#x7A0B;&#x7684;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</li>
-<li><strong>transition.abort([reason])</strong><br>&#x8C03;&#x7528;&#x6B64;&#x51FD;&#x6570;&#x6765;&#x7EC8;&#x6B62;&#x6216;&#x8005;&#x62D2;&#x7EDD;&#x6B64;&#x6B21;&#x5207;&#x6362;&#x3002;</li>
-<li><strong>transition.redirect(path)</strong><br>&#x53D6;&#x6D88;&#x5F53;&#x524D;&#x5207;&#x6362;&#x5E76;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x3002;</li>
-</ul>
-<h3 id="&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"><a href="#&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;" class="headerlink" title="&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;"></a>&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;</h3><ol>
-<li>&#x53EF;&#x91CD;&#x7528;&#x9636;&#x6BB5;<br>&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7684;&#x89C6;&#x56FE;&#x7ED3;&#x6784;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x53EF;&#x4EE5;&#x91CD;&#x7528;&#x7684;&#x7EC4;&#x4EF6; ,<code>canReuse</code></li>
-<li>&#x9A8C;&#x8BC1;&#x9636;&#x6BB5;<br>&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x7684;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x80FD;&#x591F;&#x505C;&#x7528;&#x4EE5;&#x53CA;&#x65B0;&#x7EC4;&#x4EF6;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x6FC0;&#x6D3B;, <code>canDeactivate</code> &#x548C;<code>canActivate</code> </li>
-<li>&#x6FC0;&#x6D3B;&#x9636;&#x6BB5;<br>&#x4E00;&#x65E6;&#x6240;&#x6709;&#x7684;&#x9A8C;&#x8BC1;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x90FD;&#x88AB;&#x8C03;&#x7528;&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x7EC8;&#x6B62;&#x5207;&#x6362;&#xFF0C;&#x5207;&#x6362;&#x5C31;&#x53EF;&#x4EE5;&#x8BA4;&#x5B9A;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x3002;&#x8DEF;&#x7531;&#x5668;&#x5219;&#x5F00;&#x59CB;&#x7981;&#x7528;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5E76;&#x542F;&#x7528;&#x65B0;&#x7EC4;&#x4EF6;&#x3002;<br>&#x6B64;&#x9636;&#x6BB5;&#x5BF9;&#x5E94;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x987A;&#x5E8F;&#x548C;&#x9A8C;&#x8BC1;&#x9636;&#x6BB5;&#x76F8;&#x540C;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x662F;&#x5728;&#x7EC4;&#x4EF6;&#x5207;&#x6362;&#x771F;&#x6B63;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x8FDB;&#x884C;&#x6E05;&#x7406;&#x548C;&#x51C6;&#x5907;&#x7684;&#x673A;&#x4F1A;&#x3002;&#x754C;&#x9762;&#x7684;&#x66F4;&#x65B0;&#x4F1A;&#x7B49;&#x5230;&#x6240;&#x6709;&#x53D7;&#x5F71;&#x54CD;&#x7EC4;&#x4EF6;&#x7684;<code>deactivate</code> &#x548C; <code>activate</code>&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4E4B;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x3002;</li>
-<li>&#x6267;&#x884C;<code>data</code></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sublime/">Sublime</a></li></ul>
     </div>
 
       

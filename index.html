@@ -286,6 +286,298 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-img通过tomcat虚拟路径引用本地图片" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/17/img通过tomcat虚拟路径引用本地图片/" class="article-date">
+      <time datetime="2018-04-17T14:26:55.000Z" itemprop="datePublished">2018-04-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/img通过tomcat虚拟路径引用本地图片/">img通过tomcat虚拟路径引用本地图片</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x7531;&#x4E8E;web&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x56FE;&#x7247;&#xFF0C;&#x4E3A;&#x4E86;&#x907F;&#x514D;tomcat&#x6587;&#x4EF6;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x5C06;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x5939;&#x79FB;&#x521D;tomcat&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x653E;&#x5728;&#x672C;&#x5730;&#x78C1;&#x76D8;&#x4E2D;&#x3002;<br>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>&lt;img src=&quot;D:\image.jpg&quot;&gt;</code>&#x5F15;&#x5165;&#xFF0C;&#x63A7;&#x5236;&#x53F0;&#x4F1A;&#x62A5;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x56FE;&#x7247;&#x7684;404&#x9519;&#x8BEF;&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#xFF0C;&#x8BA9;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5230;&#x670D;&#x52A1;&#x5668;&#x964C;&#x8DEF;&#x4EE5;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
+<h2 id="&#x914D;&#x7F6E;server-xml"><a href="#&#x914D;&#x7F6E;server-xml" class="headerlink" title="&#x914D;&#x7F6E;server.xml"></a>&#x914D;&#x7F6E;server.xml</h2><p>&#x5728;tomcat&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6253;&#x5F00;&#x8FDB;&#x5165;conf&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x7F16;&#x8F91;server.xml&#x6587;&#x4EF6;&#xFF1A;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code>&lt;Context path=&quot;/image&quot; docBase=&quot;D:/ftp&quot; reloadable=&quot;true&quot; debug=&quot;0&quot; crossContext=&quot;true&quot; /&gt;
+</code></pre><p>&#x5176;&#x4E2D;path&#x4E3A;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#xFF0C;  docBase&#x662F;&#x771F;&#x5B9E;&#x8DEF;&#x5F84;&#x3002;<br>&#x524D;&#x53F0;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>&lt;div&gt;&lt;img src=&quot;/image/{{ image.imagePath }}&quot; style=&quot;width:100%;height:100%&quot; /&gt;&lt;/div&gt;
+</code></pre><p><img src="/2018/04/17/img&#x901A;&#x8FC7;tomcat&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x5F15;&#x7528;&#x672C;&#x5730;&#x56FE;&#x7247;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417143344.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417143344.png"></p>
+<h2 id="server-web-modules"><a href="#server-web-modules" class="headerlink" title="server web modules"></a>server web modules</h2><p>&#x914D;&#x7F6E;&#x5B8C;server.xml&#x6587;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x542F;&#x52A8;tomcat&#x4F1A;&#x53D1;&#x73B0;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F9D;&#x7136;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x5230;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x8FD8;&#x9700;&#x8981;&#x5728;eclipse&#x4E2D;&#x4FEE;&#x6539;server&#x7684;Web Modules<br>&#x53CC;&#x51FB;tomcat server&#x8FDB;&#x5165;&#x914D;&#x7F6E;&#x7BA1;&#x7406;&#x9875;&#x9762;&#xFF0C;&#x70B9;&#x51FB;Modules&#x9009;&#x9879;&#x5361;&#x8FDB;&#x5165;Web Modules&#x9875;&#x9762;&#x70B9;&#x51FB;&#x7B2C;&#x4E8C;&#x4E2A;&#x9009;&#x9879;&#x628A;&#x76F8;&#x5E94;&#x7684;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x548C;&#x771F;&#x5B9E;&#x8DEF;&#x5F84;&#x4E5F;&#x6DFB;&#x52A0;&#x8FDB;&#x53BB;&#xFF0C;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/04/17/img&#x901A;&#x8FC7;tomcat&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x5F15;&#x7528;&#x672C;&#x5730;&#x56FE;&#x7247;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417143515.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417143515.png"></p>
+<h2 id="&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5373;&#x53EF;"><a href="#&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5373;&#x53EF;" class="headerlink" title="&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5373;&#x53EF;"></a>&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5373;&#x53EF;</h2><p>&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5373;&#x53EF;&#x770B;&#x5230;</p>
+<p><img src="/2018/04/17/img&#x901A;&#x8FC7;tomcat&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x5F15;&#x7528;&#x672C;&#x5730;&#x56FE;&#x7247;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417144056.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417144056.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS对象排序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/17/JS对象排序/" class="article-date">
+      <time datetime="2018-04-17T14:07:05.000Z" itemprop="datePublished">2018-04-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/17/JS对象排序/">JS对象排序</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>JS&#x7684;&#x5BF9;&#x8C61;&#x6392;&#x5E8F;&#x7684;&#x5C0F;&#x6280;&#x5DE7;&#xFF0C;&#x4F7F;&#x7528;sort()&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</p>
+<pre><code>console.dir(process);
+function compare(property){
+    return function(a,b){
+        var value1 = a[property];
+        var value2 = b[property];
+        return value1 - value2;
+    }
+}
+var processSort = process.sort(compare(&apos;id&apos;));
+console.dir(process);
+</code></pre><p>&#x63A7;&#x5236;&#x53F0;&#x6253;&#x5370;&#x7684;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/04/17/JS&#x5BF9;&#x8C61;&#x6392;&#x5E8F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417142442.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417142442.png"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-layer弹框" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/10/layer弹框/" class="article-date">
+      <time datetime="2018-04-10T15:53:27.000Z" itemprop="datePublished">2018-04-10</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/10/layer弹框/">layer弹框</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="layer-prompt-&#x786E;&#x8BA4;&#x6846;"><a href="#layer-prompt-&#x786E;&#x8BA4;&#x6846;" class="headerlink" title="layer.prompt() &#x786E;&#x8BA4;&#x6846;"></a>layer.prompt() &#x786E;&#x8BA4;&#x6846;</h2><pre><code>layer.prompt({
+    title: &apos;&#x662F;&#x5426;&#x53D1;&#x9001;&#x5730;&#x5740;&#x6570;&#x636E;&#x5230;&apos;+row.jurisdiction+&apos;?&apos;,
+    value: row.address,
+    formType: 2
+}, function(text, index){
+    layer.close(index);
+    console.dir(text);
+    $.ajax({
+        url:&apos;rest/app/sendItem&apos;,
+        type:&quot;post&quot;,
+        data:{
+            id:row.id
+        },
+        success:function(){
+            layer.msg(&quot;&#x53D1;&#x9001;&#x6210;&#x529F;&#xFF1A;&quot;+text);    
+            back.refresh();
+        },
+        error:function(){
+            layer.msg(&quot;&#x53D1;&#x9001;&#x5931;&#x8D25;&#xFF1A;&quot;+text);    
+        }
+    })
+
+  });
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-RequestMapping解决中文乱码？？？" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/19/RequestMapping解决中文乱码？？？/" class="article-date">
+      <time datetime="2018-03-19T10:57:20.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/19/RequestMapping解决中文乱码？？？/">@RequestMapping详解及解决中文乱码？？？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="&#x4E71;&#x7801;&#x89E3;&#x51B3;"><a href="#&#x4E71;&#x7801;&#x89E3;&#x51B3;" class="headerlink" title="&#x4E71;&#x7801;&#x89E3;&#x51B3;"></a>&#x4E71;&#x7801;&#x89E3;&#x51B3;</h2><p>&#x6700;&#x8FD1;&#x63A5;&#x53E3;&#x5BF9;&#x63A5;&#xFF0C;ajax&#x8BF7;&#x6C42;rest&#x63A5;&#x53E3;&#xFF0C;&#x53D1;&#x73B0;&#x8FD4;&#x56DE;&#x7684;&#x4E2D;&#x6587;&#x6570;&#x636E;&#x5168;&#x662F;&#xFF1F;&#xFF1F;&#xFF1F;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/03/19/RequestMapping&#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x4E71;&#x7801;&#xFF1F;&#xFF1F;&#xFF1F;/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180319105857.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x56FE;&#x7247;_20180319105857.png"></p>
+<p>&#x540E;&#x53F0;&#x63A7;&#x5236;&#x53F0;&#x6253;&#x5370;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x5374;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x4E2D;&#x7F16;&#x7801;&#x7684;&#x95EE;&#x9898;<br><code>@RequestMapping</code>&#x6DFB;&#x52A0;<code>produces=&quot;application/json;charset=utf-8&quot;</code>&#x89E3;&#x51B3;</p>
+<pre><code>@RequestMapping(value = &quot;/queryAll&quot;, method = { RequestMethod.POST }, produces=&quot;application/json;charset=utf-8&quot;)
+</code></pre><h2 id="RequestMapping&#x53C2;&#x6570;"><a href="#RequestMapping&#x53C2;&#x6570;" class="headerlink" title="@RequestMapping&#x53C2;&#x6570;"></a>@RequestMapping&#x53C2;&#x6570;</h2><p>RequestMapping&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x5730;&#x5740;&#x6620;&#x5C04;&#x7684;&#x6CE8;&#x89E3;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x7C7B;&#x6216;&#x65B9;&#x6CD5;&#x4E0A;&#x3002;&#x7528;&#x4E8E;&#x7C7B;&#x4E0A;&#xFF0C;&#x8868;&#x793A;&#x7C7B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x4EE5;&#x8BE5;&#x5730;&#x5740;&#x4F5C;&#x4E3A;&#x7236;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>RequestMapping&#x6CE8;&#x89E3;&#x6709;&#x516D;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x628A;&#x5979;&#x5206;&#x6210;&#x4E09;&#x7C7B;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#xFF08;&#x4E0B;&#x9762;&#x6709;&#x76F8;&#x5E94;&#x793A;&#x4F8B;&#xFF09;&#x3002;</p>
+<ol>
+<li><p>value&#xFF0C; method&#xFF1B;<br><strong>value</strong>&#xFF1A;     &#x6307;&#x5B9A;&#x8BF7;&#x6C42;&#x7684;&#x5B9E;&#x9645;&#x5730;&#x5740;&#xFF0C;&#x6307;&#x5B9A;&#x7684;&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x662F;URI Template &#x6A21;&#x5F0F;&#xFF08;&#x540E;&#x9762;&#x5C06;&#x4F1A;&#x8BF4;&#x660E;&#xFF09;&#xFF1B;<br><strong>method</strong>&#xFF1A;  &#x6307;&#x5B9A;&#x8BF7;&#x6C42;&#x7684;method&#x7C7B;&#x578B;&#xFF0C; GET&#x3001;POST&#x3001;PUT&#x3001;DELETE&#x7B49;&#xFF1B;</p>
+</li>
+<li><p>consumes&#xFF0C;produces<br><strong>consumes</strong>&#xFF1A; &#x6307;&#x5B9A;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x63D0;&#x4EA4;&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#xFF08;Content-Type&#xFF09;&#xFF0C;&#x4F8B;&#x5982;application/json, text/html;<br><strong>produces</strong>:    &#x6307;&#x5B9A;&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#xFF0C;&#x4EC5;&#x5F53;request&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684;(Accept)&#x7C7B;&#x578B;&#x4E2D;&#x5305;&#x542B;&#x8BE5;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x624D;&#x8FD4;&#x56DE;&#xFF1B;</p>
+</li>
+<li><p>params&#xFF0C;headers<br><strong>params</strong>&#xFF1A; &#x6307;&#x5B9A;request&#x4E2D;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x67D0;&#x4E9B;&#x53C2;&#x6570;&#x503C;&#x662F;&#xFF0C;&#x624D;&#x8BA9;&#x8BE5;&#x65B9;&#x6CD5;&#x5904;&#x7406;&#x3002;<br><strong>headers</strong>&#xFF1A; &#x6307;&#x5B9A;request&#x4E2D;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x67D0;&#x4E9B;&#x6307;&#x5B9A;&#x7684;header&#x503C;&#xFF0C;&#x624D;&#x80FD;&#x8BA9;&#x8BE5;&#x65B9;&#x6CD5;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x3002;</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-ecplise导出maven工程依赖的jar包" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -892,422 +1184,6 @@ public class MybatisGeneratorApp
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SpringMVC中rest请求返回前台数据中含null报错" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/01/11/SpringMVC中rest请求返回前台数据中含null报错/" class="article-date">
-      <time datetime="2018-01-11T14:33:03.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/SpringMVC中rest请求返回前台数据中含null报错/">SpringMVC中rest请求返回前台数据中含null报错</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x6700;&#x8FD1;SpringMVC&#x6846;&#x67B6;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x9891;&#x7E41;&#x4F7F;&#x7528;hibernate&#x7EA7;&#x8054;&#x5173;&#x7CFB;&#xFF0C;&#x5982;@OneToOne&#xFF0C;@ManyToOne&#x7B49;&#xFF0C;&#x6BCF;&#x6B21;&#x524D;&#x53F0;ajax&#x53D1;&#x9001;rest&#x8BF7;&#x6C42;&#x603B;&#x662F;&#x540E;&#x53F0;&#x62A5;&#x9519;&#xFF0C;&#x540E;&#x53F0;&#x6253;&#x5370;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>org.springframework.http.converter.HttpMessageNotWritableException Could not write JSON: Object is null (through reference chain: net.sf.json.JSONObject[&quot;rows&quot;]-&gt;net.sf.json.JSONArray[1]-&gt;net.sf.json.JSONObject[&quot;taskId&quot;]-&gt;net.sf.json.JSONNull[&quot;empty&quot;]); nested exception is com.fasterxml.jackson.databind.JsonMappingException: Object is null (through reference chain: net.sf.json.JSONObject[&quot;rows&quot;]-&gt;net.sf.json.JSONArray[1]-&gt;net.sf.json.JSONObject[&quot;taskId&quot;]-&gt;net.sf.json.JSONNull[&quot;empty&quot;])] with root cause net.sf.json.JSONException: Object is null
-</code></pre><p>&#x5E94;&#x8BE5;&#x662F;&#x5728;Hibernate&#x67E5;&#x8BE2;&#x51FA;&#x6570;&#x636E;&#x5B9E;&#x4F53;&#x7C7B;&#x4F7F;&#x7528;jackson&#x5E8F;&#x5217;&#x5316;&#x4E3A;json&#x65F6;&#x62A5;&#x7684;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x4F53;&#x6570;&#x636E;&#x7684;&#x5916;&#x952E;taskID&#x4E3A;&#x7A7A;</p>
-<h2 id="JsonInclude-Include-NON-NULL"><a href="#JsonInclude-Include-NON-NULL" class="headerlink" title="@JsonInclude(Include.NON_NULL)"></a>@JsonInclude(Include.NON_NULL)</h2><ol>
-<li>&#x5728;&#x5B9E;&#x4F53;&#x4E0A;&#x8BBE;&#x7F6E; <code>@JsonInclude(Include.NON_NULL)</code> </li>
-</ol>
-<p>&#x5C06;&#x8BE5;&#x6807;&#x8BB0;&#x653E;&#x5728;&#x5C5E;&#x6027;&#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x5C5E;&#x6027;&#x4E3A;NULL&#x5219;&#x4E0D;&#x53C2;&#x4E0E;&#x5E8F;&#x5217;&#x5316;<br>&#x5982;&#x679C;&#x653E;&#x5728;&#x7C7B;&#x4E0A;&#x8FB9;,&#x90A3;&#x5BF9;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5168;&#x90E8;&#x5C5E;&#x6027;&#x8D77;&#x4F5C;&#x7528; </p>
-<pre><code>Include.Include.ALWAYS &#x9ED8;&#x8BA4; 
-Include.NON_DEFAULT &#x5C5E;&#x6027;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x5E8F;&#x5217;&#x5316; 
-Include.NON_EMPTY &#x5C5E;&#x6027;&#x4E3A; &#x7A7A;&#xFF08;&#x201C;&#x201D;&#xFF09; &#x6216;&#x8005;&#x4E3A; NULL &#x90FD;&#x4E0D;&#x5E8F;&#x5217;&#x5316; 
-Include.NON_NULL &#x5C5E;&#x6027;&#x4E3A;NULL &#x4E0D;&#x5E8F;&#x5217;&#x5316; 
-</code></pre><ol>
-<li>&#x4EE3;&#x7801;&#x4E0A;</li>
-</ol>
-<pre><code>ObjectMapper mapper = new ObjectMapper();
-mapper.setSerializationInclusion(Include.NON_NULL);  
-</code></pre><p>&#x901A;&#x8FC7;&#x8BE5;&#x65B9;&#x6CD5;&#x5BF9;mapper&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x6240;&#x6709;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#x90FD;&#x5C06;&#x6309;&#x6539;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x7CFB;&#x5217;&#x5316; </p>
-<pre><code>User user = new User(1,&quot;&quot;,null); 
-String outJson = mapper.writeValueAsString(user); 
-System.out.println(outJson);
-</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x53EA;&#x5BF9;&#x5B9E;&#x4F53;VO&#x8D77;&#x4F5C;&#x7528;&#xFF0C;Map List&#x4E0D;&#x8D77;&#x4F5C;&#x7528;</p>
-<p>&#x53C2;&#x8003;&#xFF1A;<br><a href="http://www.cnblogs.com/yangy608/p/3936848.html" target="_blank" rel="external">jackson &#x5B9E;&#x4F53;&#x8F6C;json &#x4E3A;NULL&#x6216;&#x8005;&#x4E3A;&#x7A7A;&#x4E0D;&#x53C2;&#x52A0;&#x5E8F;&#x5217;&#x5316;</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-arcgis3标记标绘" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/11/10/arcgis3标记标绘/" class="article-date">
-      <time datetime="2017-11-10T15:31:45.000Z" itemprop="datePublished">2017-11-10</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/10/arcgis3标记标绘/">arcgis3标记标绘</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>arcgis3.22&#x7B97;&#x65F6;&#x5F53;&#x524D;&#x6700;&#x65B0;&#x7684;3&#x7248;&#x672C;&#x7684;API&#x4E86;&#xFF0C;&#x9879;&#x76EE;&#x9700;&#x8981;&#xFF0C;&#x6574;&#x7406;&#x4E00;&#x4E0B;&#x7B80;&#x5355;&#x7684;&#x6807;&#x8BB0;&#x6807;&#x7ED8;&#x529F;&#x80FD;&#xFF0C;&#x4EE5;&#x540E;&#x5C31;&#x76F4;&#x63A5;<code>crtl+C,ctrl+V</code>&#x4E86;&#x3002;</p>
-<p>&#x4EE3;&#x7801;&#x7B26;&#x5408;AMD&#x89C4;&#x8303;&#xFF0C;&#x65B9;&#x4FBF;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x8C03;&#x7528;&#x3002;</p>
-<h2 id="polygon&#x591A;&#x8FB9;&#x5F62;"><a href="#polygon&#x591A;&#x8FB9;&#x5F62;" class="headerlink" title="polygon&#x591A;&#x8FB9;&#x5F62;"></a>polygon&#x591A;&#x8FB9;&#x5F62;</h2><pre><code>back.drawPolygon = function(){
-      toolbar = new Draw(ArcGIS.mainMap);
-      toolbar.on(&quot;draw-end&quot;, addPolygon);
-      toolbar.activate(&quot;polygon&quot;);
-}
-
-function addPolygon(evt){
-     toolbar.deactivate();
-     var symbol = new SimpleFillSymbol(  
-                SimpleFillSymbol.STYLE_SOLID,  
-                new SimpleLineSymbol(  
-                  SimpleLineSymbol.STYLE_SOLID,  
-                  new Color([255,0,0,0.65]), 2  
-                ),  
-                new Color([0,0,0,0.35])  
-              ); 
-     ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, symbol));
-}
-</code></pre><blockquote>
-<p>polygon&#x56FE;&#x7247;&#x586B;&#x5145;</p>
-</blockquote>
-<pre><code>var fillSymbol = new PictureFillSymbol(
-      &quot;images/mangrove.png&quot;, new SimpleLineSymbol(
-        SimpleLineSymbol.STYLE_SOLID,
-        new Color(&apos;#000&apos;), 1), 42,42);
-</code></pre><blockquote>
-<p>polygon&#x534A;&#x900F;&#x660E;&#xFF0C;&#x7B80;&#x5355;&#x989C;&#x8272;&#x586B;&#x5145;</p>
-</blockquote>
-<pre><code>var symbol = new SimpleFillSymbol(  
-       SimpleFillSymbol.STYLE_SOLID,  
-       new SimpleLineSymbol(  
-         SimpleLineSymbol.STYLE_SOLID,  
-         new Color([255,0,0,0.65]), 2  
-       ),  
-       new Color([0,0,0,0.35])  
-     );
-</code></pre><h2 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h2><pre><code>back.drawArea = function() {
-      toolbar = new Draw(ArcGIS.mainMap);
-      toolbar.on(&quot;draw-end&quot;, addCircle);
-      toolbar.activate(&quot;circle&quot;);
-}
-
-function addCircle(evt){
-  toolbar.deactivate();
- var symbol = new SimpleFillSymbol(  
-        SimpleFillSymbol.STYLE_SOLID,  
-        new SimpleLineSymbol(  
-          SimpleLineSymbol.STYLE_SOLID,  
-          new Color([255,0,0,0.65]), 2  
-        ),  
-        new Color([0,0,0,0.35])  
-      );
-  ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, symbol));
-}
-</code></pre><h2 id="polyline&#x6298;&#x7EBF;"><a href="#polyline&#x6298;&#x7EBF;" class="headerlink" title="polyline&#x6298;&#x7EBF;"></a>polyline&#x6298;&#x7EBF;</h2><pre><code>back.drawDistance = function() {
-    tb = new Draw(ArcGIS.mainMap);
-    tb.on(&quot;draw-end&quot;, addPolyline);
-    ArcGIS.mainMap.disableMapNavigation();
-    tb.activate(&quot;polyline&quot;);
-}
-
-function addPolyline(evt) {
-    tb.deactivate();
-    ArcGIS.mainMap.enableMapNavigation();
-    var lineSymbol = new CartographicLineSymbol(
-            CartographicLineSymbol.STYLE_SOLID, new Color([ 255, 0, 0 ]),
-            3, CartographicLineSymbol.CAP_ROUND,
-            CartographicLineSymbol.JOIN_MITER, 2);
-    ArcGIS.mainMap.graphics.add(new Graphic(evt.geometry, lineSymbol));
-}
-</code></pre><h2 id="point&#x70B9;"><a href="#point&#x70B9;" class="headerlink" title="point&#x70B9;"></a>point&#x70B9;</h2><pre><code>back.drawPoint = function(url) {
-    var events = ArcGIS.mainMap.on(&quot;click&quot;, function(e) {
-        var pt = new esri.geometry.Point(e.mapPoint.x, e.mapPoint.y,
-                ArcGIS.mainMap.spatialReference);
-        var pictureMarkerSymbol = new PictureMarkerSymbol(url, 31, 31);
-        var attr = {
-            &quot;name&quot; : &quot;1&quot;,
-            &quot;remark&quot; : &quot;1&quot;
-        };
-        graphic = new esri.Graphic(pt, pictureMarkerSymbol, attr, null);
-        ArcGIS.mainMap.graphics.add(graphic);
-        events.remove();
-    });
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arcgis/">arcgis</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ajax表单提交" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/31/ajax表单提交/" class="article-date">
-      <time datetime="2017-10-31T14:51:24.000Z" itemprop="datePublished">2017-10-31</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/31/ajax表单提交/">ajax表单提交</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="&#x65B9;&#x6CD5;&#x4E00;"><a href="#&#x65B9;&#x6CD5;&#x4E00;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E00;"></a>&#x65B9;&#x6CD5;&#x4E00;</h2><pre><code>$.ajax({
-    url : &quot;rest/lost/saveLost&quot;,
-    type : &quot;post&quot;,
-    cache : false,
-    dataType : &apos;json&apos;,
-    data : $(form).serializeArray(),
-    success : function(result) {
-        if (result)
-            alertConfirm(&quot;&#x6DFB;&#x52A0;&#x6210;&#x529F;&quot;);
-        else
-            alertView(&quot;&#x6DFB;&#x52A0;&#x5931;&#x8D25;&quot;);
-    },
-});
-</code></pre><h3 id="&#x540E;&#x53F0;java&#x4EE3;&#x7801;"><a href="#&#x540E;&#x53F0;java&#x4EE3;&#x7801;" class="headerlink" title="&#x540E;&#x53F0;java&#x4EE3;&#x7801;"></a>&#x540E;&#x53F0;java&#x4EE3;&#x7801;</h3><pre><code>@RequestMapping(value=&quot;/saveLost&quot;,method = RequestMethod.POST)
-@ResponseBody
-public boolean saveLost(@RequestParam(&quot;goodName&quot;) String goodName,
-        @RequestParam(&quot;lostTime&quot;) String lostTime,
-        @RequestParam(value = &quot;place&quot;, required = false) String place,
-        @RequestParam(&quot;descption&quot;) String descption,
-        @RequestParam(value = &quot;telephone&quot;, required = true) String telephone) throws ParseException{
-
-    Lost lost = new Lost();
-    lost.setDescption(descption);
-    lost.setGoodName(goodName);
-    Date time = (Date) Common.toDateStandard(lostTime);
-    lost.setLostTime(time);
-    lost.setTelephone(telephone);
-    lost.setPeople(telephone);
-    lost.setPlace(place);
-    lost.setStates(&quot;0&quot;);
-    try {
-        lostServiceImpl.insert(lost);
-    } catch (Exception e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-        return false;
-    }
-    return true;
-}
-</code></pre><h2 id="&#x65B9;&#x6CD5;&#x4E8C;"><a href="#&#x65B9;&#x6CD5;&#x4E8C;" class="headerlink" title="&#x65B9;&#x6CD5;&#x4E8C;"></a>&#x65B9;&#x6CD5;&#x4E8C;</h2><pre><code>function edit(oldValue){
-    $.ajax({
-        url:&quot;rest/depart/edit&quot;,
-        type:&quot;post&quot;,
-        cache:false,
-        dataType:&quot;json&quot;,
-        contentType:&quot;application/json; charset=utf-8&quot;,
-        data:JSON.stringify(oldValue),
-        success:function(result){
-            if (result){
-                alertView(&quot;&#x4FEE;&#x6539;&#x6210;&#x529F;&quot;);
-                query(oldValue.descption);
-            }            
-            else
-                alertView(&quot;&#x4FEE;&#x6539;&#x5931;&#x8D25;&quot;);
-        }
-    })
-}
-
-@RequestMapping(value = &quot;/edit&quot;,method=RequestMethod.POST)
-@ResponseBody
-public boolean edit(@RequestBody Object value) {
-
-    JSONObject jsonObj = JSONObject.fromObject(value);//&#x5C06;json&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;json&#x5BF9;&#x8C61;
-    Department depart = (Department) JSONObject.toBean(jsonObj,Department.class);//&#x5C06;&#x5EFA;json&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;PublicGarden&#x5BF9;&#x8C61;
-    departServiceImpl.update(depart);
-    return true;
-}
-</code></pre><p>&#x76F4;&#x63A5;&#x4E0A;&#x4EE3;&#x7801;&#x7B80;&#x5355;&#x660E;&#x4E86;&#x5F97;&#x610F;<img src="/2017/10/31/ajax&#x8868;&#x5355;&#x63D0;&#x4EA4;/1509432811706.jpg" alt="enter description here" title="1509432811706.jpg"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-百度地图支持https" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/23/百度地图支持https/" class="article-date">
-      <time datetime="2017-10-23T10:22:45.000Z" itemprop="datePublished">2017-10-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/23/百度地图支持https/">百度地图支持https</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>&#x767E;&#x5EA6;&#x5730;&#x5740;&#x652F;&#x6301;https&#x534F;&#x8BAE;&#xFF0C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://api.map.baidu.com/api?v=2.0&amp;ak=&#x60A8;&#x7684;&#x79D8;&#x94A5;&amp;s=1&quot;&gt;&lt;/script&gt;
-</code></pre><p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x8FD8;&#x662F;&#x7528;HTTP&#x534F;&#x8BAE;&#x65F6;&#xFF0C;&#x5F15;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=Ua9wlu6LbqmNKVbMEGtkgSxvljqZC5fc&quot;&gt;&lt;/script&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/baidu-map/">baidu map</a></li></ul>
     </div>
 
       

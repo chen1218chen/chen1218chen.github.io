@@ -286,6 +286,531 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-chrome跨域报错" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/03/chrome跨域报错/" class="article-date">
+      <time datetime="2016-11-03T14:05:16.000Z" itemprop="datePublished">2016-11-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/03/chrome跨域报错/">angular的ajax请求chrome跨域报错(XMLHttpRequest cannot loadfile:* Cross origin requests are only supported for protocol schemes)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;"></a>&#x6D4F;&#x89C8;&#x5668;&#x52A0;&#x53C2;&#x6570;&#x201D;&#x2013;allow-file-access-from-files&#x201D;</h2><p>ajax&#x8BF7;&#x6C42;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x6587;&#x4EF6;&#xFF0C;chrome&#x62A5;&#x8DE8;&#x57DF;&#x9519;&#x8BEF;</p>
+<pre><code>XMLHttpRequest cannot loadfile:///C:/Users/Li/Desktop/images/alist.json.Cross origin requests are only supported for protocol schemes: http, data,chrome-extension, https, chrome-extension-resource.
+</code></pre><p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x7ED9;chrome&#x6DFB;&#x52A0;&#x542F;&#x52A8;&#x53C2;&#x6570;&#xFF1A;<code>--allow-file-access-from-files</code><br><strong>&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#xFF1A;</strong><br>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x5FEB;&#x6377;&#x65B9;&#x5F0F;&#x4E0A;&#x53F3;&#x952E;-&#x5C5E;&#x6027;-&#x5FEB;&#x6377;&#x65B9;&#x5F0F;-&#x76EE;&#x6807; &#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/11/03/chrome&#x8DE8;&#x57DF;&#x62A5;&#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161103140925.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20161103140925.png"></p>
+<h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><p>&#x90E8;&#x7F72;&#x5230;tomcat&#x4E2D;&#x53BB;&#xFF0C;&#x901A;&#x8FC7;<code>http://localhost:8080/XXX/#/index</code>&#x6765;&#x8BBF;&#x95EE;</p>
+<h2 id="http-server"><a href="#http-server" class="headerlink" title="http-server"></a>http-server</h2><p>&#x5B89;&#x88C5;http-server&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x96F6;&#x914D;&#x7F6E;&#x547D;&#x4EE4;&#x884C;HTTP&#x670D;&#x52A1;&#x5668;, &#x57FA;&#x4E8E; nodeJs.</p>
+<pre><code>npm install http-server -g
+</code></pre><p>Windows &#x4E0B;&#x4F7F;&#x7528;:<br>&#x5728;&#x7AD9;&#x70B9;&#x76EE;&#x5F55;&#x4E0B;&#x5F00;&#x542F;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;</p>
+<pre><code>http-server
+</code></pre><p><img src="/2016/11/03/chrome&#x8DE8;&#x57DF;&#x62A5;&#x9519;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20161108111223.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20161108111223.png"><br>&#x8BBF;&#x95EE;: <a href="http://localhost:8081" target="_blank" rel="external">http://localhost:8081</a> or <a href="http://127.0.0.1:8081&#x5373;&#x53EF;&#x3002;" target="_blank" rel="external">http://127.0.0.1:8081&#x5373;&#x53EF;&#x3002;</a></p>
+<h2 id="firfox"><a href="#firfox" class="headerlink" title="firfox"></a>firfox</h2><p>&#x518D;&#x6216;&#x8005;&#x4F60;&#x61D2;&#x5F97;&#x5012;&#x817E;&#x5404;&#x79CD;&#x65B9;&#x6CD5;&#x5C31;&#x6362;&#x6D4F;&#x89C8;&#x5668;&#x5427;&#xFF0C;&#x7528;firfox&#x5C31;&#x53EF;&#x4EE5;&#x5566;&#x3002;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular常见错误分析（新手）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/02/angular常见错误分析（新手）/" class="article-date">
+      <time datetime="2016-11-02T11:17:56.000Z" itemprop="datePublished">2016-11-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/02/angular常见错误分析（新手）/">angular常见错误分析（新手篇）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x65B0;&#x624B;&#x5165;&#x95E8;angular&#x78B0;&#x89C1;&#x5404;&#x79CD;&#x9519;&#x8BEF;&#xFF0C;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x8DDF;&#x5927;&#x5BB6;&#x5206;&#x4EAB;&#xFF0C;&#x5E0C;&#x671B;&#x6709;&#x7528;&#x3002;</p>
+<blockquote>
+<p>[ng:areq] Argument &#x2018;DemoCtrl&#x2019; is not a function, got undefined&#xFF01;</p>
+</blockquote>
+<p>&#x8FD9;&#x5F80;&#x5F80;&#x662F;&#x56E0;&#x4E3A;&#x5FD8;&#x8BB0;&#x5B9A;&#x4E49;controller&#x6216;&#x8005;&#x662F;&#x58F0;&#x660E;&#x4E86;&#x591A;&#x6B21;module&#xFF0C;&#x591A;&#x6B21;&#x58F0;&#x660E;module&#x4F1A;&#x5BFC;&#x81F4;&#x524D;&#x8FB9;&#x7684;module&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x88AB;&#x6E05;&#x7A7A;&#xFF0C;&#x6240;&#x4EE5;&#x7A0B;&#x5E8F;&#x5C31;&#x4F1A;&#x627E;&#x4E0D;&#x5230;&#x5DF2;&#x5B9A;&#x4E49;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
+<blockquote>
+<p>Error: [$injector:unpr] </p>
+</blockquote>
+<p>unpr&#x5168;&#x79F0;&#x662F;Unknown Provider&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x4F60;&#x6CE8;&#x5165;&#x7684;&#x4E1C;&#x897F;</p>
+<h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><p>angular.module(&#x2018;MyApp&#x2019;,[&#x2026;])&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Angular&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x65B9;&#x62EC;&#x53F7;&#xFF08;[&#x2026;]&#xFF09;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x5217;&#x8868;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#xFF1B;<br>&#x800C;angular.module(&#x2018;MyApp&#x2019;)&#x4F1A;&#x4F7F;&#x7528;&#x7531;&#x7B2C;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x5B9A;&#x4E49;&#x7684;&#x73B0;&#x6709;&#x7684;&#x6A21;&#x5757;&#x3002;<br>&#x6240;&#x4EE5;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x5728;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x4E2D;&#x53EA;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x6B21;&#xFF1A;</p>
+<pre><code>angular.module(&apos;MyApp&apos;, [...]);
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react-Demo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/28/react-Demo/" class="article-date">
+      <time datetime="2016-10-28T09:42:30.000Z" itemprop="datePublished">2016-10-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/28/react-Demo/">React Demo</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>[TOC]</p>
+<h2 id="React-findDOMNode"><a href="#React-findDOMNode" class="headerlink" title="React.findDOMNode()"></a>React.findDOMNode()</h2><p>React.findDOMNode()&#x4ECE;&#x7EC4;&#x4EF6;&#x83B7;&#x53D6;&#x771F;&#x5B9E;DOM&#x7684;&#x8282;&#x70B9;&#x3002;</p>
+<pre><code>var MyComponent = React.createClass({
+        handleClick:function(){
+            React.findDOMNode(this.refs.myTextInput).focus();
+        },
+        render:function(){
+            return (
+                &lt;div&gt;
+                    &lt;input type=&quot;text&quot; ref=&quot;myTextInput&quot; /&gt;
+                    &lt;input type=&quot;button&quot; value=&quot;Focus the text input&quot; onClick={this.handleClick}/&gt;
+                &lt;/div&gt;
+            );
+        }
+    });
+    React.render(
+        &lt;MyComponent /&gt;,
+        document.getElementById(&apos;example&apos;)
+    );
+</code></pre><h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p>ref&#x4E0E;React.findDOMNode()&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x8BE5;&#x529F;&#x80FD;&#x662F;&#x4E3A;&#x4E86;&#x7ED3;&#x5408;&#x73B0;&#x6709;&#x975E;React&#x7C7B;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;ref/refs&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5F97;&#x5230;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FDB;&#x800C;&#x53D6;&#x5F97;&#x539F;&#x751F;&#x8282;&#x70B9;&#x3002;</p>
+<pre><code>var Test = React.createClass({
+    componentDidMount(){
+      alert(React.findDOMNode(this.refs.content).innerHTML);
+    },
+    render(){
+        return &lt;div&gt;
+            &lt;h3&gt;header&lt;/h3&gt;
+            &lt;div ref=&apos;content&apos;&gt;content&lt;/div&gt;
+        &lt;/div&gt;;
+    }
+});
+
+React.render(&lt;Test /&gt;,document.getElementById(&apos;example&apos;));
+</code></pre><h2 id="this-state"><a href="#this-state" class="headerlink" title="this.state"></a>this.state</h2><pre><code>var LikeButton = React.createClass({
+        getInitialState:function(){
+            return {liked:false};
+        },
+        handleClick:function(event){
+            this.setState({liked: !this.state.liked});
+        },
+        render:function(){
+            var text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+            return (
+                &lt;p onClick={this.handleClick}&gt;
+                    You {text} this.Click to toggle.
+                &lt;/p&gt;
+            ); 
+        }
+    });
+    React.render(
+        &lt;LikeButton /&gt;,
+        document.getElementById(&apos;example&apos;)
+    );
+</code></pre><h2 id="&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;"><a href="#&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;" class="headerlink" title="&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;"></a>&#x83B7;&#x53D6;&#x8868;&#x5355;&#x503C;</h2><p>&#x7528;&#x6237;&#x5728;&#x8868;&#x5355;&#x586B;&#x5165;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5C5E;&#x4E8E;&#x7528;&#x6237;&#x8DDF;&#x7EC4;&#x4EF6;&#x7684;&#x4E92;&#x52A8;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x7528;this.props&#x8BFB;&#x53D6;&#x3002;</p>
+<pre><code>  var Input = React.createClass({
+    getInitialState:function(){
+        return {value:&apos;Hello!&apos;};
+    },
+    handleChange:function(event){
+        this.setState({value:event.target.value});
+    },
+    render:function(){
+        var value = this.state.value;
+        return (
+            &lt;div&gt;
+                &lt;input type=&quot;text&quot; value={value} onChange={this.handleChange} /&gt;
+                &lt;p&gt;{value}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+});
+React.render(&lt;Input /&gt;,document.getElementById(&apos;example&apos;));
+</code></pre><p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6587;&#x672C;&#x8F93;&#x5165;&#x6846;&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;this.props.value&#x8BFB;&#x53D6;&#xFF0C;&#x800C;&#x8981;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;onChange&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;event.target.value&#x8BFB;&#x53D6;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x503C;&#x3002;textarea&#x5143;&#x7D20;&#x3001;select&#x5143;&#x7D20;&#x3001;radio&#x5143;&#x7D20;&#x90FD;&#x5C5E;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;</p>
+<ul>
+<li>value/checked&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x540E;&#xFF0C;&#x7528;&#x6237;&#x8F93;&#x5165;&#x65E0;&#x6548;</li>
+<li>textarea&#x7684;&#x503C;&#x8981;&#x8BBE;&#x7F6E;&#x5728;value&#x5C5E;&#x6027;&#x4E0A;</li>
+<li>select&#x7684;value&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;option&#x7684;selected&#x5C5E;&#x6027;</li>
+<li>input/textarea&#x7684;onChange&#x7528;&#x6237;&#x6BCF;&#x6B21;&#x8F93;&#x5165;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;</li>
+<li>radio/checkbox&#x70B9;&#x51FB;&#x540E;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;onChange</li>
+</ul>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;value&#x5C5E;&#x6027;&#xFF0C;&#x7EC4;&#x4EF6;&#x53D8;&#x4E3A;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;&#xFF0C;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8F93;&#x5165;&#xFF0C;&#x9664;&#x975E;&#x7A0B;&#x5E8F;&#x6539;&#x53D8;value&#x5C5E;&#x6027;&#x3002;&#x53D7;&#x63A7;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x76D1;&#x542C;handleChange&#x4E8B;&#x4EF6;&#xFF0C;&#x7ED3;&#x5408;state&#x6765;&#x6539;&#x53D8;input&#x503C;&#x3002;</p>
+<h2 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h2><p>&#x5177;&#x4F53;&#x89C1;<strong>&#x8BC4;&#x8BBA;&#x6846;&#x793A;&#x4F8B;&#x4E2D;</strong>&#xFF0C;ajax&#x4E5F;&#x53EF;&#x76F4;&#x63A5;&#x5199;&#x5728;componentDidMount&#x4E2D;&#x3002;</p>
+<h2 id="&#x8BC4;&#x8BBA;&#x6846;Demo"><a href="#&#x8BC4;&#x8BBA;&#x6846;Demo" class="headerlink" title="&#x8BC4;&#x8BBA;&#x6846;Demo"></a>&#x8BC4;&#x8BBA;&#x6846;Demo</h2><pre><code>// &#x4EE3;&#x7801;&#x6458;&#x81EA;&#x5B98;&#x7F51;&#x6559;&#x7A0B;
+var CommentBox = React.createClass({
+    getInitialState: function() {
+        return {data: []};
+    },
+  loadCommentsFromServer: function() {
+      getInitialState: function() {
+        return {data: []};
+      },
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        &lt;Comment author={comment.author} key={comment.id}&gt;
+          {comment.text}
+        &lt;/Comment&gt;
+      );
+    });
+    return (
+      &lt;div className=&quot;commentList&quot;&gt;
+        {commentNodes}
+      &lt;/div&gt;
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      &lt;form className=&quot;commentForm&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Your name&quot; /&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Say something...&quot; /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;CommentBox url=&quot;/api/comments&quot; pollInterval={2000} /&gt;,
+  document.getElementById(&apos;content&apos;)
+);
+</code></pre><p>&#x82E5;child&#x9700;&#x8981;&#x5411;parent&#x4F20;&#x9012;&#x503C;&#xFF0C;&#x5219;</p>
+<pre><code>//&#x4FEE;&#x6539;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;
+var CommentForm = React.createClass({
+  getInitialState: function() {
+    return {author: &apos;&apos;, text: &apos;&apos;};
+  },
+  handleAuthorChange: function(e) {
+    this.setState({author: e.target.value});
+  },
+  handleTextChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var author = this.state.author.trim();
+    var text = this.state.text.trim();
+    if (!text || !author) {
+      return;
+    }
+    this.props.onCommentSubmit({author: author, text: text});
+    this.setState({author: &apos;&apos;, text: &apos;&apos;});
+  },
+  render: function() {
+    return (
+      &lt;form className=&quot;commentForm&quot; onSubmit={this.handleSubmit}&gt;
+        &lt;input
+          type=&quot;text&quot;
+          placeholder=&quot;Your name&quot;
+          value={this.state.author}
+          onChange={this.handleAuthorChange}
+        /&gt;
+        &lt;input
+          type=&quot;text&quot;
+          placeholder=&quot;Say something...&quot;
+          value={this.state.text}
+          onChange={this.handleTextChange}
+        /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Post&quot; /&gt;
+      &lt;/form&gt;
+    );
+  }
+});
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleCommentSubmit: function(comment) {
+    var comments = this.state.data;
+    &lt;!-- Optimistically set an id on the new comment. It will be replaced by an id generated by the server. In a production application you would likely not use Date.now() for this and would have a more robust system in place.--&gt;
+    comment.id = Date.now();
+    var newComments = comments.concat([comment]);
+    this.setState({data: newComments});
+    $.ajax({
+      url: this.props.url,
+      dataType: &apos;json&apos;,
+      type: &apos;POST&apos;,
+      data: comment,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: comments});
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      &lt;div className=&quot;commentBox&quot;&gt;
+        &lt;h1&gt;Comments&lt;/h1&gt;
+        &lt;CommentList data={this.state.data} /&gt;
+        &lt;CommentForm onCommentSubmit={this.handleCommentSubmit} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactJS/">ReactJS</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tomcat发布后访问路径问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/27/tomcat发布后访问路径问题/" class="article-date">
+      <time datetime="2016-10-27T14:33:29.000Z" itemprop="datePublished">2016-10-27</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/27/tomcat发布后访问路径问题/">tomcat发布后访问路径问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&#x8FD1;&#x6765;&#x4E00;&#x76F4;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;tomcat&#x5DE5;&#x7A0B;&#x53D1;&#x5E03;&#x540E;&#x8DEF;&#x5F84;&#x4E0D;&#x5BF9;&#xFF0C;&#x7528;<a href="http://localhost:8080/Urban/login.jsp&#x62A5;404&#xFF0C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#x62A5;404&#xFF0C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x3002;</a></p>
+<blockquote>
+<p>&#x8FD9;&#x662F;tomcat&#x7684;server.xml&#x6587;&#x4EF6;&#x914D;&#x7F6E;</p>
+</blockquote>
+<pre><code>&lt;Context docBase=&quot;chengguanfuwuqi&quot; path=&quot;/Urban&quot; reloadable=&quot;false&quot; source=&quot;org.eclipse.jst.jee.server:chengguanfuwuqi&quot;/&gt;&lt;/Host&gt;
+</code></pre><p>&#x67E5;&#x9605;&#x8D44;&#x6599;&#x90FD;&#x8BF4;&#xFF0C;docBase&#x662F;&#x5DE5;&#x7A0B;&#x7684;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x6210;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x662F;&#x6307;%TOMCAT_HOME%/webapps/&#x4E0B;&#xFF0C;path&#x662F;&#x6307;&#x865A;&#x62DF;&#x7684;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;&#x3002;&#x8FD9;&#x4E48;&#x8BF4;&#x6765;<a href="http://localhost:8080/Urban/login.jsp&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</a></p>
+<p>&#x5982;&#x679C;&#x8FD8;&#x662F;&#x51FA;&#x73B0;404&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x4E14;&#x524D;&#x9762;&#x914D;&#x7F6E;&#x6CA1;&#x6709;&#x9519;&#xFF0C;&#x53EF;&#x80FD;&#x5C31;&#x662F;&#x5728;%TOMCAT_HOME%/conf/web.xml&#x6587;&#x4EF6;&#x4E2D;&#x628A;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#x663E;&#x793A;&#x76EE;&#x5F55;&#x7ED9;&#x7981;&#x6B62;&#x5566;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x5728;tomcat&#x7684;web.xml&#x6587;&#x4EF6;&#x4E2D;&#x627E;&#x5230;&#xFF1A;</p>
+<pre><code> &lt;servlet&gt;
+    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.catalina.servlets.DefaultServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;debug&lt;/param-name&gt;
+        &lt;param-value&gt;0&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;listings&lt;/param-name&gt;
+        &lt;param-value&gt;false&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+</code></pre><p>&#x5C06;listings&#x7684;value&#x6539;&#x4E3A;true,&#x7136;&#x540E;&#x91CD;&#x65B0;&#x542F;&#x52A8;tomcat&#xFF0C;&#x5728;&#x8F93;&#x5165;<a href="http://localhost:8080/Urban/login.jsp&#xFF0C;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#xFF01;" target="_blank" rel="external">http://localhost:8080/Urban/login.jsp&#xFF0C;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#xFF01;</a><br>&#x5982;&#x679C;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x5B8C;&#x6210;&#xFF0C;&#x51C6;&#x5907;&#x90E8;&#x7F72;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x65F6;&#xFF0C;&#x8BB0;&#x4F4F;&#x8981;&#x628A;web.xml&#x6587;&#x4EF6;&#x4E2D;&#x53C2;&#x6570;listings&#x7684;&#x503C;&#x6539;&#x4E3A;false&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x628A;&#x9879;&#x76EE;&#x7684;&#x90E8;&#x7F72;&#x8DEF;&#x5F84;&#x5448;&#x73B0;&#x7ED9;&#x4F7F;&#x7528;&#x8005;&#xFF01;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat/">tomcat</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-IntellJ-IDEA生成war包" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1033,436 +1558,6 @@ private static final Logger logger = LoggerFactory.getLogger(User.class);
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Log4j/">Log4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Slf4j/">Slf4j</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Spring-Restful-web-services" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/14/Spring-Restful-web-services/" class="article-date">
-      <time datetime="2016-09-14T10:42:30.000Z" itemprop="datePublished">2016-09-14</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/14/Spring-Restful-web-services/">Spring Restful web services</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>Spring &#x662F;&#x6D41;&#x884C;&#x7684; Java EE &#x5E94;&#x7528;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x73B0;&#x5728;&#x5B83;&#x7684; MVC &#x5C42;&#x4E5F;&#x652F;&#x6301; REST &#x4E86;,<br>&#x5728;Spring&#x6846;&#x67B6;&#x652F;&#x6301;REST&#x4E4B;&#x524D;&#xFF0C;&#x4EBA;&#x4EEC;&#x4F1A;&#x9009;&#x7528;&#x5176;&#x4ED6;&#x51E0;&#x79CD;&#x6280;&#x672F;&#x6765;&#x5B9E;&#x73B0;java&#x7684;RESTful Web Services,&#x5982;REStlet,Jersey&#x548C;RESTEasy&#x3002;<br><strong>Spring3.0</strong>&#x4E4B;&#x540E;&#x589E;&#x52A0;&#x4E86;&#x5BF9;RESTful Web Services&#x7684;&#x652F;&#x6301;&#x3002;REST &#x652F;&#x6301;&#x88AB;&#x65E0;&#x7F1D;&#x6574;&#x5408;&#x5230; Spring &#x7684; MVC &#x5C42;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5E94;&#x7528;&#x5230;&#x4F7F;&#x7528; Spring &#x6784;&#x5EFA;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x3002;<br>Spring REST &#x652F;&#x6301;&#x7684;&#x4E3B;&#x8981;&#x7279;&#x6027;&#x5305;&#x62EC;&#xFF1A;</p>
-<ul>
-<li>&#x6CE8;&#x91CA;&#xFF0C;&#x5982; @RequestMapping &#x548C; @PathVariable&#xFF0C;&#x652F;&#x6301;&#x8D44;&#x6E90;&#x6807;&#x8BC6;&#x548C; URL &#x6620;&#x5C04;</li>
-<li>ContentNegotiatingViewResolver &#x652F;&#x6301;&#x4E3A;&#x4E0D;&#x540C;&#x7684; MIME/&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8868;&#x793A;&#x65B9;&#x5F0F;</li>
-<li>&#x4F7F;&#x7528;&#x76F8;&#x4F3C;&#x7684;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x65E0;&#x7F1D;&#x5730;&#x6574;&#x5408;&#x5230;&#x539F;&#x59CB;&#x7684; MVC &#x5C42;<h2 id="&#x5B9E;&#x73B0;"><a href="#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a>&#x5B9E;&#x73B0;</h2>web.xml&#x4E2D;&#x6FC0;&#x6D3B;Spring,&#x914D;&#x7F6E;&#xFF1A;</li>
-</ul>
-<pre><code>listener-ContextLoadListener
-servlet-DispatcherServlet
-</code></pre><p>Spring&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
-<pre><code>&lt;!--&#x6307;&#x660E; controller &#x6240;&#x5728;&#x5305;&#xFF0C;&#x5E76;&#x626B;&#x63CF;&#x5176;&#x4E2D;&#x7684;&#x6CE8;&#x89E3;--&gt;
-&lt;context:component-scan base-package=&quot;com.aerors.th.gis&quot;/&gt;
-&lt;!-- &#x5F00;&#x542F;&#x6CE8;&#x89E3; --&gt;
-&lt;mvc:annotation-driven/&gt;
-&lt;!-- &#x7528;&#x6CE8;&#x89E3;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x6CE8;&#x5165; --&gt;
-&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;
-</code></pre><p><strong>component-scan:</strong> &#x542F;&#x7528;&#x5BF9;&#x5E26;&#x6709; Spring &#x6CE8;&#x91CA;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x626B;&#x63CF;<br>&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x5B83;&#x5C06;&#x68C0;&#x67E5;&#x63A7;&#x5236;&#x5668;&#x7C7B;&#x4E2D;&#x6240;&#x5B9A;&#x4E49;&#x7684; @Controller &#x6CE8;&#x91CA;</p>
-<h2 id="Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;"><a href="#Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;" class="headerlink" title="Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;"></a>Controller&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;</h2><pre><code>@Controller
-@RequestMapping(&quot;/user&quot;)
-public class UserRest {
-    @Resource
-    private IUserService userManagerImpl;
-
-    @RequestMapping(value = &quot;/queryAllUser&quot;, method = RequestMethod.GET)
-    @ResponseBody
-    public JSONArray queryAllUser() {
-
-        List&lt;User&gt; dataList = userManagerImpl.queryAll();
-        JSONArray userJSONList2 = JSONArray.fromObject(dataList);
-        return userJSONList2;
-    }
-</code></pre><blockquote>
-<p>@PathVariable&#x4E0E;@RequestParam</p>
-</blockquote>
-<pre><code>@Controller
-public class EmployeeController {
-    @RequestMapping(method=RequestMethod.GET, value=&quot;/employee/{id}&quot;)
-    public ModelAndView getEmployee(@PathVariable String id) {
-        Employee e = employeeDS.get(Long.parseLong(id));
-        returnnew ModelAndView(XML_VIEW_NAME, &quot;object&quot;, e);
-    }
-    ...
-}
-
-
-@Controller
-@RequestMapping(&quot;employees&quot;)
-public class EmployeeController {
-
-    Employee employee = new Employee();
-
-    @RequestMapping(value = &quot;/{name}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
-    public @ResponseBody Employee getEmployeeInJSON(@PathVariable String name) {
-
-        employee.setName(name);
-        employee.setEmail(&quot;employee1@genuitec.com&quot;);
-
-        return employee;
-
-    }
-
-    @RequestMapping(value = &quot;/queryByName&quot;, method = RequestMethod.POST)
-    @ResponseBody
-    public User queryByName(@RequestParam(&quot;uname&quot;) String uname) {
-
-        User user;
-        try {
-            user = userManagerImpl.queryByName(uname).get(0);
-        } catch (Exception e) {
-            // TODO &#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684; catch &#x5757;
-            e.printStackTrace();
-            return null;
-        }
-
-        return user;
-    }
-}
-</code></pre><blockquote>
-<p>@RestController</p>
-</blockquote>
-<p>Spring 4.0&#x4E2D;&#x5F15;&#x5165; @RestController&#x7B80;&#x5316;&#x4E86;@Controller&#xFF0C;@ResponseBody&#x6CE8;&#x91CA;<br>@RestController&#x6CE8;&#x89E3;&#x76F8;&#x5F53;&#x4E8E;@ResponseBody &#xFF0B; @Controller&#x5408;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
-<pre><code>@RestController
-@RequestMapping(&quot;employees&quot;)
-public class EmployeeController {
-
-    Employee employee = new Employee();
-
-    @RequestMapping(value = &quot;/{name}&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
-    public Employee getEmployeeInJSON(@PathVariable String name) {
-
-        employee.setName(name);
-        employee.setEmail(&quot;employee1@genuitec.com&quot;);
-
-        return employee;
-
-    }
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springMVC/">springMVC</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-angular用户注册与密码确认验证" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/12/angular用户注册与密码确认验证/" class="article-date">
-      <time datetime="2016-09-12T15:52:30.000Z" itemprop="datePublished">2016-09-12</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/angular用户注册与密码确认验证/">angular用户注册及密码一致性验证</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="&#x6CE8;&#x518C;&#x8868;&#x5355;"><a href="#&#x6CE8;&#x518C;&#x8868;&#x5355;" class="headerlink" title="&#x6CE8;&#x518C;&#x8868;&#x5355;"></a>&#x6CE8;&#x518C;&#x8868;&#x5355;</h1><p>&#x521D;&#x5B66;&#x4E60;angular&#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x9875;&#x9762;&#x6765;&#x7EC3;&#x7EC3;&#x624B;&#xFF0C;mark&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x540E;&#x9700;&#x8981;&#x5C31;&#x76F4;&#x63A5;Ctrl+c&#x4E86;&#x3002;</p>
-<pre><code>&lt;form action=&quot;&quot; class=&quot;form-horizontal&quot; name=&quot;regForm&quot;     ng-controller=&quot;regController&quot; 
- ng-submit=&quot;submitForm()&quot; novalidate&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.username.$valid&amp;&amp;regForm.username.$touched,&apos;has-error&apos;:regForm.username.$invalid&amp;&amp;regForm.username.$touched }&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x7528;&#x6237;&#x540D;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;text&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.username&quot; 
-            name=&quot;username&quot; 
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            placeholder=&quot;&#x7528;&#x6237;&#x540D;&quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.username.$error.required&amp;&amp;regForm.username.$touched&quot;&gt;&#x7528;&#x6237;&#x540D;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.username.$error.minlength||regForm.username.$error.maxlength&quot;&gt;&#x957F;&#x5EA6;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.password.$valid&amp;&amp;regForm.password.$touched,&apos;has-error&apos;:regForm.password.$invalid&amp;&amp;regForm.password.$touched}&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x5BC6;&#x7801;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;password&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.password&quot; 
-            name=&quot;password&quot; 
-            ng-pattern=&quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&quot;
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            placeholder=&quot;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF; &quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.password.$error.required
-            &amp;&amp;regForm.password.$touched&quot;&gt;&#x5BC6;&#x7801;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;!--&#x6B63;&#x5219;&#x9A8C;&#x8BC1;--&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.password.$error.pattern&amp;&amp;regForm.password.$touched&quot;&gt;
-            &#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; 
-            ng-show=&quot;regForm.password.$error.minlength||regForm.password.$error.maxlength&quot;&gt;&#x5BC6;&#x7801;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot; ng-class=&quot;{&apos;has-success&apos;:regForm.confirmPassword.$valid&amp;&amp;regForm.confirmPassword.$touched,&apos;has-error&apos;:(regForm.confirmPassword.$invalid&amp;&amp;regForm.confirmPassword.$touched)||(user.password!=user.confirmPassword&amp;&amp;regForm.confirmPassword.$touched)}&quot;&gt;
-        &lt;label for=&quot;&quot; class=&quot;col-md-2 control-label&quot;&gt;
-            &#x786E;&#x8BA4;&#x5BC6;&#x7801;
-        &lt;/label&gt;
-        &lt;div class=&quot;col-md-9&quot;&gt;
-            &lt;input type=&quot;password&quot; 
-            class=&quot;form-control&quot; 
-            ng-model=&quot;user.confirmPassword&quot; 
-            name=&quot;confirmPassword&quot; 
-            ng-minlength=&quot;4&quot; ng-maxlength=&quot;10&quot; 
-            ng-pattern=&quot;/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/&quot;
-            placeholder=&quot;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&quot; 
-            required&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.required&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x786E;&#x8BA4;&#x5BC6;&#x7801;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&lt;/p&gt;
-            &lt;!--&#x6B63;&#x5219;&#x9A8C;&#x8BC1;--&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.pattern&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x53EA;&#x80FD;&#x662F;&#x6570;&#x5B57;&#x3001;&#x5B57;&#x6BCD;&#x548C;&#x4E0B;&#x5212;&#x7EBF;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; ng-show=&quot;regForm.confirmPassword.$error.minlength||regForm.confirmPassword.$error.maxlength&quot;&gt;&#x786E;&#x8BA4;&#x5BC6;&#x7801;&#x4E3A;4-10&#x4F4D;&lt;/p&gt;
-            &lt;p class=&quot;help-block has-error&quot; 
-            ng-show=&quot;user.password!=user.confirmPassword&amp;&amp;regForm.confirmPassword.$touched&quot;&gt;&#x4E24;&#x6B21;&#x5BC6;&#x7801;&#x4E0D;&#x4E00;&#x81F4;&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-        &lt;div class=&quot;col-md-offset-2 col-md-9&quot;&gt;
-            &lt;button class=&quot;btn btn-primary&quot; ng-disabled=&quot;regForm.$invalid&quot;&gt;&#x767B;&#x9646;&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/form&gt;
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bootstrap的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/10/bootstrap的使用/" class="article-date">
-      <time datetime="2016-09-09T17:13:17.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/10/bootstrap的使用/">bootstrap的使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>[toc]</p>
-<h2 id="bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;"><a href="#bootstrap-model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;" class="headerlink" title="bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;"></a>bootstrap model&#x8FDC;&#x7A0B;&#x52A0;&#x8F7D;</h2><pre><code>&lt;a id=&quot;adduser&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;modal&quot;    href=&quot;addUser.html&quot; data-target=&quot;#adduserModal&quot;&gt;&#x6DFB;&#x52A0;&lt;/a&gt;
-&lt;div class=&quot;modal fade&quot; id=&quot;adduserModal&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; data-keyboard=&quot;true&quot;&gt;
-    &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;
-    &lt;div class=&quot;modal-content&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><blockquote>
-<p>table&#x8868;&#x4E2D;&#x4FEE;&#x6539;&#x67D0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;model&#x5F39;&#x51FA;&#x6846;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x503C;</p>
-</blockquote>
-<pre><code>function editTerminal(row,index) {
-    index1=index;
-    $(&apos;#editTerminalModal&apos;).on(&apos;show.bs.modal&apos;,function(event) {
-        var button = $(event.relatedTarget);
-        var recipient = button.data(&apos;whatever&apos;);
-        var modal = $(this);
-        modal.find(&apos;.modal-title&apos;).text(recipient);
-        modal.find(&apos;#tid&apos;).val(row.tid);
-        modal.find(&apos;#type&apos;).val(row.type);
-        modal.find(&apos;#cid&apos;).val(row.cid);
-        modal.find(&apos;#uid&apos;).val(row.uid);
-        modal.find(&apos;#date&apos;).val(row.date);
-    })
-}
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bootstrap-validator" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/09/10/bootstrap-validator/" class="article-date">
-      <time datetime="2016-09-09T17:09:54.000Z" itemprop="datePublished">2016-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/10/bootstrap-validator/">bootstrap-validator</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <blockquote>
-<p>reset&#x91CD;&#x7F6E;&#x8868;&#x5355;</p>
-</blockquote>
-<pre><code>$(&apos;#btn-reset&apos;).click(function() {
-    $(&apos;#changeForm&apos;).data(&apos;bootstrapValidator&apos;).resetForm(true);
-});
-</code></pre>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
     </div>
 
       
