@@ -4,6 +4,109 @@
   
     
     <entry>
+      <title><![CDATA[es6多个异步同时执行处理]]></title>
+      <url>http://chen1218chen.github.io/2018/04/26/es6%E5%A4%9A%E4%B8%AA%E5%BC%82%E6%AD%A5%E5%90%8C%E6%97%B6%E6%89%A7%E8%A1%8C%E5%A4%84%E7%90%86/</url>
+      <content type="html"><![CDATA[<p>&#x6700;&#x8FD1;&#x9879;&#x76EE;&#x4E2D;&#x6570;&#x636E;&#x5904;&#x7406;&#x65F6;&#x5B58;&#x5728;&#x591A;&#x6B21;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#xFF0C;&#x9700;&#x8981;&#x7B49;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x65F6;&#x5728;&#x8FDB;&#x884C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#xFF0C;&#x4E3A;&#x4E86;&#x8282;&#x7EA6;&#x65F6;&#x95F4;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#xFF0C;&#x5B9E;&#x73B0;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x5728;&#x6240;&#x6709;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x90FD;&#x7ED3;&#x675F;&#x540E;&#x8FDB;&#x884C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x3002;<br>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x76EE;&#x7684;&#xFF0C;&#x4F7F;&#x7528;es6&#x7684;&#x65B0;&#x7279;&#x6027;&#xFF0C;Promise&#x5BF9;&#x8C61;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code>function test1(){
+    return new Promise((resole,reject)=&gt;{
+        ...
+        resole(data);
+    })
+}
+
+ function test1(){
+    return new Promise((resole,reject)=&gt;{
+        ...
+        resole(data);
+    })
+}
+
+ function test3(){
+    return new Promise((resole,reject)=&gt;{
+        ...
+        resole(data);
+    })
+}
+</code></pre><p>&#x4F7F;&#x7528;Promise.all&#x5B9E;&#x73B0;&#x4EE5;&#x4E0A;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x540C;&#x65F6;&#x6267;&#x884C;&#x5B8C;&#x65F6;&#x56DE;&#x8C03;&#xFF0C;values&#x4E2D;&#x5219;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>Promise.all(test1(),test2(),test3()).then(values=&gt;{
+    let test1Data = values[0];
+    let test2Data = values[1];
+    let test3Data = values[2];
+    ...
+})
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ArcGIS开发之geometryService的relation关系和查询]]></title>
+      <url>http://chen1218chen.github.io/2018/04/26/ArcGIS%E5%BC%80%E5%8F%91%E4%B9%8B%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2/</url>
+      <content type="html"><![CDATA[<h2 id="&#x5750;&#x6807;&#x8F6C;&#x6362;"><a href="#&#x5750;&#x6807;&#x8F6C;&#x6362;" class="headerlink" title="&#x5750;&#x6807;&#x8F6C;&#x6362;"></a>&#x5750;&#x6807;&#x8F6C;&#x6362;</h2><p>&#x5C06;&#x539F;&#x59CB;&#x5750;&#x6807;&#x8F6C;&#x6362;&#x6210;wkid:32652&#x5750;&#x6807;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x5C06;&#x6570;&#x636E;&#x8FD4;&#x56DE;</p>
+<pre><code>back.coordinateConvert = function(geometry,callback){
+    var geometryService = new GeometryService(baseURL+&quot;/Utilities/Geometry/GeometryServer&quot;);            
+     var params = new ProjectParameters();
+      params.geometries = [geometry];
+      params.outSR = new SpatialReference(32652);
+      geometryService.project(params).then(function(resGeometry){
+          callback(resGeometry);
+      })
+}
+</code></pre><h2 id="&#x6570;&#x636E;&#x67E5;&#x8BE2;"><a href="#&#x6570;&#x636E;&#x67E5;&#x8BE2;" class="headerlink" title="&#x6570;&#x636E;&#x67E5;&#x8BE2;"></a>&#x6570;&#x636E;&#x67E5;&#x8BE2;</h2><p>&#x533A;&#x57DF;&#x56FE;&#x5C42;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x5C06;&#x6570;&#x636E;&#x8FD4;&#x56DE;</p>
+<pre><code>back.getReginData = function(callback){
+  var query = new Query();
+  query.where = &quot;1=1&quot;;
+  query.returnGeometry = true;
+  query.outFields = [&quot;*&quot;];
+  var queryTask = new QueryTask(&quot;http://localhost:6080/arcgis/rest/services/dt1124/MapServer/18&quot;);
+  queryTask.execute(query,function(response){
+      callback(response);
+  })
+}
+</code></pre><h2 id="relation"><a href="#relation" class="headerlink" title="relation"></a>relation</h2><p>&#x7528;&#x4E8E;&#x5224;&#x65AD;geometry&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x76F8;&#x4EA4;&#xFF0C;&#x5305;&#x542B;&#xFF0C;&#x76F8;&#x5207;&#x7B49;</p>
+<pre><code>back.relation = function(geometries1,geometries2){
+    var geometryService = new GeometryService(baseURL+&quot;Utilities/Geometry/GeometryServer&quot;);
+    var relationParams = new RelationParameters();
+    relationParams.geometries1 = geometries1;
+    relationParams.geometries2 = geometries2;
+    relationParams.relation = RelationParameters.SPATIAL_REL_INTERSECTION;
+    var result = geometryService.relation(relationParams);
+    return result;
+}
+</code></pre><blockquote>
+<p>SPATIAL_REL_INTERSECTION:&#x76F8;&#x4EA4;&#x3002;&#x53EF;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x5173;&#x7CFB;<br>&#x8FD4;&#x56DE;&#x503C;result&#x662F;&#x4E2A;Deferred&#x5BF9;&#x8C61;&#xFF0C;&#x8C03;&#x7528;&#x65F6;&#xFF1A;</p>
+</blockquote>
+<pre><code>var relation = back.relation(resGeometry,geometryArray);
+relation.then(function(data){
+    console.dir(data);
+})
+</code></pre><p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2018/04/26/ArcGIS&#x5F00;&#x53D1;&#x4E4B;&#x5750;&#x6807;&#x8F6C;&#x6362;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180426135925.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180426135925.png"><br>&#x8868;&#x793A;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x76F8;&#x4EA4;&#x5173;&#x7CFB;&#xFF1A;<code>geometries1[0]</code>&#x4E0E;<code>geometries2[3]</code>&#x76F8;&#x4EA4;&#xFF0C;<code>geometries1[1]</code>&#x4E0E;<code>geometries2[0]</code>&#x76F8;&#x4EA4;</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[eclipse集成maven]]></title>
+      <url>http://chen1218chen.github.io/2018/04/19/eclipse%E9%9B%86%E6%88%90maven/</url>
+      <content type="html"><![CDATA[<h2 id="eclipse&#x914D;&#x7F6E;"><a href="#eclipse&#x914D;&#x7F6E;" class="headerlink" title="eclipse&#x914D;&#x7F6E;"></a>eclipse&#x914D;&#x7F6E;</h2><p>&#x6253;&#x5F00;window-&gt;prefenerces-&gt;maven&#x914D;&#x7F6E;&#x9879;</p>
+<p><img src="/2018/04/19/eclipse&#x96C6;&#x6210;maven/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180418165424.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180418165424.png"><br>&#x5728;<code>Installations</code>&#x4E2D;&#x70B9;&#x51FB;add&#x6DFB;&#x52A0;maven&#x4E3B;&#x76EE;&#x5F55;</p>
+<p><img src="/2018/04/19/eclipse&#x96C6;&#x6210;maven/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180418165443.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180418165443.png"><br>&#x518D;&#x5728;<code>User Settings</code>&#x914D;&#x7F6E;&#x9879;&#x4E2D;&#xFF0C;&#x5728;<code>Global Settings</code>&#x548C;<code>User Settings</code>&#x4E2D;&#x6DFB;&#x52A0;maven&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
+<p><img src="/2018/04/19/eclipse&#x96C6;&#x6210;maven/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180418165501.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180418165501.png"></p>
+<h2 id="setting-xml"><a href="#setting-xml" class="headerlink" title="setting.xml"></a>setting.xml</h2><p>&#x6700;&#x540E;&#xFF0C;&#x4FEE;&#x6539;<code>User Settings</code>&#x4E2D;&#x6DFB;&#x52A0;&#x7684;maven&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;</p>
+<p><img src="/2018/04/19/eclipse&#x96C6;&#x6210;maven/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180418164232.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180418164232.png"></p>
+<p>&#x5728;setting.xml&#x4E2D;<code>mirrors</code>&#x8282;&#x70B9;&#x4E0B;&#x6DFB;&#x52A0;&#x5B50;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code>&lt;mirror&gt;
+  &lt;id&gt;tomcat&lt;/id&gt;
+  &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+  &lt;name&gt;Nexus aliyun&lt;/name&gt;
+  &lt;url&gt;http://192.168.1.194:8081/repository/maven-public/&lt;/url&gt;
+&lt;/mirror&gt;
+</code></pre><blockquote>
+<p>url&#x8DEF;&#x5F84;&#x4E3A;&#x672C;&#x5730;&#x4E2D;&#x592E;&#x4ED3;&#x5E93;&#x5730;&#x5740;</p>
+</blockquote>
+<p>&#x8FD9;&#x6837;&#xFF0C;eclipse&#x4E2D;&#x96C6;&#x6210;maven&#x5C31;&#x5B8C;&#x6210;&#x5566;&#xFF0C;mark&#x4E00;&#x4E0B;&#xFF0C;&#x4EE5;&#x540E;&#x5C31;&#x4E0D;&#x4F1A;&#x5FD8;&#x8BB0;&#x5566;&#xFF01;&#xFF01;&#xFF01;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[img通过tomcat虚拟路径引用本地图片]]></title>
       <url>http://chen1218chen.github.io/2018/04/17/img%E9%80%9A%E8%BF%87tomcat%E8%99%9A%E6%8B%9F%E8%B7%AF%E5%BE%84%E5%BC%95%E7%94%A8%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
       <content type="html"><![CDATA[<p>&#x7531;&#x4E8E;web&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x56FE;&#x7247;&#xFF0C;&#x4E3A;&#x4E86;&#x907F;&#x514D;tomcat&#x6587;&#x4EF6;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x5C06;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x5939;&#x79FB;&#x521D;tomcat&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x653E;&#x5728;&#x672C;&#x5730;&#x78C1;&#x76D8;&#x4E2D;&#x3002;<br>&#x5982;&#x679C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>&lt;img src=&quot;D:\image.jpg&quot;&gt;</code>&#x5F15;&#x5165;&#xFF0C;&#x63A7;&#x5236;&#x53F0;&#x4F1A;&#x62A5;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x56FE;&#x7247;&#x7684;404&#x9519;&#x8BEF;&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x914D;&#x7F6E;&#x4F7F;&#x7528;&#x865A;&#x62DF;&#x8DEF;&#x5F84;&#xFF0C;&#x8BA9;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5230;&#x670D;&#x52A1;&#x5668;&#x964C;&#x8DEF;&#x4EE5;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
@@ -34,7 +137,14 @@ function compare(property){
 var processSort = process.sort(compare(&apos;id&apos;));
 console.dir(process);
 </code></pre><p>&#x63A7;&#x5236;&#x53F0;&#x6253;&#x5370;&#x7684;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p><img src="/2018/04/17/JS&#x5BF9;&#x8C61;&#x6392;&#x5E8F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417142442.png" alt="enter description here" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417142442.png"></p>
+<blockquote>
+<p>&#x6392;&#x5E8F;&#x524D;</p>
+</blockquote>
+<p><img src="/2018/04/17/JS&#x5BF9;&#x8C61;&#x6392;&#x5E8F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417145343.png" alt="&#x6392;&#x5E8F;&#x524D;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417145343.png"></p>
+<blockquote>
+<p>&#x6392;&#x5E8F;&#x540E;</p>
+</blockquote>
+<p><img src="/2018/04/17/JS&#x5BF9;&#x8C61;&#x6392;&#x5E8F;/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180417142442.png" alt="&#x6392;&#x5E8F;&#x540E;" title="&#x5FAE;&#x4FE1;&#x622A;&#x56FE;_20180417142442.png"></p>
 ]]></content>
     </entry>
     
