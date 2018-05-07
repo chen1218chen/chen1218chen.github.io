@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chen1218chen.github.io/"/>
-  <updated>2018-04-26T06:18:56.757Z</updated>
+  <updated>2018-05-07T05:45:14.848Z</updated>
   <id>http://chen1218chen.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>es6之promise</title>
+    <link href="http://chen1218chen.github.io/2018/05/07/es6%E4%B9%8Bpromise/"/>
+    <id>http://chen1218chen.github.io/2018/05/07/es6之promise/</id>
+    <published>2018-05-07T13:30:54.000Z</published>
+    <updated>2018-05-07T05:45:14.848Z</updated>
+    
+    <content type="html">&lt;p&gt;ES6&amp;#x4E2D;&amp;#x5173;&amp;#x4E8E;Promise&amp;#x56DE;&amp;#x8C03;&amp;#x7684;&amp;#x5C0F;&amp;#x793A;&amp;#x4F8B;&amp;#xFF0C;&amp;#x4EE5;&amp;#x53CA;resolve&amp;#xFF0C;reject&amp;#x7684;&amp;#x7528;&amp;#x6CD5;&amp;#x548C;catch&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;back.removeTaskList = function(ids){
+    return new Promise((resolve, reject) =&amp;gt; {
+        $.ajax({
+            type:&amp;quot;post&amp;quot;,
+            url:&amp;quot;rest/task/removeTask&amp;quot;,
+            traditional : true,
+            data:{
+                ids:ids
+            },
+            success:function(data){
+                resolve(data);
+            },
+            error:function(data){
+                reject(&amp;quot;&amp;#x6570;&amp;#x636E;&amp;#x6B63;&amp;#x5728;&amp;#x4F7F;&amp;#x7528;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5220;&amp;#x9664;&amp;#x5931;&amp;#x8D25;!&amp;quot;);
+            }
+        });
+    })
+}
+
+back.removeTaskList(ids).then((data)=&amp;gt;{
+    if(data){
+        layer.msg(&amp;quot;&amp;#x5220;&amp;#x9664;&amp;#x6210;&amp;#x529F;&amp;#xFF01;&amp;quot;);
+    }else{
+        layer.msg(&amp;quot;&amp;#x5220;&amp;#x9664;&amp;#x5931;&amp;#x8D25;!&amp;quot;);
+    }
+}).catch(function(data){
+    layer.msg(data);
+});
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ES6&amp;#x4E2D;&amp;#x5173;&amp;#x4E8E;Promise&amp;#x56DE;&amp;#x8C03;&amp;#x7684;&amp;#x5C0F;&amp;#x793A;&amp;#x4F8B;&amp;#xFF0C;&amp;#x4EE5;&amp;#x53CA;resolve&amp;#xFF0C;reject&amp;#x7684;&amp;#
+    
+    </summary>
+    
+    
+      <category term="ES6" scheme="http://chen1218chen.github.io/tags/ES6/"/>
+    
+      <category term="Promise" scheme="http://chen1218chen.github.io/tags/Promise/"/>
+    
+  </entry>
   
   <entry>
     <title>es6多个异步同时执行处理</title>
@@ -1224,39 +1275,6 @@ public List&amp;lt;Uploadinfo&amp;gt; queryByPage(int pageSize, int pageNow ,Str
       <category term="springMVC" scheme="http://chen1218chen.github.io/tags/springMVC/"/>
     
       <category term="Listener" scheme="http://chen1218chen.github.io/tags/Listener/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hibernate之使用占位符进行模糊查询</title>
-    <link href="http://chen1218chen.github.io/2017/09/29/hibernate%E4%B9%8B%E4%BD%BF%E7%94%A8%E5%8D%A0%E4%BD%8D%E7%AC%A6%E8%BF%9B%E8%A1%8C%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/"/>
-    <id>http://chen1218chen.github.io/2017/09/29/hibernate之使用占位符进行模糊查询/</id>
-    <published>2017-09-29T15:31:27.000Z</published>
-    <updated>2017-09-29T07:36:01.150Z</updated>
-    
-    <content type="html">&lt;p&gt;&amp;#x4E3A;&amp;#x9632;&amp;#x6B62;sql&amp;#x6CE8;&amp;#x5165;&amp;#x653B;&amp;#x51FB;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;hql&amp;#x8BED;&amp;#x53E5;&amp;#x8FDB;&amp;#x884C;&amp;#x67E5;&amp;#x8BE2;&amp;#x65F6;&amp;#xFF0C;&amp;#x4E0D;&amp;#x5EFA;&amp;#x8BAE;&amp;#x5728;hql&amp;#x8BED;&amp;#x53E5;&amp;#x4E2D;&amp;#x62FC;&amp;#x63A5;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#xFF0C;&amp;#x800C;&amp;#x662F;&amp;#x4F7F;&amp;#x7528;&amp;#x5360;&amp;#x4F4D;&amp;#x7B26;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x6CE8;&amp;#x5165;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x5982;&amp;#x4E0B;&amp;#x4EE3;&amp;#x7801;&amp;#x6240;&amp;#x793A;&amp;#xFF1A;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;#x5360;&amp;#x4F4D;&amp;#x7B26;&amp;#x8FDB;&amp;#x884C;&amp;#x6A21;&amp;#x7CCA;&amp;#x67E5;&amp;#x8BE2;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;@Override
-public List&amp;lt;Uploadinfo&amp;gt; searchInfos(String value) {
-    // TODO Auto-generated method stub
-    String hql = &amp;quot;from Uploadinfo where content like :value or telephone like :value&amp;quot;;
-    Query query = itemDaoImpl.getQuery(hql);
-    query.setParameter(&amp;quot;value&amp;quot;, &amp;apos;%&amp;apos;+value+&amp;apos;%&amp;apos;);
-    List&amp;lt;Uploadinfo&amp;gt; infolist = query.list();
-    return infolist;
-}
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;#x4E3A;&amp;#x9632;&amp;#x6B62;sql&amp;#x6CE8;&amp;#x5165;&amp;#x653B;&amp;#x51FB;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;hql&amp;#x8BED;&amp;#x53E5;&amp;#x8FDB;&amp;#x884C;&amp;#x67E5;&amp;#x8BE2;&amp;#x
-    
-    </summary>
-    
-    
-      <category term="Hibernate" scheme="http://chen1218chen.github.io/tags/Hibernate/"/>
     
   </entry>
   
