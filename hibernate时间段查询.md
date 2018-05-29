@@ -38,7 +38,7 @@ tags: hibernate
     List user = query.list();
 ## js
 前台使用[datarangepicker插件][1]
-    
+
     function dateInit(){
     	$('#dateRange').daterangepicker({
     	    "ranges": {
@@ -107,7 +107,7 @@ tags: hibernate
     		searchDate(start.format('YYYY-MM-DD'),end.format('YYYY-MM-DD'));
     	});
     }
-    
+
     function searchDate(start,end){
     	$.ajax({
     		url : "rest/Uploadinfo/searchDate",
